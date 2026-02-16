@@ -1,6 +1,3 @@
-# Ignore all PNG files in sprites and subfolders
-PizzaTower_GM2/sprites/**/*.png
-
 # Do not ignore .yy files anywhere under sprites
 !PizzaTower_GM2/sprites/**/*.yy
 
