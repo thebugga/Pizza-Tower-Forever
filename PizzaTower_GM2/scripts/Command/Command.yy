@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Command",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Utility",
-    "path": "folders/Scripts/Utility.yy",
+  "$GMScript":"v1",
+  "%Name":"Command",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Command",
+  "parent":{
+    "name":"Utility",
+    "path":"folders/Scripts/Utility.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

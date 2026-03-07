@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "tdp_text_commit",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "TDP Text",
-    "path": "folders/Scripts/TDP Text.yy",
+  "$GMScript":"v1",
+  "%Name":"tdp_text_commit",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tdp_text_commit",
+  "parent":{
+    "name":"TDP Text",
+    "path":"folders/Scripts/TDP Text.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

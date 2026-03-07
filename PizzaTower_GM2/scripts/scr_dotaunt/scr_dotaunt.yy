@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_dotaunt",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Player",
-    "path": "folders/Scripts/Player.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_dotaunt",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_dotaunt",
+  "parent":{
+    "name":"Player",
+    "path":"folders/Scripts/Player.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_draw_rank",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "HUD",
-    "path": "folders/Scripts/HUD.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_draw_rank",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_draw_rank",
+  "parent":{
+    "name":"HUD",
+    "path":"folders/Scripts/HUD.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

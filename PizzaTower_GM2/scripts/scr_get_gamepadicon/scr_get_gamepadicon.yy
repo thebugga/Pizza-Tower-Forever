@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_get_gamepadicon",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Input",
-    "path": "folders/Scripts/Input.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_get_gamepadicon",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_get_gamepadicon",
+  "parent":{
+    "name":"Input",
+    "path":"folders/Scripts/Input.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

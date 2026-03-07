@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_add_wave",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Unused",
-    "path": "folders/Scripts/Unused.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_add_wave",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_add_wave",
+  "parent":{
+    "name":"Unused",
+    "path":"folders/Scripts/Unused.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

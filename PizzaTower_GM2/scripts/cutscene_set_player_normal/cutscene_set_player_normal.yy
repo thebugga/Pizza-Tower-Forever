@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "cutscene_set_player_normal",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Unused",
-    "path": "folders/Scripts/Unused.yy",
+  "$GMScript":"v1",
+  "%Name":"cutscene_set_player_normal",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"cutscene_set_player_normal",
+  "parent":{
+    "name":"Unused",
+    "path":"folders/Scripts/Unused.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

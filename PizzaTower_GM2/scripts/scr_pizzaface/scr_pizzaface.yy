@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_pizzaface",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Boss",
-    "path": "folders/Scripts/Boss.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_pizzaface",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_pizzaface",
+  "parent":{
+    "name":"Boss",
+    "path":"folders/Scripts/Boss.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

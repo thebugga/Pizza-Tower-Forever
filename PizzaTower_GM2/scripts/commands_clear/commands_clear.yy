@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "commands_clear",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Unused",
-    "path": "folders/Scripts/Unused.yy",
+  "$GMScript":"v1",
+  "%Name":"commands_clear",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"commands_clear",
+  "parent":{
+    "name":"Unused",
+    "path":"folders/Scripts/Unused.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

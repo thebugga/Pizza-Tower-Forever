@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_squash",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Baddie",
-    "path": "folders/Scripts/Baddie.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_squash",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_squash",
+  "parent":{
+    "name":"Baddie",
+    "path":"folders/Scripts/Baddie.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

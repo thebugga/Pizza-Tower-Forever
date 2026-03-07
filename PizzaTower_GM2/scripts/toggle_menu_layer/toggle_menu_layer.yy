@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "toggle_menu_layer",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Unused",
-    "path": "folders/Scripts/Unused.yy",
+  "$GMScript":"v1",
+  "%Name":"toggle_menu_layer",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"toggle_menu_layer",
+  "parent":{
+    "name":"Unused",
+    "path":"folders/Scripts/Unused.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

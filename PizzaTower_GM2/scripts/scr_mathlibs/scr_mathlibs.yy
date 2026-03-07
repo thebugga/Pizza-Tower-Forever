@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_mathlibs",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Utility",
-    "path": "folders/Scripts/Utility.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_mathlibs",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_mathlibs",
+  "parent":{
+    "name":"Utility",
+    "path":"folders/Scripts/Utility.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

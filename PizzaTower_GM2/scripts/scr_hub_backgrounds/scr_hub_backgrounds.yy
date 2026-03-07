@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_hub_backgrounds",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "HUB",
-    "path": "folders/Scripts/HUB.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_hub_backgrounds",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_hub_backgrounds",
+  "parent":{
+    "name":"HUB",
+    "path":"folders/Scripts/HUB.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

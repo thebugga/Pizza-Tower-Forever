@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_achievementcommon",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Achievement",
-    "path": "folders/Scripts/Achievement.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_achievementcommon",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_achievementcommon",
+  "parent":{
+    "name":"Achievement",
+    "path":"folders/Scripts/Achievement.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

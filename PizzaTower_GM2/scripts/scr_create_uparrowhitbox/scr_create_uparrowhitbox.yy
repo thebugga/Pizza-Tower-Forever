@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_create_uparrowhitbox",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Utility",
-    "path": "folders/Scripts/Utility.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_create_uparrowhitbox",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_create_uparrowhitbox",
+  "parent":{
+    "name":"Utility",
+    "path":"folders/Scripts/Utility.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

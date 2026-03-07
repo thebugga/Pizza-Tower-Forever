@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__view_get",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "view",
-    "path": "folders/Scripts/Compatibility/view.yy",
+  "$GMScript":"v1",
+  "%Name":"__view_get",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__view_get",
+  "parent":{
+    "name":"view",
+    "path":"folders/Scripts/Compatibility/view.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

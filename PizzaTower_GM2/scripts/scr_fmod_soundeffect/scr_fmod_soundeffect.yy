@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_fmod_soundeffect",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Audio",
-    "path": "folders/Scripts/Audio.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_fmod_soundeffect",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_fmod_soundeffect",
+  "parent":{
+    "name":"Audio",
+    "path":"folders/Scripts/Audio.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

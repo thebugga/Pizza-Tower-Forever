@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_player_mort",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "States",
-    "path": "folders/Scripts/Player/States.yy",
+  "$GMScript":"v1",
+  "%Name":"scr_player_mort",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_player_mort",
+  "parent":{
+    "name":"States",
+    "path":"folders/Scripts/Player/States.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

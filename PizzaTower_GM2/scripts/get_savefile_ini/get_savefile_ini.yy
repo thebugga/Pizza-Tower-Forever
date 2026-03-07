@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "get_savefile_ini",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "INI",
-    "path": "folders/Scripts/INI.yy",
+  "$GMScript":"v1",
+  "%Name":"get_savefile_ini",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"get_savefile_ini",
+  "parent":{
+    "name":"INI",
+    "path":"folders/Scripts/INI.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

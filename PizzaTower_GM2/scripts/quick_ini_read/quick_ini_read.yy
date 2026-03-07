@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "quick_ini_read",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "INI",
-    "path": "folders/Scripts/INI.yy",
+  "$GMScript":"v1",
+  "%Name":"quick_ini_read",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"quick_ini_read",
+  "parent":{
+    "name":"INI",
+    "path":"folders/Scripts/INI.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

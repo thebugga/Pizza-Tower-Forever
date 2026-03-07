@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "cutscene_customer_create",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Visuals",
-    "path": "folders/Scripts/Visuals.yy",
+  "$GMScript":"v1",
+  "%Name":"cutscene_customer_create",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"cutscene_customer_create",
+  "parent":{
+    "name":"Visuals",
+    "path":"folders/Scripts/Visuals.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

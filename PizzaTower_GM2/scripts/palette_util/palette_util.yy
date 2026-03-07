@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "palette_util",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Palette Swapper",
-    "path": "folders/Scripts/Palette Swapper.yy",
+  "$GMScript":"v1",
+  "%Name":"palette_util",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"palette_util",
+  "parent":{
+    "name":"Palette Swapper",
+    "path":"folders/Scripts/Palette Swapper.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

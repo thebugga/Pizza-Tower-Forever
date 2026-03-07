@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__init_action",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "action",
-    "path": "folders/Scripts/Compatibility/action.yy",
+  "$GMScript":"v1",
+  "%Name":"__init_action",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__init_action",
+  "parent":{
+    "name":"action",
+    "path":"folders/Scripts/Compatibility/action.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
