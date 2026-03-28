@@ -1,5 +1,5 @@
 //show_message("initializing rich presence");
-var config_file = "mods/config/Discord_Rich_Presence.ini";
+var config_file = "config/Discord_Rich_Presence.ini";
 var rich_presence_config = ini_open(config_file);
 
 var discord_client_id = ini_read_string("discord", "discord_client_id", "1294242445823053896");

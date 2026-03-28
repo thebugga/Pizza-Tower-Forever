@@ -59,7 +59,7 @@ if (DEBUG)
 			elitehit = real(_int);
 		}
 	});
-	SWITCH_CHAR = new DebugCommand("char", "Sets the currect playable character", "", function(_newchar)
+	SWITCH_CHAR = new DebugCommand("switch_char", "Sets the currect playable character", "", function(_newchar)
 	{
 		if (is_undefined(_newchar))
 		{

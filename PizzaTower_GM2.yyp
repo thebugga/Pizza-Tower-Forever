@@ -6388,6 +6388,7 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"music.bank","CopyToMask":-1,"filePath":"datafiles/sound/Desktop",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"sfx.bank","CopyToMask":-1,"filePath":"datafiles/sound/Desktop",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"NekoPresence_x64.dll","CopyToMask":-1,"filePath":"datafiles",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"Discord_Rich_Presence.ini","CopyToMask":-1,"filePath":"datafiles/config",},
   ],
   "MetaData": {
     "IDEVersion": "2022.0.1.31",

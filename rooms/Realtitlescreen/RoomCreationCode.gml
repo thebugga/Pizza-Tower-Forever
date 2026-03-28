@@ -319,6 +319,7 @@ enum states
 
 #macro ANIMATION_END floor(image_index) == (image_number - 1)
 
+global.currentsavefile = 1;
 var filenumber = 0
 var file = file_find_first(get_save_folder() + "/*", fa_directory)
 while (file != "") && string_pos(file, ".ini") > -1
