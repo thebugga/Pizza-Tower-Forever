@@ -1,0 +1,9 @@
+depth = 0;
+image_speed = 0.35;
+usepalette = false;
+spr_palette = spr_noisepalette_rage;
+var _info = get_char_palette_info("N");
+patterntexture = _info.patterntexture;
+paletteselect = _info.paletteselect;
+tiled = false;
+flash = false;
