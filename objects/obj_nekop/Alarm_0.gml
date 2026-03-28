@@ -185,7 +185,7 @@ else if (current_level != -4) {
 
 if (display_small_image)
 {
-    if (is_peppino) {
+    if (is_peppino == "P") {
         small_image_text = peppino_str;
         small_image_key = peppino_icon_link;
     }
@@ -193,7 +193,7 @@ if (display_small_image)
         small_image_text = gustavo_str;
         small_image_key = gustavo_icon_link;
     }
-    else {
+    else if (is_peppino == "N"){
         small_image_text = noise_str;
         small_image_key = noise_icon_link;
     }

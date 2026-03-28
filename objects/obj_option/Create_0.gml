@@ -13,13 +13,10 @@ slidebuffer = 0;
 bg_alpha = [1, 0, 0, 0, 0];
 bg_x = 0;
 bg_y = 0;
-add_option_press(video_menu, 6, "option_scaling", function()
-{
-    menu_goto(69420);
-});
 var res = [];
 lastmenu = 0;
 menu = 0;
+menus = [];
 optionselected = 0;
 backbuffer = 0;
 pause_icons = array_create(0);
@@ -137,6 +134,10 @@ add_option_toggle(video_menu, 5, "option_hud", function(_hud)
 	obj_savesystem.ini_str_options = ini_close();
 	global.option_hud = _hud;
 }).value = global.option_hud;
+add_option_press(video_menu, 6, "option_scaling", function()
+{
+    menu_goto(69420);
+});
 array_push(menus, video_menu);
 var window_menu = create_menu_fixed(menuids.window, menuanchors.left, 150, 40, menuids.video);
 add_option_press(window_menu, 0, "option_back", function()

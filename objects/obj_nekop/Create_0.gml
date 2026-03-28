@@ -175,7 +175,7 @@ large_image_key = "";
 fifteen_second = 900;
 alarm[0] = 60 // 1 second
 
-is_peppino = obj_player.ispeppino;
+is_peppino = obj_player.character;
 is_gustavo = obj_player.isgustavo;
 
 peppino_str = "Peppino";

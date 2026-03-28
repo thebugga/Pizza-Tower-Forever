@@ -23,6 +23,7 @@ else if (m.menu_id == menuids.game)
 if (m.menu_id == 69420)
     j = 2;
 for (var i = 0; i < array_length(bg_alpha); i++)
+{
 	if (i == j)
 	{
 		bg_alpha[i] = Approach(bg_alpha[i], 1, 0.1);
