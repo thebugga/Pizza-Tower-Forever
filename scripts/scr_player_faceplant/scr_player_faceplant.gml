@@ -6,10 +6,7 @@ function scr_player_faceplant()
 	{
 		movespeed += 0.5;
 	}
-	else if (!grounded)
-	{
-		movespeed = 10;
-	}
+	
 	if (place_meeting(x + hsp, y, obj_solid) && !place_meeting(x + hsp, y, obj_slope) && !place_meeting(x + hsp, y, obj_destructibles))
 	{
 		sprite_index = spr_hitwall;
@@ -56,8 +53,9 @@ function scr_player_faceplant()
 		grav = 0.5;
 		sprite_index = spr_crouchslip;
 		machhitAnim = false;
-		state = states.crouchslide;
-		movespeed = 15;
+		state = states.tumble;
+		movespeed = 12;
+		crouchslipbuffer = 23;
 	}
 	if (!instance_exists(obj_dashcloud2) && grounded && movespeed > 5)
 	{

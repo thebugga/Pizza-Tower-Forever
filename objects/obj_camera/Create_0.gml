@@ -70,3 +70,4 @@ global.paniclayercount = 0;
 global.panicshadetimer = 0;
 p2pdistance = 0;
 p2pdistancex = 0;
+memleaksurf = [];

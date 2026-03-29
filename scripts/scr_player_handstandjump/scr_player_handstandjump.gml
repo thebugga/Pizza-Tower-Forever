@@ -101,6 +101,39 @@ function scr_player_handstandjump()
 			image_index = image_number - 6;
 		}
 	}
+	
+	if (input_buffer_slap > 8)
+    {
+		movespeed = 8;
+		if (!grounded)
+		{
+			vsp = -5;
+		}
+		image_index = 0;
+        if (character == "P")
+		{
+		    sprite_index = spr_player_faceplant;
+		}
+		if (character == "N")
+		{
+		    sprite_index = spr_playerN_spin;
+		}
+		state = states.faceplant;
+		image_speed = 0.5;
+		with (instance_create(x, y, obj_jumpdust))
+		{
+		    image_xscale = other.xscale;
+		}
+		if (!instance_exists(crazyruneffectid))
+		{
+		    with (instance_create(x, y, obj_crazyrunothereffect))
+		    {
+		        playerid = other.object_index
+		        other.crazyruneffectid = id
+		    }
+		}
+	}
+	
 	if (grounded && sprite_index == airattackdash && key_attack && global.attackstyle != 2)
 	{
 		state = states.mach2;

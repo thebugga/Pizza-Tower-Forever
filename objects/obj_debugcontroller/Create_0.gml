@@ -52,6 +52,10 @@ if (DEBUG)
 	{
 		instance_destroy(obj_baddie);
 	});
+	KILL_EPICBOOGALOO = new DebugCommand("kill_device", "DON'T FUCKING USE THIS (mem leak btw)", "", function()
+	{
+		instance_destroy(epicboogaloo);
+	});
 	SET_BOSS_HP = new DebugCommand("set_boss_hp", "", "<int>", function(_int)
 	{
 		with (obj_baddie)
@@ -420,7 +424,7 @@ if (DEBUG)
 	ds_map_set(state_map, "states.ratmount", states.ratmount);
 	command_list = ds_list_create();
 	ds_list_add(command_list, DESTROYICE, SET_GAME_SPEED, SHOW_HUD, SHOW_COLLISIONS, PLAYER_ROOM, CAMERA_ZOOM, HARDMODE, PLAYER_SET_STATE, PANIC, ALLTOPPINS, GIVEHEAT, ROOMCHECK, SWITCH_CHAR, SET_BOSS_HP);
-	ds_list_add(command_list, OTHERTEST, KILL_BOSS, TEST_P_RANK, FILL_GATESWITCH, SETCOMBO, GIVEKEY, LOADTEST, NOCLIP, THROWARC, HIDETILES, LOCKCAMERA, BOSSINVINCIBLE, UNLOCK_TOPPINS, UNLOCK_BOSS_KEY, SHOW_DEBUG_OVERLAY, GOTOEDITOR);
+	ds_list_add(command_list, OTHERTEST, KILL_BOSS, TEST_P_RANK, FILL_GATESWITCH, SETCOMBO, GIVEKEY, LOADTEST, NOCLIP, THROWARC, HIDETILES, LOCKCAMERA, BOSSINVINCIBLE, UNLOCK_TOPPINS, UNLOCK_BOSS_KEY, SHOW_DEBUG_OVERLAY, GOTOEDITOR, KILL_EPICBOOGALOO);
 	input_text = "";
 	text_list = ds_list_create();
 	search_commands = ds_list_create();
