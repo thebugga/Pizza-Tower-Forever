@@ -22,6 +22,8 @@ flash_arr = [obj_vigilantecow, obj_targetguy];
 use_dark = false;
 dark_alpha = 1;
 dark_arr = ["Tiles_1", "Tiles_2", "Tiles_3", "Tiles_4"];
+lightsout_alpha = 1;
+
 objdark_arr =
 [
 	obj_playerbomb,

@@ -322,7 +322,7 @@ function scr_boss_do_hurt_phase2(_player, _invulnerability = 100)
 	instance_create_unique(0, 0, obj_blackoutline);
 	instance_create_unique(0, 0, obj_superattackeffect);
 	image_xscale = -_player.xscale;
-	if (_player.character == "N" || character == "PUP")
+	if (_player.character == "N" || _player.character  == "PUP")
 	{
 		hitX = x;
 		hitY = y;
@@ -424,7 +424,7 @@ function scr_boss_playerN_phase1hurt(_func = noone)
 
 function scr_boss_phase1hurt(_func = noone)
 {
-	if (obj_player1.character == "N" || character == "PUP")
+	if (obj_player1.character == "N" || obj_player1.character == "PUP")
 	{
 		scr_boss_playerN_phase1hurt(_func);
 		exit;

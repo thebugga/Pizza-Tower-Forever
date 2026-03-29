@@ -1,4 +1,6 @@
 currentselect = 0;
+currentmodeselect = 0;
+
 optionbuffer = 0;
 visualselect = -5;
 state = states.titlescreen;

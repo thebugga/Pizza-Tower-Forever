@@ -38,6 +38,30 @@ global.door_sprite = spr_door;
 global.door_index = 0;
 global.pistol = false;
 global.bombs = false;
+
+var _mode_new = function(_name, _index, _unlocked = false)
+{
+	var m = {
+		name: _name,
+		image_index: _index,
+		unlocked: _unlocked || ini_read_real("ModifiersUnlocked", _name, false),
+		enabled: false
+	}
+	
+	return m
+}
+
+ini_open("saveData.ini");
+
+global.modes = [
+	_mode_new("lightsout", true),	
+];
+
+repeat (10)
+	array_push(global.modes, _mode_new(string("a{0}", irandom(9000)), true))
+
+ini_close();
+
 fightball_buffer1 = 0;
 fightball_buffer2 = 0;
 fightball_snd_buffer = 0;

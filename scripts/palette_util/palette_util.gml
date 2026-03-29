@@ -45,7 +45,7 @@ function get_char_palette_info(character)
 	
 	// Default case (not the current character)
 	return {
-		spr_palette: character_palettes[$ character],
+		spr_palette: character_palettes[$ character] ?? spr_peppalette,
 		paletteselect: 1,
 		patterntexture: noone
 	};
