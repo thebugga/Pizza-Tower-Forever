@@ -1,14 +1,3 @@
-draw_set_color(c_black);
-var offby = 50
-if (global.option_scale_mode == 2)
-    offby = 1000
-if (room != rm_blank)
-{
-	draw_rectangle(0, -offby, -offby, room_height + offby, false);
-	draw_rectangle(room_width, -offby, room_width + offby, room_height + offby, false);
-	draw_rectangle(0, 0, room_width, -offby, false);
-	draw_rectangle(0, room_height, room_width, room_height + offby, false);
-}
 draw_set_color(c_white);
 draw_set_color(c_white);
 if (use_dark)
@@ -150,6 +139,13 @@ with (obj_pizzagoblinbomb)
 	draw_self();
 }
 with (obj_player1)
+{
+	if (!other.hungrypillarflash && visible && state != states.titlescreen && bbox_in_camera(view_camera[0], 32))
+	{
+		draw_player();
+	}
+}
+with (obj_player2)
 {
 	if (!other.hungrypillarflash && visible && state != states.titlescreen && bbox_in_camera(view_camera[0], 32))
 	{

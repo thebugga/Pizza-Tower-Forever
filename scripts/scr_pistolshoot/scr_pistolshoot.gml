@@ -1,6 +1,6 @@
 function scr_pistolshoot(_state, _enable_charge = false)
 {
-	if (character == "N")
+	if (character == "N" || character == "PUP")
 	{
 		scr_bombshoot();
 		exit;

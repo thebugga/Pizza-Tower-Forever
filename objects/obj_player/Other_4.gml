@@ -297,3 +297,10 @@ if (state == states.chainsaw)
 	hitY = y;
 	hitLag = 0;
 }
+
+if (global.coop == true)
+{
+    //scr_changetoppings();    
+    if (!instance_exists(obj_coopflag))
+        instance_create(x, y, obj_coopflag);
+}

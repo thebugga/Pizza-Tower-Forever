@@ -45,7 +45,7 @@ function scr_player_supergrab()
 	{
 		midpointX = x + ((baddiegrabbedID.x - x) * 1.15);
 		midpointY = y + ((baddiegrabbedID.y - y) * 0.5);
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			midpointX = x + ((baddiegrabbedID.x - x) * 0.5);
 		}

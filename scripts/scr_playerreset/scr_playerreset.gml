@@ -242,6 +242,10 @@ function scr_playerreset(_stop_music = true)
 		{
 			instance_destroy(obj_timesup);
 		}
+		if (instance_exists(obj_coopflag))
+		{
+			instance_destroy(obj_coopflag);
+		}
 	}
 	with (obj_player)
 	{

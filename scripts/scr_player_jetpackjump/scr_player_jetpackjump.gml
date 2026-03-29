@@ -29,7 +29,7 @@ function scr_player_jetpackjump()
 			}
 		}
 	}
-	if (global.noisejetpack && character == "N" && noisepizzapepper)
+	if (global.noisejetpack && (character == "N" || character == "PUP") && noisepizzapepper)
 	{
 		if (noisepeppermissile > 0)
 		{

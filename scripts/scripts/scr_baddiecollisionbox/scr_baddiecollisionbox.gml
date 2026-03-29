@@ -165,7 +165,7 @@ function baddiecollisionbox_update(_baddie)
 					other.baddieID.state = states.pummel;
 					other.baddieID.grabbedby = (object_index == obj_player1) ? 1 : 2;
 				}
-				else if (other.baddieID.thrown == false && (character == "P" || character == "N"))
+				else if (other.baddieID.thrown == false && (character == "P" || character == "N" || character == "PUP"))
 				{
 					movespeed = 0;
 					image_index = 0;

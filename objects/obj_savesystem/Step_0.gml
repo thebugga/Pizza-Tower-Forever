@@ -26,13 +26,6 @@ if (room == hub_loadingscreen && state != 2)
 				targetRoom = tower_entrancehall;
 				targetDoor = "A";
 				state = states.victory;
-				var _character = other.character
-				with (obj_player1)
-				{
-					character = _character;
-					scr_characterspr();
-				}
-				
 			}
 			else
 			{

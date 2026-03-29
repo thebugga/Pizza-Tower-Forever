@@ -2,7 +2,7 @@ function scr_player_cheesepepstick()
 {
 	hsp = 0;
 	vsp = 0;
-	if (character == "N")
+	if (character == "N" || character == "PUP")
 	{
 		vsp = (key_down - key_up) * 4;
 		if (vsp < 0)
@@ -53,7 +53,7 @@ function scr_player_cheesepepstick()
 		{
 			vsp = -11;
 		}
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			sprite_index = spr_playerN_cheesedwalljump;
 			movespeed = xscale * 8;
@@ -74,7 +74,7 @@ function scr_player_cheesepepstickside()
 	hurted = true;
 	move = key_down - key_up;
 	moveside = key_left + key_right;
-	if (character == "N" && move != 0)
+	if ((character == "N" || character == "PUP") && move != 0)
 	{
 		yscale = -move;
 	}

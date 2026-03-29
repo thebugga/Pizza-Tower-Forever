@@ -1,6 +1,6 @@
 function scr_characterspr()
 {
-	if (character == "P")
+	if (character == "P") || (character == "PUP")
 	{
 		spr_idle = spr_player_idle;
 		spr_move = spr_player_move;

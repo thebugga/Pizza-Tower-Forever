@@ -1,0 +1,1 @@
+create_transformation_tip("[U] for Coop [D] for Swap")

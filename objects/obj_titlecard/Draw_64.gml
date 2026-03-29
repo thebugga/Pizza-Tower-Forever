@@ -1,11 +1,14 @@
+eso_calc_fit();
+eso_fit_integer();
+if (start) {
+    draw_set_alpha(1);
+    draw_rectangle_color(0, 0, obj_screensizer.actual_width, obj_screensizer.actual_height, c_black, c_black, c_black, c_black, 0);
+}
 if (start)
 {
 	draw_sprite(titlecard_sprite, titlecard_index, 0, 0);
 	var s = 1;
-	var scale = obj_screensizer.actual_width / 960
-    draw_sprite_ext(titlecard_sprite, titlecard_index, 0, 0, scale, scale, 0, c_white, 1);
-    var s = 1;
-    lang_draw_sprite_ext(title_sprite, title_index, 32 + irandom_range(-s, s), irandom_range(-s, s), scale, scale, 0, c_white, 1);
+	lang_draw_sprite(title_sprite, title_index, 32 + irandom_range(-s, s), irandom_range(-s, s));
 	for (var i = 0; i < array_length(noisehead); i++)
 	{
 		var head = noisehead[i];

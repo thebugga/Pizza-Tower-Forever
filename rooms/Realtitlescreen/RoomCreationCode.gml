@@ -382,11 +382,7 @@ global.chateautreasure = false;
 global.mansiontreasure = false;
 global.kidspartytreasure = false;
 global.wartreasure = false;
-pal_swap_init_system(shd_pal_swapper);
-with (obj_player1)
-{
-	state = states.normal;
-}
 global.loadeditor = false;
 room_goto(rm_warning);
 instance_destroy(obj_cutscene_handler);
+eso_strings();

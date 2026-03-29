@@ -25,6 +25,17 @@ else
 		healthold = global.hp;
 	}
 }
+if (global.coop == true)
+{
+	var p1 = player;
+	var p2 = (obj_player1.spotlight == true) ? obj_player2 : obj_player1;
+	p2pdistance = point_distance(p1.x, 0, p2.x, 0);
+	p2pdistancex = (p1.x >= p2.x) ? (-p2pdistance / 5) : (p2pdistance / 5);
+}
+else
+{
+	p2pdistancex = 0;
+}
 if (floor(image_index) == 10)
 {
 	shoving = false;
@@ -207,24 +218,38 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 				targetgolf = noone;
 			}
 			var cam_x, cam_y;
-
 			if (targetgolf == noone)
-			{
-			    if (room == characterselect || room == Realtitlescreen)
-			    {
-			        cam_x = (tx - (cam_width / 2)) + chargecamera;
-			        cam_y = ty - (cam_height / 2) - 50;
-			        cam_x = clamp(cam_x, 0, room_width - cam_width);
-			        cam_y = clamp(cam_y, 0, room_height - cam_height);
-			        camera_zoom(1, 0.035);
-			    }
-			    else
-			    {
-			        cam_x = (tx - (cam_width / 2)) + chargecamera;
-			        cam_y = ty - (cam_height / 2) - 50;
-			        cam_x = clamp(cam_x, 0, room_width - cam_width);
-			        cam_y = clamp(cam_y, 0, room_height - cam_height);
-			    }
+			{			
+				if (room == characterselect || room == Realtitlescreen)
+				{
+				    cam_x = (tx - (cam_width / 2)) + chargecamera;
+				    cam_y = ty - (cam_height / 2) - 50;
+				    cam_x = clamp(cam_x, 0, room_width - cam_width);
+				    cam_y = clamp(cam_y, 0, room_height - cam_height);
+				    camera_zoom(1, 0.035);
+				}
+				else
+				{
+					if (!global.coop)
+			        {
+					    cam_x = (tx - (cam_width / 2)) + chargecamera;
+					    cam_y = ty - (cam_height / 2) - 50;
+					    cam_x = clamp(cam_x, 0, room_width - cam_width);
+					    cam_y = clamp(cam_y, 0, room_height - cam_height);
+			        }
+			        else
+			        {
+			            var cam_x = ((obj_player1.x + obj_player2.x) / 2) - (cam_width / 2) + chargecamera + p2pdistancex;
+			            var cam_y = ((obj_player1.y + obj_player2.y) / 2) - (cam_height / 2) - 50;
+			            cam_x = clamp(cam_x, 0, room_width - cam_width);
+			            cam_y = clamp(cam_y, 0, room_height - cam_height);
+			            var disx = abs(obj_player1.x - obj_player2.x);
+			            var disy = abs(obj_player1.y - obj_player2.y);
+			            var dis = max(disx, disy);
+			            dis = max(1, dis);
+			            camera_zoom(dis, 0.035);
+			        }
+				}
 			}
 			else
 			{
@@ -293,4 +318,33 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 	}
 	offset_x = Approach(offset_x, 0, offset_speed);
 	offset_y = Approach(offset_y, 0, offset_speed);
+}
+if (global.panic && global.panicbg != 0 && global.M_option_panbg)
+{
+    global.panicshadetimer++;
+    var a = layer_get_all();
+    var b = [];
+    global.paniclayercount = 0;
+    
+    for (var i = 0; i < array_length(a); i++)
+    {
+        if (string_copy(layer_get_name(a[i]), 1, 12) == "Backgrounds_" || string_copy(layer_get_name(a[i]), 1, 7) == "Assets_" || string_copy(layer_get_name(a[i]), 1, 11) == "Foreground_")
+        {
+            b[global.paniclayercount] = a[i];
+            global.paniclayercount++;
+        }
+    }
+    
+    for (var j = 0; j < array_length(b); j++)
+    {
+        layer_script_begin(b[j], scr_panicbg_start);
+        layer_script_end(b[j], scr_panicbg_end);
+    }
+    
+    global.maxwave = instance_exists(obj_tv) ? obj_tv.chunkmax : 4000;
+    global.wave = (global.fill > 0) ? (global.maxwave - global.fill) : (global.maxwave + (global.panicshadetimer / 1000));
+}
+else if (global.panicshadetimer != 0)
+{
+    global.panicshadetimer = 0;
 }

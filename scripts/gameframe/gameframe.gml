@@ -1,4 +1,4 @@
-// Generated at 2025-03-07 22:45:22 (1369ms) for v2.3.7+
+// Generated at 2026-01-11 00:00:01 (3161ms) for v2.3.7+
 /// @lint nullToAny true
 // Feather disable all
 #region prototypes
@@ -850,8 +850,10 @@ function gameframe_caption_draw_caption_text_default(__x, __y, __width, __height
 	var __oldFont;
 	if (__newFont != -1) {
 		__oldFont = draw_get_font();
-		draw_set_font(__newFont);
+		draw_set_font(global.smallerfont);
 	} else __oldFont = -1;
+	var __oldColor = draw_get_color();
+	draw_set_color(gameframe_caption_text_color);
 	draw_set_halign(gameframe_caption_text_align);
 	draw_set_valign(0);
 	var __alpha = draw_get_alpha();
@@ -859,7 +861,8 @@ function gameframe_caption_draw_caption_text_default(__x, __y, __width, __height
 	draw_set_alpha((gameframe_alpha * gameframe_caption_alpha));
 	draw_text_ext_transformed((__x + ((gameframe_caption_text_align * __textWidth) div 2)), __y + ((__height - string_height_ext(_text, -1, __textWidth) * _dpiScale) div 2), _text, -1, __textWidth, _dpiScale, _dpiScale, 0);
 	draw_set_alpha(__alpha);
-	if (__newFont != -1) draw_set_font(__oldFont);
+	if (__newFont != -1) draw_set_font(global.smallerfont);
+	draw_set_color(__oldColor);
 	draw_set_halign(__h);
 	draw_set_valign(__v);
 }
@@ -1119,7 +1122,7 @@ function gameframe_std_Std_stringify(_value) {
 		_s += "(";
 		var _fields = _value.__enumParams__;
 		_n = array_length(_fields);
-		for (_i = -1; ++_i < _n; _s += gameframe_std_Std_stringify(_value[$  _fields[_i]])) {
+		for (_i = -1; ++_i < _n; _s += gameframe_std_Std_stringify(_value[$ _fields[_i]])) {
 			if (_i > 0) _s += ", ";
 		}
 		return _s + ")";
@@ -1189,8 +1192,7 @@ function gameframe_tools_mon_get_active() {
 	var __count = gameframe_get_monitors(__list);
 	var __cx1 = window_get_x() + (window_get_width() div 2);
 	var __cy1 = window_get_y() + (window_get_height() div 2);
-	var _i = 0;
-	for (var __g1 = __count; _i < __g1; _i++) {
+	for (var _i = 0; _i < __count; _i++) {
 		var __item = __list[|_i];
 		var __mntr = __item[0/* screen */];
 		if (__cx1 >= __mntr[0/* x */] && __cy1 >= __mntr[1/* y */] && __cx1 < __mntr[0/* x */] + __mntr[2/* width */] && __cy1 < __mntr[1/* y */] + __mntr[3/* height */]) return __item;
@@ -1276,7 +1278,9 @@ gameframe_caption_text = window_get_caption();
 globalvar gameframe_caption_alpha; /// @is {number}
 gameframe_caption_alpha = 1;
 globalvar gameframe_caption_font; /// @is {font}
-gameframe_caption_font = -1;
+gameframe_caption_font = global.smallerfont;
+globalvar gameframe_caption_text_color; /// @is {int}
+gameframe_caption_text_color = 16777215;
 globalvar gameframe_caption_text_align; /// @is {gml_gpu_TextAlign}
 gameframe_caption_text_align = 0;
 globalvar gameframe_caption_icon; /// @is {sprite}

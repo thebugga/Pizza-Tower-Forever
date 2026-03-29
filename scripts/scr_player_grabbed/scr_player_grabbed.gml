@@ -124,6 +124,7 @@ function scr_player_grabbed()
 	{
 		switch (character)
 		{
+			case "PUP":
 			case "N":
 				x = _obj_player.x;
 				y = _obj_player.y - 40;

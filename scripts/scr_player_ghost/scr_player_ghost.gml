@@ -64,7 +64,7 @@ function scr_player_ghost()
 	visible = true;
 	alarm[5] = -1;
 	alarm[6] = -1;
-	if (character == "N")
+	if (character == "N" || character == "PUP")
 	{
 		if (hsp != 0)
 		{
@@ -98,7 +98,7 @@ function scr_player_ghost()
 				movespeed = magnitude(abs(hsp), abs(vsp));
 				scr_fmod_soundeffect(snd_ghostdash, x, y);
 			}
-			if (character == "N")
+			if (character == "N" || character == "PUP")
 			{
 				var g = point_direction(0, 0, move_h, move_v);
 				if (move_h != 0 || move_v != 0)
@@ -224,7 +224,7 @@ function scr_player_ghost()
 		{
 			vspaccel = 0.4;
 		}
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			if (ghostdashbuffer > 0)
 			{
@@ -308,7 +308,7 @@ function scr_player_ghost()
 		}
 		if (!ghostdash)
 		{
-			if (character == "N")
+			if (character == "N" || character == "PUP")
 			{
 				hspaccel = 1;
 				vspaccel = 1;
@@ -324,7 +324,7 @@ function scr_player_ghost()
 			{
 				sprite_index = spr_ghostidle;
 			}
-			if (character == "N")
+			if (character == "N" || character == "PUP")
 			{
 				var g = point_direction(0, 0, move_h, move_v);
 				if (move_h != 0 || move_v != 0)
@@ -340,7 +340,7 @@ function scr_player_ghost()
 			{
 				ghostangle = point_direction(0, 0, move_h, move_v);
 			}
-			else if (character != "N")
+			else if ((character != "N" || character != "PUP"))
 			{
 				m = 0;
 			}
@@ -357,7 +357,7 @@ function scr_player_ghost()
 			movespeed = Approach(movespeed, dx, hspaccel);
 			hsp = movespeed;
 			vsp = Approach(vsp, dy, vspaccel);
-			if (character == "N" && ghostdashstart)
+			if ((character == "N" || character == "PUP") && ghostdashstart)
 			{
 				ghostdashstart = false;
 				movespeed = dx;
@@ -367,7 +367,7 @@ function scr_player_ghost()
 			{
 				scr_player_ghostdash_sprites();
 				ghostbump = Approach(ghostbump, 1, 0.1);
-				if (character != "N" && scr_solid_player(x + sign(hsp), y) && !place_meeting(x + sign(hsp), y + sign(vsp), obj_slope))
+				if ((character != "N" || character != "PUP") && scr_solid_player(x + sign(hsp), y) && !place_meeting(x + sign(hsp), y + sign(vsp), obj_slope))
 				{
 					movespeed = 0;
 				}

@@ -92,14 +92,14 @@ switch (state)
 			{
 				if (!isgustavo || character == "N")
 				{
-					if (mach4mode == true)
-					{
-						tv_do_expression(spr_tv_exprmach4, true);
-					}
-					else if (state == states.mach3 || sprite_index == spr_mach3boost)
-					{
-						tv_do_expression(spr_tv_exprmach3, true);
-					}
+					//if (mach4mode == true)
+					//{
+					//	tv_do_expression(spr_tv_exprmach4, true);
+					//}
+					//else if (state == states.mach3 || sprite_index == spr_mach3boost)
+					//{
+					//	tv_do_expression(spr_tv_exprmach3, true);
+					//}
 				}
 			}
 		}
@@ -549,3 +549,4 @@ if (combofill_index > (sprite_get_number(spr_tv_combobubblefill) - 1))
 {
 	combofill_index = frac(combofill_index);
 }
+scr_hub_bg_step()

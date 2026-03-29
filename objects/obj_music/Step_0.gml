@@ -16,13 +16,11 @@ if (instance_exists(obj_hungrypillar))
 {
 	fmod_event_instance_set_paused(pillarmusicID, false);
 	var p = false;
-	with (obj_hungrypillar)
-	{
-		if (bbox_in_camera(view_camera[0], 0))
-		{
-			p = true;
-		}
-	}
+    with (obj_hungrypillar) {
+        var player = global.coop ? instance_nearest(x, y, obj_player) : obj_player1;
+        if (instance_exists(player) && (abs(x - player.x) < (480 + (sprite_width / 2)) && abs(y - player.y) < (270 + (sprite_height / 2))))
+            p = true;
+    }
 	if (p != pillar_on_camera)
 	{
 		pillar_on_camera = p;

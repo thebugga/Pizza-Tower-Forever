@@ -127,17 +127,28 @@ add_option_toggle(video_menu, 4, "option_texfilter", function(_texfilter)
 	obj_savesystem.ini_str_options = ini_close();
 	global.option_texfilter = _texfilter;
 }).value = global.option_texfilter;
-add_option_toggle(video_menu, 5, "option_hud", function(_hud)
+add_option_toggle(video_menu, 5, "option_letterbox", function(_vsync)
+{
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("Option", "letterbox", _vsync);
+	obj_savesystem.ini_str_options = ini_close();
+	global.option_letterbox = _vsync;
+	screen_apply_vsync();
+}).value = global.option_letterbox;
+add_option_multiple(video_menu, 6, "option_letterbox_type", [create_option_value("option_letterbox_checkered", 0), create_option_value("option_letterbox_bricks", 1), create_option_value("option_letterbox_cheese", 2)], function(_type)
+{
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("Option", "letterbox_type", _type);
+	obj_savesystem.ini_str_options = ini_close();
+	global.option_letterboxindex = _type;
+}).value = global.option_letterboxindex;
+add_option_toggle(video_menu, 7, "option_hud", function(_hud)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);
 	ini_write_real("Option", "hud", _hud);
 	obj_savesystem.ini_str_options = ini_close();
 	global.option_hud = _hud;
 }).value = global.option_hud;
-add_option_press(video_menu, 6, "option_scaling", function()
-{
-    menu_goto(69420);
-});
 array_push(menus, video_menu);
 var window_menu = create_menu_fixed(menuids.window, menuanchors.left, 150, 40, menuids.video);
 add_option_press(window_menu, 0, "option_back", function()
@@ -422,33 +433,121 @@ add_option_slide(deadzones_menu, 5, "option_deadzone_crouch", function(_deadzone
 	trace(_deadzone / 100);
 }).value = global.gamepad_deadzone_crouch * 100;
 array_push(menus, deadzones_menu);
-var scaling_menu = create_menu_fixed(69420, 1, 150, 40, 2);
-add_option_press(scaling_menu, 0, "option_back", function()
-{
-    menu_goto(2);
-});
-add_option_press(scaling_menu, 1, "option_scaling_fit", function()
-{
-    global.option_scale_mode = 0
+var video_menu = menus[2];
+        
+locale_def = function(arg0, arg1) {
+    var str = lang_get_value(arg0);
+            
+    if (is_undefined(str))
+        return arg1;
+            
+    return str;
+};
+        
+var reset_eso = function() {
+    eso_reset_settings();
+};
+        
+var set_screenmode = function(arg0) {
     ini_open_from_string(obj_savesystem.ini_str_options);
-    ini_write_real("Option", "scale_mode", global.option_scale_mode);
+    ini_write_real("ExtraScalingOptions", "screenmode", arg0);
     obj_savesystem.ini_str_options = ini_close();
-    menu_goto(2);
-});
-add_option_press(scaling_menu, 2, "option_scaling_pp", function()
-{
-    global.option_scale_mode = 1
+    global.screenmode = arg0;
+    obj_screensizer.dirty = true;
+};
+        
+var set_scalemode = function(arg0) {
     ini_open_from_string(obj_savesystem.ini_str_options);
-    ini_write_real("Option", "scale_mode", global.option_scale_mode);
+    ini_write_real("ExtraScalingOptions", "scalemode", arg0);
     obj_savesystem.ini_str_options = ini_close();
-    menu_goto(2);
-});
-add_option_press(scaling_menu, 3, "option_scaling_expand", function()
-{
-    global.option_scale_mode = 2
+    global.scalemode = arg0;
+    obj_screensizer.dirty = true;
+};
+        
+var set_screensize = function() {
+    var _w = get_integer(locale_def("option_eso_screensize_prompt_w", "Target width? (-1 to use room width)"), global.screenmode_w);
+            
+    if (is_undefined(_w) || !is_real(_w) || (_w <= 0 && _w != -1))
+        return "";
+            
+    var _h = get_integer(locale_def("option_eso_screensize_prompt_h", "Target height? (-1 to use room height)"), global.screenmode_h);
+            
+    if (is_undefined(_h) || !is_real(_h) || (_h <= 0 && _h != -1))
+        return "";
+            
+    global.screenmode_w = _w;
+    global.screenmode_h = _h;
     ini_open_from_string(obj_savesystem.ini_str_options);
-    ini_write_real("Option", "scale_mode", global.option_scale_mode);
+    ini_write_real("ExtraScalingOptions", "screenmode_w", global.screenmode_w);
+    ini_write_real("ExtraScalingOptions", "screenmode_h", global.screenmode_h);
     obj_savesystem.ini_str_options = ini_close();
-    menu_goto(2);
-});
-array_push(menus, scaling_menu);
+    obj_screensizer.dirty = true;
+            
+    if (global.screenmode_autores)
+        screen_apply_size();
+};
+        
+var set_autores = function(arg0) {
+    ini_open_from_string(obj_savesystem.ini_str_options);
+    ini_write_real("ExtraScalingOptions", "screenmode_autores", arg0);
+    obj_savesystem.ini_str_options = ini_close();
+    global.screenmode_autores = arg0;
+    obj_screensizer.dirty = true;
+            
+    if (global.screenmode_autores)
+        screen_apply_size();
+};
+        
+var set_screenscale = function() {
+    var _s = get_integer(locale_def("option_eso_screenscale_prompt", "Scale to use in the Expand screen mode?"), global.screenmode_scale);
+            
+    if (is_undefined(_s) || !is_real(_s) || _s <= 0)
+        return "";
+            
+    global.screenmode_scale = _s;
+    ini_open_from_string(obj_savesystem.ini_str_options);
+    ini_write_real("ExtraScalingOptions", "screenmode_scale", global.screenmode_scale);
+    obj_savesystem.ini_str_options = ini_close();
+    obj_screensizer.dirty = true;
+};
+        
+var screenmodes_arr = [];
+array_push(screenmodes_arr, create_option_value("option_eso_screenmode_fixed", global.screenmodes.FIXED, true));
+array_push(screenmodes_arr, create_option_value("option_eso_screenmode_fit", global.screenmodes.FIT, true));
+array_push(screenmodes_arr, create_option_value("option_eso_screenmode_fill", global.screenmodes.FILL, true));
+array_push(screenmodes_arr, create_option_value("option_eso_screenmode_expand", global.screenmodes.SCALE, true));
+screenmode_opt = add_option_multiple(video_menu, array_length(video_menu), "option_eso_screenmode", screenmodes_arr, set_screenmode);
+var scalemodes_arr = [];
+array_push(scalemodes_arr, create_option_value("option_eso_scalemode_normal", global.scalemodes.NORMAL, true));
+array_push(scalemodes_arr, create_option_value("option_eso_scalemode_integer", global.scalemodes.INTEGER, true));
+array_push(scalemodes_arr, create_option_value("option_eso_scalemode_stretch", global.scalemodes.STRETCH, true));
+scalemode_opt = add_option_multiple(video_menu, array_length(video_menu), "option_eso_scalemode", scalemodes_arr, set_scalemode);
+var opt = add_option_press(video_menu, array_length(video_menu), "option_eso_screensize", set_screensize);
+autores_opt = add_option_toggle(video_menu, array_length(video_menu), "option_eso_autores", set_autores);
+opt = add_option_press(video_menu, array_length(video_menu), "option_eso_screenscale", set_screenscale);
+opt = add_option_press(video_menu, array_length(video_menu), "option_eso_reset", reset_eso);
+screenmode_opt.value = global.screenmode;
+scalemode_opt.value = global.scalemode;
+autores_opt.value = global.screenmode_autores;
+for (var i = 0; i < array_length(video_menu.options); i++) {
+    var option = video_menu.options[i];
+    if (option.name == "option_resolution")
+        option.name = "option_eso_windowsize";
+}
+add_option_toggle(video_menu, array_length(video_menu), "option_slope_tilt", function(arg0)
+{
+    global.M_option_stilt = arg0;
+    set_controller_config();
+}).value = global.M_option_stilt;
+add_option_toggle(video_menu, array_length(video_menu), "option_panicbg", function(arg0)
+{
+    global.M_option_panbg = arg0;
+    set_controller_config();
+}).value = global.M_option_panbg;
+/*
+add_option_toggle(video_menu, array_length(video_menu), "option_heat_meter", function(arg0)
+{
+    global.M_option_heatm = arg0;
+    set_controller_config();
+}).value = global.M_option_heatm;
+*/

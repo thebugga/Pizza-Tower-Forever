@@ -8,7 +8,7 @@ function scr_changetoppings()
 			{
 				sprite_index = choose(spr_shroomcollect, spr_tomatocollect, spr_cheesecollect, spr_sausagecollect, spr_pineapplecollect);
 			}
-			if ((obj_player1.character == "N" && obj_player1.spotlight == true) || (obj_player2.character == "N" && obj_player1.spotlight == false))
+			if (((obj_player1.character == "N" || obj_player1.character == "PUP") && obj_player1.spotlight == true) || (obj_player2.(character == "N" || character == "PUP") && obj_player1.spotlight == false))
 			{
 				sprite_index = choose(spr_halloweencollectibles1, spr_halloweencollectibles2, spr_halloweencollectibles3, spr_halloweencollectibles4, spr_halloweencollectibles5);
 			}
@@ -27,7 +27,7 @@ function scr_changetoppings()
 			{
 				sprite_index = choose(spr_pizzacollect1, spr_pizzacollect2, spr_pizzacollect3);
 			}
-			if ((obj_player1.character == "N" && obj_player1.spotlight == true) || (obj_player2.character == "N" && obj_player1.spotlight == false))
+			if (((obj_player1.character == "N" || obj_player1.character == "PUP") && obj_player1.spotlight == true) || (obj_player2.(character == "N" || character == "PUP") && obj_player1.spotlight == false))
 			{
 				sprite_index = choose(spr_pizzacollect1halloween, spr_pizzacollect2halloween, spr_pizzacollect3halloween);
 			}
@@ -46,7 +46,7 @@ function scr_changetoppings()
 			{
 				sprite_index = spr_giantpizza;
 			}
-			if ((obj_player1.character == "N" && obj_player1.spotlight == true) || (obj_player2.character == "N" && obj_player1.spotlight == false))
+			if (((obj_player1.character == "N" || obj_player1.character == "PUP") && obj_player1.spotlight == true) || (obj_player2.(character == "N" || character == "PUP") && obj_player1.spotlight == false))
 			{
 				sprite_index = spr_giantpizzahalloween;
 			}
@@ -65,7 +65,7 @@ function scr_changetoppings()
 			{
 				sprite_index = spr_destroyable2;
 			}
-			if ((obj_player1.character == "N" && obj_player1.spotlight == true) || (obj_player2.character == "N" && obj_player1.spotlight == false))
+			if (((obj_player1.character == "N" || obj_player1.character == "PUP") && obj_player1.spotlight == true) || (obj_player2.(character == "N" || character == "PUP") && obj_player1.spotlight == false))
 			{
 				sprite_index = spr_halloweensmallblock;
 			}
@@ -84,7 +84,7 @@ function scr_changetoppings()
 			{
 				sprite_index = spr_bigbreakable;
 			}
-			if ((obj_player1.character == "N" && obj_player1.spotlight == true) || (obj_player2.character == "N" && obj_player1.spotlight == false))
+			if (((obj_player1.character == "N" || obj_player1.character == "PUP") && obj_player1.spotlight == true) || (obj_player2.(character == "N" || character == "PUP") && obj_player1.spotlight == false))
 			{
 				sprite_index = spr_halloweenbigblock;
 			}

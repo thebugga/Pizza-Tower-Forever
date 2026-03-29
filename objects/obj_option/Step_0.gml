@@ -20,8 +20,6 @@ else if (m.menu_id == menuids.game)
 {
 	j = 3;
 }
-if (m.menu_id == 69420)
-    j = 2;
 for (var i = 0; i < array_length(bg_alpha); i++)
 {
 	if (i == j)

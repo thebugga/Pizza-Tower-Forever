@@ -41,7 +41,7 @@ if (state != states.grab)
 {
 	swingdingthrow = false;
 }
-if (character == "N" && !isgustavo)
+if ((character == "N" || character == "PUP") && !isgustavo)
 {
 	if (can_jump && vsp > 0)
 	{
@@ -63,7 +63,7 @@ if (place_meeting(x, y + 1, obj_slope))
 {
 	collision_flags |= collisionflags.on_slope;
 }
-if (character == "N" && !skateboarding && ((scr_check_superjump() && key_jump2) || key_superjump) && state != states.mach3 && can_jump && vsp > 0 && (state == states.normal || state == states.mach2))
+if ((character == "N" || character == "PUP") && !skateboarding && ((scr_check_superjump() && key_jump2) || key_superjump) && state != states.mach3 && can_jump && vsp > 0 && (state == states.normal || state == states.mach2))
 {
 	sprite_index = spr_superjumpprep;
 	state = states.Sjumpprep;
@@ -1719,4 +1719,21 @@ if (distance_to_object(obj_spike) < 500)
 			}
 		}
 	}
+}
+
+if (global.M_option_stilt)
+{
+    if grounded && scr_slope()
+    {
+        with (instance_place(x, y + 1, obj_slope))
+        {
+            var _dir = sign(image_xscale);
+            var angle_rad = arctan2(image_yscale * _dir, image_xscale * _dir);
+            other.angle = radtodeg(angle_rad);
+        }
+    }
+    else
+    {
+        angle = 0;
+    }
 }

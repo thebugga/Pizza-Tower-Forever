@@ -212,7 +212,7 @@ function scr_enemy_grabbed()
 			GamepadSetVibration((_obj_player.object_index == obj_player1) ? 0 : 1, 0.8, 0.8, 0.65);
 			fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 			fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
-			if (_obj_player.character == "N")
+			if (_obj_player.character == "N" || _obj_player.character== "PUP")
 			{
 				scr_fmod_soundeffect(_obj_player.snd_noisepunch, x, y);
 			}

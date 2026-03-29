@@ -9,3 +9,4 @@ if (room != Loadiingroom)
 {
 	lang_init = true;
 }
+dirty = true;

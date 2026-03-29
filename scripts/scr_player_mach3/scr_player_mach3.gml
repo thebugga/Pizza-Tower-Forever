@@ -25,7 +25,7 @@ function scr_player_mach3()
 		}
 		exit;
 	}
-	if (character == "N" && grounded && vsp > 0)
+	if ((character == "N" || character == "PUP") && grounded && vsp > 0)
 	{
 		if (sprite_index == spr_mach4 && place_meeting(x, y + 1, obj_water))
 		{
@@ -126,7 +126,7 @@ function scr_player_mach3()
 		vsp = jumpspeed;
 
 	}
-	if (input_buffer_jump > 0 && !can_jump && key_up && character == "N" && noisedoublejump)
+	if (input_buffer_jump > 0 && !can_jump && key_up && (character == "N" || character == "PUP") && noisedoublejump)
 	{
 		scr_player_do_noisecrusher();
 	}
@@ -192,6 +192,7 @@ function scr_player_mach3()
 		sprite_index = spr_machslidestart;
 		switch (character)
 		{
+			case "PUP":
 			case "N":
 				fmod_event_one_shot_3d("event:/sfx/playerN/break", x, y);
 				break;
@@ -207,6 +208,7 @@ function scr_player_mach3()
 	{
 		switch (character)
 		{
+			case "PUP":
 			case "N":
 				fmod_event_one_shot_3d("event:/sfx/playerN/machslide", x, y);
 				break;
@@ -242,7 +244,7 @@ function scr_player_mach3()
 	if ((!grounded && (place_meeting(x + hsp, y, obj_solid) || scr_solid_slope(x + hsp, y)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock)) || (grounded && (place_meeting(x + sign(hsp), y - 16, obj_solid) || scr_solid_slope(x + sign(hsp), y - 16)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && place_meeting(x, y + 1, obj_slope)))
 	{
 		var _climb = true;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			_climb = ledge_bump(40, abs(hsp) + 1);
 		}
@@ -264,7 +266,7 @@ function scr_player_mach3()
 	if (!grounded && place_meeting(x + sign(hsp), y, obj_climbablewall) && !place_meeting(x + sign(hsp), y, obj_destructibles) && !place_meeting(x + sign(hsp), y, obj_metalblock))
 	{
 		var _climb = true;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			_climb = ledge_bump(40);
 		}
@@ -290,7 +292,7 @@ function scr_player_mach3()
 		}
 		image_index = 0;
 	}
-	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && sprite_index != spr_dashpadmach && (!global.pistol || character == "N"))
+	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && sprite_index != spr_dashpadmach && (!global.pistol || character == "N" || character == "PUP"))
 	{
 		input_buffer_slap = 0;
 		state = states.punch;
@@ -299,6 +301,7 @@ function scr_player_mach3()
 		fmod_event_instance_play(snd_uppercut);
 		switch (character)
 		{
+			case "PUP":
 			case "N":
 				vsp = -21;
 				break;
@@ -308,7 +311,7 @@ function scr_player_mach3()
 		movespeed = hsp;
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particletypes.highjumpcloud2, 0);
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			repeat (4)
 			{

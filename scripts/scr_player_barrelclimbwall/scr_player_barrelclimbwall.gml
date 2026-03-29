@@ -1,6 +1,6 @@
 function scr_player_barrelclimbwall()
 {
-	if (character == "N")
+	if (character == "N" || character == "PUP")
 	{
 		move = key_left + key_right;
 		vsp = -wallspeed;

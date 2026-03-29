@@ -19,7 +19,9 @@ if (kidsparty_lightning || dark_lightning)
 	{
 		surf = surface_create(cw, ch);
 	}
-	var tsw = sprite_get_width(spr_patrol_lightgradient);
+	if (surface_get_width(surf) != cw || surface_get_height(surf) != ch)
+        surface_resize(surf, cw, ch);
+    var tsw = sprite_get_width(spr_patrol_lightgradient);
 	var tsh = sprite_get_height(spr_patrol_lightgradient);
 	if (!surface_exists(patrolcone_tex))
 	{
@@ -47,7 +49,9 @@ if (kidsparty_lightning || dark_lightning)
 	{
 		surf2 = surface_create(cw, ch);
 	}
-	var surf_x = camera_get_view_x(view_camera[0]);
+    if (kidsparty_lightning && (surface_get_width(surf2) != cw || surface_get_height(surf2) != ch))
+        surface_resize(surf2, cw, ch);
+    var surf_x = camera_get_view_x(view_camera[0]);
 	var surf_y = camera_get_view_y(view_camera[0]);
 	if (kidsparty_lightning)
 	{
@@ -156,4 +160,16 @@ if (kidsparty_lightning || dark_lightning)
 			draw_surface(surf, surf_x, surf_y);
 		}
 	}
+}
+var normal_border = (room != Mainmenu && room != rank_room && room != boss_pizzafacefinale && !instance_exists(obj_climbingupstairs));
+var pizzaface_border = (room == boss_pizzafacefinale && (layer_get_visible("Backgrounds_tower4") || layer_get_visible("Backgrounds_piledriver")));
+if (normal_border || pizzaface_border) {
+    draw_set_color(c_black);
+    var bordx = (obj_screensizer.actual_width / 2) + 32;
+    var bordy = (obj_screensizer.actual_height / 2) + 32;
+    draw_rectangle(0, -bordy, -bordx, room_height + bordy, 0);
+    draw_rectangle(room_width, -bordy, room_width + bordx, room_height + bordy, 0);
+    draw_rectangle(0, 0, room_width, -bordy, 0);
+    draw_rectangle(0, room_height, room_width, room_height + bordy, 0);
+    draw_set_color(c_white);
 }

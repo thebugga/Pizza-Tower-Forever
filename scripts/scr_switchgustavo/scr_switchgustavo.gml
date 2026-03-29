@@ -4,6 +4,7 @@ function scr_switchgustavo(_setstate = true, _noisegloves = false)
 	{
 		switch (character)
 		{
+			case "PUP":
 			case "N":
 				isgustavo = false;
 				noisecrusher = true;
@@ -53,6 +54,7 @@ function scr_switchpeppino(_setstate = true)
 	{
 		switch (character)
 		{
+			case "PUP":
 			case "N":
 				isgustavo = false;
 				noisecrusher = false;

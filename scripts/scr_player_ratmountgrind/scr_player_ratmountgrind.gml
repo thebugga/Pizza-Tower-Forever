@@ -14,7 +14,7 @@ function scr_player_ratmountgrind()
 		movespeed = Approach(movespeed, 0, 0.5);
 		sprite_index = spr_lonegustavo_hang;
 	}
-	if (character == "N")
+	if (character == "N" || character == "PUP")
 	{
 		if (sprite_index == spr_lonegustavo_hangwalk)
 		{
@@ -57,6 +57,7 @@ function scr_player_ratmountgrind()
 	{
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        state = states.jump;
 				sprite_index = spr_fall;
@@ -74,6 +75,7 @@ function scr_player_ratmountgrind()
 		input_buffer_jump = 0;
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        state = states.jump;
 				if (key_down)
@@ -109,7 +111,7 @@ function scr_player_ratmountgrind()
 		jumpstop = false;
 		jumpAnim = true;
 	}
-	if (character == "N" && state != states.ratmountgrind)
+	if ((character == "N" || character == "PUP") && state != states.ratmountgrind)
 	{
 		if (movespeed != 0)
 		{

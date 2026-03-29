@@ -69,7 +69,7 @@ function scr_player_firemouth()
 		sprite_index = spr_firemouth;
 		dir = xscale;
 	}
-	if (character == "N" && !grounded && key_jump2 && !jumpstop)
+	if ((character == "N" || character == "PUP") && !grounded && key_jump2 && !jumpstop)
 	{
 		vsp -= 0.25;
 	}
@@ -139,7 +139,7 @@ function scr_player_firemouth()
 						xscale = move;
 					}
 				}
-				else if (character == "N")
+				else if (character == "N" || character == "PUP")
 				{
 					if (movespeed <= 10)
 						movespeed += 0.5;
@@ -224,7 +224,7 @@ function scr_player_firemouth()
 			instance_create(x, y, obj_firemouthflame);
 		}
 		vsp = -15;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			vsp = -12;
 		}

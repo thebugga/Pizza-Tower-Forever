@@ -5,7 +5,7 @@ function scr_pizzaball_golf()
 	vsp = 0;
 	hsp = 0;
 	var _i = 9;
-	if (player.character == "N")
+	if (player.character == "N" || character == "PUP")
 	{
 		_i = 7;
 	}

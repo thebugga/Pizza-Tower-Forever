@@ -1,4 +1,5 @@
 global.__display_gui_args = [0, 0, 0, 0, 0];
+global.smallerfont = font_add_sprite_ext(spr_smallfont, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!._1234567890:?", true, -2);
 
 #macro __display_set_gui_size_base display_set_gui_size
 #macro display_set_gui_size __display_set_gui_size_hook

@@ -153,7 +153,7 @@ function scr_bosscontroller_normal()
 				{
 					bpal = spr_peppalette;
 					bpalsel = obj_player1.paletteselect;
-					if (obj_player1.character == "N")
+					if (obj_player1.character == "N" || character == "PUP")
 					{
 						bpalsel = 1;
 					}
@@ -195,7 +195,7 @@ function scr_bosscontroller_normal()
 				global.pistol = false;
 				pistolanim = noone;
 				sprite_index = spr_player_levelcomplete;
-				if (character == "N")
+				if (character == "N" || character == "PUP")
 				{
 					sprite_index = spr_playerN_levelcomplete;
 				}

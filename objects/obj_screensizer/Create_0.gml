@@ -3,13 +3,41 @@ enum aspectratios
 	ratio_16_9 = 0,
 	ratio_4_3 = 1,
 }
-
+global.screenmodes = 
+{
+    FIXED: 0,
+    FIT: 1,
+    FILL: 2,
+    SCALE: 3
+};
+global.scalemodes = 
+{
+    NORMAL: 0,
+    INTEGER: 1,
+    STRETCH: 2,
+    NONE: 3
+};
+global.screenmode = global.screenmodes.FIXED;
+global.scalemode = global.scalemodes.NORMAL;
+global.screenmode_w = 960;
+global.screenmode_h = 540;
+global.screenmode_scale = 1;
+global.screenmode_autores = false;
+rescapped_warn = 0;
+last_rescapped = false;
+justupdated = false;
+app_scale_x = 1;
+app_scale_y = 1;
 #macro SCREEN_WIDTH obj_screensizer.actual_width
 #macro SCREEN_HEIGHT obj_screensizer.actual_height
 
+#macro SCREEN_X obj_screensizer.normal_size_fix_x
+#macro SCREEN_Y obj_screensizer.normal_size_fix_y
+
 #macro CAM_WIDTH obj_screensizer.ideal_width
 #macro CAM_HEIGHT obj_screensizer.ideal_height
-
+//gui_surf = noone
+lb_sprs = [bg_letterbox, bg_letterbox2, bg_letterbox3]
 global.resolutions[aspectratios.ratio_16_9] = [[480, 270], [960, 540], [1024, 576], [1280, 720], [1600, 900], [1920, 1080]];
 global.resolutions[aspectratios.ratio_4_3] = [[640, 480], [800, 600], [1024, 768], [1152, 864], [1440, 1080]];
 gameframe_init();
@@ -50,5 +78,6 @@ last_fullscreen = false;
 alarm[1] = 1;
 surface_depth_disable(true);
 application_surface_draw_enable(false);
+surface_resize(application_surface, SCREEN_WIDTH, SCREEN_HEIGHT)
 display_set_gui_size(CAM_WIDTH, CAM_HEIGHT);
 screen_apply_size();

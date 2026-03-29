@@ -22,9 +22,14 @@ var _os = optionselected;
 var m = menus[menu];
 var options = m.options;
 var len = array_length(options);
-var size = (string_height(lang_get_value("default_letter")) * len) + (len * m.ypad);
+var size = len * m.ypad;
+if (m.anchor == 0) // center
+    size -= m.ypad;
 var xx = SCREEN_WIDTH / 2;
-var yy = (SCREEN_HEIGHT / 2) - (size / 4);
+var actualmenu = m;
+var _w = 480 - actualmenu.xpad;
+var _xpad = max((SCREEN_WIDTH / 2) - _w, 8);
+var yy = (SCREEN_HEIGHT / 2) - (size / 2);
 switch (m.anchor)
 {
 	case menuanchors.center:
@@ -49,9 +54,13 @@ switch (m.anchor)
 		}
 		break;
 	case menuanchors.left:
+		if ((m.ypad * (len + 1)) > obj_screensizer.actual_height)
+		    yy = ((-((len + 1.5) * m.ypad) + obj_screensizer.actual_height) * (_os / len)) + (m.ypad * 0.5);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
 		tdp_draw_set_halign(0);
 		tdp_draw_set_valign(0);
-		xx = m.xpad;
+        xx = _xpad;
 		var c = c_white;
 		var a = 1;
 		var yy_plus = 0;
@@ -83,13 +92,13 @@ switch (m.anchor)
 			switch (o.type)
 			{
 				case optiontypes.toggle:
-					menu_draw_text(SCREEN_WIDTH - m.xpad, target_y, o.value ? lang_get_value("option_on") : lang_get_value("option_off"), c, a);
+					menu_draw_text(SCREEN_WIDTH - _xpad, target_y, o.value ? lang_get_value("option_on") : lang_get_value("option_off"), c, a);
 					break;
 				case optiontypes.slide:
 					var w = 200;
 					var h = 5;
 					var aw = w * (o.value / 100);
-					var x1 = SCREEN_WIDTH - m.xpad - w;
+					var x1 = SCREEN_WIDTH - _xpad - w;
 					var y1 = target_y;
 					var x2 = x1 + aw;
 					var y2 = y1 + h;
@@ -111,7 +120,7 @@ switch (m.anchor)
 					{
 						n = menu_lang_value(select.name);
 					}
-					if (menu_draw_text(SCREEN_WIDTH - m.xpad, target_y, n, c, a))
+					if (menu_draw_text(SCREEN_WIDTH - _xpad, target_y, n, c, a))
 					{
 						_newline = true;
 					}

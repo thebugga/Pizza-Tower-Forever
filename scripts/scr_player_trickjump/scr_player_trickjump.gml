@@ -3,7 +3,7 @@ function scr_player_trickjump()
 	hsp = movespeed * xscale;
 	if (sprite_index != spr_supertaunt1 && sprite_index != spr_supertaunt2 && sprite_index != spr_supertaunt3 && sprite_index != spr_supertaunt4)
 	{
-		if (character != "N")
+		if ((character != "N" || character != "PUP"))
 		{
 			image_speed = 0.35;
 		}
@@ -14,7 +14,7 @@ function scr_player_trickjump()
 	}
 	else
 	{
-		if (character != "N")
+		if ((character != "N" || character != "PUP"))
 		{
 			image_speed = 0.5;
 		}
@@ -34,7 +34,7 @@ function scr_player_trickjump()
 	{
 		ramp_buffer--;
 	}
-	if (character == "N")
+	if (character == "N" || character == "PUP")
 	{
 		image_speed = Approach(image_speed, 0.4, 0.1);
 	}

@@ -212,7 +212,7 @@ function scr_pepperman_arenaintro()
 					spotlightID.expand = true;
 					with (obj_player1)
 					{
-						if (character != "N")
+						if ((character != "N" || character != "PUP"))
 						{
 							sprite_index = spr_player_screamtransition;
 							image_index = 0;

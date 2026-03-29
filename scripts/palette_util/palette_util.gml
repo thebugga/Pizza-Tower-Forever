@@ -2,6 +2,7 @@ function get_char_palette_info(character)
 {
 	var character_palettes = {
 		"P": spr_peppalette,
+		"PUP": spr_peppalette,
 		"N": spr_noisepalette,
 		//"M": spr_peppermanpalette
 		// Add more characters here as needed
@@ -10,7 +11,7 @@ function get_char_palette_info(character)
 	var player_character = obj_savesystem.character;
 	
 	// Handle swap mode for P and N characters
-	if (global.swapmode && (character == "P" || character == "N"))
+	if (global.swapmode && (character == "P" || character == "N" || character == "PUP"))
 	{
 		var pal_index = (character == "P") ? 1 : 0;
 		

@@ -1,1 +1,2 @@
-lang_draw_sprite(signspr, 0, SCREEN_WIDTH / 2, signy);
+var cy = max((obj_screensizer.actual_height - room_height) / 2, 0);
+draw_sprite_part(signspr, 0, 0, -signy, sprite_get_width(signspr), sprite_get_height(signspr) + signy, (obj_screensizer.actual_width / 2) - sprite_get_xoffset(signspr), cy);

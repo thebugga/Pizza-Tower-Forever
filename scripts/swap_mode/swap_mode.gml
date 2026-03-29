@@ -56,7 +56,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 				global.noisejetpack = false;
 			}
 		}
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			tauntstoredisgustavo = false;
 		}
@@ -65,7 +65,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 		pistolchargeshooting = false;
 		pistolanim = noone;
 		global.pistol = false;
-		if ((character == "P" && (room == boss_vigilante || instance_exists(obj_pizzafaceboss_p2))) || (instance_exists(obj_bosscontroller) && character == "N"))
+		if ((character == "P" && (room == boss_vigilante || instance_exists(obj_pizzafaceboss_p2))) || (instance_exists(obj_bosscontroller) && character == "N" || character == "PUP"))
 		{
 			global.pistol = true;
 		}
@@ -76,7 +76,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 			{
 				global.noisejetpack = true;
 			}
-			else if (character == "N" && room == freezer_secret3)
+			else if ((character == "N" || character == "PUP") && room == freezer_secret3)
 			{
 				global.noisejetpack = true;
 			}
@@ -121,8 +121,8 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 			taunttimer = 0;
 			if (character == obj_player1.character)
 			{
-				character = (obj_player1.character == "N") ? "P" : "N";
-				if (obj_player1.character == "N" && obj_player1.noisecrusher)
+				character = (obj_player1.character == "N" || character == "PUP") ? "P" : "N";
+				if ((obj_player1.character == "N" || obj_player1.character == "PUP") && obj_player1.noisecrusher)
 				{
 					isgustavo = true;
 				}

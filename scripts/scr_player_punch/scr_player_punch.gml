@@ -37,7 +37,7 @@ function scr_player_punch()
 		else if (vsp < 0)
 		{
 			punch_afterimage = 5;
-			if (character == "N")
+			if (character == "N" || character == "PUP")
 			{
 				with (instance_create(x, y, obj_explosioneffect))
 				{

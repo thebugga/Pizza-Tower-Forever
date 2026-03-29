@@ -101,7 +101,7 @@ function scr_player_mort()
 
 function mort_attack()
 {
-	if (character == "N")
+	if (character == "N" || character == "PUP")
 	{
 		if (input_buffer_slap > 0)
 		{

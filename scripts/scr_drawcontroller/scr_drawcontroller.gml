@@ -142,7 +142,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 			pal_swap_set(spr_peppalette, 0);
 			if (!global.swapmode)
 			{
-				if ((object_index == obj_fakepepboss || object_index == obj_gustavograbbable) && obj_player1.character != "N")
+				if ((object_index == obj_fakepepboss || object_index == obj_gustavograbbable) && (obj_player1.character != "N" || obj_player1.character != "PUP"))
 				{
 					pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale * xscale, image_yscale * yscale, global.palettetexture);
 				}
@@ -243,7 +243,7 @@ function draw_player()
 		}
 		exit;
 	}
-	if (character == "N" && state == states.trashstart)
+	if ((character == "N" || character == "PUP") && state == states.trashstart)
 	{
 		exit;
 	}
@@ -258,7 +258,7 @@ function draw_player()
 		_sprite_index = pistolanim;
 		_image_index = pistolindex;
 	}
-	if (character != "N" && room == boss_noise && (sprite_index == spr_playerN_doiseintro1 || sprite_index == spr_playerN_doiseintro2 || sprite_index == spr_playerN_doiseintro3))
+	if ((character != "N" || character != "PUP") && room == boss_noise && (sprite_index == spr_playerN_doiseintro1 || sprite_index == spr_playerN_doiseintro2 || sprite_index == spr_playerN_doiseintro3))
 	{
 		var info = get_char_palette_info("N");
 		pattern = info.patterntexture;
@@ -273,13 +273,13 @@ function draw_player()
 	{
 		spr = spr_ratmountpalette;
 	}
-	if (character == "N" && instance_exists(obj_pizzaface_thunderdark))
+	if ((character == "N" || character == "PUP") && instance_exists(obj_pizzaface_thunderdark))
 	{
 		spr = spr_noisepalette_rage;
 	}
 	pal_swap_set(spr, ps, false);
 	draw_sprite_ext(_sprite_index, _image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
-	if (global.noisejetpack && (character != "N" || noisepizzapepper))
+	if (global.noisejetpack && ((character != "N" || character != "PUP") || noisepizzapepper))
 	{
 		pal_swap_set(spr_palette, 2, false);
 		draw_sprite_ext(_sprite_index, _image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);

@@ -88,6 +88,7 @@ function scr_player_knightpepslopes()
 	{
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        instance_create(x + (xscale * 35), y + 15, obj_bumpeffect);
 				repeat (6)

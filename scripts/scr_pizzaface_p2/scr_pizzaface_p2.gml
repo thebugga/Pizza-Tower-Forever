@@ -242,7 +242,7 @@ function scr_pizzaface_p2_fall()
 				{
 					state = states.animation;
 					tauntstoredstate = states.normal;
-					if (character != "N")
+					if ((character != "N" || character != "PUP"))
 					{
 						sprite_index = spr_player_screamtransition;
 						image_index = 0;
@@ -250,7 +250,7 @@ function scr_pizzaface_p2_fall()
 					}
 					landAnim = false;
 				}
-				if (obj_player1.character == "N")
+				if (obj_player1.character == "N" || character == "PUP")
 				{
 					with (obj_music)
 					{
@@ -280,7 +280,7 @@ function scr_pizzaface_p2_normal()
 	}
 	else
 	{
-		if (obj_player1.character == "N")
+		if (obj_player1.character == "N" || character == "PUP")
 		{
 			with (obj_music)
 			{
@@ -848,7 +848,7 @@ function boss_pizzahead_p2_phase1hurt()
 		state = states.actor;
 		pistolanim = noone;
 		sprite_index = spr_player_pistolshotend;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			sprite_index = spr_playerN_bosstransition;
 		}

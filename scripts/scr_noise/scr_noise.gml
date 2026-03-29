@@ -1547,7 +1547,7 @@ function scr_noise_finale()
 					{
 						sprite_index = spr_player_gnomecutscene2;
 						image_index = 0;
-						if (character == "N")
+						if (character == "N" || character == "PUP")
 						{
 							sprite_index = spr_playerN_bosscutscene1;
 						}
@@ -1746,7 +1746,7 @@ function scr_noise_phase1hurt()
 				image_speed = 0.35;
 				sprite_index = spr_player_fightball;
 				image_index = 0;
-				if (character == "N")
+				if (character == "N" || character == "PUP")
 				{
 					y = 402;
 					x = room_width / 2;

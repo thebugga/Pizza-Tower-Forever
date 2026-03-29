@@ -45,7 +45,7 @@ function scr_player_mach2()
 		}
 		vsp = jumpspeed;
 	}
-	if (input_buffer_jump > 0 && !can_jump && character == "N" && key_up && noisedoublejump && !skateboarding && sprite_index != spr_clownjump)
+	if (input_buffer_jump > 0 && !can_jump && (character == "N" || character == "PUP") && key_up && noisedoublejump && !skateboarding && sprite_index != spr_clownjump)
 	{
 		scr_player_do_noisecrusher();
 	}
@@ -156,7 +156,7 @@ function scr_player_mach2()
 	if ((!grounded && (place_meeting(x + hsp, y, obj_solid) || scr_solid_slope(x + hsp, y)) && !place_meeting(x + hsp, y, obj_destructibles)) || (grounded && (place_meeting(x + sign(hsp), y - 16, obj_solid) || scr_solid_slope(x + sign(hsp), y - 16)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && place_meeting(x, y + 1, obj_slope)))
 	{
 		var _climb = true;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			_climb = ledge_bump(32, abs(hsp) + 1);
 		}
@@ -178,7 +178,7 @@ function scr_player_mach2()
 	if (!grounded && place_meeting(x + sign(hsp), y, obj_climbablewall) && !place_meeting(x + sign(hsp), y, obj_destructibles) && !place_meeting(x + sign(hsp), y, obj_metalblock))
 	{
 		var _climb = true;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			_climb = ledge_bump(32);
 		}
@@ -260,6 +260,7 @@ function scr_player_mach2()
 		state = states.machslide;
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        fmod_event_one_shot_3d("event:/sfx/playerN/break", x, y);
 		        break;
@@ -278,6 +279,7 @@ function scr_player_mach2()
 	{
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        fmod_event_one_shot_3d("event:/sfx/playerN/machslide", x, y);
 		        break;
@@ -354,7 +356,7 @@ function scr_player_mach2()
 		}
 		image_index = 0;
 	}
-	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && !skateboarding && (!global.pistol || character == "N"))
+	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && !skateboarding && (!global.pistol || character == "N" || character == "PUP"))
 	{
 		input_buffer_slap = 0;
 		state = states.punch;
@@ -363,14 +365,14 @@ function scr_player_mach2()
 		fmod_event_instance_play(snd_uppercut);
 		
 		vsp = -10;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			vsp = -21;
 		}
 		movespeed = hsp;
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particletypes.highjumpcloud2, 0);
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			repeat (4)
 			{

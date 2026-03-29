@@ -144,7 +144,7 @@ function scr_player_jump()
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particletypes.highjumpcloud2, 0);
 	}
-	if (!can_jump && character == "N" && key_up && noisedoublejump && input_buffer_jump > 0 && !key_down && !key_attack)
+	if (!can_jump && (character == "N" || character == "PUP") && key_up && noisedoublejump && input_buffer_jump > 0 && !key_down && !key_attack)
 	{
 		freefallstart = 0;
 		railmomentum = false;
@@ -331,7 +331,7 @@ function scr_player_jump()
 		state = states.handstandjump;
 		movespeed = 5;
 	}
-	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "N"))
+	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "N" || character == "PUP"))
 	{
 		input_buffer_slap = 0;
 		state = states.punch;
@@ -340,6 +340,7 @@ function scr_player_jump()
 		fmod_event_instance_play(snd_uppercut);
 		switch (character)
 		{
+			case "PUP":
 			case "N":
 				vsp = -21;
 				break;
@@ -355,7 +356,7 @@ function scr_player_jump()
 		}
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particletypes.highjumpcloud2, 0);
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			repeat (4)
 			{

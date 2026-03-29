@@ -33,6 +33,7 @@ global.levelattempts = 0;
 global.exitrank = false;
 global.playerhit = 0;
 global.swapmode = false;
+global.coop = false;
 global.door_sprite = spr_door;
 global.door_index = 0;
 global.pistol = false;
@@ -611,6 +612,7 @@ if (!variable_global_exists("saveroom"))
 	ds_map_set(global.font_map, "smallfont_en", global.smallfont);
 	ds_map_set(global.font_map, "tutorialfont_en", global.tutorialfont);
 	ds_map_set(global.font_map, "creditsfont_en", global.creditsfont);
+	ds_map_set(global.font_map, "smallerfont_en", global.smallerfont);
 	ds_map_set(global.font_map, "captionfont_en", 0);
 	font_add_enable_aa(false);
 	var key = ds_map_find_first(global.lang_map);

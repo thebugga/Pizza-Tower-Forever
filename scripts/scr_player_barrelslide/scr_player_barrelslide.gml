@@ -95,7 +95,7 @@ function scr_player_barrelslide()
 			}
 			state = states.barrelclimbwall;
 			movespeed = 0;
-			if (character == "N")
+			if (character == "N" || character == "PUP")
 			{
 				wallspeed = abs(vsp);
 			}

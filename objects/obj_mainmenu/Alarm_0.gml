@@ -1,4 +1,5 @@
-if global.game[currentselect].character == ""
+var file = concat(get_save_folder(), "/saveData", currentselect + 1, ".ini");
+if !file_exists(file)
 {
 	var grouparr = ["characterselectgroup"];
 	with obj_player1
@@ -18,18 +19,6 @@ else
 	{
 		character = global.game[other.currentselect].character
 		ispeppino = true
-		if global.game[other.currentselect].character == "N"
-		{
-			character = "P"
-			ispeppino = false
-			other.shownoise = true
-		}
-		if global.game[other.currentselect].character == "D"
-		{
-			character = "D"
-			ispeppino = false
-			other.shownoise = true
-		}
 		scr_characterspr()
 	}
 	scr_start_game(currentselect + 1, obj_player1.ispeppino);

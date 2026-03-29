@@ -29,7 +29,7 @@ function scr_player_trashjump()
 	{
 		sprite_index = spr_player_trashjump;
 	}
-	if (character == "N")
+	if (character == "N" || character == "PUP")
 	{
 		sprite_index = spr_playerN_trash;
 	}
@@ -37,6 +37,7 @@ function scr_player_trashjump()
 	{
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        state = states.normal;
 				with (instance_create(x, y, obj_jumpdust))

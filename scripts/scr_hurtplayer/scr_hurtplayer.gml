@@ -310,7 +310,7 @@ function scr_hurtplayer(_player)
 					{
 						txt = lang_get_value("gustavohurt");
 					}
-					if (character == "N")
+					if (character == "N" || character == "PUP")
 					{
 						txt = lang_get_value("noisehurt");
 					}

@@ -142,31 +142,37 @@ function window_to_gui_yscale(_yscale)
 	return (_yscale * display_get_gui_height()) / window_get_height();
 }
 
-function get_resolution_width(_res, _ratio = aspectratios.ratio_16_9)
+function get_resolution_width(arg0, arg1 = UnknownEnum.Value_0)
 {
-	if (_res < 0 || _res >= array_length(global.resolutions[_ratio]))
-	{
-		return get_resolution_width(1, _ratio);
-	}
-	return global.resolutions[_ratio][_res][0];
+    if (global.screenmode_autores && global.screenmode_w > 0)
+        return global.screenmode_w;
+    
+    if (arg0 < 0 || arg0 >= array_length(global.resolutions[arg1]))
+        return get_resolution_width(1, arg1);
+    
+    return global.resolutions[arg1][arg0][0];
 }
 
-function get_resolution_height(_res, _ratio = aspectratios.ratio_16_9)
+function get_resolution_height(arg0, arg1 = UnknownEnum.Value_0)
 {
-	if (_res < 0 || _res >= array_length(global.resolutions[_ratio]))
-	{
-		return get_resolution_height(1, _ratio);
-	}
-	return global.resolutions[_ratio][_res][1];
+    if (global.screenmode_autores && global.screenmode_h > 0)
+        return global.screenmode_h;
+    
+    if (arg0 < 0 || arg0 >= array_length(global.resolutions[arg1]))
+        return get_resolution_height(1, arg1);
+    
+    return global.resolutions[arg1][arg0][1];
 }
 
-function get_resolution(_res, _ratio = aspectratios.ratio_16_9)
+function get_resolution(arg0, arg1 = UnknownEnum.Value_0)
 {
-	if (_res < 0 || _res >= array_length(global.resolutions[_ratio]))
-	{
-		return noone;
-	}
-	return global.resolutions[_ratio][_res];
+    if (global.screenmode_autores && global.screenmode_w > 0 && global.screenmode_h > 0)
+        return [global.screenmode_w, global.screenmode_h];
+    
+    if (arg0 < 0 || arg0 >= array_length(global.resolutions[arg1]))
+        return -4;
+    
+    return global.resolutions[arg1][arg0];
 }
 
 function screen_clear(_color = c_black)
@@ -188,6 +194,8 @@ function get_options()
 		var _;
 	
 	ini_open("saveData.ini");
+	global.option_letterbox = ini_read_real("options", "letterbox", 0)
+	global.option_letterboxindex = ini_read_real("options", "letterbox_type", 0)
 	global.option_fullscreen = ini_read_real("Option", "fullscreen", 1);
 	global.option_resolution = ini_read_real("Option", "resolution", 1);
 	global.option_master_volume = ini_read_real("Option", "master_volume", 1);
@@ -202,6 +210,9 @@ function get_options()
 	global.option_unfocus_mute = ini_read_real("Option", "unfocus_mute", 0);
 	global.option_texfilter = ini_read_real("Option", "texfilter", 1);
 	global.option_vsync = ini_read_real("Option", "vsync", 0);
+    global.M_option_stilt = ini_read_real("M_Option", "ScreeTilt", 0);
+    global.M_option_panbg = ini_read_real("M_Option", "PanicBg", 0);
+    //global.M_option_heatm = ini_read_real("M_Option", "Heatmeter", 0);
 	var lang = ini_read_string("Option", "lang", "none");
 	if (lang == "none")
 	{
@@ -252,6 +263,12 @@ function get_options()
 	global.offload_lang = noone;
 	global.option_screenshake = ini_read_real("Option", "screenshake", 1);
 	global.lang = global.option_lang;
+    global.screenmode = ini_read_real("ExtraScalingOptions", "screenmode", global.screenmode);
+    global.scalemode = ini_read_real("ExtraScalingOptions", "scalemode", global.scalemode);
+    global.screenmode_w = ini_read_real("ExtraScalingOptions", "screenmode_w", global.screenmode_w);
+    global.screenmode_h = ini_read_real("ExtraScalingOptions", "screenmode_h", global.screenmode_h);
+    global.screenmode_scale = ini_read_real("ExtraScalingOptions", "screenmode_scale", global.screenmode_scale);
+    global.screenmode_autores = ini_read_real("ExtraScalingOptions", "screenmode_autores", global.screenmode_autores);
 	ini_close();
 	screen_apply_fullscreen(global.option_fullscreen);
 	obj_screensizer.start_sound = false;

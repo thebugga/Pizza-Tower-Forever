@@ -127,7 +127,7 @@ function scr_playerN_machcancel()
 		jumpstop = true;
 		state = states.mach3;
 		movespeed = 12;
-		sprite_index = spr_playerN_mach3;
+		sprite_index = spr_mach4;
 		with (instance_create(x, y, obj_noiseeffect))
 		{
 			sprite_index = spr_noisegrounddasheffect;
@@ -141,7 +141,7 @@ function scr_playerN_machcancel()
 		}
 	}
 	noisedoublejump = true;
-	if (input_buffer_slap > 0 && key_up && (!global.pistol || character == "N"))
+	if (input_buffer_slap > 0 && key_up && (!global.pistol || (character == "N" || character == "PUP")))
 	{
 		input_buffer_slap = 0;
 		state = states.punch;
@@ -161,7 +161,7 @@ function scr_playerN_machcancel()
 			}
 		}
 	}
-	if (character == "N" && key_up && input_buffer_jump > 0 && !scr_check_groundpound2())
+	if ((character == "N" || character == "PUP") && key_up && input_buffer_jump > 0 && !scr_check_groundpound2())
 	{
 		freefallstart = 0;
 		railmomentum = false;
@@ -217,10 +217,6 @@ function scr_playerN_machcancel()
 
 function scr_noise_machcancel_grab()
 {
-	if (character != "N")
-	{
-		exit;
-	}
 	image_speed = 0.5;
 	move = key_left + key_right;
 	if (input_buffer_slap > 0 && !key_up)

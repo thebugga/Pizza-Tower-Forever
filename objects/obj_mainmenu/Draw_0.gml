@@ -50,8 +50,8 @@ for (i = -1; i < array_length(global.game); i++)
 	var game = i == -1 ? game_empty() : menu_get_game(i);
 	var middle_x = (SCREEN_WIDTH / 2) + (i * (SCREEN_WIDTH / 4)) - (visualselect * (SCREEN_WIDTH / 4))
 	
-	var character_index = 0		
-	if game.character == "P"
+	var character_index = 0	
+	if game.character == "P" || game.character == "PUP"
 		character_index = 1
 	if game.character == "N"
 		character_index = 2
@@ -64,6 +64,8 @@ for (i = -1; i < array_length(global.game); i++)
 	if game.character == "D"
 		character_index = 6
 	draw_sprite_ext(spr_mainmenu_paper, character_index, middle_x, 150, 1, 1, 0, c_white, 1)
+	if game.character == "PUP"
+		draw_sprite_ext(spr_mainmenu_charms, 0, middle_x, 150, 1, 1, 0, c_white, 1)
 	
 	if game.character != ""
 	{

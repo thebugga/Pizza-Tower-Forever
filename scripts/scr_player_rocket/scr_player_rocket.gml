@@ -6,7 +6,7 @@ function scr_player_rocket()
 	alarm[8] = 60;
 	alarm[7] = 120;
 	hurted = true;
-	if (character == "N" && sprite_index == spr_rocketstart)
+	if ((character == "N" || character == "PUP") && sprite_index == spr_rocketstart)
 	{
 		global.combotimepause = 5;
 		image_speed = 0.35;
@@ -80,7 +80,7 @@ function scr_player_rocket()
 		if (sprite_index != spr_rocketstart)
 		{
 			sprite_index = spr_rocket;
-			if (grounded && vsp >= 0 && character != "N")
+			if (grounded && vsp >= 0 && (character != "N" || character != "PUP"))
 			{
 				sprite_index = spr_player_rocketrun;
 			}
@@ -89,7 +89,7 @@ function scr_player_rocket()
 	if (grounded)
 	{
 		move = key_left + key_right;
-		if (character != "N" && move != 0 && move != xscale && sprite_index != spr_rocketstart && state != states.mach2)
+		if ((character != "N" || character != "PUP") && move != 0 && move != xscale && sprite_index != spr_rocketstart && state != states.mach2)
 		{
 			state = states.rocketslide;
 			fmod_event_one_shot_3d("event:/sfx/pep/machslideboost", x, y);
@@ -101,6 +101,7 @@ function scr_player_rocket()
 	{
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        fmod_event_one_shot_3d("event:/sfx/pep/splat", x, y);
 				sprite_index = spr_playerN_rocketbump;

@@ -17,6 +17,7 @@ function scr_player_tumble()
 	{
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        sprite_index = spr_playerN_divebomb;
 				state = states.machcancel;
@@ -60,6 +61,7 @@ function scr_player_tumble()
 	{
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        sprite_index = spr_playerN_divebomb;
 				state = states.machcancel;

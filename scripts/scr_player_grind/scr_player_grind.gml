@@ -24,7 +24,7 @@ function scr_player_grind()
 	}
 	if (place_meeting(x + xscale, y, obj_solid) && !place_meeting(x, y + 18, obj_grindrailslope) && !place_meeting(x, y + 1, obj_slope))
 	{
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			xscale *= -1;
 		}
@@ -35,7 +35,7 @@ function scr_player_grind()
 			vsp = 1;
 		}
 	}
-	if (character == "N" && key_down)
+	if ((character == "N" || character == "PUP") && key_down)
 	{
 		ignore_grind = true;
 		state = states.mach2;

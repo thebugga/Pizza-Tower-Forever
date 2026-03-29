@@ -144,7 +144,7 @@ function palette_unlock(_achievement, _palname, _palindex, _texture = noone, _ch
 			{
 				achievement_spr = noone;
 				sprite_index = spr_newclothes;
-				if (_character == "N")
+				if (_character == "N" || character == "PUP")
 				{
 					sprite_index = spr_newclothesN;
 					spr_palette = spr_noisepalette;

@@ -150,7 +150,7 @@ function scr_pizzaface_arenaintro()
 					with (obj_player1)
 					{
 						sprite_index = spr_pepbossintro1;
-						if (character == "N")
+						if (character == "N" || character == "PUP")
 						{
 							sprite_index = spr_noisebossintro1;
 						}
@@ -192,7 +192,7 @@ function scr_pizzaface_arenaintro()
 						if (sprite_index != spr_pepbossintro2 && sprite_index != spr_noisebossintro2)
 						{
 							sprite_index = spr_pepbossintro2;
-							if (character == "N")
+							if (character == "N" || character == "PUP")
 							{
 								sprite_index = spr_noisebossintro2;
 							}
@@ -206,7 +206,7 @@ function scr_pizzaface_arenaintro()
 					with (obj_player1)
 					{
 						
-						if (character == "N")
+						if (character == "N" || character == "PUP")
 						{
 							fmod_event_one_shot_3d("event:/sfx/voice/woag", x, y);
 						}
@@ -215,7 +215,7 @@ function scr_pizzaface_arenaintro()
 							fmod_event_one_shot_3d("event:/sfx/voice/peppinoangryscream", x, y);
 						}
 						sprite_index = spr_pepbossintro3;
-						if (character == "N")
+						if (character == "N" || character == "PUP")
 						{
 							sprite_index = spr_noisebossintro3;
 						}
@@ -564,7 +564,7 @@ function scr_pizzaface_transitioncutscene()
 				{
 					image_index = 0;
 					sprite_index = spr_player_gnomecutscene1;
-					if (character == "N")
+					if (character == "N" || character == "PUP")
 					{
 						sprite_index = spr_noisebossintro1;
 					}
@@ -586,7 +586,7 @@ function scr_pizzaface_transitioncutscene()
 				with (obj_player1)
 				{
 					sprite_index = spr_pepbossintro2;
-					if (character == "N")
+					if (character == "N" || character == "PUP")
 					{
 						sprite_index = spr_noisebossintro2;
 					}

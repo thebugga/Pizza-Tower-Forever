@@ -88,6 +88,7 @@ function scr_playersounds()
 		
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        // Noise doesn't play mach sounds
 		        fmod_event_instance_stop(machsnd, true);
@@ -147,6 +148,7 @@ function scr_playersounds()
 		var sjumpsnd = superjumpsnd;
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        fmod_event_instance_stop(sjumpsnd, true);
 		        break;
@@ -366,6 +368,7 @@ function scr_playersounds()
 		
 		switch (character)
 		{
+		    case "PUP":
 		    case "N":
 		        fmod_event_instance_stop(animatronicsnd, true);
 		        break;
@@ -452,7 +455,7 @@ function scr_playersounds()
 				fmod_event_instance_set_parameter(pizzapeppersnd, "state", 1, true);
 			}
 		}
-		if (state == states.ghost && sprite_index != spr_ghostidle && sprite_index != spr_ghostjump && (character == "N" || ghostdash))
+		if (state == states.ghost && sprite_index != spr_ghostidle && sprite_index != spr_ghostjump && ((character == "N" || character == "PUP") || ghostdash))
 		{
 			if (!fmod_event_instance_is_playing(ghostspeedsnd))
 			{
@@ -480,6 +483,7 @@ function scr_playersounds()
 		}
 		switch (character)
 		{
+			case "PUP":
 			case "N":
 				if (sprite_index == spr_playerN_minigunshoot || sprite_index == spr_playerN_minigundown)
 				{

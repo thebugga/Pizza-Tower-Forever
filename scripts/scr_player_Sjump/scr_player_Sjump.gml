@@ -88,6 +88,7 @@ function scr_player_Sjump()
 	{
 		switch (character)
 		{
+			case "PUP":
 			case "N":
 				image_speed = 0.5;
 				input_buffer_shoot = 0;
@@ -144,7 +145,7 @@ function scr_player_Sjump()
 			}
 		}
 	}
-	if (character == "N" && sprite_index == spr_superjump)
+	if ((character == "N" || character == "PUP") && sprite_index == spr_superjump)
 	{
 		hsp = move * 3;
 	}

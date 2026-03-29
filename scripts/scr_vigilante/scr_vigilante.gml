@@ -127,7 +127,7 @@ function scr_vigilante_arenaintro()
 		}
 		sprite_index = spr_playerV_dynamitethrow;
 		image_index = 0;
-		if (obj_player1.character == "N")
+		if (obj_player1.character == "N" || character == "PUP")
 		{
 			sprite_index = spr_playerV_idle;
 			image_index = 0;
@@ -316,7 +316,7 @@ function scr_vigilante_phase1hurt()
 		state = states.actor;
 		pistolanim = noone;
 		sprite_index = spr_player_pistolshotend;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			sprite_index = spr_playerN_bosstransition;
 		}
@@ -999,7 +999,7 @@ function scr_vigilante_duel()
 		pistolchargeshooting = false;
 		pistolanim = noone;
 	}
-	var _cheat = obj_player1.character == "N" || global.swapmode;
+	var _cheat = (obj_player1.character == "N" || obj_player1.character == "PUP") || global.swapmode;
 	if (duelphase == 2)
 	{
 		with (obj_player1)
@@ -1071,7 +1071,7 @@ function scr_vigilante_duel()
 				with (obj_player1)
 				{
 					sprite_index = spr_peppino_duel;
-					if (character == "N")
+					if (character == "N" || character == "PUP")
 					{
 						sprite_index = spr_noise_duel;
 					}
@@ -1163,7 +1163,7 @@ function scr_vigilante_duel()
 						}
 						sprite_index = spr_player_pistolshotend;
 						image_index = 2;
-						if (character == "N")
+						if (character == "N" || character == "PUP")
 						{
 							sprite_index = spr_noise_duelend;
 							image_index = 0;

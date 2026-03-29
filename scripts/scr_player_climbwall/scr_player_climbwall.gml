@@ -45,7 +45,7 @@ function scr_player_climbwall()
 			wallspeed = 6;
 		}
 		sprite_index = spr_player_clownwallclimb;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			sprite_index = spr_playerN_clownwallclimb;
 		}
@@ -110,7 +110,7 @@ function scr_player_climbwall()
 	{
 		wallspeed = 0;
 	}
-	if (character == "N" && !skateboarding)
+	if ((character == "N" || character == "PUP") && !skateboarding)
 	{
 		with (instance_create(x, y, obj_noiseeffect))
 		{
@@ -125,7 +125,7 @@ function scr_player_climbwall()
 		movespeed = 0;
 		image_index = 0;
 	}
-	if (input_buffer_jump > 8 && character != "N")
+	if (input_buffer_jump > 8 && (character != "N" || character != "PUP"))
 	{
 		fmod_event_one_shot_3d("event:/sfx/pep/jump", x, y);
 		input_buffer_jump = 0;

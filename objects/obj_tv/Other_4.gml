@@ -20,6 +20,7 @@ else
 {
 	timer_tower = false;
 }
+/*
 tv_bg_index = 0;
 switch (global.leveltosave)
 {
@@ -81,6 +82,11 @@ switch (global.leveltosave)
 		tv_bg_index = 19;
 		break;
 }
+*/
+if !(room == Realtitlescreen || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+    bgsprite = asset_get_index(concat("spr_gate_", global.leveltosave, "BG"))
+else
+    bgsprite = spr_gate_exitBG
 if (special_prompts == noone && room != Realtitlescreen && room != characterselect)
 {
 	special_prompts = ds_map_create();
@@ -188,3 +194,6 @@ switch (room)
 global.arank = floor(global.srank / 2);
 global.brank = floor(global.arank / 2);
 global.crank = floor(global.brank / 2);
+var collect_x = irandom_range(-collect_shake, collect_shake);
+var collect_y = irandom_range(-collect_shake, collect_shake);
+scr_hub_bg_reinit(tv_x + collect_x, tv_y + collect_y + hud_posY)

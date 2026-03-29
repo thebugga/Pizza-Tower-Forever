@@ -30,7 +30,7 @@ function scr_player_boxxedpepjump()
 		vsp /= 5;
 	}
 	var boxxedspeed = 8;
-	if (character == "N")
+	if (character == "N" || character == "PUP")
 	{
 		boxxedspeed = 12;
 	}
@@ -144,7 +144,7 @@ function scr_player_boxxedpepjump()
 		input_buffer_slap = 0;
 		state = states.boxxedpepspin;
 		sprite_index = spr_boxxedpep_spin;
-		if (character == "N")
+		if (character == "N" || character == "PUP")
 		{
 			sprite_index = spr_playerN_boxxedhit;
 		}
