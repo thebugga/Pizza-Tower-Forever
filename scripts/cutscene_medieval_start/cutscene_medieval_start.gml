@@ -1,5 +1,6 @@
 function cutscene_medieval_start()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.actor;
@@ -25,6 +26,7 @@ function cutscene_medieval_start()
 
 function cutscene_medieval_start2()
 {
+	if (live_call()) return live_result;
 	with (obj_actor)
 	{
 		sprite_index = spr_idle;

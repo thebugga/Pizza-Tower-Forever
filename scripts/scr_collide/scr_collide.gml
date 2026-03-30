@@ -1,5 +1,6 @@
 function scr_collide()
 {
+	if (live_call()) return live_result;
 	grounded = false;
 	with (instance_place(x, y + 2, obj_movingplatform))
 	{

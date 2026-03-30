@@ -1,5 +1,6 @@
 function scr_player_ladder()
 {
+	if (live_call()) return live_result;
 	jumpAnim = true;
 	dashAnim = true;
 	landAnim = false;

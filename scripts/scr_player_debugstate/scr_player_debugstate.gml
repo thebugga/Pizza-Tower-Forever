@@ -1,5 +1,6 @@
 function scr_player_debugstate()
 {
+	if (live_call()) return live_result;
 	visible = true;
 	image_blend = c_white;
 	var _spd = 6;

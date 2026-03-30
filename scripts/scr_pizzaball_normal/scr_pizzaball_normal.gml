@@ -1,5 +1,6 @@
 function scr_pizzaball_normal()
 {
+	if (live_call()) return live_result;
 	if (thrown)
 	{
 		hsp = image_xscale * (movespeed + slopespeed);
@@ -117,6 +118,7 @@ function scr_pizzaball_normal()
 
 function scr_pizzaball_roll()
 {
+	if (live_call()) return live_result;
 	kicked = false;
 	state = states.normal;
 }

@@ -1,5 +1,6 @@
 function state_boss_stun()
 {
+	if (live_call()) return live_result;
 	stunned -= 1;
 	if (stuntouchbuffer > 0)
 	{

@@ -1,5 +1,6 @@
 function scr_player_cheesepep()
 {
+	if (live_call()) return live_result;
 	key_particles = false;
 	mach2 = 0;
 	momemtum = false;

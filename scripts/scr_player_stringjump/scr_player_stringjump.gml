@@ -1,5 +1,6 @@
 function scr_player_stringjump()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	move = key_left + key_right;
 	if (move != 0)
@@ -36,6 +37,7 @@ function scr_player_stringjump()
 
 function scr_player_stringfall()
 {
+	if (live_call()) return live_result;
 	if (instance_exists(stringid))
 	{
 		sprite_index = spr_mrpinch;

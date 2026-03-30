@@ -1,5 +1,6 @@
 function scr_unlock_swap()
 {
+	if (live_call()) return live_result;
 	ini_open_from_string(obj_savesystem.ini_str_options);
 	if (ini_read_real("Game", "swapmode", 0) == 0)
 	{

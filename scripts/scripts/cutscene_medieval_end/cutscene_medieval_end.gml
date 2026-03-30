@@ -1,5 +1,6 @@
 function cutscene_medieval_end()
 {
+	if (live_call()) return live_result;
 	instance_destroy(obj_actor);
 	with (obj_player)
 	{

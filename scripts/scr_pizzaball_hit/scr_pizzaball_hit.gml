@@ -1,5 +1,6 @@
 function scr_pizzaball_hit()
 {
+	if (live_call()) return live_result;
 	x = hitX + irandom_range(-6, 6);
 	y = hitY + irandom_range(-6, 6);
 	hitLag--;
@@ -29,6 +30,7 @@ function scr_pizzaball_hit()
 
 function scr_pizzaball_grabbed()
 {
+	if (live_call()) return live_result;
 	var pl = (grabbedby == 1) ? obj_player1 : obj_player2;
 	with (pl)
 	{

@@ -1,5 +1,6 @@
 function cutscene_title_start()
 {
+	if (live_call()) return live_result;
 	with (obj_player1)
 	{
 		state = states.actor;
@@ -9,6 +10,7 @@ function cutscene_title_start()
 
 function cutscene_title_middle()
 {
+	if (live_call()) return live_result;
 	var finish = false;
 	with (obj_title)
 	{
@@ -26,6 +28,7 @@ function cutscene_title_middle()
 
 function cutscene_title_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player1)
 	{
 		sprite_index = spr_idle;

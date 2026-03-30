@@ -25,6 +25,7 @@ function secret_add_touchall_requirement(_index, _trigger)
 
 function secret_check_touchall()
 {
+	if (live_call()) return live_result;
 	if (touchrequirement != noone && is_array(touchrequirement))
 	{
 		for (var xx = 0; xx < array_length(touchrequirement); xx++)

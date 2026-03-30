@@ -1,5 +1,6 @@
 function scr_throwenemy()
 {
+	if (live_call()) return live_result;
 	if (instance_exists(other.baddieID))
 	{
 		with (other.baddieID)

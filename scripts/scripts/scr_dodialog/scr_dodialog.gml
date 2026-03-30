@@ -30,11 +30,13 @@ function do_dialog(_dialog)
 
 function npc_do_dialog()
 {
+	if (live_call()) return live_result;
 	do_dialog(dialog);
 }
 
 function vigilante_add_battle()
 {
+	if (live_call()) return live_result;
 	if (global.vigilantecutscene1 == noone || !global.vigilantecutscene1)
 	{
 		global.vigilantecutscene1 = true;

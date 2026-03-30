@@ -1,5 +1,6 @@
 function scr_player_mach3()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_fightball)
 	{
 		scr_player_fightball();

@@ -1,5 +1,6 @@
 function scr_piggyblock_destroy()
 {
+	if (live_call()) return live_result;
 	if (bbox_in_camera(view_camera[0]))
 	{
 		with (other)
@@ -14,6 +15,7 @@ function scr_piggyblock_destroy()
 
 function scr_ratblock_destroy()
 {
+	if (live_call()) return live_result;
 	if (place_meeting(x, y, obj_canonexplosion))
 	{
 		with (instance_place(x, y, obj_canonexplosion))

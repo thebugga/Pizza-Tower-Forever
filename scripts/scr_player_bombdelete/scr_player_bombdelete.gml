@@ -1,5 +1,6 @@
 function scr_player_bombdelete()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = move * movespeed;
 	sprite_index = spr_bombpeprun;

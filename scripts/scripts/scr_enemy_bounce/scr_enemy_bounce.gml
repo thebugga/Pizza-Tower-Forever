@@ -1,5 +1,6 @@
 function scr_enemy_bounce()
 {
+	if (live_call()) return live_result;
 	if (!grounded)
 	{
 		hsp = image_xscale * movespeed;

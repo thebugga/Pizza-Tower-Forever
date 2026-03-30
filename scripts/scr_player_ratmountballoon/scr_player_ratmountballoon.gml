@@ -1,5 +1,6 @@
 function scr_player_ratmountballoon()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_player_ratmountballoon;
 	hsp = movespeed;
 	move = key_left + key_right;

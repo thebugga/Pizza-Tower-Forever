@@ -1,5 +1,6 @@
 function scr_player_handstandjump()
 {
+	if (live_call()) return live_result;
 	landAnim = false;
 	hsp = xscale * movespeed;
 	move = key_left + key_right;
@@ -104,22 +105,18 @@ function scr_player_handstandjump()
 	
 	if (input_buffer_slap > 8)
     {
-		movespeed = 8;
-		if (!grounded)
-		{
-			vsp = -5;
-		}
 		image_index = 0;
-        if (character == "P")
+		switch (character)
 		{
-		    sprite_index = spr_player_faceplant;
-		}
-		if (character == "N")
-		{
-		    sprite_index = spr_playerN_spin;
+		    case "N":
+				sprite_index = spr_playerN_spin;
+		        break;
+            
+		    default:
+				sprite_index = spr_player_faceplant;
+		        break;
 		}
 		state = states.faceplant;
-		image_speed = 0.5;
 		with (instance_create(x, y, obj_jumpdust))
 		{
 		    image_xscale = other.xscale;

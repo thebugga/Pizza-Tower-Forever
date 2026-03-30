@@ -1,5 +1,6 @@
 function screen_apply_size_delayed()
 {
+	if (live_call()) return live_result;
 	with (obj_screensizer)
 	{
 		alarm[2] = 1;
@@ -8,6 +9,7 @@ function screen_apply_size_delayed()
 
 function screen_apply_size()
 {
+	if (live_call()) return live_result;
 	with (obj_screensizer)
 	{
 		if (global.option_resolution == 0 && global.option_scale_mode == 1)
@@ -28,6 +30,7 @@ function screen_apply_size()
 
 function screen_apply_vsync()
 {
+	if (live_call()) return live_result;
 	if (room != Loadiingroom)
 	{
 		trace("Applying VSync: ", global.option_vsync);
@@ -84,6 +87,7 @@ function set_gui_target(_surf)
 
 function surface_safe_reset_target()
 {
+	if (live_call()) return live_result;
 	if (surface_get_target() != -1 && surface_get_target() != application_surface)
 	{
 		surface_reset_target();
@@ -92,6 +96,7 @@ function surface_safe_reset_target()
 
 function reset_gui_target()
 {
+	if (live_call()) return live_result;
 	while (surface_get_target() != -1 && surface_get_target() != application_surface)
 	{
 		surface_reset_target();
@@ -108,11 +113,13 @@ function reset_gui_target()
 
 function reset_blendmode()
 {
+	if (live_call()) return live_result;
 	gpu_set_blendmode_ext(bm_max, bm_inv_src_alpha);
 }
 
 function reset_shader_fix()
 {
+	if (live_call()) return live_result;
 	if (shader_current() != -1)
 	{
 		shader_reset();
@@ -182,6 +189,7 @@ function screen_clear(_color = c_black)
 
 function get_options()
 {
+	if (live_call()) return live_result;
 	/*ASM
 	-	> gml_Script_get_options (locals=4, argc=0)
 	+	> gml_Script_get_options (locals=3, argc=0)

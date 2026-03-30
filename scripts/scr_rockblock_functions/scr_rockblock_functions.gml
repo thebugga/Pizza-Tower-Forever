@@ -1,5 +1,6 @@
 function scr_rockblock_tag()
 {
+	if (live_call()) return live_result;
 	with (instance_place(x + 1, y, obj_rockblock))
 	{
 		if (!destroy)

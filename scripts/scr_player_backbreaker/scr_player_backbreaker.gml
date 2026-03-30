@@ -1,5 +1,6 @@
 function scr_player_backbreaker()
 {
+	if (live_call()) return live_result;
 	mach2 = 0;
 	if (sprite_index != spr_player_machfreefall)
 	{

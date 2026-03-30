@@ -1,5 +1,6 @@
 function scr_player_hurt()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_hurtjump)
 	{
 		hsp = xscale * movespeed;

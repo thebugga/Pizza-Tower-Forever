@@ -1,5 +1,6 @@
 function pal_swap_index_palette()
 {
+	if (live_call()) return live_result;
 	if (!ds_map_exists(global.Pal_Map, argument[0]))
 	{
 		var _spr = argument[0];

@@ -1,5 +1,6 @@
 function scr_player_ratmounttumble()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	move = key_left + key_right;
 	sprite_index = spr_player_ratmountwalljump;

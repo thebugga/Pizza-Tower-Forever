@@ -1,5 +1,6 @@
 function scr_enemy_pummel()
 {
+	if (live_call()) return live_result;
 	var _playerinst = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
 	sprite_index = stunfallspr;
 	x = _playerinst.x + (_playerinst.xscale * 16);
@@ -113,6 +114,7 @@ function scr_enemy_pummel()
 
 function scr_enemy_stunTEST()
 {
+	if (live_call()) return live_result;
 	sprite_index = stunfallspr;
 	image_speed = 0.35;
 	if (place_meeting(x - sign(image_xscale), y, obj_solid) || grounded)
@@ -134,6 +136,7 @@ function scr_enemy_stunTEST()
 
 function scr_enemy_staggered()
 {
+	if (live_call()) return live_result;
 	sprite_index = stunfallspr;
 	if (stuntouchbuffer > 0)
 	{

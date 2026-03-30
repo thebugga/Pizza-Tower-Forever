@@ -1,5 +1,6 @@
 function scr_do_noisejetpack()
 {
+	if (live_call()) return live_result;
 	if (global.noisejetpack && !grounded && key_jump && walljumpbuffer <= 0)
 	{
 		input_buffer_jump = 0;

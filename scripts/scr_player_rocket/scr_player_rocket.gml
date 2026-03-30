@@ -1,5 +1,6 @@
 function scr_player_rocket()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	move = key_right + key_left;
 	alarm[5] = -1;

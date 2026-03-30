@@ -1,5 +1,6 @@
 function scr_player_ratmountbounce()
 {
+	if (live_call()) return live_result;
 	if (character == "N" || character == "PUP")
 	{
 		isgustavo = false;

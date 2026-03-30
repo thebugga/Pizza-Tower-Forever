@@ -1,5 +1,6 @@
 function cutscene_entrance_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.normal;
@@ -14,6 +15,7 @@ function cutscene_entrance_end()
 
 function cutscene_factory_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.normal;
@@ -28,6 +30,7 @@ function cutscene_factory_end()
 
 function cutscene_save_game()
 {
+	if (live_call()) return live_result;
 	gamesave_async_save();
 	cutscene_end_action();
 }

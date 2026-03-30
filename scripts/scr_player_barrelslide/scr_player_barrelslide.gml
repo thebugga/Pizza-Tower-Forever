@@ -1,5 +1,6 @@
 function scr_player_barrelslide()
 {
+	if (live_call()) return live_result;
 	image_speed = abs(movespeed) / 8;
 	if (image_speed < 0.35)
 	{

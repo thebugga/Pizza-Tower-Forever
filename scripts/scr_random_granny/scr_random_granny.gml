@@ -1,5 +1,6 @@
 function scr_random_granny()
 {
+	if (live_call()) return live_result;
 	var count = instance_number(obj_tutorialbook);
 	var n = irandom(count - 1);
 	var b = noone;

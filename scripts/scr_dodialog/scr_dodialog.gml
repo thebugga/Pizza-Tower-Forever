@@ -30,6 +30,7 @@ function do_dialog(_dialog)
 
 function npc_do_dialog()
 {
+	if (live_call()) return live_result;
 	do_dialog(dialog);
 }
 

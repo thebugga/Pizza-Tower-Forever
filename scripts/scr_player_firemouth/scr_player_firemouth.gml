@@ -1,5 +1,6 @@
 function scr_player_firemouth()
 {
+	if (live_call()) return live_result;
 	alarm[5] = 2;
 	alarm[7] = 60;
 	if (sprite_index == spr_firemouthintro)

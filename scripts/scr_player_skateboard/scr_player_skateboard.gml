@@ -1,5 +1,6 @@
 function scr_player_skateboard()
 {
+	if (live_call()) return live_result;
 	machhitAnim = false;
 	crouchslideAnim = true;
 	hsp = xscale * movespeed;

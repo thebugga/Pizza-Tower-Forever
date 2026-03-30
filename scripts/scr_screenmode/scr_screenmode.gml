@@ -26,6 +26,7 @@ function eso_calc_fit(scaling = 0) {
 
 function eso_fit_integer()
 {
+	if (live_call()) return live_result;
 	if (eso_fit_scale >= 1)
 		eso_fit_scale = floor(eso_fit_scale);
 	
@@ -81,11 +82,13 @@ function lang_eso_draw_sprite_ext_fit(arg0, arg1, arg2, arg3, arg4, arg5, arg6, 
 
 function eso_should_force_vanillares()
 {
+	if (live_call()) return live_result;
 	return (room == Loadiingroom || room == Longintro || room == Finalintro) && !instance_exists(obj_option);
 }
 
 function eso_reset_settings()
 {
+	if (live_call()) return live_result;
 	global.screenmode = global.screenmodes.FIXED;
 	global.scalemode = global.scalemodes.NORMAL;
 	global.screenmode_w = 960;
@@ -119,6 +122,7 @@ function eso_string_set(map, key, value) {
 
 function eso_strings()
 {
+	if (live_call()) return live_result;
 	var map = ds_map_find_value(global.lang_map, "en");
 	eso_string_set(map, "option_eso_screenmode", "SCREEN MODE");
 	eso_string_set(map, "option_eso_screenmode_fixed", "FIXED");

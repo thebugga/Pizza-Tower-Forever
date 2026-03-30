@@ -1,15 +1,18 @@
 function get_buffer_group_name()
 {
+	if (live_call()) return live_result;
 	return "saves";
 }
 
 function get_save_folder()
 {
+	if (live_call()) return live_result;
 	return "saves";
 }
 
 function get_percentage()
 {
+	if (live_call()) return live_result;
 	var levels = ["entrance", "medieval", "ruin", "dungeon", "badland", "graveyard", "farm", "saloon", "plage", "forest", "minigolf", "space", "sewer", "industrial", "street", "freezer", "chateau", "war", "kidsparty", "exit"];
 	var bosses = ["w1stick", "w2stick", "w3stick", "w4stick", "w5stick"];
 	var bossach = ["pepperman", "vigilante", "noise", "fakepep", "pizzaface"];
@@ -103,6 +106,7 @@ function get_percentage()
 
 function gamesave_async_load()
 {
+	if (live_call()) return live_result;
 	with (obj_savesystem)
 	{
 		if (state == 0)
@@ -118,6 +122,7 @@ function gamesave_async_load()
 
 function gamesave_async_save()
 {
+	if (live_call()) return live_result;
 	with (obj_savesystem)
 	{
 		dirty = true;
@@ -127,6 +132,7 @@ function gamesave_async_save()
 
 function gamesave_async_save_options()
 {
+	if (live_call()) return live_result;
 	with (obj_savesystem)
 	{
 		dirty = true;

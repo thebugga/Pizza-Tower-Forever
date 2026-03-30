@@ -1,5 +1,6 @@
 function scr_player_ratmountgroundpound()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_player_ratmountgroundpound)
 	{
 		if (ANIMATION_END)

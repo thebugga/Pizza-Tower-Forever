@@ -1,5 +1,6 @@
 function scr_fakepepclone_transitioncutscene()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	if ((floor(image_index) div 5) == 0)
@@ -61,6 +62,7 @@ function scr_fakepepclone_transitioncutscene()
 
 function scr_fakepepclone_walk()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	var ix = sign(targetplayer.x - x);
 	hsp = Approach(hsp, ix * 8, 0.3);
@@ -162,6 +164,7 @@ function scr_fakepepclone_walk()
 
 function scr_fakepepclone_Sjumpprep()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	if (ANIMATION_END)
@@ -177,6 +180,7 @@ function scr_fakepepclone_Sjumpprep()
 
 function scr_fakepepclone_Sjump()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = -18;
 	if (steppybuffer > 0)
@@ -229,6 +233,7 @@ function scr_fakepepclone_Sjump()
 
 function scr_fakepepclone_throwing()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_fakepeppino_throwhead)
 	{
 		if (x != targetplayer.x)

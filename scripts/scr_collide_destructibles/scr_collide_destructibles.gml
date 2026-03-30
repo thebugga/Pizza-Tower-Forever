@@ -1,5 +1,6 @@
 function scr_collide_destructibles()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		if ((state == states.jump && sprite_index == spr_playerN_noisebombspinjump) || (ghostdash && sprite_index != spr_ghostidle) || state == states.machcancel || state == states.slipbanan || state == states.rideweenie || state == states.trickjump || state == states.ratmountbounce || state == states.noisecrusher || (state == states.pogo && pogochargeactive == true))

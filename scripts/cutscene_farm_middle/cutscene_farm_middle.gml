@@ -1,5 +1,6 @@
 function cutscene_farm_middle()
 {
+	if (live_call()) return live_result;
 	var _finish = false;
 	with (obj_mort_inline)
 	{
@@ -22,6 +23,7 @@ function cutscene_farm_middle()
 
 function cutscene_farm_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.normal;

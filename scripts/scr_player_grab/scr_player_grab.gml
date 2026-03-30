@@ -1,5 +1,6 @@
 function scr_player_grab()
 {
+	if (live_call()) return live_result;
 	grav = 0.5;
 	move = key_left + key_right;
 	if (grounded)

@@ -1,5 +1,6 @@
 function scr_player_spiderweb()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	movespeed = 0;

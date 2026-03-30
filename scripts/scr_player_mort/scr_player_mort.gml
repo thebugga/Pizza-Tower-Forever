@@ -1,5 +1,6 @@
 function scr_player_mort()
 {
+	if (live_call()) return live_result;
 	move = key_right + key_left;
 	hsp = movespeed;
 	mort = false;
@@ -101,6 +102,7 @@ function scr_player_mort()
 
 function mort_attack()
 {
+	if (live_call()) return live_result;
 	if (character == "N" || character == "PUP")
 	{
 		if (input_buffer_slap > 0)
@@ -211,6 +213,7 @@ function mort_attack()
 
 function Mort_DownMovement()
 {
+	if (live_call()) return live_result;
 	if (image_angle == 270)
 	{
 		with (playerid)

@@ -1,5 +1,6 @@
 function scr_deactivate_escape()
 {
+	if (live_call()) return live_result;
 	with (obj_baddie)
 	{
 		hitboxcreate = false;

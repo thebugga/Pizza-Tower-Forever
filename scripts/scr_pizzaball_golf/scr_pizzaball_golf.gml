@@ -1,5 +1,6 @@
 function scr_pizzaball_golf()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_pizzaball_stun;
 	image_speed = 0.35;
 	vsp = 0;

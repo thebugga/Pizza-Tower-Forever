@@ -1,5 +1,6 @@
 function scr_player_tubeenter()
 {
+	if (live_call()) return live_result;
 	visible = false;
 	with (tube_id)
 	{

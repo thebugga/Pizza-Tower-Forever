@@ -9,6 +9,7 @@ enum pizzafacep2_attacks
 
 function scr_pizzaface_p2_init_sounds()
 {
+	if (live_call()) return live_result;
 	snd_haywire = fmod_event_create_instance("event:/sfx/pizzahead/haywire");
 	snd_tvthrow = fmod_event_create_instance("event:/sfx/pizzahead/tvthrow");
 	snd_spin = fmod_event_create_instance("event:/sfx/pizzahead/spin");
@@ -20,11 +21,13 @@ function scr_pizzaface_p2_init_sounds()
 
 function scr_pizzaface_p2_destroy_sounds()
 {
+	if (live_call()) return live_result;
 	destroy_sounds([snd_haywire, snd_tvthrow, snd_spin, snd_grablevel, snd_fishing, snd_ratball]);
 }
 
 function scr_pizzaface_p2_update_sounds()
 {
+	if (live_call()) return live_result;
 	if (instance_exists(obj_pizzahead_haywire))
 	{
 		if (!fmod_event_instance_is_playing(snd_haywire))
@@ -127,6 +130,7 @@ function scr_pizzaface_p2_update_sounds()
 
 function scr_pizzaface_p2_fall()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = 0;
 	with (obj_player1)
@@ -267,6 +271,7 @@ function scr_pizzaface_p2_fall()
 
 function scr_pizzaface_p2_normal()
 {
+	if (live_call()) return live_result;
 	if (elitehit <= 0)
 	{
 		destroyable = true;
@@ -335,6 +340,7 @@ function scr_pizzaface_p2_normal()
 
 function scr_pizzaface_p2_look()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (fishingbuffer > 0)
 	{
@@ -357,6 +363,7 @@ function scr_pizzaface_p2_look()
 
 function scr_pizzaface_p2_fishing()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (instance_exists(obj_pizzaheadswordstone) && abs(x - obj_pizzaheadswordstone.x) <= 120)
 	{
@@ -472,6 +479,7 @@ function scr_pizzaface_p2_fishing()
 
 function boss_pizzahead_pinup()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (ANIMATION_END)
 	{
@@ -484,6 +492,7 @@ function boss_pizzahead_pinup()
 
 function boss_pizzahead_portraitthrow()
 {
+	if (live_call()) return live_result;
 	if (floor(image_index) >= 44 && !shot)
 	{
 		shot = true;
@@ -507,6 +516,7 @@ function boss_pizzahead_portraitthrow()
 
 function boss_pizzahead_pullinglevel()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_pizzahead_pullinglevel2)
 	{
 		var ix = floor(image_index);
@@ -623,6 +633,7 @@ function boss_pizzahead_pullinglevel()
 
 function boss_pizzahead_throwing()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (!brick)
 	{
@@ -706,6 +717,7 @@ function boss_pizzahead_throwing()
 
 function boss_pizzahead_shotgun()
 {
+	if (live_call()) return live_result;
 	switch (substate)
 	{
 		case states.mini:
@@ -835,6 +847,7 @@ function boss_pizzahead_shotgun()
 
 function boss_pizzahead_p2_phase1hurt()
 {
+	if (live_call()) return live_result;
 	x = hitX + irandom_range(-1, 1);
 	y = hitY + irandom_range(-1, 1);
 	hsp = 0;

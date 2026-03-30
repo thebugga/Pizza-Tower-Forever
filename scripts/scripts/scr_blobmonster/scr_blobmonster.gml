@@ -1,5 +1,6 @@
 function scr_blob_normal()
 {
+	if (live_call()) return live_result;
 	sprite_index = walkspr;
 	hsp = image_xscale * movespeed;
 	var _calc = 32 * obstacle_max * sign(image_yscale);
@@ -31,6 +32,7 @@ function scr_blob_normal()
 
 function scr_blob_fall()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	sprite_index = fallspr;
 	if (grounded)
@@ -42,6 +44,7 @@ function scr_blob_fall()
 
 function scr_blob_chase()
 {
+	if (live_call()) return live_result;
 	if ((playerinst.x - x) != 0)
 	{
 		image_xscale = sign(playerinst.x - x);

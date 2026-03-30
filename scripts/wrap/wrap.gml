@@ -1,5 +1,6 @@
 function wrap()
 {
+	if (live_call()) return live_result;
 	var _val = argument[0];
 	var _max = argument[2];
 	var _min = argument[1];

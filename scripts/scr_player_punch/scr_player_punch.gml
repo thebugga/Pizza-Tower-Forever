@@ -1,5 +1,6 @@
 function scr_player_punch()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_breakdanceuppercut || sprite_index == spr_breakdanceuppercutend)
 	{
 		move = key_left + key_right;

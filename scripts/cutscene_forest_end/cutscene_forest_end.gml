@@ -1,5 +1,6 @@
 function cutscene_forest_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.normal;
@@ -15,6 +16,7 @@ function cutscene_forest_end()
 
 function cutscene_beach_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.normal;
@@ -30,6 +32,7 @@ function cutscene_beach_end()
 
 function cutscene_sewer_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.normal;

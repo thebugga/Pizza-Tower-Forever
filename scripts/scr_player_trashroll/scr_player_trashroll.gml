@@ -1,5 +1,6 @@
 function scr_player_trashroll()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = xscale * movespeed;
 	if (gravesurfingjumpbuffer > 0)

@@ -1,5 +1,6 @@
 function scr_player_freefall()
 {
+	if (live_call()) return live_result;
 	landAnim = true;
 	if (vsp >= 2)
 	{

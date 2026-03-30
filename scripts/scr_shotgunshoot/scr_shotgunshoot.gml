@@ -1,5 +1,6 @@
 function scr_shotgunshoot()
 {
+	if (live_call()) return live_result;
 	if (character == "N" || character == "PUP")
 	{
 		input_buffer_shoot = 0;

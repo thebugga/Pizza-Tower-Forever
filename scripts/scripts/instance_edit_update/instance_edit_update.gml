@@ -8,6 +8,7 @@ function object_apply_values(_obj)
 
 function instance_edit_update()
 {
+	if (live_call()) return live_result;
 	var pos = editor_get_world_pos();
 	var xx = pos[0];
 	var yy = pos[1];

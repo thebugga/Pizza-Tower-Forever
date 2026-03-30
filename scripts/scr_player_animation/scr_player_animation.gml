@@ -1,5 +1,6 @@
 function scr_player_animation()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	if (sprite_index == spr_watchitbub2 || sprite_index == spr_playerN_glovesstart)

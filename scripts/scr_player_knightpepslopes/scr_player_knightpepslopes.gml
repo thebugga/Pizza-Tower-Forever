@@ -1,5 +1,6 @@
 function scr_player_knightpepslopes()
 {
+	if (live_call()) return live_result;
 	if ((x + hsp) == xprevious)
 	{
 		slope_buffer--;

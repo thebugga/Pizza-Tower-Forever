@@ -93,6 +93,7 @@ function achievement_get_variable(_name)
 
 function achievement_get_all_variables()
 {
+	if (live_call()) return live_result;
 	var arr = [];
 	var key = ds_map_find_first(variables);
 	var size = ds_map_size(variables);

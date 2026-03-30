@@ -1,5 +1,6 @@
 function scr_player_cheeseballclimbwall()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = -wallspeed;
 	if (scr_solid(x, y - 1) && !place_meeting(x, y - 1, obj_destructibles) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x - sign(hsp), y, obj_slope))

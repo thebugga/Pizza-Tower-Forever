@@ -1,5 +1,6 @@
 function scr_player_ratmountclimbwall()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.5;
 	hsp = 0;
 	vsp = 0;

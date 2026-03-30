@@ -1,5 +1,6 @@
 function scr_enemy_turn()
 {
+	if (live_call()) return live_result;
 	sprite_index = turnspr;
 	image_speed = 0.35;
 	if (ANIMATION_END)

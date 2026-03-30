@@ -1,5 +1,6 @@
 function scr_enemy_ghostpossess()
 {
+	if (live_call()) return live_result;
 	var _move = 0;
 	with (playerid)
 	{

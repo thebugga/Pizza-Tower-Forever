@@ -1,5 +1,6 @@
 function scr_player_freefallland()
 {
+	if (live_call()) return live_result;
 	mach2 = 0;
 	jumpAnim = true;
 	dashAnim = true;

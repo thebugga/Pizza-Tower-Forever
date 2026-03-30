@@ -1,5 +1,6 @@
 function scr_player_noisejetpack()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	move = key_left + key_right;
 	if (key_jump2 && jetpackfuel > 0)

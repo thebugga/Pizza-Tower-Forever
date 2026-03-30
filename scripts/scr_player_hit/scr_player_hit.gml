@@ -1,5 +1,6 @@
 function scr_player_hit()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	x = hitX + random_range(-4, 4);

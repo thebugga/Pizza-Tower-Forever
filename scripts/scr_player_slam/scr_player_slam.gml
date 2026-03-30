@@ -1,5 +1,6 @@
 function scr_player_slam()
 {
+	if (live_call()) return live_result;
 	if (windingAnim < 200)
 	{
 		windingAnim += 5;

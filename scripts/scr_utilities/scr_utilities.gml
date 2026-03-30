@@ -1,26 +1,12 @@
-function Approach(_val1, _val2, _amount)
+function Approach(value, target, increment = 0.5)
 {
-	if (_val1 < _val2)
-	{
-		_val1 += _amount;
-		if (_val1 > _val2)
-		{
-			return _val2;
-		}
-	}
-	else
-	{
-		_val1 -= _amount;
-		if (_val1 < _val2)
-		{
-			return _val2;
-		}
-	}
-	return _val1;
+        var t = target - value;
+    return value + clamp(t, -increment, increment);
 }
 
 function get_milliseconds()
 {
+	if (live_call()) return live_result;
 	return get_timer() / 1000;
 }
 
@@ -149,6 +135,7 @@ function get_solid_difference(_xspd, _yspd, _iteration_count)
 
 function trace()
 {
+	if (live_call()) return live_result;
 	var _string = "";
 	for (var i = 0; i < argument_count; i++)
 	{
@@ -159,6 +146,7 @@ function trace()
 
 function concat()
 {
+	if (live_call()) return live_result;
 	var _string = "";
 	for (var i = 0; i < argument_count; i++)
 	{

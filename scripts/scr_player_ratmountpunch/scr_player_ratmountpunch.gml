@@ -1,5 +1,6 @@
 function scr_player_ratmountpunch()
 {
+	if (live_call()) return live_result;
 	image_speed = abs(movespeed) / 12;
 	hsp = movespeed;
 	move = key_left + key_right;

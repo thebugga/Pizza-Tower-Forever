@@ -1,5 +1,6 @@
 function scr_player_finishingblow()
 {
+	if (live_call()) return live_result;
 	hsp = movespeed;
 	move = key_right + key_left;
 	if (floor(image_index) < 4 && sprite_index != spr_swingdingend)

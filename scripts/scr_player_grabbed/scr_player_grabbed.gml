@@ -1,5 +1,6 @@
 function scr_player_grabbed()
 {
+	if (live_call()) return live_result;
 	var _obj_player = (object_index == obj_player2) ? obj_player1 : obj_player2;
 	if (fightball == false)
 	{

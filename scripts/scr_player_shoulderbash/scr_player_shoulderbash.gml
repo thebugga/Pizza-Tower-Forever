@@ -1,5 +1,6 @@
 function scr_player_shoulderbash()
 {
+	if (live_call()) return live_result;
 	movespeed = (sprite_index == spr_pepperman_shoulderstart) ? shoulderbash_mspeed_start : Approach(movespeed, shoulderbash_mspeed_loop, 0.5);
 	hsp = xscale * movespeed;
 	if (!instance_exists(chargeeffectid))

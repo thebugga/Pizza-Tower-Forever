@@ -213,6 +213,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 
 function draw_superslam_enemy()
 {
+	if (live_call()) return live_result;
 	if (state == states.superslam && floor(image_index) >= 5 && floor(image_index) <= 7 && instance_exists(baddiegrabbedID))
 	{
 		with (baddiegrabbedID)
@@ -224,6 +225,7 @@ function draw_superslam_enemy()
 
 function draw_player()
 {
+	if (live_call()) return live_result;
 	if (instance_exists(obj_swapgusfightball))
 	{
 		var _use_dark = other.use_dark;

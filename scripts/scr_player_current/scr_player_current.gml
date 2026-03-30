@@ -1,5 +1,6 @@
 function scr_player_current()
 {
+	if (live_call()) return live_result;
 	if (!place_meeting(x, y, obj_current))
 	{
 		state = states.normal;

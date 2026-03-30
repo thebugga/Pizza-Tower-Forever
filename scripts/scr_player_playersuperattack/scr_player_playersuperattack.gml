@@ -1,5 +1,6 @@
 function scr_player_playersuperattack()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.5;
 	switch (superattackstate)
 	{

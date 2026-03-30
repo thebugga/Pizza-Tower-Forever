@@ -1,5 +1,6 @@
 function scr_player_door()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	mach2 = 0;
 	jumpAnim = true;

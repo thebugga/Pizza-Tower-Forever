@@ -1,5 +1,6 @@
 function scr_player_comingoutdoor()
 {
+	if (live_call()) return live_result;
 	mach2 = 0;
 	jumpAnim = true;
 	dashAnim = true;

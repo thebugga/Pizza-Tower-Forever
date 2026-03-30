@@ -1,5 +1,6 @@
 function scr_player_gotoplayer()
 {
+	if (live_call()) return live_result;
 	pogochargeactive = false;
 	movespeed = 0;
 	visible = false;

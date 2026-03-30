@@ -1,5 +1,6 @@
 function scr_player_jump()
 {
+	if (live_call()) return live_result;
 	var maxmovespeed = 8;
 	var maxmovespeed2 = 6;
 	var turnmovespeed = 2;

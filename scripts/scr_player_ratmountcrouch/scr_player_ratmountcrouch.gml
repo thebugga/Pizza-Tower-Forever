@@ -1,5 +1,6 @@
 function scr_player_ratmountcrouch()
 {
+	if (live_call()) return live_result;
 	move = key_left + key_right;
 	hsp = movespeed;
 	if (place_meeting(x + hsp, y, obj_solid) && !place_meeting(x + hsp, y, obj_slope) && !place_meeting(x + hsp, y, obj_destructibles))

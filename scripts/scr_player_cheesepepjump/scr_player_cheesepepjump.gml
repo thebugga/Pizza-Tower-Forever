@@ -1,5 +1,6 @@
 function scr_player_cheesepepjump()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (ANIMATION_END)
 	{

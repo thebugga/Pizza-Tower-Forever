@@ -1,5 +1,6 @@
 function scr_player_boxxedpep()
 {
+	if (live_call()) return live_result;
 	mask_index = spr_crouchmask;
 	if (boxxeddash == true)
 	{

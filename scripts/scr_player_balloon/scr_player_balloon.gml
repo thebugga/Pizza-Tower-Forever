@@ -1,5 +1,6 @@
 function scr_player_balloon()
 {
+	if (live_call()) return live_result;
 	if (character == "N" || character == "PUP")
 	{
 		image_speed = 0.35;

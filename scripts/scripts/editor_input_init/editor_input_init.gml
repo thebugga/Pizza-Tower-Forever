@@ -1,5 +1,6 @@
 function editor_input_init()
 {
+	if (live_call()) return live_result;
 	key_undo = false;
 	key_redo = false;
 	key_select = false;

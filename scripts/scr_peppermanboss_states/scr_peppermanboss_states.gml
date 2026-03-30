@@ -1,5 +1,6 @@
 function boss_pepperman_decide_attack()
 {
+	if (live_call()) return live_result;
 	if (phase < 5)
 	{
 		pepperman_decide_attack_phase1();
@@ -16,6 +17,7 @@ function boss_pepperman_decide_attack()
 
 function pepperman_decide_attack_phase6()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown > 0)
 	{
 		attack_cooldown--;
@@ -54,6 +56,7 @@ function pepperman_decide_attack_phase6()
 
 function pepperman_decide_attack_phase5()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown > 0)
 	{
 		attack_cooldown--;
@@ -106,6 +109,7 @@ function pepperman_decide_attack_phase5()
 
 function pepperman_decide_attack_phase1()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown > 0)
 	{
 		attack_cooldown--;
@@ -186,6 +190,7 @@ function pepperman_decide_attack_phase1()
 
 function boss_pepperman_normal()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (targetplayer.state != states.thrown)
 	{
@@ -244,6 +249,7 @@ function boss_pepperman_normal()
 
 function boss_pepperman_phase3normal()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (hsp != 0 && grounded)
 	{
@@ -263,6 +269,7 @@ function boss_pepperman_phase3normal()
 
 function boss_pepperman_jump()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (sprite_index == spr_pepperman_jump && image_index > (image_number - 1))
 	{
@@ -302,6 +309,7 @@ function boss_pepperman_jump()
 
 function boss_pepperman_freefallprep()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	sprite_index = spr_pepperman_fall;
@@ -345,6 +353,7 @@ function boss_pepperman_freefallprep()
 
 function boss_pepperman_freefall()
 {
+	if (live_call()) return live_result;
 	vsp = 20;
 	if (grounded)
 	{
@@ -364,6 +373,7 @@ function boss_pepperman_freefall()
 
 function boss_pepperman_freefallland()
 {
+	if (live_call()) return live_result;
 	if (image_index > (image_number - 1))
 	{
 		state = states.normal;
@@ -387,6 +397,7 @@ function boss_pepperman_freefallland()
 
 function boss_pepperman_shoulderbash()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (sprite_index == spr_pepperman_shoulderstart && image_index > (image_number - 1))
 	{
@@ -454,6 +465,7 @@ function boss_pepperman_shoulderbash()
 
 function boss_pepperman_charge()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = 0;
 	if (image_index > (image_number - 1))
@@ -467,6 +479,7 @@ function boss_pepperman_charge()
 
 function boss_pepperman_supershoulderbash()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * (shoulder_spd * 2);
 	if (place_meeting(x + sign(hsp), y, obj_solid))
@@ -490,6 +503,7 @@ function boss_pepperman_supershoulderbash()
 
 function boss_pepperman_shoulder()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * shoulder_spd;
 	if (sprite_index == spr_pepperman_shoulderstart && image_index > (image_number - 1))
@@ -528,6 +542,7 @@ function boss_pepperman_shoulder()
 
 function boss_pepperman_shoulderturn()
 {
+	if (live_call()) return live_result;
 	hsp = Approach(hsp, 0, 0.5);
 	if (image_index > (image_number - 1))
 	{
@@ -540,6 +555,7 @@ function boss_pepperman_shoulderturn()
 
 function boss_pepperman_superattackstart()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	if (sprite_index == spr_pepperman_shoulderstart && image_index > (image_number - 1))
@@ -563,6 +579,7 @@ function boss_pepperman_superattackstart()
 
 function boss_pepperman_superattackcharge()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	var _spd = 12;
@@ -581,6 +598,7 @@ function boss_pepperman_superattackcharge()
 
 function boss_pepperman_superslam()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	var ss_spd = 16;
 	var d = point_direction(x, y, targetplayer.x, targetplayer.y);
@@ -594,6 +612,7 @@ function boss_pepperman_superslam()
 
 function boss_pepperman_fistmatch()
 {
+	if (live_call()) return live_result;
 	x = hitX;
 	y = hitY;
 	hsp = 0;
@@ -691,6 +710,7 @@ function boss_pepperman_fistmatch()
 
 function boss_pepperman_fistmatchend()
 {
+	if (live_call()) return live_result;
 	state_boss_arenaround();
 	var c = false;
 	with (obj_player)
@@ -713,6 +733,7 @@ function boss_pepperman_fistmatchend()
 
 function boss_pepperman_summonbricks()
 {
+	if (live_call()) return live_result;
 	instance_create(room_width / 2, -64, obj_peppermanbrick);
 	instance_create(room_width / 5, -64, obj_peppermanbrick);
 	instance_create(room_width - (room_width / 5), -64, obj_peppermanbrick);

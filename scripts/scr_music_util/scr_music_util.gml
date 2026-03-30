@@ -32,6 +32,7 @@ function add_music(_room, _event, _secretevent, _is_continuous, _roomstartfunc =
 
 function stop_music()
 {
+	if (live_call()) return live_result;
 	with (obj_music)
 	{
 		if (music != noone)

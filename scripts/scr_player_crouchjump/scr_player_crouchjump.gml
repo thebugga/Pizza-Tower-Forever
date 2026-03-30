@@ -1,5 +1,6 @@
 function scr_player_crouchjump()
 {
+	if (live_call()) return live_result;
 	move = key_left + key_right;
 	mask_index = spr_crouchmask;
 	hsp = move * movespeed;

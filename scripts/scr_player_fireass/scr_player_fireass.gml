@@ -1,5 +1,6 @@
 function scr_player_fireass()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	alarm[5] = 2;
 	alarm[7] = 60;

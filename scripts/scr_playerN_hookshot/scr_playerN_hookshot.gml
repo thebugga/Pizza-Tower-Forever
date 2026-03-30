@@ -1,5 +1,6 @@
 function scr_playerN_hookshot()
 {
+	if (live_call()) return live_result;
 	move = key_left + key_right;
 	hsp = movespeed * move;
 	if (move != 0)

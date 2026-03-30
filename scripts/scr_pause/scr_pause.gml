@@ -6,6 +6,7 @@ function scr_pauseicon_draw(_icon_index, _xoffset, _yoffset)
 
 function scr_create_pause_image()
 {
+	if (live_call()) return live_result;
 	draw_set_alpha(1);
 	screensprite = sprite_create_from_surface(application_surface, 0, 0, surface_get_width(application_surface), surface_get_height(application_surface), false, false, 0, 0);
 	guisprite = sprite_create_from_surface(obj_screensizer.gui_surf, 0, 0, surface_get_width(obj_screensizer.gui_surf), surface_get_height(obj_screensizer.gui_surf), false, false, 0, 0);
@@ -14,6 +15,7 @@ function scr_create_pause_image()
 
 function scr_draw_pause_image()
 {
+	if (live_call()) return live_result;
 	draw_rectangle_color(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, c_black, c_black, c_black, c_black, false);
 	draw_sprite_ext(screensprite, 0, 0, 0, screenscale, screenscale, 0, c_white, 1);
 	draw_sprite_ext(guisprite, 0, 0, 0, 1, 1, 0, c_white, 1);
@@ -21,6 +23,7 @@ function scr_draw_pause_image()
 
 function scr_pause_stop_sounds()
 {
+	if (live_call()) return live_result;
 	fmod_event_instance_stop(global.snd_alarm, true);
 	fmod_event_instance_stop(global.snd_bossbeaten, true);
 	fmod_event_instance_stop(global.snd_spaceship, true);
@@ -30,6 +33,7 @@ function scr_pause_stop_sounds()
 
 function scr_delete_pause_image()
 {
+	if (live_call()) return live_result;
 	if (sprite_exists(screensprite))
 	{
 		sprite_delete(screensprite);
@@ -124,6 +128,7 @@ function scr_pause_deactivate_objects(_pause_sounds = true)
 
 function pause_spawn_priests()
 {
+	if (live_call()) return live_result;
 	var p = 
 	{
 		x: 0,
@@ -153,6 +158,7 @@ function pause_spawn_priests()
 
 function pause_unpause_music()
 {
+	if (live_call()) return live_result;
 	with (obj_music)
 	{
 		if (music != noone)
@@ -169,6 +175,7 @@ function pause_unpause_music()
 
 function pause_update_priests()
 {
+	if (live_call()) return live_result;
 	for (var i = 0; i < ds_list_size(priest_list); i++)
 	{
 		var b = ds_list_find_value(priest_list, i);
@@ -208,6 +215,7 @@ function pause_update_priests()
 
 function pause_draw_priests()
 {
+	if (live_call()) return live_result;
 	for (var i = 0; i < ds_list_size(priest_list); i++)
 	{
 		var b = ds_list_find_value(priest_list, i);

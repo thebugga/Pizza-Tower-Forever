@@ -1,5 +1,6 @@
 function scr_player_mortattack()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.45;
 	hsp = movespeed;
 	if (character == "N" || character == "PUP")

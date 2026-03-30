@@ -85,6 +85,7 @@ function add_boss_achievements(_boss, _bossroom, _spr, _index)
 
 function scr_custom_notification_destructibles()
 {
+	if (live_call()) return live_result;
 	active = false;
 	
 	step = function()

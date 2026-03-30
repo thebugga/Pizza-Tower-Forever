@@ -1,5 +1,6 @@
 function state_boss_chainsaw()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	image_speed = 0;
@@ -51,6 +52,7 @@ function state_boss_walk(_func)
 
 function state_boss_bump()
 {
+	if (live_call()) return live_result;
 	movespeed = 0;
 	sprite_index = bumpspr;
 	image_speed = 0.35;
@@ -66,6 +68,7 @@ function state_boss_bump()
 
 function state_boss_arenaround()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	var is_playerside = (targetplayer.x > (room_width / 2)) ? (x > (room_width / 5)) : (x < (room_width - (room_width / 5)));
 	if (is_playerside)
@@ -98,6 +101,7 @@ function boss_decide_taunt(arg0)
 
 function state_boss_taunt()
 {
+	if (live_call()) return live_result;
 	image_speed = 0;
 	hsp = 0;
 	vsp = 0;
@@ -143,6 +147,7 @@ function state_boss_taunt()
 
 function state_boss_parry()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = movespeed * -image_xscale;
 	if (image_index > (image_number - 1))
@@ -162,6 +167,7 @@ function state_boss_parry()
 
 function state_player_arenaround()
 {
+	if (live_call()) return live_result;
 	var _normal_spd = 6;
 	var is_bossside = (x < (room_width / 2)) ? (x > (room_width / 5)) : (x < (room_width - (room_width / 5)));
 	if (is_bossside)

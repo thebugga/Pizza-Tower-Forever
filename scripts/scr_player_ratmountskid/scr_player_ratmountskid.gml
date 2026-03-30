@@ -1,5 +1,6 @@
 function scr_player_ratmountskid()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * -movespeed;
 	movespeed = Approach(movespeed, 0, 0.8);
 	if (brick)

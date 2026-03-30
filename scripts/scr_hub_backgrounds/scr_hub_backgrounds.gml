@@ -33,6 +33,7 @@ function scr_hub_bg_reinit(_xoffset, _yoffset)
 
 function scr_hub_bg_step()
 {
+	if (live_call()) return live_result;
 	for (var i = 0; i < array_length(bgspritepos); i++)
 	{
 		if (!bg_useparallax)

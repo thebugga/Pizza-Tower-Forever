@@ -1,5 +1,6 @@
 function scr_soundtest_secret()
 {
+	if (live_call()) return live_result;
 	targetRoom = tower_soundtestlevel;
 	soundtest = true;
 	var found = false;

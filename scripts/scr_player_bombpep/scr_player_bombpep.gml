@@ -1,5 +1,6 @@
 function scr_player_bombgrab()
 {
+	if (live_call()) return live_result;
 	move = key_left + key_right;
 	if (sprite_index != spr_uppercutfinishingblow && sprite_index != spr_player_throw)
 	{
@@ -186,6 +187,7 @@ function scr_player_bombgrab()
 
 function scr_player_bombpepup()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	vsp = bombup_dir * 11;
 	hsp = 0;
@@ -261,6 +263,7 @@ function scr_player_bombpepup()
 
 function scr_player_bombpepside()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	vsp = 0;
 	mach2 = 0;
@@ -314,6 +317,7 @@ function scr_player_bombpepside()
 
 function scr_player_bombpep()
 {
+	if (live_call()) return live_result;
 	alarm[8] = 60;
 	alarm[7] = 120;
 	hurted = true;

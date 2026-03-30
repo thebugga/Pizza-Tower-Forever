@@ -1,5 +1,6 @@
 function scr_pizzaball_thrown()
 {
+	if (live_call()) return live_result;
 	if (stuntouchbuffer > 0)
 	{
 		stuntouchbuffer--;

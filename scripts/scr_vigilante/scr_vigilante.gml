@@ -42,6 +42,7 @@ function vigilante_end_attack(_phase, _hits)
 
 function scr_vigilante_init_sounds()
 {
+	if (live_call()) return live_result;
 	snd_flame = fmod_event_create_instance("event:/sfx/vigilante/flamethrower");
 	snd_mach1 = fmod_event_create_instance("event:/sfx/vigilante/mach1");
 	snd_slide = fmod_event_create_instance("event:/sfx/vigilante/slide");
@@ -51,11 +52,13 @@ function scr_vigilante_init_sounds()
 
 function scr_vigilante_destroy_sounds()
 {
+	if (live_call()) return live_result;
 	destroy_sounds([snd_flame, snd_mach1, snd_slide, snd_uziprep]);
 }
 
 function scr_vigilante_update_sounds()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_vigilante_flamethrower)
 	{
 		if (!fmod_event_instance_is_playing(snd_flame))
@@ -112,6 +115,7 @@ function scr_vigilante_update_sounds()
 
 function scr_vigilante_arenaintro()
 {
+	if (live_call()) return live_result;
 	if (skipintro && !introwait)
 	{
 		with (obj_player)
@@ -304,6 +308,7 @@ function scr_vigilante_do_hurt_phase2(_player)
 
 function scr_vigilante_phase1hurt()
 {
+	if (live_call()) return live_result;
 	x = hitX + irandom_range(-1, 1);
 	y = hitY + irandom_range(-1, 1);
 	hsp = 0;
@@ -356,6 +361,7 @@ function scr_vigilante_phase1hurt()
 
 function scr_vigilante_walk()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (grounded && vsp > 0 && sprite_index == spr_playerV_hurt && flickertime > 2)
 	{
@@ -583,6 +589,7 @@ function scr_vigilante_do_cow(_shot = 1, _throwbuffermax = 0)
 
 function scr_vigilante_throw_cow()
 {
+	if (live_call()) return live_result;
 	if (shot > 0)
 	{
 		shot--;
@@ -647,6 +654,7 @@ function scr_vigilante_do_dynamite(_shot)
 
 function scr_vigilante_throw_dynamite()
 {
+	if (live_call()) return live_result;
 	if (shot > 0)
 	{
 		fmod_event_one_shot_3d("event:/sfx/vigilante/throw", x, y);
@@ -675,6 +683,7 @@ function scr_vigilante_throw_dynamite()
 
 function scr_vigilante_jump()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (ANIMATION_END && sprite_index == spr_playerV_jump)
 	{
@@ -695,6 +704,7 @@ function scr_vigilante_jump()
 
 function scr_vigilante_wait()
 {
+	if (live_call()) return live_result;
 	hsp = Approach(hsp, 0, 1);
 	if (sprite_index == spr_playerV_revolverend)
 	{
@@ -716,6 +726,7 @@ function scr_vigilante_wait()
 
 function scr_vigilante_estampede()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	image_speed = 0.35;
 	if (estampedecooldown > 0)
@@ -762,6 +773,7 @@ function scr_vigilante_estampede()
 
 function scr_vigilante_revolver()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = Approach(hsp, 0, 1);
 	if (ANIMATION_END)
@@ -816,6 +828,7 @@ function scr_vigilante_do_reload(_reloadbuffer = 360)
 
 function scr_vigilante_dynamite()
 {
+	if (live_call()) return live_result;
 	hsp = Approach(hsp, 0, 1);
 	if (ANIMATION_END)
 	{
@@ -828,6 +841,7 @@ function scr_vigilante_dynamite()
 
 function scr_vigilante_throwing()
 {
+	if (live_call()) return live_result;
 	hsp = Approach(hsp, 0, 1);
 	if (throwbuffer > 0)
 	{
@@ -848,6 +862,7 @@ function scr_vigilante_throwing()
 
 function scr_vigilante_reloading()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = Approach(hsp, 0, 1);
 	if (reloadbuffer > 0)
@@ -867,6 +882,7 @@ function scr_vigilante_reloading()
 
 function scr_vigilante_mach2()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * attackspeed;
 	if (sprite_index == spr_playerV_bootsmove)
@@ -948,6 +964,7 @@ function scr_vigilante_mach2()
 
 function scr_vigilante_check_spot()
 {
+	if (live_call()) return live_result;
 	if (place_meeting(x, y, obj_vigilantespot))
 	{
 		var b = false;
@@ -966,6 +983,7 @@ function scr_vigilante_check_spot()
 
 function scr_vigilante_crouchslide()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * attackspeed;
 	if (attackspeed > 0)
 	{
@@ -988,6 +1006,7 @@ function scr_vigilante_crouchslide()
 
 function scr_vigilante_duel()
 {
+	if (live_call()) return live_result;
 	if (instance_exists(obj_vigilante_duelintro))
 	{
 		exit;
@@ -1194,6 +1213,7 @@ function scr_vigilante_duel()
 
 function scr_vigilante_punch()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (ANIMATION_END)
 	{
@@ -1205,6 +1225,7 @@ function scr_vigilante_punch()
 
 function scr_vigilante_flamethrower()
 {
+	if (live_call()) return live_result;
 	if (sprite_index != spr_vigilante_flamethrowerturn)
 	{
 		if (sprite_index == spr_vigilante_flamethrowerintro)
@@ -1280,6 +1301,7 @@ function scr_vigilante_flamethrower()
 
 function scr_vigilante_machinegun()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_vigilante_uziprepare)
 	{
 		hsp = 0;
@@ -1373,6 +1395,7 @@ function scr_vigilante_machinegun()
 
 function scr_vigilante_bazooka()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_playerV_jump && floor(image_index) >= 7)
 	{
 		image_index = 5;
@@ -1412,6 +1435,7 @@ function scr_vigilante_bazooka()
 
 function scr_vigilante_crate()
 {
+	if (live_call()) return live_result;
 	if (floor(image_index) >= 10 && !shot)
 	{
 		shot = true;
@@ -1428,6 +1452,7 @@ function scr_vigilante_crate()
 
 function scr_vigilante_hit()
 {
+	if (live_call()) return live_result;
 	if (!pizzahead)
 	{
 		x = hitX + random_range(-6, 6);

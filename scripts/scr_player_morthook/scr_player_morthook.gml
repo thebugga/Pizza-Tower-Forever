@@ -1,5 +1,6 @@
 function scr_player_morthook()
 {
+	if (live_call()) return live_result;
 	jumpstop = true;
 	doublejump = false;
 	hsp = 0;

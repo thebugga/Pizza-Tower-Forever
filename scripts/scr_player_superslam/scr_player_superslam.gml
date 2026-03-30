@@ -1,5 +1,6 @@
 function scr_player_superslam()
 {
+	if (live_call()) return live_result;
 	if (vsp > 0)
 	{
 		freefallsmash++;

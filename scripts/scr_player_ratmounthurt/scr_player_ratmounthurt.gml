@@ -1,5 +1,6 @@
 function scr_player_ratmounthurt()
 {
+	if (live_call()) return live_result;
 	hsp = -xscale * movespeed;
 	landAnim = false;
 	jumpAnim = false;

@@ -1,5 +1,6 @@
 function cutscene_superpinball_start()
 {
+	if (live_call()) return live_result;
 	var _finish = false;
 	with (obj_player1)
 	{
@@ -24,6 +25,7 @@ function cutscene_superpinball_start()
 
 function cutscene_superpinball_middle()
 {
+	if (live_call()) return live_result;
 	var t = noone;
 	with (obj_superpinballmachine)
 	{
@@ -47,6 +49,7 @@ function cutscene_superpinball_middle()
 
 function cutscene_superpinball_middle2()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		if (vsp >= 0 && check_player_coop())
@@ -63,6 +66,7 @@ function cutscene_superpinball_middle2()
 
 function cutscene_superpinball_middle3()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		if (check_player_coop())
@@ -76,6 +80,7 @@ function cutscene_superpinball_middle3()
 
 function cutscene_superpinball_middle4()
 {
+	if (live_call()) return live_result;
 	if (obj_player1.y > 540)
 	{
 		cutscene_end_action();
@@ -84,6 +89,7 @@ function cutscene_superpinball_middle4()
 
 function cutscene_superpinball_middle5()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		if (check_player_coop())
@@ -97,6 +103,7 @@ function cutscene_superpinball_middle5()
 
 function cutscene_superpinball_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		if (check_player_coop())
@@ -111,5 +118,6 @@ function cutscene_superpinball_end()
 
 function check_player_coop()
 {
+	if (live_call()) return live_result;
 	return object_index != obj_player2 || global.coop;
 }

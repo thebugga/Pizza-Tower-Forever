@@ -1,5 +1,6 @@
 function scr_player_cheesepeplaunch()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	if (ANIMATION_END)
 	{

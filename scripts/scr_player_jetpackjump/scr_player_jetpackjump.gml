@@ -1,5 +1,6 @@
 function scr_player_jetpackjump()
 {
+	if (live_call()) return live_result;
 	landAnim = false;
 	if (firemouth_afterimage > 0)
 	{

@@ -1,5 +1,6 @@
 function scr_player_cheesepepfling()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	sprite_index = spr_cheesepepintro;
 	if (fling < 30)

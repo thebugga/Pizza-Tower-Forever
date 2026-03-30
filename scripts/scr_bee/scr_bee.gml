@@ -1,5 +1,6 @@
 function scr_bee_chase()
 {
+	if (live_call()) return live_result;
 	var spd = 4;
 	chase_angle = angle_rotate(chase_angle, point_direction(x, y, target_x, target_y), 3);
 	x += lengthdir_x(spd, chase_angle);
@@ -16,6 +17,7 @@ function scr_bee_chase()
 
 function scr_bee_idle()
 {
+	if (live_call()) return live_result;
 	if (ds_stack_size(path) > LAG_STEPS)
 	{
 		var b = ds_stack_pop(path);
@@ -28,6 +30,7 @@ function scr_bee_idle()
 
 function scr_bee_bee()
 {
+	if (live_call()) return live_result;
 	switch (substate)
 	{
 		case states.bee:
@@ -64,6 +67,7 @@ function scr_bee_bee()
 
 function scr_bee_hurt()
 {
+	if (live_call()) return live_result;
 	x = hitX + irandom_range(-1, 1);
 	y = hitY + irandom_range(-1, 1);
 	if (inv_timer > 0)
@@ -79,6 +83,7 @@ function scr_bee_hurt()
 
 function create_bee_path()
 {
+	if (live_call()) return live_result;
 	return 
 	{
 		x: obj_player1.x,

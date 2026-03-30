@@ -1,5 +1,6 @@
 function scr_player_dashtumble()
 {
+	if (live_call()) return live_result;
 	landAnim = false;
 	momemtum = true;
 	dir = xscale;

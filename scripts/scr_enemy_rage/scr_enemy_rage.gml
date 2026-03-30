@@ -1,5 +1,6 @@
 function scr_enemy_rage()
 {
+	if (live_call()) return live_result;
 	switch (object_index)
 	{
 		case obj_forknight:

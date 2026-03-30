@@ -1,5 +1,6 @@
 function scr_pizzagoblin_throw()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (place_meeting(x, y + 1, obj_railh))
 	{

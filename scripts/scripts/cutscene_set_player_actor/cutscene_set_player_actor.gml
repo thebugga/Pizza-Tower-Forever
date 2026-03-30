@@ -1,5 +1,6 @@
 function cutscene_set_player_actor()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		if (check_player_coop())

@@ -1,5 +1,6 @@
 function scr_player_arenaintro()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	hurted = false;
 	inv_frames = false;

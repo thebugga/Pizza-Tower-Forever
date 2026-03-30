@@ -1,5 +1,6 @@
 function scr_soundeffect()
 {
+	if (live_call()) return live_result;
 	var snd = argument[irandom(argument_count - 1)];
 	var snd_id = audio_play_sound(snd, 1, false);
 	audio_sound_gain(snd_id, audio_sound_get_gain(snd_id) * global.option_sfx_volume, 0);
@@ -28,6 +29,7 @@ function set_audio_config(_save = true)
 
 function set_controller_config()
 {
+	if (live_call()) return live_result;
 	ini_open_from_string(obj_savesystem.ini_str_options);
 	ini_write_real("InputConfig", "deadzone", global.input_controller_deadzone);
 	ini_write_real("InputConfig", "deadzone_vert", global.input_controller_deadzone_vertical);

@@ -1,5 +1,6 @@
 function cutscene_player_idleanim()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		sprite_index = spr_idle;

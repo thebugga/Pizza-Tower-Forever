@@ -1,5 +1,6 @@
 function scr_collide_player()
 {
+	if (live_call()) return live_result;
 	grounded = false;
 	grinding = false;
 	collision_flags = 0;

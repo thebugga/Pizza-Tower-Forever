@@ -140,6 +140,7 @@ function fakepep_add_tauntclones(_phase, _current_hit, _vsp1, _vsp2, _cooldown, 
 
 function scr_fakepep_init_sounds()
 {
+	if (live_call()) return live_result;
 	snd_bodyslam = fmod_event_create_instance("event:/sfx/fakepep/bodyslam");
 	snd_mach = fmod_event_create_instance("event:/sfx/fakepep/mach");
 	snd_superjump = fmod_event_create_instance("event:/sfx/fakepep/superjump");
@@ -150,11 +151,13 @@ function scr_fakepep_init_sounds()
 
 function scr_fakepep_destroy_sounds()
 {
+	if (live_call()) return live_result;
 	destroy_sounds([snd_bodyslam, snd_mach, snd_superjump, snd_grab, snd_headoff, snd_flailing]);
 }
 
 function scr_fakepep_update_sounds()
 {
+	if (live_call()) return live_result;
 	fmod_event_instance_set_3d_attributes(snd_grab, x, y);
 	if (state == states.freefall || state == states.jump)
 	{
@@ -356,6 +359,7 @@ function scr_fakepepboss_do_projectiles(_phase, _hits)
 
 function scr_fakepepboss_arenaintro()
 {
+	if (live_call()) return live_result;
 	if (!skipintro)
 	{
 		image_speed = 0.35;
@@ -512,6 +516,7 @@ function scr_fakepepboss_arenaintro()
 
 function scr_fakepepboss_walk()
 {
+	if (live_call()) return live_result;
 	if (phase == 2 && (flickertime > 0 || !grounded))
 	{
 		if (grounded)
@@ -650,6 +655,7 @@ function scr_fakepepboss_walk()
 
 function scr_fakepepboss_deformed()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = 0;
 	vsp = 0;
@@ -705,6 +711,7 @@ function scr_fakepepboss_deformed()
 
 function scr_fakepepboss_staggered()
 {
+	if (live_call()) return live_result;
 	hsp = Approach(hsp, 0, 0.25);
 	cooldown = 0;
 	if (!instance_exists(dashcloudid))
@@ -727,6 +734,7 @@ function scr_fakepepboss_staggered()
 
 function scr_fakepepboss_grabdash()
 {
+	if (live_call()) return live_result;
 	if (grabstart > 0)
 	{
 		hsp += (-image_xscale * 1);
@@ -762,6 +770,7 @@ function scr_fakepepboss_grabdash()
 
 function scr_fakepepboss_grabthrow()
 {
+	if (live_call()) return live_result;
 	with (playerID)
 	{
 		x = other.x + (other.image_xscale * 20);
@@ -796,6 +805,7 @@ function scr_fakepepboss_grabthrow()
 
 function scr_fakepepboss_jump()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_fakepeppino_bodyslamstart)
 	{
 		hsp = 0;
@@ -831,6 +841,7 @@ function scr_fakepepboss_jump()
 
 function scr_fakepepboss_freefall()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_fakepeppino_bodyslamfall && ANIMATION_END)
 	{
 		image_index = image_number - 4;
@@ -869,6 +880,7 @@ function scr_fakepepboss_freefall()
 
 function scr_fakepepboss_mach2()
 {
+	if (live_call()) return live_result;
 	if (machcooldown > 0)
 	{
 		machcooldown--;
@@ -967,6 +979,7 @@ function scr_fakepepboss_mach2()
 
 function scr_fakepepboss_Sjumpprep()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	if (ANIMATION_END)
@@ -1001,6 +1014,7 @@ function scr_fakepepboss_Sjumpprep()
 
 function scr_fakepepboss_Sjump()
 {
+	if (live_call()) return live_result;
 	hsp = hithsp;
 	vsp = hitvsp;
 	var yy = 75;
@@ -1110,6 +1124,7 @@ function scr_fakepepboss_Sjump()
 
 function scr_fakepepboss_throwing()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_fakepeppino_throwhead)
 	{
 		if (ANIMATION_END)
@@ -1174,6 +1189,7 @@ function scr_fakepepboss_throwing()
 
 function scr_fakepepboss_backbreaker()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_fakepeppino_jump && ANIMATION_END)
 	{
 		sprite_index = spr_fakepeppino_fall;

@@ -1,5 +1,6 @@
 function scr_initinput2()
 {
+	if (live_call()) return live_result;
 	ini_open("saveData.ini");
 	global.key_upN = ini_read_string("ControlsKeys2", "up", ord("W"));
 	global.key_rightN = ini_read_string("ControlsKeys2", "right", ord("D"));

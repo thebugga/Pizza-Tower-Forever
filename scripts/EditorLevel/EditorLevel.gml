@@ -13,6 +13,7 @@ function EditorLevel() constructor
 
 function new_empty_level()
 {
+	if (live_call()) return live_result;
 	var l = new EditorLevel();
 	var r = new EditorRoom(0, 0);
 	ds_list_add(l.rooms, r);
@@ -22,5 +23,6 @@ function new_empty_level()
 
 function get_current_room()
 {
+	if (live_call()) return live_result;
 	return global.current_level.current_room;
 }

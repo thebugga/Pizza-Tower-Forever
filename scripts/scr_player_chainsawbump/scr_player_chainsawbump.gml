@@ -1,5 +1,6 @@
 function scr_player_chainsawbump()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	move = key_right + key_left;
 	if (hsp != 0 && movespeed > 0 && (sprite_index == spr_player_chainsawrev || sprite_index == spr_player_chainsawidle) && grounded)

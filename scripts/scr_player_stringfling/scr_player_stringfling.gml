@@ -1,5 +1,6 @@
 function scr_player_stringfling()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_mrpinch;
 	hsp = move * movespeed;
 	movespeed = 2;

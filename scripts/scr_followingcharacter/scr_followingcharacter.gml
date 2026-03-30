@@ -1,5 +1,6 @@
 function following_character_init()
 {
+	if (live_call()) return live_result;
 	xoffset = 25;
 	yoffset = 2;
 	LAG_STEPS = 20;
@@ -26,6 +27,7 @@ function following_character_init()
 
 function following_character_delete()
 {
+	if (live_call()) return live_result;
 	var p = ds_list_find_index(global.followerlist, id);
 	if (p != -1)
 	{
@@ -44,6 +46,7 @@ function following_character_delete()
 
 function following_character_calculate()
 {
+	if (live_call()) return live_result;
 	with (obj_followcharacter)
 	{
 		pos = ds_list_find_index(global.followerlist, id);
@@ -53,6 +56,7 @@ function following_character_calculate()
 
 function following_add_to_front()
 {
+	if (live_call()) return live_result;
 	var i = 0;
 	while (ds_list_find_index(global.followerlist, id) != -1)
 	{
@@ -71,6 +75,7 @@ function following_add_to_front()
 
 function farmer_rearrange()
 {
+	if (live_call()) return live_result;
 	with (obj_farmer1follow)
 	{
 		if (farmerpos == obj_player1.farmerpos)
@@ -109,6 +114,7 @@ function following_count(_obj)
 
 function following_moonwalk_fix()
 {
+	if (live_call()) return live_result;
 	if (!instance_exists(playerid))
 	{
 		exit;

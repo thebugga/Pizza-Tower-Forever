@@ -1,5 +1,6 @@
 function scr_characterspr()
 {
+	if (live_call()) return live_result;
 	if (character == "P") || (character == "PUP")
 	{
 		spr_idle = spr_player_idle;

@@ -1,5 +1,6 @@
 function __init_global()
 {
+	if (live_call()) return live_result;
 	gml_pragma( "global", "__init_global();");
 	
     // set any global defaults

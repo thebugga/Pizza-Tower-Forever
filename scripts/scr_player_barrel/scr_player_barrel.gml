@@ -1,5 +1,6 @@
 function scr_player_barrel()
 {
+	if (live_call()) return live_result;
 	image_speed = abs(movespeed) / 4;
 	if (image_speed < 0.35)
 	{

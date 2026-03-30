@@ -1,5 +1,6 @@
 function scr_player_tumble()
 {
+	if (live_call()) return live_result;
 	if (place_meeting(x, y + 1, obj_railparent))
 	{
 		var _railinst = instance_place(x, y + 1, obj_railparent);

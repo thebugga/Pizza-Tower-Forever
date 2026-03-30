@@ -1,5 +1,6 @@
 function scr_getinput2()
 {
+	if (live_call()) return live_result;
 	if (instance_exists(obj_debugcontroller) && obj_debugcontroller.active)
 	{
 		exit;

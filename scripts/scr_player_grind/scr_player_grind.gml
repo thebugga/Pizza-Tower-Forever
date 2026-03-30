@@ -1,5 +1,6 @@
 function scr_player_grind()
 {
+	if (live_call()) return live_result;
 	sprite_index = !skateboarding ? spr_grind : spr_clown;
 	image_speed = 0.35;
 	machhitAnim = false;

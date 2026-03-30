@@ -1,5 +1,6 @@
 function scr_player_meteorpep()
 {
+	if (live_call()) return live_result;
 	mach2 = 0;
 	landAnim = true;
 	vsp = 0;

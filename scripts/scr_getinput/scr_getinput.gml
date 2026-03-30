@@ -1,5 +1,6 @@
 function scr_init_input()
 {
+	if (live_call()) return live_result;
 	key_up = false;
 	key_up2 = false;
 	key_right = false;
@@ -29,6 +30,7 @@ function scr_init_input()
 
 function scr_check_superjump()
 {
+	if (live_call()) return live_result;
 	//var sj = global.gamepad_superjump;
 	//if (obj_inputAssigner.player_input_device[obj_inputAssigner.player_index] < 0)
 	//{
@@ -39,6 +41,7 @@ function scr_check_superjump()
 
 function scr_check_groundpound()
 {
+	if (live_call()) return live_result;
 	var gp = global.gamepad_groundpound;
 	if (obj_inputAssigner.player_input_device[obj_inputAssigner.player_index] < 0)
 	{
@@ -49,6 +52,7 @@ function scr_check_groundpound()
 
 function scr_mach_check_dive()
 {
+	if (live_call()) return live_result;
 	if (grounded && vsp > 0)
 	{
 		return key_down;
@@ -58,6 +62,7 @@ function scr_mach_check_dive()
 
 function scr_check_dive()
 {
+	if (live_call()) return live_result;
 	if (character == "N" || character == "PUP")
 	{
 		return scr_check_groundpound2();
@@ -67,6 +72,7 @@ function scr_check_dive()
 
 function scr_check_groundpound2()
 {
+	if (live_call()) return live_result;
 	var gp = global.gamepad_groundpound;
 	if (obj_inputAssigner.player_input_device[obj_inputAssigner.player_index] < 0)
 	{
@@ -77,6 +83,7 @@ function scr_check_groundpound2()
 
 function scr_switch_get_menu_input()
 {
+	if (live_call()) return live_result;
 	var _dvc = obj_inputAssigner.player_input_device[0];
 	key_jump = gamepad_button_check_pressed(_dvc, gp_face2);
 	key_jump2 = gamepad_button_check(_dvc, gp_face2);
@@ -85,6 +92,7 @@ function scr_switch_get_menu_input()
 
 function scr_menu_getinput()
 {
+	if (live_call()) return live_result;
 	if (!instance_exists(obj_player))
 	{
 		tdp_input_update(obj_inputAssigner.player_input_device[obj_inputAssigner.player_index]);
@@ -140,6 +148,7 @@ function scr_menu_getinput()
 
 function scr_getinput()
 {
+	if (live_call()) return live_result;
 	var _dvc = obj_inputAssigner.player_input_device[player_index];
 	var _dvc2 = obj_inputAssigner.player_input_device[!player_index];
 	key_fightball = false;

@@ -1,5 +1,6 @@
 function scr_player_rocketslide()
 {
+	if (live_call()) return live_result;
 	if (character == "N" || character == "PUP")
 	{
 		if (image_speed == 0)

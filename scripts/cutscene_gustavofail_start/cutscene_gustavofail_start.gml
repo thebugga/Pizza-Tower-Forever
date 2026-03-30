@@ -1,5 +1,6 @@
 function cutscene_gustavofail_start()
 {
+	if (live_call()) return live_result;
 	var _id = id;
 	with (obj_cutscene_handler)
 	{

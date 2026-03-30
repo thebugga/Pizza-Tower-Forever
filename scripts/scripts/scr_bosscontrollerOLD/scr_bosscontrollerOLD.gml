@@ -1,5 +1,6 @@
 function noise_start_round()
 {
+	if (live_call()) return live_result;
 	if (round_count == 6 || (round_count == 3 && extrarounds))
 	{
 		with (instance_create(256, 416, obj_baddiespawner))
@@ -18,6 +19,7 @@ function noise_start_round()
 
 function mrstick_start_round()
 {
+	if (live_call()) return live_result;
 	with (obj_mrstickboss)
 	{
 		var b = boss_array[phase - 1];
@@ -43,6 +45,7 @@ function mrstick_start_round()
 
 function mrstick_end_round()
 {
+	if (live_call()) return live_result;
 	with (par_boss)
 	{
 		if (object_index != obj_mrstickboss)

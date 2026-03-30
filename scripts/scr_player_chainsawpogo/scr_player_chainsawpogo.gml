@@ -1,5 +1,6 @@
 function scr_player_chainsawpogo()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	if ((scr_solid(x + 1, y) && xscale == 1) || (scr_solid(x - 1, y) && xscale == -1))
 	{

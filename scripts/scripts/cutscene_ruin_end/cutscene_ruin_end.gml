@@ -1,5 +1,6 @@
 function cutscene_ruin_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.normal;

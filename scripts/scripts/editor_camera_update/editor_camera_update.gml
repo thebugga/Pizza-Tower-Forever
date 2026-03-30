@@ -1,5 +1,6 @@
 function editor_camera_update()
 {
+	if (live_call()) return live_result;
 	with (obj_button)
 	{
 		if (hovered)

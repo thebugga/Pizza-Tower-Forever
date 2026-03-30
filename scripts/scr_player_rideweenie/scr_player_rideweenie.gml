@@ -1,5 +1,6 @@
 function scr_player_rideweenie()
 {
+	if (live_call()) return live_result;
 	hsp = movespeed;
 	move = key_right + key_left;
 	if (sprite_index != spr_weenieturn)

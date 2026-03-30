@@ -1,5 +1,6 @@
 function pal_swap_set_tiles()
 {
+	if (live_call()) return live_result;
 	var _low = argument[2] + 1;
 	var _high = argument[3] - 1;
 	if (_low < _high)

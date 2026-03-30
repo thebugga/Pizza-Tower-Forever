@@ -1,5 +1,6 @@
 function scr_panicbg_start()
 {
+	if (live_call()) return live_result;
     var camw = camera_get_view_width(view_camera[0]);
     var camh = camera_get_view_height(view_camera[0]);
     

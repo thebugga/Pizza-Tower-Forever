@@ -8,6 +8,7 @@ enum noise_behaviour
 
 function boss_noise_decide_attack()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown > 0)
 	{
 		attack_cooldown--;
@@ -23,6 +24,7 @@ function boss_noise_decide_attack()
 
 function get_attack()
 {
+	if (live_call()) return live_result;
 	var chance = irandom(100) > 40;
 	var c = noise_behaviour.none;
 	if (chance)
@@ -41,6 +43,7 @@ function get_attack()
 
 function boss_noise_do_attack()
 {
+	if (live_call()) return live_result;
 	targetstunned = 0;
 	state = current_attack;
 	attack_cooldown = attack_max[phase - 1];
@@ -58,6 +61,7 @@ function boss_noise_do_attack()
 
 function noise_do_attack_normal()
 {
+	if (live_call()) return live_result;
 	switch (state)
 	{
 		case states.handstandjump:
@@ -142,6 +146,7 @@ function noise_do_attack_normal()
 
 function noise_do_attack_angry()
 {
+	if (live_call()) return live_result;
 	switch (state)
 	{
 		case states.handstandjump:
@@ -245,6 +250,7 @@ function noise_do_attack_angry()
 
 function noise_behaviour_none()
 {
+	if (live_call()) return live_result;
 	move = 0;
 	if (distance_to_object(targetplayer) < 300)
 	{
@@ -302,6 +308,7 @@ function noise_behaviour_none()
 
 function noise_behaviour_close()
 {
+	if (live_call()) return live_result;
 	var dx = abs(targetplayer.x - x);
 	move = (dx > 80) ? sign(targetplayer.x - x) : 0;
 	hsp = move * movespeed;
@@ -350,6 +357,7 @@ function noise_behaviour_close()
 
 function noise_behaviour_anywhere()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	sprite_index = idlespr;
 	boss_decide_taunt(220);
@@ -361,6 +369,7 @@ function noise_behaviour_anywhere()
 
 function noise_behaviour_far()
 {
+	if (live_call()) return live_result;
 	var dx = abs(targetplayer.x - x);
 	image_speed = 0.35;
 	sprite_index = idlespr;
@@ -386,6 +395,7 @@ function noise_behaviour_far()
 
 function boss_noise_normal()
 {
+	if (live_call()) return live_result;
 	boss_noise_decide_attack();
 	switch (current_behaviour)
 	{
@@ -406,6 +416,7 @@ function boss_noise_normal()
 
 function boss_noise_handstandjump()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * movespeed;
 	if (!spinskateboard && slidejump == 0 && movespeed > 0)
@@ -466,6 +477,7 @@ function boss_noise_handstandjump()
 
 function boss_noise_crouchslide()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * movespeed;
 	if (movespeed > 0)
@@ -505,6 +517,7 @@ function boss_noise_crouchslide()
 
 function boss_noise_jump()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * movespeed;
 	if (sprite_index == spr_playerN_jump && image_index > (image_number - 1))
@@ -536,6 +549,7 @@ function boss_noise_jump()
 
 function boss_noise_skateboard()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * movespeed;
 	if (movespeed < 18)
@@ -570,6 +584,7 @@ function boss_noise_skateboard()
 
 function boss_noise_skateboardturn()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * movespeed;
 	if (movespeed > 0)
 	{
@@ -595,6 +610,7 @@ function boss_noise_skateboardturn()
 
 function boss_noise_throwing()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * movespeed;
 	if (movespeed > 0)
@@ -641,6 +657,7 @@ function boss_noise_throwing()
 
 function boss_noise_pogo()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * movespeed;
 	var maxpogo = !bombpogo ? 24 : 15;
@@ -715,6 +732,7 @@ function boss_noise_pogo()
 
 function boss_noise_jetpackstart()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.5;
 	hsp = 0;
 	vsp = 0;
@@ -728,6 +746,7 @@ function boss_noise_jetpackstart()
 
 function boss_noise_jetpack()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.5;
 	var maxjetpack = 15;
 	hsp = image_xscale * movespeed;
@@ -771,6 +790,7 @@ function boss_noise_jetpack()
 
 function boss_noise_jetpackspin()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	move = 0;
 	var dx = abs(targetplayer.x - x);

@@ -1,5 +1,6 @@
 function scr_player_slipbanan()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	if (grounded)
 	{

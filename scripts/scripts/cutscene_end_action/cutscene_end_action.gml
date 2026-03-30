@@ -1,5 +1,6 @@
 function cutscene_end_action()
 {
+	if (live_call()) return live_result;
 	scene++;
 	if (scene > (array_length_1d(scene_info) - 1))
 	{

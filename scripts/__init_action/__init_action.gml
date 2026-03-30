@@ -1,5 +1,6 @@
 function __init_action()
 {
+	if (live_call()) return live_result;
 	gml_pragma( "global", "__init_action();");
 	//global.__part_syst=-1;
 	global.__part_emit=[];

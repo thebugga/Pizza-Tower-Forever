@@ -1,5 +1,6 @@
 function scr_player_noisecrusher()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (sprite_index == spr_playerN_noisecrusherland)
 	{
@@ -102,6 +103,7 @@ function scr_player_noisecrusher()
 
 function scr_player_do_noisecrusher()
 {
+	if (live_call()) return live_result;
 	input_buffer_jump = 0;
 	movespeed = hsp * xscale;
 	state = states.ratmountbounce;

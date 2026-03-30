@@ -1,5 +1,6 @@
 function scr_noise_init_sounds()
 {
+	if (live_call()) return live_result;
 	snd_spin = fmod_event_create_instance("event:/sfx/noise/spin");
 	snd_skatestart = fmod_event_create_instance("event:/sfx/noise/skatestart");
 	snd_skateloop = fmod_event_create_instance("event:/sfx/noise/skateloop");
@@ -13,11 +14,13 @@ function scr_noise_init_sounds()
 
 function scr_noise_destroy_sounds()
 {
+	if (live_call()) return live_result;
 	destroy_sounds([snd_spin, snd_skatestart, snd_skateloop, snd_jetpackloop, snd_jetpackspin, snd_groundpound, snd_balloon, snd_droptrap]);
 }
 
 function scr_noise_update_sounds()
 {
+	if (live_call()) return live_result;
 	if (state == states.spin)
 	{
 		if (!fmod_event_instance_is_playing(snd_spin))
@@ -111,6 +114,7 @@ function scr_noise_update_sounds()
 
 function scr_noise_arenaintro()
 {
+	if (live_call()) return live_result;
 	if (doise && !global.resetdoise)
 	{
 		var _dead = false;
@@ -401,6 +405,7 @@ function scr_noise_arenaintro()
 
 function scr_doise_end_start()
 {
+	if (live_call()) return live_result;
 	instance_destroy(obj_noisey);
 	instance_destroy(obj_noiseyspawner);
 	instance_destroy(obj_noiseyspawner2);
@@ -462,6 +467,7 @@ function scr_noise_do_hurt(_obj)
 
 function scr_noise_walk()
 {
+	if (live_call()) return live_result;
 	if (pizzahead && doise)
 	{
 		image_speed = 0.35;
@@ -583,6 +589,7 @@ function scr_noise_walk()
 
 function scr_noise_mach2()
 {
+	if (live_call()) return live_result;
 	image_speed = abs(attackspeed / 8);
 	if (image_speed < 0.2)
 	{
@@ -693,6 +700,7 @@ function scr_noise_mach2()
 
 function scr_noise_machslide()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * attackspeed;
 	if (attackspeed > 0)
 	{
@@ -738,6 +746,7 @@ function scr_noise_machslide()
 
 function scr_noise_spin()
 {
+	if (live_call()) return live_result;
 	if (image_index > 2)
 	{
 		hsp = image_xscale * 2;
@@ -852,6 +861,7 @@ function scr_noise_spin()
 
 function scr_noise_jump()
 {
+	if (live_call()) return live_result;
 	if (ANIMATION_END && sprite_index == spr_playerN_jump)
 	{
 		sprite_index = spr_playerN_fall;
@@ -868,6 +878,7 @@ function scr_noise_jump()
 
 function scr_noise_jetpackstart()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	if (ANIMATION_END)
@@ -892,6 +903,7 @@ function scr_noise_jetpackstart()
 
 function scr_noise_jetpack()
 {
+	if (live_call()) return live_result;
 	hsp = lengthdir_x(attackspeed, jetpackdir);
 	vsp = lengthdir_y(attackspeed, jetpackdir);
 	if (vsp < 0)
@@ -930,6 +942,7 @@ function scr_noise_jetpack()
 
 function scr_noise_bounce()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * 10;
 	if (place_meeting(x + hsp, y, obj_solid) && !place_meeting(x + hsp, y, obj_slope) && !place_meeting(x + hsp, y, obj_destructibles))
@@ -970,6 +983,7 @@ function scr_noise_bounce()
 
 function scr_noise_pogo()
 {
+	if (live_call()) return live_result;
 	if (!bounced)
 	{
 		hsp = 0;
@@ -1076,6 +1090,7 @@ function scr_noise_pogo()
 
 function scr_noise_dropstart()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if ((floor(image_index) div 10) == 0 && cloudbuffer == 0)
 	{
@@ -1105,6 +1120,7 @@ function scr_noise_dropstart()
 
 function scr_noise_drop()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (ANIMATION_END && sprite_index == spr_playerN_doublejump)
 	{
@@ -1190,6 +1206,7 @@ function scr_noise_drop()
 
 function scr_noise_droptrap()
 {
+	if (live_call()) return live_result;
 	droptrap = false;
 	hsp = 0;
 	if (ANIMATION_END)
@@ -1217,6 +1234,7 @@ function scr_noise_droptrap()
 
 function scr_noise_freefall()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = 0;
 	if (sprite_index == spr_playerN_bodyslamstart && ANIMATION_END)
@@ -1271,6 +1289,7 @@ function scr_noise_freefall()
 
 function scr_noise_golf()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (ANIMATION_END)
 	{
@@ -1296,6 +1315,7 @@ function scr_noise_golf()
 
 function scr_noise_noisecrusher()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (sprite_index == spr_playerN_bodyslamstart)
 	{
@@ -1337,6 +1357,7 @@ function scr_noise_noisecrusher()
 
 function scr_noise_noiseballooncrash()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	with (obj_player1)
 	{
@@ -1369,6 +1390,7 @@ function scr_noise_noiseballooncrash()
 
 function scr_noise_fightball()
 {
+	if (live_call()) return live_result;
 	switch (substate)
 	{
 		case states.fightball:
@@ -1443,6 +1465,7 @@ function scr_noise_fightball()
 
 function scr_noise_finale()
 {
+	if (live_call()) return live_result;
 	with (obj_player1)
 	{
 		if (sprite_index == spr_player_gnomecutscene2 && ANIMATION_END)
@@ -1707,6 +1730,7 @@ function scr_noise_finale()
 
 function scr_noise_phase1hurt()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_playerN_hurt;
 	image_index = 0.35;
 	scr_boss_phase1hurt(function()

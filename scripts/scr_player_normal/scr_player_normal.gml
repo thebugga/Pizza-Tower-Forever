@@ -1,5 +1,6 @@
 function scr_player_normal()
 {
+	if (live_call()) return live_result;
 	var maxmovespeed = 8;
 	var maxmovespeed2 = 6;
 	var accel = 0.5;

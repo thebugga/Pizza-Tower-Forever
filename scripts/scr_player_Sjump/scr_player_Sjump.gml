@@ -1,5 +1,6 @@
 function scr_player_Sjump()
 {
+	if (live_call()) return live_result;
 	move = key_right + key_left;
 	hsp = 0;
 	mach2 = 0;

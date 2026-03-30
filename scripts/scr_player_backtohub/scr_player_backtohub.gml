@@ -1,5 +1,6 @@
 function scr_player_backtohub()
 {
+	if (live_call()) return live_result;
 	global.leveltorestart = noone;
 	global.noisejetpack = false;
 	hsp = 0;

@@ -1,5 +1,6 @@
 function scr_player_antigrav()
 {
+	if (live_call()) return live_result;
 	if (character == "N" || character == "PUP")
 	{
 		sprite_index = spr_playerN_bubbleidle;

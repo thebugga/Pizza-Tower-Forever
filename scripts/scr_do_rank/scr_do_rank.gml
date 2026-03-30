@@ -1,5 +1,6 @@
 function scr_is_p_rank()
 {
+	if (live_call()) return live_result;
 	if (global.leveltosave != "exit" && global.leveltosave != "secretworld")
 	{
 		return global.lap && global.secretfound >= 3 && global.treasure && !global.combodropped && global.prank_enemykilled;

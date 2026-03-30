@@ -1,5 +1,6 @@
 function scr_draw_endingrank()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_rank_wow)
 	{
 		lang_draw_sprite(spr_rank_wow_text, image_index, x, y);

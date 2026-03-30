@@ -1,5 +1,6 @@
 function scr_player_supergrab()
 {
+	if (live_call()) return live_result;
 	if (supergrabstate != states.finishingblow)
 	{
 		if (!instance_exists(baddiegrabbedID) || baddiegrabbedID.object_index == obj_gustavograbbable || baddiegrabbedID.object_index == obj_swapplayergrabbable)

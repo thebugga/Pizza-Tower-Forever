@@ -1,5 +1,6 @@
 function scr_player_trickjump()
 {
+	if (live_call()) return live_result;
 	hsp = movespeed * xscale;
 	if (sprite_index != spr_supertaunt1 && sprite_index != spr_supertaunt2 && sprite_index != spr_supertaunt3 && sprite_index != spr_supertaunt4)
 	{

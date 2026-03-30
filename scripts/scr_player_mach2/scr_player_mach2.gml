@@ -1,5 +1,6 @@
 function scr_player_mach2()
 {
+	if (live_call()) return live_result;
 	var maxmovespeed = 12;
 	var jumpspeed = -11;
 	var slopeaccel = 0.1;

@@ -1,5 +1,6 @@
 function scr_player_actor()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_player_gnomecutscene2)
 	{
 		if (image_index > (image_number - 1))

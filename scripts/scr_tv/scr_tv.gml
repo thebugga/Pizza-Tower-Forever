@@ -1,5 +1,6 @@
 function tv_set_idle()
 {
+	if (live_call()) return live_result;
 	with (obj_tv)
 	{
 		state = states.normal;
@@ -9,6 +10,7 @@ function tv_set_idle()
 
 function tv_reset()
 {
+	if (live_call()) return live_result;
 	with (obj_tv)
 	{
 		state = states.normal;
@@ -106,11 +108,13 @@ function tv_push_prompt_once(_prompt, _ini_key)
 
 function tv_default_condition()
 {
+	if (live_call()) return live_result;
 	return place_meeting(x, y, obj_player);
 }
 
 function tv_get_palette()
 {
+	if (live_call()) return live_result;
 	if (!instance_exists(obj_player1))
 	{
 		exit;
@@ -196,6 +200,7 @@ function tv_do_expression(_spr, _reset_palette = false, _make_peppino = false)
 
 function scr_tv_get_transfo_sprite()
 {
+	if (live_call()) return live_result;
 	var _state = obj_player1.state;
 	if (_state == states.backbreaker || _state == states.chainsaw)
 	{

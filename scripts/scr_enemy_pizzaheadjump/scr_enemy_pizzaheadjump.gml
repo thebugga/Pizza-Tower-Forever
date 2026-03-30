@@ -1,5 +1,6 @@
 function scr_enemy_pizzaheadjump()
 {
+	if (live_call()) return live_result;
 	stompable = false;
 	if (place_meeting(x, y, obj_solid))
 	{

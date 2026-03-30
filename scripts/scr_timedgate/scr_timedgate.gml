@@ -18,6 +18,7 @@ function scr_timedgate_object(_list)
 
 function timedgate_trigger()
 {
+	if (live_call()) return live_result;
 	with (obj_timedgatespawn)
 	{
 		if (!instance_exists(contentID))

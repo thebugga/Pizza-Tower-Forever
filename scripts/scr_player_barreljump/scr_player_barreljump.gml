@@ -1,5 +1,6 @@
 function scr_player_barreljump()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = movespeed;
 	move = key_right + key_left;

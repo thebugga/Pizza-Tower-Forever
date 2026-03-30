@@ -1,5 +1,6 @@
 function scr_player_ratmountgrind()
 {
+	if (live_call()) return live_result;
 	hsp = movespeed;
 	vsp = 0;
 	move = key_left + key_right;

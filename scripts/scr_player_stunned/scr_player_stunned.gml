@@ -1,5 +1,6 @@
 function scr_player_stunned()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	combo = 0;
 	mach2 = 0;

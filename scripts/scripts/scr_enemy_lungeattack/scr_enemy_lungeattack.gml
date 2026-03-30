@@ -1,5 +1,6 @@
 function scr_enemy_lungeattack()
 {
+	if (live_call()) return live_result;
 	hsp = -image_xscale * 4;
 	vsp = 0;
 	var _l = false;

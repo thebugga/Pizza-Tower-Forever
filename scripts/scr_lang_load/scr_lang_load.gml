@@ -1,5 +1,6 @@
 function scr_lang_load_init()
 {
+	if (live_call()) return live_result;
 	var lang = ds_map_find_value(global.lang_available, global.option_lang);
 	if (is_undefined(lang))
 	{
@@ -39,6 +40,7 @@ function lang_unload_font(_language)
 
 function scr_lang_load_update()
 {
+	if (live_call()) return live_result;
 	if (global.offload_lang != noone && global.offload_lang != "en")
 	{
 		var lang = ds_map_find_value(global.lang_map, global.offload_lang);

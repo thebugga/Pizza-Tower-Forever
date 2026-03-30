@@ -1,5 +1,6 @@
 function scr_panicbg_end()
 {
+	if (live_call()) return live_result;
     if (event_type == ev_draw && event_number == 0)
     {
         var camw = camera_get_view_width(view_camera[0]);

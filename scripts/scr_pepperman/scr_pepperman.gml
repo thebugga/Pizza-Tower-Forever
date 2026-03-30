@@ -1,5 +1,6 @@
 function scr_pepperman_init_sounds()
 {
+	if (live_call()) return live_result;
 	snd_shoulderbash = fmod_event_create_instance("event:/sfx/pepperman/shoulderbash");
 	snd_groundpound = fmod_event_create_instance("event:/sfx/pepperman/groundpound");
 }
@@ -16,11 +17,13 @@ function destroy_sounds(_sound_array)
 
 function scr_pepperman_destroy_sounds()
 {
+	if (live_call()) return live_result;
 	destroy_sounds([snd_shoulderbash, snd_groundpound]);
 }
 
 function scr_pepperman_sounds()
 {
+	if (live_call()) return live_result;
 	if (state == states.shoulderbash)
 	{
 		if (!fmod_event_instance_is_playing(snd_shoulderbash))
@@ -64,6 +67,7 @@ function scr_pepperman_sounds()
 
 function scr_pepperman_spawn_knight()
 {
+	if (live_call()) return live_result;
 	if (knightdir == -1)
 	{
 		with (instance_create(room_width + 10, 416, obj_peppermanGIANTbowlingball))
@@ -83,6 +87,7 @@ function scr_pepperman_spawn_knight()
 
 function scr_pepperman_shuffle_adds()
 {
+	if (live_call()) return live_result;
 	if (bowlingballcount <= 0)
 	{
 		if (throwknight && !instance_exists(obj_peppermanbowlingball) && !instance_exists(obj_peppermanbowlingballspawner))
@@ -105,6 +110,7 @@ function scr_pepperman_shuffle_adds()
 
 function scr_pepperman_arenaintro()
 {
+	if (live_call()) return live_result;
 	if (!skipintro)
 	{
 		image_speed = 0.35;
@@ -234,6 +240,7 @@ function scr_pepperman_arenaintro()
 
 function scr_pepperman_walk()
 {
+	if (live_call()) return live_result;
 	if (grounded)
 	{
 		hsp = Approach(hsp, 0, 0.25);
@@ -310,6 +317,7 @@ function scr_pepperman_walk()
 
 function pepperman_nearestspot()
 {
+	if (live_call()) return live_result;
 	if (elitehit > 1)
 	{
 		if (instance_exists(obj_pepper_marbleblock))
@@ -348,6 +356,7 @@ function pepperman_nearestspot()
 
 function scr_pepperman_jump()
 {
+	if (live_call()) return live_result;
 	if (hsp != 0)
 	{
 		image_xscale = sign(hsp);
@@ -378,6 +387,7 @@ function scr_pepperman_jump()
 
 function scr_pepperman_freefallprep()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	image_speed = 0.35;
@@ -392,6 +402,7 @@ function scr_pepperman_freefallprep()
 
 function scr_pepperman_freefall()
 {
+	if (live_call()) return live_result;
 	hsp = Approach(hsp, sign(targetspot.x - x) * 5, 0.2);
 	if (hsp != 0)
 	{
@@ -502,6 +513,7 @@ function scr_pepperman_freefall()
 
 function scr_pepperman_rolling()
 {
+	if (live_call()) return live_result;
 	if (sprite_index != spr_pepperman_groundpoundland)
 	{
 		image_speed = 0.35;
@@ -536,6 +548,7 @@ function scr_pepperman_rolling()
 
 function scr_pepperman_freefallland()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	image_speed = 0.35;
 	if (landbuffer > 0)
@@ -555,6 +568,7 @@ function scr_pepperman_freefallland()
 
 function scr_pepperman_shoulderbash()
 {
+	if (live_call()) return live_result;
 	image_speed = abs(attackspeed / 8);
 	if (image_speed < 0.2)
 	{
@@ -678,6 +692,7 @@ function scr_pepperman_shoulderbash()
 
 function scr_pepperman_do_contemplate()
 {
+	if (live_call()) return live_result;
 	if (wastedhits >= 8)
 	{
 		var b = false;
@@ -711,12 +726,14 @@ function scr_pepperman_do_contemplate()
 
 function scr_pepperman_contemplate()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	image_speed = 0.35;
 }
 
 function scr_pepperman_shoulderturn()
 {
+	if (live_call()) return live_result;
 	if (sprite_index != spr_pepperman_shoulderturn)
 	{
 		attackspeed = Approach(attackspeed, 0, 0.5);
@@ -752,6 +769,7 @@ function scr_pepperman_shoulderturn()
 
 function scr_pepperman_mini()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (minibuffer > 0)
 	{
@@ -840,6 +858,7 @@ function scr_pepperman_mini()
 
 function scr_pepperman_phase1hurt()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_pepperman_hurtplayer;
 	image_speed = 0.35;
 	scr_boss_phase1hurt(function() {});

@@ -1,5 +1,6 @@
 function scr_player_pistol()
 {
+	if (live_call()) return live_result;
 	move = key_right + key_left;
 	hsp = xscale * movespeed;
 	if (movespeed < 10)

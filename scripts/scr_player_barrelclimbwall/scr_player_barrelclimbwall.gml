@@ -1,5 +1,6 @@
 function scr_player_barrelclimbwall()
 {
+	if (live_call()) return live_result;
 	if (character == "N" || character == "PUP")
 	{
 		move = key_left + key_right;

@@ -10,6 +10,7 @@ enum langtoken_type
 
 function scr_get_languages()
 {
+	if (live_call()) return live_result;
 	global.lang_map = ds_map_create();
 	global.lang_sprite_map = ds_map_create();
 	global.lang_texture_map = ds_map_create();
@@ -83,11 +84,13 @@ function scr_lang_get_file_arr(_file)
 
 function scr_lang_get_credits()
 {
+	if (live_call()) return live_result;
 	return scr_lang_get_file_arr("credits.txt");
 }
 
 function scr_lang_get_noise_credits()
 {
+	if (live_call()) return live_result;
 	var arr = scr_lang_get_file_arr("noisecredits.txt");
 	var credits = array_create(0);
 	for (var i = 0; i < array_length(arr); i++)

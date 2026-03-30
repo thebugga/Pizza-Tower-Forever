@@ -1,5 +1,6 @@
 function scr_player_timesup()
 {
+	if (live_call()) return live_result;
 	xscale = 1;
 	inv_frames = false;
 	movespeed = 0;

@@ -1,5 +1,6 @@
 function doisebg_start()
 {
+	if (live_call()) return live_result;
 	if (event_type == ev_draw && event_number == 0 && instance_exists(obj_player1))
 	{
 		shader_set(global.Pal_Shader);
@@ -16,6 +17,7 @@ function doisebg_start()
 
 function doisebg_end()
 {
+	if (live_call()) return live_result;
 	if (event_type == ev_draw && event_number == 0 && instance_exists(obj_player1))
 	{
 		shader_reset();

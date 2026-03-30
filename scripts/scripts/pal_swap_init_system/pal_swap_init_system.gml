@@ -1,10 +1,12 @@
 function pal_swap_init_system()
 {
+	if (live_call()) return live_result;
 	// deprecated
 }
 
 function pal_swap_init_system_fix()
 {
+	if (live_call()) return live_result;
 	global.Pal_Shader = argument[0];
 	global.Pal_Texel_Size = shader_get_uniform(argument[0], "texel_size");
 	global.Pal_UVs = shader_get_uniform(argument[0], "palette_UVs");

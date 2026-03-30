@@ -1,5 +1,6 @@
 function scr_player_hook()
 {
+	if (live_call()) return live_result;
 	if (key_jump)
 	{
 		state = states.jump;

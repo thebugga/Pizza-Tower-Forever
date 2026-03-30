@@ -1,5 +1,6 @@
 function scr_player_ridecow()
 {
+	if (live_call()) return live_result;
 	doublejump = false;
 	hsp = 0;
 	vsp = 0;

@@ -1,5 +1,6 @@
 function scr_player_cheeseball()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	GamepadSetVibration(0, 0.4, 0.4, 0.65);
 	if ((x + hsp) == xprevious)

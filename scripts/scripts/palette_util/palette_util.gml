@@ -1,5 +1,6 @@
 function get_pep_palette_info()
 {
+	if (live_call()) return live_result;
 	if (global.swapmode)
 	{
 		var pal = 1;
@@ -29,6 +30,7 @@ function get_pep_palette_info()
 
 function get_noise_palette_info()
 {
+	if (live_call()) return live_result;
 	if (global.swapmode)
 	{
 		var pal = 0;

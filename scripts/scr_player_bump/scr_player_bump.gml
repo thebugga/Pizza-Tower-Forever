@@ -1,5 +1,6 @@
 function scr_player_bump()
 {
+	if (live_call()) return live_result;
 	if (sprite_index != spr_wallsplat)
 	{
 		movespeed = 0;

@@ -1,5 +1,6 @@
 function scr_player_tackle()
 {
+	if (live_call()) return live_result;
 	combo = 0;
 	mach2 = 0;
 	hsp = -xscale * movespeed;

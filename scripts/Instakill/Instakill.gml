@@ -1,5 +1,6 @@
 function Instakill()
 {
+	if (live_call()) return live_result;
 	var hx = other.baddieID.x;
 	var hy = other.baddieID.y;
 	if (other.baddieID.state == states.hit)

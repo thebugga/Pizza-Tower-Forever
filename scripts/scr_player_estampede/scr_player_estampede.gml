@@ -1,5 +1,6 @@
 function scr_player_estampede()
 {
+	if (live_call()) return live_result;
 	hsp = movespeed;
 	move = key_left + key_right;
 	if (hsp != 0)

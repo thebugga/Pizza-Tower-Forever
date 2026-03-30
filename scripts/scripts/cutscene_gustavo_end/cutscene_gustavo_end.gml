@@ -1,5 +1,6 @@
 function cutscene_gustavo_end()
 {
+	if (live_call()) return live_result;
 	var finish = false;
 	with (obj_player1)
 	{

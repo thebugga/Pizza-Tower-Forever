@@ -1,5 +1,6 @@
 function scr_player_lungegrab()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	vsp = 0;
 	image_speed = 0.35;

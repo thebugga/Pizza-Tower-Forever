@@ -1,5 +1,6 @@
 function scr_playerN_throwkick()
 {
+	if (live_call()) return live_result;
 	hsp = -xscale * movespeed;
 	move = key_left + key_right;
 	movespeed = Approach(movespeed, 0, 0.2);

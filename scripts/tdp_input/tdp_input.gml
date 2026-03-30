@@ -7,6 +7,7 @@ enum tdp_input_actiontypes
 
 function tdp_input_init()
 {
+	if (live_call()) return live_result;
 	if (!variable_global_exists("input_list"))
 	{
 		global.input_list = ds_map_create();
@@ -19,6 +20,7 @@ function tdp_input_init()
 
 function tdp_input_destroy()
 {
+	if (live_call()) return live_result;
 	ds_map_destroy(global.input_list);
 }
 

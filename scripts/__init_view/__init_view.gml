@@ -1,5 +1,6 @@
 function __init_view()
 {
+	if (live_call()) return live_result;
 	enum e__VW
 	{
 		XView = 0,

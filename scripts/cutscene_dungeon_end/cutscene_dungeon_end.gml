@@ -1,5 +1,6 @@
 function cutscene_dungeon_end()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.normal;

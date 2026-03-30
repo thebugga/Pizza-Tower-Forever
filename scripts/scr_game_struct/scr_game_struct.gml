@@ -44,6 +44,7 @@ function menu_get_game(slot)
 }
 function game_empty()
 {
+	if (live_call()) return live_result;
 	return 
 	{
 		character: "",

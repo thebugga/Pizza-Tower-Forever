@@ -56,6 +56,7 @@ function scr_solid_line(_inst)
 
 function scr_destroy_nearby_tiles()
 {
+	if (live_call()) return live_result;
 	instance_destroy(instance_place(x + 1, y, obj_tiledestroy));
 	instance_destroy(instance_place(x - 1, y, obj_tiledestroy));
 	instance_destroy(instance_place(x, y + 1, obj_tiledestroy));
@@ -64,6 +65,7 @@ function scr_destroy_nearby_tiles()
 
 function scr_cutoff()
 {
+	if (live_call()) return live_result;
 	with (instance_place(x, y, obj_cutoff))
 	{
 		instance_destroy();

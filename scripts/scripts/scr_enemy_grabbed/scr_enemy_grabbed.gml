@@ -1,5 +1,6 @@
 function scr_enemy_grabbed()
 {
+	if (live_call()) return live_result;
 	if (!pepperman_grab)
 	{
 		var _obj_player = asset_get_index(concat("obj_player", grabbedby));

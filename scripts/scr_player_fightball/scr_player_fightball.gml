@@ -1,5 +1,6 @@
 function scr_player_fightball()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.4;
 	if (noisecrusher || isgustavo)
 	{

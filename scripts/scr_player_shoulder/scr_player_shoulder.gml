@@ -1,5 +1,6 @@
 function scr_player_shoulder()
 {
+	if (live_call()) return live_result;
 	move = key_left + key_right;
 	if (grounded)
 	{

@@ -1,5 +1,6 @@
 function scr_player_titlescreen()
 {
+	if (live_call()) return live_result;
 	if (object_index == obj_player1)
 	{
 		targetDoor = "A";

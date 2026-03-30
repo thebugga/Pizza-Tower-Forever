@@ -47,6 +47,7 @@ function scr_player_ghostdash_sprites(_max_magnitude = 2.5)
 
 function scr_player_ghost()
 {
+	if (live_call()) return live_result;
 	visible = true;
 	image_speed = 0.35;
 	ghosttimer++;
@@ -425,6 +426,7 @@ function scr_player_ghost()
 
 function scr_player_ghostpossess()
 {
+	if (live_call()) return live_result;
 	visible = false;
 	hsp = 0;
 	if (!instance_exists(possessID))

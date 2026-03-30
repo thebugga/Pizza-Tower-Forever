@@ -1,5 +1,6 @@
 function scr_enemy_chase()
 {
+	if (live_call()) return live_result;
 	if (object_index == obj_minijohn || object_index == obj_banditochicken || object_index == obj_golfdemon)
 	{
 		var targetplayer = obj_player1;

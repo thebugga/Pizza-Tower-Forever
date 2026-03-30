@@ -1,5 +1,6 @@
 function scr_changetoppings()
 {
+	if (live_call()) return live_result;
 	with (obj_collect)
 	{
 		if (ds_list_find_index(global.saveroom, id) == -1)

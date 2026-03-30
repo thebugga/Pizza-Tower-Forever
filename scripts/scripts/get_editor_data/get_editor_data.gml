@@ -1,5 +1,6 @@
 function get_editor_data()
 {
+	if (live_call()) return live_result;
 	var file = file_text_open_read("editor/data.json");
 	var str = "";
 	while (!file_text_eof(file))

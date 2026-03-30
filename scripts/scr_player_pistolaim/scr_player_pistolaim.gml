@@ -1,5 +1,6 @@
 function scr_player_pistolaim()
 {
+	if (live_call()) return live_result;
 	mach2 = 0;
 	move = key_left + key_right;
 	jumpAnim = true;

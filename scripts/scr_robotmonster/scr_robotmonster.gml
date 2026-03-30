@@ -1,5 +1,6 @@
 function scr_robot_normal()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	sprite_index = walkspr;
 	hsp = image_xscale * movespeed;
@@ -21,6 +22,7 @@ function scr_robot_normal()
 
 function scr_robot_turn()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.25;
 	hsp = 0;
 	if (image_index > (image_number - 1))
@@ -34,6 +36,7 @@ function scr_robot_turn()
 
 function scr_robot_chase()
 {
+	if (live_call()) return live_result;
 	sprite_index = chasespr;
 	if ((playerinst.x - x) != 0)
 	{
@@ -58,6 +61,7 @@ function scr_robot_chase()
 
 function scr_robot_attack()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_monstershroom_idle;
 	hsp = 0;
 	//if (!instance_exists(throw_inst))
@@ -77,6 +81,7 @@ function scr_robot_attack()
 
 function scr_robot_detect()
 {
+	if (live_call()) return live_result;
 	var _col = collision_line(x, y, playerinst.x, playerinst.y, obj_solid, false, true);
 	var _player_colX = (image_xscale > 0) ? (playerinst.x < (x + threshold_x) && playerinst.x > x) : (playerinst.x > (x - threshold_x) && playerinst.x < x);
 	var _player_colY = playerinst.y > (y - threshold_y) && playerinst.y < (y + threshold_y);

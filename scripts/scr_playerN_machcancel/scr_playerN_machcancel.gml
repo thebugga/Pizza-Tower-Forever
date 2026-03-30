@@ -1,5 +1,6 @@
 function scr_playerN_machcancelstart()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	movespeed = 0;
@@ -15,6 +16,7 @@ function scr_playerN_machcancelstart()
 
 function scr_playerN_machcancel()
 {
+	if (live_call()) return live_result;
 	noisemachcancelbuffer = 10;
 	hsp = movespeed;
 	move = key_right + key_left;
@@ -217,6 +219,7 @@ function scr_playerN_machcancel()
 
 function scr_noise_machcancel_grab()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.5;
 	move = key_left + key_right;
 	if (input_buffer_slap > 0 && !key_up)

@@ -1,5 +1,6 @@
 function scr_player_ejected()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_deathend;
 	if (vsp < 20)
 	{

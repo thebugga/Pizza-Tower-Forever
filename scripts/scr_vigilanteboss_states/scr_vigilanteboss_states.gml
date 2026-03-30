@@ -1,5 +1,6 @@
 function vigilante_cancel_attack()
 {
+	if (live_call()) return live_result;
 	if (cancel_buffer > 0)
 	{
 		cancel_buffer--;
@@ -88,6 +89,7 @@ function vigilante_cancel_attack()
 
 function boss_vigilante_decide_attack()
 {
+	if (live_call()) return live_result;
 	if (phase < 3)
 	{
 		vigilante_decide_attack_phase1();
@@ -167,6 +169,7 @@ function boss_vigilante_decide_attack()
 
 function vigilante_decide_attack_phase6_nohonor()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown > 0)
 	{
 		attack_cooldown--;
@@ -203,6 +206,7 @@ function vigilante_decide_attack_phase6_nohonor()
 
 function vigilante_decide_attack_phase5()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown > 0)
 	{
 		attack_cooldown--;
@@ -224,6 +228,7 @@ function vigilante_decide_attack_phase5()
 
 function vigilante_decide_attack_phase4()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown > 0)
 	{
 		attack_cooldown--;
@@ -267,6 +272,7 @@ function vigilante_decide_attack_phase4()
 
 function vigilante_decide_attack_phase3()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown > 0)
 	{
 		attack_cooldown--;
@@ -315,6 +321,7 @@ function vigilante_decide_attack_phase3()
 
 function vigilante_decide_attack_phase1()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown > 0)
 	{
 		attack_cooldown--;
@@ -354,6 +361,7 @@ function vigilante_decide_attack_phase1()
 
 function vigilante_decide_normalattack()
 {
+	if (live_call()) return live_result;
 	if (normalattack_cooldown > 0)
 	{
 		normalattack_cooldown--;
@@ -391,6 +399,7 @@ function vigilante_decide_normalattack()
 
 function boss_vigilante_normal_phase4()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (targetplayer.hsp != 0 && targetplayer.state != states.thrown && distance_to_object(targetplayer) < 500)
 	{
@@ -462,6 +471,7 @@ function boss_vigilante_normal_phase4()
 
 function boss_vigilante_normal()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	if (targetplayer.hsp != 0 && targetplayer.state != states.thrown && distance_to_object(targetplayer) < 480)
 	{
@@ -544,6 +554,7 @@ function boss_vigilante_normal()
 
 function boss_vigilante_float()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	sprite_index = spr_playerV_crouchmove;
 	hsp = image_xscale * changeside_spd;
@@ -563,6 +574,7 @@ function boss_vigilante_float()
 
 function boss_vigilante_revolver()
 {
+	if (live_call()) return live_result;
 	image_speed = (phase != 6) ? 0.35 : 0.5;
 	hsp = 0;
 	if (image_index > (image_number - 1))
@@ -619,6 +631,7 @@ function boss_vigilante_revolver()
 
 function boss_vigilante_mach1()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.6;
 	hsp = image_xscale * movespeed;
 	if (movespeed < 12)
@@ -677,6 +690,7 @@ function boss_vigilante_mach1()
 
 function boss_vigilante_crouchslide()
 {
+	if (live_call()) return live_result;
 	image_speed = (phase != 6) ? 0.35 : 0.5;
 	hsp = image_xscale * movespeed;
 	if (sprite_index == spr_playerV_divekickstart && image_index > (image_number - 1))
@@ -713,6 +727,7 @@ function boss_vigilante_crouchslide()
 
 function boss_vigilante_machslide()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * movespeed;
 	if (movespeed > 0)
 	{
@@ -738,6 +753,7 @@ function boss_vigilante_machslide()
 
 function boss_vigilante_jump()
 {
+	if (live_call()) return live_result;
 	image_speed = (phase != 6) ? 0.35 : 0.5;
 	hsp = image_xscale * movespeed;
 	if (dynamite_buffer > 0)
@@ -782,6 +798,7 @@ function boss_vigilante_jump()
 
 function boss_vigilante_dynamite()
 {
+	if (live_call()) return live_result;
 	image_speed = (phase != 6) ? 0.4 : 0.6;
 	if (image_index > (image_number - 1))
 	{
@@ -800,6 +817,7 @@ function boss_vigilante_dynamite()
 
 function boss_vigilante_charge()
 {
+	if (live_call()) return live_result;
 	image_speed = (phase != 6) ? 0.35 : 0.4;
 	hsp = image_xscale * movespeed;
 	if (image_index > (image_number - 1))
@@ -812,6 +830,7 @@ function boss_vigilante_charge()
 
 function boss_vigilante_punch()
 {
+	if (live_call()) return live_result;
 	image_speed = (phase != 6) ? 0.35 : 0.5;
 	hsp = image_xscale * movespeed;
 	if (place_meeting(x + sign(hsp), y, obj_solid))
@@ -837,6 +856,7 @@ function boss_vigilante_punch()
 
 function boss_vigilante_groundpunchstart()
 {
+	if (live_call()) return live_result;
 	image_speed = (phase != 6) ? 0.35 : 0.5;
 	if (x > (targetplayer.x - 32) && x < (targetplayer.x + 32))
 	{
@@ -872,6 +892,7 @@ function boss_vigilante_groundpunchstart()
 
 function boss_vigilante_freefallprep()
 {
+	if (live_call()) return live_result;
 	if (x > (targetplayer.x - 24) && x < (targetplayer.x + 24))
 	{
 		move = 0;
@@ -905,6 +926,7 @@ function boss_vigilante_freefallprep()
 
 function boss_vigilante_freefall()
 {
+	if (live_call()) return live_result;
 	if (x > (targetplayer.x - 24) && x < (targetplayer.x + 24))
 	{
 		move = 0;
@@ -942,6 +964,7 @@ function boss_vigilante_freefall()
 
 function boss_vigilante_freefallland()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * movespeed;
 	image_speed = (phase != 6) ? 0.35 : 0.5;
 	if (image_index > (image_number - 1))
@@ -956,6 +979,7 @@ function boss_vigilante_freefallland()
 
 function boss_vigilante_millionpunch()
 {
+	if (live_call()) return live_result;
 	image_speed = (phase != 6) ? 0.6 : 0.7;
 	if (x > (targetplayer.x - 24) && x < (targetplayer.x + 24))
 	{
@@ -983,6 +1007,7 @@ function boss_vigilante_millionpunch()
 
 function boss_vigilante_uppunch()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * movespeed;
 	if (image_index > (image_number - 1))
 	{
@@ -1000,6 +1025,7 @@ function boss_vigilante_uppunch()
 
 function boss_vigilante_handstandjump()
 {
+	if (live_call()) return live_result;
 	image_speed = (phase != 6) ? 0.35 : 0.4;
 	hsp = image_xscale * movespeed;
 	if (movespeed < 10)
@@ -1022,6 +1048,7 @@ function boss_vigilante_handstandjump()
 
 function boss_vigilante_superattackstart()
 {
+	if (live_call()) return live_result;
 	var tx = room_width - (room_width / 3);
 	x = Approach(x, tx, movespeed);
 	hsp = 0;
@@ -1100,6 +1127,7 @@ function boss_vigilante_superattackstart()
 
 function boss_vigilante_superattack()
 {
+	if (live_call()) return live_result;
 	if (duel_buffer > 0)
 	{
 		if (lastplayerid.state != states.hit && lastplayerid.state != states.thrown)

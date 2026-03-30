@@ -1,5 +1,6 @@
 function cutscene_medieval_middle()
 {
+	if (live_call()) return live_result;
 	var _finish = false;
 	with (obj_knightplatform)
 	{

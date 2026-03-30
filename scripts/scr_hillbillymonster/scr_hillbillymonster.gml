@@ -1,5 +1,6 @@
 function scr_hillbilly_idle()
 {
+	if (live_call()) return live_result;
 	sprite_index = idlespr;
 	if ((global.monsterspeed >= 1 && point_in_camera(x, y, view_camera[0])) || distance_to_pos(x, y, playerinst.x, playerinst.y, 480, 270))
 	{
@@ -10,6 +11,7 @@ function scr_hillbilly_idle()
 
 function scr_hillbilly_chase()
 {
+	if (live_call()) return live_result;
 	if (hsp != 0)
 	{
 		sprite_index = chasespr;
@@ -37,6 +39,7 @@ function scr_hillbilly_chase()
 
 function scr_hillbilly_machslide()
 {
+	if (live_call()) return live_result;
 	sprite_index = skidspr;
 	if (abs(hsp) > 0)
 	{
@@ -62,6 +65,7 @@ function scr_hillbilly_machslide()
 
 function scr_hillbilly_detect()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	sprite_index = idlespr;
 	var _col = collision_line(x, y, playerinst.x, playerinst.y, obj_solid, false, true);
@@ -78,6 +82,7 @@ function scr_hillbilly_detect()
 
 function scr_hillbilly_destroyables()
 {
+	if (live_call()) return live_result;
 	with (obj_woodenwalls)
 	{
 		if (place_meeting(x - other.hsp, y, other.id))

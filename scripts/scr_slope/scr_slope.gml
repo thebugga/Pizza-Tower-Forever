@@ -1,5 +1,6 @@
 function scr_slope()
 {
+	if (live_call()) return live_result;
 	y++;
 	var slope = instance_place(x, y, obj_slope);
 	if (slope)

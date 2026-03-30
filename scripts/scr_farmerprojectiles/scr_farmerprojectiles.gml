@@ -35,6 +35,7 @@ function scr_farmer3_projectile(_haystack, _projectile_data)
 
 function scr_shoot_farmerprojectile()
 {
+	if (live_call()) return live_result;
 	if (global.hasfarmer[farmerpos])
 	{
 		var inst = obj_farmerpeasantoprojectile;
@@ -56,6 +57,7 @@ function scr_shoot_farmerprojectile()
 
 function scr_change_farmers()
 {
+	if (live_call()) return live_result;
 	var i = 0;
 	while (i < 3)
 	{

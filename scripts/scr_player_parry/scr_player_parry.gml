@@ -1,5 +1,6 @@
 function scr_player_parry()
 {
+	if (live_call()) return live_result;
 	if (image_index > (image_number - 1))
 	{
 		state = states.normal;

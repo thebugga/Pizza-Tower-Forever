@@ -1,5 +1,6 @@
 function boss_mrstick_decide_attack()
 {
+	if (live_call()) return live_result;
 	if (attack_cooldown <= 0)
 	{
 		targetstunned = 0;
@@ -67,6 +68,7 @@ function boss_mrstick_decide_attack()
 
 function boss_mrstick_normal()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	var dx = abs(targetplayer.x - x);
 	move = 0;
@@ -150,6 +152,7 @@ function boss_mrstick_normal()
 
 function boss_mrstick_shield()
 {
+	if (live_call()) return live_result;
 	if (shield_buffer > 0)
 	{
 		shield_buffer--;
@@ -162,6 +165,7 @@ function boss_mrstick_shield()
 
 function boss_mrstick_helicopterhat()
 {
+	if (live_call()) return live_result;
 	x = Approach(x, target_x, movespeed);
 	switch (helicopterstate)
 	{
@@ -199,6 +203,7 @@ function boss_mrstick_helicopterhat()
 
 function boss_mrstick_panicjump()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = image_xscale * movespeed;
 	if (sprite_index == spr_mrstick_jump && image_index > (image_number - 1))
@@ -222,6 +227,7 @@ function boss_mrstick_panicjump()
 
 function boss_mrstick_jump()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * movespeed;
 	if (sprite_index == spr_mrstick_jump && image_index > (image_number - 1))
 	{
@@ -275,6 +281,7 @@ function boss_mrstick_jump()
 
 function boss_mrstick_smokebombstart()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (image_index > (image_number - 1))
 	{
@@ -297,6 +304,7 @@ function boss_mrstick_smokebombstart()
 
 function boss_mrstick_smokebombcrawl()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * movespeed;
 	if (x > (target_x - 16) && x < (target_x + 16))
 	{
@@ -307,6 +315,7 @@ function boss_mrstick_smokebombcrawl()
 
 function boss_mrstick_springshoes()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * movespeed;
 	if (sprite_index == spr_mrstick_jump && image_index > (image_number - 1))
 	{
@@ -335,6 +344,7 @@ function boss_mrstick_springshoes()
 
 function boss_mrstick_cardboard()
 {
+	if (live_call()) return live_result;
 	x = -400;
 	y = -400;
 	vsp = 0;
@@ -357,6 +367,7 @@ function boss_mrstick_cardboard()
 
 function boss_mrstick_cardboardend()
 {
+	if (live_call()) return live_result;
 	hsp = image_xscale * movespeed;
 	if (scr_solid(x, y + vsp) && !scr_solid(x, y))
 	{
@@ -371,6 +382,7 @@ function boss_mrstick_cardboardend()
 
 function boss_mrstick_mockery()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	targetstunned = 0;
 	if (mockery_buffer > 0)

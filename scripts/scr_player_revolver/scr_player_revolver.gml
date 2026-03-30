@@ -1,5 +1,6 @@
 function scr_player_revolver()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	landAnim = false;
 	if (grounded)

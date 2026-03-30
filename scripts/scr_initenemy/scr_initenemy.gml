@@ -1,5 +1,6 @@
 function scr_initenemy()
 {
+	if (live_call()) return live_result;
 	chargesnd = fmod_event_create_instance("event:/sfx/enemies/charge");
 	pizzaheadKO = noone;
 	pizzaheadKO_ID = noone;

@@ -1,5 +1,6 @@
 function scr_player_grabbing()
 {
+	if (live_call()) return live_result;
 	landAnim = false;
 	hsp = xscale * movespeed;
 	move = key_left + key_right;

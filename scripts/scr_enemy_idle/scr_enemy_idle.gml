@@ -1,5 +1,6 @@
 function scr_enemy_idle()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (vsp > 1 && (grounded || (grounded && !place_meeting(x, y, obj_platform))))
 	{

@@ -1,5 +1,6 @@
 function scr_player_ratmount()
 {
+	if (live_call()) return live_result;
 	if (global.swapmode && key_attack && key_fightball && ratmount_movespeed >= 12 && !instance_exists(obj_swapmodegrab) && !instance_exists(obj_swapdeatheffect) && !instance_exists(obj_noiseanimatroniceffect) && obj_swapmodefollow.animatronic <= 0)
 	{
 		sprite_index = spr_fightball;
@@ -355,6 +356,7 @@ function scr_player_ratmount()
 
 function ratmount_dotaunt()
 {
+	if (live_call()) return live_result;
 	if (key_taunt2 && state != states.backbreaker && brick && gusdashpadbuffer == 0)
 	{
 		notification_push(notifications.taunted, [room]);
@@ -391,6 +393,7 @@ function ratmount_dotaunt()
 
 function ratmount_kickbrick()
 {
+	if (live_call()) return live_result;
 	var _pad = 32;
 	fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x + (image_xscale * _pad), y);
 	with (instance_create(x + (image_xscale * _pad), y, obj_brickball))
@@ -412,6 +415,7 @@ function ratmount_kickbrick()
 
 function ratmount_shootpowerup()
 {
+	if (live_call()) return live_result;
 	if (key_shoot2 && ratpowerup != noone && ratshootbuffer <= 0)
 	{
 		switch (ratpowerup)

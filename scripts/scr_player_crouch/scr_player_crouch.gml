@@ -1,5 +1,6 @@
 function scr_player_crouch()
 {
+	if (live_call()) return live_result;
 	move = key_left + key_right;
 	if (!place_meeting(x, y + 1, obj_railparent))
 	{

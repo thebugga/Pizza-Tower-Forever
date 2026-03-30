@@ -1,5 +1,6 @@
 function scr_pizzaface_init_sounds()
 {
+	if (live_call()) return live_result;
 	snd_ram = fmod_event_create_instance("event:/sfx/pizzaface/ram");
 	snd_haywire = fmod_event_create_instance("event:/sfx/pizzahead/haywire");
 	snd_spit = fmod_event_create_instance("event:/sfx/pizzaface/spit");
@@ -8,11 +9,13 @@ function scr_pizzaface_init_sounds()
 
 function scr_pizzaface_destroy_sounds()
 {
+	if (live_call()) return live_result;
 	destroy_sounds([snd_ram, snd_spit, snd_haywire, snd_wind]);
 }
 
 function scr_pizzaface_update_sounds()
 {
+	if (live_call()) return live_result;
 	if (state == states.ram && (substate == states.arenaintro || substate == states.ram))
 	{
 		if (!fmod_event_instance_is_playing(snd_ram))
@@ -52,6 +55,7 @@ function scr_pizzaface_update_sounds()
 
 function scr_pizzaface_arenaintro()
 {
+	if (live_call()) return live_result;
 	if (!skipintro)
 	{
 		image_speed = 0.35;
@@ -273,6 +277,7 @@ function scr_pizzaface_arenaintro()
 
 function scr_pizzaface_normal()
 {
+	if (live_call()) return live_result;
 	if (lasthit)
 	{
 		elitehit = 0;
@@ -420,6 +425,7 @@ function scr_pizzaface_normal()
 
 function scr_pizzaface_ram()
 {
+	if (live_call()) return live_result;
 	switch (substate)
 	{
 		case states.arenaintro:
@@ -509,6 +515,7 @@ function scr_pizzaface_ram()
 
 function scr_pizzaface_transitioncutscene()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	image_alpha = 1;
 	alarm[6] = -1;

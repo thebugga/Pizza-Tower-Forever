@@ -1,5 +1,6 @@
 function scr_player_transitioncutscene()
 {
+	if (live_call()) return live_result;
 	costumercutscenetimer--;
 	global.heattime = 60;
 	if (sprite_index == spr_player_knock && costumercutscenetimer < 0)

@@ -1,5 +1,6 @@
 function scr_player_shotgunshoot()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.4;
 	move = key_left + key_right;
 	hsp = xscale * movespeed;

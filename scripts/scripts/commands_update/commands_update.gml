@@ -1,5 +1,6 @@
 function commands_update()
 {
+	if (live_call()) return live_result;
 	if (key_redo)
 	{
 		if (command_current < ds_list_size(commands_list))

@@ -1,5 +1,6 @@
 function scr_player_machfreefall()
 {
+	if (live_call()) return live_result;
 	if (mach2 == 0)
 	{
 		hsp = move * movespeed;

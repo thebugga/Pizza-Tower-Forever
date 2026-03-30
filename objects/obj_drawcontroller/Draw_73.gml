@@ -124,7 +124,14 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 			surface_set_target(surf);
 			draw_clear_alpha(c_black, 0);
 			draw_set_color(c_black);
-			draw_set_alpha(scr_get_mode("lightsout").enabled ? lerp(1, 0.7, global.toppintotal * 0.2) : 0.8);
+			if !(room == Realtitlescreen || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+			{
+				draw_set_alpha(scr_get_mode("lightsout").enabled ? Approach(1, 0, global.toppintotal * 0.5) : 0.8);
+			}
+			else
+			{
+				draw_set_alpha(0)
+			}
 			draw_rectangle(0, 0, cw, ch, false);
 			gpu_set_blendmode(bm_subtract);
 			draw_set_color(c_white);
@@ -148,45 +155,44 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 					}
 				}
 			}
-			
-			with (obj_tv)
+			if scr_get_mode("lightsout").enabled
 			{
-				if (visible)
+				with (obj_pizzaboxunopen)
 				{
-					draw_set_alpha(other.circle_alpha_out);
-				
-					draw_circle((tv_x + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (tv_y + hud_posY - 25 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), 200, false);
-				
-					draw_set_alpha(other.circle_alpha_in);
-				
-					draw_circle((tv_x + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (tv_y + hud_posY - 25 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), 170, false);
+					draw_set_alpha(other.circle_alpha_out);				
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 178, false);
+			
+					draw_set_alpha(other.circle_alpha_in);	
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 128, false);
 				}
-			}
 			
-			with (obj_pizzaboxunopen)
-			{
-				draw_set_alpha(other.circle_alpha_out);
-				
-				draw_circle(x - surf_x + irandom_range(-1, 1), y - surf_y + irandom_range(-1, 1), 74, false);
-				
-				draw_set_alpha(other.circle_alpha_in);
-				
-				draw_circle(x - surf_x + irandom_range(-1, 1), y - surf_y + irandom_range(-1, 1), 64, false);
-			}
-			
-			with (obj_camera)
-			{
-				if (visible)
+				with (obj_tv)
 				{
-					draw_set_alpha(other.circle_alpha_out);
+					if (visible)
+					{
+						draw_set_alpha(other.circle_alpha_out);
+						draw_circle((tv_x + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (tv_y + hud_posY - 25 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 2 + 60, false);
 				
-					draw_circle((121 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (90 - (sprite_get_height(spr_pizzascore) / 4) + view_get_yport(view_camera[0])) + irandom_range(-1, 1), 100, false);
-					draw_circle((263 - 3 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (68 - (sprite_get_height(spr_ranks_hud) / 4) + 16 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), 64, false);
+						draw_set_alpha(other.circle_alpha_in);		
+						draw_circle((tv_x + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (tv_y + hud_posY - 25 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 1.5 + 47, false);
+					}
+				}
+			
+			
+				with (obj_camera)
+				{
+					if (visible)
+					{
+						draw_set_alpha(other.circle_alpha_out);
 				
-					draw_set_alpha(other.circle_alpha_in);
+						draw_circle((121 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (90 - (sprite_get_height(spr_pizzascore) / 7) + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 2 + 70, false);
+						draw_circle((263 - 3 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (68 - (sprite_get_height(spr_ranks_hud) / 4.2) + 16 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 2 + 64, false);
 				
-					draw_circle((121 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (90 - (sprite_get_height(spr_pizzascore) / 4) + view_get_yport(view_camera[0])) + irandom_range(-1, 1), 70, false);
-					draw_circle((263 - 3 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (68 - (sprite_get_height(spr_ranks_hud) / 4) + 16 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), 32, false);
+						draw_set_alpha(other.circle_alpha_in);
+				
+						draw_circle((121 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (90 - (sprite_get_height(spr_pizzascore) / 7) + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 1.5 + 60, false);
+						draw_circle((263 - 3 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (68 - (sprite_get_height(spr_ranks_hud) / 4.2) + 16 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 1.5 + 47, false);
+					}
 				}
 			}
 			

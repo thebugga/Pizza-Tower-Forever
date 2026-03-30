@@ -1,5 +1,6 @@
 function tdp_text_init()
 {
+	if (live_call()) return live_result;
 	enum text_types
 	{
 		text = 0,

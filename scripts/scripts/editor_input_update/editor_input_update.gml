@@ -1,5 +1,6 @@
 function editor_input_update()
 {
+	if (live_call()) return live_result;
 	for (var i = 0; i < 8; i++)
 	{
 		var any = scr_anybutton_pressed(i);

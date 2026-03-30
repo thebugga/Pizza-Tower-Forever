@@ -1,5 +1,6 @@
 function scr_monster_collide()
 {
+	if (live_call()) return live_result;
 	repeat (abs(vsp))
 	{
 		if (!scr_monster_solid(x, y + sign(vsp)))

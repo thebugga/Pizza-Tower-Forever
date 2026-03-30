@@ -1,5 +1,6 @@
 function scr_dotaunt()
 {
+	if (live_call()) return live_result;
 	if ((key_taunt2 || input_finisher_buffer > 0 || (state == states.backbreaker && key_up && supercharged)) && !skateboarding)
 	{
 		input_finisher_buffer = 0;
@@ -60,6 +61,7 @@ function scr_dotaunt()
 
 function scr_create_parryhitbox()
 {
+	if (live_call()) return live_result;
 	parrytimer = taunt_to_parry_max;
 	instance_destroy(parry_inst);
 	parry_inst = instance_create(x, y, obj_parryhitbox);

@@ -42,6 +42,7 @@ function scr_bosscontroller_particle_anim(_spr, _subimg, _x, _y, _imgspeed, _pal
 
 function scr_bosscontroller_intro()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		state = states.actor;
@@ -134,6 +135,7 @@ function scr_bosscontroller_intro()
 
 function scr_bosscontroller_normal()
 {
+	if (live_call()) return live_result;
 	if (boss_func != noone)
 	{
 		boss_func();
@@ -226,6 +228,7 @@ function scr_bosscontroller_normal()
 
 function scr_bosscontroller_victory()
 {
+	if (live_call()) return live_result;
 	if (victory_buffer > 0)
 	{
 		victory_buffer--;
@@ -257,6 +260,7 @@ function scr_bosscontroller_victory()
 
 function scr_bosscontroller_pizzaface_p3_health()
 {
+	if (live_call()) return live_result;
 	var e = elitehit;
 	while (e > 2)
 		e -= 2;

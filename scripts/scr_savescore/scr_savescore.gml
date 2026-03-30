@@ -103,6 +103,7 @@ function scr_savescore(_level)
 
 function scr_play_rank_music()
 {
+	if (live_call()) return live_result;
 	var s = 4.5;
 	if (global.rank == "p")
 	{

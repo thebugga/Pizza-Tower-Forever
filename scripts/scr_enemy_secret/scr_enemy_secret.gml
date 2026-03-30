@@ -1,5 +1,6 @@
 function scr_enemy_secret()
 {
+	if (live_call()) return live_result;
 	visible = false;
 	invincible = true;
 	hsp = 0;

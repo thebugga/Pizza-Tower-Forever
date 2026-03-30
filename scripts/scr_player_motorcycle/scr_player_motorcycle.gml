@@ -1,5 +1,6 @@
 function scr_player_motorcycle()
 {
+	if (live_call()) return live_result;
 	hsp = xscale * movespeed;
 	if (grounded || !jumped)
 	{

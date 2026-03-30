@@ -1,5 +1,6 @@
 function scr_heatup()
 {
+	if (live_call()) return live_result;
 	global.baddiespeed += 1;
 	if (global.stylethreshold == 2)
 	{

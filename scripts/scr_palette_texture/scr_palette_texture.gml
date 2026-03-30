@@ -1,5 +1,6 @@
 function scr_palette_textureOLD()
 {
+	if (live_call()) return live_result;
 	var cx = camera_get_view_x(view_camera[0]);
 	var cy = camera_get_view_y(view_camera[0]);
 	gpu_set_blendenable(false);
@@ -30,6 +31,7 @@ function scr_palette_textureOLD()
 
 function scr_get_texture_array()
 {
+	if (live_call()) return live_result;
 	return
 	[
 		["funny", spr_peppattern1],

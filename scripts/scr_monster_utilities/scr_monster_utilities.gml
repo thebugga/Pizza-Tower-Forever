@@ -58,6 +58,7 @@ function scr_monster_deactivate(_stopmusic = true)
 
 function scr_monster_stop_music()
 {
+	if (live_call()) return live_result;
 	with (obj_music)
 	{
 		if (fmod_event_instance_is_playing(kidspartychaseID))
@@ -76,6 +77,7 @@ function scr_monster_stop_music()
 
 function scr_monster_activate()
 {
+	if (live_call()) return live_result;
 	if (!instance_exists(obj_ghostcollectibles))
 	{
 		notification_push(notifications.monster_activated, [room, object_index]);
@@ -158,6 +160,7 @@ function scr_monster_detect(_w, _h, _obj)
 
 function scr_puppet_detect()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		if (!place_meeting(x, y, obj_tutorialblock))
@@ -254,6 +257,7 @@ function scr_monsterinvestigate(_spd, _walkingspr, _idlespr)
 
 function scr_monster_detect_audio()
 {
+	if (live_call()) return live_result;
 	if (scr_monster_audio_check())
 	{
 		if (!point_in_camera(x, y, view_camera[0]))
@@ -280,4 +284,5 @@ function scr_monster_detect_audio()
 
 function scr_monster_audio_check()
 {
+	if (live_call()) return live_result;
 }

@@ -1,5 +1,6 @@
 function scr_player_slap()
 {
+	if (live_call()) return live_result;
 	if (!grounded)
 	{
 		fallinganimation++;

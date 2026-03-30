@@ -1,5 +1,6 @@
 function scr_player_tacklecharge()
 {
+	if (live_call()) return live_result;
 	if (windingAnim < 2000)
 	{
 		windingAnim++;

@@ -1,5 +1,6 @@
 function scr_enemy_land()
 {
+	if (live_call()) return live_result;
 	if (vsp > 0)
 	{
 		hsp = 0;

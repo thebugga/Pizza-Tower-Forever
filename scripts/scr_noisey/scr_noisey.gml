@@ -1,5 +1,6 @@
 function scr_noisey_float()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_noisey_grabbed;
 	hsp = 0;
 	vsp = 0;

@@ -1,5 +1,6 @@
 function scr_boss_grabbed()
 {
+	if (live_call()) return live_result;
 	if (pizzahead)
 	{
 		instance_destroy(obj_peppermanGIANTbowlingball);
@@ -72,6 +73,7 @@ function scr_boss_grabbed()
 
 function scr_boss_pizzaheadjump()
 {
+	if (live_call()) return live_result;
 	if (object_index != obj_noisey)
 	{
 		hsp = 0;
@@ -170,6 +172,7 @@ function boss_update_pizzaheadKO(_hpsprite, _pal)
 
 function boss_hurt_gustavo()
 {
+	if (live_call()) return live_result;
 	if (pizzahead)
 	{
 		with (obj_gustavograbbable)
@@ -206,6 +209,7 @@ function boss_hurt_gustavo()
 
 function boss_do_pizzaheadKO()
 {
+	if (live_call()) return live_result;
 	if (pizzahead && pizzaheadKO && state != states.pizzaheadjump && elitehit <= 3)
 	{
 		pizzaheadKO_buffer = 5;
@@ -216,6 +220,7 @@ function boss_do_pizzaheadKO()
 
 function scr_boss_pizzaheadKO()
 {
+	if (live_call()) return live_result;
 	if (grounded)
 	{
 		hsp = Approach(hsp, 0, 0.2);

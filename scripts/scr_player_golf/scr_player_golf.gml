@@ -1,5 +1,6 @@
 function scr_player_golf()
 {
+	if (live_call()) return live_result;
 	landAnim = false;
 	jumpAnim = false;
 	movespeed = 0;

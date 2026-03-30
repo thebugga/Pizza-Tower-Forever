@@ -1,5 +1,6 @@
 function scr_player_cheesepepstick()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	if (character == "N" || character == "PUP")
@@ -67,6 +68,7 @@ function scr_player_cheesepepstick()
 
 function scr_player_cheesepepstickside()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_cheesepepstickside;
 	image_speed = 0.35;
 	alarm[5] = 2;
@@ -197,6 +199,7 @@ function scr_player_cheesepepstickside()
 
 function scr_player_cheesepepstickup()
 {
+	if (live_call()) return live_result;
 	sprite_index = (stickdir == -1) ? spr_cheesepepstickceiling : spr_cheesepepstickfloor;
 	image_speed = 0.35;
 	alarm[5] = 2;

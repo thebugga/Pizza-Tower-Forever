@@ -19,6 +19,7 @@ function scr_pizzaface_p3_add_attack(_hits, _attack, _cooldown)
 
 function scr_pizzaface_p3_init_sounds()
 {
+	if (live_call()) return live_result;
 	snd_jump = fmod_event_create_instance("event:/sfx/pizzahead/jump");
 	snd_bigpunch = fmod_event_create_instance("event:/sfx/pizzahead/bigpunch");
 	snd_swinging = fmod_event_create_instance("event:/sfx/pizzahead/swinging");
@@ -26,11 +27,13 @@ function scr_pizzaface_p3_init_sounds()
 
 function scr_pizzaface_p3_destroy_sounds()
 {
+	if (live_call()) return live_result;
 	destroy_sounds([snd_jump, snd_bigpunch, snd_swinging]);
 }
 
 function scr_pizzaface_p3_update_sounds()
 {
+	if (live_call()) return live_result;
 	fmod_event_instance_set_3d_attributes(snd_jump, x, y);
 	fmod_event_instance_set_3d_attributes(snd_bigpunch, x, y);
 	if (sprite_index == spr_pizzahead_swinging)
@@ -68,6 +71,7 @@ function scr_pizzaface_p3_do_player_attack(_player)
 
 function scr_pizzaface_p3_arenaintro()
 {
+	if (live_call()) return live_result;
 	with (obj_player1)
 	{
 		if (ANIMATION_END && sprite_index == spr_player_levelcomplete)
@@ -173,6 +177,7 @@ function scr_pizzaface_p3_arenaintro()
 
 function scr_pizzaface_p3_fall()
 {
+	if (live_call()) return live_result;
 	if (grounded && vsp > 0)
 	{
 		state = states.walk;
@@ -181,6 +186,7 @@ function scr_pizzaface_p3_fall()
 
 function scr_pizzaface_p3_walk()
 {
+	if (live_call()) return live_result;
 	if (flickertime <= 0 && grounded && vsp > 0)
 	{
 		image_speed = 0.35;
@@ -323,6 +329,7 @@ function scr_pizzaface_p3_walk()
 
 function scr_pizzaface_p3_jump()
 {
+	if (live_call()) return live_result;
 	with (obj_player)
 	{
 		if (place_meeting(x, y, other))
@@ -368,6 +375,7 @@ function scr_pizzaface_p3_jump()
 
 function scr_pizzaface_p3_stomp()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (floor(image_index) >= 20 && !shot)
 	{
@@ -409,6 +417,7 @@ function scr_pizzaface_p3_stomp()
 
 function scr_pizzaface_p3_punch()
 {
+	if (live_call()) return live_result;
 	hsp = Approach(hsp, 0, 0.25);
 	if (floor(image_index) == 15)
 	{
@@ -437,6 +446,7 @@ function scr_pizzaface_p3_punch()
 
 function scr_pizzaface_p3_swinging()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_pizzahead_swingingstart)
 	{
 		hsp = 0;
@@ -464,6 +474,7 @@ function scr_pizzaface_p3_swinging()
 
 function scr_pizzaface_p3_throwing()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	if (!place_meeting(x, y, obj_pizzaheadgetout))
 	{
@@ -480,6 +491,7 @@ function scr_pizzaface_p3_throwing()
 
 function scr_pizzaface_p3_staggered()
 {
+	if (live_call()) return live_result;
 	hsp = Approach(hsp, 0, 0.1);
 	if (cooldown > 0)
 	{
@@ -493,6 +505,7 @@ function scr_pizzaface_p3_staggered()
 
 function scr_pizzaface_p3_handstandjump()
 {
+	if (live_call()) return live_result;
 	sprite_index = spr_pizzahead_bigkickstart;
 	hsp = image_xscale * (10 + wastedhits);
 	if (attackcooldown > 0)
@@ -507,6 +520,7 @@ function scr_pizzaface_p3_handstandjump()
 
 function scr_pizzaface_p3_supergrab()
 {
+	if (live_call()) return live_result;
 	hsp = Approach(hsp, 0, 0.5);
 	sprite_index = spr_pizzahead_hurt;
 	with (playerid)
@@ -568,6 +582,7 @@ function scr_pizzaface_p3_supergrab()
 
 function scr_pizzaface_p3_finale()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	vsp = 0;
 	x = -200;

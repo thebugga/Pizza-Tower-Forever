@@ -1,5 +1,6 @@
 function scr_player_thrown()
 {
+	if (live_call()) return live_result;
 	image_speed = 0.35;
 	hsp = movespeed * -xscale;
 	if (place_meeting(x + sign(hsp), y, obj_solid) && !grounded)

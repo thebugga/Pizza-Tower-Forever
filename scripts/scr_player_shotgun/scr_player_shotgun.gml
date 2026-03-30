@@ -1,5 +1,6 @@
 function scr_player_shotgun()
 {
+	if (live_call()) return live_result;
 	if (sprite_index == spr_shotgunpullout)
 	{
 		image_speed = 0.4;

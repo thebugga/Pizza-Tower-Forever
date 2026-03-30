@@ -1,5 +1,6 @@
 function swap_is_player2()
 {
+	if (live_call()) return live_result;
 	return global.swapmode && (obj_player1.character != obj_savesystem.character);
 }
 

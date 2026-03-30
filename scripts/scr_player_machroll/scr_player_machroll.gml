@@ -1,5 +1,6 @@
 function scr_player_machroll()
 {
+	if (live_call()) return live_result;
 	if (!place_meeting(x, y + 1, obj_railparent))
 	{
 		hsp = xscale * movespeed;

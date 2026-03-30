@@ -1,5 +1,6 @@
 function scr_player_boots()
 {
+	if (live_call()) return live_result;
 	landAnim = false;
 	hsp = move * movespeed;
 	if (dir != xscale)

@@ -1,5 +1,6 @@
 function scr_player_ratmounttrickjump()
 {
+	if (live_call()) return live_result;
 	hsp = movespeed * xscale;
 	if (sprite_index != spr_supertaunt1)
 	{

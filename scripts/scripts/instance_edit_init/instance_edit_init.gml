@@ -1,5 +1,6 @@
 function instance_edit_init()
 {
+	if (live_call()) return live_result;
 	object_map = ds_map_create();
 	object_order_map = ds_map_create();
 	component_map = ds_map_create();

@@ -1,5 +1,6 @@
 function scr_player_hang()
 {
+	if (live_call()) return live_result;
 	hsp = 0;
 	//if (sprite_index == spr_playerN_wallclingstart && ANIMATION_END)
 	//{

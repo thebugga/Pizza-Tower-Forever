@@ -1,5 +1,6 @@
 function scr_player_animatronic()
 {
+	if (live_call()) return live_result;
 	if (character == "N" || character == "PUP")
 	{
 		xscale = 1;

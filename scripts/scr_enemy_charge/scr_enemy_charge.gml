@@ -1,5 +1,6 @@
 function scr_enemy_charge()
 {
+	if (live_call()) return live_result;
 	if (object_index == obj_peasanto)
 	{
 		if (grounded || (grounded && !place_meeting(x, y, obj_platform)))

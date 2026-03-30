@@ -1,5 +1,6 @@
 function scr_player_lungeattack()
 {
+	if (live_call()) return live_result;
 	if (sprite_index != spr_player_backflip)
 	{
 		image_speed = 0.35;
@@ -115,6 +116,7 @@ function randomize_animations(_array)
 
 function DoFinisher()
 {
+	if (live_call()) return live_result;
 	ds_list_clear(hitlist);
 	input_finisher_buffer = 0;
 	input_up_buffer = 0;

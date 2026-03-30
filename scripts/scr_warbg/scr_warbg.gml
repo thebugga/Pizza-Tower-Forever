@@ -1,5 +1,6 @@
 function warbg_start()
 {
+	if (live_call()) return live_result;
 	if (event_type == ev_draw && event_number == 0)
 	{
 		var time = shader_get_uniform(shd_war, "time");
@@ -14,6 +15,7 @@ function warbg_start()
 
 function warbg_end()
 {
+	if (live_call()) return live_result;
 	if (event_type == ev_draw && event_number == 0)
 	{
 		shader_reset();
@@ -22,6 +24,7 @@ function warbg_end()
 
 function pizzahead_bg_start()
 {
+	if (live_call()) return live_result;
 	if (event_type == ev_draw && event_number == 0)
 	{
 		var time = shader_get_uniform(shd_rainbow, "u_time");
@@ -34,6 +37,7 @@ function pizzahead_bg_start()
 
 function pizzahead_bg_end()
 {
+	if (live_call()) return live_result;
 	if (event_type == ev_draw && event_number == 0)
 	{
 		shader_reset();
@@ -42,6 +46,7 @@ function pizzahead_bg_end()
 
 function pizzahead_bg_init()
 {
+	if (live_call()) return live_result;
 }
 
 function warbg_generic(_start_func, _end_func, _map = noone)
@@ -81,6 +86,7 @@ function warbg_generic(_start_func, _end_func, _map = noone)
 
 function warbg_init()
 {
+	if (live_call()) return live_result;
 	if (room != rank_room)
 	{
 		warbg_generic(warbg_start, warbg_end);
@@ -89,5 +95,6 @@ function warbg_init()
 
 function warbg_stop()
 {
+	if (live_call()) return live_result;
 	warbg_generic(noone, warbg_end);
 }

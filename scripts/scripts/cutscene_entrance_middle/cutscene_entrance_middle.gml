@@ -1,5 +1,6 @@
 function cutscene_entrance_middle()
 {
+	if (live_call()) return live_result;
 	with (obj_solidpillar)
 	{
 		destroy = true;

@@ -1,5 +1,6 @@
 function __init_background()
 {
+	if (live_call()) return live_result;
 	enum e__BG
 	{
 		Visible = 0,

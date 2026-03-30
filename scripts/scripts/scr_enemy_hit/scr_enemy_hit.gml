@@ -1,5 +1,6 @@
 function scr_enemy_hit()
 {
+	if (live_call()) return live_result;
 	x = hitX + random_range(-6, 6);
 	y = hitY + random_range(-6, 6);
 	hitLag--;

@@ -1,5 +1,6 @@
 function scr_player_dynamite()
 {
+	if (live_call()) return live_result;
 	if (grounded)
 	{
 		hsp = xscale * movespeed;

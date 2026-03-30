@@ -1,5 +1,6 @@
 function scr_getallrooms()
 {
+	if (live_call()) return live_result;
   return [
 	tower_entrancehall,
 	tower_johngutterhall,

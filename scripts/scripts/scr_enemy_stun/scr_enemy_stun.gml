@@ -1,5 +1,6 @@
 function scr_enemy_stun()
 {
+	if (live_call()) return live_result;
 	if (object_index == obj_ninja)
 	{
 		attack = true;
