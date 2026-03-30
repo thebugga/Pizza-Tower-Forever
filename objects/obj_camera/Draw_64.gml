@@ -22,12 +22,12 @@ if (obj_player.state != states.gameover)
 	{
 		cmb = 1;
 	}
-	pizzascore_index += (0 + (0.25 * cmb));
+	pizzascore_index += (0 + 0.25 * (cmb + global.stylethreshold));
 	if (pizzascore_index > (pizzascore_number - 1))
 	{
 		pizzascore_index = 0 + frac(pizzascore_index);
 	}
-	if (global.stylethreshold <= 0)
+	if (global.stylethreshold >= 0)
 	{
 		if (floor(pizzascore_index) != 0)
 		{
@@ -40,13 +40,17 @@ if (obj_player.state != states.gameover)
 	}
 	var sw = sprite_get_width(spr_heatmeter_fill);
 	var sh = sprite_get_height(spr_heatmeter_fill);
-	var b = 0;
+	var b = scr_get_mode("heatmeter").enabled ? global.stylemultiplier : 0;
 	var hud_xx = 121 + irandom_range(-collect_shake, collect_shake);
 	var hud_yy = 90 + irandom_range(-collect_shake, collect_shake) + hud_posY;
-	draw_sprite_part(spr_heatmeter_fill, pizzascore_index, 0, 0, sw * b, sh, hud_xx - 95, hud_yy + 24);
 	shader_set(global.Pal_Shader);
-	pal_swap_set(spr_heatmeter_palette, global.stylethreshold, false);
-	reset_shader_fix();
+	if scr_get_mode("heatmeter").enabled 
+	{
+		pal_swap_set(spr_heatmeter_palette, global.stylethreshold, false);
+		draw_sprite_part(spr_heatmeter_fill, pizzascore_index, 0, 0, sw * b, sh, hud_xx - 95, hud_yy + 24);
+		draw_sprite_ext(spr_heatmeter, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha)
+		reset_shader_fix();
+	}
 	draw_sprite_ext(spr_pizzascore, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
 	var _score = global.collect;
 	if (_score >= global.crank)

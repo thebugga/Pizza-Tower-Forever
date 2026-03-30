@@ -55,6 +55,7 @@ ini_open("saveData.ini");
 
 global.modes = [
 	_mode_new("lightsout", true),	
+	_mode_new("heatmeter", true),	
 ];
 
 repeat (10)

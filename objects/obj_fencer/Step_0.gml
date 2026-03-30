@@ -61,7 +61,7 @@ if ((player.x > (x - 400) && player.x < (x + 400)) && (y <= (player.y + 60) && y
 	if (state != states.rage && ragebuffer == 0 && elite && (state == states.walk || state == states.charge))
 	{
 		state = states.rage;
-		//sprite_index = spr_fencer_rage;
+		sprite_index = spr_fencer_rage;
 		if (x != player.x)
 		{
 			image_xscale = -sign(x - player.x);

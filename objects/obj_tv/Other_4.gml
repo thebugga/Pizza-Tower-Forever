@@ -83,7 +83,7 @@ switch (global.leveltosave)
 		break;
 }
 */
-if !(room == Realtitlescreen || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+if !(room == Realtitlescreen || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic)) || global.leveltosave != noone
     bgsprite = asset_get_index(concat("spr_gate_", global.leveltosave, "BG"))
 else
     bgsprite = spr_gate_exitBG

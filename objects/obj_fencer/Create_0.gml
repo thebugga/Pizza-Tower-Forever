@@ -30,6 +30,7 @@ boundbox = false;
 spr_dead = spr_fencer_dead;
 important = false;
 heavy = false;
+spr_palette = palette_pencer
 depth = 0;
 charging = false;
 grabbedby = 0;

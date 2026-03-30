@@ -11,6 +11,7 @@ if (other.state != states.gotoplayer)
 	}
 	global.heattime += 10;
 	global.heattime = clamp(global.heattime, 0, 60);
+	global.style -= 10;
 	global.combotime += 10;
 	global.combotime = clamp(global.combotime, 0, 60);
 	with (obj_camera)

@@ -126,7 +126,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 			draw_set_color(c_black);
 			if !(room == Realtitlescreen || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
 			{
-				draw_set_alpha(scr_get_mode("lightsout").enabled ? Approach(1, 0, global.toppintotal * 0.5) : 0.8);
+				draw_set_alpha(scr_get_mode("lightsout").enabled ? max(global.toppintotal, 5) : 0.8);
 			}
 			else
 			{
@@ -165,7 +165,27 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 					draw_set_alpha(other.circle_alpha_in);	
 					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 128, false);
 				}
+				
+				with (obj_followcharacter)
+				{
+					draw_set_alpha(other.circle_alpha_out);				
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 178, false);
 			
+					draw_set_alpha(other.circle_alpha_in);	
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 128, false);
+				}
+			
+				/*
+				
+				with (obj_baddie)
+				{
+					draw_set_alpha(other.circle_alpha_out);				
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 78, false);
+			
+					draw_set_alpha(other.circle_alpha_in);	
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 48, false);
+				}
+				
 				with (obj_tv)
 				{
 					if (visible)
@@ -194,6 +214,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 						draw_circle((263 - 3 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (68 - (sprite_get_height(spr_ranks_hud) / 4.2) + 16 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 1.5 + 47, false);
 					}
 				}
+				*/
 			}
 			
 			gpu_set_blendmode(bm_normal);

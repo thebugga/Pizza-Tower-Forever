@@ -143,3 +143,19 @@ if (fmod_event_instance_is_playing(chargesnd) && state != states.charge)
 {
 	fmod_event_instance_stop(chargesnd);
 }
+if (state == states.walk)
+{
+	image_speed = 0.35 + global.baddiespeed * 0.05
+}
+if (global.stylethreshold >= 2)
+{
+	if global.stylethreshold >= 3
+	{
+	    elite = 1
+	    whoopass = 1
+	}
+    usepalette = 2
+	if (object_index != obj_ninja && object_index != obj_thug_red && object_index != obj_smokingpizzaslice)
+		paletteselect = 2
+}
+

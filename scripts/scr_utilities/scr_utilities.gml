@@ -242,7 +242,15 @@ function instance_random(_obj)
 
 function heat_calculate(_val)
 {
-	return _val;
+	if scr_get_mode("heatmeter").enabled 
+	{
+		trace(global.stylemultiplier)
+			return (_val + (round(_val * global.stylemultiplier)));
+	}
+	else
+	{
+		return _val;
+	}
 }
 
 function get_character_sprite(_sprite, _char = "")

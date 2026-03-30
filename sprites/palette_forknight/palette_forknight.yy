@@ -19,7 +19,7 @@
   "For3D": false,
   "DynamicTexturePage": false,
   "width": 2,
-  "height": 7,
+  "height": 6,
   "textureGroupId": {
     "name": "baddiegroup",
     "path": "texturegroups/baddiegroup",

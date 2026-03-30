@@ -196,7 +196,7 @@ function scr_hurtplayer(_player)
 		{
 			notification_push(notifications.hurt, [_player.id, _savedstate, _obj]);
 			global.combotime -= 25;
-			global.style -= 25;
+			global.style += 25;
 			global.hurtcounter += 1;
 			global.player_damage += 1;
 			if (global.swapmode)
@@ -326,7 +326,7 @@ function scr_hurtplayer(_player)
 				txt = embed_value_string(txt, [damage_n]);
 				create_transformation_tip(txt);
 			}
-			var loseamount = 50 * (global.stylethreshold + 1);
+			var loseamount = 50;
 			if (instance_exists(obj_bosscontroller))
 			{
 				loseamount = 0;

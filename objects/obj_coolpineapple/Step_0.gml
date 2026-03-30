@@ -37,6 +37,55 @@ switch (state)
 		grav = 0.5;
 		scr_enemy_grabbed();
 		break;
+	case states.punch:
+		if (sprite_index == spr_coolpinea_ragestart)
+		{
+			hsp = 0;
+			inv_timer = 0;
+			if (ANIMATION_END)
+			{
+				sprite_index = spr_coolpinea_rage;
+				breakdance_movespeed = 10;
+				hsp = breakdance_movespeed * image_xscale;
+			}
+		}
+		else
+		{
+			breakdance_movespeed = Approach(breakdance_movespeed, 0, 0.25);
+			hsp = image_xscale * breakdance_movespeed;
+			if (place_meeting(x + sign(hsp), y, obj_solid))
+			{
+				image_xscale *= -1;
+				if (breakdance_movespeed < 3)
+				{
+					breakdance_movespeed = 5;
+				}
+				hsp = breakdance_movespeed * image_xscale;
+			}
+			if (trail_count > 0)
+			{
+				trail_count--;
+			}
+			else
+			{
+				with (create_red_afterimage(x, y, sprite_index, image_index - 1, image_xscale))
+				{
+					playerid = other.id;
+				}
+				trail_count = trail_max;
+			}
+			if (breakdance > 0)
+			{
+				breakdance--;
+			}
+			else
+			{
+				sprite_index = walkspr;
+				state = states.walk;
+				breakdanceinst = noone;
+			}
+		}
+		break;
 }
 if (!hitboxcreate && state == states.walk)
 {
@@ -181,4 +230,19 @@ if (boundbox == false)
 		baddieID = other.id;
 		other.boundbox = true;
 	}
+}
+var player = instance_nearest(x, y, obj_player)
+if (x != player.x && grounded && player.x > (x - 100) && player.x < (x + 100) && player.y > (y - 100) && player.y < (y + 100))
+{
+    if ((global.stylethreshold >= 3 || elite) && (!_taunt))
+    {
+        breakdance = 35
+        state = states.punch
+        sprite_index = spr_coolpinea_ragestart
+        image_index = 0
+        breakdanceinst = instance_create(x, y, obj_pineabreakdancehitbox)
+        breakdanceinst.ID = id
+        flash = 1
+        create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale)
+    }
 }

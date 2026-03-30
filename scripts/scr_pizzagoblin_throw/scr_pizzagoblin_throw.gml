@@ -116,7 +116,7 @@ function scr_pizzagoblin_throw()
 			case obj_swedishmonkey:
 				if (elite)
 				{
-					with (instance_create(x, y, obj_slipnslide))
+					with (instance_create(x, y, obj_evilbanana))
 					{
 						baddieID = other.id;
 						image_xscale = other.image_xscale;

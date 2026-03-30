@@ -8,6 +8,7 @@ if (other.state != states.gotoplayer)
 	fmod_event_one_shot("event:/sfx/misc/collectpizza");
 	instance_destroy();
 	global.combotime = 60;
+	global.style -= 20;
 	var val = heat_calculate(value);
 	if (other.object_index == obj_player1)
 	{

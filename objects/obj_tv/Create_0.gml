@@ -86,3 +86,4 @@ showtime_buffer = 0;
 scr_hub_bg_init(0.1)
 bgalpha = 0;
 drawing = 1;
+bgsprite = spr_gate_exitBG;

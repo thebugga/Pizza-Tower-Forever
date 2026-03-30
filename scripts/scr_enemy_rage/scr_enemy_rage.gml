@@ -194,21 +194,21 @@ function scr_enemy_rage()
 			}
 			break;
 		case obj_spitcheese:
-			//ragedash--;
-			//if (ragedash <= 0)
-			//{
-			//	with (instance_create(x, y, obj_bigspitcheesespike))
-			//	{
-			//		other.ragedash = 50;
-			//		hsp = other.image_xscale * 5;
-			//		vsp = -7;
-			//	}
-			//}
-			//if (ANIMATION_END)
-			//{
-			//	state = states.walk;
-			//	sprite_index = spr_spitcheese_idle;
-			//}
+			ragedash--;
+			if (ragedash <= 0)
+			{
+				with (instance_create(x, y, obj_spitcheesebigspike))
+				{
+					other.ragedash = 50;
+					hsp = other.image_xscale * 5;
+					vsp = -7;
+				}
+			}
+			if (ANIMATION_END)
+			{
+				state = states.walk;
+				sprite_index = spr_spitcheese_idle;
+			}
 			break;
 		case obj_tank:
 			if (sprite_index != spr_tank_chargestart)
