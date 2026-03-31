@@ -37,10 +37,12 @@ if (vsp < 0)
 }
 can_jump = (grounded && vsp > 0) || (coyote_time && vsp > 0);
 var prevmask = mask_index;
+
 if (state != states.grab)
 {
 	swingdingthrow = false;
 }
+
 if ((character == "N" || character == "PUP") && !isgustavo)
 {
 	if (can_jump && vsp > 0)
@@ -48,6 +50,13 @@ if ((character == "N" || character == "PUP") && !isgustavo)
 		noisewalljump = 0;
 		noisedoublejump = true;
 	}
+}
+
+if ((character == "V") && !isgustavo)
+{
+	global.pistol = true;
+	shoot = false;
+	shotgunAnim = false;
 }
 
 collision_flags = 0;

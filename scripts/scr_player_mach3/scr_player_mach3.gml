@@ -237,10 +237,6 @@ function scr_player_mach3()
 		{
 			sprite_index = spr_machroll;
 		}
-		if (character == "V")
-		{
-			sprite_index = spr_playerV_divekickstart;
-		}
 	}
 	if ((!grounded && (place_meeting(x + hsp, y, obj_solid) || scr_solid_slope(x + hsp, y)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock)) || (grounded && (place_meeting(x + sign(hsp), y - 16, obj_solid) || scr_solid_slope(x + sign(hsp), y - 16)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && place_meeting(x, y + 1, obj_slope)))
 	{

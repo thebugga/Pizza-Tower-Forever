@@ -250,10 +250,6 @@ function scr_player_mach2()
 		{
 			sprite_index = spr_machroll;
 		}
-		if (character == "V")
-		{
-			sprite_index = spr_playerV_divekickstart;
-		}
 	}
 	if (!key_attack && movespeed >= 8 && grounded && vsp > 0 && skateboarding == false)
 	{

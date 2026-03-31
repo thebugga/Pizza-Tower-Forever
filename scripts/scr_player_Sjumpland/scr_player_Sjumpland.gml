@@ -16,7 +16,7 @@ function scr_player_Sjumpland()
 	alarm[4] = 14;
 	vsp = 0;
 	hsp = 0;
-	if (floor(image_index) == 6)
+	if ANIMATION_END
 	{
 		sprite_index = spr_machfreefall;
 		state = states.jump;

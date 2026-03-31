@@ -30,7 +30,7 @@ function scr_player_normal()
 	{
 		idlespr = spr_player_freezeridle;
 	}
-	if (global.pistol && (character != "N" || character != "PUP"))
+	if (global.pistol && character == "P")
 	{
 		idlespr = spr_player_pistolidle;
 		movespr = spr_player_pistolwalk;
@@ -39,7 +39,7 @@ function scr_player_normal()
 	{
 		idlespr = spr_pepdance;
 		movespr = spr_pepdance;
-		if (character == "N" || character == "PUP")
+		if (character == "N")
 		{
 			idlespr = spr_noise_vulnerable2;
 			movespr = spr_noise_vulnerable2;
@@ -47,7 +47,7 @@ function scr_player_normal()
 		idle = 0;
 	}
 	var breakdance_max = 10;
-	if (key_taunt && !shotgunAnim && (!global.pistol || character == "N" || character == "PUP"))
+	if (key_taunt && !shotgunAnim && (!global.pistol || character == "N" || character == "PUP" || character == "V"))
 	{
 		breakdance_pressed++;
 	}
@@ -202,7 +202,7 @@ function scr_player_normal()
 					facehurt = false;
 					idle = 0;
 				}
-				if ((!global.pistol || character == "N" || character == "PUP") && !shotgunAnim && sprite_index != spr_idle1 && sprite_index != spr_idle2 && sprite_index != spr_idle3 && sprite_index != spr_idle4 && sprite_index != spr_idle5 && sprite_index != spr_idle6)
+				if ((!global.pistol || character == "N" || character == "PUP" || character == "V") && !shotgunAnim && sprite_index != spr_idle1 && sprite_index != spr_idle2 && sprite_index != spr_idle3 && sprite_index != spr_idle4 && sprite_index != spr_idle5 && sprite_index != spr_idle6)
 				{
 					idleanim = random_range(0, 100);
 					if (irandom(100) <= 25)
@@ -242,11 +242,7 @@ function scr_player_normal()
 				{
 					start_running = true;
 					movespeed = 0;
-					if (shoot)
-					{
-						sprite_index = spr_player_pistolidle;
-					}
-					else if (mort)
+					if (mort)
 					{
 						sprite_index = spr_player_mortidle;
 					}
@@ -401,7 +397,7 @@ function scr_player_normal()
 				{
 					sprite_index = spr_shotgunjump;
 				}
-				else if (global.pistol && (character != "N" || character != "PUP"))
+				else if (global.pistol && (character != "N" || character != "PUP" || character != "V"))
 				{
 					sprite_index = spr_player_pistoljump1;
 				}
@@ -440,7 +436,7 @@ function scr_player_normal()
 			{
 				sprite_index = spr_shotgunfall;
 			}
-			if (global.pistol && (character != "N" || character != "PUP"))
+			if (global.pistol && (character != "N" || character != "PUP" || character != "V"))
 			{
 				sprite_index = spr_player_pistoljump2;
 			}
@@ -476,7 +472,7 @@ function scr_player_normal()
 		movespeed = 8;
 		image_index = 0;
 	}
-	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "N" || character == "PUP"))
+	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "N" || character == "PUP" || character == "V"))
 	{
 		state = states.punch;
 		input_buffer_slap = 0;
@@ -516,20 +512,10 @@ function scr_player_normal()
 
 	if (key_attack && state != states.handstandjump && !place_meeting(x + xscale, y, obj_solid) && (!place_meeting(x, y + 1, obj_iceblockslope) || !place_meeting(x + (xscale * 5), y, obj_solid)))
 	{
-		if (!global.pistol || pistolanim == noone)
-		{
-			sprite_index = spr_mach1;
-			image_index = 0;
-			state = states.mach2;
-			if (movespeed < 6 && movespeed >= 0)
-			{
-				movespeed = 6;
-			}
-			if (movespeed > -6 && movespeed < 0)
-			{
-				movespeed = 6;
-			}
-		}
+		sprite_index = spr_mach1;
+		image_index = 0;
+		state = states.mach2;
+		movespeed = 6;
 	}
 
 	scr_dotaunt();

@@ -111,6 +111,10 @@ function scr_player_tumble()
 	{
 		sprite_index = spr_player_Sjumpcancelslide;
 	}
+	if (sprite_index == spr_playerV_divekickstart && ANIMATION_END && grounded)
+	{
+		sprite_index = spr_playerV_divekick;
+	}
 	if (sprite_index == spr_player_jumpdive2 && grounded)
 	{
 		sprite_index = spr_crouchslip;

@@ -136,7 +136,7 @@ function scr_player_jump()
 			{
 				sprite_index = spr_shotgunjump;
 			}
-			if (global.pistol && character != "N")
+			if global.pistol && (character != "N" || character != "PUP" || character != "V")
 			{
 				sprite_index = spr_player_pistoljump1;
 			}
@@ -172,7 +172,7 @@ function scr_player_jump()
 			{
 				image_index = 0;
 			}
-			if (global.pistol && character != "N")
+			if global.pistol && (character != "N" || character != "PUP" || character != "V")
 			{
 				sprite_index = spr_player_pistolland;
 			}
