@@ -67,7 +67,7 @@ if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
                 break;
             
             case "Backgrounds_H1":
-                layer_x(lay, _cam_x * 0.11);
+                layer_x(lay, _cam_x * 0.25);
                 layer_y(lay, _cam_y);
                 break;
             
@@ -124,15 +124,15 @@ if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
                 break;
             
             case "Backgrounds_stillH3":
-                layer_x(lay, bg_stillH3xoffset + (_cam_x * 0.));
+                layer_x(lay, bg_stillH3xoffset + (_cam_x * 0.45));
                 layer_y(lay, bg_stillH3xoffset + (_cam_y - calculate_parrallax_still_y(lay, 0.2)));
                 bg_stillH3xoffset += layer_get_hspeed(lay);
                 bg_stillH3yoffset += layer_get_vspeed(lay);
                 break;
             
             case "Backgrounds_stillH4":
-                layer_x(lay, bg_stillH4xoffset + (_cam_x * 0.15));
-                layer_y(lay, bg_stillH4xoffset + (_cam_y - calculate_parrallax_still_y(lay, 0.15)));
+                layer_x(lay, bg_stillH4xoffset + (_cam_x * 0.25));
+                layer_y(lay, bg_stillH4xoffset + (_cam_y - calculate_parrallax_still_y(lay, 0.25)));
                 bg_stillH4xoffset += layer_get_hspeed(lay);
                 bg_stillH4yoffset += layer_get_vspeed(lay);
                 break;
@@ -159,8 +159,8 @@ if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
                 break;
             
             case "Backgrounds_scroll4":
-                layer_x(lay, (_cam_x * 0.15) + bg_scroll4x + bg_scroll4xoffset);
-                layer_y(lay, (_cam_y * 0.15) + bg_scroll4y + bg_scroll4yoffset);
+                layer_x(lay, (_cam_x * 0.25) + bg_scroll4x + bg_scroll4xoffset);
+                layer_y(lay, (_cam_y * 0.25) + bg_scroll4y + bg_scroll4yoffset);
                 bg_scroll4x += layer_get_hspeed(lay);
                 bg_scroll4y += layer_get_vspeed(lay);
                 break;

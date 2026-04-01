@@ -436,7 +436,7 @@ function scr_player_normal()
 			{
 				sprite_index = spr_shotgunfall;
 			}
-			if (global.pistol && (character != "N" || character != "PUP" || character != "V"))
+			if (global.pistol && character == "P")
 			{
 				sprite_index = spr_player_pistoljump2;
 			}

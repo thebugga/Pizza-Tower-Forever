@@ -72,7 +72,7 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break;
         
         case "Backgrounds_H1":
-            layer_x(lay, _cam_x * 0.11);
+            layer_x(lay, _cam_x * 0.25);
             layer_y(lay, _cam_y);
             break;
         
@@ -136,8 +136,8 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break;
         
         case "Backgrounds_stillH4":
-            layer_x(lay, bg_stillH4xoffset + (_cam_x * 0.15));
-            layer_y(lay, bg_stillH4xoffset + (_cam_y - calculate_parrallax_still_y(lay, 0.15)));
+            layer_x(lay, bg_stillH4xoffset + (_cam_x * 0.25));
+            layer_y(lay, bg_stillH4xoffset + (_cam_y - calculate_parrallax_still_y(lay, 0.25)));
             bg_stillH4xoffset += (layer_get_hspeed(lay) / lays);
             bg_stillH4yoffset += (layer_get_vspeed(lay) / lays);
             break;
@@ -165,8 +165,8 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break;
         
         case "Backgrounds_scroll4":
-            layer_x(lay, (_cam_x * 0.15) + bg_scroll4x + bg_scroll4xoffset);
-            layer_y(lay, (_cam_y * 0.15) + bg_scroll4y + bg_scroll4yoffset);
+            layer_x(lay, (_cam_x * 0.25) + bg_scroll4x + bg_scroll4xoffset);
+            layer_y(lay, (_cam_y * 0.25) + bg_scroll4y + bg_scroll4yoffset);
             bg_scroll4x += (layer_get_hspeed(lay) / lays);
             bg_scroll4y += (layer_get_vspeed(lay) / lays);
             break;
@@ -293,8 +293,8 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break;
         
         case "Backgrounds_3":
-            layer_x(lay, bg_3xoffset + (_cam_x * 0.15));
-            layer_y(lay, bg_3yoffset + (_cam_y * 0.15));
+            layer_x(lay, bg_3xoffset + (_cam_x * 0.25));
+            layer_y(lay, bg_3yoffset + (_cam_y * 0.25));
             break;
         
         case "Backgrounds_Ground1":
@@ -310,7 +310,7 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break;
         
         case "Backgrounds_H1":
-            layer_x(lay, _cam_x * 0.11);
+            layer_x(lay, _cam_x * 0.25);
             layer_y(lay, _cam_y);
             break;
         
@@ -374,8 +374,8 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break;
         
         case "Backgrounds_stillH4":
-            layer_x(lay, bg_stillH4xoffset + (_cam_x * 0.15));
-            layer_y(lay, bg_stillH4xoffset + (_cam_y - calculate_parrallax_still_y(lay, 0.15)));
+            layer_x(lay, bg_stillH4xoffset + (_cam_x * 0.25));
+            layer_y(lay, bg_stillH4xoffset + (_cam_y - calculate_parrallax_still_y(lay, 0.25)));
             bg_stillH4xoffset += (layer_get_hspeed(lay) / lays);
             bg_stillH4yoffset += (layer_get_vspeed(lay) / lays);
             break;
@@ -403,8 +403,8 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break;
         
         case "Backgrounds_scroll4":
-            layer_x(lay, (_cam_x * 0.15) + bg_scroll4x + bg_scroll4xoffset);
-            layer_y(lay, (_cam_y * 0.15) + bg_scroll4y + bg_scroll4yoffset);
+            layer_x(lay, (_cam_x * 0.25) + bg_scroll4x + bg_scroll4xoffset);
+            layer_y(lay, (_cam_y * 0.25) + bg_scroll4y + bg_scroll4yoffset);
             bg_scroll4x += (layer_get_hspeed(lay) / lays);
             bg_scroll4y += (layer_get_vspeed(lay) / lays);
             break;
@@ -438,8 +438,8 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break;
         
         case "Foreground_1":
-            layer_x(lay, (_cam_x * -0.15) + fg_1xoffset);
-            layer_y(lay, (_cam_y * -0.15) + fg_speed + fg_1yoffset);
+            layer_x(lay, (_cam_x * -0.25) + fg_1xoffset);
+            layer_y(lay, (_cam_y * -0.25) + fg_speed + fg_1yoffset);
             fg_speed += (layer_get_vspeed(lay) / lays);
             break;
         
@@ -449,7 +449,7 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break;
         
         case "Foreground_Ground1":
-            layer_x(lay, _cam_x * -0.15);
+            layer_x(lay, _cam_x * -0.25);
             layer_y(lay, room_height - sprite_get_height(layer_background_get_sprite(layer_background_get_id(lay))));
             break;
         
