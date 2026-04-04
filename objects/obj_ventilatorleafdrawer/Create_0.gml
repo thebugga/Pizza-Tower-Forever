@@ -10,4 +10,3 @@ while (yy < abs(room_height))
 	}
 }
 alarm[0] = 1;
-scale = random_range(0.5, 1.5)

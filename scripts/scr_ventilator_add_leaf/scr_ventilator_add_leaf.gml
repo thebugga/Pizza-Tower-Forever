@@ -45,6 +45,7 @@ function scr_add_leaf(_x, _y)
 		x: _x,
 		y: _y,
 		destroy: false,
+		scale: random_range(0.5, 1.5),
 		vsp: -random_range(1, 5),
 		hsp: -random_range(1, 5),
 		image_speed: 0,
