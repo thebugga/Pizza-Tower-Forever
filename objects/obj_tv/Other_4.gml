@@ -115,6 +115,7 @@ if (room == Realtitlescreen)
 }
 switch (room)
 {
+	default:
 	case entrance_1:
 		global.srank = 16000;
 		break;
@@ -171,6 +172,9 @@ switch (room)
 		break;
 	case war_1:
 		global.srank = 21500;
+		break;
+	case mansion_1:
+		global.srank = 22000;
 		break;
 	case tower_finalhallway:
 		global.srank = 5500;

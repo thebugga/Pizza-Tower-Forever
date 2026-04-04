@@ -2,10 +2,7 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_ventilatorleafdrawer",
-  "spriteId": {
-    "name": "bg_null",
-    "path": "sprites/bg_null/bg_null.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,

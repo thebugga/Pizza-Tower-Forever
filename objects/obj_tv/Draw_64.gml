@@ -19,7 +19,7 @@ combofill_y = _cy;
 shader_set(global.Pal_Shader);
 pal_swap_set(spr_tv_combofillpalette, (!global.combodropped && global.prank_enemykilled) ? 2 : 1);
 draw_sprite(spr_tv_combobubblefill, combofill_index, combofill_x, combofill_y);
-if (obj_player1.character == "N" || global.swapmode)
+if (obj_player1.character != "P" || global.swapmode)
 {
 	if (global.swapmode)
 		pal_swap_set(spr_tv_combopaletteN, 1);

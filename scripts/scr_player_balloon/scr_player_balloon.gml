@@ -56,7 +56,7 @@ function scr_player_balloon()
 				instance_create(x, y - 20, obj_balloongrabbableeffect);
 				state = states.machcancel;
 				savedmove = xscale;
-				sprite_index = spr_playerN_wallbounce;
+				sprite_index = spr_wallbounce;
 				image_index = 0;
 				jumpAnim = false;
 				vsp = -17;

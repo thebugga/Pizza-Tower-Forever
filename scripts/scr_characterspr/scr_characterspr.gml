@@ -251,6 +251,7 @@ function scr_characterspr()
 		spr_backslideland = spr_player_backslideland;
 		spr_breakdanceuppercut = spr_player_breakdanceuppercut;
 		spr_breakdanceuppercutend = spr_player_breakdanceuppercutend;
+		spr_wallbounce = spr_player_wallbounce;
 	}
 	if (character == "N")
 	{
@@ -510,6 +511,7 @@ function scr_characterspr()
 		spr_superspringplayer = spr_playerN_superspring;
 		spr_suplexcancel = spr_playerN_suplexcancel;
 		spr_mortthrow = spr_playerN_mortthrow;
+		spr_wallbounce = spr_playerN_wallbounce;
 		spr_palette = spr_noisepalette;
 	}
 	if (character == "V")

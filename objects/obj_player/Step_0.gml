@@ -757,7 +757,7 @@ if (character == "N")
 		global.pistol = false;
 	}
 }
-if (global.pistol && character != "N" && state != states.animation && state != states.grab && state != states.superslam && state != states.actor && state != states.hurt && state != states.bump && state != states.machslide && state != states.Sjumpprep && state != states.Sjump && state != states.tumble && !instance_exists(obj_vigilante_duelintro))
+if (global.pistol && character != "N" && state != states.animation && state != states.grab && state != states.superslam && state != states.actor && state != states.hurt && state != states.bump && state != states.machslide && state != states.Sjumpprep && state != states.Sjump && state != states.tumble && !instance_exists(obj_vigilante_duelintro)) && character != "V"
 {
 	if ((key_slap && !key_slap2) || pistolchargeshooting)
 	{

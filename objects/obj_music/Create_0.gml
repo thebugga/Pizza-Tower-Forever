@@ -249,3 +249,4 @@ add_music(street_1, "event:/music/w4/street", "event:/music/w4/streetsecret", fa
 add_music(chateau_1, "event:/music/w5/chateau", "event:/music/w1/medievalsecret", false);
 add_music(kidsparty_1, "event:/music/w5/kidsparty", "event:/music/w5/kidspartysecret", false);
 add_music(war_1, "event:/music/w5/war", "event:/music/w5/warsecret", false);
+add_music(mansion_1, "event:/music/w6/mansion", "event:/music/w5/warsecret", false);

@@ -117,7 +117,7 @@ function scr_player_climbwall()
 		{
 			sprite_index = spr_noisewalljumpeffect;
 		}
-		sprite_index = spr_playerN_wallbounce;
+		sprite_index = spr_wallbounce;
 		state = states.machcancel;
 		savedmove = xscale;
 		vsp = -(17 * (1 - (noisewalljump * 0.15)));

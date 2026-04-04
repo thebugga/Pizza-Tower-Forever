@@ -255,12 +255,12 @@ function scr_hurtplayer(_player)
 					trace(str2);
 					if ((state == states.expression || state == states.whitenoise) && (sprite_index == spr_tv_exprhurt || sprite_index == spr_tv_exprhurtN || sprite_index == spr_tv_hurtG || str2 == "spr_tv_exprhurt" || str2 == "spr_tv_exprhurtN"))
 					{
-						sprite_index = other.character == "P" ? spr_tv_idleN : spr_tv_idle;
+						sprite_index = get_character_sprite(spr_tv_idle, obj_player1.character);
 						if (other.noisecrusher)
 						{
 							sprite_index = spr_tv_idleG;
 						}
-						var _palinfo = other.character == "P" ? get_char_palette_info("N") : get_char_palette_info("P");
+						var _palinfo = get_char_palette_info(obj_player1.character);
 						spr_palette = _palinfo.spr_palette;
 						if (other.noisecrusher)
 						{

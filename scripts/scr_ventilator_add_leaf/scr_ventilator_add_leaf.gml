@@ -58,22 +58,7 @@ function scr_update_leaf(_leaf)
 {
 	with (_leaf)
 	{
-		if (!destroy)
-		{
-			image_alpha = Approach(image_alpha, 1, 0.1);
-			if (y > (other.bbox_bottom - 48)) || (y < (other.bbox_top - 48))
-			{
-				destroy = true;
-			}
-		}
-		else
-		{
-			image_alpha = Approach(image_alpha, 0, 0.1);
-			if (image_alpha <= 0)
-			{
-				return true;
-			}
-		}
+		image_alpha = Approach(image_alpha, 1, 0.1);
 		x -= hsp;
 		y -= vsp;
 	}

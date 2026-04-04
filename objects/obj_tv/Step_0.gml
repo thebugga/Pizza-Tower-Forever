@@ -38,6 +38,10 @@ switch (state)
 		{
 			idlespr = spr_tv_idleN;
 		}
+		if (obj_player1.character == "V")
+		{
+			idlespr = spr_tv_idleV;
+		}
 		if (global.panic)
 		{
 			idlespr = spr_tv_exprpanic;
@@ -120,6 +124,7 @@ switch (state)
 				break;
 			case spr_tv_idle:
 			case spr_tv_idleN:
+			case spr_tv_idleV:
 				if (idleanim > 0)
 				{
 					idleanim--;
@@ -154,7 +159,7 @@ switch (state)
 					sprite_index = idlespr;
 					idleanim = 240 + (60 * irandom_range(-1, 2));
 				}
-				if (idlespr != spr_tv_idle && idlespr != spr_tv_idleN)
+				if (idlespr != get_character_sprite(spr_tv_idle, obj_player1.character))
 				{
 					sprite_index = idlespr;
 				}

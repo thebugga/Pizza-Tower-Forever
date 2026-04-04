@@ -21,8 +21,8 @@
   "width": 640,
   "height": 1321,
   "textureGroupId": {
-    "name": "hubgroup",
-    "path": "texturegroups/hubgroup",
+    "name": "mansiongroup",
+    "path": "texturegroups/mansiongroup",
   },
   "swatchColours": null,
   "gridX": 0,

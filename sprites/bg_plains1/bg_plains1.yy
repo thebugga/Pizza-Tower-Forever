@@ -21,8 +21,8 @@
   "width": 960,
   "height": 700,
   "textureGroupId": {
-    "name": "backgroundgroup",
-    "path": "texturegroups/backgroundgroup",
+    "name": "mansiongroup",
+    "path": "texturegroups/mansiongroup",
   },
   "swatchColours": null,
   "gridX": 0,

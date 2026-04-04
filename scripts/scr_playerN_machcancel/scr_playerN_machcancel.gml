@@ -100,7 +100,7 @@ function scr_playerN_machcancel()
 		image_index = 0;
 		sprite_index = spr_playerN_divebomb;
 	}
-	if (grounded && !scr_check_groundpound2() && vsp >= 0 && sprite_index != spr_playerN_wallbounce)
+	if (grounded && !scr_check_groundpound2() && vsp >= 0 && sprite_index != spr_wallbounce)
 	{
 		vsp = -7;
 		if (move != 0)
@@ -111,10 +111,10 @@ function scr_playerN_machcancel()
 		{
 			sprite_index = spr_noisewalljumpeffect;
 		}
-		sprite_index = spr_playerN_wallbounce;
+		sprite_index = spr_wallbounce;
 		GamepadSetVibration(0, 0.5, 0.5, 0.5);
 	}
-	if (grounded && key_attack && vsp >= 0 && sprite_index == spr_playerN_wallbounce)
+	if (grounded && key_attack && vsp >= 0 && sprite_index == spr_wallbounce)
 	{
 		fmod_event_one_shot_3d("event:/sfx/playerN/wallbounceland", x, y);
 		input_buffer_slap = 0;
@@ -173,7 +173,7 @@ function scr_playerN_machcancel()
 		}
 		scr_player_do_noisecrusher();
 	}
-	if (grounded && !key_attack && vsp >= 0 && sprite_index == spr_playerN_wallbounce)
+	if (grounded && !key_attack && vsp >= 0 && sprite_index == spr_wallbounce)
 	{
 		state = states.normal;
 		movespeed = abs(hsp);
