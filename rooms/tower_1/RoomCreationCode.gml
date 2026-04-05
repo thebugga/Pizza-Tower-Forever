@@ -20,3 +20,7 @@ if (global.panic)
 	instance_destroy(obj_bossdoor);
 }
 scr_random_granny();
+var _levels = scr_get_levelshuffle();
+array_push(_levels, ["entrance", entrance_1]);
+
+scr_set_levelshuffle(_levels);
