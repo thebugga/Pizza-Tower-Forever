@@ -40,7 +40,7 @@ function scr_player_grabbed()
 	with (_obj_player)
 	{
 		move = key_left2 + key_right2;
-		if (key_slap && sprite_index == spr_grab)
+		if (key_slap && sprite_index == spr_suplexdash)
 		{
 			global.hit += 1;
 			if (other.object_index == obj_pizzaball)

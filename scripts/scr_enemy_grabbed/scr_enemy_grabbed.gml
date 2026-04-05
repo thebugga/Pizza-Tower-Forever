@@ -1,6 +1,5 @@
 function scr_enemy_grabbed()
 {
-	if (live_call()) return live_result;
 	if (!pepperman_grab)
 	{
 		var _obj_player = asset_get_index(concat("obj_player", grabbedby));
@@ -210,10 +209,10 @@ function scr_enemy_grabbed()
 			{
 				global.style += (5 + global.combo);
 			}
-			GamepadSetVibration((_obj_player.object_index == obj_player) ? 0 : 1, 0.8, 0.8, 0.65);
+			GamepadSetVibration((_obj_player.object_index == obj_player1) ? 0 : 1, 0.8, 0.8, 0.65);
 			fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 			fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
-			if (_obj_player.character == "N" || _obj_player.character== "PUP")
+			if (_obj_player.character == "N")
 			{
 				scr_fmod_soundeffect(_obj_player.snd_noisepunch, x, y);
 			}
@@ -495,7 +494,7 @@ function scr_enemy_grabbed()
 	}
 	if (pepperman_grab)
 	{
-		var _player = (grabbedby == 1) ? obj_player.id : obj_player2.id;
+		var _player = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
 		image_xscale = _player.xscale;
 		if (!thrown)
 		{

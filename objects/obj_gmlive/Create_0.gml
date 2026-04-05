@@ -1,13 +1,12 @@
 /// @description Don't forget to place this object in the first room!
 // this is a simple safeguard against making multiple obj_gmlive instances
-#macro debug true
 if (instance_number(obj_gmlive) > 1) {
 	var first = instance_find(obj_gmlive, 0);
 	if (id != first) { instance_destroy(); exit; }
 }
 // flip this value to 0 to disable GMLive!
-#macro live_enabled debug
-if !debug
+#macro live_enabled false 
+if !IS_DEBUG
 	instance_destroy();
 global.live_blank_room = rm_blank
 global.live_blank_object = obj_blank

@@ -7,6 +7,7 @@ if (!global.coop)
     x = -1000;
     y = 500;
     state = states.titlescreen;
+
     
     if (instance_exists(obj_coopflag))
         instance_destroy(obj_coopflag);

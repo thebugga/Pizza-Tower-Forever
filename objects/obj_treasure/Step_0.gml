@@ -1,6 +1,6 @@
 if (player == 1)
 {
-	if (got && obj_player.state != states.gottreasure)
+	if (got && obj_player1.state != states.gottreasure)
 	{
 		instance_destroy();
 	}
@@ -32,6 +32,7 @@ if (player == 0 && place_meeting(x, y, obj_player))
 				ds_list_add(global.saveroom, other.id);
 				global.treasure = true;
 				global.combotime = 60;
+				instance_create_unique(other.x, other.y, obj_treasureeffect);
 				hsp = 0;
 				vsp = 0;
 				if (!other.got)
@@ -43,13 +44,12 @@ if (player == 0 && place_meeting(x, y, obj_player))
 				other.got = true;
 				other.x = x - 18;
 				other.y = y - 35;
-				other.effectid = instance_create(other.x + 18, other.y, obj_treasureeffect);
 				other.vsp = 0;
 				other.depth = -20;
 				obj_tv.showtext = true;
 				obj_tv.message = "YOU GOT A TOWER SECRET TREASURE!!!";
 				obj_tv.alarm[0] = 200;
-				other.player = (object_index == obj_player) ? 1 : 2;
+				other.player = (object_index == obj_player1) ? 1 : 2;
 				ds_list_clear(global.instancelist);
 				break;
 			}

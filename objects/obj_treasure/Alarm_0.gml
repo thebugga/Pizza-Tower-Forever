@@ -1,7 +1,7 @@
 var p = noone;
 if (player == 1)
 {
-	p = obj_player.id;
+	p = obj_player1.id;
 }
 else if (player == 2)
 {

@@ -25,7 +25,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "PizzaTower_GM2",
-    "path": "PizzaTower_GM2.yyp",
+    "name": "Important",
+    "path": "folders/Important.yy",
   },
 }

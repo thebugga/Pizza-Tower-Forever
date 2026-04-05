@@ -1,15 +1,12 @@
-xi = obj_screensizer.actual_width / 2 - 20;
-if (showtext == true)
+if (showtext == 1)
 {
-	if (yi < 30)
-	{
-		yi += 5;
-	}
+    y = Approach(y, 490, 2);
 }
-if (showtext == false)
+if (showtext == 0)
 {
-	if (yi > -50)
-	{
-		yi -= 1;
-	}
+    y = Approach(y, 600, 1);
+}
+if global.panic
+{
+	showtext = 0;
 }

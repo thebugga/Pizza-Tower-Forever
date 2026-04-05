@@ -33,3 +33,11 @@ else
 	layer_sprite_alpha(pep, 0);
 	layer_sprite_alpha(noise, 1);
 }
+
+if !scr_get_mode("levelshuffle").enabled
+	exit;
+		
+var _levels = scr_get_levelshuffle();
+array_push(_levels);
+
+scr_set_levelshuffle(_levels);
