@@ -18,8 +18,8 @@
   "VTile": false,
   "For3D": false,
   "DynamicTexturePage": false,
-  "width": 395,
-  "height": 255,
+  "width": 371,
+  "height": 196,
   "textureGroupId": {
     "name": "introgroup",
     "path": "texturegroups/introgroup",

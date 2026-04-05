@@ -1,5 +1,5 @@
-x = obj_player.x;
-y = obj_player.y;
+x = obj_player1.x;
+y = obj_player1.y;
 Camera_width = room_width;
 Camera_height = room_height;
 Camera_xorigin = 0;

@@ -222,20 +222,10 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 				}
 				else
 				{
-					if (!global.coop)
-			        {
-					    cam_x = (tx - (cam_width / 2)) + chargecamera;
-					    cam_y = ty - (cam_height / 2) - 50;
-					    cam_x = clamp(cam_x, 0, room_width - cam_width);
-					    cam_y = clamp(cam_y, 0, room_height - cam_height);
-			        }
-			        else
-			        {
-			            var cam_x = ((obj_player.x + obj_player2.x + offset_x) / 2) - (cam_width / 2) + chargecamera + p2pdistancex;
-			            var cam_y = ((obj_player.y + obj_player2.y + offset_y) / 2) - (cam_height / 2) - 50;
-			            cam_x = clamp(cam_x, 0, room_width - cam_width);
-			            cam_y = clamp(cam_y, 0, room_height - cam_height);
-			        }
+					cam_x = (tx - (cam_width / 2)) + chargecamera;
+					cam_y = ty - (cam_height / 2) - 50;
+					cam_x = clamp(cam_x, 0, room_width - cam_width);
+					cam_y = clamp(cam_y, 0, room_height - cam_height);
 				}
 			}
 			else
@@ -269,7 +259,8 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			targetzoom = min(2.5, targetzoom);
 			var new_cam_width = lerp(cam_width, targetzoom * original_cam_width, zoomspd);
 			var new_cam_height = lerp(cam_height, targetzoom * original_cam_height, zoomspd);
-			camera_set_view_size(view_camera[0], new_cam_width, new_cam_height);
+			if !global.coop
+				camera_set_view_size(view_camera[0], new_cam_width, new_cam_height);
 			break;
 		case states.follow:
 			cam_width = camera_get_view_width(view_camera[0]);
