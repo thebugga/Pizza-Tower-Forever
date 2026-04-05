@@ -1,6 +1,6 @@
 gate_sprite = spr_gate_noise;
 bgsprite = spr_gate_noiseBG;
-if (obj_player1.character == "N" || global.swapmode)
+if (obj_player.character == "N" || global.swapmode)
 {
 	gate_sprite = spr_gate_doise;
 	bgsprite = spr_gate_doiseBG;

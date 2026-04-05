@@ -135,7 +135,7 @@ tutorial23 = "Collect these in order to get a better rank! Some can only be acqu
 tutorial24 = "You need to save most of the dudes in the cages in order to advance to the next floor! They will give you money to pay Mr.Stick! If you miss too many of them, you will need to replay some levels!"
 tutorial25 = "Destroy John the pillar in order to open the exit gate. This will reverse the solid pillar blocks!"
 tutorial_lapunlock = "{u}All lap 2 portals unlocked!/"
-tutorial_lap = "Har, har! Enter this portal when the pillar has been taken down... If you dare! You will have to do another loop around the level, so be sure to have the time for it!"
+tutorial_lap = "Meow, meow! Enter this portal when the pillar has been taken down... If you dare! You will have to do another loop around the level, so be sure to have the time for it!"
 getout = "GET OUT NOW!!!"
 
 # -----------------

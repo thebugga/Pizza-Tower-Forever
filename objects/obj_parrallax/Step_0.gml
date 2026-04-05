@@ -109,6 +109,7 @@ if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
                 bg_scrolly += layer_get_vspeed(lay);
                 break;
             
+            case "Backgrounds_stillH":
             case "Backgrounds_stillH1":
                 layer_x(lay, bg_stillH1xoffset + (_cam_x * 0.85));
                 layer_y(lay, bg_stillH1xoffset + (_cam_y - calculate_parrallax_still_y(lay, 0.3)));

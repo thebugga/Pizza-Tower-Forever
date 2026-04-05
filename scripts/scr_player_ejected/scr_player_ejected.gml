@@ -15,7 +15,7 @@ function scr_player_ejected()
 	alarm[7] = -1;
 	if (y > (room_height + 100) && !instance_exists(obj_fadeout))
 	{
-		with (obj_player1)
+		with (obj_player)
 		{
 			landAnim = false;
 			instance_create(x, y, obj_fadeout);

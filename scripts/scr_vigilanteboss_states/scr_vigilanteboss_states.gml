@@ -1111,12 +1111,12 @@ function boss_vigilante_superattackstart()
 			image_speed = 0.6;
 		}
 	}
-	if (x == tx && obj_player1.x == tx2)
+	if (x == tx && obj_player.x == tx2)
 	{
 		state = states.superattack;
 		with (lastplayerid)
 		{
-			if (object_index == obj_player1)
+			if (object_index == obj_player)
 			{
 				state = states.superattack;
 			}

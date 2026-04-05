@@ -1,5 +1,5 @@
 targetRoom = tower_tutorial1;
-if (obj_player1.character == "N")
+if (obj_player.character == "N")
 {
 	targetRoom = tower_tutorial1N;
 }

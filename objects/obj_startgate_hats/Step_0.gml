@@ -1,6 +1,6 @@
 image_alpha = Approach(image_alpha, 1, 0.1);
 sprite_index = spr_bossfight_playerhp;
-if (obj_player1.character == "N")
+if (obj_player.character == "N")
 {
 	sprite_index = spr_bossfight_noiseHP;
 }

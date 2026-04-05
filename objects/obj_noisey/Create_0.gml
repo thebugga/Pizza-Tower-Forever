@@ -43,7 +43,7 @@ grabbedby = 0;
 stuntouchbuffer = 0;
 ragedash = 0;
 ragecooldown = 0;
-if (obj_player1.character == "N")
+if (obj_player.character == "N")
 {
 	spr_palette = spr_noiseboss_palette;
 	usepalette = true;

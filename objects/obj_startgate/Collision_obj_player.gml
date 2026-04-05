@@ -21,10 +21,12 @@ with (other)
 		obj_player2.backtohubstartx = x;
 		obj_player2.backtohubstarty = y;
 		obj_player2.backtohubroom = room;
+		obj_player2.mach2 = 0;
 		exit;
 	}
 }
-if ((floor(obj_player1.image_index) == (obj_player1.image_number - 1) && obj_player1.state == states.victory) || (floor(obj_player2.image_index) == (obj_player2.image_number - 1) && obj_player2.state == states.victory))
+
+if ((floor(obj_player.image_index) == (obj_player.image_number - 1) && obj_player.state == states.victory) || (floor(obj_player2.image_index) == (obj_player2.image_number - 1) && obj_player2.state == states.victory))
 {
 	with (obj_player)
 	{

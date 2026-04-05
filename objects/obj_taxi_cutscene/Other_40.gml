@@ -2,12 +2,12 @@ if (sprite_index == spr_taximove && pickedup)
 {
 	with (obj_player)
 	{
-		obj_player1.lastroom = room;
+		obj_player.lastroom = room;
 		obj_player2.lastroom = room;
 		obj_camera.chargecamera = 0;
 		ds_list_add(global.saveroom, id);
-		obj_player1.targetDoor = other.targetDoor;
-		obj_player1.targetRoom = other.targetRoom;
+		obj_player.targetDoor = other.targetDoor;
+		obj_player.targetRoom = other.targetRoom;
 		obj_player2.targetDoor = other.targetDoor;
 		obj_player2.targetRoom = other.targetRoom;
 		obj_player.image_index = 0;

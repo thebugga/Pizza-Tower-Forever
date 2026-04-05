@@ -1,4 +1,4 @@
-if (obj_player1.character == "P" && !global.swapmode)
+if (obj_player.character == "P" && !global.swapmode)
 {
 	with (instance_create(x, y, obj_spike))
 	{

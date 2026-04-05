@@ -18,9 +18,9 @@ if (other.character == "N" || global.swapmode)
 			use_palette = true;
 			spr_palette = spr_peppalette;
 			paletteselect = 1;
-			if (obj_player1.character == "P")
+			if (obj_player.character == "P")
 			{
-				paletteselect = obj_player1.paletteselect;
+				paletteselect = obj_player.paletteselect;
 			}
 		}
 		else if (other.object_index == obj_snottyexit)

@@ -97,7 +97,7 @@ hotairhit = 0;
 lastattack = 0;
 cloudbuffer = 0;
 doise = false;
-if (obj_player1.character == "N" || global.swapmode)
+if (obj_player.character == "N" || global.swapmode)
 {
 	usepalette = true;
 	spr_palette = spr_noiseboss_palette;

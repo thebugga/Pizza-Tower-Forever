@@ -9,7 +9,7 @@ function scr_enemy_hit()
 	{
 		if (player_instakillmove && pizzahead && object_index != obj_gustavograbbable)
 		{
-			obj_player1.baddiegrabbedID = id;
+			obj_player.baddiegrabbedID = id;
 			scr_boss_grabbed();
 			exit;
 		}
@@ -21,7 +21,7 @@ function scr_enemy_hit()
 		var _player = noone;
 		if (grabbedby == 1)
 		{
-			_player = obj_player1.id;
+			_player = obj_player.id;
 		}
 		else if (grabbedby == 2)
 		{

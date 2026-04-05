@@ -15,7 +15,7 @@ if (ANIMATION_END)
 		case spr_pizzaportal_appear:
 			fmod_event_one_shot_3d("event:/sfx/misc/secretexit", x, y);
 			sprite_index = spr_pizzaportalentrancestart;
-			if (obj_player1.character == "N")
+			if (obj_player.character == "N")
 			{
 				sprite_index = spr_pizzaportalentrancestartN;
 			}

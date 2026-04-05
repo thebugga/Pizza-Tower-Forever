@@ -1,7 +1,7 @@
 pal_swap_init_system(shd_pal_swapper);
 global.roommessage = "PIZZA TOWER ISLAND";
 global.gameframe_caption_text = lang_get_value("caption_boss_noise");
-if (obj_player1.character == "N" || global.swapmode)
+if (obj_player.character == "N" || global.swapmode)
 {
 	doisebg_set_layer("Assets_2");
 	doisebg_set_layer("Backgrounds_Ring2");

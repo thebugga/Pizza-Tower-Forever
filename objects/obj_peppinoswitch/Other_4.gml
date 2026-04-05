@@ -1,6 +1,6 @@
-if (obj_player1.character != "N")
+if (obj_player.character != "N")
 {
-	if (!obj_player1.isgustavo)
+	if (!obj_player.isgustavo)
 	{
 		sprite_index = spr_gustavosign;
 	}
@@ -12,7 +12,7 @@ if (obj_player1.character != "N")
 		}
 	}
 }
-else if (!obj_player1.noisecrusher)
+else if (!obj_player.noisecrusher)
 {
 	sprite_index = spr_noisesign;
 }

@@ -20,21 +20,21 @@ if (!place_meeting(x, y, obj_doorblocked))
 	{
 		if (key_up && !instance_exists(obj_jumpscare) && other.sprite_index == spr_doorkeyopen && grounded && (state == states.normal || state == states.mach1 || state == states.mach2 || state == states.pogo || state == states.mach3 || state == states.Sjumpprep) && !instance_exists(obj_fadeout) && state != states.door && state != states.comingoutdoor)
 		{
-			obj_player1.lastroom = room;
+			obj_player.lastroom = room;
 			obj_player2.lastroom = room;
 			fmod_event_one_shot("event:/sfx/misc/door");
 			obj_camera.chargecamera = 0;
 			ds_list_add(global.saveroom, id);
-			if (object_index == obj_player1)
+			if (object_index == obj_player)
 			{
-				obj_player1.sprite_index = obj_player1.spr_lookdoor;
+				obj_player.sprite_index = obj_player.spr_lookdoor;
 			}
 			if (object_index == obj_player2)
 			{
 				obj_player2.sprite_index = obj_player2.spr_lookdoor;
 			}
-			obj_player1.targetDoor = other.targetDoor;
-			obj_player1.targetRoom = other.targetRoom;
+			obj_player.targetDoor = other.targetDoor;
+			obj_player.targetRoom = other.targetRoom;
 			obj_player2.targetDoor = other.targetDoor;
 			obj_player2.targetRoom = other.targetRoom;
 			obj_player.image_index = 0;

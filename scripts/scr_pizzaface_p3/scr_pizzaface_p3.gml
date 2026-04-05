@@ -72,7 +72,7 @@ function scr_pizzaface_p3_do_player_attack(_player)
 function scr_pizzaface_p3_arenaintro()
 {
 	if (live_call()) return live_result;
-	with (obj_player1)
+	with (obj_player)
 	{
 		if (ANIMATION_END && sprite_index == spr_player_levelcomplete)
 		{
@@ -84,13 +84,13 @@ function scr_pizzaface_p3_arenaintro()
 		case states.arenaintro:
 			hsp = 0;
 			vsp = 0;
-			obj_player1.hsp = 0;
+			obj_player.hsp = 0;
 			if (ANIMATION_END)
 			{
 				image_index = image_number - 1;
 				introstate = states.idle;
 				introbuffer = 80;
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (x != other.x)
 					{
@@ -104,7 +104,7 @@ function scr_pizzaface_p3_arenaintro()
 			break;
 		case states.idle:
 			image_index = image_number - 1;
-			if (obj_player1.sprite_index != obj_player1.spr_victory)
+			if (obj_player.sprite_index != obj_player.spr_victory)
 			{
 				if (introbuffer > 0)
 				{
@@ -127,9 +127,9 @@ function scr_pizzaface_p3_arenaintro()
 		case states.jump:
 			if (floor(image_index) >= 50)
 			{
-				if (x != obj_player1.x)
+				if (x != obj_player.x)
 				{
-					image_xscale = sign(obj_player1.x - x);
+					image_xscale = sign(obj_player.x - x);
 				}
 			}
 			if (ANIMATION_END)
@@ -142,7 +142,7 @@ function scr_pizzaface_p3_arenaintro()
 				{
 					image_index = image_number - 3;
 				}
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (sprite_index == spr_idle)
 					{
@@ -157,7 +157,7 @@ function scr_pizzaface_p3_arenaintro()
 					}
 				}
 			}
-			with (obj_player1)
+			with (obj_player)
 			{
 				if (sprite_index == spr_gustavo_grab)
 				{
@@ -166,7 +166,7 @@ function scr_pizzaface_p3_arenaintro()
 					{
 						with (other)
 						{
-							scr_pizzaface_p3_do_player_attack(obj_player1);
+							scr_pizzaface_p3_do_player_attack(obj_player);
 						}
 					}
 				}
@@ -587,8 +587,8 @@ function scr_pizzaface_p3_finale()
 	vsp = 0;
 	x = -200;
 	y = -200;
-	obj_player1.x = -200;
-	obj_player1.y = -200;
-	obj_player1.hsp = 0;
-	obj_player1.vsp = 0;
+	obj_player.x = -200;
+	obj_player.y = -200;
+	obj_player.hsp = 0;
+	obj_player.vsp = 0;
 }

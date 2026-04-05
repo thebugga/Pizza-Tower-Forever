@@ -52,4 +52,16 @@ function scr_getinput2()
 	{
 		stickpressed = false;
 	}
+	key_fightball = false;
+	key_jump_p2 = key_jump;
+	key_jump2_p2 = key_jump2;
+	key_taunt_p2 = key_taunt2;
+	key_taunt2_p2 = key_taunt;
+	key_slap_p2 = key_slap2;
+	key_up_p2 = key_up;
+	key_start_p2 = key_start;
+	key_superjump = false;
+	key_groundpound = false;
+	key_groundpound2 = false;
+	key_jump3 = false;
 }

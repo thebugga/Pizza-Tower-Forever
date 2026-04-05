@@ -1,11 +1,11 @@
 instance_destroy();
-if (obj_player1.character != "N")
+if (obj_player.character != "N")
 {
 	fmod_event_one_shot("event:/sfx/noise/giantballoon2");
 }
 fmod_event_instance_stop(snd, false);
 fmod_event_instance_release(snd);
-if (obj_player1.character == "N")
+if (obj_player.character == "N")
 {
 	exit;
 }

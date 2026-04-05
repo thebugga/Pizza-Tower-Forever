@@ -154,8 +154,8 @@ function scr_bosscontroller_normal()
 				if (boss_hpsprite == spr_bossfight_fakepephp)
 				{
 					bpal = spr_peppalette;
-					bpalsel = obj_player1.paletteselect;
-					if (obj_player1.character == "N" || character == "PUP")
+					bpalsel = obj_player.paletteselect;
+					if (obj_player.character == "N" || character == "PUP")
 					{
 						bpalsel = 1;
 					}
@@ -184,14 +184,14 @@ function scr_bosscontroller_normal()
 			}
 		}
 	}
-	if (!instance_exists(bossID) && !bossdead && instance_exists(obj_player1) && obj_player1.state != states.tackle && obj_player1.state != states.comingoutdoor && room != boss_fakepephallway && room != boss_pizzaface && room != rank_room)
+	if (!instance_exists(bossID) && !bossdead && instance_exists(obj_player) && obj_player.state != states.tackle && obj_player.state != states.comingoutdoor && room != boss_fakepephallway && room != boss_pizzaface && room != rank_room)
 	{
-		if (room != boss_vigilante || obj_player1.state != states.actor)
+		if (room != boss_vigilante || obj_player.state != states.actor)
 		{
 			bossdead = true;
 			notification_push(notifications.boss_defeated, [room]);
 			alarm[0] = 480;
-			with (obj_player1)
+			with (obj_player)
 			{
 				fmod_event_instance_play(global.snd_bossbeaten);
 				global.pistol = false;
@@ -242,15 +242,15 @@ function scr_bosscontroller_victory()
 			player_hp--;
 			with (instance_create(pos[0], pos[1], obj_hpeffect))
 			{
-				x_to = obj_player1.x;
-				y_to = obj_player1.y;
+				x_to = obj_player.x;
+				y_to = obj_player.y;
 				spd = 16;
 				finish = true;
 			}
 		}
 		else if (!instance_exists(obj_hpeffect) && !instance_exists(obj_endlevelfade))
 		{
-			with (obj_player1)
+			with (obj_player)
 			{
 				scr_do_rank(false, true);
 			}

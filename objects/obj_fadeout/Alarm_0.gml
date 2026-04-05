@@ -2,10 +2,10 @@ if (instance_exists(obj_player))
 {
 	if (custom_level == false)
 	{
-		if (room != obj_player1.targetRoom || roomreset)
+		if (room != obj_player.targetRoom || roomreset)
 		{
 			var r = room;
-			scr_room_goto(obj_player1.targetRoom);
+			scr_room_goto(obj_player.targetRoom);
 			if (r == tower_peppinohouse)
 			{
 				scr_unlock_swap();

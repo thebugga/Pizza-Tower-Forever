@@ -13,7 +13,7 @@ with obj_explosioneffect
 shader_set(global.Pal_Shader);
 var _x = SCREEN_WIDTH * 0.50625;
 var _y = y;
-var pal = obj_player1.paletteselect;
+var pal = obj_player.paletteselect;
 var tex = -4;
 if currentselect != -1
 {

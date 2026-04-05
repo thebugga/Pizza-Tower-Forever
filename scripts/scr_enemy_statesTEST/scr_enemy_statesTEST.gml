@@ -1,7 +1,7 @@
 function scr_enemy_pummel()
 {
 	if (live_call()) return live_result;
-	var _playerinst = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
+	var _playerinst = (grabbedby == 1) ? obj_player.id : obj_player2.id;
 	sprite_index = stunfallspr;
 	x = _playerinst.x + (_playerinst.xscale * 16);
 	y = _playerinst.y;

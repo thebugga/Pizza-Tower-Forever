@@ -2,7 +2,7 @@ event_inherited();
 walkspr = spr_stick_towercollapse_walk;
 idlespr = spr_stick_towercollapse_idle;
 image_speed = 0.35;
-if (obj_player1.character == "N" || global.swapmode)
+if (obj_player.character == "N" || global.swapmode)
 {
 	walkspr = spr_noisey_ctop_walk;
 	idlespr = spr_noisey_ctop_idle;

@@ -1,7 +1,7 @@
 function scr_player_grabbed()
 {
 	if (live_call()) return live_result;
-	var _obj_player = (object_index == obj_player2) ? obj_player1 : obj_player2;
+	var _obj_player = (object_index == obj_player2) ? obj_player : obj_player2;
 	if (fightball == false)
 	{
 		xscale = -_obj_player.xscale;
@@ -187,27 +187,27 @@ function scr_player_grabbed()
 			x = _obj_player.x;
 			y = _obj_player.y;
 		}
-		if (floor(obj_player1.image_index) == 2)
+		if (floor(obj_player.image_index) == 2)
 		{
-			x = obj_player1.x + (obj_player1.xscale * -25);
-			y = obj_player1.y;
+			x = obj_player.x + (obj_player.xscale * -25);
+			y = obj_player.y;
 		}
-		if (floor(obj_player1.image_index) == 3)
+		if (floor(obj_player.image_index) == 3)
 		{
-			x = obj_player1.x + (obj_player1.xscale * -50);
-			y = obj_player1.y;
+			x = obj_player.x + (obj_player.xscale * -50);
+			y = obj_player.y;
 		}
-		if (floor(obj_player1.image_index) == 4)
+		if (floor(obj_player.image_index) == 4)
 		{
-			x = obj_player1.x + (obj_player1.xscale * -25);
-			y = obj_player1.y;
+			x = obj_player.x + (obj_player.xscale * -25);
+			y = obj_player.y;
 		}
-		if (floor(obj_player1.image_index) == 5)
+		if (floor(obj_player.image_index) == 5)
 		{
-			x = obj_player1.x;
-			y = obj_player1.y;
+			x = obj_player.x;
+			y = obj_player.y;
 		}
-		if (floor(obj_player1.image_index) == 6)
+		if (floor(obj_player.image_index) == 6)
 		{
 			x = _obj_player.x + (_obj_player.xscale * 25);
 			y = _obj_player.y;

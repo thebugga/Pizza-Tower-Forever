@@ -2,7 +2,7 @@ if (other.state == states.gotoplayer)
 {
 	exit;
 }
-if (!instance_exists(obj_deliverytimer) && obj_player1.character == "P" && !global.swapmode)
+if (!instance_exists(obj_deliverytimer) && obj_player.character == "P" && !global.swapmode)
 {
 	exit;
 }

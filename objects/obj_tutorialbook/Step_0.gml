@@ -22,16 +22,16 @@ if (showgranny)
 	}
 	if (place_meeting(x, y, obj_player))
 	{
-		sprite_index = spr_tutorialgranny_talk;
+		sprite_index = talk_spr;
 		if (voicecooldown == 0)
 		{
-			fmod_event_one_shot_3d("event:/sfx/voice/pizzagranny", x, y);
+			fmod_event_one_shot_3d(talk_snd, x, y);
 			voicecooldown = 100;
 		}
 	}
 	else
 	{
-		sprite_index = spr_tutorialgranny_sleep;
+		sprite_index = sleep_spr;
 	}
 }
 var _hide = false;
@@ -53,7 +53,7 @@ switch (text_state)
 		{
 			text_y = Approach(text_y, -(text_sprite_height * text_yscale), 5);
 		}
-		if (obj_player1.state != states.backtohub && place_meeting(x, y, obj_player) && !_hide)
+		if (obj_player.state != states.backtohub && place_meeting(x, y, obj_player) && !_hide)
 		{
 			text_state = states.fall;
 			text_vsp = 0;

@@ -131,7 +131,7 @@ function scr_vigilante_arenaintro()
 		}
 		sprite_index = spr_playerV_dynamitethrow;
 		image_index = 0;
-		if (obj_player1.character == "N" || character == "PUP")
+		if (obj_player.character == "N" || character == "PUP")
 		{
 			sprite_index = spr_playerV_idle;
 			image_index = 0;
@@ -142,7 +142,7 @@ function scr_vigilante_arenaintro()
 		{
 			spotlightID.expand = true;
 		}
-		if (obj_player1.character == "P")
+		if (obj_player.character == "P")
 		{
 			with (instance_create(x, y, obj_pistolpickup))
 			{
@@ -160,7 +160,7 @@ function scr_vigilante_arenaintro()
 	if (!introwait)
 	{
 		image_speed = 0.35;
-		with (obj_player1)
+		with (obj_player)
 		{
 			state = states.actor;
 			image_speed = 0.35;
@@ -206,7 +206,7 @@ function scr_vigilante_arenaintro()
 			if ((sprite_index == spr_vigilante_intro2 || sprite_index == spr_vigilante_intro2N) && floor(image_index) == 13)
 			{
 				fmod_event_one_shot_3d("event:/sfx/voice/vigiintro", x, y);
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (character == "P")
 					{
@@ -230,7 +230,7 @@ function scr_vigilante_arenaintro()
 			sprite_index = spr_vigilante_intro2;
 			image_index = 0;
 			introbuffer = 130;
-			with (obj_player1)
+			with (obj_player)
 			{
 				if (character == "P")
 				{
@@ -247,7 +247,7 @@ function scr_vigilante_arenaintro()
 		}
 		else if (sprite_index == spr_vigilante_intro2 || sprite_index == spr_vigilante_intro2N)
 		{
-			if (obj_player1.character == "P")
+			if (obj_player.character == "P")
 			{
 				with (instance_create(x, y, obj_pistolpickup))
 				{
@@ -661,16 +661,16 @@ function scr_vigilante_throw_dynamite()
 		shot--;
 		sprite_index = spr_playerV_dynamitethrow;
 		image_index = 0;
-		if (obj_player1.x != x)
+		if (obj_player.x != x)
 		{
-			image_xscale = -sign(x - obj_player1.x);
+			image_xscale = -sign(x - obj_player.x);
 		}
 		with (instance_create(x + (image_xscale * 20), y - 16, obj_vigilantedynamite))
 		{
-			calculate_jump_velocity(obj_player1.x, other.y, 18, grav);
+			calculate_jump_velocity(obj_player.x, other.y, 18, grav);
 			if (abs(hsp) <= 1 && (abs(vsp) <= 1 || vsp > 0))
 			{
-				calculate_jump_velocity(obj_player1.x, other.y, 25, grav);
+				calculate_jump_velocity(obj_player.x, other.y, 25, grav);
 			}
 		}
 		return true;
@@ -1018,10 +1018,10 @@ function scr_vigilante_duel()
 		pistolchargeshooting = false;
 		pistolanim = noone;
 	}
-	var _cheat = (obj_player1.character == "N" || obj_player1.character == "PUP") || global.swapmode;
+	var _cheat = (obj_player.character == "N" || obj_player.character == "PUP") || global.swapmode;
 	if (duelphase == 2)
 	{
-		with (obj_player1)
+		with (obj_player)
 		{
 			if (key_slap2)
 			{
@@ -1032,7 +1032,7 @@ function scr_vigilante_duel()
 	}
 	else if (duelphase < 2)
 	{
-		with (obj_player1)
+		with (obj_player)
 		{
 			if (key_slap2 && character == "P" && !_cheat)
 			{
@@ -1056,7 +1056,7 @@ function scr_vigilante_duel()
 				break;
 			case 1:
 				signy = Approach(signy, -sprite_get_height(signspr), s);
-				if (obj_player1.character == "P" && signy <= -sprite_get_height(signspr))
+				if (obj_player.character == "P" && signy <= -sprite_get_height(signspr))
 				{
 					duelbuffer = 80;
 					fmod_event_one_shot_3d("event:/sfx/enemies/minijohnpunch", room_width / 2, room_height / 2);
@@ -1077,7 +1077,7 @@ function scr_vigilante_duel()
 				duelbuffer--;
 				break;
 		}
-		if (duelphase == 2 && obj_player1.character == "P" && !_cheat)
+		if (duelphase == 2 && obj_player.character == "P" && !_cheat)
 		{
 			signy = Approach(signy, 0, 20);
 		}
@@ -1087,7 +1087,7 @@ function scr_vigilante_duel()
 		switch (duelphase)
 		{
 			case 0:
-				with (obj_player1)
+				with (obj_player)
 				{
 					sprite_index = spr_peppino_duel;
 					if (character == "N" || character == "PUP")
@@ -1105,8 +1105,8 @@ function scr_vigilante_duel()
 				if (!duelplayer)
 				{
 					fmod_event_one_shot("event:/sfx/vigilante/finalshot");
-					obj_player1.state = states.normal;
-					scr_hurtplayer(obj_player1);
+					obj_player.state = states.normal;
+					scr_hurtplayer(obj_player);
 					duelphase++;
 					destroyable = false;
 					sprite_index = spr_playerV_revolvershoot;
@@ -1140,7 +1140,7 @@ function scr_vigilante_duel()
 					}
 					scr_sleep(25);
 					instance_create(x, y, obj_bangeffect);
-					var len = abs(obj_player1.x - x);
+					var len = abs(obj_player.x - x);
 					with (instance_create(x - (len * 0.8), y, obj_crazyrunothereffect))
 					{
 						image_speed = 0.25;
@@ -1163,7 +1163,7 @@ function scr_vigilante_duel()
 						}
 						xx += (len / l);
 					}
-					with (obj_player1)
+					with (obj_player)
 					{
 						if (_cheat && character == "P")
 						{
@@ -1439,7 +1439,7 @@ function scr_vigilante_crate()
 	if (floor(image_index) >= 10 && !shot)
 	{
 		shot = true;
-		with (instance_create(obj_player1.x, -64, obj_vigilantecrate))
+		with (instance_create(obj_player.x, -64, obj_vigilantecrate))
 		{
 			cow = true;
 		}

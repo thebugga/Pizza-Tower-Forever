@@ -62,7 +62,7 @@ function scr_pizzaface_arenaintro()
 		hsp = 0;
 		vsp = 0;
 		x = room_width * 0.75;
-		with (obj_player1)
+		with (obj_player)
 		{
 			state = states.actor;
 			image_speed = 0.35;
@@ -81,7 +81,7 @@ function scr_pizzaface_arenaintro()
 			case 0:
 				y = ystart;
 				sprite_index = spr_pizzaface;
-				with (obj_player1)
+				with (obj_player)
 				{
 					sprite_index = spr_rockethitwall;
 					y = room_height;
@@ -90,7 +90,7 @@ function scr_pizzaface_arenaintro()
 				playervsp = -15;
 				break;
 			case 1:
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (place_meeting(x, y, obj_solid))
 					{
@@ -113,7 +113,7 @@ function scr_pizzaface_arenaintro()
 				}
 				break;
 			case 2:
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (ANIMATION_END)
 					{
@@ -128,7 +128,7 @@ function scr_pizzaface_arenaintro()
 				{
 					introstate++;
 					introbuffer = 80;
-					with (obj_player1)
+					with (obj_player)
 					{
 						sprite_index = spr_facehurtup;
 						image_index = 0;
@@ -136,7 +136,7 @@ function scr_pizzaface_arenaintro()
 				}
 				break;
 			case 3:
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (ANIMATION_END && sprite_index == spr_facehurtup)
 					{
@@ -151,7 +151,7 @@ function scr_pizzaface_arenaintro()
 				{
 					introstate++;
 					introbuffer = 80;
-					with (obj_player1)
+					with (obj_player)
 					{
 						sprite_index = spr_pepbossintro1;
 						if (character == "N" || character == "PUP")
@@ -163,7 +163,7 @@ function scr_pizzaface_arenaintro()
 				}
 				break;
 			case 4:
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (ANIMATION_END)
 					{
@@ -180,7 +180,7 @@ function scr_pizzaface_arenaintro()
 				}
 				break;
 			case 5:
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (ANIMATION_END)
 					{
@@ -191,7 +191,7 @@ function scr_pizzaface_arenaintro()
 				y = Approach(y, ty, 2);
 				if (y > 0)
 				{
-					with (obj_player1)
+					with (obj_player)
 					{
 						if (sprite_index != spr_pepbossintro2 && sprite_index != spr_noisebossintro2)
 						{
@@ -207,7 +207,7 @@ function scr_pizzaface_arenaintro()
 				if (y == ty)
 				{
 					introstate++;
-					with (obj_player1)
+					with (obj_player)
 					{
 						
 						if (character == "N" || character == "PUP")
@@ -241,7 +241,7 @@ function scr_pizzaface_arenaintro()
 				{
 					sprite_index = spr_pizzaface;
 				}
-				with (obj_player1)
+				with (obj_player)
 				{
 					if (ANIMATION_END)
 					{
@@ -252,7 +252,7 @@ function scr_pizzaface_arenaintro()
 				if (sprite_index == spr_pizzaface && _finish)
 				{
 					state = states.walk;
-					with (obj_player1)
+					with (obj_player)
 					{
 						state = states.normal;
 						sprite_index = spr_idle;
@@ -522,7 +522,7 @@ function scr_pizzaface_transitioncutscene()
 	alarm[8] = -1;
 	hsp = 0;
 	vsp = 0;
-	with (obj_player1)
+	with (obj_player)
 	{
 		if (ANIMATION_END)
 		{
@@ -559,7 +559,7 @@ function scr_pizzaface_transitioncutscene()
 			{
 				substate = states.transitioncutscene;
 			}
-			with (obj_player1)
+			with (obj_player)
 			{
 				hsp = 0;
 				vsp = 0;
@@ -590,7 +590,7 @@ function scr_pizzaface_transitioncutscene()
 			y += lengthdir_y(2, _dir);
 			if (abs(x - tx) <= 10 && abs(y - ty) <= 10)
 			{
-				with (obj_player1)
+				with (obj_player)
 				{
 					sprite_index = spr_pepbossintro2;
 					if (character == "N" || character == "PUP")
@@ -622,9 +622,9 @@ function scr_pizzaface_transitioncutscene()
 					state = states.fall;
 					substate = states.jump;
 					sprite_index = spr_pizzahead_intro3;
-					if (x != obj_player1.x)
+					if (x != obj_player.x)
 					{
-						image_xscale = sign(obj_player1.x - x);
+						image_xscale = sign(obj_player.x - x);
 					}
 					with (obj_bosscontroller)
 					{

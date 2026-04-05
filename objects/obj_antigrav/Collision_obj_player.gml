@@ -3,7 +3,7 @@ with (other)
 {
 	if (state != states.antigrav && state != states.backbreaker && state != states.chainsaw && other.cooldown == 0)
 	{
-		switch (obj_player1.character)
+		switch (obj_player.character)
 		{
 			case "N":
 				create_transformation_tip(lang_get_value("antigravtipN"), "antigravN");

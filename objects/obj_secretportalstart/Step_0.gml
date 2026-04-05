@@ -1,4 +1,4 @@
-if (room == tower_soundtestlevel && (obj_player1.state == states.backtohub || obj_player1.state == states.comingoutdoor || obj_player1.targetDoor == "A"))
+if (room == tower_soundtestlevel && (obj_player.state == states.backtohub || obj_player.state == states.comingoutdoor || obj_player.targetDoor == "A"))
 {
 	instance_destroy();
 	exit;

@@ -10,7 +10,7 @@ if (!unlocked && stickunlocked)
 		with (instance_create(0, 0, obj_mrsticknotification))
 		{
 			sprite_index = spr_mrmooney_notification;
-			if (obj_player1.character == "N" || global.swapmode)
+			if (obj_player.character == "N" || global.swapmode)
 			{
 				sprite_index = spr_noisetterabbitTV;
 			}

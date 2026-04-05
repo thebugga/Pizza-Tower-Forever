@@ -1,5 +1,5 @@
 scr_collide();
-switch (obj_player1.character)
+switch (obj_player.character)
 {
 	case "N":
 		sprite_index = spr_bossfight_noiseHP;

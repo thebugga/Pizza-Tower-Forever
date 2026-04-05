@@ -27,7 +27,7 @@ else
 		instance_destroy();
 	}
 }
-if (obj_player1.character == "N")
+if (obj_player.character == "N")
 {
 	cloud_index += 0.15;
 	if (hand_state == states.fall)

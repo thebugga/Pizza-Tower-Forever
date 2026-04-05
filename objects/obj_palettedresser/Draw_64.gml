@@ -2,7 +2,7 @@ if (!global.option_hud)
 {
 	exit;
 }
-if (obj_player1.character == character && alpha > 0)
+if (obj_player.character == character && alpha > 0)
 {
 	var text = concat(palettetitle, "\n", palettedesc);
 	draw_set_font(lang_get_font("creditsfont"));

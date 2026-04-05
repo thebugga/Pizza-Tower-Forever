@@ -1,4 +1,4 @@
-if (obj_player1.character == "N" || global.swapmode)
+if (obj_player.character == "N" || global.swapmode)
 {
 	shader_set(global.Pal_Shader);
 	pal_swap_set(spr_noiseboss_palette, 1, false);

@@ -64,7 +64,7 @@ switch (state)
 				{
 					hsp = choose(-_spd, _spd);
 					vsp = choose(-_spd, _spd);
-					playerid = obj_player1.id;
+					playerid = obj_player.id;
 				}
 			}
 			fmod_event_one_shot_3d("event:/sfx/pizzahead/beatdown", x, y);

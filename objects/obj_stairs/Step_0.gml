@@ -1,6 +1,6 @@
-if (place_meeting(x, y - 1, obj_player1))
+if (place_meeting(x, y - 1, obj_player))
 {
-	with (obj_player1)
+	with (obj_player)
 	{
 		if (place_meeting(x, y + 1, obj_stairs) && !place_meeting(other.x + 16, y + 1, obj_solid) && !place_meeting(x, y + 1, obj_solid) && key_down && (state == states.crouch) && place_meeting(x, y + 1, obj_platform))
 		{

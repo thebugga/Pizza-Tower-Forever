@@ -1,6 +1,6 @@
-if (instance_exists(obj_player1))
+if (instance_exists(obj_player))
 {
-	if (obj_player1.character != "N" || room == Mainmenu)
+	if (obj_player.character != "N" || room == Mainmenu)
 	{
 		fmod_set_parameter("isnoise", 0, true);
 	}

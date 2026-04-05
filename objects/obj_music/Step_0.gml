@@ -17,7 +17,7 @@ if (instance_exists(obj_hungrypillar))
 	fmod_event_instance_set_paused(pillarmusicID, false);
 	var p = false;
     with (obj_hungrypillar) {
-        var player = global.coop ? instance_nearest(x, y, obj_player) : obj_player1;
+        var player = global.coop ? instance_nearest(x, y, obj_player1) : obj_player1;
         if (instance_exists(player) && (abs(x - player.x) < (480 + (sprite_width / 2)) && abs(y - player.y) < (270 + (sprite_height / 2))))
             p = true;
     }
@@ -96,7 +96,7 @@ else
 var _found = false;
 with (obj_totem)
 {
-	if (fmod_event_instance_is_playing(snd) && distance_to_object(obj_player1) <= 400)
+	if (fmod_event_instance_is_playing(snd) && distance_to_object(obj_player) <= 400)
 	{
 		_found = true;
 	}
@@ -110,7 +110,7 @@ with (obj_player)
 }
 with (obj_pumpkin)
 {
-	if (distance_to_object(obj_player1) <= soundradius)
+	if (distance_to_object(obj_player) <= soundradius)
 	{
 		_found = true;
 	}

@@ -1,4 +1,4 @@
-var myplayer = obj_player1.id;
+var myplayer = obj_player.id;
 if (player_id == 2)
 {
 	myplayer = obj_player2.id;

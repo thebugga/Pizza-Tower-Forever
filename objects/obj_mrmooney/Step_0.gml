@@ -1,10 +1,10 @@
 if (sprite_index == idlespr)
 {
 	showmoney = place_meeting(x, y, obj_player);
-	if (showmoney && obj_player1.key_up2 && (global.pigtotal - global.pigreduction) >= maxscore)
+	if (showmoney && obj_player.key_up2 && (global.pigtotal - global.pigreduction) >= maxscore)
 	{
 		sprite_index = smilespr;
-		if (obj_player1.character == "N" || global.swapmode)
+		if (obj_player.character == "N" || global.swapmode)
 		{
 			alarm[0] = 100;
 		}
@@ -17,7 +17,7 @@ if (sprite_index == idlespr)
 		notification_push(notifications.mooney_unlocked, [room]);
 		with (obj_palettedresser)
 		{
-			var _clothes = (obj_player1.character == "N" || global.swapmode) ? "feminine" : "mooney";
+			var _clothes = (obj_player.character == "N" || global.swapmode) ? "feminine" : "mooney";
 			for (var j = 0; j < array_length(player_palettes); j++)
 			{
 				var pals = player_palettes[j];
@@ -46,8 +46,8 @@ else
 		}
 	}
 }
-if (obj_player1.character == "N" && x != obj_player1.x)
+if (obj_player.character == "N" && x != obj_player.x)
 {
-	image_xscale = sign(obj_player1.x - x);
+	image_xscale = sign(obj_player.x - x);
 }
 money_y = Wave(-5, 5, 2, 2);

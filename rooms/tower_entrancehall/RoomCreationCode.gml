@@ -3,7 +3,7 @@ global.roommessage = lang_get_value("room_towerentrance");
 global.door_sprite = spr_door;
 global.door_index = 0;
 global.gameframe_caption_text = lang_get_value("caption_tower_entrancehall");
-with (obj_player1)
+with (obj_player)
 {
 	if (targetDoor == "C")
 	{
@@ -11,6 +11,21 @@ with (obj_player1)
 		verticalhallway = false;
 		backtohubstartx = obj_doorC.x + 32;
 		backtohubstarty = obj_doorC.y - 14;
+		x = backtohubstartx;
+		y = backtohubstarty - (SCREEN_HEIGHT * 2);
+		state = states.backtohub;
+		sprite_index = spr_slipbanan1;
+		image_index = 10;
+	}
+}
+with (obj_player2)
+{
+	if (targetDoor == "A")
+	{
+		targetDoor = "HUB";
+		verticalhallway = false;
+		backtohubstartx = obj_doorA.x + 32;
+		backtohubstarty = obj_doorA.y - 14;
 		x = backtohubstartx;
 		y = backtohubstarty - (SCREEN_HEIGHT * 2);
 		state = states.backtohub;

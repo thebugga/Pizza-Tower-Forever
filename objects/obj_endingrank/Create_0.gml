@@ -5,7 +5,7 @@ fmod_event_instance_play(music);
 bg_index = 0;
 bg_x = 0;
 bg_y = 0;
-character = obj_player1.character;
+character = obj_player.character;
 snd_drumroll = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_drumroll");
 snd_verdict = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_verdict");
 snd_start = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_start");

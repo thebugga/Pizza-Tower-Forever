@@ -1,6 +1,6 @@
 function scr_switchgustavo(_setstate = true, _noisegloves = false)
 {
-	with (obj_player1)
+	with (obj_player)
 	{
 		switch (character)
 		{
@@ -50,7 +50,7 @@ function scr_switchgustavo(_setstate = true, _noisegloves = false)
 
 function scr_switchpeppino(_setstate = true)
 {
-	with (obj_player1)
+	with (obj_player)
 	{
 		switch (character)
 		{

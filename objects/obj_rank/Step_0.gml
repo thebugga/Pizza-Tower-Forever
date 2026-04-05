@@ -23,7 +23,7 @@ if (sprite_index != spr_rankNPend && sprite_index != spr_rankNPendstart)
 {
 	if (global.collect >= global.collectN)
 	{
-		switch (obj_player1.character)
+		switch (obj_player.character)
 		{
 			case "N":
 				if (global.rank == "s")
@@ -82,7 +82,7 @@ if (sprite_index != spr_rankNPend && sprite_index != spr_rankNPendstart)
 	}
 	if (global.collectN > global.collect)
 	{
-		switch (obj_player1.character)
+		switch (obj_player.character)
 		{
 			case "N":
 				if (global.rank == "s")

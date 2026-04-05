@@ -26,7 +26,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && (!elite || elitehit <= 0)
 			{
 				image_alpha = 0.3;
 			}
-			if (other.object_index == obj_noiseboss && other.pizzahead && obj_player1.character == "N")
+			if (other.object_index == obj_noiseboss && other.pizzahead && obj_player.character == "N")
 			{
 				sprite_index = spr_doise_deadair;
 				hsp = 0;
@@ -109,7 +109,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && important == false)
 	{
 		if (!elite || elitehit <= 0)
 		{
-			with (obj_player1)
+			with (obj_player)
 			{
 				supercharge += 1;
 			}

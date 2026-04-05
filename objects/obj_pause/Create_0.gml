@@ -99,7 +99,7 @@ var exit_function = function()
 	{
 		hub = false;
 		arr = ["menugroup"];
-		with (obj_player1)
+		with (obj_player)
 		{
 			character = "P";
 			scr_characterspr();

@@ -30,9 +30,14 @@ if (!ready)
 				fmod_event_one_shot("event:/sfx/ui/pepselect");
 				obj_peppinoselect.sprite_index = spr_peppinoselected;
 				obj_peppinoselect.image_index = 0;
-				with (obj_player1)
+				with (obj_player)
 				{
 					character = "P";
+					scr_characterspr();
+				}
+				with (obj_player2)
+				{
+					character = "N";
 					scr_characterspr();
 				}
 			}
@@ -41,9 +46,14 @@ if (!ready)
 				fmod_event_one_shot("event:/sfx/ui/noiseselect");
 				obj_noiseselect.sprite_index = spr_noiseselected;
 				obj_noiseselect.image_index = 0;
-				with (obj_player1)
+				with (obj_player)
 				{
 					character = "N";
+					scr_characterspr();
+				}
+				with (obj_player2)
+				{
+					character = "P";
 					scr_characterspr();
 				}
 			}
@@ -56,7 +66,7 @@ if (!ready)
 			obj_peppinoselect.image_index = 0;
 			obj_noiseselect.sprite_index = spr_noiseselected;
 			obj_noiseselect.image_index = 0;
-			with (obj_player1)
+			with (obj_player)
 			{
 				if (other.selected == 0)
 				{

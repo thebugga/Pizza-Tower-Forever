@@ -7,7 +7,7 @@ if (boss_func != noone)
 	boss_func();
 }
 boss_prevhp = boss_hp;
-if (bossspr == spr_vsnoise && (obj_player1.character == "N" || global.swapmode))
+if (bossspr == spr_vsnoise && (obj_player.character == "N" || global.swapmode))
 {
 	bossspr = spr_vsdoise;
 	vstitle = spr_vstitle_doise;
@@ -22,7 +22,7 @@ if (!global.bossintro)
 else if (room != rank_room)
 {
 	state = states.normal;
-	with (obj_player1)
+	with (obj_player)
 	{
 		state = states.normal;
 		hsp = 0;

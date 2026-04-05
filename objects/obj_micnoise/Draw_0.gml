@@ -1,4 +1,4 @@
-switch (obj_player1.character)
+switch (obj_player.character)
 {
 	case "N":
 		shader_set(global.Pal_Shader);

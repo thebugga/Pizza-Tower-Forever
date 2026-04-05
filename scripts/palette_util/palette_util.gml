@@ -18,17 +18,17 @@ function get_char_palette_info(character)
 		if (player_character == character)
 		{
 			return {
-				spr_palette: obj_player1.spr_palette,
-				paletteselect: obj_player1.player_paletteselect[pal_index],
-				patterntexture: obj_player1.player_patterntexture[pal_index]
+				spr_palette: obj_player.spr_palette,
+				paletteselect: obj_player.player_paletteselect[pal_index],
+				patterntexture: obj_player.player_patterntexture[pal_index]
 			};
 		}
 		else
 		{
 			return {
 				spr_palette: character_palettes[$ character],
-				paletteselect: obj_player1.player_paletteselect[pal_index],
-				patterntexture: obj_player1.player_patterntexture[pal_index]
+				paletteselect: obj_player.player_paletteselect[pal_index],
+				patterntexture: obj_player.player_patterntexture[pal_index]
 			};
 		}
 	}
@@ -37,8 +37,8 @@ function get_char_palette_info(character)
 	if (player_character == character)
 	{
 		return {
-			spr_palette: obj_player1.spr_palette,
-			paletteselect: obj_player1.paletteselect,
+			spr_palette: obj_player.spr_palette,
+			paletteselect: obj_player.paletteselect,
 			patterntexture: global.palettetexture
 		};
 	}

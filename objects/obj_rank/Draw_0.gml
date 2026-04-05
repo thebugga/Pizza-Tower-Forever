@@ -8,7 +8,7 @@ if (brownfade < 1)
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, global.palettetexture);
 	if (global.collect >= global.collectN)
 	{
-		pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect, false);
+		pal_swap_set(obj_player.spr_palette, obj_player.paletteselect, false);
 	}
 	if (global.collectN > global.collect)
 	{

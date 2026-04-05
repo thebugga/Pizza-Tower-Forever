@@ -13,7 +13,7 @@ else if (sprite_index == spr_boxcrusher_land)
 {
 	if (other.state != states.boxxedpep)
 	{
-		create_transformation_tip(lang_get_value(obj_player1.character == "P" ? "boxxedtip" : "boxxedtipN"), obj_player1.character == "P" ? "boxxed" : "boxxedN");
+		create_transformation_tip(lang_get_value(obj_player.character == "P" ? "boxxedtip" : "boxxedtipN"), obj_player.character == "P" ? "boxxed" : "boxxedN");
 	}
 	other.boxxed = true;
 	other.movespeed = 0;

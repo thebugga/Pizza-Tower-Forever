@@ -1,4 +1,4 @@
-player = obj_player1;
+player = obj_player;
 if (!instance_exists(obj_pizzaball))
 {
 	targetgolf = noone;
@@ -28,7 +28,7 @@ else
 if (global.coop == true)
 {
 	var p1 = player;
-	var p2 = (obj_player1.spotlight == true) ? obj_player2 : obj_player1;
+	var p2 = (obj_player.spotlight == true) ? obj_player2 : obj_player;
 	p2pdistance = point_distance(p1.x, 0, p2.x, 0);
 	p2pdistancex = (p1.x >= p2.x) ? (-p2pdistance / 5) : (p2pdistance / 5);
 }
@@ -147,15 +147,6 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 	switch (state)
 	{
 		case states.normal:
-			if (room == boss_pizzaface && instance_exists(obj_player1) && instance_exists(obj_pizzaface_thunderdark) && obj_player1.state != states.supergrab)
-			{
-				camera_set_view_size(view_camera[0], SCREEN_WIDTH * camzoom, SCREEN_HEIGHT * camzoom);
-				camzoom = lerp(camzoom, 1, 0.08);
-				if (camzoom >= 0.998)
-				{
-					camzoom = 1;
-				}
-			}
 			var target = player;
 			var tx = target.x + offset_x;
 			var ty = target.y + offset_y;
@@ -211,13 +202,14 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			{
 				chargecamera = Approach(chargecamera, 0, 6);
 			}
-			var cam_width = camera_get_view_width(view_camera[0]);
-			var cam_height = camera_get_view_height(view_camera[0]);
+			cam_width = camera_get_view_width(view_camera[0]);
+			cam_height = camera_get_view_height(view_camera[0]);
 			if (targetgolf != noone && !instance_exists(targetgolf))
 			{
 				targetgolf = noone;
 			}
-			var cam_x, cam_y;
+			var cam_x = player.x - (cam_width / 2);
+			var cam_y = player.y - (cam_height / 2);
 			if (targetgolf == noone)
 			{			
 				if (room == characterselect || room == Realtitlescreen)
@@ -239,15 +231,10 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			        }
 			        else
 			        {
-			            var cam_x = ((obj_player1.x + obj_player2.x) / 2) - (cam_width / 2) + chargecamera + p2pdistancex;
-			            var cam_y = ((obj_player1.y + obj_player2.y) / 2) - (cam_height / 2) - 50;
+			            var cam_x = ((obj_player.x + obj_player2.x + offset_x) / 2) - (cam_width / 2) + chargecamera + p2pdistancex;
+			            var cam_y = ((obj_player.y + obj_player2.y + offset_y) / 2) - (cam_height / 2) - 50;
 			            cam_x = clamp(cam_x, 0, room_width - cam_width);
 			            cam_y = clamp(cam_y, 0, room_height - cam_height);
-			            var disx = abs(obj_player1.x - obj_player2.x);
-			            var disy = abs(obj_player1.y - obj_player2.y);
-			            var dis = max(disx, disy);
-			            dis = max(1, dis);
-			            camera_zoom(dis, 0.035);
 			        }
 				}
 			}
@@ -279,10 +266,14 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 				cam_y += irandom_range(-shake_mag, shake_mag);
 			}
 			camera_set_view_pos(view_camera[0], cam_x, cam_y);
+			targetzoom = min(2.5, targetzoom);
+			var new_cam_width = lerp(cam_width, targetzoom * original_cam_width, zoomspd);
+			var new_cam_height = lerp(cam_height, targetzoom * original_cam_height, zoomspd);
+			camera_set_view_size(view_camera[0], new_cam_width, new_cam_height);
 			break;
 		case states.follow:
-			var cam_width = camera_get_view_width(view_camera[0]);
-			var cam_height = camera_get_view_height(view_camera[0]);
+			cam_width = camera_get_view_width(view_camera[0]);
+			cam_height = camera_get_view_height(view_camera[0]);
 			var tx = followtarget.x;
 			var ty = followtarget.y - 50;
 			var dir = point_direction(x, y, followtarget.x, ty);

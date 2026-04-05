@@ -1,8 +1,8 @@
-if (obj_player1.character != character)
+if (obj_player.character != character)
 {
-	character = obj_player1.character;
+	character = obj_player.character;
 	paletteselect = 0;
-	if (obj_player1.character == "N")
+	if (obj_player.character == "N")
 	{
 		palettes = player_palettes[1];
 	}
@@ -10,7 +10,7 @@ if (obj_player1.character != character)
 	{
 		palettes = player_palettes[0];
 	}
-	with (obj_player1)
+	with (obj_player)
 	{
 		if (paletteselect > 2)
 		{

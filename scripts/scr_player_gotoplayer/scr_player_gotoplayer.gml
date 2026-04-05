@@ -5,7 +5,7 @@ function scr_player_gotoplayer()
 	movespeed = 0;
 	visible = false;
 
-	playerid = (object_index == obj_player2) ? obj_player1 : obj_player2;
+	playerid = (object_index == obj_player2) ? obj_player : obj_player2;
 	var _dir = point_direction(x, y, playerid.x, playerid.y);
 	hsp = lengthdir_x(16, _dir);
 	vsp = lengthdir_y(16, _dir);

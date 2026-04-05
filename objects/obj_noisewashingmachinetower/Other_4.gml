@@ -1,4 +1,4 @@
-if (obj_player1.character == "N" || global.swapmode)
+if (obj_player.character == "N" || global.swapmode)
 {
 	instance_destroy();
 }

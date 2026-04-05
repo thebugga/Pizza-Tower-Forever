@@ -11,7 +11,7 @@ instance_destroy(obj_fadeout);
 global.levelreset = false;
 scr_playerreset();
 global.levelreset = true;
-obj_player1.targetRoom = rm;
+obj_player.targetRoom = rm;
 obj_player2.targetRoom = rm;
 scr_room_goto(rm);
 var _d = "A";
@@ -19,8 +19,8 @@ if (rm == boss_pizzaface)
 {
 	_d = "B";
 }
-obj_player1.targetDoor = _d;
-obj_player1.restartbuffer = 15;
+obj_player.targetDoor = _d;
+obj_player.restartbuffer = 15;
 obj_player2.restartbuffer = 15;
 if (instance_exists(obj_player2))
 {

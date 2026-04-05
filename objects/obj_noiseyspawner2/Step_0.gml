@@ -30,7 +30,7 @@ if (b)
 	else
 	{
 		spawnbuffer = spawnmax;
-		if (obj_player1.character != "N" && !global.swapmode)
+		if (obj_player.character != "N" && !global.swapmode)
 		{
 			with (instance_create(x, y, obj_noisey))
 			{

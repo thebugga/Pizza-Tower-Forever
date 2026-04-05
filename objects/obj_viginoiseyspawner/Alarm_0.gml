@@ -1,4 +1,4 @@
-if (!instance_exists(obj_noisey) && obj_player1.character != "N")
+if (!instance_exists(obj_noisey) && obj_player.character != "N")
 {
 	var _x = irandom_range(100, room_width - 100);
 	with (instance_create(_x, room_height + 100, obj_gustavograbbable))

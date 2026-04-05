@@ -109,7 +109,7 @@ function scr_do_rank(_showtoppins = true, _isboss = false)
 		obj_camera.alarm[4] = -1;
 		for (var i = 0; i < global.comboscore; i += 10)
 		{
-			create_collect(obj_player1.x + irandom_range(-60, 60), (obj_player1.y - 100) + irandom_range(-60, 60), choose(spr_shroomcollect, spr_tomatocollect, spr_cheesecollect, spr_sausagecollect, spr_pineapplecollect), 10);
+			create_collect(obj_player.x + irandom_range(-60, 60), (obj_player.y - 100) + irandom_range(-60, 60), choose(spr_shroomcollect, spr_tomatocollect, spr_cheesecollect, spr_sausagecollect, spr_pineapplecollect), 10);
 		}
 		global.comboscore = 0;
 	}
@@ -160,8 +160,8 @@ function scr_do_rank(_showtoppins = true, _isboss = false)
 			}
 		}
 	}
-	obj_player1.state = states.door;
-	obj_player1.sprite_index = obj_player1.spr_lookdoor;
+	obj_player.state = states.door;
+	obj_player.sprite_index = obj_player.spr_lookdoor;
 	if (instance_exists(obj_player2))
 	{
 		obj_player2.state = states.door;

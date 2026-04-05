@@ -10,7 +10,7 @@ with (obj_player)
 	backtohubstartx = 522;
 	backtohubstarty = 2328;
 }
-if (obj_player1.character == "P" && !global.swapmode)
+if (obj_player.character == "P" && !global.swapmode)
 {
 	layer_set_visible("Backgrounds_Ring2", true);
 	layer_set_visible("Backgrounds_Ring3", false);

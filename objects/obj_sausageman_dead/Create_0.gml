@@ -8,9 +8,9 @@ cigar = false;
 stomped = false;
 oldpalettetexture = noone;
 buffer = 10;
-if (x != obj_player1.x)
+if (x != obj_player.x)
 {
-	image_xscale = -sign(x - obj_player1.x);
+	image_xscale = -sign(x - obj_player.x);
 }
 depth = -999;
 gui = false;

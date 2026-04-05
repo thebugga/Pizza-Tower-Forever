@@ -257,7 +257,7 @@ function get_character_sprite(_sprite, _char = "")
 {
     if (_char == "") 
     {
-        _char = (obj_player1.character == "P") ? "" : obj_player1.character
+        _char = (obj_player.character == "P") ? "" : obj_player.character
     }
     
     var _idx = asset_get_index(sprite_get_name(_sprite) + _char);

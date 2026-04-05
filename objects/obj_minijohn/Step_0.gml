@@ -181,8 +181,8 @@ if (state != states.chase)
 }
 if (state == states.walk || state == states.idle)
 {
-	var targetplayer = obj_player1;
-	if (obj_player1.spotlight == false)
+	var targetplayer = obj_player;
+	if (obj_player.spotlight == false)
 	{
 		targetplayer = obj_player2;
 	}

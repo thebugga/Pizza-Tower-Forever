@@ -9,11 +9,11 @@ if (other.key_up2 && other.character == character)
 			vsp = -irandom_range(6, 11);
 			usepalette = true;
 			sprite_index = spr_palettedresserdebris;
-			if (obj_player1.character == "N")
+			if (obj_player.character == "N")
 			{
 				sprite_index = spr_palettedresserdebrisN;
 			}
-			spr_palette = obj_player1.spr_palette;
+			spr_palette = obj_player.spr_palette;
 			paletteselect = other.paletteselect;
 			oldpalettetexture = global.palettetexture;
 		}

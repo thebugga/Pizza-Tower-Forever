@@ -44,7 +44,7 @@ function Instakill()
 	}
 	other.baddieID.invtime = 25;
 	suplexmove = true;
-	if (object_index == obj_player1)
+	if (object_index == obj_player)
 	{
 		other.baddieID.grabbedby = 1;
 	}

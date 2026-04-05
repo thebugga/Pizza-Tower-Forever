@@ -36,36 +36,36 @@ if (!place_meeting(x, y, obj_doorblocked))
 					notification_push(notifications.pumpkindoor_entered, [room]);
 					global.levelreset = true;
 				}
-				obj_player1.backtohubroom = room;
-				obj_player1.backtohubstartx = obj_player1.x;
-				obj_player1.backtohubstarty = obj_player1.y;
+				obj_player.backtohubroom = room;
+				obj_player.backtohubstartx = obj_player.x;
+				obj_player.backtohubstarty = obj_player.y;
 			}
 			if (room == trickytreat_1)
 			{
 				notification_push(notifications.trickytreat_door_entered, [room]);
 			}
-			obj_player1.lastroom = room;
+			obj_player.lastroom = room;
 			obj_player2.lastroom = room;
 			fmod_event_one_shot("event:/sfx/misc/door");
 			obj_camera.chargecamera = 0;
 			ds_list_add(global.saveroom, id);
-			if (object_index == obj_player1)
+			if (object_index == obj_player)
 			{
-				if (obj_player1.isgustavo)
+				if (obj_player.isgustavo)
 				{
-					obj_player1.sprite_index = spr_ratmount_enterdoor;
+					obj_player.sprite_index = spr_ratmount_enterdoor;
 				}
 				else
 				{
-					obj_player1.sprite_index = obj_player1.spr_lookdoor;
+					obj_player.sprite_index = obj_player.spr_lookdoor;
 				}
 			}
 			if (object_index == obj_player2)
 			{
 				obj_player2.sprite_index = obj_player2.spr_lookdoor;
 			}
-			obj_player1.targetDoor = other.targetDoor;
-			obj_player1.targetRoom = other.targetRoom;
+			obj_player.targetDoor = other.targetDoor;
+			obj_player.targetRoom = other.targetRoom;
 			obj_player2.targetDoor = other.targetDoor;
 			obj_player2.targetRoom = other.targetRoom;
 			with (obj_player)

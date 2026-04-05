@@ -114,6 +114,7 @@ for (var i = 0; i < array_length(lay_arr); i++)
             bg_scrolly += (layer_get_vspeed(lay) / lays);
             break;
         
+        case "Backgrounds_stillH":
         case "Backgrounds_stillH1":
             layer_x(lay, bg_stillH1xoffset + (_cam_x * 0.3));
             layer_y(lay, bg_stillH1xoffset + (_cam_y - calculate_parrallax_still_y(lay, 0.3)));

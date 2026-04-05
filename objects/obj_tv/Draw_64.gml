@@ -19,12 +19,12 @@ combofill_y = _cy;
 shader_set(global.Pal_Shader);
 pal_swap_set(spr_tv_combofillpalette, (!global.combodropped && global.prank_enemykilled) ? 2 : 1);
 draw_sprite(spr_tv_combobubblefill, combofill_index, combofill_x, combofill_y);
-if (obj_player1.character != "P" || global.swapmode)
+if (obj_player.character != "P" || global.swapmode)
 {
 	if (global.swapmode)
 		pal_swap_set(spr_tv_combopaletteN, 1);
 	else
-		pal_swap_set(get_character_sprite(spr_tv_combopalette, obj_player1.character), 1);
+		pal_swap_set(get_character_sprite(spr_tv_combopalette, obj_player.character), 1);
 }
 lang_draw_sprite(spr_tv_combobubble, 0, _cx, _cy);
 draw_set_font(global.combofont2);
@@ -41,25 +41,25 @@ for (var i = num; i > 0; i--)
 	_tx -= 22;
 	_ty -= 8;
 }
-var palinfo = get_char_palette_info(obj_player1.character);
+var palinfo = get_char_palette_info(obj_player.character);
 if (room != rm_blank)
 {
 	scr_hub_bg_draw(tv_x + collect_x, tv_y + collect_y + hud_posY, spr_tv_clip, 0);
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, patterntexture);
 	pal_swap_set(palinfo.spr_palette, paletteselect);
 	draw_sprite_ext(sprite_index, image_index, tv_x + collect_x, tv_y + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
-	var _red = global.noisejetpack && (obj_player1.character != "N" || obj_player1.noisepizzapepper);
+	var _red = global.noisejetpack && (obj_player.character != "N" || obj_player.noisepizzapepper);
 	if (_red)
 	{
 		pal_swap_set(palinfo.spr_palette, 2);
 		draw_sprite_ext(sprite_index, image_index, tv_x + collect_x, tv_y + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
 	}
-	if (obj_player1.character != "P" || global.swapmode)
+	if (obj_player.character != "P" || global.swapmode)
 	{
 		if (global.swapmode)
 			pal_swap_set(spr_tv_paletteN, 1);
 		else
-			pal_swap_set(get_character_sprite(spr_tv_palette, obj_player1.character), 1);
+			pal_swap_set(get_character_sprite(spr_tv_palette, obj_player.character), 1);
 		var spr = spr_tv_empty;
 		if (sprite_index == spr_tv_open)
 		{
@@ -69,12 +69,12 @@ if (room != rm_blank)
 	}
 	if (state == states.whitenoise)
 	{
-		if (obj_player1.character != "P" || global.swapmode)
+		if (obj_player.character != "P" || global.swapmode)
 		{
 			if (global.swapmode)
 				pal_swap_set(spr_tv_paletteN, 1);
 			else
-				pal_swap_set(get_character_sprite(spr_tv_palette, obj_player1.character), 1);
+				pal_swap_set(get_character_sprite(spr_tv_palette, obj_player.character), 1);
 		}
 		draw_sprite(spr_tv_whitenoise, tv_trans, tv_x + collect_x, tv_y + collect_y + hud_posY);
 	}

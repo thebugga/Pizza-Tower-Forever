@@ -19,7 +19,7 @@ if (other.state != states.gotoplayer)
 		healthshaketime = 30;
 	}
 	var val = heat_calculate(10);
-	if (other.object_index == obj_player1)
+	if (other.object_index == obj_player)
 	{
 		global.collect += val;
 	}

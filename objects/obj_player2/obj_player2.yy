@@ -7,7 +7,7 @@
     "path": "sprites/spr_pepcooter/spr_pepcooter.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "managed": true,
   "spriteMaskId": {
     "name": "spr_player_mask",

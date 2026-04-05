@@ -10,7 +10,7 @@ if (other.state != states.gotoplayer)
 	global.combotime = 60;
 	global.style -= 20;
 	var val = heat_calculate(value);
-	if (other.object_index == obj_player1)
+	if (other.object_index == obj_player)
 	{
 		global.collect += val;
 	}

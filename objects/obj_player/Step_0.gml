@@ -1194,7 +1194,7 @@ if (state == states.gameover && y > (room_height * 2) && !instance_exists(obj_ba
 {
 	targetDoor = "HUB";
 	scr_playerreset();
-	with (obj_player1)
+	with (obj_player)
 	{
 		image_index = 0;
 		image_blend = c_white;
@@ -1275,7 +1275,7 @@ if (global.combo >= 25 && !instance_exists(angryeffectid) && sprite_index != spr
 		other.angryeffectid = id;
 	}
 }
-if (object_index == obj_player1)
+if (object_index == obj_player)
 {
 	if (global.combotimepause > 0)
 	{
@@ -1644,7 +1644,7 @@ else
 {
 	cutscene = false;
 }
-if ((state == states.normal || state == states.ratmount) && obj_player1.spotlight == true && !instance_exists(obj_uparrow) && (collision_flags & collisionflags.on_floor) > 0)
+if ((state == states.normal || state == states.ratmount) && obj_player.spotlight == true && !instance_exists(obj_uparrow) && (collision_flags & collisionflags.on_floor) > 0)
 {
 	if (place_meeting(x, y, obj_uparrowhitbox))
 	{

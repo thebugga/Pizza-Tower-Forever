@@ -3,7 +3,7 @@ depth = 50;
 idlespr = spr_lonegustavo_idle;
 dancespr = spr_gusdance;
 palinfo = get_char_palette_info("P");
-if (obj_player1.character == "N" || global.swapmode)
+if (obj_player.character == "N" || global.swapmode)
 {
 	idlespr = spr_noisette_idle;
 	dancespr = spr_noisettedance;
