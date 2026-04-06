@@ -39,6 +39,7 @@
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a67fd95f-5363-41ce-9e89-75d15af99052",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1076d67c-72d6-4a8a-81d3-672010540b16",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"844e6499-c1e1-4fb9-9049-5089ca34a706",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8fa9c8c6-ca47-47be-9499-cc5c422d948d",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -50,7 +51,7 @@
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 11.0,
+    "length": 12.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -66,6 +67,7 @@
             {"id":"79c056e9-cde5-4bb1-824d-7ecbbaa1ea2b","Key":8.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a67fd95f-5363-41ce-9e89-75d15af99052","path":"sprites/spr_playerN_taunt/spr_playerN_taunt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"d956dbe6-7d9f-4ee2-87e7-7c345faf31ae","Key":9.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1076d67c-72d6-4a8a-81d3-672010540b16","path":"sprites/spr_playerN_taunt/spr_playerN_taunt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"5859676c-84d9-44a9-9b17-c7af56d534a9","Key":10.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"844e6499-c1e1-4fb9-9049-5089ca34a706","path":"sprites/spr_playerN_taunt/spr_playerN_taunt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"afa11414-785f-46ec-a908-400e34d97e63","Key":11.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8fa9c8c6-ca47-47be-9499-cc5c422d948d","path":"sprites/spr_playerN_taunt/spr_playerN_taunt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
