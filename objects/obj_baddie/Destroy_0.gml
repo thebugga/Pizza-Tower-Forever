@@ -89,6 +89,13 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && (!elite || elitehit <= 0)
 			}
 		}
 	}
+	if (object_index == obj_gubby)
+	{
+		ini_open_from_string(obj_savesystem.ini_str);
+		ini_write_real("Game", "gubby", true);
+		obj_savesystem.ini_str = ini_close();
+		gamesave_async_save();
+	}
 	if (object_index == obj_cheeseslime && snotty)
 	{
 		ini_open_from_string(obj_savesystem.ini_str);

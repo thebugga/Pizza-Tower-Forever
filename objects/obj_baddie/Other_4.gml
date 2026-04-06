@@ -41,3 +41,24 @@ if (object_index == obj_cheeseslime && snotty)
 	}
 	ini_close();
 }
+
+if (object_index == obj_gubby)
+{
+	if (global.panic == true)
+	{
+		ds_list_add(global.baddieroom, id);
+		instance_destroy();
+	}
+	important = true;
+	ini_open_from_string(obj_savesystem.ini_str);
+	if (ini_read_real("Game", "gubby", false))
+	{
+		ds_list_add(global.baddieroom, id);
+		instance_destroy();
+		if (!global.panic)
+		{
+			instance_create(x, y, obj_gubbygrave);
+		}
+	}
+	ini_close();
+}
