@@ -801,6 +801,7 @@
     {"id":{"name":"minigolf_11","path":"rooms/minigolf_11/minigolf_11.yy",},"order":240,},
     {"id":{"name":"spr_slime_intro","path":"sprites/spr_slime_intro/spr_slime_intro.yy",},"order":6,},
     {"id":{"name":"scr_player_grab","path":"scripts/scr_player_grab/scr_player_grab.yy",},"order":241,},
+    {"id":{"name":"mansion_4","path":"rooms/mansion_4/mansion_4.yy",},"order":3,},
     {"id":{"name":"space_1","path":"rooms/space_1/space_1.yy",},"order":241,},
     {"id":{"name":"spr_titlecardsecrettitle","path":"sprites/spr_titlecardsecrettitle/spr_titlecardsecrettitle.yy",},"order":241,},
     {"id":{"name":"scr_player_bossdefeat","path":"scripts/scr_player_bossdefeat/scr_player_bossdefeat.yy",},"order":242,},
@@ -1104,6 +1105,7 @@
     {"id":{"name":"scr_panicbg_end","path":"scripts/scr_panicbg_end/scr_panicbg_end.yy",},"order":354,},
     {"id":{"name":"obj_laundrymachine","path":"objects/obj_laundrymachine/obj_laundrymachine.yy",},"order":11,},
     {"id":{"name":"scr_initinput","path":"scripts/scr_initinput/scr_initinput.yy",},"order":355,},
+    {"id":{"name":"Sprite3649","path":"sprites/Sprite3649/Sprite3649.yy",},"order":10,},
     {"id":{"name":"obj_hamkuff","path":"objects/obj_hamkuff/obj_hamkuff.yy",},"order":17,},
     {"id":{"name":"scr_initinput2","path":"scripts/scr_initinput2/scr_initinput2.yy",},"order":356,},
     {"id":{"name":"obj_secretmanager","path":"objects/obj_secretmanager/obj_secretmanager.yy",},"order":5,},
@@ -5489,10 +5491,10 @@
     {"name":"iOS","path":"options/ios/options_ios.yy",},
     {"name":"Linux","path":"options/linux/options_linux.yy",},
     {"name":"macOS","path":"options/mac/options_mac.yy",},
-    {"name":"Main","path":"options/main/options_main.yy",},
     {"name":"tvOS","path":"options/tvos/options_tvos.yy",},
     {"name":"Windows","path":"options/windows/options_windows.yy",},
     {"name":"operagx","path":"options/operagx/options_operagx.yy",},
+    {"name":"Main","path":"options/main/options_main.yy",},
   ],
   "defaultScriptType": 1,
   "isEcma": false,
@@ -5935,6 +5937,7 @@
     {"roomId":{"name":"mansion_pepper","path":"rooms/mansion_pepper/mansion_pepper.yy",},},
     {"roomId":{"name":"mansion_2","path":"rooms/mansion_2/mansion_2.yy",},},
     {"roomId":{"name":"tower_7","path":"rooms/tower_7/tower_7.yy",},},
+    {"roomId":{"name":"mansion_4","path":"rooms/mansion_4/mansion_4.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Extensions","folderPath":"folders/Extensions.yy","order":7,},
@@ -6512,6 +6515,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"std.ndll","CopyToMask":-1,"filePath":"datafiles/GMLive",},
   ],
   "MetaData": {
-    "IDEVersion": "2022.0.1.31",
+    "IDEVersion": "2022.0.3.85",
   },
 }
