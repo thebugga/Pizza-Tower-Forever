@@ -259,7 +259,7 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			targetzoom = min(2.5, targetzoom);
 			var new_cam_width = lerp(cam_width, targetzoom * original_cam_width, zoomspd);
 			var new_cam_height = lerp(cam_height, targetzoom * original_cam_height, zoomspd);
-			if !global.coop
+			if targetzoom > 1
 				camera_set_view_size(view_camera[0], new_cam_width, new_cam_height);
 			break;
 		case states.follow:

@@ -1,7 +1,4 @@
 scr_initenemy();
-usepalette = true;
-is_controllable = true;
-possess_movespeed = 0;
 grav = 0.5;
 hsp = 0;
 vsp = 0;

@@ -7,8 +7,11 @@ view_yport[1] = 540;
 view_hport[1] = 540;
 view_hport[0] = 540;
 view_yport[0] = 0;
-camera_set_view_size(view_camera[0], 960, 270);
-camera_set_view_size(view_camera[1], 960, 270);
+if global.coop
+{
+	camera_set_view_size(view_camera[0], 960, 270);
+	camera_set_view_size(view_camera[1], 960, 270);
+}
 
 if (room == rank_room || room == timesuproom || room == Realtitlescreen)
     visible = false;

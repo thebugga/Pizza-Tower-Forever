@@ -8,7 +8,7 @@ if (m.menu_id >= menuids.controls && m.menu_id <= menuids.last)
 {
 	j = 4;
 }
-else if (m.menu_id >= menuids.video && m.menu_id <= menuids.unknown5)
+else if (m.menu_id >= menuids.video && m.menu_id <= menuids.scaling)
 {
 	j = 2;
 }

@@ -50,6 +50,10 @@ if ((global.panic || instance_exists(obj_wartimer)) && sprite_index != spr_pizza
 			image_speed = 0;
 			if (!instance_exists(obj_fadeout))
 			{
+				if (global.laps == 1)
+					global.savedfill = global.fill
+				else if (global.laps > 1)
+					global.fill = global.savedfill - ((global.laps - 1) * 100)
 				with (obj_player)
 				{
 					targetDoor = "LAP";

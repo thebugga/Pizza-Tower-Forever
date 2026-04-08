@@ -5,7 +5,7 @@ enum menuids
 	video = 2,
 	window = 3,
 	resolution = 4,
-	unknown5 = 5, // related to video.
+	scaling = 5, // related to video.
 	game = 6,
 	controls = 7,
 	controller = 8,
