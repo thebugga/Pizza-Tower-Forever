@@ -802,6 +802,7 @@
     {"id":{"name":"spr_slime_intro","path":"sprites/spr_slime_intro/spr_slime_intro.yy",},"order":6,},
     {"id":{"name":"scr_player_grab","path":"scripts/scr_player_grab/scr_player_grab.yy",},"order":241,},
     {"id":{"name":"mansion_4","path":"rooms/mansion_4/mansion_4.yy",},"order":3,},
+    {"id":{"name":"mansion_3","path":"rooms/mansion_3/mansion_3.yy",},"order":3,},
     {"id":{"name":"space_1","path":"rooms/space_1/space_1.yy",},"order":241,},
     {"id":{"name":"spr_titlecardsecrettitle","path":"sprites/spr_titlecardsecrettitle/spr_titlecardsecrettitle.yy",},"order":241,},
     {"id":{"name":"scr_player_bossdefeat","path":"scripts/scr_player_bossdefeat/scr_player_bossdefeat.yy",},"order":242,},
@@ -5938,6 +5939,7 @@
     {"roomId":{"name":"mansion_2","path":"rooms/mansion_2/mansion_2.yy",},},
     {"roomId":{"name":"tower_7","path":"rooms/tower_7/tower_7.yy",},},
     {"roomId":{"name":"mansion_4","path":"rooms/mansion_4/mansion_4.yy",},},
+    {"roomId":{"name":"mansion_3","path":"rooms/mansion_3/mansion_3.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Extensions","folderPath":"folders/Extensions.yy","order":7,},
