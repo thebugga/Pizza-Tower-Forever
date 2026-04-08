@@ -57,11 +57,9 @@ ini_open("saveData.ini");
 global.modes = [
 	_mode_new("lightsout", true),	
 	_mode_new("heatmeter", true),	
-	_mode_new("levelshuffle", true)
+	_mode_new("levelshuffle", true),
+	_mode_new("war", true)
 ];
-
-repeat (10)
-	array_push(global.modes, _mode_new(string("a{0}", irandom(9000)), true))
 
 ini_close();
 

@@ -26,3 +26,4 @@ handindex = 0;
 uparrow = false;
 uparrowID = noone;
 snd = false;
+warexit = false;

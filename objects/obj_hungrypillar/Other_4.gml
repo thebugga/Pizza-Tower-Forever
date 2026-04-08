@@ -6,3 +6,8 @@ if (room == tower_finalhallway)
 {
 	sprite_index = spr_protojohn;
 }
+if (scr_get_mode("war").enabled)
+{
+	instance_destroy(self, false);
+	instance_create(x, y - 16, obj_exitgate).warexit = true;
+}

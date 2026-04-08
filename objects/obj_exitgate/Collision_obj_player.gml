@@ -19,6 +19,10 @@ if (image_index == 1 && global.panic == false && room != war_13)
 				}
 			}
 			other.image_index = 0;
+			if (scr_get_mode("war").enabled && global.leveltosave != -4 && global.leveltosave != "war" && !instance_exists(obj_wartimer))
+			{
+				instance_create(0, 0, obj_wartimer).minutes = 1;	
+			}
 			ds_list_add(global.saveroom, other.id);
 		}
 	}

@@ -220,6 +220,7 @@ function get_options()
 	global.option_vsync = ini_read_real("Option", "vsync", 0);
     global.M_option_stilt = ini_read_real("M_Option", "ScreeTilt", 0);
     global.M_option_panbg = ini_read_real("M_Option", "PanicBg", 0);
+	global.M_option_lap = ini_read_real("M_Option", "lapStyle", 0);
     //global.M_option_heatm = ini_read_real("M_Option", "Heatmeter", 0);
 	var lang = ini_read_string("Option", "lang", "none");
 	if (lang == "none")

@@ -258,6 +258,13 @@ add_option_toggle(game_menu, 6, "option_timer_speedrun", function(_speedrun)
 	obj_savesystem.ini_str_options = ini_close();
 	global.option_speedrun_timer = _speedrun;
 }).value = global.option_speedrun_timer;
+add_option_multiple(game_menu, 7, "CHOOSE YOUR LARP", [create_option_value("LARP HELL", 0, false), create_option_value("UNLIMITED LARPING", 1, false)], function(_larp)
+{
+	ini_open(obj_savesystem.ini_str_options);
+	ini_write_real("M_Option", "lapStyle", _larp)
+	obj_savesystem.ini_str_options = ini_close();
+	global.M_option_lap = _larp;
+}).localization = false;
 array_push(menus, game_menu);
 var controls_menu = create_menu_fixed(menuids.controls, menuanchors.left, 150, 40);
 add_option_press(controls_menu, 0, "option_back", function()

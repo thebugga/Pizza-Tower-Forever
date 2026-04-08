@@ -1275,64 +1275,62 @@ if (global.combo >= 25 && !instance_exists(angryeffectid) && sprite_index != spr
 		other.angryeffectid = id;
 	}
 }
-if (object_index == obj_player)
+if (global.combotimepause > 0)
 {
-	if (global.combotimepause > 0)
+	global.combotimepause--;
+}
+if (global.combo != global.previouscombo && !is_bossroom())
+{
+	if (global.combo > global.highest_combo)
 	{
-		global.combotimepause--;
+		global.highest_combo = global.combo;
 	}
-	if (global.combo != global.previouscombo && !is_bossroom())
+	global.previouscombo = global.combo;
+	if ((global.combo % 5) == 0 && global.combo != 0)
 	{
-		if (global.combo > global.highest_combo)
+		instance_destroy(obj_combotitle);
+		with (instance_create(x, y - 80, obj_combotitle))
 		{
-			global.highest_combo = global.combo;
+			title = floor(global.combo / 5);
+			event_perform(ev_step, ev_step_normal);
 		}
-		global.previouscombo = global.combo;
-		if ((global.combo % 5) == 0 && global.combo != 0)
-		{
-			instance_destroy(obj_combotitle);
-			with (instance_create(x, y - 80, obj_combotitle))
-			{
-				title = floor(global.combo / 5);
-				event_perform(ev_step, ev_step_normal);
-			}
-		}
-	}
-	if (!(state == states.door || state == states.teleporter || state == states.shotgun || state == states.tube || state == states.spaceshuttle || state == states.taxi || state == states.gottreasure || state == states.victory || state == states.gottreasure || state == states.actor || state == states.comingoutdoor || (state == states.knightpep && (sprite_index == spr_knightpepstart || sprite_index == spr_knightpepthunder)) || instance_exists(obj_fadeout) || (collision_flags & collisionflags.secret) > 0))
-	{
-		if (room != forest_G1b && global.combotime > 0 && global.combotimepause <= 0)
-		{
-			global.combotime -= 0.15;
-		}
-	}
-	if (global.heattime > 0)
-	{
-		global.heattime -= 0.15;
-	}
-	if (global.combotime <= 0 && global.combo >= 1)
-	{
-		if (global.combo >= 1)
-		{
-			fmod_event_one_shot("event:/sfx/misc/kashingcombo");
-		}
-		global.savedcombo = global.combo;
-		global.combotime = 0;
-		global.combo = 0;
-		with (obj_camera)
-		{
-			if (comboend)
-			{
-				comboend = false;
-				event_perform(ev_alarm, 4);
-			}
-		}
-		supercharge = 0;
-	}
-	if (global.heattime <= 0 && global.style > -1 && global.stylelock == false)
-	{
-		global.style -= 0.05;
 	}
 }
+if (!(state == states.door || state == states.teleporter || state == states.shotgun || state == states.tube || state == states.spaceshuttle || state == states.taxi || state == states.gottreasure || state == states.victory || state == states.gottreasure || state == states.actor || state == states.comingoutdoor || (state == states.knightpep && (sprite_index == spr_knightpepstart || sprite_index == spr_knightpepthunder)) || instance_exists(obj_fadeout) || (collision_flags & collisionflags.secret) > 0))
+{
+	if (room != forest_G1b && global.combotime > 0 && global.combotimepause <= 0)
+	{
+		global.combotime -= 0.15;
+	}
+}
+if (global.heattime > 0)
+{
+	global.heattime -= 0.15;
+}
+if (global.combotime <= 0 && global.combo >= 1)
+{
+	if (global.combo >= 1)
+	{
+		fmod_event_one_shot("event:/sfx/misc/kashingcombo");
+	}
+	global.savedcombo = global.combo;
+	global.combotime = 0;
+	global.combo = 0;
+	with (obj_camera)
+	{
+		if (comboend)
+		{
+			comboend = false;
+			event_perform(ev_alarm, 4);
+		}
+	}
+	supercharge = 0;
+}
+if (global.heattime <= 0 && global.style > -1 && global.stylelock == false)
+{
+	global.style -= 0.05;
+}
+
 if (key_jump && !grounded && (state == states.mach2 || state == states.mach3) && (state != (states.climbwall & walljumpbuffer)) <= 0)
 {
 	input_buffer_walljump = 24;
