@@ -1,4 +1,4 @@
-function scr_start_game(_savefile, _ispeppino = true)
+function scr_start_game(_savefile, _character = "P")
 {
 	instance_create(x, y, obj_fadeout);
 	with (obj_player)
@@ -8,7 +8,7 @@ function scr_start_game(_savefile, _ispeppino = true)
 	}
 	with (obj_savesystem)
 	{
-		ispeppino = _ispeppino;
+		character = _character;
 	}
 	global.currentsavefile = _savefile;
 	gamesave_async_load();

@@ -42,7 +42,7 @@ if (isgustavo)
 {
 	spr_palette = spr_ratmountpalette;
 }
-if (!ispeppino)
+if (character == "N")
 {
 	s = 1;
 	playersprite = spr_playerN_spin;
@@ -52,7 +52,7 @@ else if (isgustavo)
 	s = 2;
 	playersprite = spr_player_ratmountattack;
 }
-if (room == boss_pizzaface && !ispeppino && instance_exists(obj_pizzaface_thunderdark))
+if (room == boss_pizzaface && character == "N" && instance_exists(obj_pizzaface_thunderdark))
 {
 	spr_palette = spr_noisepalette_rage;
 }

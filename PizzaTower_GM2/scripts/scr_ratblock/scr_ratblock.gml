@@ -45,7 +45,7 @@ function scr_ratblock_destroy()
 						break;
 					case states.boxxedpepspin:
 						vsp = -6;
-						if (!ispeppino)
+						if (character == "N")
 						{
 							sprite_index = spr_playerN_boxxedhit;
 							image_index = 0;

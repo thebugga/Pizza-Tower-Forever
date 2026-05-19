@@ -31,7 +31,7 @@ function Instakill()
 		}
 		image_index = 0;
 	}
-	if (!ispeppino && state == states.boxxedpepspin)
+	if (character == "N" && state == states.boxxedpepspin)
 	{
 		sprite_index = spr_playerN_boxxedhit;
 		image_index = 0;
@@ -168,7 +168,7 @@ function Instakill()
 		other.baddieID.hithsp = xscale * 10;
 	}
 	other.baddieID.hitvsp = -5;
-	if ((state == states.machcancel || (state == states.ratmountbounce && !ispeppino)) && move != 0)
+	if ((state == states.machcancel || (state == states.ratmountbounce && character == "N")) && move != 0)
 	{
 		other.baddieID.hithsp = movespeed + (sign(movespeed) * 2);
 		if (abs(other.baddieID.hithsp) < 10)

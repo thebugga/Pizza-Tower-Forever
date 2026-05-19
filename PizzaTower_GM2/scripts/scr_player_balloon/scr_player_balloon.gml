@@ -1,6 +1,6 @@
 function scr_player_balloon()
 {
-	if (!ispeppino)
+	if (character == "N")
 	{
 		image_speed = 0.35;
 		hsp = movespeed;

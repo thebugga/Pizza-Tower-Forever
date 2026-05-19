@@ -21,7 +21,7 @@ if (state == 0)
 			ini_write_real("Game", "seconds", global.file_seconds);
 			var closestring = ini_close();
 			buffer_write(savebuff, buffer_string, closestring);
-			buffer_save_async(savebuff, get_savefile_ini(ispeppino), 0, buffer_get_size(savebuff));
+			buffer_save_async(savebuff, get_savefile_ini(character), 0, buffer_get_size(savebuff));
 			saveid = buffer_async_group_end();
 		}
 		else if (saveoptions)

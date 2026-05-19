@@ -195,7 +195,7 @@ function scr_bosscontroller_normal()
 				global.pistol = false;
 				pistolanim = noone;
 				sprite_index = spr_player_levelcomplete;
-				if (!ispeppino)
+				if (character == "N")
 				{
 					sprite_index = spr_playerN_levelcomplete;
 				}

@@ -1,5 +1,5 @@
 var bg_spr = spr_finalrankBG;
-if (!ispeppino)
+if (character == "N")
 {
 	bg_spr = spr_finalrankBG_N;
 }

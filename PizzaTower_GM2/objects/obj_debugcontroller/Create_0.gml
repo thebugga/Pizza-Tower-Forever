@@ -64,7 +64,7 @@ if (DEBUG)
 		with (obj_player)
 		{
 			character = "P";
-			ispeppino = !ispeppino;
+			ispeppino = character == "N";
 			scr_characterspr();
 		}
 	});

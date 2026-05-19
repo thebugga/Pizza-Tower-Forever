@@ -361,7 +361,7 @@ function scr_noise_arenaintro()
 				spotlightID.expand = true;
 				with (obj_player)
 				{
-					if (ispeppino)
+					if character == "P"
 					{
 						create_particle(x, y, particletypes.genericpoofeffect);
 					}
@@ -1547,7 +1547,7 @@ function scr_noise_finale()
 					{
 						sprite_index = spr_player_gnomecutscene2;
 						image_index = 0;
-						if (!ispeppino)
+						if (character == "N")
 						{
 							sprite_index = spr_playerN_bosscutscene1;
 						}
@@ -1583,7 +1583,7 @@ function scr_noise_finale()
 							create_debris(x, y, spr_slapstar);
 						}
 						sprite_index = spr_playerN_stunned;
-						if (ispeppino)
+						if character == "P"
 						{
 							sprite_index = spr_player_stunneddoise;
 						}
@@ -1602,7 +1602,7 @@ function scr_noise_finale()
 			{
 				if ((sprite_index == spr_playerN_stunned || sprite_index == spr_player_stunneddoise) && floor(image_index) >= 25)
 				{
-					if (ispeppino)
+					if character == "P"
 					{
 						sprite_index = spr_bombpepend;
 						image_index = 13;
@@ -1624,7 +1624,7 @@ function scr_noise_finale()
 				substate = states.shotgunshoot;
 				with (obj_player1)
 				{
-					if (ispeppino && !other.doise)
+					if (character == "P" && !other.doise)
 					{
 						sprite_index = spr_player_gnomecutscene3;
 						image_index = 0;
@@ -1647,7 +1647,7 @@ function scr_noise_finale()
 			{
 				if (ANIMATION_END)
 				{
-					if (ispeppino && !other.doise)
+					if (character == "P" && !other.doise)
 					{
 						sprite_index = spr_player_gnomecutscene4;
 					}
@@ -1660,7 +1660,7 @@ function scr_noise_finale()
 				sprite_index = spr_playerN_bump;
 				with (obj_player1)
 				{
-					if (ispeppino && !other.doise)
+					if (character == "P" && !other.doise)
 					{
 						sprite_index = spr_idle;
 					}
@@ -1746,7 +1746,7 @@ function scr_noise_phase1hurt()
 				image_speed = 0.35;
 				sprite_index = spr_player_fightball;
 				image_index = 0;
-				if (!ispeppino)
+				if (character == "N")
 				{
 					y = 402;
 					x = room_width / 2;

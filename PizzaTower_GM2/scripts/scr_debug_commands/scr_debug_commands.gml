@@ -51,8 +51,17 @@ function function_overload(_array, _func)
 	}
 }
 
-function DebugCommand(_command_id, _desc, _format, _func) constructor
+function DebugCommand(_command_id, _desc, _format, _func, _formatSuggestions)
 {
+	variable_global_set(concat("sh_", _command_id), _func);
+	variable_global_set(concat("meta_", _command_id),
+	{
+			arguments: string_split(_format, " "),
+			suggestions: _formatSuggestions ?? string_split(_format, " "),
+			description: _desc,
+			argumentDescriptions: []
+	});
+	/*
 	command_id = _command_id;
 	description = _desc;
 	format = _format;
@@ -69,6 +78,8 @@ function DebugCommand(_command_id, _desc, _format, _func) constructor
 			func();
 		}
 	};
+	*/
+	// oldd debug code that i hateee grrrrrr >:3
 }
 
 function TextList_Add(_type, _text)

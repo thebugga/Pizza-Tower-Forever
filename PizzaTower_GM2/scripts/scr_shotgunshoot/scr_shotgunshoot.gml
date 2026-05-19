@@ -1,6 +1,6 @@
 function scr_shotgunshoot()
 {
-	if (!ispeppino)
+	if (character == "N")
 	{
 		input_buffer_shoot = 0;
 		if (state != states.shotgunshoot)

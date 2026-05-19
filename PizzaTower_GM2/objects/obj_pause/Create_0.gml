@@ -20,6 +20,7 @@ ds_map_set(pause_menu_map, "pause_resume", [0, function()
 	pause_unpause_music();
 	instance_destroy(obj_option);
 	instance_destroy(obj_keyconfig);
+	pause = false;
 }]);
 ds_map_set(pause_menu_map, "pause_achievements", [5, function()
 {

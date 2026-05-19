@@ -6,7 +6,7 @@ with (other)
 	}
 	else if (!isgustavo && state != states.ghost && state != states.ghostpossess && state != states.ghostcaught && state != states.actor && state != states.parry && state != states.gotoplayer)
 	{
-		if (ispeppino)
+		if character == "P"
 		{
 			create_transformation_tip(lang_get_value("ghosttip"), "ghost");
 		}

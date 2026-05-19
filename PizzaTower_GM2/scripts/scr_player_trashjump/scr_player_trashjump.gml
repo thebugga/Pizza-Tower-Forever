@@ -29,13 +29,13 @@ function scr_player_trashjump()
 	{
 		sprite_index = spr_player_trashjump;
 	}
-	if (!ispeppino)
+	if (character == "N")
 	{
 		sprite_index = spr_playerN_trash;
 	}
 	if (grounded && vsp > 0)
 	{
-		if (ispeppino)
+		if (character == "P")
 		{
 			create_transformation_tip(lang_get_value("trashrolltip"), "trashroll");
 			if (instance_place(x, y + 1, obj_slope))

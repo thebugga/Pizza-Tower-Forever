@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_dotaunt",
+  "%Name":"scr_domove",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_dotaunt",
+  "name":"scr_domove",
   "parent":{
     "name":"Player",
     "path":"folders/Scripts/Player.yy",

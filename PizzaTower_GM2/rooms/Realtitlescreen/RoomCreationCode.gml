@@ -315,6 +315,7 @@ enum states
 	unknown304 = 304, // Mr. Stick flight
 	machcancelstart = 305,
 	machcancel = 306,
+	gauntletportal = 307,
 }
 
 #macro ANIMATION_END floor(image_index) == (image_number - 1)

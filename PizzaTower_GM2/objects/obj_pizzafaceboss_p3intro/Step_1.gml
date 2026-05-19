@@ -2,7 +2,7 @@ if (global.swapmode)
 {
 	with (obj_player1)
 	{
-		if (ispeppino)
+		if character == "P"
 		{
 			swap_player(false);
 		}
@@ -54,7 +54,7 @@ switch (introstate)
 					sprite_index = spr_player_gnomecutscene2;
 					image_index = 0;
 				}
-				else if (ispeppino && ANIMATION_END)
+				else if (character == "P" && ANIMATION_END)
 				{
 					image_index = image_number - 1;
 				}
@@ -70,7 +70,7 @@ switch (introstate)
 	case 3:
 		with (obj_player1)
 		{
-			if (ispeppino && ANIMATION_END)
+			if (character == "P" && ANIMATION_END)
 			{
 				image_index = image_number - 1;
 			}
@@ -87,7 +87,7 @@ switch (introstate)
 	case 4:
 		with (obj_player1)
 		{
-			if ((ispeppino && ANIMATION_END) && sprite_index != spr_player_gnomecutscene1)
+			if ((character == "P" && ANIMATION_END) && sprite_index != spr_player_gnomecutscene1)
 			{
 				image_index = image_number - 1;
 			}
@@ -112,7 +112,7 @@ switch (introstate)
 				if (b[0] == spr_fakepeppino_stun)
 				{
 					usepalette = true;
-					if (obj_player1.ispeppino)
+					if (obj_player1.character == "P")
 					{
 						spr_palette = obj_player1.spr_palette;
 						paletteselect = obj_player1.paletteselect;
@@ -133,7 +133,7 @@ switch (introstate)
 	case 5:
 		with (obj_player1)
 		{
-			if ((ispeppino && ANIMATION_END) && sprite_index != spr_player_gnomecutscene1)
+			if ((character == "P" && ANIMATION_END) && sprite_index != spr_player_gnomecutscene1)
 			{
 				image_index = image_number - 1;
 			}
@@ -196,7 +196,7 @@ switch (introstate)
 	case 6:
 		with (obj_player1)
 		{
-			if ((ispeppino && ANIMATION_END) && sprite_index != spr_player_gnomecutscene1)
+			if ((character == "P" && ANIMATION_END) && sprite_index != spr_player_gnomecutscene1)
 			{
 				image_index = image_number - 1;
 			}
@@ -220,7 +220,7 @@ switch (introstate)
 	case 7:
 		with (obj_player1)
 		{
-			if ((ispeppino && ANIMATION_END) && sprite_index != spr_player_gnomecutscene1)
+			if ((character == "P" && ANIMATION_END) && sprite_index != spr_player_gnomecutscene1)
 			{
 				image_index = image_number - 1;
 			}
@@ -238,7 +238,7 @@ switch (introstate)
 			with (obj_player1)
 			{
 				sprite_index = spr_player_gnomecutscene3;
-				if (!ispeppino)
+				if (character == "N")
 				{
 					fmod_event_one_shot_3d("event:/sfx/playerN/supernoiseeffect", x, y);
 					sprite_index = spr_playerN_phase3intro1;
@@ -275,7 +275,7 @@ switch (introstate)
 			with (obj_player1)
 			{
 				sprite_index = spr_pizzahead_pepintro;
-				if (!ispeppino)
+				if (character == "N")
 				{
 					sprite_index = spr_playerN_phase3intro2;
 				}
@@ -300,7 +300,7 @@ switch (introstate)
 		}
 		if ((obj_player1.image_index >= 20 || !obj_player1.ispeppino) && !shot)
 		{
-			if (obj_player1.ispeppino)
+			if (obj_player1.character == "P")
 			{
 				fmod_event_one_shot("event:/sfx/voice/peppinoangryscream2");
 			}
@@ -373,7 +373,7 @@ switch (introstate)
 			introstate++;
 			with (obj_player1)
 			{
-				if (!ispeppino)
+				if (character == "N")
 				{
 					fmod_event_one_shot("event:/sfx/playerN/supernoisescream");
 				}
@@ -388,7 +388,7 @@ switch (introstate)
 				hsp = 14;
 				sprite_index = spr_player_lunge;
 				image_index = 7;
-				if (!ispeppino)
+				if (character == "N")
 				{
 					sprite_index = spr_playerN_phase3intro3;
 					image_index = 0;

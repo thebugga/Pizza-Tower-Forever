@@ -3,11 +3,10 @@ if (!showswap)
 	global.swapmode = false;
 	with (obj_player1)
 	{
-		character = "P";
-		ispeppino = other.shownoise ? false : true;
+		character = other.shownoise ? "N" : "P";
 		scr_characterspr();
 	}
-	scr_start_game(currentselect + 1, shownoise ? false : true);
+	scr_start_game(currentselect + 1, shownoise ? "N" : "P");
 }
 else
 {

@@ -1,6 +1,6 @@
 event_inherited();
 following_add_to_front();
-if (!ispeppino)
+if (character == "N")
 {
 	animatronic = 0;
 }

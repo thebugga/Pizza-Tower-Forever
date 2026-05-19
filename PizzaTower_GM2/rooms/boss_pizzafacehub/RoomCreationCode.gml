@@ -24,7 +24,7 @@ with (obj_player1)
 	sprite_index = spr_slipbanan2;
 	image_index = sprite_get_number(spr_slipbanan2) - 1;
 	image_speed = 0.35;
-	if (!ispeppino)
+	if (character == "N")
 	{
 		sprite_index = spr_playerN_bombend;
 		image_index = 0;

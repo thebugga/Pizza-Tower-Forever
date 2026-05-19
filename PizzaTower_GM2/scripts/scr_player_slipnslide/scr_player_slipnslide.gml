@@ -15,7 +15,7 @@ function scr_player_slipnslide()
 	hurted = true;
 	machhitAnim = false;
 	crouchslideAnim = true;
-	if (!ispeppino && instance_exists(obj_surfback))
+	if (character == "N" && instance_exists(obj_surfback))
 	{
 		image_speed = 0.35;
 		sprite_index = spr_playerN_surfing;
@@ -126,7 +126,7 @@ function scr_player_slipnslide()
 		sprite_index = spr_slipbanan1;
 		image_index = 0;
 		state = states.slipbanan;
-		if (!ispeppino)
+		if (character == "N")
 		{
 			with (instance_create(x, y, obj_floaterdebris))
 			{

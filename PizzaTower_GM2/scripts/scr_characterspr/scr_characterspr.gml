@@ -255,7 +255,7 @@ function scr_characterspr()
 		spr_breakdanceuppercut = spr_player_breakdanceuppercut;
 		spr_breakdanceuppercutend = spr_player_breakdanceuppercutend;
 	}
-	if (character == "N" || (character == "P" && !ispeppino))
+	if (character == "N" || (character == "P" && character == "N"))
 	{
 		spr_idle = spr_playerN_idle;
 		spr_move = spr_playerN_move;

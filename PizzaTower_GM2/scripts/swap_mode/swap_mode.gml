@@ -1,6 +1,7 @@
+global.swap_character = "N";
 function swap_is_player2()
 {
-	return global.swapmode && obj_player1.ispeppino != obj_savesystem.ispeppino;
+	return global.swapmode && obj_player1.character != obj_savesystem.character;
 }
 
 function swap_player(_hurtswap = false, _jumpscare = false)
@@ -27,7 +28,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 			global.swap_boss_damage = -1;
 		}
 		state = states.normal;
-		if (ispeppino)
+		if (character == "P")
 		{
 			if (isgustavo)
 			{
@@ -43,8 +44,10 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 				global.noisejetpack = true;
 			}
 		}
-		ispeppino = !ispeppino;
-		if (ispeppino)
+		var _char = character;
+		character = global.swap_character;
+		global.swap_character = _char;
+		if (character != "N")
 		{
 			if (noisecrusher)
 			{
@@ -56,7 +59,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 				global.noisejetpack = false;
 			}
 		}
-		if (!ispeppino)
+		if (character == "N")
 		{
 			tauntstoredisgustavo = false;
 		}
@@ -65,7 +68,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 		pistolchargeshooting = false;
 		pistolanim = noone;
 		global.pistol = false;
-		if ((ispeppino && (room == boss_vigilante || instance_exists(obj_pizzafaceboss_p2))) || (instance_exists(obj_bosscontroller) && !ispeppino))
+		if ((character == "P" && (room == boss_vigilante || instance_exists(obj_pizzafaceboss_p2))) || (instance_exists(obj_bosscontroller) && character == "N"))
 		{
 			global.pistol = true;
 		}
@@ -76,21 +79,18 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 			{
 				global.noisejetpack = true;
 			}
-			else if (!ispeppino && room == freezer_secret3)
+			else if (character == "N" && room == freezer_secret3)
 			{
 				global.noisejetpack = true;
 			}
 		}
 		with (obj_bosscontroller)
 		{
-			if (other.ispeppino)
-			{
-				player_hpsprite = spr_bossfight_playerhp;
-			}
-			else
-			{
-				player_hpsprite = spr_bossfight_noiseHP;
-			}
+			var _sprites = {
+				P : spr_bossfight_playerhp,
+				N : spr_bossfight_noiseHP
+			};
+			player_hpsprite = _sprites[$ obj_player1.character]
 		}
 		with (obj_gustavoswitch)
 		{
@@ -119,10 +119,10 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 		with (obj_swapmodefollow)
 		{
 			taunttimer = 0;
-			if (ispeppino == obj_player1.ispeppino)
+			if (character == obj_player1.character)
 			{
-				ispeppino = !obj_player1.ispeppino;
-				if (!obj_player1.ispeppino && obj_player1.noisecrusher)
+				character = global.swap_character;
+				if (obj_player1.character == "N" && obj_player1.noisecrusher)
 				{
 					isgustavo = true;
 				}
@@ -138,7 +138,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 				{
 					idleanim = 60;
 				}
-				sprite_index = other.ispeppino ? spr_tv_idle : spr_tv_idleN;
+				sprite_index = other.character == "P" ? spr_tv_idle : spr_tv_idleN;
 				if (sprite_index == spr_tv_idle && other.isgustavo)
 				{
 					sprite_index = spr_tv_idleG;

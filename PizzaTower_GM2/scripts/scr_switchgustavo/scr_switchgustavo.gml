@@ -2,7 +2,7 @@ function scr_switchgustavo(_setstate = true, _noisegloves = false)
 {
 	with (obj_player1)
 	{
-		if (ispeppino)
+		if (character == "P")
 		{
 			ratmount_movespeed = 8;
 			gustavodash = 0;
@@ -49,7 +49,7 @@ function scr_switchpeppino(_setstate = true)
 {
 	with (obj_player1)
 	{
-		if (ispeppino)
+		if (character == "P")
 		{
 			gustavodash = 0;
 			ratmount_movespeed = 8;

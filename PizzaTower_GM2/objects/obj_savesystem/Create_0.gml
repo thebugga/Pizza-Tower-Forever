@@ -13,6 +13,7 @@ ini_str = "";
 state = 0;
 icon_index = 0;
 ispeppino = true;
+character = "P";
 icon_max = sprite_get_number(spr_pizzaslice);
 ini_open("saveData.ini");
 ini_str_options = ini_close();

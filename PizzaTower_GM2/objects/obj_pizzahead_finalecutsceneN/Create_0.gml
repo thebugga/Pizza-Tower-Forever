@@ -14,7 +14,7 @@ if (global.swapmode)
 }
 with (obj_player1)
 {
-	if (ispeppino)
+	if character == "P"
 	{
 		swap_player(false);
 	}

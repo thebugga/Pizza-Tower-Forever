@@ -127,7 +127,7 @@ function scr_vigilante_arenaintro()
 		}
 		sprite_index = spr_playerV_dynamitethrow;
 		image_index = 0;
-		if (!obj_player1.ispeppino)
+		if (character == "P")
 		{
 			sprite_index = spr_playerV_idle;
 			image_index = 0;
@@ -138,7 +138,7 @@ function scr_vigilante_arenaintro()
 		{
 			spotlightID.expand = true;
 		}
-		if (obj_player1.ispeppino)
+		if (character == "N")
 		{
 			with (instance_create(x, y, obj_pistolpickup))
 			{
@@ -167,7 +167,7 @@ function scr_vigilante_arenaintro()
 			x = roomstartx;
 			if (other.sprite_index == spr_vigilante_intro1 || other.sprite_index == spr_vigilante_intro1N)
 			{
-				if (ispeppino)
+				if (character == "P")
 				{
 					sprite_index = spr_player_gnomecutscene1;
 				}
@@ -204,7 +204,7 @@ function scr_vigilante_arenaintro()
 				fmod_event_one_shot_3d("event:/sfx/voice/vigiintro", x, y);
 				with (obj_player1)
 				{
-					if (ispeppino)
+					if (character == "P")
 					{
 						if (sprite_index == spr_player_gnomecutscene2)
 						{
@@ -228,7 +228,7 @@ function scr_vigilante_arenaintro()
 			introbuffer = 130;
 			with (obj_player1)
 			{
-				if (ispeppino)
+				if (character == "P")
 				{
 					sprite_index = spr_player_gnomecutscene2;
 					image_index = 0;
@@ -243,7 +243,7 @@ function scr_vigilante_arenaintro()
 		}
 		else if (sprite_index == spr_vigilante_intro2 || sprite_index == spr_vigilante_intro2N)
 		{
-			if (obj_player1.ispeppino)
+			if (obj_player1.character == "P")
 			{
 				with (instance_create(x, y, obj_pistolpickup))
 				{
@@ -258,7 +258,7 @@ function scr_vigilante_arenaintro()
 			spotlightID.expand = true;
 			with (obj_player)
 			{
-				if (ispeppino)
+				if (character == "P")
 				{
 					sprite_index = spr_player_screamtransition;
 					image_index = 0;
@@ -316,7 +316,7 @@ function scr_vigilante_phase1hurt()
 		state = states.actor;
 		pistolanim = noone;
 		sprite_index = spr_player_pistolshotend;
-		if (!ispeppino)
+		if (character == "N")
 		{
 			sprite_index = spr_playerN_bosstransition;
 		}
@@ -999,7 +999,7 @@ function scr_vigilante_duel()
 		pistolchargeshooting = false;
 		pistolanim = noone;
 	}
-	var _cheat = !obj_player1.ispeppino || global.swapmode;
+	var _cheat = character == "N" || global.swapmode;
 	if (duelphase == 2)
 	{
 		with (obj_player1)
@@ -1015,7 +1015,7 @@ function scr_vigilante_duel()
 	{
 		with (obj_player1)
 		{
-			if (key_slap2 && ispeppino && !_cheat)
+			if (key_slap2 && character == "P" && !_cheat)
 			{
 				other.duelbuffer = 0;
 				other.duelphase = 2;
@@ -1037,7 +1037,7 @@ function scr_vigilante_duel()
 				break;
 			case 1:
 				signy = Approach(signy, -sprite_get_height(signspr), s);
-				if (obj_player1.ispeppino && signy <= -sprite_get_height(signspr))
+				if (obj_player1.character == "P" && signy <= -sprite_get_height(signspr))
 				{
 					duelbuffer = 80;
 					fmod_event_one_shot_3d("event:/sfx/enemies/minijohnpunch", room_width / 2, room_height / 2);
@@ -1058,7 +1058,7 @@ function scr_vigilante_duel()
 				duelbuffer--;
 				break;
 		}
-		if (duelphase == 2 && obj_player1.ispeppino && !_cheat)
+		if (duelphase == 2 && obj_player1.character == "P" && !_cheat)
 		{
 			signy = Approach(signy, 0, 20);
 		}
@@ -1071,7 +1071,7 @@ function scr_vigilante_duel()
 				with (obj_player1)
 				{
 					sprite_index = spr_peppino_duel;
-					if (!ispeppino)
+					if (character == "N")
 					{
 						sprite_index = spr_noise_duel;
 					}
@@ -1146,13 +1146,13 @@ function scr_vigilante_duel()
 					}
 					with (obj_player1)
 					{
-						if (_cheat && ispeppino)
+						if (_cheat && character == "P")
 						{
 							swap_player(false);
 							with (instance_create(x, y, obj_swapdeatheffect))
 							{
 								image_xscale = -1;
-								ispeppino = other.ispeppino;
+								character = other.character
 								isgustavo = other.isgustavo;
 								hsp = -image_xscale * 8;
 								vsp = -15;
@@ -1163,7 +1163,7 @@ function scr_vigilante_duel()
 						}
 						sprite_index = spr_player_pistolshotend;
 						image_index = 2;
-						if (!ispeppino)
+						if (character == "N")
 						{
 							sprite_index = spr_noise_duelend;
 							image_index = 0;

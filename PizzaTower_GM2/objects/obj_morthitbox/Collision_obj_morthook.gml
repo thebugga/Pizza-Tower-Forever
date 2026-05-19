@@ -19,7 +19,7 @@ with (playerid)
 		morthookID = mh_id;
 		tauntstoredmovespeed = movespeed;
 		movespeed = 12;
-		if (!ispeppino)
+		if (character == "N")
 		{
 			movespeed = 20;
 		}

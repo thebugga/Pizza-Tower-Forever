@@ -1,6 +1,6 @@
 function scr_player_animatronic()
 {
-	if (!ispeppino)
+	if (character == "N")
 	{
 		xscale = 1;
 		sprite_index = spr_playerN_animatronic;

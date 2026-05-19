@@ -5,17 +5,17 @@ fmod_event_instance_play(music);
 bg_index = 0;
 bg_x = 0;
 bg_y = 0;
-ispeppino = obj_player1.ispeppino;
+character = character;
 snd_drumroll = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_drumroll");
 snd_verdict = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_verdict");
 snd_start = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_start");
-if (!ispeppino)
+if (character == "N")
 {
 	fmod_event_instance_play(snd_start);
 }
 sprite_index = spr_finaljudgement;
 image_speed = 0.35;
-if (!ispeppino)
+if (character == "N")
 {
 	sprite_index = spr_finaljudgementN;
 }
@@ -163,7 +163,7 @@ switch (rank_spr)
 		bg_index = 3;
 		break;
 }
-if (!ispeppino)
+if (character == "N")
 {
 	switch (rank_spr)
 	{

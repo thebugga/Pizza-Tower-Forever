@@ -20,7 +20,7 @@ if (!fadein)
 					other.state++;
 					other.cutscenebuffer = 100;
 					sprite_index = spr_player_idle;
-					if (!ispeppino)
+					if (character == "N")
 					{
 						sprite_index = spr_playerN_doiseintro1;
 					}
@@ -40,7 +40,7 @@ if (!fadein)
 				with (obj_johnresurrection_peppino)
 				{
 					sprite_index = spr_player_idlefrown;
-					if (!ispeppino)
+					if (character == "N")
 					{
 						sprite_index = spr_playerN_doiseintro2;
 						other.cutscenebuffer = 100;
@@ -74,7 +74,7 @@ if (!fadein)
 			{
 				if (ANIMATION_END)
 				{
-					if (ispeppino)
+					if character == "P"
 					{
 						image_index = image_number - 1;
 					}
@@ -151,7 +151,7 @@ if (!fadein)
 			else
 			{
 				whitefade = 2;
-				if (obj_player1.ispeppino)
+				if (obj_player1.character == "P")
 				{
 					state++;
 					cutscenebuffer = 370;

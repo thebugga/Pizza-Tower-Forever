@@ -92,7 +92,7 @@ if (prevhp != elitehit)
 				movespeed = 0;
 				image_index = 0;
 				sprite_index = spr_player_gnomecutscene1;
-				if (!ispeppino)
+				if (character == "N")
 				{
 					sprite_index = spr_noisebossintro2;
 				}

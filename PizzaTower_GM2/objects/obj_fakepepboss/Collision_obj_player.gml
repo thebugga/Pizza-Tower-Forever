@@ -49,7 +49,7 @@ if (staggerbuffer <= 0 && flickertime <= 0 && ((other.state == states.handstandj
 		fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 		image_index = 0;
 		movespeed = 4;
-		if (ispeppino)
+		if character == "P"
 		{
 			sprite_index = choose(spr_player_lungehit, spr_player_kungfu1, spr_player_kungfu2, spr_player_kungfu3);
 		}

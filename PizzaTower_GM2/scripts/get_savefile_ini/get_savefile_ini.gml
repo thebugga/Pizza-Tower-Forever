@@ -1,8 +1,8 @@
-function get_savefile_ini(_is_peppino = true)
+function get_savefile_ini(_character = "P")
 {
 	if (global.swapmode)
 	{
-		_is_peppino = false;
+		_character = false;
 	}
-	return concat("saveData", global.currentsavefile, _is_peppino ? "" : "N", ".ini");
+	return concat("saveData", global.currentsavefile, _character == "P" ? "" : _character, ".ini");
 }

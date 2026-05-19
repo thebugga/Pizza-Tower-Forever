@@ -6,6 +6,7 @@ function scr_deactivate_escape()
 		boundbox = false;
 		event_perform(ev_other, ev_room_start);
 	}
+	/*
 	with (obj_hiddenobject)
 	{
 		if (!ds_list_empty(deactivatedlist))
@@ -51,4 +52,5 @@ function scr_deactivate_escape()
 			}
 		}
 	}
+	*/
 }

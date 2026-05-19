@@ -115,9 +115,9 @@ function tv_get_palette()
 	{
 		exit;
 	}
-	var _info = obj_player1.ispeppino ? get_pep_palette_info() : get_noise_palette_info();
+	var _info = character == "P" ? get_pep_palette_info() : get_noise_palette_info();
 	spr_palette = _info.spr_palette;
-	if (obj_player1.isgustavo && obj_player1.ispeppino)
+	if (obj_player1.isgustavo && obj_player1.character == "P")
 	{
 		spr_palette = spr_ratmountpalette;
 	}
@@ -178,7 +178,7 @@ function tv_do_expression(_spr, _reset_palette = false, _make_peppino = false)
 					}
 					break;
 			}
-			if (!_make_peppino && instance_exists(obj_player1) && !obj_player1.ispeppino)
+			if (!_make_peppino && instance_exists(obj_player1) && obj_player1.character == "N")
 			{
 				var n = asset_get_index(sprite_get_name(_spr) + "N");
 				if (n > -1)

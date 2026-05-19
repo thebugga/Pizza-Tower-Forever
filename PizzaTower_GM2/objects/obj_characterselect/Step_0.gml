@@ -44,8 +44,8 @@ if (!ready)
 				obj_noiseselect.image_index = 0;
 				with (obj_player1)
 				{
-					character = "P";
-					ispeppino = false;
+					character = "N";
+					ispeppino = true;
 					scr_characterspr();
 				}
 			}
@@ -60,8 +60,8 @@ if (!ready)
 			obj_noiseselect.image_index = 0;
 			with (obj_player1)
 			{
-				character = "P";
-				ispeppino = other.selected == 0;
+				character = other.selected == 0 ? "P" : "N";
+				ispeppino = true;
 				scr_characterspr();
 			}
 		}

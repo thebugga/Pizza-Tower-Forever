@@ -1,6 +1,6 @@
 function scr_player_barrelclimbwall()
 {
-	if (!ispeppino)
+	if (character == "N")
 	{
 		move = key_left + key_right;
 		vsp = -wallspeed;

@@ -115,7 +115,7 @@ switch (state)
 		{
 			with (obj_player1)
 			{
-				if (!isgustavo || !ispeppino)
+				if (!isgustavo || character == "N")
 				{
 					if (mach4mode == true)
 					{
@@ -455,11 +455,11 @@ else
 	tv_trans += 0.35;
 }
 var change_pos = false;
-if (obj_player.x > (room_width - 224) && obj_player.y < 187)
+if (obj_player1.x > (room_width - 224) && obj_player1.y < 187)
 {
 	change_pos = true;
 }
-if (bubblespr != noone && obj_player.x > 316 && obj_player.y < 101)
+if (bubblespr != noone && obj_player1.x > 316 && obj_player1.y < 101)
 {
 	change_pos = true;
 }

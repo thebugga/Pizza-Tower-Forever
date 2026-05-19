@@ -1,6 +1,6 @@
 function scr_player_rocketslide()
 {
-	if (!ispeppino)
+	if (character == "N")
 	{
 		if (image_speed == 0)
 		{

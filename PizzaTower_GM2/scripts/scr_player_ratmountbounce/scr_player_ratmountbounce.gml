@@ -1,6 +1,6 @@
 function scr_player_ratmountbounce()
 {
-	if (!ispeppino)
+	if (character == "N")
 	{
 		isgustavo = false;
 		scr_player_noisecrusher();

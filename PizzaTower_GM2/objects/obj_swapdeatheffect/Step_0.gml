@@ -1,6 +1,6 @@
 x += hsp;
 y += vsp;
-if (!ispeppino && vsp < 20)
+if (character == "N" && vsp < 20)
 {
 	vsp += 0.5;
 }

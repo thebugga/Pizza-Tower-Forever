@@ -10,7 +10,7 @@ if (room == hub_loadingscreen && state != 2)
 	{
 		fadeoutcreate = true;
 		var grouparr = ["hubgroup"];
-		with (obj_player)
+		with (obj_player1)
 		{
 			ini_open_from_string(obj_savesystem.ini_str);
 			var _intro = ini_read_real("Tutorial", "finished", false);
@@ -26,24 +26,8 @@ if (room == hub_loadingscreen && state != 2)
 				targetRoom = tower_entrancehall;
 				targetDoor = "A";
 				state = states.victory;
-				if (other.ispeppino)
-				{
-					with (obj_player1)
-					{
-						character = "P";
-						ispeppino = true;
-						scr_characterspr();
-					}
-				}
-				else
-				{
-					with (obj_player1)
-					{
-						character = "P";
-						ispeppino = false;
-						scr_characterspr();
-					}
-				}
+				character = other.character;
+				scr_characterspr();
 			}
 			else
 			{

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_draw_text_compatibility",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_draw_text_compatibility",
+  "parent":{
+    "name":"Modded",
+    "path":"folders/Scripts/Compatibility/Modded.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

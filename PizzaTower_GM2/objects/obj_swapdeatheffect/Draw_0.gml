@@ -1,5 +1,5 @@
 shader_set(global.Pal_Shader);
-if (!ispeppino)
+if (character == "N")
 {
 	spr_palette = spr_peppalette;
 }

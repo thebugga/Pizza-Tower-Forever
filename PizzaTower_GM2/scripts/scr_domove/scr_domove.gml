@@ -74,3 +74,56 @@ function scr_create_parryhitbox()
 		image_xscale = other.xscale;
 	}
 }
+
+function scr_dograb() 
+{
+	if (input_buffer_slap > 0 && !key_up && shotgunAnim == false && !global.pistol)
+	{
+		input_buffer_slap = 0;
+		sprite_index = spr_suplexdash;
+		suplexmove = true;
+		particle_set_scale(particletypes.jumpdust, xscale, 1);
+		create_particle(x, y, particletypes.jumpdust, 0);
+		fmod_event_instance_play(suplexdashsnd);
+		state = states.handstandjump;
+		movespeed = 8;
+		image_index = 0;
+	}
+	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "N"))
+	{
+		scr_douppercut();
+	}
+}
+
+function scr_douppercut()
+{
+	state = states.punch;
+	input_buffer_slap = 0;
+	image_index = 0;
+	sprite_index = spr_breakdanceuppercut;
+	fmod_event_instance_play(snd_uppercut);
+	var _heights = 
+	{
+		P : [10, 14],
+		N : [20, 21]
+	}
+	vsp = -_heights[$ character][grounded]
+	movespeed = hsp;
+	if (key_attack)
+	{
+		movespeed = abs(hsp);
+	}
+	particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
+	create_particle(x, y, particletypes.highjumpcloud2, 0);
+	if (character == "N")
+	{
+		repeat (4)
+		{
+			with (instance_create(x + irandom_range(-40, 40), y + irandom_range(-40, 40), obj_explosioneffect))
+			{
+				sprite_index = spr_shineeffect;
+				image_speed = 0.35;
+			}
+		}
+	}
+}

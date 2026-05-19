@@ -4,10 +4,10 @@ if (playerid != noone)
 	{
 		if (floor(image_index) >= 9)
 		{
-			if ((global.noisejetpack && ispeppino) || (noisepizzapepper && !ispeppino))
+			if ((global.noisejetpack && ispeppino) || (noisepizzapepper && character == "N"))
 			{
 				fmod_event_one_shot_3d("event:/sfx/misc/cow", x, y);
-				if (ispeppino)
+				if character == "P"
 				{
 					global.noisejetpack = false;
 				}

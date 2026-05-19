@@ -2,7 +2,7 @@ if (obj_player1.ispeppino != ispeppino)
 {
 	ispeppino = obj_player1.ispeppino;
 	paletteselect = 0;
-	if (obj_player1.ispeppino)
+	if (obj_player1.character == "P")
 	{
 		palettes = player_palettes[0];
 	}

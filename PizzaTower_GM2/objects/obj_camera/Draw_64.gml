@@ -5,7 +5,7 @@ if (is_bossroom() || instance_exists(obj_tutorialbook))
 }
 if (obj_player.state != states.gameover)
 {
-	if (obj_player.x < 250 && obj_player.y < 169)
+	if (obj_player1.x < 250 && obj_player1.y < 169)
 	{
 		hud_posY = Approach(hud_posY, -300, 15);
 	}

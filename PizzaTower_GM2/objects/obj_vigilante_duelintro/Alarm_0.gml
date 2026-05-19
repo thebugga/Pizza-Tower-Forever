@@ -51,7 +51,7 @@ with (obj_player)
 {
 	pistolanim = noone;
 	sprite_index = spr_peppino_duel;
-	if (!ispeppino)
+	if (character == "N")
 	{
 		sprite_index = spr_noise_duel;
 	}

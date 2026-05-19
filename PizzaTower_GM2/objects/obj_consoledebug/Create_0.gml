@@ -3,7 +3,7 @@ if (!IS_DEBUG)
 	instance_destroy();
 	exit;
 }
-if (!instance_exists(obj_debugcontroller) && !obj_debugcontroller.DEBUG)
+if (instance_exists(obj_debugcontroller) && !obj_debugcontroller.DEBUG)
 {
 	instance_destroy();
 	exit;

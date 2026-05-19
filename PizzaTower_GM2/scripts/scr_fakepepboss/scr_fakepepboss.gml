@@ -370,7 +370,7 @@ function scr_fakepepboss_arenaintro()
 			xscale = -other.image_xscale;
 			if (other.sprite_index == spr_fakepeppino_intro1)
 			{
-				if (ispeppino)
+				if character == "P"
 				{
 					sprite_index = spr_player_gnomecutscene1;
 				}
@@ -429,7 +429,7 @@ function scr_fakepepboss_arenaintro()
 			introbuffer = 70;
 			with (obj_player)
 			{
-				if (ispeppino)
+				if character == "P"
 				{
 					sprite_index = spr_player_gnomecutscene2;
 					image_index = 0;
@@ -449,7 +449,7 @@ function scr_fakepepboss_arenaintro()
 			introbuffer = 130;
 			with (obj_player)
 			{
-				if (ispeppino)
+				if character == "P"
 				{
 					fmod_event_one_shot("event:/sfx/pep/screamboss");
 					sprite_index = spr_player_gnomecutscene3;
@@ -478,7 +478,7 @@ function scr_fakepepboss_arenaintro()
 			}
 			with (obj_player)
 			{
-				if (ispeppino)
+				if character == "P"
 				{
 					sprite_index = spr_player_screamtransition;
 					image_index = 0;

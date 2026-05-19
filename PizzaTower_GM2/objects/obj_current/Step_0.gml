@@ -7,7 +7,7 @@ if (place_meeting(x, y - 1, obj_player))
 		{
 			if (place_meeting(x, y + 1, other))
 			{
-				if ((state != states.trashjump && state != states.trashroll) || !ispeppino)
+				if ((state != states.trashjump && state != states.trashroll) || character == "N")
 				{
 					if (!instance_exists(obj_surfback) || ispeppino)
 					{

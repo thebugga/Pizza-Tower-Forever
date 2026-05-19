@@ -85,32 +85,7 @@ function state_player_jump()
 			jumpstop = true;
 		}
 	}
-	if (character == "N")
-	{
-		if (key_jump && wallclingcooldown == 10)
-		{
-			if (place_meeting(x + xscale, y, obj_solid))
-			{
-				fmod_event_one_shot_3d("event:/sfx/pep/step", x, y);
-				//sprite_index = spr_playerN_wallclingstart;
-				image_index = 0;
-				state = states.hang;
-				xscale *= -1;
-				vsp = 0;
-				doublejump = false;
-			}
-			else if (!doublejump && sprite_index != spr_freefall && sprite_index != spr_facestomp)
-			{
-				sprite_index = spr_playerN_doublejump;
-				image_index = 0;
-				jumpstop = false;
-				vsp = -9;
-				doublejump = true;
-				particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
-				create_particle(x, y, particletypes.highjumpcloud2, 0);
-			}
-		}
-	}
+	
 	if (global.mort && (sprite_index == spr_mortdoublejump || sprite_index == spr_mortdoublejumpstart))
 	{
 		if (vsp > 6)
@@ -169,7 +144,7 @@ function state_player_jump()
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particletypes.highjumpcloud2, 0);
 	}
-	if (!can_jump && character == "P" && !ispeppino && key_up && noisedoublejump && input_buffer_jump > 0 && !key_down && !key_attack)
+	if (!can_jump && character == "N" && key_up && noisedoublejump && input_buffer_jump > 0 && !key_down && !key_attack)
 	{
 		freefallstart = 0;
 		railmomentum = false;
@@ -289,7 +264,7 @@ function state_player_jump()
 			pistolanim = noone;
 			vsp = -6;
 		}
-		else if (ispeppino)
+		else if character == "P"
 		{
 			fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 			sprite_index = spr_shotgunjump1;
@@ -356,14 +331,14 @@ function state_player_jump()
 		state = states.handstandjump;
 		movespeed = 5;
 	}
-	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || !ispeppino))
+	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "N"))
 	{
 		input_buffer_slap = 0;
 		state = states.punch;
 		image_index = 0;
 		sprite_index = spr_breakdanceuppercut;
 		fmod_event_instance_play(snd_uppercut);
-		if (ispeppino)
+		if character == "P"
 		{
 			vsp = -10;
 		}
@@ -378,7 +353,7 @@ function state_player_jump()
 		}
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particletypes.highjumpcloud2, 0);
-		if (!ispeppino)
+		if (character == "N")
 		{
 			repeat (4)
 			{
@@ -449,7 +424,7 @@ function state_player_jump()
 					shake_mag = 3;
 					shake_mag = 3 / room_speed;
 				}
-				if (ispeppino)
+				if character == "P"
 				{
 					with (instance_create(x + (xscale * 20), y, obj_shotgunbullet))
 					{
@@ -475,7 +450,7 @@ function state_player_jump()
 	}
 	switch (character)
 	{
-		case "P":
+		default:
 			if (key_attack && grounded && fallinganimation < 40)
 			{
 				sprite_index = spr_mach1;
@@ -539,29 +514,6 @@ function state_player_jump()
 					image_xscale = other.xscale;
 				}
 				fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
-			}
-			break;
-		case "N":
-			if (key_attack2 && (pogochargeactive || pizzapepper > 0))
-			{
-				if (!key_up)
-				{
-					sprite_index = spr_playerN_jetpackstart;
-				}
-				else
-				{
-					sprite_index = spr_superjumpprep;
-				}
-				image_index = 0;
-				hsp = 0;
-				vsp = 0;
-				state = states.Sjumpprep;
-			}
-			if (key_attack && !pogochargeactive && !key_slap2 && pizzapepper == 0)
-			{
-				sprite_index = spr_playerN_pogostart;
-				image_index = 0;
-				state = states.pogo;
 			}
 			break;
 	}

@@ -52,7 +52,7 @@ function scr_boss_grabbed()
 			sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_player_suplexmash5, spr_player_suplexmash6, spr_player_suplexmash7);
 			image_index = sprite_get_number(sprite_index) - 1;
 			other.camzoom = 1;
-			if (!ispeppino)
+			if (character == "N")
 			{
 				if (x != other.x)
 				{
@@ -127,7 +127,7 @@ function scr_boss_pizzaheadjump()
 				sprite_index = spr_playerV_idle;
 				break;
 			case obj_noiseboss:
-				if (obj_player1.ispeppino)
+				if (obj_player1.character == "P")
 				{
 					sprite_index = spr_playerN_idle;
 				}

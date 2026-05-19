@@ -8,7 +8,7 @@ spritequeue = ds_queue_create();
 ispeppino = false;
 isgustavo = false;
 animatronic = 0;
-character = "P";
+character = global.swap_character;
 alarm[0] = 5;
 taunttimer = 0;
 tauntID = noone;
@@ -21,7 +21,7 @@ steppybuffer = 0;
 
 get_character_spr = function()
 {
-	var palinfo = ispeppino ? get_pep_palette_info() : get_noise_palette_info();
+	var palinfo = character == "P" ? get_pep_palette_info() : get_noise_palette_info();
 	paletteselect = palinfo.paletteselect;
 	patterntexture = palinfo.patterntexture;
 	taunttimer = 0;
@@ -30,7 +30,7 @@ get_character_spr = function()
 	instance_destroy(tauntID);
 	tauntID = noone;
 	scr_characterspr();
-	if (ispeppino)
+	if (character == "P")
 	{
 		spr_palette = spr_peppalette;
 		spr_idle = spr_player_idle;
