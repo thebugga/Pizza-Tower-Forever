@@ -200,21 +200,21 @@ for (var i = 0; i < array_length(lay_arr); i++)
             layer_y(lay, (_cam_y - calculate_parrallax_still_y(lay, 0.35)) + bg_ZH2_y + bg_ZH2_yoffset);
             break;
         
-        case "Foreground_1":
-            layer_x(lay, (_cam_x * -0.85) + fg_1xoffset);
-            layer_y(lay, (_cam_y * -0.85) + fg_speed + fg_1yoffset);
-            fg_speed += layer_get_vspeed(lay);
-            break;
-            
-        case "Foreground_2":
-            layer_x(lay, (_cam_x * -0.65) + fg_1xoffset);
-            layer_y(lay, (_cam_y * -0.65) + fg_1yoffset);
-            break;
-            
-        case "Foreground_Ground1":
-            layer_x(lay, _cam_x * -0.85);
-            layer_y(lay, room_height - sprite_get_height(layer_background_get_sprite(layer_background_get_id(lay))));
-            break;
+		case "Foreground_1":
+			layer_x(lay, (_cam_x * -0.15) + fg_1xoffset);
+			layer_y(lay, (_cam_y * -0.15) + fg_speed + fg_1yoffset);
+			fg_speed += layer_get_vspeed(lay);
+			break;
+			
+		case "Foreground_2":
+			layer_x(lay, (_cam_x * -0.25) + fg_1xoffset);
+			layer_y(lay, (_cam_y * -0.25) + fg_1yoffset);
+			break;
+			
+		case "Foreground_Ground1":
+			layer_x(lay, _cam_x * -0.15);
+			layer_y(lay, room_height - sprite_get_height(layer_background_get_sprite(layer_background_get_id(lay))));
+			break;
         
         case "Assets_FG2":
             layer_x(lay, _cam_x * -0.1);

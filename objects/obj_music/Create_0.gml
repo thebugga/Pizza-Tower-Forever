@@ -249,4 +249,21 @@ add_music(street_1, "event:/music/w4/street", "event:/music/w4/streetsecret", fa
 add_music(chateau_1, "event:/music/w5/chateau", "event:/music/w1/medievalsecret", false);
 add_music(kidsparty_1, "event:/music/w5/kidsparty", "event:/music/w5/kidspartysecret", false);
 add_music(war_1, "event:/music/w5/war", "event:/music/w5/warsecret", false);
-add_music(mansion_1, "event:/music/w6/mansion", "event:/music/w5/warsecret", false);
+add_music(mansion_1, "event:/music/w5/mansion", "event:/music/w5/warsecret", false, function(_room, _event_instance)
+{
+	var s = -1;
+	switch (_room)
+	{
+		case mansion_1:
+		case mansion_2:
+			s = 0;
+			break;
+		case mansion_3:
+			s = 1;
+			break;
+	}
+	if (s != -1)
+	{
+		fmod_event_instance_set_parameter(_event_instance, "state", s, true);
+	}
+});
