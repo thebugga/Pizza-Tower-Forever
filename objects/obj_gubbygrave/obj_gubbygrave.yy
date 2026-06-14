@@ -2,10 +2,7 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_gubbygrave",
-  "spriteId": {
-    "name": "spr_gub_rot",
-    "path": "sprites/spr_gub_rot/spr_gub_rot.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,

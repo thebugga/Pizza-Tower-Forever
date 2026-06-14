@@ -18,7 +18,7 @@ switch (state)
 			vsp = 20;
 			x = xstart;
 			y = camera_get_view_y(view_camera[0]) - 100;
-			if (sprite_index != spr_noiseyexit_fall && sprite_index != spr_noisette_fall)
+			if (sprite_index != spr_noiseyexit_fall && sprite_index != spr_noisette_fall && sprite_index != spr_polka_fall && sprite_index != spr_rosette_fall)
 			{
 				sprite_index = spr_lonegustavo_groundpound;
 				if (room == space_11b)
@@ -81,7 +81,7 @@ switch (state)
 				}
 				instance_create(x, y, obj_playerexplosion);
 			}
-			if (sprite_index != spr_noiseyexit_fall && sprite_index != spr_noisette_fall)
+			if (sprite_index != spr_noiseyexit_fall && sprite_index != spr_noisette_fall && sprite_index != spr_polka_fall && sprite_index != spr_rosette_fall)
 			{
 				if (string_letters(room_get_name(room)) == "freezer")
 				{
@@ -108,9 +108,17 @@ switch (state)
 			{
 				sprite_index = spr_noiseyexit_idle;
 			}
-			else
+			else if (sprite_index == spr_noisette_fall)
 			{
 				sprite_index = spr_noisette_exit;
+			}
+			else if (sprite_index == spr_polka_fall)
+			{
+				sprite_index = spr_polka_exitsign;
+			}
+			else if (sprite_index == spr_rosette_fall)
+			{
+				sprite_index = spr_rosette_exitsign;
 			}
 			image_index = 0;
 		}

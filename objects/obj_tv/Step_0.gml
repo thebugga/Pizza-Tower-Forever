@@ -42,6 +42,10 @@ switch (state)
 		{
 			idlespr = spr_tv_idleV;
 		}
+		if (obj_player.character == "PZ")
+		{
+			idlespr = spr_tv_idlePZ;
+		}
 		if (global.panic)
 		{
 			idlespr = spr_tv_exprpanic;
@@ -124,7 +128,7 @@ switch (state)
 				break;
 			case spr_tv_idle:
 			case spr_tv_idleN:
-			case spr_tv_idleV:
+			case spr_tv_idlePZ:
 				if (idleanim > 0)
 				{
 					idleanim--;

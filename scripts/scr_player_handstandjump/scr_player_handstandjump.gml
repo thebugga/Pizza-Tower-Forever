@@ -6,6 +6,33 @@ function scr_player_handstandjump()
 	move = key_left + key_right;
 	momemtum = true;
 	dir = xscale;
+	
+	static sparkle_effect = 0
+	static afterimage_timer = 2
+
+	if (floatyGrab-- > 0) && character == "PZ"
+	{
+		vsp = min(vsp, 0)
+		
+		if (sparkle_effect-- < 0)
+		{
+			sparkle_effect = 5
+			
+			with (instance_create(x, y, obj_bangeffect))
+			{
+				depth = -8
+				image_xscale = choose(1, -1)
+				sprite_index = spr_shineeffect
+				image_speed = 0.35
+			}
+		}
+	}
+	
+	if (grounded && vsp > 0) && character == "PZ"
+	{
+		floatyGrab = 18
+	}
+	
 	if (global.attackstyle != 3)
 	{
 		if (movespeed < 10)
@@ -79,6 +106,7 @@ function scr_player_handstandjump()
 		image_index = 0;
 		vsp = -11;
 		state = states.mach2;
+		floatyGrab = 0;
 		sprite_index = spr_longjump;
 	}
 	if (sprite_index == attackdash && !grounded)
@@ -91,6 +119,7 @@ function scr_player_handstandjump()
 		if (global.attackstyle != 3)
 		{
 			state = states.normal;
+			floatyGrab = 0;
 			if (move != xscale)
 			{
 				movespeed = 2;
@@ -108,6 +137,10 @@ function scr_player_handstandjump()
 		image_index = 0;
 		switch (character)
 		{
+		    case "PZ":
+				sprite_index = spr_playerPZ_faceplant;
+		        break;
+            
 		    case "N":
 				sprite_index = spr_playerN_spin;
 		        break;
@@ -134,10 +167,12 @@ function scr_player_handstandjump()
 	if (grounded && sprite_index == airattackdash && key_attack && global.attackstyle != 2)
 	{
 		state = states.mach2;
+		floatyGrab = 0;
 	}
 	if (ANIMATION_END && sprite_index == attackdash)
 	{
 		state = states.normal;
+		floatyGrab = 0;
 	}
 	if (ANIMATION_END && sprite_index == airattackdashstart)
 	{
@@ -147,6 +182,7 @@ function scr_player_handstandjump()
 	{
 		image_speed = 0.35;
 		state = states.mach2;
+		floatyGrab = 0;
 		grav = 0.5;
 	}
 	if (scr_mach_check_dive() && grounded && global.attackstyle != 2)
@@ -162,6 +198,7 @@ function scr_player_handstandjump()
 		image_index = 0;
 		machhitAnim = false;
 		state = states.tumble;
+		floatyGrab = 0;
 		fmod_event_instance_play(snd_crouchslide);
 	}
 	mask_index = spr_player_mask;
@@ -177,6 +214,7 @@ function scr_player_handstandjump()
 			wallspeed = 6;
 			grabclimbbuffer = 10;
 			state = states.climbwall;
+			floatyGrab = 18;
 		}
 	}
 	if (grounded && scr_solid(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)))
@@ -187,6 +225,7 @@ function scr_player_handstandjump()
 			fmod_event_one_shot_3d("event:/sfx/pep/splat", x, y);
 			jumpstop = true;
 			state = states.jump;
+			floatyGrab = 18;
 			vsp = -4;
 			sprite_index = spr_suplexbump;
 			instance_create(x + (xscale * 10), y + 10, obj_bumpeffect);
@@ -210,10 +249,12 @@ function scr_player_handstandjump()
 			jumpAnim = true;
 			grav = 0.5;
 			state = states.jump;
+			floatyGrab = 18;
 		}
 		else
 		{
 			state = states.normal;
+			floatyGrab = 0;
 			movespeed = 2;
 			grav = 0.5;
 		}

@@ -148,15 +148,15 @@ if (DEBUG)
 		layer_set_visible("Tiles_Foreground2", !global.hidetiles);
 		layer_set_visible("Tiles_Foreground3", !global.hidetiles);
 	});
-	THROWARC = new DebugCommand("throwarc", "", "<bool>", function(_bool)
+	DISBALE_MODE = new DebugCommand("disable mode", "", "<mode> <bool>", function(_mode, _bool)
 	{
 		if (is_undefined(_bool))
 		{
-			global.throwarc = !global.throwarc;
+			scr_get_mode(_mode).enabled = !scr_get_mode(_mode).enabled;
 		}
 		else
 		{
-			global.throwarc = _bool;
+			scr_get_mode(_mode).enabled = _bool;
 		}
 	});
 	GOTOEDITOR = new DebugCommand("editor", "", "", function()
@@ -424,7 +424,7 @@ if (DEBUG)
 	ds_map_set(state_map, "states.ratmount", states.ratmount);
 	command_list = ds_list_create();
 	ds_list_add(command_list, DESTROYICE, SET_GAME_SPEED, SHOW_HUD, SHOW_COLLISIONS, PLAYER_ROOM, CAMERA_ZOOM, HARDMODE, PLAYER_SET_STATE, PANIC, ALLTOPPINS, GIVEHEAT, ROOMCHECK, SWITCH_CHAR, SET_BOSS_HP);
-	ds_list_add(command_list, OTHERTEST, KILL_BOSS, TEST_P_RANK, FILL_GATESWITCH, SETCOMBO, GIVEKEY, LOADTEST, NOCLIP, THROWARC, HIDETILES, LOCKCAMERA, BOSSINVINCIBLE, UNLOCK_TOPPINS, UNLOCK_BOSS_KEY, SHOW_DEBUG_OVERLAY, GOTOEDITOR, KILL_EPICBOOGALOO);
+	ds_list_add(command_list, OTHERTEST, KILL_BOSS, TEST_P_RANK, FILL_GATESWITCH, SETCOMBO, GIVEKEY, LOADTEST, NOCLIP, DISBALE_MODE, HIDETILES, LOCKCAMERA, BOSSINVINCIBLE, UNLOCK_TOPPINS, UNLOCK_BOSS_KEY, SHOW_DEBUG_OVERLAY, GOTOEDITOR, KILL_EPICBOOGALOO);
 	input_text = "";
 	text_list = ds_list_create();
 	search_commands = ds_list_create();

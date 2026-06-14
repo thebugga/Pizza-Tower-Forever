@@ -128,22 +128,52 @@ function scr_player_climbwall()
 	}
 	if (input_buffer_jump > 8 && (character != "N" || character != "PUP"))
 	{
-		fmod_event_one_shot_3d("event:/sfx/pep/jump", x, y);
-		input_buffer_jump = 0;
-		key_jump = false;
-		movespeed = 10;
-		railmovespeed = 0;
-		state = states.mach2;
-		image_index = 0;
-		sprite_index = spr_walljumpstart;
-		if (skateboarding)
+		switch character
 		{
-			sprite_index = spr_clownjump;
+			case "PZ":
+				input_buffer_jump = 0;
+				jumpstop = false;
+				xscale *= -1
+				state = states.wallkick;
+				//fmod_studio_event_instance_start(sndWallkickStart)
+				vsp = -14;
+				sprite_index = spr_walljumpstart;
+				movespeed = 4 * xscale;
+				hsp = movespeed;
+				dir = xscale;
+				repeat (5)
+				{
+					instance_create(x, y, obj_firemouthflame);
+				}
+				if (!instance_exists(obj_jumpdust))
+				{
+					instance_create(x, y + 43, obj_jumpdust);
+				}
+				if (!instance_exists(obj_wallkickDust))
+				{
+					instance_create(x, y + 43, obj_wallkickDust);
+				}
+				fmod_event_one_shot_3d("event:/sfx/pep/jump", x, y);
+				break;
+			default:
+				fmod_event_one_shot_3d("event:/sfx/pep/jump", x, y);
+				input_buffer_jump = 0;
+				key_jump = false;
+				movespeed = 10;
+				railmovespeed = 0;
+				state = states.mach2;
+				image_index = 0;
+				sprite_index = spr_walljumpstart;
+				if (skateboarding)
+				{
+					sprite_index = spr_clownjump;
+				}
+				vsp = -11;
+				xscale *= -1;
+				jumpstop = false;
+				walljumpbuffer = 4;
+			break;
 		}
-		vsp = -11;
-		xscale *= -1;
-		jumpstop = false;
-		walljumpbuffer = 4;
 	}
 	if (state != states.mach2 && verticalbuffer <= 0 && place_meeting(x, y - 1, obj_solid) && scr_solid(x + xscale, y) && !place_meeting(x, y - 1, obj_verticalhallway) && !place_meeting(x, y - 1, obj_destructibles) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x - sign(hsp), y, obj_slope))
 	{

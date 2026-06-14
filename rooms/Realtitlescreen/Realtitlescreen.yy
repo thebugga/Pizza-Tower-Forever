@@ -49,7 +49,7 @@
       ],"visible":true,"depth":0,"userdefinedDepth":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
   ],
   "inheritLayers": false,
-  "creationCodeFile": "${project_dir}/rooms/Realtitlescreen/RoomCreationCode.gml",
+  "creationCodeFile": "rooms/Realtitlescreen/RoomCreationCode.gml",
   "inheritCode": false,
   "instanceCreationOrder": [
     {"name":"inst_2C7667BB","path":"rooms/Realtitlescreen/Realtitlescreen.yy",},

@@ -56,7 +56,7 @@ switch (scene)
 			with (instance_create(room_width / 2, room_height / 2, obj_logoprop))
 			{
 				depth = -1;
-				sprite_index = spr_intro_tourdecityboy;
+				sprite_index = spr_intro_ridiculumoon;
 			}
 		}
 		break;

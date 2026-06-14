@@ -2,10 +2,7 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_gubby",
-  "spriteId": {
-    "name": "spr_gub_move",
-    "path": "sprites/spr_gub_move/spr_gub_move.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,

@@ -6,6 +6,7 @@ if (instance_number(object_index) > 1)
 debugstats = false;
 global.current_level = noone;
 resetdoisecount = 0;
+floatyGrab = 18;
 global.resetdoise = false;
 global.swap_boss_damage = 0;
 global.throwarc = 1;

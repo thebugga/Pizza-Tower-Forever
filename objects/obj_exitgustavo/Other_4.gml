@@ -30,3 +30,16 @@ if (obj_player.character == "N" || global.swapmode)
 		sprite_index = spr_noisette_fall;
 	}
 }
+if (obj_player.character == "PZ")
+{
+	sprite_index = spr_rosette_fall;
+	var _palinfo = get_char_palette_info("P");
+	paletteselect = _palinfo.paletteselect;
+	spr_palette = _palinfo.spr_palette;
+	patterntexture = _palinfo.patterntexture;
+	if (stick)
+	{
+		sprite_index = spr_polka_fall;
+	}
+}
+

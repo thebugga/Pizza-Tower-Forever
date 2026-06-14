@@ -618,6 +618,9 @@ switch (state)
 	case states.fightball:
 		scr_player_fightball();
 		break;
+	case states.wallkick:
+		scr_playerPZ_wallkick();
+		break;
 }
 if (instance_exists(obj_swapmodeeffect))
 {
@@ -1275,62 +1278,64 @@ if (global.combo >= 25 && !instance_exists(angryeffectid) && sprite_index != spr
 		other.angryeffectid = id;
 	}
 }
-if (global.combotimepause > 0)
+if (object_index == obj_player1)
 {
-	global.combotimepause--;
-}
-if (global.combo != global.previouscombo && !is_bossroom())
-{
-	if (global.combo > global.highest_combo)
+	if (global.combotimepause > 0)
 	{
-		global.highest_combo = global.combo;
+		global.combotimepause--;
 	}
-	global.previouscombo = global.combo;
-	if ((global.combo % 5) == 0 && global.combo != 0)
+	if (global.combo != global.previouscombo && !is_bossroom())
 	{
-		instance_destroy(obj_combotitle);
-		with (instance_create(x, y - 80, obj_combotitle))
+		if (global.combo > global.highest_combo)
 		{
-			title = floor(global.combo / 5);
-			event_perform(ev_step, ev_step_normal);
+			global.highest_combo = global.combo;
+		}
+		global.previouscombo = global.combo;
+		if ((global.combo % 5) == 0 && global.combo != 0)
+		{
+			instance_destroy(obj_combotitle);
+			with (instance_create(x, y - 80, obj_combotitle))
+			{
+				title = floor(global.combo / 5);
+				event_perform(ev_step, ev_step_normal);
+			}
 		}
 	}
-}
-if (!(state == states.door || state == states.teleporter || state == states.shotgun || state == states.tube || state == states.spaceshuttle || state == states.taxi || state == states.gottreasure || state == states.victory || state == states.gottreasure || state == states.actor || state == states.comingoutdoor || (state == states.knightpep && (sprite_index == spr_knightpepstart || sprite_index == spr_knightpepthunder)) || instance_exists(obj_fadeout) || (collision_flags & collisionflags.secret) > 0))
-{
-	if (room != forest_G1b && global.combotime > 0 && global.combotimepause <= 0)
+	if (!(state == states.door || state == states.teleporter || state == states.shotgun || state == states.tube || state == states.spaceshuttle || state == states.taxi || state == states.gottreasure || state == states.victory || state == states.gottreasure || state == states.actor || state == states.comingoutdoor || (state == states.knightpep && (sprite_index == spr_knightpepstart || sprite_index == spr_knightpepthunder)) || instance_exists(obj_fadeout) || (collision_flags & collisionflags.secret) > 0))
 	{
-		global.combotime -= 0.15;
-	}
-}
-if (global.heattime > 0)
-{
-	global.heattime -= 0.15;
-}
-if (global.combotime <= 0 && global.combo >= 1)
-{
-	if (global.combo >= 1)
-	{
-		fmod_event_one_shot("event:/sfx/misc/kashingcombo");
-	}
-	global.savedcombo = global.combo;
-	global.combotime = 0;
-	global.combo = 0;
-	with (obj_camera)
-	{
-		if (comboend)
+		if (room != forest_G1b && global.combotime > 0 && global.combotimepause <= 0)
 		{
-			comboend = false;
-			event_perform(ev_alarm, 4);
+			global.combotime -= 0.15;
 		}
 	}
-	supercharge = 0;
+	if (global.heattime > 0)
+	{
+		global.heattime -= 0.15;
+	}
+	if (global.combotime <= 0 && global.combo >= 1)
+	{
+		if (global.combo >= 1)
+		{
+			fmod_event_one_shot("event:/sfx/misc/kashingcombo");
+		}
+		global.savedcombo = global.combo;
+		global.combotime = 0;
+		global.combo = 0;
+		with (obj_camera)
+		{
+			if (comboend)
+			{
+				comboend = false;
+				event_perform(ev_alarm, 4);
+			}
+		}
+		supercharge = 0;
+	}
+	if (global.heattime <= 0 && global.style > -1 && global.stylelock == false)
+	{
+		global.style -= 0.05;
+	}
 }
-if (global.heattime <= 0 && global.style > -1 && global.stylelock == false)
-{
-	global.style -= 0.05;
-}
-
 if (key_jump && !grounded && (state == states.mach2 || state == states.mach3) && (state != (states.climbwall & walljumpbuffer)) <= 0)
 {
 	input_buffer_walljump = 24;
@@ -1728,19 +1733,19 @@ if (distance_to_object(obj_spike) < 500)
 	}
 }
 
-if (global.M_option_stilt)
-{
-    if grounded && scr_slope()
-    {
-        with (instance_place(x, y + 1, obj_slope))
-        {
-            var _dir = sign(image_xscale);
-            var angle_rad = arctan2(image_yscale * _dir, image_xscale * _dir);
-            other.angle = radtodeg(angle_rad);
-        }
-    }
-    else
-    {
-        angle = 0;
-    }
-}
+//if (global.M_option_stilt)
+//{
+//    if grounded && scr_slope()
+//    {
+//        with (instance_place(x, y + 1, obj_slope))
+//        {
+//            var _dir = sign(image_xscale);
+//            var angle_rad = arctan2(image_yscale * _dir, image_xscale * _dir);
+//            other.angle = radtodeg(angle_rad);
+//        }
+//    }
+//    else
+//    {
+//        angle = 0;
+//    }
+//}
