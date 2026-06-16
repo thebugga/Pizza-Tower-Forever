@@ -89,6 +89,7 @@ function scr_playersounds()
 		
 		switch (character)
 		{
+		    case "PZ":
 		    case "PUP":
 		    case "N":
 		        // Noise doesn't play mach sounds
@@ -154,7 +155,43 @@ function scr_playersounds()
 		        fmod_event_instance_stop(sjumpsnd, true);
 		        break;
             
+		    case "PZ":
+				sjumpsnd = snd_zelleSjump;
+		        if (state == states.Sjumpprep)
+				{
+					if (!fmod_event_instance_is_playing(sjumpsnd))
+					{
+						fmod_event_instance_set_parameter(sjumpsnd, "state", 0, true);
+						fmod_event_instance_play(sjumpsnd);
+					}
+				}
+				else if (state == states.Sjump)
+				{
+					fmod_event_instance_set_parameter(sjumpsnd, "state", 1, true);
+				}
+				else if (state != states.Sjump)
+				{
+					if (fmod_event_instance_is_playing(sjumpsnd) && fmod_event_instance_get_parameter(sjumpsnd, "state") < 1)
+					{
+						fmod_event_instance_stop(sjumpsnd, true);
+					}
+					else if (!fmod_event_instance_is_playing(sjumpsnd))
+					{
+						fmod_event_instance_set_parameter(sjumpsnd, "state", 0, true);
+					}
+				}
+				if (sprite_index == spr_player_Sjumpcancelstart || sprite_index == spr_playerN_sidewayspin)
+				{
+					fmod_event_instance_stop(sjumpsnd, true);
+				}
+				if (fmod_event_instance_is_playing(sjumpsnd))
+				{
+					fmod_event_instance_set_3d_attributes(sjumpsnd, x, y);
+				}
+			break;
+			
 		    default:
+				sjumpsnd = superjumpsnd;
 		        if (state == states.Sjumpprep)
 				{
 					if (!fmod_event_instance_is_playing(sjumpsnd))
@@ -484,6 +521,43 @@ function scr_playersounds()
 		}
 		switch (character)
 		{
+			case "PZ":
+			
+				if (state == states.mach2 || state == states.mach3 || state == states.climbwall)
+				{
+					if (!fmod_event_instance_is_playing(snd_zellemach))
+					{
+						fmod_event_instance_play(snd_zellemach);
+					}
+					var s = 0;
+					if (state == states.mach2 || state == states.climbwall)
+					{
+						s = 1;
+					}
+					else if (state == states.mach3 && sprite_index != spr_crazyrun)
+					{
+						s = 2;
+					}
+					else if (sprite_index == spr_crazyrun)
+					{
+						s = 3;
+					}
+					fmod_event_instance_set_3d_attributes(snd_zellemach, x, y);
+					fmod_event_instance_set_parameter(snd_zellemach, "state", s, true);
+					if (grounded || state == states.climbwall)
+					{
+						fmod_event_instance_set_parameter(snd_zellemach, "ground", 1, true);
+					}
+					else
+					{
+						fmod_event_instance_set_parameter(snd_zellemach, "ground", 0, true);
+					}
+				}
+				else
+				{
+					fmod_event_instance_stop(snd_zellemach, true);
+				}
+			break;
 			case "PUP":
 			case "N":
 				if (sprite_index == spr_playerN_minigunshoot || sprite_index == spr_playerN_minigundown)
@@ -692,6 +766,8 @@ function scr_playersounds()
 					fmod_event_instance_stop(snd_wallbounce, true);
 					fmod_event_instance_stop(snd_noisemach, true);
 					fmod_event_instance_stop(snd_noiseSjump, true);
+					fmod_event_instance_stop(snd_zellemach, true);
+					fmod_event_instance_stop(snd_zelleSjump, true);
 					fmod_event_instance_stop(snd_minigun, true);
 					fmod_event_instance_stop(snd_noisefiremouth, true);
 					fmod_event_instance_stop(snd_airspin, true);
@@ -742,5 +818,17 @@ function scr_playersounds()
 	else
 	{
 		fmod_event_instance_stop(snd_noiseanimatronic, true);
+	}
+	if (state == states.wallkick)
+	{
+		if (!fmod_event_instance_is_playing(sndWallkick))
+		{
+			fmod_event_instance_play(sndWallkick);
+		}
+		fmod_event_instance_set_3d_attributes(sndWallkick, x, y);
+	}
+	else
+	{
+		fmod_event_instance_stop(sndWallkick, true);
 	}
 }

@@ -61,6 +61,7 @@ bigfont = "bigfont_en"
 smallfont = "smallfont_en"
 captionfont = "captionfont_en"
 smallerfont = "smallerfont_en"
+tutorialfont_o = "tutorialfont_o_en"
 
 # -------------
 # GAMEPAD ICONS

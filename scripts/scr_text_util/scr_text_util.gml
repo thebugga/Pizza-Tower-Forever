@@ -440,11 +440,10 @@ function scr_draw_text_arr(_x, _y, _array, _color = c_white, _alpha = 1, _effect
 						var f = draw_get_font();
 						draw_set_halign(fa_center);
 						draw_set_valign(fa_middle);
-						draw_set_font(global.tutorialfont);
+						draw_set_font(f);
 						var ox = sprite_get_xoffset(spr_tutorialfont) / 2;
 						var oy = sprite_get_yoffset(spr_tutorialfont) / 2;
-						draw_text_color((cx + 16) - ox, (cy + 14) - oy, icon.str, c_black, c_black, c_black, c_black, _alpha);
-						draw_set_font(f);
+						draw_text((cx + 16) - ox, (cy + 14) - oy, icon.str);
 						draw_set_halign(fa_left);
 						draw_set_valign(fa_top);
 					}

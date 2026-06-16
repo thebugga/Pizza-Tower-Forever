@@ -87,7 +87,7 @@ with (obj_baddie)
 	{
 		_stun = 25;
 	}
-	if (visible && flash && bbox_in_camera(view_camera[0], 32))
+	if (visible && flash && (bbox_in_camera(view_camera[0], 32) || (bbox_in_camera(view_camera[1], 32) && global.coop)))
 	{
 		draw_sprite_ext(sprite_index, image_index, x, y + _stun, xscale * image_xscale, yscale, angle, image_blend, image_alpha);
 	}
@@ -104,7 +104,7 @@ if (room == boss_fakepep)
 }
 with (obj_deadjohnparent)
 {
-	if (visible && flash && bbox_in_camera(view_camera[0], 32))
+	if (visible && flash && (bbox_in_camera(view_camera[0], 32) || (bbox_in_camera(view_camera[1], 32) && global.coop)))
 	{
 		draw_sprite_ext(sprite_index, image_index, x + hurtx, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 	}
@@ -138,16 +138,16 @@ with (obj_pizzagoblinbomb)
 	}
 	draw_self();
 }
-with (obj_player)
+with (obj_player1)
 {
-	if (!other.hungrypillarflash && visible && state != states.titlescreen && bbox_in_camera(view_camera[0], 32))
+	if (!other.hungrypillarflash && visible && state != states.titlescreen && (bbox_in_camera(view_camera[0], 32) || (bbox_in_camera(view_camera[1], 32) && global.coop)))
 	{
 		draw_player();
 	}
 }
 with (obj_player2)
 {
-	if (!other.hungrypillarflash && visible && state != states.titlescreen && bbox_in_camera(view_camera[0], 32))
+	if (!other.hungrypillarflash && visible && state != states.titlescreen && (bbox_in_camera(view_camera[0], 32) || (bbox_in_camera(view_camera[1], 32) && global.coop)))
 	{
 		draw_player();
 	}
@@ -193,9 +193,9 @@ with (obj_sausageman_dead)
 	}
 }
 shader_set(shd_hit);
-with (obj_player)
+with (obj_player1)
 {
-	if (visible && flash && bbox_in_camera(view_camera[0], 32))
+	if (visible && flash && (bbox_in_camera(view_camera[0], 32) || (bbox_in_camera(view_camera[1], 32) && global.coop)))
 	{
 		draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha);
 	}

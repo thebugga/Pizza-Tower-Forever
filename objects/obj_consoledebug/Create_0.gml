@@ -3,10 +3,32 @@ if (!IS_DEBUG)
 	instance_destroy();
 	exit;
 }
-if (!instance_exists(obj_debugcontroller) && !obj_debugcontroller.DEBUG)
+//if (!instance_exists(obj_debugcontroller) && !obj_debugcontroller.DEBUG)
+//{
+//	instance_destroy();
+//	exit;
+//}
+DEBUG = false;
+showcollisions = false;
+if (parameter_count() > 2)
+{
+	DEBUG = true;
+}
+if (!DEBUG)
+{
+	var n = parameter_count();
+	for (var i = 0; i < n; i++)
+	{
+		var s = parameter_string(i);
+		if (s == "-debug" || s == "debug")
+		{
+			DEBUG = true;
+		}
+	}
+}
+if (!DEBUG)
 {
 	instance_destroy();
-	exit;
 }
 depth = -999;
 commands = array_create(0);
@@ -36,9 +58,42 @@ create_command("NOCLIP", [], function()
 		state = states.debugstate;
 	}
 });
-create_command("LE_FUNNI", [], function()
+//create_command("LE_FUNNI", [], function()
+//{
+//	draw_text(200, 200, "GO FUCK YOURSELF")
+//});
+create_command("CHANGE_CHARACTER", [["_PEPPINO", "NOISE", "PEPPERMAN", "PIZZELLE", "SYOBON", "RALSEI", "BUNNY"]], function(_bool)
 {
-	draw_text(200, 200, "GO FUCK YOURSELF")
+	var _char_letter = "P"
+	switch (_bool)
+	{
+		case "_PEPPINO":
+			_char_letter = "P"
+		break;
+		case "NOISE":
+			_char_letter = "N"
+		break;
+		case "PEPPERMAN":
+			_char_letter = "PM"
+		break;
+		case "PIZZELLE":
+			_char_letter = "PZ"
+		break;
+		case "SYOBON":
+			_char_letter = "S"
+		break;
+		case "RALSEI":
+			_char_letter = "R"
+		break;
+		case "BUNNY":
+			_char_letter = "B"
+		break;
+	}
+	with (obj_player1)
+	{
+		character = _char_letter;
+		scr_characterspr();
+	}
 });
 create_command("ROOM GOTO", [rooms, ["A", "B", "C", "D", "E", "F", "G"]], function(_room, _door)
 {

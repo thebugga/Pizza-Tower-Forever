@@ -7,10 +7,19 @@ view_yport[1] = 540;
 view_hport[1] = 540;
 view_hport[0] = 540;
 view_yport[0] = 0;
+
 if global.coop
 {
-	camera_set_view_size(view_camera[0], 960, 270);
-	camera_set_view_size(view_camera[1], 960, 270);
+	if global.split_type = 0
+	{
+		camera_set_view_size(view_camera[0], obj_screensizer.ideal_width * 1.2, (obj_screensizer.ideal_height / 2) * 1.2);
+		camera_set_view_size(view_camera[1], obj_screensizer.ideal_width * 1.2, (obj_screensizer.ideal_height / 2) * 1.2);
+	}
+	else if global.split_type = 1
+	{
+		camera_set_view_size(view_camera[0], (obj_screensizer.ideal_width / 2) * 1.2, obj_screensizer.ideal_height * 1.2);
+		camera_set_view_size(view_camera[1], (obj_screensizer.ideal_width / 2) * 1.2, obj_screensizer.ideal_height * 1.2);
+	}
 }
 
 if (room == rank_room || room == timesuproom || room == Realtitlescreen)
@@ -74,3 +83,4 @@ if (instance_exists(obj_player2) && obj_player2.state != states.timesup && obj_p
         __view_set(1, 1, clamp(__view_get(1, 1), 0 + irandom_range(-shake_mag, shake_mag), (room_height - __view_get(3, 1)) + irandom_range(-shake_mag, shake_mag)));
     }
 }
+xx += 0.5

@@ -32,12 +32,12 @@ if (!ready)
 				obj_peppinoselect.image_index = 0;
 				with (obj_player)
 				{
-					character = "P";
+					character = "PZ";
 					scr_characterspr();
 				}
 				with (obj_player2)
 				{
-					character = "N";
+					character = "S";
 					scr_characterspr();
 				}
 			}

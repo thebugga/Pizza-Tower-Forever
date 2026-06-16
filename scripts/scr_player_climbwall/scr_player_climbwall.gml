@@ -135,7 +135,7 @@ function scr_player_climbwall()
 				jumpstop = false;
 				xscale *= -1
 				state = states.wallkick;
-				//fmod_studio_event_instance_start(sndWallkickStart)
+				fmod_event_instance_play(sndWallkickStart)
 				vsp = -14;
 				sprite_index = spr_walljumpstart;
 				movespeed = 4 * xscale;

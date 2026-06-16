@@ -20,6 +20,7 @@ if ((instance_exists(obj_debugcontroller) && !obj_debugcontroller.showhud) || !g
 {
 	visible = false;
 }
+tv_y = global.coop ? -45 : 80;
 image_speed = 0.35;
 if (targetgolf != noone && !instance_exists(targetgolf))
 {
@@ -69,6 +70,10 @@ switch (state)
 		if (obj_player.character == "N" && global.panic)
 		{
 			idlespr = spr_tv_exprpanicN;
+		}
+		if (obj_player.character == "PZ" && global.panic)
+		{
+			idlespr = spr_tv_exprpanicPZ;
 		}
 		var _state = obj_player.state;
 		if (_state == states.backbreaker || _state == states.chainsaw)
@@ -385,6 +390,7 @@ switch (state)
 				break;
 			case spr_tv_exprpanic:
 			case spr_tv_exprpanicN:
+			case spr_tv_exprpanicPZ:
 				var _transfo = false;
 				with (obj_player)
 				{

@@ -55,7 +55,7 @@ function scr_playerPZ_wallkick()
 			hsp = movespeed * xscale
 			vsp = -5
 			state = states.mach3
-			//fmod_event_instance_play(sndWallkickCancel)
+			fmod_event_instance_play(sndWallkickCancel)
 		}
 		else
 		{

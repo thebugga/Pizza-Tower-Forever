@@ -51,18 +51,16 @@ for (i = -1; i < array_length(global.game); i++)
 	var middle_x = (SCREEN_WIDTH / 2) + (i * (SCREEN_WIDTH / 4)) - (visualselect * (SCREEN_WIDTH / 4))
 	
 	var character_index = 0	
-	if game.character == "P" || game.character == "PUP"
-		character_index = 1
-	if game.character == "N"
-		character_index = 2
-	if game.character == "V"
-		character_index = 3
-	if game.character == "M"
-		character_index = 4
-	if game.character == "S"
-		character_index = 5
-	if game.character == "D"
-		character_index = 6
+	//if game.character == "P" || game.character == "PUP"
+	//	character_index = 1
+	//if game.character == "N"
+	//	character_index = 2
+	//if game.character == "V"
+	//	character_index = 3
+	//if game.character == "M"
+	//	character_index = 4
+	//if game.character == "D"
+	//	character_index = 6
 	draw_sprite_ext(spr_mainmenu_paper, character_index, middle_x, 150, 1, 1, 0, c_white, 1)
 	if game.character == "PUP"
 		draw_sprite_ext(spr_mainmenu_charms, 0, middle_x, 150, 1, 1, 0, c_white, 1)

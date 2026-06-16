@@ -497,7 +497,7 @@ function scr_characterspr()
 			spr_wallbounce = spr_playerN_wallbounce;
 			spr_palette = spr_noisepalette;
 		break;
-		case "M":
+		case "PM":
 			spr_idle = spr_pepperman_idle;
 			spr_move = spr_pepperman_move;
 			spr_jump = spr_pepperman_jump;
@@ -514,7 +514,11 @@ function scr_characterspr()
 			spr_entergate = spr_pepperman_lookdoor;
 			spr_bodyslamstart = spr_pepperman_groundpound;
 			spr_bodyslamfall = spr_pepperman_groundpound;
-			spr_bodyslamland = spr_pepperman_groundpound;
+			spr_bodyslamland = spr_pepperman_groundpoundland;
+			spr_mach1 = spr_pepperman_shoulderstart;
+			spr_mach = spr_pepperman_shoulderloop; // mach2 
+			spr_mach4 = spr_pepperman_shoulderloop; // mach3 
+			spr_crazyrun = spr_pepperman_shoulderloop; // mach4
 			spr_taunt = spr_pepperman_taunt;
 		break;
 		case "PZ":
@@ -522,9 +526,21 @@ function scr_characterspr()
 			spr_panic = spr_playerPZ_idlepanic;
 			spr_move = spr_playerPZ_move;
 			spr_mach1 = spr_playerPZ_mach1;
-			spr_mach = spr_playerPZ_mach;
-			spr_mach4 = spr_playerPZ_mach4;
-			spr_crazyrun = spr_playerPZ_crazyrun;
+			spr_mach = spr_playerPZ_mach; // mach2 
+			spr_mach4 = spr_playerPZ_mach4; // mach3 
+			spr_crazyrun = spr_playerPZ_crazyrun; // mach4
+			spr_walljumpstart = spr_playerPZ_walljumpstart;
+			spr_walljumpend = spr_playerPZ_walljumpend;
+			spr_taunt = spr_playerPZ_taunt;
+		break;
+		case "S":
+			spr_idle = spr_playerS_idle;
+		break;
+		case "B":
+			spr_idle = spr_playerB_idle;
+		break;
+		case "R":
+			spr_idle = spr_playerR_idle;
 		break;
 	}
 }

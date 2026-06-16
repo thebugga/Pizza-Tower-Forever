@@ -18,6 +18,7 @@ function scr_player_tumble()
 	{
 		switch (character)
 		{
+		    case "PZ":
 		    case "PUP":
 		    case "N":
 		        sprite_index = spr_playerN_divebomb;

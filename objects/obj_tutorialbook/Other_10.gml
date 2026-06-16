@@ -3,7 +3,10 @@ var p = 1;
 var l = string_length(text);
 var old_text = text;
 text = "";
-font = lang_get_font("tutorialfont");
+if !outline
+	font = lang_get_font("tutorialfont");
+else 
+	font = lang_get_font("tutorialfont_o");
 draw_set_font(font);
 trace("Separating text: ", old_text);
 while (p <= l)
