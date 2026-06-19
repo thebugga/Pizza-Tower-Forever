@@ -138,7 +138,7 @@ switch (state)
 			{
 				state = states.titlescreen;
 			}
-			room_goto(Realtitlescreen);
+			room_goto(init_objs_room);
 		}
 		break;
 }

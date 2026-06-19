@@ -143,7 +143,7 @@ function scr_playerN_machcancel()
 		}
 	}
 	noisedoublejump = true;
-	if (input_buffer_slap > 0 && key_up && (!global.pistol || (character == "N" || character == "PUP")))
+	if (input_buffer_slap > 0 && key_up && (!global.pistol))
 	{
 		input_buffer_slap = 0;
 		state = states.punch;
@@ -163,7 +163,7 @@ function scr_playerN_machcancel()
 			}
 		}
 	}
-	if ((character == "N" || character == "PUP") && key_up && input_buffer_jump > 0 && !scr_check_groundpound2())
+	if (key_up && input_buffer_jump > 0 && !scr_check_groundpound2())
 	{
 		freefallstart = 0;
 		railmomentum = false;

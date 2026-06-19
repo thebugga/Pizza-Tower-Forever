@@ -532,9 +532,11 @@ function scr_characterspr()
 			spr_walljumpstart = spr_playerPZ_walljumpstart;
 			spr_walljumpend = spr_playerPZ_walljumpend;
 			spr_taunt = spr_playerPZ_taunt;
+			spr_wallbounce = spr_playerPZ_wallbounce;
 		break;
 		case "S":
 			spr_idle = spr_playerS_idle;
+			spr_mach4 = spr_playerS_mach4; // mach3 
 		break;
 		case "B":
 			spr_idle = spr_playerB_idle;

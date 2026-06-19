@@ -1,2 +1,2 @@
-windingAnim = 0;
+//windingAnim = 0;
 facehurt = false;

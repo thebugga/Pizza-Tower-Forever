@@ -2,3 +2,9 @@ sprite_index = choose(spr_pizzacollect1, spr_pizzacollect2, spr_pizzacollect3, s
 image_speed = 0.35;
 depth = 11;
 value = 100;
+
+if chance(20)
+{
+	instance_destroy();
+	instance_create(x, y, obj_pizzacoinbig);
+}

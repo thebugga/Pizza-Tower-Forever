@@ -197,9 +197,5 @@ if (obj_player.state != states.gameover)
 		draw_text(floor(xx), floor((hud_yy - 56) + text_y + yy), string_char_at(str, i + 1));
 		xx += (w / num);
 	}
-	draw_set_alpha(1);
 	reset_shader_fix();
-	draw_set_font(lang_get_font("bigfont"));
-	draw_set_halign(fa_center);
-	draw_set_color(c_white);
 }

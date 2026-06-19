@@ -22,7 +22,7 @@ if global.coop
 	}
 }
 
-if (room == rank_room || room == timesuproom || room == Realtitlescreen)
+if (room == rank_room || room == timesuproom || room == init_objs_room)
     visible = false;
 else
     visible = true;

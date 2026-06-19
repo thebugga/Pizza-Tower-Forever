@@ -263,3 +263,8 @@ function get_character_sprite(_sprite, _char = "")
     var _idx = asset_get_index(sprite_get_name(_sprite) + _char);
     return (_idx > -1) ? _idx : _sprite;
 }
+
+function chance(_val)
+{
+	return random(100) <= _val;
+}

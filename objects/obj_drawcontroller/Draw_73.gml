@@ -5,7 +5,7 @@ with (obj_player)
 		draw_superslam_enemy();
 	}
 }
-if (room == Mainmenu || room == Longintro || room == Realtitlescreen)
+if (room == Mainmenu || room == Longintro || room == init_objs_room)
 {
 	use_dark = false;
 	kidsparty_lightning = false;
@@ -124,7 +124,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 			surface_set_target(surf);
 			draw_clear_alpha(c_black, 0);
 			draw_set_color(c_black);
-			if !(room == Realtitlescreen || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+			if !(room == init_objs_room || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
 			{
 				draw_set_alpha(scr_get_mode("lightsout").enabled ? max(global.toppintotal, 5) : 0.8);
 			}

@@ -1,3 +1,4 @@
-global.pizzacoin += 1;
-obj_pizzacoinindicator.show = 50;
-instance_destroy();
+if (global.panic || instance_exists(obj_wartimer))
+{
+	event_inherited();
+}

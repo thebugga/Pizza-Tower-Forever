@@ -40,7 +40,7 @@ if (floor(image_index) == 10)
 {
 	shoving = false;
 }
-if (room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom || room == Realtitlescreen || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+if (room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom || room == init_objs_room || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
 {
 	visible = false;
 }
@@ -212,7 +212,7 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			var cam_y = player.y - (cam_height / 2);
 			if (targetgolf == noone)
 			{			
-				if (room == characterselect || room == Realtitlescreen)
+				if (room == characterselect || room == init_objs_room)
 				{
 				    cam_x = (tx - (cam_width / 2)) + chargecamera;
 				    cam_y = ty - (cam_height / 2) - 50;

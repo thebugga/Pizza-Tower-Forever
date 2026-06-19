@@ -2,7 +2,7 @@ if (instance_exists(obj_softlockcrash))
 {
 	exit;
 }
-if (!pause && instance_exists(obj_player) && alarm[3] == -1 && obj_player.key_start && room != Mainmenu && room != Finalintro && room != hub_loadingscreen && room != Endingroom && room != Creditsroom && room != Johnresurrectionroom && room != Longintro && room != Realtitlescreen && room != rank_room)
+if (!pause && instance_exists(obj_player) && alarm[3] == -1 && obj_player.key_start && room != Mainmenu && room != Finalintro && room != hub_loadingscreen && room != Endingroom && room != Creditsroom && room != Johnresurrectionroom && room != Longintro && room != init_objs_room && room != rank_room)
 {
 	var _cutscenehandler = false;
 	with (obj_cutscene_handler)
@@ -53,7 +53,7 @@ if (!pause && instance_exists(obj_player) && alarm[3] == -1 && obj_player.key_st
 	{
 		_cutscenehandler = true;
 	}
-	if (obj_savesystem.state == 0 && !_cutscenehandler && (room != rank_room && room != Realtitlescreen && room != timesuproom) && !instance_exists(obj_jumpscare) && !instance_exists(obj_technicaldifficulty))
+	if (obj_savesystem.state == 0 && !_cutscenehandler && (room != rank_room && room != init_objs_room && room != timesuproom) && !instance_exists(obj_jumpscare) && !instance_exists(obj_technicaldifficulty))
 	{
 		selected = 0;
 		fadein = true;

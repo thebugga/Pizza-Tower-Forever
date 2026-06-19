@@ -14,7 +14,7 @@ else if (!scr_lang_load_update())
 	}
 	else
 	{
-		room_goto(Realtitlescreen);
+		room_goto(init_objs_room);
 		screen_apply_vsync();
 	}
 }

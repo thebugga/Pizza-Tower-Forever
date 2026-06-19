@@ -2,9 +2,9 @@ pause = false;
 var rm = room;
 if (!hub)
 {
-	obj_player.targetRoom = Realtitlescreen;
-	obj_player2.targetRoom = Realtitlescreen;
-	room = Realtitlescreen;
+	obj_player.targetRoom = init_objs_room;
+	obj_player2.targetRoom = init_objs_room;
+	room = init_objs_room;
 	with (obj_player)
 	{
 		character = "P";
