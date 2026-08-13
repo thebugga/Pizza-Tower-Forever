@@ -28,7 +28,7 @@ function scr_player_mach3()
 				}
 				exit;
 			}
-			if (character == "N" && grounded && vsp > 0)
+			if (character == characters.Noise && grounded && vsp > 0)
 			{
 				if (sprite_index == spr_mach4 && place_meeting(x, y + 1, obj_water))
 				{
@@ -138,7 +138,7 @@ function scr_player_mach3()
 					image_index = 0;
 					sprite_index = spr_mach3jump;
 				}
-				if (character == "P")
+				if (character == characters.Peppino)
 				{
 					vsp = jumpspeed;
 				}
@@ -147,7 +147,7 @@ function scr_player_mach3()
 					vsp = -13;
 				}
 			}
-			if (input_buffer_jump > 0 && !can_jump && key_up && character == "N" && noisedoublejump)
+			if (input_buffer_jump > 0 && !can_jump && key_up && character == characters.Noise && noisedoublejump)
 			{
 				scr_player_do_noisecrusher();
 			}
@@ -208,10 +208,10 @@ function scr_player_mach3()
 			{
 				image_speed = 0.4;
 			}
-			if (((!key_attack && fightball == false && !launched) && sprite_index != spr_dashpadmach && grounded && vsp > 0 && (character == "P" || character == "N")) || ((character == "S" && (move == 0 || move != xscale) && grounded) && fightball == false))
+			if (((!key_attack && fightball == false && !launched) && sprite_index != spr_dashpadmach && grounded && vsp > 0 && (character == characters.Peppino || character == characters.Noise)) || ((character == "S" && (move == 0 || move != xscale) && grounded) && fightball == false))
 			{
 				sprite_index = spr_machslidestart;
-				if character == "P"
+				if character == characters.Peppino
 				{
 					fmod_event_one_shot_3d("event:/sfx/pep/break", x, y);
 				}
@@ -223,9 +223,9 @@ function scr_player_mach3()
 				image_index = 0;
 				launched = false;
 			}
-			if (move == -xscale && grounded && vsp > 0 && !launched && (character == "P" || character == "N") && fightball == false && sprite_index != spr_dashpadmach)
+			if (move == -xscale && grounded && vsp > 0 && !launched && (character == characters.Peppino || character == characters.Noise) && fightball == false && sprite_index != spr_dashpadmach)
 			{
-				if character == "P"
+				if character == characters.Peppino
 				{
 					fmod_event_one_shot_3d("event:/sfx/pep/machslideboost", x, y);
 				}
@@ -261,7 +261,7 @@ function scr_player_mach3()
 			if ((!grounded && (place_meeting(x + hsp, y, obj_solid) || scr_solid_slope(x + hsp, y)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock)) || (grounded && (place_meeting(x + sign(hsp), y - 16, obj_solid) || scr_solid_slope(x + sign(hsp), y - 16)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && place_meeting(x, y + 1, obj_slope)))
 			{
 				var _climb = true;
-				if (character == "N")
+				if (character == characters.Noise)
 				{
 					_climb = ledge_bump(40, abs(hsp) + 1);
 				}
@@ -283,7 +283,7 @@ function scr_player_mach3()
 			if (!grounded && place_meeting(x + sign(hsp), y, obj_climbablewall) && !place_meeting(x + sign(hsp), y, obj_destructibles) && !place_meeting(x + sign(hsp), y, obj_metalblock))
 			{
 				var _climb = true;
-				if (character == "N")
+				if (character == characters.Noise)
 				{
 					_climb = ledge_bump(40);
 				}
@@ -309,14 +309,14 @@ function scr_player_mach3()
 				}
 				image_index = 0;
 			}
-			else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && sprite_index != spr_dashpadmach && (!global.pistol || character == "N"))
+			else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && sprite_index != spr_dashpadmach && (!global.pistol || character == characters.Noise))
 			{
 				input_buffer_slap = 0;
 				state = states.punch;
 				image_index = 0;
 				sprite_index = spr_breakdanceuppercut;
 				fmod_event_instance_play(snd_uppercut);
-				if character == "P"
+				if character == characters.Peppino
 				{
 					vsp = -10;
 				}
@@ -327,7 +327,7 @@ function scr_player_mach3()
 				movespeed = hsp;
 				particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 				create_particle(x, y, particletypes.highjumpcloud2, 0);
-				if (character == "N")
+				if (character == characters.Noise)
 				{
 					repeat (4)
 					{
@@ -353,7 +353,7 @@ function scr_player_mach3()
 			if ((scr_solid(x + sign(hsp), y)) && !scr_slope() && (scr_solid_slope(x + sign(hsp), y) || place_meeting(x + sign(hsp), y, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_metalblock) && !place_meeting(x + sign(hsp), y, obj_destructibles) && !place_meeting(x + sign(hsp), y, obj_climbablewall) && grounded)
 			{
 				var _bump = true;
-				if (character == "P" || noisemachcancelbuffer <= 0)
+				if (character == characters.Peppino || noisemachcancelbuffer <= 0)
 				{
 					_bump = ledge_bump((vsp >= 0) ? 32 : 22);
 				}

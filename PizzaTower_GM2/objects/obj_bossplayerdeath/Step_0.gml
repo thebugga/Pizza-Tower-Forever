@@ -6,7 +6,7 @@ if (fade2start)
 with (obj_player1)
 {
 	image_speed = 0.35;
-	if character == "P"
+	if character == characters.Peppino
 	{
 		switch (other.state)
 		{

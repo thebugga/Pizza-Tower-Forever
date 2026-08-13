@@ -1,31 +1,45 @@
-hdir = sign(hmovespeed);
-vdir = sign(vmovespeed);
-if (hdir != 0)
-{
-	hscale = hdir;
+/// @description  If Moving Platform touches Trigger on creation...
+if (place_meeting(x, y, obj_movingPlatformTrigger)) {
+	with (instance_place(x, y, obj_movingPlatformTrigger)) {
+		if (other.stopid != id) {
+			other.platformDirection = targetAngle;
+			other.stopped = true;
+			other.stopid = id;
+		}
+	}
 }
-if (vdir != 0)
-{
-	vscale = vdir;
-}
-if (vmovespeed == 0)
-{
-	v_velocity = 0;
-}
-else
-{
-	v_velocity = abs(vmovespeed);
-}
-if (hmovespeed == 0)
-{
-	h_velocity = 0;
-}
-else
-{
-	h_velocity = abs(hmovespeed);
-}
-if (escape == true && global.panic == false)
-{
-	vmovespeed = 0;
-	hmovespeed = 0;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

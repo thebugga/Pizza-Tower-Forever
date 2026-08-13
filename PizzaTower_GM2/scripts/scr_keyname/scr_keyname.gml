@@ -34,11 +34,7 @@ function scr_keyname(_key)
 			return "SHIFT";
 			break;
 		case vk_control:
-			return "CONTROL";
-			break;
 		case vk_lcontrol:
-			return "CONTROL";
-			break;
 		case vk_rcontrol:
 			return "CONTROL";
 			break;
@@ -216,149 +212,14 @@ function scr_keyname(_key)
 		case vk_delete:
 			return "DELETE";
 			break;
-		case ord("0"):
-			return "0";
-			break;
-		case ord("1"):
-			return "1";
-			break;
-		case ord("2"):
-			return "2";
-			break;
-		case ord("3"):
-			return "3";
-			break;
-		case ord("4"):
-			return "4";
-			break;
-		case ord("5"):
-			return "5";
-			break;
-		case ord("6"):
-			return "6";
-			break;
-		case ord("7"):
-			return "7";
-			break;
-		case ord("8"):
-			return "8";
-			break;
-		case ord("9"):
-			return "9";
-			break;
-		case ord("A"):
-			return "A";
-			break;
-		case ord("B"):
-			return "B";
-			break;
-		case ord("C"):
-			return "C";
-			break;
-		case ord("D"):
-			return "D";
-			break;
-		case ord("E"):
-			return "E";
-			break;
-		case ord("F"):
-			return "F";
-			break;
-		case ord("G"):
-			return "G";
-			break;
-		case ord("H"):
-			return "H";
-			break;
-		case ord("I"):
-			return "I";
-			break;
-		case ord("J"):
-			return "J";
-			break;
-		case ord("K"):
-			return "K";
-			break;
-		case ord("L"):
-			return "L";
-			break;
-		case ord("M"):
-			return "M";
-			break;
-		case ord("N"):
-			return "N";
-			break;
-		case ord("O"):
-			return "O";
-			break;
-		case ord("P"):
-			return "P";
-			break;
-		case ord("Q"):
-			return "Q";
-			break;
-		case ord("R"):
-			return "R";
-			break;
-		case ord("S"):
-			return "S";
-			break;
-		case ord("T"):
-			return "T";
-			break;
-		case ord("U"):
-			return "U";
-			break;
-		case ord("V"):
-			return "V";
-			break;
-		case ord("W"):
-			return "W";
-			break;
-		case ord("X"):
-			return "X";
-			break;
-		case ord("Y"):
-			return "Y";
-			break;
-		case ord("Z"):
-			return "Z";
+		default:
+			return chr(_key);
 			break;
 		case ord("["):
 			return "LEXPLR";
 			break;
 		case ord("\\"):
 			return "REXPLR";
-			break;
-		case vk_numpad0:
-			return "NUMPAD 0";
-			break;
-		case vk_numpad1:
-			return "NUMPAD 1";
-			break;
-		case vk_numpad2:
-			return "NUMPAD 2";
-			break;
-		case vk_numpad3:
-			return "NUMPAD 3";
-			break;
-		case vk_numpad4:
-			return "NUMPAD 4";
-			break;
-		case vk_numpad5:
-			return "NUMPAD 5";
-			break;
-		case vk_numpad6:
-			return "NUMPAD 6";
-			break;
-		case vk_numpad7:
-			return "NUMPAD 7";
-			break;
-		case vk_numpad8:
-			return "NUMPAD 8";
-			break;
-		case vk_numpad9:
-			return "NUMPAD 9";
 			break;
 		case vk_multiply:
 			return "ASTERISK";
@@ -469,5 +330,4 @@ function scr_keyname(_key)
 			return "APOSTRPH";
 			break;
 	}
-	return chr(_key);
 }

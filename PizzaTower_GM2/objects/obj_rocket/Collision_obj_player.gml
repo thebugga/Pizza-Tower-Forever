@@ -10,7 +10,7 @@ with (other)
 		state = states.rocket;
 		other.playerid = id;
 		other.buffer = 10;
-		if character == "P"
+		if character == characters.Peppino
 		{
 			create_transformation_tip(lang_get_value("rockettip"), "rocket");
 		}

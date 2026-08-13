@@ -21,15 +21,6 @@ if ((instance_exists(obj_debugcontroller) && !obj_debugcontroller.showhud) || !g
 	visible = false;
 }
 image_speed = 0.35;
-if (targetgolf != noone && !instance_exists(targetgolf))
-{
-	targetgolf = noone;
-}
-if (targetgolf != noone && !view_visible[1])
-{
-	view_visible[1] = true;
-	view_enabled = true;
-}
 //if (bubblespr != noone && bubblespr != spr_tv_bubbleclosed)
 //{
 //	if (prompt != noone)
@@ -105,7 +96,7 @@ switch (state)
 		if (!obj_player1.ispeppino)
 		{
 			var spr = sprite_get_name(idlespr);
-			spr = asset_get_index(concat(spr, "N"));
+			spr = asset_get_index(concat(spr, characters.Noise));
 			if (spr > -1)
 			{
 				idlespr = spr;
@@ -115,7 +106,7 @@ switch (state)
 		{
 			with (obj_player1)
 			{
-				if (!isgustavo || character == "N")
+				if (!isgustavo || character == characters.Noise)
 				{
 					if (mach4mode == true)
 					{
@@ -223,7 +214,7 @@ switch (state)
 					if (!obj_player1.ispeppino)
 					{
 						var spr = sprite_get_name(tvsprite);
-						spr = asset_get_index(concat(spr, "N"));
+						spr = asset_get_index(concat(spr, characters.Noise));
 						if (spr > -1)
 						{
 							tvsprite = spr;
@@ -236,7 +227,7 @@ switch (state)
 					if (!obj_player1.ispeppino)
 					{
 						var spr = sprite_get_name(tvsprite);
-						spr = asset_get_index(concat(spr, "N"));
+						spr = asset_get_index(concat(spr, characters.Noise));
 						if (spr > -1)
 						{
 							tvsprite = spr;

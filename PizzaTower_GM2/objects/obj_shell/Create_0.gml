@@ -25,6 +25,7 @@ if (!DEBUG)
 	exit;
 }
 isOpen = false;
+showHitboxes = false;
 isAutocompleteOpen = false;
 
 shellSurface = noone;

@@ -3,7 +3,7 @@ var _y = y;
 if (obj_player1.state == states.arenaintro)
 {
 	var _sprite = spr_player_levelcomplete;
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		_sprite = spr_playerN_levelcomplete;
 	}
@@ -129,7 +129,7 @@ if (sprite_index == spr_playerN_doublejump && ANIMATION_END)
 if (animatronic > 0)
 {
 	animatronic--;
-	if (character == "P" && animatronic == 0)
+	if (character == characters.Peppino && animatronic == 0)
 	{
 		with (instance_create(x, y, obj_peshinodebris))
 		{

@@ -25,7 +25,7 @@ if (grounded && vsp > 0)
 }
 if (!landed)
 {
-	scr_collide();
+	scr_collision();
 }
 else
 {

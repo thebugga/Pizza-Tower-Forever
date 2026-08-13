@@ -85,7 +85,7 @@ function scr_player_handstandjump()
 		image_index = 0;
 		sprite_index = airattackdashstart;
 	}
-	if (grounded && sprite_index == airattackdash && (!key_attack || character == "N") && global.attackstyle != 2)
+	if (grounded && sprite_index == airattackdash && (!key_attack || character == characters.Noise) && global.attackstyle != 2)
 	{
 		if (global.attackstyle != 3)
 		{
@@ -101,7 +101,7 @@ function scr_player_handstandjump()
 			image_index = image_number - 6;
 		}
 	}
-	if (grounded && sprite_index == airattackdash && key_attack && character != "N" && global.attackstyle != 2)
+	if (grounded && sprite_index == airattackdash && key_attack && character != characters.Noise && global.attackstyle != 2)
 	{
 		state = states.mach2;
 	}
@@ -138,7 +138,7 @@ function scr_player_handstandjump()
 	if ((!grounded && (place_meeting(x + hsp, y, obj_solid) || scr_solid_slope(x + hsp, y)) && !place_meeting(x + hsp, y, obj_destructibles)) || (grounded && (place_meeting(x + sign(hsp), y - 16, obj_solid) || scr_solid_slope(x + sign(hsp), y - 16)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && scr_slope()))
 	{
 		var _climb = true;
-		if (character == "N")
+		if (character == characters.Noise)
 		{
 			_climb = ledge_bump(32, abs(hsp) + 1);
 		}

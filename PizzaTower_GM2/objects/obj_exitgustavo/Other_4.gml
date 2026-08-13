@@ -6,7 +6,7 @@ else if (irandom(100) <= 15)
 {
 	stick = true;
 }
-if (obj_player1.character == "P")
+if (obj_player1.character == characters.Peppino)
 {
 	var r = string_letters(room_get_name(room));
 	if (sprite_index != spr_gustavo_exitsign || r == "saloon" || room == space_11b || r == "freezer" || r == "chateau")

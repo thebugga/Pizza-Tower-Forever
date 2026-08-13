@@ -86,7 +86,7 @@ function scr_player_bombgrab()
 			fmod_event_one_shot_3d("event:/sfx/pep/step", x, y);
 			create_particle(x, y, particletypes.landcloud);
 		}
-		if (character == "N")
+		if (character == characters.Noise)
 		{
 			if (place_meeting(x + hsp, y, obj_ratblock) || place_meeting(x, y + vsp, obj_ratblock))
 			{

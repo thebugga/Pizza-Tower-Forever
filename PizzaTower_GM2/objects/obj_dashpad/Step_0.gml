@@ -1,4 +1,4 @@
-scr_collide();
+scr_collision();
 if (buffer > 0)
 {
 	buffer--;

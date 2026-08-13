@@ -24,7 +24,7 @@ with (obj_player1)
 		sprite_index = spr_mach4;
 		image_index = 0;
 	}
-	else if (tauntstoredstate == states.ratmount && tauntstoredratmount_movespeed >= 12 && character == "N")
+	else if (tauntstoredstate == states.ratmount && tauntstoredratmount_movespeed >= 12 && character == characters.Noise)
 	{
 		state = states.mach3;
 		movespeed = tauntstoredratmount_movespeed;
@@ -35,7 +35,7 @@ with (obj_player1)
 		sprite_index = spr_mach4;
 		image_index = 0;
 	}
-	if (character == "P" && isgustavo)
+	if (character == characters.Peppino && isgustavo)
 	{
 		if (state == states.mach2 || state == states.mach3)
 		{

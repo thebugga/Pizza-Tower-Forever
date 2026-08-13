@@ -22,7 +22,7 @@ function scr_player_shotgunshoot()
 	{
 		movespeed = Approach(movespeed, 0, 0.1);
 	}
-	if (character == "P")
+	if (character == characters.Peppino)
 	{
 		if (ANIMATION_END)
 		{

@@ -36,7 +36,7 @@ function scr_player_Sjump()
 			piledrivereffect = 15;
 		}
 	}
-	if ((sprite_index == spr_superjump || sprite_index == spr_superspringplayer) && (character == "N" || character == "P"))
+	if ((sprite_index == spr_superjump || sprite_index == spr_superspringplayer) && (character == characters.Noise || character == characters.Peppino))
 	{
 		vsp = sjumpvsp;
 	}
@@ -89,7 +89,7 @@ function scr_player_Sjump()
 	}
 	else if ((key_attack2 || input_buffer_slap > 0) && sprite_index != spr_superspringplayer && sprite_index != spr_player_Sjumpcancelstart)
 	{
-		if (character == "P")
+		if (character == characters.Peppino)
 		{
 			input_buffer_shoot = 0;
 			input_buffer_slap = 0;
@@ -145,10 +145,9 @@ function scr_player_Sjump()
 			}
 		}
 	}
-	if (character == "N" && sprite_index == spr_superjump)
+	if (character == characters.Noise && sprite_index == spr_superjump)
 	{
 		hsp = move * 3;
 	}
 	image_speed = 0.5;
-	scr_collide_player();
 }

@@ -152,7 +152,7 @@ function scr_player_superslam()
 	{
 		movespeed -= 0.1;
 	}
-	if (character == "N" && move != 0)
+	if (character == characters.Noise && move != 0)
 	{
 		xscale = move;
 	}

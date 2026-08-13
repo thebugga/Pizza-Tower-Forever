@@ -9,13 +9,13 @@ character = character;
 snd_drumroll = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_drumroll");
 snd_verdict = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_verdict");
 snd_start = fmod_event_create_instance("event:/sfx/playerN/finaljudgement_start");
-if (character == "N")
+if (character == characters.Noise)
 {
 	fmod_event_instance_play(snd_start);
 }
 sprite_index = spr_finaljudgement;
 image_speed = 0.35;
-if (character == "N")
+if (character == characters.Noise)
 {
 	sprite_index = spr_finaljudgementN;
 }
@@ -163,7 +163,7 @@ switch (rank_spr)
 		bg_index = 3;
 		break;
 }
-if (character == "N")
+if (character == characters.Noise)
 {
 	switch (rank_spr)
 	{

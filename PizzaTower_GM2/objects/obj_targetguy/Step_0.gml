@@ -1,6 +1,6 @@
 if (!place_meeting(x, y, obj_solid))
 {
-	scr_collide();
+	scr_collision();
 }
 else
 {

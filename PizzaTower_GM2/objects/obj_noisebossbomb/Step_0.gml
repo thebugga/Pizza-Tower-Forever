@@ -59,4 +59,4 @@ if (drop && grounded)
 {
 	instance_destroy();
 }
-scr_collide();
+scr_collision();

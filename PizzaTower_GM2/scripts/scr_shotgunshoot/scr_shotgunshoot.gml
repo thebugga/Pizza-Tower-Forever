@@ -1,6 +1,6 @@
 function scr_shotgunshoot()
 {
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		input_buffer_shoot = 0;
 		if (state != states.shotgunshoot)

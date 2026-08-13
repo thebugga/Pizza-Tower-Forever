@@ -15,7 +15,7 @@ function scr_player_tumble()
 	}
 	if (!grounded && (sprite_index == spr_crouchslip || sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
 	{
-		if (character == "N")
+		if (character == characters.Noise)
 		{
 			sprite_index = spr_playerN_divebomb;
 			state = states.machcancel;
@@ -56,7 +56,7 @@ function scr_player_tumble()
 	}
 	if (sprite_index == spr_dive && key_jump)
 	{
-		if (character == "P")
+		if (character == characters.Peppino)
 		{
 			sprite_index = spr_player_poundcancel1;
 			image_index = 0;

@@ -1,6 +1,6 @@
 event_inherited();
 following_add_to_front();
-if (character == "N")
+if (character == characters.Noise)
 {
 	animatronic = 0;
 }

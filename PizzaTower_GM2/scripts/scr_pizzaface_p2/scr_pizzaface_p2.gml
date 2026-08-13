@@ -204,7 +204,7 @@ function scr_pizzaface_p2_fall()
 				with (obj_player1)
 				{
 					sprite_index = spr_player_gnomecutscene3;
-					if (character == "N")
+					if (character == characters.Noise)
 					{
 						sprite_index = spr_playerN_doiseintro2;
 					}
@@ -240,7 +240,7 @@ function scr_pizzaface_p2_fall()
 				{
 					state = states.animation;
 					tauntstoredstate = states.normal;
-					if character == "P"
+					if character == characters.Peppino
 					{
 						sprite_index = spr_player_screamtransition;
 						image_index = 0;
@@ -846,7 +846,7 @@ function boss_pizzahead_p2_phase1hurt()
 		state = states.actor;
 		pistolanim = noone;
 		sprite_index = spr_player_pistolshotend;
-		if (character == "N")
+		if (character == characters.Noise)
 		{
 			sprite_index = spr_playerN_bosstransition;
 		}

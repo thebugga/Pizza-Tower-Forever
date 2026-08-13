@@ -4,7 +4,7 @@ if (ANIMATION_END && sprite_index == spr_goblinbot_kick)
 }
 if (use_collision)
 {
-	scr_collide();
+	scr_collision();
 }
 if (rail)
 {

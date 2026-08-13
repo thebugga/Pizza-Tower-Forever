@@ -1,7 +1,7 @@
 if (sprite_index != spr_stick_helicopter && (sprite_index != spr_stick_leave || image_index < 3) && sprite_index != spr_noisettestick_helicopter)
 {
 	fmod_event_instance_stop(global.snd_mrstickhat, true);
-	scr_collide();
+	scr_collision();
 }
 else
 {
@@ -170,7 +170,7 @@ switch (state)
 				else
 				{
 					sprite_index = spr_noisettestick_takemoney2;
-					if (obj_player1.character == "P")
+					if (obj_player1.character == characters.Peppino)
 					{
 						fmod_event_one_shot_3d("event:/sfx/noisette/voice2", x, y);
 						sprite_index = spr_noisettestick_helicopterstart;

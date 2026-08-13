@@ -6,7 +6,7 @@ else
 {
 	visible = true;
 }
-if (character == "P" == obj_player1.ispeppino)
+if (character == characters.Peppino == obj_player1.ispeppino)
 {
 	ispeppino = !obj_player1.ispeppino;
 	if (!obj_player1.ispeppino && obj_player1.noisecrusher)

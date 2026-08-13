@@ -1,6 +1,6 @@
 function scr_player_animatronic()
 {
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		xscale = 1;
 		sprite_index = spr_playerN_animatronic;

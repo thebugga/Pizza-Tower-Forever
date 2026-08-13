@@ -243,7 +243,7 @@ function draw_player()
 		}
 		exit;
 	}
-	if (character == "N" && state == states.trashstart)
+	if (character == characters.Noise && state == states.trashstart)
 	{
 		exit;
 	}
@@ -258,7 +258,7 @@ function draw_player()
 		_sprite_index = pistolanim;
 		_image_index = pistolindex;
 	}
-	if (character == "P" && room == boss_noise && (sprite_index == spr_playerN_doiseintro1 || sprite_index == spr_playerN_doiseintro2 || sprite_index == spr_playerN_doiseintro3))
+	if (character == characters.Peppino && room == boss_noise && (sprite_index == spr_playerN_doiseintro1 || sprite_index == spr_playerN_doiseintro2 || sprite_index == spr_playerN_doiseintro3))
 	{
 		var info = get_noise_palette_info();
 		pattern = info.patterntexture;
@@ -273,13 +273,13 @@ function draw_player()
 	{
 		spr = spr_ratmountpalette;
 	}
-	if (character == "N" && instance_exists(obj_pizzaface_thunderdark))
+	if (character == characters.Noise && instance_exists(obj_pizzaface_thunderdark))
 	{
 		spr = spr_noisepalette_rage;
 	}
 	pal_swap_set(spr, ps, false);
 	draw_sprite_ext(_sprite_index, _image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
-	if (global.noisejetpack && (character == "P" || noisepizzapepper))
+	if (global.noisejetpack && (character == characters.Peppino || noisepizzapepper))
 	{
 		pal_swap_set(spr_palette, 2, false);
 		draw_sprite_ext(_sprite_index, _image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);

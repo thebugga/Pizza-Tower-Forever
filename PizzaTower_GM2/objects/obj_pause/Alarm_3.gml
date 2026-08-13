@@ -7,7 +7,7 @@ if (!hub)
 	room = Realtitlescreen;
 	with (obj_player1)
 	{
-		character = "P";
+		character = characters.Peppino;
 		scr_characterspr();
 	}
 	global.leveltosave = noone;
@@ -34,10 +34,6 @@ else
 	}
 	global.levelreset = true;
 	obj_player1.targetDoor = "HUB";
-	if (instance_exists(obj_player2))
-	{
-		obj_player2.targetDoor = "HUB";
-	}
 	global.leveltorestart = noone;
 	global.leveltosave = noone;
 	with (instance_create(0, 0, obj_backtohub_fadeout))
@@ -51,7 +47,8 @@ else
 		room_goto(obj_player1.backtohubroom);
 	}
 }
-if (rm == boss_pizzaface || rm == boss_noise || rm == boss_pepperman || rm == boss_fakepep || rm == boss_vigilante)
+
+if (array_contains(global.bossRooms, rm))
 {
 	global.bossintro = true;
 }

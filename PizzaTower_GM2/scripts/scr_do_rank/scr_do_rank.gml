@@ -55,7 +55,7 @@ function scr_do_rank(_showtoppins = true, _isboss = false)
 			var currhats = _extrahats + _hats;
 			if (currhats >= maxhats && !global.bossplayerhurt)
 			{
-				_rank = "p";
+				_rank = characters.Peppino;
 			}
 			else if (currhats >= (maxhats - 2))
 			{

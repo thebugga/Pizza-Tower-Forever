@@ -1,4 +1,4 @@
-function scr_start_game(_savefile, _character = "P")
+function scr_start_game(_savefile, _character = characters.Peppino)
 {
 	instance_create(x, y, obj_fadeout);
 	with (obj_player)

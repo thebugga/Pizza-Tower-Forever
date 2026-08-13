@@ -54,15 +54,15 @@ else
 	{
 		if (global.collect_player[0] >= global.collect_player[1])
 		{
-			scorewins = "N";
+			scorewins = characters.Noise;
 		}
 		else
 		{
-			scorewins = "P";
+			scorewins = characters.Peppino;
 		}
 		if (obj_savesystem.ispeppino)
 		{
-			scorewins = (scorewins == "N") ? "P" : "N";
+			scorewins = (scorewins == characters.Noise) ? characters.Peppino : characters.Noise;
 		}
 		draw_set_font(lang_get_font("bigfont"));
 		var w1 = string_width(text[1][1]);

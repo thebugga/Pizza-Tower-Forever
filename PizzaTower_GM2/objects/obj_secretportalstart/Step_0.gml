@@ -14,18 +14,15 @@ switch (sprite_index)
 		}
 		with (obj_player)
 		{
-			if (object_index != obj_player2 || global.coop)
-			{
-				x = other.x;
-				y = other.y;
-				roomstartx = x;
-				roomstarty = y;
-				hsp = 0;
-				vsp = 0;
-				movespeed = 0;
-				cutscene = true;
-				visible = false;
-			}
+			x = other.x;
+			y = other.y;
+			roomstartx = x;
+			roomstarty = y;
+			hsp = 0;
+			vsp = 0;
+			movespeed = 0;
+			cutscene = true;
+			visible = false;
 		}
 		waitbuffer = 80;
 		drop = false;
@@ -35,30 +32,27 @@ switch (sprite_index)
 			sprite_index = spr_secretportal_spawnidle;
 			with (obj_player)
 			{
-				if (object_index != obj_player2 || global.coop)
+				if (!isgustavo && tauntstoredstate != states.knightpep && tauntstoredstate != states.knightpepslopes && tauntstoredstate != states.knightpepbump && tauntstoredstate != states.firemouth)
 				{
-					if (!isgustavo && tauntstoredstate != states.knightpep && tauntstoredstate != states.knightpepslopes && tauntstoredstate != states.knightpepbump && tauntstoredstate != states.firemouth)
+					visible = true;
+					cutscene = false;
+					sprite_index = spr_bodyslamstart;
+					image_index = 0;
+					state = states.freefallprep;
+					freefallsmash = 0;
+					vsp = -5;
+				}
+				else if (isgustavo)
+				{
+					state = states.ratmount;
+				}
+				else
+				{
+					if (state == states.knightpep)
 					{
-						visible = true;
-						cutscene = false;
-						sprite_index = spr_bodyslamstart;
-						image_index = 0;
-						state = states.freefallprep;
-						freefallsmash = 0;
-						vsp = (character == "P") ? -5 : -7;
+						hsp = 0;
 					}
-					else if (isgustavo)
-					{
-						state = states.ratmount;
-					}
-					else
-					{
-						if (state == states.knightpep)
-						{
-							hsp = 0;
-						}
-						sprite_index = tauntstoredsprite;
-					}
+					sprite_index = tauntstoredsprite;
 				}
 			}
 		}
@@ -101,7 +95,7 @@ switch (sprite_index)
 								image_index = 0;
 								state = states.freefallprep;
 								freefallsmash = 0;
-								vsp = (character == "P") ? -5 : -7;
+								vsp = -5;
 							}
 							if (state == states.knightpep)
 							{

@@ -35,4 +35,4 @@ if (sprite_index == spr_dynamite || sprite_index == spr_dynamiteabouttoexplode)
 {
 	countdown--;
 }
-scr_collide();
+scr_collision();

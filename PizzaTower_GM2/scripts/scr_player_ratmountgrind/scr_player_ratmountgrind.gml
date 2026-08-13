@@ -14,7 +14,7 @@ function scr_player_ratmountgrind()
 		movespeed = Approach(movespeed, 0, 0.5);
 		sprite_index = spr_lonegustavo_hang;
 	}
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		if (sprite_index == spr_lonegustavo_hangwalk)
 		{
@@ -55,7 +55,7 @@ function scr_player_ratmountgrind()
 	ds_list_clear(global.instancelist);
 	if (!place_meeting(x, y, obj_grindrail) && !place_meeting(x, y, obj_grindrailslope))
 	{
-		if character == "P"
+		if character == characters.Peppino
 		{
 			state = states.ratmountjump;
 			sprite_index = spr_player_ratmountgroundpoundfall;
@@ -70,7 +70,7 @@ function scr_player_ratmountgrind()
 	if (input_buffer_jump > 0)
 	{
 		input_buffer_jump = 0;
-		if character == "P"
+		if character == characters.Peppino
 		{
 			state = states.ratmountjump;
 			if (key_down)
@@ -105,7 +105,7 @@ function scr_player_ratmountgrind()
 		jumpstop = false;
 		jumpAnim = true;
 	}
-	if (character == "N" && state != states.ratmountgrind)
+	if (character == characters.Noise && state != states.ratmountgrind)
 	{
 		if (movespeed != 0)
 		{

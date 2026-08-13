@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_shell",
   "parent":{
-    "name":"Utility",
-    "path":"folders/Scripts/Utility.yy",
+    "name":"PizzaTower_GM2",
+    "path":"PizzaTower_GM2.yyp",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

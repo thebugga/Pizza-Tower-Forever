@@ -1,5 +1,5 @@
 var bg_spr = spr_finalrankBG;
-if (character == "N")
+if (character == characters.Noise)
 {
 	bg_spr = spr_finalrankBG_N;
 }

@@ -32,6 +32,7 @@ if (DEBUG)
 {
 	active = false;
 	showoverlay = false;
+	showhitboxes = false;
 	SET_GAME_SPEED = new DebugCommand("set_game_speed", "Sets the game speed", "<int>", function(_int)
 	{
 		game_set_speed(floor(real(_int)), gamespeed_fps);
@@ -63,8 +64,8 @@ if (DEBUG)
 	{
 		with (obj_player)
 		{
-			character = "P";
-			ispeppino = character == "N";
+			character = characters.Peppino;
+			ispeppino = character == characters.Noise;
 			scr_characterspr();
 		}
 	});
@@ -80,6 +81,10 @@ if (DEBUG)
 	ROOMCHECK = new DebugCommand("roomcheck", "", "", function()
 	{
 		instance_create_unique(0, 0, obj_roomcheck);
+	});
+	SHOWHITBOXES = new DebugCommand("show_hitboxes", "", "", function()
+	{
+		showhitboxes = !showhitboxes;
 	});
 	UNLOCK_TOPPINS = new DebugCommand("unlock_toppins", "Unlocks the toppins of the given level", "<level_name_ini>", function(_level_name_ini)
 	{

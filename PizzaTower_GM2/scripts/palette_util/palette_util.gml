@@ -10,7 +10,7 @@ function get_pep_palette_info()
 			patterntexture: obj_player1.player_patterntexture[pal]
 		};
 	}
-	else if (obj_savesystem.ispeppino)
+	else if (obj_savesystem.character == characters.Peppino)
 	{
 		return 
 		{
@@ -39,7 +39,7 @@ function get_noise_palette_info()
 			patterntexture: obj_player1.player_patterntexture[pal]
 		};
 	}
-	else if (!obj_savesystem.ispeppino)
+	else if (obj_savesystem.character == characters.Noise)
 	{
 		return 
 		{

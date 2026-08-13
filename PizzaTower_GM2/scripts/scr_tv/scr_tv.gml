@@ -115,9 +115,9 @@ function tv_get_palette()
 	{
 		exit;
 	}
-	var _info = character == "P" ? get_pep_palette_info() : get_noise_palette_info();
+	var _info = character == characters.Peppino ? get_pep_palette_info() : get_noise_palette_info();
 	spr_palette = _info.spr_palette;
-	if (obj_player1.isgustavo && obj_player1.character == "P")
+	if (obj_player1.isgustavo && obj_player1.character == characters.Peppino)
 	{
 		spr_palette = spr_ratmountpalette;
 	}
@@ -178,22 +178,16 @@ function tv_do_expression(_spr, _reset_palette = false, _make_peppino = false)
 					}
 					break;
 			}
-			if (!_make_peppino && instance_exists(obj_player1) && obj_player1.character == "N")
+			if (!_make_peppino && instance_exists(obj_player1) && obj_player1.character != characters.Peppino)
 			{
-				var n = asset_get_index(sprite_get_name(_spr) + "N");
+				var n = asset_get_index(sprite_get_name(_spr) + global.charPrefix[obj_player1.character]);
 				if (n > -1)
 				{
 					expressionsprite = n;
 				}
 			}
-			if (_reset_palette)
-			{
-				reset_palette = true;
-			}
-			else
-			{
-				reset_palette = false;
-			}
+			
+			reset_palette = _reset_palette;
 		}
 	}
 }

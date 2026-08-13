@@ -144,7 +144,7 @@ function state_player_jump()
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particletypes.highjumpcloud2, 0);
 	}
-	if (!can_jump && character == "N" && key_up && noisedoublejump && input_buffer_jump > 0 && !key_down && !key_attack)
+	if (!can_jump && character == characters.Noise && key_up && noisedoublejump && input_buffer_jump > 0 && !key_down && !key_attack)
 	{
 		freefallstart = 0;
 		railmomentum = false;
@@ -264,7 +264,7 @@ function state_player_jump()
 			pistolanim = noone;
 			vsp = -6;
 		}
-		else if character == "P"
+		else if character == characters.Peppino
 		{
 			fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 			sprite_index = spr_shotgunjump1;
@@ -331,14 +331,14 @@ function state_player_jump()
 		state = states.handstandjump;
 		movespeed = 5;
 	}
-	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "N"))
+	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == characters.Noise))
 	{
 		input_buffer_slap = 0;
 		state = states.punch;
 		image_index = 0;
 		sprite_index = spr_breakdanceuppercut;
 		fmod_event_instance_play(snd_uppercut);
-		if character == "P"
+		if character == characters.Peppino
 		{
 			vsp = -10;
 		}
@@ -353,7 +353,7 @@ function state_player_jump()
 		}
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particletypes.highjumpcloud2, 0);
-		if (character == "N")
+		if (character == characters.Noise)
 		{
 			repeat (4)
 			{
@@ -424,7 +424,7 @@ function state_player_jump()
 					shake_mag = 3;
 					shake_mag = 3 / room_speed;
 				}
-				if character == "P"
+				if character == characters.Peppino
 				{
 					with (instance_create(x + (xscale * 20), y, obj_shotgunbullet))
 					{

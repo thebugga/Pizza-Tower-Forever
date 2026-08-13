@@ -13,7 +13,7 @@ else
 {
 	visible = false;
 }
-if (is_bossroom())
+if (in_bossRoom)
 {
 	visible = false;
 }

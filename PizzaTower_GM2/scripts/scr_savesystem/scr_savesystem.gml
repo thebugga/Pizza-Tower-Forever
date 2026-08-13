@@ -76,7 +76,7 @@ function get_percentage()
 	{
 		var boss = bossranks[i];
 		var r = ini_read_string("Ranks", boss, "d");
-		if (r == "p")
+		if (r == characters.Peppino)
 		{
 			extracount++;
 		}

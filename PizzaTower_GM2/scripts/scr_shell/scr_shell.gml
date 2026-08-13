@@ -25,15 +25,15 @@ DebugCommand("set_boss_hp", "", "<int>", function(_int)
 		elitehit = real(_int);
 	}
 });
-DebugCommand("switch_char", "Switches character", "", function()
+DebugCommand("switch_char", "Switches character", "", function(arg0)
 {
+	var _chars = ["P", "N"];
 	with (obj_player)
 	{
-		character = "P";
-		ispeppino = character == "N";
+		character = array_get_index(_chars, arg0[1]);
 		scr_characterspr();
 	}
-});
+}, [["P", "N"]]);
 DebugCommand("gateswitchmax", "", "", function()
 {
 	global.gateswitch = global.gateswitchmax;
@@ -345,31 +345,28 @@ DebugCommand("player_set_state", "Changes the player state", "<states.state>", f
 	{
 		with (obj_player)
 		{
-			if (object_index == obj_player1 || global.coop)
+			state = _state;
+			var _spr = sprite_index;
+			switch (_state)
 			{
-				state = _state;
-				var _spr = sprite_index;
-				switch (_state)
-				{
-					case states.normal:
-						_spr = spr_idle;
-						break;
-					case states.cheesepep:
-						_spr = spr_cheesepep_idle;
-						break;
-					case states.knightpep:
-						_spr = spr_knightpepidle;
-						break;
-					case states.firemouth:
-						_spr = spr_firemouth;
-						break;
-					case states.ratmount:
-						_spr = spr_player_ratmountidle;
-						break;
-				}
-				sprite_index = _spr;
-				image_index = 0;
+				case states.normal:
+					_spr = spr_idle;
+					break;
+				case states.cheesepep:
+					_spr = spr_cheesepep_idle;
+					break;
+				case states.knightpep:
+					_spr = spr_knightpepidle;
+					break;
+				case states.firemouth:
+					_spr = spr_firemouth;
+					break;
+				case states.ratmount:
+					_spr = spr_player_ratmountidle;
+					break;
 			}
+			sprite_index = _spr;
+			image_index = 0;
 		}
 	}
 });

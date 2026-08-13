@@ -1,4 +1,4 @@
-if (obj_player1.character == "P")
+if (obj_player1.character == characters.Peppino)
 {
 	if (!obj_player1.isgustavo)
 	{

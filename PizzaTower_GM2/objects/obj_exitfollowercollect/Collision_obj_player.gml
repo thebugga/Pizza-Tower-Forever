@@ -18,7 +18,7 @@ if (!other.ispeppino || global.swapmode)
 			use_palette = true;
 			spr_palette = spr_peppalette;
 			paletteselect = 1;
-			if (other.character == "P")
+			if (other.character == characters.Peppino)
 			{
 				paletteselect = obj_player1.paletteselect;
 			}

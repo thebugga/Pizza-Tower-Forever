@@ -14,7 +14,7 @@ if (global.swapmode)
 }
 with (obj_player1)
 {
-	if character == "P"
+	if character == characters.Peppino
 	{
 		swap_player(false);
 	}

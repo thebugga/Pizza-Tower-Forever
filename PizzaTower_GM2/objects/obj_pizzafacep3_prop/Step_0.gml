@@ -8,7 +8,7 @@ if (use_collision)
 			with (obj_player1)
 			{
 				sprite_index = spr_player_gnomecutscene1;
-				if (character == "N")
+				if (character == characters.Noise)
 				{
 					sprite_index = spr_playerN_bosscutscene1;
 				}
@@ -42,7 +42,7 @@ if (use_collision)
 		hsp = Approach(hsp, 0, 0.1);
 		sprite_index = angryspr;
 	}
-	scr_collide();
+	scr_collision();
 }
 else
 {

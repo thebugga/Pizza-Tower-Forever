@@ -101,7 +101,7 @@ function scr_player_mort()
 
 function mort_attack()
 {
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		if (input_buffer_slap > 0)
 		{
@@ -215,7 +215,7 @@ function Mort_DownMovement()
 	{
 		with (playerid)
 		{
-			if character == "P"
+			if character == characters.Peppino
 			{
 				doublejump = false;
 				vsp = -14;

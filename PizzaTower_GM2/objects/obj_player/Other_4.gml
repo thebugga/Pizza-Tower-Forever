@@ -48,7 +48,7 @@ with (obj_secretportal)
 		}
 	}
 }
-if (!is_bossroom())
+if (!in_bossRoom)
 {
 	hitstunned = 0;
 }
@@ -307,4 +307,9 @@ if (state == states.chainsaw)
 	hitX = x;
 	hitY = y;
 	hitLag = 0;
+}
+
+with (obj_pizzaface)
+{
+	event_perform(ev_other, ev_room_start);	
 }

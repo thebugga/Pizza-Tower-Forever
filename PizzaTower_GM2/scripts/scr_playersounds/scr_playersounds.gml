@@ -85,7 +85,7 @@ function scr_playersounds()
 		{
 			fmod_event_instance_stop(freefallsnd, true);
 		}
-		if ((character == "N" && (state == states.mach2 || state == states.mach3 || state == states.climbwall)) || (state == states.rocket && sprite_index != spr_rocketstart))
+		if ((character == characters.Noise && (state == states.mach2 || state == states.mach3 || state == states.climbwall)) || (state == states.rocket && sprite_index != spr_rocketstart))
 		{
 			fmod_event_instance_set_paused(machsnd, false);
 			if (!fmod_event_instance_is_playing(machsnd))
@@ -133,7 +133,7 @@ function scr_playersounds()
 			fmod_event_instance_stop(knightslidesnd, true);
 		}
 		var sjumpsnd = superjumpsnd;
-		if (character == "P")
+		if (character == characters.Peppino)
 		{
 			if (state == states.Sjumpprep)
 			{
@@ -348,7 +348,7 @@ function scr_playersounds()
 		{
 			fmod_event_instance_stop(ratmountgroundpoundsnd, true);
 		}
-		if (state == states.animatronic && character == "P")
+		if (state == states.animatronic && character == characters.Peppino)
 		{
 			if (!fmod_event_instance_is_playing(animatronicsnd))
 			{
@@ -431,7 +431,7 @@ function scr_playersounds()
 				fmod_event_instance_set_parameter(pizzapeppersnd, "state", 1, true);
 			}
 		}
-		if (state == states.ghost && sprite_index != spr_ghostidle && sprite_index != spr_ghostjump && (character == "N" || ghostdash))
+		if (state == states.ghost && sprite_index != spr_ghostidle && sprite_index != spr_ghostjump && (character == characters.Noise || ghostdash))
 		{
 			if (!fmod_event_instance_is_playing(ghostspeedsnd))
 			{
@@ -457,7 +457,7 @@ function scr_playersounds()
 		{
 			fmod_event_instance_stop(ghostspeedsnd, false);
 		}
-		if (character == "N")
+		if (character == characters.Noise)
 		{
 			if (sprite_index == spr_playerN_minigunshoot || sprite_index == spr_playerN_minigundown)
 			{

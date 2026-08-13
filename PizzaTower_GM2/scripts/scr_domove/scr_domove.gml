@@ -89,7 +89,7 @@ function scr_dograb()
 		movespeed = 8;
 		image_index = 0;
 	}
-	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "N"))
+	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == characters.Noise))
 	{
 		scr_douppercut();
 	}
@@ -115,7 +115,7 @@ function scr_douppercut()
 	}
 	particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 	create_particle(x, y, particletypes.highjumpcloud2, 0);
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		repeat (4)
 		{

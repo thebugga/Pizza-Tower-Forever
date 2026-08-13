@@ -34,4 +34,4 @@ switch (state)
 		}
 		break;
 }
-scr_collide();
+scr_collision();

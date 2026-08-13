@@ -3,7 +3,7 @@ if (state == states.stun)
 {
 	if (!scr_solid(x, y))
 	{
-		scr_collide();
+		scr_collision();
 	}
 	else
 	{

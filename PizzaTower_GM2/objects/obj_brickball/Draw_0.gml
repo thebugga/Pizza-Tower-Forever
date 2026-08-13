@@ -1,4 +1,4 @@
-if (obj_player1.character == "P")
+if (obj_player1.character == characters.Peppino)
 {
 	shader_set(global.Pal_Shader);
 	pal_swap_set(spr_ratmountpalette, obj_player1.paletteselect, false);

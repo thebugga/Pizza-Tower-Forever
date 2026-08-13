@@ -21,7 +21,7 @@ steppybuffer = 0;
 
 get_character_spr = function()
 {
-	var palinfo = character == "P" ? get_pep_palette_info() : get_noise_palette_info();
+	var palinfo = character == characters.Peppino ? get_pep_palette_info() : get_noise_palette_info();
 	paletteselect = palinfo.paletteselect;
 	patterntexture = palinfo.patterntexture;
 	taunttimer = 0;
@@ -30,7 +30,7 @@ get_character_spr = function()
 	instance_destroy(tauntID);
 	tauntID = noone;
 	scr_characterspr();
-	if (character == "P")
+	if (character == characters.Peppino)
 	{
 		spr_palette = spr_peppalette;
 		spr_idle = spr_player_idle;

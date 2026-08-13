@@ -31,7 +31,7 @@ else if (state == 2)
 			{
 				animatronic = other.animatronic_buffer;
 			}
-			if character == "P"
+			if character == characters.Peppino
 			{
 				instance_create(x, y, obj_noiseanimatroniceffect);
 			}

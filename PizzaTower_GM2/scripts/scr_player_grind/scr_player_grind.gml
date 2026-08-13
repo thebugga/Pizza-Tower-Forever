@@ -24,7 +24,7 @@ function scr_player_grind()
 	}
 	if (place_meeting(x + xscale, y, obj_solid) && !place_meeting(x, y + 18, obj_grindrailslope) && !place_meeting(x, y + 1, obj_slope))
 	{
-		if character == "P"
+		if character == characters.Peppino
 		{
 			state = states.bump;
 			hsp = -xscale * 5;
@@ -35,7 +35,7 @@ function scr_player_grind()
 			xscale *= -1;
 		}
 	}
-	if (character == "N" && key_down)
+	if (character == characters.Noise && key_down)
 	{
 		ignore_grind = true;
 		state = states.mach2;

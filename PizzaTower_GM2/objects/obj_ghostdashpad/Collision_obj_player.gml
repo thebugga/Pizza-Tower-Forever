@@ -2,7 +2,7 @@ with (other)
 {
 	if ((state == states.ghost || (state == states.chainsaw && tauntstoredstate == states.ghost)) && other.visible == true)
 	{
-		if character == "P"
+		if character == characters.Peppino
 		{
 			ghostdash = true;
 		}

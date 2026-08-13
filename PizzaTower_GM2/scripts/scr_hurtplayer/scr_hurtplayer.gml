@@ -13,7 +13,7 @@ function scr_hurtplayer(_player)
 		else if (state == states.ratmounthurt || state == states.duel || state == states.supergrab || state == states.phase2transition || state == states.parry || instance_exists(obj_vigilante_duelintro) || state == states.taxi || state == states.spaceshuttle || state == states.tube || state == states.debugstate || state == states.golf || state == states.slipbanan)
 		{
 		}
-		else if (global.noisejetpack == true && (character == "P" || noisepizzapepper))
+		else if (global.noisejetpack == true && (character == characters.Peppino || noisepizzapepper))
 		{
 		}
 		else if (holycross > 0 || invtime > 0)
@@ -343,7 +343,7 @@ function scr_hurtplayer(_player)
 				{
 					tv_do_expression(spr_tv_hurtG);
 				}
-				if character == "P"
+				if character == characters.Peppino
 				{
 					hurtTV = choose(spr_tv_exprhurt1, spr_tv_exprhurt2, spr_tv_exprhurt3, spr_tv_exprhurt4, spr_tv_exprhurt5, spr_tv_exprhurt6, spr_tv_exprhurt7, spr_tv_exprhurt8, spr_tv_exprhurt9, spr_tv_exprhurt10);
 				}
@@ -382,9 +382,9 @@ function scr_hurtplayer(_player)
 				}
 				else
 				{
-					tv_do_expression(character == "N" ? spr_tv_exprhurt : spr_tv_exprhurtN, false, true);
+					tv_do_expression(character == characters.Noise ? spr_tv_exprhurt : spr_tv_exprhurtN, false, true);
 				}
-				if (character == "N")
+				if (character == characters.Noise)
 				{
 					hurtTV = choose(spr_tv_exprhurt1, spr_tv_exprhurt2, spr_tv_exprhurt3, spr_tv_exprhurt4, spr_tv_exprhurt5, spr_tv_exprhurt6, spr_tv_exprhurt7, spr_tv_exprhurt8, spr_tv_exprhurt9, spr_tv_exprhurt10);
 				}
@@ -407,7 +407,7 @@ function scr_hurtplayer(_player)
 					{
 						txt = lang_get_value("gustavohurt");
 					}
-					if (character == "N")
+					if (character == characters.Noise)
 					{
 						txt = lang_get_value("noisehurt");
 					}
@@ -416,7 +416,7 @@ function scr_hurtplayer(_player)
 				{
 					txt = lang_get_value("gustavohurt");
 				}
-				else if character == "P"
+				else if character == characters.Peppino
 				{
 					txt = lang_get_value("noisehurt");
 				}
@@ -444,7 +444,7 @@ function scr_hurtplayer(_player)
 				}
 				if (global.collect != 0)
 				{
-					if (character == "P" || character == "V")
+					if (character == characters.Peppino || character == "V")
 					{
 						repeat (10)
 						{

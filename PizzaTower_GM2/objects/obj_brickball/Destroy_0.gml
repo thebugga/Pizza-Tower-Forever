@@ -1,4 +1,4 @@
-if (obj_player1.character == "P")
+if (obj_player1.character == characters.Peppino)
 {
 	with (instance_create(x, y, obj_brickcomeback))
 	{

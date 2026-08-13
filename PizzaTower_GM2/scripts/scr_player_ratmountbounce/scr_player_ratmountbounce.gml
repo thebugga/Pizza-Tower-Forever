@@ -1,6 +1,6 @@
 function scr_player_ratmountbounce()
 {
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		isgustavo = false;
 		scr_player_noisecrusher();

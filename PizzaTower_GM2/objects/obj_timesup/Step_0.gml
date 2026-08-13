@@ -10,4 +10,4 @@ else
 {
 	image_speed = 0;
 }
-scr_collide();
+scr_collision();

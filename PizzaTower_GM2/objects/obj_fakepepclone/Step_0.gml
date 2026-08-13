@@ -64,5 +64,5 @@ else
 {
 	grav = 0.5;
 }
-scr_collide();
+scr_collision();
 scr_fakepep_update_sounds();

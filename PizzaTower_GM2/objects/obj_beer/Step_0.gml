@@ -14,4 +14,4 @@ if (grounded && vsp > 0 && hit)
 {
 	instance_destroy();
 }
-scr_collide();
+scr_collision();

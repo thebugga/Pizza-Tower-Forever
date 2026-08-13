@@ -1,4 +1,4 @@
-if (is_bossroom() || instance_exists(obj_achievementviewer) || room == tower_soundtestlevel || room == tower_peppinohouse)
+if (in_bossRoom || instance_exists(obj_achievementviewer) || room == tower_soundtestlevel || room == tower_peppinohouse)
 {
 	exit;
 }

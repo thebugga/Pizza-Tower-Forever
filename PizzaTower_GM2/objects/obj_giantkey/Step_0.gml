@@ -4,4 +4,4 @@ if (grounded && bounce == false)
 	alarm[1] = 40;
 	bounce = true;
 }
-scr_collide();
+scr_collision();

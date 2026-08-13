@@ -40,13 +40,13 @@ create_command("CHANGE_CHARACTER", [], function()
 {
 	with (obj_player1)
 	{
-		if (character == "P")
+		if (character == characters.Peppino)
 		{
-			character = "N";
+			character = characters.Noise;
 		}
 		else
 		{
-			character = "P";
+			character = characters.Peppino;
 		}
 		scr_characterspr();
 	}
@@ -92,7 +92,7 @@ create_command("SWITCH CHAR", [["NOISE", "PEP"]], function(_char)
 {
 	with (obj_player1)
 	{
-		character = "P";
+		character = characters.Peppino;
 		if (_char == "NOISE")
 		{
 			ispeppino = false;

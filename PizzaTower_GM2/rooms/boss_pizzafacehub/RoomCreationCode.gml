@@ -1,4 +1,4 @@
-pal_swap_init_system(shd_pal_swapper);
+
 notification_push(notifications.boss_defeated, [boss_pizzafacehub]);
 global.gameframe_caption_text = lang_get_value("caption_boss_pizzafacehub");
 ini_open_from_string(obj_savesystem.ini_str);
@@ -24,7 +24,7 @@ with (obj_player1)
 	sprite_index = spr_slipbanan2;
 	image_index = sprite_get_number(spr_slipbanan2) - 1;
 	image_speed = 0.35;
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		sprite_index = spr_playerN_bombend;
 		image_index = 0;

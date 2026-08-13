@@ -28,7 +28,6 @@ tv_trans = 0;
 tv_cooldown = 0;
 tv_x = SCREEN_WIDTH - 115;
 tv_y = 80;
-targetgolf = noone;
 special_prompts = noone;
 hud_posx = 0;
 hud_posY = 0;

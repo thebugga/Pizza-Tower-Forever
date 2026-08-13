@@ -37,7 +37,7 @@ function scr_player_punch()
 		else if (vsp < 0)
 		{
 			punch_afterimage = 5;
-			if (character == "N")
+			if (character == characters.Noise)
 			{
 				with (instance_create(x, y, obj_explosioneffect))
 				{
@@ -57,8 +57,8 @@ function scr_player_punch()
 	{
 		switch (character)
 		{
-			case "P":
-			case "N":
+			case characters.Peppino:
+			case characters.Noise:
 				move = key_left + key_right;
 				landAnim = true;
 				jumpstop = false;

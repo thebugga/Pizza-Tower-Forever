@@ -12,7 +12,7 @@ switch (state)
 		}
 		ds_list_clear(global.instancelist);
 		instance_destroy(instance_place(x, y + vsp + 1, obj_metalblock));
-		scr_collide();
+		scr_collision();
 		if (grounded)
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);

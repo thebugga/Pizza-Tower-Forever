@@ -2,7 +2,6 @@ state = states.normal;
 detach = false;
 detachedby = -1;
 follow_golf = false;
-targetgolf = noone;
 camzoom = 1;
 max_zoom = 100;
 targetzoom = 1;

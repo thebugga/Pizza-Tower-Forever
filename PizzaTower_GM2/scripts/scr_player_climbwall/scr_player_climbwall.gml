@@ -45,7 +45,7 @@ function scr_player_climbwall()
 			wallspeed = 6;
 		}
 		sprite_index = spr_player_clownwallclimb;
-		if (character == "N")
+		if (character == characters.Noise)
 		{
 			sprite_index = spr_playerN_clownwallclimb;
 		}
@@ -110,7 +110,7 @@ function scr_player_climbwall()
 	{
 		wallspeed = 0;
 	}
-	if (character == "N" && !skateboarding)
+	if (character == characters.Noise && !skateboarding)
 	{
 		with (instance_create(x, y, obj_noiseeffect))
 		{

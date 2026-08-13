@@ -12,7 +12,7 @@ if (state == states.tube)
 				other.stored_spd = 1;
 			}
 			var ms = other.movespeed;
-			if (character == "N")
+			if (character == characters.Noise)
 			{
 				ms += 5;
 			}

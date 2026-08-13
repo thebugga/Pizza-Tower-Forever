@@ -102,7 +102,7 @@ var exit_function = function()
 		arr = ["menugroup"];
 		with (obj_player1)
 		{
-			character = "P";
+			character = characters.Peppino;
 			ispeppino = true;
 			scr_characterspr();
 		}

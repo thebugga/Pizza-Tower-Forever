@@ -31,7 +31,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_gatepizza_1",
+    "path":"sprites/spr_gatepizza_1/spr_gatepizza_1.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

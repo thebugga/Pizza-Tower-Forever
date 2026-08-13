@@ -1,5 +1,5 @@
 shader_set(global.Pal_Shader);
-if (character == "N")
+if (character == characters.Noise)
 {
 	spr_palette = spr_peppalette;
 }

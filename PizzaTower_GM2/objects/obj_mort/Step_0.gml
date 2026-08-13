@@ -11,4 +11,4 @@ if (ANIMATION_END && sprite_index == spr_mortland)
 {
 	sprite_index = spr_mortidle;
 }
-scr_collide();
+scr_collision();

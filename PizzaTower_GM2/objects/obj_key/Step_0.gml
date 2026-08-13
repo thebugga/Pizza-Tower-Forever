@@ -11,4 +11,4 @@ if (inv_frame == false)
 {
 	image_alpha = 1;
 }
-scr_collide();
+scr_collision();

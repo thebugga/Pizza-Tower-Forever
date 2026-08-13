@@ -1,6 +1,6 @@
 function scr_player_balloon()
 {
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		image_speed = 0.35;
 		hsp = movespeed;

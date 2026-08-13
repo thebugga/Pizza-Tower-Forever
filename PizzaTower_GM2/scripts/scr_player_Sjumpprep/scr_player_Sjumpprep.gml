@@ -68,7 +68,7 @@ function scr_player_Sjumpprep()
 		state = states.Sjump;
 		vsp = -17;
 		image_index = 0;
-		if (character == "N")
+		if (character == characters.Noise)
 		{
 			scr_fmod_soundeffect(snd_noiseSjumprelease, x, y);
 		}

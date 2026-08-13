@@ -19,7 +19,7 @@ else if (!_index)
 {
 	steppy = false;
 }
-scr_collide();
+scr_collision();
 if (sprite_index == spr_brickchase)
 {
 	if (!fmod_event_instance_is_playing(sniffsnd))

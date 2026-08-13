@@ -1,6 +1,6 @@
 function scr_player_rocketslide()
 {
-	if (character == "N")
+	if (character == characters.Noise)
 	{
 		if (image_speed == 0)
 		{

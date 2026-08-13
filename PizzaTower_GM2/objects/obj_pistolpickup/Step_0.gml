@@ -1,4 +1,4 @@
-scr_collide();
+scr_collision();
 if (grounded && vsp > 0)
 {
 	hsp = Approach(hsp, 0, 0.5);

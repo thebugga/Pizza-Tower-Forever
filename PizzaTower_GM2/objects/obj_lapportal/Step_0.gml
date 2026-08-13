@@ -16,7 +16,7 @@ if ((global.panic || instance_exists(obj_wartimer)) && sprite_index != spr_pizza
 				state = states.actor;
 				visible = false;
 				other.sprite_index = spr_pizzaportalend;
-				if (character == "N")
+				if (character == characters.Noise)
 				{
 					other.sprite_index = spr_pizzaportalendN;
 				}

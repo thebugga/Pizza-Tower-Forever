@@ -10,7 +10,7 @@ function scr_player_barrelslide()
 		image_speed = 0.85;
 	}
 	hsp = movespeed;
-	if character == "P"
+	if character == characters.Peppino
 	{
 		if (abs(movespeed) < 14)
 		{
@@ -95,7 +95,7 @@ function scr_player_barrelslide()
 			}
 			state = states.barrelclimbwall;
 			movespeed = 0;
-			if (character == "N")
+			if (character == characters.Noise)
 			{
 				wallspeed = abs(vsp);
 			}

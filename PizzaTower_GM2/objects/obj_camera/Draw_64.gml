@@ -1,5 +1,5 @@
 draw_set_alpha(1);
-if (is_bossroom() || instance_exists(obj_tutorialbook))
+if (in_bossRoom || instance_exists(obj_tutorialbook))
 {
 	exit;
 }

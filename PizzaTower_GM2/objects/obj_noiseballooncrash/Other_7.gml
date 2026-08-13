@@ -1,5 +1,5 @@
 instance_destroy();
-if (obj_player1.character == "P")
+if (obj_player1.character == characters.Peppino)
 {
 	fmod_event_one_shot("event:/sfx/noise/giantballoon2");
 }

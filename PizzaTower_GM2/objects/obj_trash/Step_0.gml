@@ -74,13 +74,13 @@ switch (state)
 					movespeed = 0;
 					state = states.trashjump;
 					vsp = -25;
-					if (character == "N")
+					if (character == characters.Noise)
 					{
 						create_transformation_tip(lang_get_value("trashrolltipN"), "trashrollN");
 					}
 					fmod_event_one_shot_3d("event:/sfx/misc/trashjump2", x, y + vsp);
 					instance_create(x, y, obj_speedlinesup);
-					if (character == "N")
+					if (character == characters.Noise)
 					{
 						sprite_index = spr_playerN_trash;
 						repeat (3)
@@ -103,4 +103,4 @@ switch (state)
 		}
 		break;
 }
-scr_collide();
+scr_collision();

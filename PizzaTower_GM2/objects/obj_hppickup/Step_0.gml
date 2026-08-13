@@ -1,4 +1,4 @@
-scr_collide();
+scr_collision();
 if (!obj_player1.ispeppino)
 {
 	sprite_index = spr_bossfight_noiseHP;

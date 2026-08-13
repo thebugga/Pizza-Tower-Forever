@@ -3,7 +3,7 @@ if (place_meeting(x + sign(hsp), y, obj_solid))
 {
 	instance_destroy();
 }
-scr_collide();
+scr_collision();
 if (playerid != noone)
 {
 	with (playerid)

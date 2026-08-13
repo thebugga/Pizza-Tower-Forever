@@ -1,8 +1,8 @@
-function get_savefile_ini(_character = "P")
+function get_savefile_ini(_character = characters.Peppino)
 {
 	if (global.swapmode)
 	{
-		_character = false;
+		_character = characters.Noise;
 	}
-	return concat("saveData", global.currentsavefile, _character == "P" ? "" : _character, ".ini");
+	return concat("saveData", global.currentsavefile, global.charPrefix[_character], ".ini");
 }

@@ -174,7 +174,7 @@ if (grabbed == true && !ratgrabbed)
 	}
 	if (playerid.state == states.superslam)
 	{
-		if (playerid.character == "P")
+		if (playerid.character == characters.Peppino)
 		{
 			if (floor(playerid.image_index) == 0)
 			{
@@ -251,7 +251,7 @@ if (vsp > 0 && grounded && !place_meeting(x, y, obj_spike))
 }
 if (grabbed == false && ratgrabbed == false && use_collision)
 {
-	scr_collide();
+	scr_collision();
 }
 if (place_meeting(x, y, obj_swordhitbox) && thrown == false)
 {

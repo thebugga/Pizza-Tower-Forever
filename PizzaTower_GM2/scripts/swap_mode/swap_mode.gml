@@ -1,4 +1,4 @@
-global.swap_character = "N";
+global.swap_character = characters.Noise;
 function swap_is_player2()
 {
 	return global.swapmode && obj_player1.character != obj_savesystem.character;
@@ -28,7 +28,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 			global.swap_boss_damage = -1;
 		}
 		state = states.normal;
-		if (character == "P")
+		if (character == characters.Peppino)
 		{
 			if (isgustavo)
 			{
@@ -47,7 +47,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 		var _char = character;
 		character = global.swap_character;
 		global.swap_character = _char;
-		if (character != "N")
+		if (character != characters.Noise)
 		{
 			if (noisecrusher)
 			{
@@ -59,7 +59,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 				global.noisejetpack = false;
 			}
 		}
-		if (character == "N")
+		if (character == characters.Noise)
 		{
 			tauntstoredisgustavo = false;
 		}
@@ -68,7 +68,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 		pistolchargeshooting = false;
 		pistolanim = noone;
 		global.pistol = false;
-		if ((character == "P" && (room == boss_vigilante || instance_exists(obj_pizzafaceboss_p2))) || (instance_exists(obj_bosscontroller) && character == "N"))
+		if ((character == characters.Peppino && (room == boss_vigilante || instance_exists(obj_pizzafaceboss_p2))) || (instance_exists(obj_bosscontroller) && character == characters.Noise))
 		{
 			global.pistol = true;
 		}
@@ -79,7 +79,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 			{
 				global.noisejetpack = true;
 			}
-			else if (character == "N" && room == freezer_secret3)
+			else if (character == characters.Noise && room == freezer_secret3)
 			{
 				global.noisejetpack = true;
 			}
@@ -122,7 +122,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 			if (character == obj_player1.character)
 			{
 				character = global.swap_character;
-				if (obj_player1.character == "N" && obj_player1.noisecrusher)
+				if (obj_player1.character == characters.Noise && obj_player1.noisecrusher)
 				{
 					isgustavo = true;
 				}
@@ -138,7 +138,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 				{
 					idleanim = 60;
 				}
-				sprite_index = other.character == "P" ? spr_tv_idle : spr_tv_idleN;
+				sprite_index = other.character == characters.Peppino ? spr_tv_idle : spr_tv_idleN;
 				if (sprite_index == spr_tv_idle && other.isgustavo)
 				{
 					sprite_index = spr_tv_idleG;

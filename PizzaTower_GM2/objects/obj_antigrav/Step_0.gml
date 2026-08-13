@@ -1,6 +1,6 @@
 if (use_collision)
 {
-	scr_collide();
+	scr_collision();
 }
 if (sprite_index == spr_antigrav_activate && ANIMATION_END)
 {

@@ -18,7 +18,7 @@ function scr_playerreset(_stop_music = true)
 {
 	trace("playerreset");
 	global.lap = false;
-	if (room != boss_pizzaface && room != boss_noise && room != boss_pepperman && room != boss_fakepep && room != boss_vigilante)
+	if (in_bossRoom)
 	{
 		global.bossintro = false;
 	}
@@ -267,7 +267,6 @@ function scr_playerreset(_stop_music = true)
 		ghosteffect = 0;
 		ghostbump = 1;
 		ghostbumpbuffer = -1;
-		obj_camera.targetgolf = noone;
 		obj_player.supercharge = 0;
 		obj_player.supercharged = false;
 		pistol = false;

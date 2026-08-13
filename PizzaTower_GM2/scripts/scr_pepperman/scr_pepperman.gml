@@ -119,7 +119,7 @@ function scr_pepperman_arenaintro()
 			xscale = -other.image_xscale;
 			if (other.sprite_index == spr_pepperman_intro1)
 			{
-				if character == "P"
+				if character == characters.Peppino
 				{
 					sprite_index = spr_player_gnomecutscene1;
 				}
@@ -160,7 +160,7 @@ function scr_pepperman_arenaintro()
 			with (obj_player)
 			{
 				image_index = 0;
-				if character == "P"
+				if character == characters.Peppino
 				{
 					sprite_index = spr_player_gnomecutscene2;
 				}
@@ -177,7 +177,7 @@ function scr_pepperman_arenaintro()
 			fmod_event_one_shot_3d("event:/sfx/voice/peppermanlaugh", x, y);
 			with (obj_player1)
 			{
-				if character == "P"
+				if character == characters.Peppino
 				{
 					fmod_event_one_shot("event:/sfx/pep/screamboss");
 					sprite_index = spr_player_gnomecutscene3;
@@ -206,7 +206,7 @@ function scr_pepperman_arenaintro()
 					spotlightID.expand = true;
 					with (obj_player1)
 					{
-						if character == "P"
+						if character == characters.Peppino
 						{
 							sprite_index = spr_player_screamtransition;
 							image_index = 0;
