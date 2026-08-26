@@ -1,7 +1,7 @@
 {
   "resourceType": "GMProject",
   "resourceVersion": "1.6",
-  "name": "PizzaTower_GM2",
+  "name": "PizzaTower_Eggspansion_GM2",
   "resources": [
     {"id":{"name":"tdp_input","path":"scripts/tdp_input/tdp_input.yy",},"order":0,},
     {"id":{"name":"obj_noisecredit","path":"objects/obj_noisecredit/obj_noisecredit.yy",},"order":0,},
