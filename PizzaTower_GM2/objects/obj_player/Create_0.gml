@@ -117,6 +117,7 @@ ispeppino = true;
 isgustavo = false;
 jumped = true;
 scr_collision_init();
+terminalVelocity = 20;
 rocketvsp = 0;
 sticking = false;
 platformid = noone;

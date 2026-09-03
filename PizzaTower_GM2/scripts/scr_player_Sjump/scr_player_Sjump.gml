@@ -41,10 +41,6 @@ function scr_player_Sjump()
 		vsp = sjumpvsp;
 	}
 	sjumpvsp -= 0.1;
-	if (character == "V" && image_index > 3)
-	{
-		vsp = -11;
-	}
 	//if (sprite_index == spr_player_supersidejump)
 	//{
 	//	if (a < 25)

@@ -13,6 +13,11 @@ function scr_getchar_sprite(_sprite, _char = character, _prefix = "spr_player")
 	_spr = string_delete(_spr, 0, string_length(_prefix) + 1);
 	_spr = concat(_prefix, global.charPrefix[_char], "_", _spr);
 	
+	if (!sprite_exists(asset_get_index(_spr)))
+	{
+		show_message(_spr);
+	}
+	
 	_spr = asset_get_index(_spr);
 	
 	return sprite_exists(_spr) ? _spr : _sprite;	
@@ -35,7 +40,7 @@ function scr_characterspr()
 		spr_crouch = spr_player_crouch;
 		spr_crouchjump = spr_player_crouchjump;
 		spr_crouchfall = spr_player_crouchfall;
-		spr_couchstart = spr_player_couchstart;
+		spr_crouchstart = spr_player_couchstart;
 		spr_bump = spr_player_bump;
 		spr_land = spr_player_land;
 		spr_land2 = spr_player_land2;
@@ -289,7 +294,7 @@ function scr_characterspr()
 		spr_crouch = spr_playerN_crouch;
 		spr_crouchjump = spr_playerN_crouchjump;
 		spr_crouchfall = spr_playerN_crouchfall;
-		spr_couchstart = spr_playerN_crouchstart;
+		spr_crouchstart = spr_playerN_crouchstart;
 		spr_bump = spr_playerN_bump;
 		spr_land = spr_playerN_land;
 		spr_land2 = spr_playerN_land2;
@@ -555,7 +560,7 @@ function scr_characterspr()
 	spr_crouch = scr_getchar_sprite(spr_player_crouch);
 	spr_crouchjump = scr_getchar_sprite(spr_player_crouchjump);
 	spr_crouchfall = scr_getchar_sprite(spr_player_crouchfall);
-	spr_couchstart = scr_getchar_sprite(spr_player_couchstart);
+	spr_crouchstart = scr_getchar_sprite(spr_player_crouchstart);
 	spr_bump = scr_getchar_sprite(spr_player_bump);
 	spr_land = scr_getchar_sprite(spr_player_land);
 	spr_land2 = scr_getchar_sprite(spr_player_land2);

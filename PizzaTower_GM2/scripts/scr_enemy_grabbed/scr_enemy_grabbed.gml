@@ -490,49 +490,6 @@ function scr_enemy_grabbed()
 			}
 		}
 	}
-	if (pepperman_grab)
-	{
-		var _player = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
-		image_xscale = _player.xscale;
-		if (!thrown)
-		{
-			x = _player.x;
-			y = _player.y - 60;
-		}
-		if (_player.key_attack && !_player.key_up)
-		{
-			alarm[1] = 5;
-			thrown = true;
-			x = _player.x;
-			y = _player.y - 10;
-			state = states.stun;
-			hsp = image_xscale * 30;
-			vsp = -6;
-			_player.sprite_index = spr_pepperman_throw;
-			_player.image_index = 0;
-			_player.pepperman_grabID = noone;
-		}
-		if (_player.key_attack && _player.key_up)
-		{
-			alarm[1] = 5;
-			thrown = true;
-			x = _player.x;
-			y = _player.y - 10;
-			check_grabbed_solid(_player);
-			state = states.stun;
-			hsp = image_xscale * 2;
-			vsp = -20;
-			_player.sprite_index = spr_pepperman_throw;
-			_player.image_index = 0;
-			_player.pepperman_grabID = noone;
-		}
-		if (_player.state != states.normal && _player.state != states.jump)
-		{
-			_player.pepperman_grabID = noone;
-			state = states.stun;
-			pepperman_grab = false;
-		}
-	}
 	sprite_index = stunfallspr;
 	image_speed = 0.35;
 }

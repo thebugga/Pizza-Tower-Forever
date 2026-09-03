@@ -8,7 +8,7 @@ function baddiecollisionbox_update(_baddie)
 			var _stagger = false;
 			if (instance_exists(other.baddieID) && instakillmove == true && other.baddieID.state != states.grabbed && other.baddieID.thrown == false && !other.baddieID.invincible && other.baddieID.instantkillable)
 			{
-				if (state == states.mach3 && sprite_index != spr_mach3hit && (character == characters.Peppino || character == "V"))
+				if (state == states.mach3 && sprite_index != spr_mach3hit)
 				{
 					if (fightball == false)
 					{
@@ -52,12 +52,7 @@ function baddiecollisionbox_update(_baddie)
 						_destroy = true;
 					}
 				}
-				if (character == "M" && state == states.freefall)
-				{
-					vsp = -11;
-					state = states.jump;
-					sprite_index = spr_jump;
-				}
+				
 				if (_destroy)
 				{
 					if (other.baddieID.elite && other.baddieID.elitehit > 0)
@@ -94,14 +89,7 @@ function baddiecollisionbox_update(_baddie)
 				}
 			}
 			var pepp_grab = false;
-			if (character == "M" && instance_exists(other.baddieID) && (state == states.normal || state == states.jump) && state != states.pummel && pepperman_grabID == noone && sprite_index != spr_pepperman_throw && other.baddieID.state == states.staggered && other.baddieID.state != states.pummel && other.baddieID.state != states.stun && other.baddieID.stuntouchbuffer == 0 && !other.baddieID.thrown && !other.baddieID.invincible)
-			{
-				other.baddieID.pepperman_grab = true;
-				pepperman_grabID = other.baddieID.id;
-				other.baddieID.state = states.grabbed;
-				other.baddieID.grabbedby = (object_index == obj_player1) ? 1 : 2;
-				pepp_grab = true;
-			}
+			
 			if (instance_exists(other.baddieID) && y < other.baddieID.y && attacking == false && sprite_index != spr_player_mach2jump && (state == states.jump || state == states.mach1 || state == states.grab) && vsp > 0 && other.baddieID.vsp >= 0 && sprite_index != spr_stompprep && !other.baddieID.invincible && other.baddieID.stompable)
 			{
 				if (x != other.baddieID.x)

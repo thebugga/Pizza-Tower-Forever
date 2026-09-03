@@ -61,5 +61,6 @@ function scr_player_cheesepepjump()
 		sprite_index = spr_cheesepepland;
 		image_index = 0;
 		movespeed = abs(movespeed);
+		jumpstop = false;
 	}
 }

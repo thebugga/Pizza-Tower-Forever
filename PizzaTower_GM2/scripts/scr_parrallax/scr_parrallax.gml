@@ -39,3 +39,22 @@ function calculate_parrallax_still_y(_layer, _intensity)
 	r = max(r, 0);
 	return r;
 }
+
+function parallaxLayer(_name, _intensity, _depth = undefined, _func = -4) constructor
+{
+	layerName = _name;
+	
+	intensity = is_array(_intensity) ? {
+		x : _intensity[0],	
+		y : _intensity[1]
+	} : _intensity;
+	
+	func = _func;
+	
+	x = 0;
+	y = 0;
+	hspeed = 0;
+	vspeed = 0;
+	
+	depth = _depth;
+}

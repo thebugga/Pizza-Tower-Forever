@@ -3,6 +3,7 @@ function scr_player_cheesepep()
 	key_particles = false;
 	mach2 = 0;
 	momemtum = false;
+	jumpstop = false;
 	alarm[5] = 2;
 	alarm[7] = 60;
 	move = key_left + key_right;

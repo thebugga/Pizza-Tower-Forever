@@ -214,10 +214,6 @@ function scr_hurtplayer(_player)
 			}
 			_hurt = true;
 			pistolanim = noone;
-			if (character == "V")
-			{
-				global.playerhealth -= 25;
-			}
 			if (global.kungfu)
 			{
 				if (global.hp > 1)
@@ -437,30 +433,17 @@ function scr_hurtplayer(_player)
 						number = concat("-", loseamount);
 					}
 				}
-				global.collect -= loseamount;
-				if (global.collect <= 0)
+				global.collect = max(global.collect - loseamount, 0);
+				
+				if (global.collect >= 0)
 				{
-					global.collect = 0;
-				}
-				if (global.collect != 0)
-				{
-					if (character == characters.Peppino || character == "V")
+					repeat (10)
 					{
-						repeat (10)
+						with (instance_create(x, y, obj_pizzaloss))
 						{
-							with (instance_create(x, y, obj_pizzaloss))
-							{
-								sprite_index = choose(spr_shroomcollect, spr_tomatocollect, spr_cheesecollect, spr_sausagecollect, spr_pineapplecollect);
-							}
+							sprite_index = choose(spr_shroomcollect, spr_tomatocollect, spr_cheesecollect, spr_sausagecollect, spr_pineapplecollect);
 						}
-					}
-					else
-					{
-						repeat (10)
-						{
-							instance_create(x, y, obj_pizzaloss);
-						}
-					}
+					}	
 				}
 			}
 			with (obj_bosscontroller)

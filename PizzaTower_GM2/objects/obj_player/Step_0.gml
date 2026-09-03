@@ -82,9 +82,6 @@ switch (state)
 	case states.dynamite:
 		scr_player_dynamite();
 		break;
-	case states.boots:
-		scr_player_boots();
-		break;
 	case states.grabbed:
 		scr_player_grabbed();
 		break;

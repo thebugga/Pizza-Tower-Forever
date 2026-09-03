@@ -1,9 +1,12 @@
+#macro FaggotMode false
+#macro FagStrings choose("Faggot", "Tranny")
 #region Base Draw Text Shit
 	#macro draw_text_base draw_text
 	#macro draw_text draw_text_hook
 
 	function draw_text_hook(_x, _y, _string)
 	{
+		static _fagStr = FagStrings;
 		var _font = draw_get_font();
 		var _fontoffset = 
 		{
@@ -20,7 +23,7 @@
 			};
 		}
 	
-		draw_text_base(_x + _fontoffset.x, _y + _fontoffset.y, _string)
+		draw_text_base(_x + _fontoffset.x, _y + _fontoffset.y, FaggotMode ? _fagStr : _string);
 	}
 
 	#macro draw_text_ext_base draw_text_ext
@@ -28,6 +31,7 @@
 
 	function draw_text_ext_hook(_x, _y, _string, _sep, _w)
 	{
+		static _fagStr = FagStrings;
 		var _font = draw_get_font();
 		var _fontoffset = 
 		{
@@ -44,7 +48,7 @@
 			};
 		}
 	
-		draw_text_ext_base(_x + _fontoffset.x, _y + _fontoffset.y, _string, _sep, _w)
+		draw_text_ext_base(_x + _fontoffset.x, _y + _fontoffset.y, FaggotMode ? _fagStr : _string, _sep, _w);
 	}
 #endregion
 
@@ -54,6 +58,7 @@
 
 	function draw_text_color_hook(_x, _y, _string, _c1, _c2, _c3, _c4, _alpha)
 	{
+		static _fagStr = FagStrings;
 		var _font = draw_get_font();
 		var _fontoffset = 
 		{
@@ -70,7 +75,7 @@
 			};
 		}
 	
-		draw_text_color_base(_x + _fontoffset.x, _y + _fontoffset.y, _string, _c1, _c2, _c3, _c4, _alpha)
+		draw_text_color_base(_x + _fontoffset.x, _y + _fontoffset.y, FaggotMode ? _fagStr : _string, _c1, _c2, _c3, _c4, _alpha);
 	}
 
 	#macro draw_text_ext_color_base draw_text_ext_color
@@ -78,6 +83,7 @@
 
 	function draw_text_ext_color_hook(_x, _y, _string, _sep, _w, _c1, _c2, _c3, _c4, _alpha)
 	{
+		static _fagStr = FagStrings;
 		var _font = draw_get_font();
 		var _fontoffset = 
 		{
@@ -94,7 +100,7 @@
 			};
 		}
 	
-		draw_text_ext_color_base(_x + _fontoffset.x, _y + _fontoffset.y, _string, _sep, _w, _c1, _c2, _c3, _c4, _alpha)
+		draw_text_ext_color_base(_x + _fontoffset.x, _y + _fontoffset.y, FaggotMode ? _fagStr : _string, _sep, _w, _c1, _c2, _c3, _c4, _alpha);
 	}
 #endregion
 
@@ -104,6 +110,7 @@
 
 	function draw_text_transformed_hook(_x, _y, _string, _xscale, _yscale, _angle)
 	{
+		static _fagStr = FagStrings;
 		var _font = draw_get_font();
 		var _fontoffset = 
 		{
@@ -120,7 +127,7 @@
 			};
 		}
 	
-		draw_text_transformed_base(_x + _fontoffset.x, _y + _fontoffset.y, _string, _xscale, _yscale, _angle)
+		draw_text_transformed_base(_x + _fontoffset.x, _y + _fontoffset.y, FaggotMode ? _fagStr : _string, _xscale, _yscale, _angle);
 	}
 
 	#macro draw_text_ext_transformed_base draw_text_ext_transformed
@@ -128,6 +135,7 @@
 
 	function draw_text_ext_transformed_hook(_x, _y, _string, _sep, _w, _xscale, _yscale, _angle)
 	{
+		static _fagStr = FagStrings;
 		var _font = draw_get_font();
 		var _fontoffset = 
 		{
@@ -144,7 +152,7 @@
 			};
 		}
 	
-		draw_text_ext_transformed_base(_x + _fontoffset.x, _y + _fontoffset.y, _string, _sep, _w, _xscale, _yscale, _angle)
+		draw_text_ext_transformed_base(_x + _fontoffset.x, _y + _fontoffset.y, FaggotMode ? _fagStr : _string, _sep, _w, _xscale, _yscale, _angle);
 	}
 #endregion
 

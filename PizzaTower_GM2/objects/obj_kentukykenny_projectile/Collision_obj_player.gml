@@ -1,10 +1,6 @@
 with (other)
 {
-	if (character == "V")
-	{
-		scr_hurtplayer(object_index);
-	}
-	else if (scr_transformationcheck())
+	if (scr_transformationcheck())
 	{
 		if (state != states.firemouth && state != states.parry && hurted == false)
 		{

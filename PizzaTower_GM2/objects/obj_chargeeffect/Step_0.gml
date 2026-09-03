@@ -4,7 +4,7 @@ if (playerid.state != states.rocket && playerid.gusdashpadbuffer <= 0 && playeri
 	instance_destroy();
 }
 x = playerid.x + (((playerid.sprite_index == spr_player_Sjumpcancel) ? 20 : 0) * playerid.xscale);
-y = playerid.y - ((playerid.character == "M") ? 10 : 0);
+y = playerid.y - 0;
 if (playerid.state == states.rocket)
 {
 	x = playerid.x + (playerid.xscale * 18);

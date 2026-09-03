@@ -2,7 +2,7 @@ function scr_pistolshoot(_state, _enable_charge = false)
 {
 	if (character == characters.Noise)
 	{
-		scr_bombshoot();
+		scr_bombshoot(_state);
 		exit;
 	}
 	if (!_enable_charge && pistolchargeshooting)

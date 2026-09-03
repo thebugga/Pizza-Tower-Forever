@@ -201,10 +201,7 @@ if (DEBUG)
 		{
 			exit;
 		}
-		if (_combotime == undefined)
-		{
-			_combotime = 60;
-		}
+		_combotime ??= 60;
 		global.combo = real(_combo);
 		global.combotime = real(_combotime);
 		with (obj_player)

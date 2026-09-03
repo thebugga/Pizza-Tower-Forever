@@ -248,6 +248,7 @@ function scr_playerreset(_stop_music = true)
 	with (obj_player)
 	{
 		mort = false;
+		image_speed = 0.35;
 		noisepizzapepper = false;
 		goblinkey = false;
 		transformationsnd = false;

@@ -94,7 +94,7 @@ if (state == states.pizzagoblinthrow)
 		{
 			cooldown--;
 		}
-		else if (grounded || (place_meeting(x + sign(hsp), y, obj_solid) && !place_meeting(x + sign(hsp), y, obj_slope)))
+		else if (grounded || (place_meeting_collision(x + sign(hsp), y, Exclude.SLOPES)))
 		{
 			sprite_index = spr_badrat_attack2end;
 		}

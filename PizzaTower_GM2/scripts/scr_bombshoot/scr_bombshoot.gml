@@ -1,6 +1,6 @@
 function scr_bombshoot(_state)
 {
-	if (pistolcooldown <= 0 && state != states.bombthrow && state != states.punch && instance_number(obj_playerbomb) < 2)
+	if (pistolcooldown <= 0 && state == _state && instance_number(obj_playerbomb) < 2)
 	{
 		movespeed = -movespeed;
 		input_buffer_shoot = 0;

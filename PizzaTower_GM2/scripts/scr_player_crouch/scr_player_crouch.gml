@@ -61,7 +61,7 @@ function scr_player_crouch()
 		{
 			if (shotgunAnim == false)
 			{
-				sprite_index = spr_couchstart;
+				sprite_index = spr_crouchstart;
 			}
 			else
 			{
@@ -87,34 +87,6 @@ function scr_player_crouch()
 		image_index = 0;
 		crouchAnim = true;
 		jumpAnim = true;
-	}
-	if (key_shoot2 && character == "V" && !instance_exists(dynamite_inst))
-	{
-		if (move == 0)
-		{
-			movespeed = 0;
-		}
-		state = states.dynamite;
-		image_index = 0;
-		sprite_index = spr_playerV_dynamitethrow;
-		with (instance_create(x, y, obj_dynamite))
-		{
-			image_xscale = other.xscale;
-			movespeed = 0;
-			vsp = -6;
-			other.dynamite_inst = id;
-			playerid = other.id;
-		}
-	}
-	if (key_slap2 && character == "V")
-	{
-		if (move == 0)
-		{
-			movespeed = 0;
-		}
-		state = states.revolver;
-		image_index = 0;
-		sprite_index = spr_playerV_revolverstart;
 	}
 	image_speed = 0.45;
 }

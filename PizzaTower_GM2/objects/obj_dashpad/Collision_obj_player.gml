@@ -35,35 +35,26 @@ with (other)
 			}
 			vsp = 0;
 			create_particle(x, y, particletypes.jumpdust, 0);
-			if (character == characters.Peppino)
+			
+			if (sprite_index != spr_dashpadmach)
 			{
-				if (sprite_index != spr_dashpadmach)
-				{
-					sprite_index = spr_dashpadmach;
-					image_index = 0;
-				}
+				sprite_index = spr_dashpadmach;
+				image_index = 0;
 			}
-			else if (character == characters.Noise)
-			{
-				if (sprite_index != spr_crazyrun)
-				{
-					sprite_index = spr_crazyrun;
-					image_index = 0;
-				}
-			}
+			
 			scr_fmod_soundeffect(snd_dashpad, x, y);
 			machhitAnim = false;
 			state = states.mach3;
 			xscale = sign(other.image_xscale);
 			dir = xscale;
-			if (movespeed < 14)
+			if (abs(movespeed) < 14)
 			{
 				movespeed = 14;
 				hsp = xscale * movespeed;
 			}
 			else
 			{
-				movespeed += 0.5;
+				movespeed += 0.5 * sign(movespeed);
 				hsp = xscale * movespeed;
 			}
 			other.buffer = 30;

@@ -60,7 +60,7 @@ function scr_player_ghost()
 	{
 		move_v = key_down - key_up;
 	}
-	image_alpha = 1;
+	image_alpha = place_meeting(x, y, obj_ghosttransparency) ? 0.5 : 1;
 	visible = true;
 	alarm[5] = -1;
 	alarm[6] = -1;
@@ -411,14 +411,6 @@ function scr_player_ghost()
 	//{
 	//	state = states.normal;
 	//}
-	if (place_meeting(x, y, obj_ghosttransparency))
-	{
-		image_alpha = 0.5;
-	}
-	else
-	{
-		image_alpha = 1;
-	}
 }
 
 function scr_player_ghostpossess()
