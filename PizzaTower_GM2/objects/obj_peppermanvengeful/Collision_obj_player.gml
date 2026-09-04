@@ -9,7 +9,7 @@ if (!other.ispeppino && (other.instakillmove == true || other.state == states.ha
 	with (instance_create(x, y, obj_sausageman_dead))
 	{
 		image_xscale = -t.xscale;
-		sprite_index = spr_pepperman_hurtplayer;
+		sprite_index = spr_playerPM_hurt;
 		hsp = t.xscale * 10;
 	}
 	with (instance_create(x, y, obj_sausageman_dead))

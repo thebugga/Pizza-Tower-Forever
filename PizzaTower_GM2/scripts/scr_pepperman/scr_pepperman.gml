@@ -222,7 +222,7 @@ function scr_pepperman_arenaintro()
 	}
 	else
 	{
-		scr_boss_genericintro(spr_pepperman_idle);
+		scr_boss_genericintro(spr_playerPM_idle);
 	}
 }
 
@@ -232,7 +232,7 @@ function scr_pepperman_walk()
 	{
 		hsp = Approach(hsp, 0, 0.25);
 	}
-	if (grounded && vsp > 0 && sprite_index == spr_pepperman_scared && flickertime > 2)
+	if (grounded && vsp > 0 && sprite_index == spr_playerPM_panic && flickertime > 2)
 	{
 		hsp = Approach(hsp, 0, 0.5);
 		create_particle(x, y, particletypes.landcloud);
@@ -245,17 +245,17 @@ function scr_pepperman_walk()
 	}
 	if (flickertime > 0)
 	{
-		sprite_index = spr_pepperman_scared;
+		sprite_index = spr_playerPM_panic;
 	}
 	else if (grounded)
 	{
 		if (phase == 2)
 		{
-			sprite_index = spr_pepperman_sour;
+			sprite_index = spr_playerPM_3hpidle;
 		}
 		else
 		{
-			sprite_index = spr_pepperman_idle;
+			sprite_index = spr_playerPM_idle;
 		}
 	}
 	woosh = false;
@@ -274,7 +274,7 @@ function scr_pepperman_walk()
 		state = states.shoulderbash;
 		attackspeed = 0;
 		turned = false;
-		sprite_index = spr_pepperman_shoulderstart;
+		sprite_index = spr_playerPM_mach1;
 		image_index = 0;
 		if (x != targetplayer.x)
 		{
@@ -297,7 +297,7 @@ function scr_pepperman_walk()
 		}
 		hsp = image_xscale * 15;
 		vsp = -16;
-		sprite_index = spr_pepperman_jump;
+		sprite_index = spr_playerPM_jump;
 		image_index = 0;
 	}
 }
@@ -336,7 +336,7 @@ function pepperman_nearestspot()
 		vsp = -jump_speed;
 	}
 	trace(hsp, " ", vsp);
-	sprite_index = spr_pepperman_jump;
+	sprite_index = spr_playerPM_jump;
 	image_index = 0;
 }
 
@@ -358,15 +358,15 @@ function scr_pepperman_jump()
 	if ((x >= (targetspot.x - 32) && x <= (targetspot.x + 32) && y < (targetspot.y - 48)) || (image_xscale > 0 && x > (targetspot.x + 100)) || (image_xscale < 0 && x < (targetspot.x - 100)) || vsp > 2)
 	{
 		state = states.freefallprep;
-		sprite_index = spr_pepperman_groundpoundstart;
+		sprite_index = spr_playerPM_bodyslamstart;
 		image_index = 0;
 		vsp = 11;
 		hsp = 0;
 		grounded = false;
 	}
-	if (sprite_index == spr_pepperman_jump && ANIMATION_END)
+	if (sprite_index == spr_playerPM_jump && ANIMATION_END)
 	{
-		sprite_index = spr_pepperman_fall;
+		sprite_index = spr_playerPM_fall;
 	}
 }
 
@@ -378,7 +378,7 @@ function scr_pepperman_freefallprep()
 	if (ANIMATION_END)
 	{
 		state = states.freefall;
-		sprite_index = spr_pepperman_groundpound;
+		sprite_index = spr_playerPM_bodyslamfall;
 		grounded = false;
 		vsp = 10;
 	}
@@ -417,7 +417,7 @@ function scr_pepperman_freefall()
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 			state = states.freefallland;
-			sprite_index = spr_pepperman_groundpoundland;
+			sprite_index = spr_playerPM_bodyslamland;
 			image_index = 0;
 			landbuffer = 100;
 			if (bowlingballcount > 0)
@@ -483,7 +483,7 @@ function scr_pepperman_freefall()
 				image_xscale = sign(targetplayer.x - x);
 			}
 			state = states.rolling;
-			sprite_index = spr_pepperman_groundpoundland;
+			sprite_index = spr_playerPM_bodyslamland;
 			image_index = 0;
 			with (obj_camera)
 			{
@@ -496,10 +496,10 @@ function scr_pepperman_freefall()
 
 function scr_pepperman_rolling()
 {
-	if (sprite_index != spr_pepperman_groundpoundland)
+	if (sprite_index != spr_playerPM_bodyslamland)
 	{
 		image_speed = 0.35;
-		sprite_index = spr_pepperman_rolling;
+		sprite_index = spr_playerPM_rolling;
 		hsp = image_xscale * 10;
 		if (place_meeting(x + hsp, y, obj_solid) && !place_meeting(x + hsp, y, obj_slope) && !place_meeting(x + hsp, y, obj_destructibles))
 		{
@@ -522,7 +522,7 @@ function scr_pepperman_rolling()
 		image_speed = 0.4;
 		if (floor(image_index) >= 3)
 		{
-			sprite_index = spr_pepperman_rolling;
+			sprite_index = spr_playerPM_rolling;
 			vsp = -17;
 		}
 	}
@@ -578,7 +578,7 @@ function scr_pepperman_shoulderbash()
 		{
 			fmod_event_one_shot_3d("event:/sfx/pepperman/turn", x, y);
 			state = states.shoulderturn;
-			sprite_index = spr_pepperman_shoulderturn;
+			sprite_index = spr_playerPM_machslideboost3;
 			image_index = 0;
 			image_speed = 0.35;
 			turned = true;
@@ -608,7 +608,7 @@ function scr_pepperman_shoulderbash()
 			hsp = -image_xscale * 5;
 			vsp = -8;
 			stunned = 220;
-			sprite_index = spr_pepperman_shoulderhurtstart;
+			sprite_index = spr_playerPM_mach3hitwallstart;
 			image_index = 0;
 			image_speed = 0.35;
 			if (bowlingballcount > 0)
@@ -664,9 +664,9 @@ function scr_pepperman_shoulderbash()
 			attackspeed += 0.25;
 		}
 	}
-	if (ANIMATION_END && sprite_index == spr_pepperman_shoulderstart)
+	if (ANIMATION_END && sprite_index == spr_playerPM_mach1)
 	{
-		sprite_index = spr_pepperman_shoulderloop;
+		sprite_index = spr_playerPM_mach4;
 	}
 }
 
@@ -711,7 +711,7 @@ function scr_pepperman_contemplate()
 
 function scr_pepperman_shoulderturn()
 {
-	if (sprite_index != spr_pepperman_shoulderturn)
+	if (sprite_index != spr_playerPM_machslideboost3)
 	{
 		attackspeed = Approach(attackspeed, 0, 0.5);
 	}
@@ -720,11 +720,11 @@ function scr_pepperman_shoulderturn()
 		attackspeed = Approach(attackspeed, 0, 0.1);
 	}
 	hsp = image_xscale * attackspeed;
-	if (sprite_index == spr_pepperman_shoulderturn && ANIMATION_END)
+	if (sprite_index == spr_playerPM_machslideboost3 && ANIMATION_END)
 	{
-		sprite_index = spr_pepperman_shoulderturnloop;
+		sprite_index = spr_playerPM_machslideboost3fall;
 	}
-	if (attackspeed <= 0 && sprite_index == spr_pepperman_shoulderturnloop && ANIMATION_END)
+	if (attackspeed <= 0 && sprite_index == spr_playerPM_machslideboost3fall && ANIMATION_END)
 	{
 		if (phase == 2)
 		{
@@ -739,7 +739,7 @@ function scr_pepperman_shoulderturn()
 			attackspeed = 12;
 		}
 		state = states.shoulderbash;
-		sprite_index = spr_pepperman_shoulderloop;
+		sprite_index = spr_playerPM_mach4;
 		image_xscale *= -1;
 	}
 }
@@ -766,7 +766,7 @@ function scr_pepperman_mini()
 				else if (sprite_index == spr_pepperman_miniend)
 				{
 					state = states.walk;
-					sprite_index = spr_pepperman_idle;
+					sprite_index = spr_playerPM_idle;
 				}
 			}
 			break;
@@ -834,7 +834,7 @@ function scr_pepperman_mini()
 
 function scr_pepperman_phase1hurt()
 {
-	sprite_index = spr_pepperman_hurtplayer;
+	sprite_index = spr_playerPM_hurt;
 	image_speed = 0.35;
 	scr_boss_phase1hurt(function() {});
 }

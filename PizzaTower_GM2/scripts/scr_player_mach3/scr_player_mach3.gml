@@ -208,7 +208,7 @@ function scr_player_mach3()
 			{
 				image_speed = 0.4;
 			}
-			if (((!key_attack && fightball == false && !launched) && sprite_index != spr_dashpadmach && grounded && vsp > 0 && (character == characters.Peppino || character == characters.Noise)) || ((character == "S" && (move == 0 || move != xscale) && grounded) && fightball == false))
+			if (((!key_attack && fightball == false && !launched) && sprite_index != spr_dashpadmach && grounded && vsp > 0) || ((character == "S" && (move == 0 || move != xscale) && grounded) && fightball == false))
 			{
 				sprite_index = spr_machslidestart;
 				if character == characters.Peppino
@@ -223,7 +223,7 @@ function scr_player_mach3()
 				image_index = 0;
 				launched = false;
 			}
-			if (move == -xscale && grounded && vsp > 0 && !launched && (character == characters.Peppino || character == characters.Noise) && fightball == false && sprite_index != spr_dashpadmach)
+			if (move == -xscale && grounded && vsp > 0 && !launched && fightball == false && sprite_index != spr_dashpadmach)
 			{
 				if character == characters.Peppino
 				{

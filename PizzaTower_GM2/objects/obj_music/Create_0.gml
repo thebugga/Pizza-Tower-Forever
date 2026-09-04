@@ -246,6 +246,6 @@ add_music(street_1, "event:/music/w4/street", "event:/music/w4/streetsecret", fa
 		fmod_set_parameter("musicmuffle", 0, false);
 	}
 });
-add_music(chateau_1, "event:/music/w5/chateau", "event:/music/w1/medievalsecret", false);
+add_music(chateau_1, "event:/music/w5/chateau", "event:/music/w5/chateausecret", false);
 add_music(kidsparty_1, "event:/music/w5/kidsparty", "event:/music/w5/kidspartysecret", false);
 add_music(war_1, "event:/music/w5/war", "event:/music/w5/warsecret", false);

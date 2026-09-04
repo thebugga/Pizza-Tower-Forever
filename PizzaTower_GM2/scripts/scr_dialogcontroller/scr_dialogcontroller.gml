@@ -82,7 +82,7 @@ function scr_string_width(_str)
 	return w;
 }
 
-function scr_separate_text(_str, _font, _targetwidth)
+function scr_separate_text(_str, _font = -4, _targetwidth = ((sprite_get_width(spr_tutorialbubble) * (960 - 64)) / sprite_get_width(spr_tutorialbubble)) - 32)
 {
 	if (_font != noone)
 	{

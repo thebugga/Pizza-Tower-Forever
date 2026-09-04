@@ -36,7 +36,7 @@ function scr_player_Sjump()
 			piledrivereffect = 15;
 		}
 	}
-	if ((sprite_index == spr_superjump || sprite_index == spr_superspringplayer) && (character == characters.Noise || character == characters.Peppino))
+	if ((sprite_index == spr_superjump || sprite_index == spr_superspringplayer))
 	{
 		vsp = sjumpvsp;
 	}

@@ -1,6 +1,6 @@
 if (use_collision)
 {
-	scr_collision();
+	scr_collide();
 }
 if (place_meeting(x, y, obj_iceblock_breakable))
 {

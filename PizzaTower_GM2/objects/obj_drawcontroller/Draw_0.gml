@@ -65,7 +65,7 @@ with (obj_heatafterimage)
 	if (visible)
 	{
 		pattern_set(global.Base_Pattern_Color, obj_player1.sprite_index, obj_player1.image_index, obj_player1.xscale, obj_player1.yscale, global.palettetexture);
-		pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect, false);
+		pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect);
 		draw_sprite_ext(obj_player1.sprite_index, obj_player1.image_index, x, y, obj_player1.xscale, obj_player1.yscale, obj_player1.angle, c_white, alpha);
 		pattern_reset();
 	}
@@ -158,14 +158,14 @@ pattern_set_solid(true);
 with (obj_noiseeffect)
 {
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, global.palettetexture);
-	pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect, false);
+	pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect);
 	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 	pattern_reset();
 }
 with (obj_noisedebris)
 {
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, global.palettetexture);
-	pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect, false);
+	pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect);
 	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 	pattern_reset();
 }
@@ -186,7 +186,7 @@ with (obj_sausageman_dead)
 		{
 			pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, oldpalettetexture);
 		}
-		pal_swap_set(spr_palette, paletteselect, false);
+		pal_swap_set(spr_palette, paletteselect);
 		draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, angle, b, image_alpha);
 		if (oldpalettetexture != noone)
 		{

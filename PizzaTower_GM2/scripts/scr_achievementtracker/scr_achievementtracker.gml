@@ -172,7 +172,7 @@ function palette_unlock(_achievement, _palname, _palindex, _texture = noone, _is
 				if (!_is_peppino)
 				{
 					sprite_index = spr_newclothesN;
-					spr_palette = spr_noisepalette;
+					spr_palette = spr_peppaletteN;
 				}
 				paletteselect = _palindex;
 				texture = _texture;

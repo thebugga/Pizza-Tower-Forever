@@ -6,4 +6,4 @@ else
 {
 	sprite_index = spr_idle;
 }
-scr_collision();
+scr_collide();

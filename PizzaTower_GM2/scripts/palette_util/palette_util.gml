@@ -34,7 +34,7 @@ function get_noise_palette_info()
 		var pal = 0;
 		return 
 		{
-			spr_palette: spr_noisepalette,
+			spr_palette: spr_peppaletteN,
 			paletteselect: obj_player1.player_paletteselect[pal],
 			patterntexture: obj_player1.player_patterntexture[pal]
 		};
@@ -50,7 +50,7 @@ function get_noise_palette_info()
 	}
 	return 
 	{
-		spr_palette: spr_noisepalette,
+		spr_palette: spr_peppaletteN,
 		paletteselect: 1,
 		patterntexture: noone
 	};

@@ -3,10 +3,32 @@ if (!IS_DEBUG)
 	instance_destroy();
 	exit;
 }
-if (instance_exists(obj_debugcontroller) && !obj_debugcontroller.DEBUG)
+//if (!instance_exists(obj_debugcontroller) && !obj_debugcontroller.DEBUG)
+//{
+//	instance_destroy();
+//	exit;
+//}
+DEBUG = false;
+showcollisions = false;
+if (parameter_count() > 2)
+{
+	DEBUG = true;
+}
+if (!DEBUG)
+{
+	var n = parameter_count();
+	for (var i = 0; i < n; i++)
+	{
+		var s = parameter_string(i);
+		if (s == "-debug" || s == "debug")
+		{
+			DEBUG = true;
+		}
+	}
+}
+if (!DEBUG)
 {
 	instance_destroy();
-	exit;
 }
 depth = -999;
 commands = array_create(0);
@@ -31,23 +53,41 @@ for (var i = 0; i < array_length(rooms); i++)
 }
 create_command("NOCLIP", [], function()
 {
-	with (obj_player1)
+	with (obj_player)
 	{
 		state = states.debugstate;
 	}
 });
-create_command("CHANGE_CHARACTER", [], function()
+create_command("CHANGE_CHARACTER", [["_PEPPINO", "NOISE", "PEPPERMAN", "PIZZELLE", "VIGILANTE", "BAD BREAKFAST", "PIZZA BOY", "SHOBON", "DOISE"]], function(_bool)
 {
+	var _char_enum = characters.Peppino
+	switch (_bool)
+	{
+		case "_PEPPINO":
+			_char_enum = characters.Peppino
+		break;
+		case "NOISE":
+			_char_enum = characters.Noise
+		break;
+		case "DOISE":
+			_char_enum = characters.Doise
+		break;
+		case "PEPPERMAN":
+			_char_enum = characters.Pepperman
+		break;
+		case "BAD BREAKFAST":
+			_char_enum = characters.DrBadBreakfast
+		break;
+		case "PIZZA BOY":
+			_char_enum = characters.Pizzaboy
+		break;
+		case "SHOBON":
+			_char_enum = characters.Shobon
+		break;
+	}
 	with (obj_player1)
 	{
-		if (character == characters.Peppino)
-		{
-			character = characters.Noise;
-		}
-		else
-		{
-			character = characters.Peppino;
-		}
+		character = _char_enum;
 		scr_characterspr();
 	}
 });
@@ -86,22 +126,6 @@ create_command("DEBUG OVERLAY", [["TRUE", "FALSE"]], function(_bool)
 	else
 	{
 		show_debug_overlay(false);
-	}
-});
-create_command("SWITCH CHAR", [["NOISE", "PEP"]], function(_char)
-{
-	with (obj_player1)
-	{
-		character = characters.Peppino;
-		if (_char == "NOISE")
-		{
-			ispeppino = false;
-		}
-		else
-		{
-			ispeppino = true;
-		}
-		scr_characterspr();
 	}
 });
 create_command("TEST PANIC", [], function(arg0)

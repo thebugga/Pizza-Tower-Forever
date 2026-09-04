@@ -1,3 +1,4 @@
+scr_collide_init();
 drop = false;
 hsp = 0;
 vsp = 0;

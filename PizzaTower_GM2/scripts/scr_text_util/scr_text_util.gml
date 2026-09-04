@@ -298,6 +298,35 @@ function scr_draw_granny_texture(_x, _y, _width, _height, _tile_x, _tile_y, _til
 	draw_surface(surffinal, _x, _y);
 }
 
+function scr_draw_granny_texture_2(_x, _y, _width, _height, _tile_x, _tile_y, _tilespr = spr_pizzagrannytexture, _bubblespr = spr_tutorialbubble)
+{
+	var w = sprite_get_width(_bubblespr) * _width;
+	var h = sprite_get_height(_bubblespr) * _height;
+	if (!surface_exists(surfclip2))
+	{
+		surfclip2 = surface_create(w, h);
+	}
+	if (!surface_exists(surffinal2))
+	{
+		surffinal2 = surface_create(w, h);
+	}
+	surface_set_target(surfclip2);
+	draw_clear_alpha(c_black, 0);
+	draw_rectangle_color(0, 0, w, h, c_white, c_white, c_white, c_white, false);
+	gpu_set_blendmode(bm_subtract);
+	draw_sprite_ext(_bubblespr, 0, 0, 0, _width, _height, 0, c_white, 1);
+	gpu_set_blendmode_ext(bm_one, bm_inv_src_alpha);
+	surface_reset_target();
+	surface_set_target(surffinal2);
+	draw_sprite_tiled(_tilespr, 0, _tile_x, _tile_y);
+	gpu_set_blendmode(bm_subtract);
+	draw_surface(surfclip2, 0, 0);
+	gpu_set_blendmode_ext(bm_one, bm_inv_src_alpha);
+	surface_reset_target();
+	draw_surface(surffinal2, _x, _y);
+}
+
+
 function scr_draw_text_arr(_x, _y, _array, _color = c_white, _alpha = 1, _effect = text_effects.none, _options = noone)
 {
 	if (_array == noone)

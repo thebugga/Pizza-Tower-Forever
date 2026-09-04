@@ -29,4 +29,4 @@ if (y == ystart)
 {
 	gobackup = false;
 }
-scr_collision();
+scr_collide();

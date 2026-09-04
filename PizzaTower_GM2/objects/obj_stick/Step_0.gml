@@ -1,7 +1,7 @@
 if (sprite_index != spr_stick_helicopter && (sprite_index != spr_stick_leave || image_index < 3) && sprite_index != spr_noisettestick_helicopter)
 {
 	fmod_event_instance_stop(global.snd_mrstickhat, true);
-	scr_collision();
+	scr_collide();
 }
 else
 {

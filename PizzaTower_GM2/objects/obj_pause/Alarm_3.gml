@@ -2,9 +2,9 @@ pause = false;
 var rm = room;
 if (!hub)
 {
-	obj_player1.targetRoom = Realtitlescreen;
-	obj_player2.targetRoom = Realtitlescreen;
-	room = Realtitlescreen;
+	obj_player1.targetRoom = init_obj_room;
+	obj_player2.targetRoom = init_obj_room;
+	room = init_obj_room;
 	with (obj_player1)
 	{
 		character = characters.Peppino;

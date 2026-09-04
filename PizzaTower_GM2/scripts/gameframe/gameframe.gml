@@ -1,4 +1,4 @@
-// Generated at 2025-03-07 22:45:22 (1369ms) for v2.3.7+
+// Generated at 2022-12-14 10:28:54 (1226ms) for v2.3.7+
 /// @lint nullToAny true
 // Feather disable all
 #region prototypes
@@ -21,7 +21,6 @@ mt_gameframe_std_haxe_class = new gameframe_std_haxe_class(-1, "gameframe_std_ha
 
 function gameframe_log(_args1) {
 	// gameframe_log(args:haxe_Rest<any>)
-	/// @ignore
 	if (!gameframe_debug) exit;
 	var _s = "[Gameframe]";
 	var __g = 0;
@@ -117,15 +116,15 @@ function gameframe_init() {
 #region game_frame_button
 
 function game_frame_button_create(_name, _icon, _subimg, _onClick) {
-	/// game_frame_button_create(name:string, icon:sprite, subimg:int, onClick:function<game_frame_button;void>)
+	/// game_frame_button_create(name:string, icon:sprite, subimg:int, onClick:function<game_frame_button; void>)
 	/// @param {string} name
 	/// @param {sprite} icon
 	/// @param {int} subimg
-	/// @param {function<game_frame_button;void>} onClick
+	/// @param {function<game_frame_button; void>} onClick
 	/// @returns {game_frame_button}
 	var _this = [mt_game_frame_button];
 	array_copy(_this, 1, mq_game_frame_button, 1, 15);
-	/// @typedef {tuple<any,name:string,custom:any,icon:sprite,subimg:int,margin_left:int,margin_right:int,hover:bool,pressed:bool,enabled:bool,fade:number,click:function<button:game_frame_button;void>,get_width:function<button:game_frame_button;int>,update:function<button:game_frame_button;void>,draw_underlay:function<button:game_frame_button;x:number;y:number;width:number;height:number;void>,draw_icon:function<button:game_frame_button;x:number;y:number;width:number;height:number;void>>} game_frame_button
+	/// @typedef {tuple<any,name:string,custom:any,icon:sprite,subimg:int,margin_left:int,margin_right:int,hover:bool,pressed:bool,enabled:bool,fade:number,click:function<button:game_frame_button; void>,get_width:function<button:game_frame_button; int>,update:function<button:game_frame_button; void>,draw_underlay:function<button:game_frame_button; x:number; y:number; width:number; height:number; void>,draw_icon:function<button:game_frame_button; x:number; y:number; width:number; height:number; void>>} game_frame_button
 	_this[@15/* draw_icon */] = game_frame_button_draw_icon_default;
 	_this[@14/* draw_underlay */] = game_frame_button_draw_underlay_default;
 	_this[@13/* update */] = game_frame_button_update_default;
@@ -145,19 +144,16 @@ function game_frame_button_create(_name, _icon, _subimg, _onClick) {
 
 function game_frame_button_get_width_default(_b) {
 	// game_frame_button_get_width_default(b:game_frame_button)->int
-	/// @ignore
 	return sprite_get_width(_b[3/* icon */]);
 }
 
 function game_frame_button_update_default(_b) {
 	// game_frame_button_update_default(b:game_frame_button)
-	/// @ignore
 	
 }
 
 function game_frame_button_draw_underlay_default(_b, _x, _y, _width, _height) {
 	// game_frame_button_draw_underlay_default(b:game_frame_button, x:number, y:number, width:number, height:number)
-	/// @ignore
 	var _alpha1;
 	if (_b[9/* enabled */]) {
 		if (_b[8/* pressed */]) {
@@ -178,7 +174,6 @@ function game_frame_button_draw_underlay_default(_b, _x, _y, _width, _height) {
 
 function game_frame_button_draw_icon_default(_b, _x, _y, _width, _height) {
 	// game_frame_button_draw_icon_default(b:game_frame_button, x:number, y:number, width:number, height:number)
-	/// @ignore
 	var _icon = _b[3/* icon */];
 	var _scale = gameframe_effective_scale;
 	draw_sprite_ext(_icon, _b[4/* subimg */], (_x + ((_width - sprite_get_width(_icon) * _scale) div 2) + (sprite_get_xoffset(_icon) * _scale | 0)), _y + ((_height - sprite_get_height(_icon) * _scale) div 2) + (sprite_get_yoffset(_icon) * _scale | 0), _scale, _scale, 0, gameframe_blend, gameframe_alpha * ((_b[9/* enabled */] ? 1 : 0.3)));
@@ -335,77 +330,77 @@ function game_frame_button_get_fade(_this) {
 }
 
 function game_frame_button_set_click(_this, _value) {
-	/// game_frame_button_set_click(this:game_frame_button, value:function<button:game_frame_button;void>)
+	/// game_frame_button_set_click(this:game_frame_button, value:function<button:game_frame_button; void>)
 	/// @param {game_frame_button} this
-	/// @param {function<button:game_frame_button;void>} value
+	/// @param {function<button:game_frame_button; void>} value
 	/// @returns {void}
 	_this[@11/* click */] = _value;
 }
 
 function game_frame_button_get_click(_this) {
-	/// game_frame_button_get_click(this:game_frame_button)->function<button:game_frame_button;void>
+	/// game_frame_button_get_click(this:game_frame_button)->function<button:game_frame_button; void>
 	/// @param {game_frame_button} this
-	/// @returns {function<button:game_frame_button;void>}
+	/// @returns {function<button:game_frame_button; void>}
 	return _this[11/* click */];
 }
 
 function game_frame_button_set_get_width(_this, _value) {
-	/// game_frame_button_set_get_width(this:game_frame_button, value:function<button:game_frame_button;int>)
+	/// game_frame_button_set_get_width(this:game_frame_button, value:function<button:game_frame_button; int>)
 	/// @param {game_frame_button} this
-	/// @param {function<button:game_frame_button;int>} value
+	/// @param {function<button:game_frame_button; int>} value
 	/// @returns {void}
 	_this[@12/* get_width */] = _value;
 }
 
 function game_frame_button_get_get_width(_this) {
-	/// game_frame_button_get_get_width(this:game_frame_button)->function<button:game_frame_button;int>
+	/// game_frame_button_get_get_width(this:game_frame_button)->function<button:game_frame_button; int>
 	/// @param {game_frame_button} this
-	/// @returns {function<button:game_frame_button;int>}
+	/// @returns {function<button:game_frame_button; int>}
 	return _this[12/* get_width */];
 }
 
 function game_frame_button_set_update(_this, _value) {
-	/// game_frame_button_set_update(this:game_frame_button, value:function<button:game_frame_button;void>)
+	/// game_frame_button_set_update(this:game_frame_button, value:function<button:game_frame_button; void>)
 	/// @param {game_frame_button} this
-	/// @param {function<button:game_frame_button;void>} value
+	/// @param {function<button:game_frame_button; void>} value
 	/// @returns {void}
 	_this[@13/* update */] = _value;
 }
 
 function game_frame_button_get_update(_this) {
-	/// game_frame_button_get_update(this:game_frame_button)->function<button:game_frame_button;void>
+	/// game_frame_button_get_update(this:game_frame_button)->function<button:game_frame_button; void>
 	/// @param {game_frame_button} this
-	/// @returns {function<button:game_frame_button;void>}
+	/// @returns {function<button:game_frame_button; void>}
 	return _this[13/* update */];
 }
 
 function game_frame_button_set_draw_underlay(_this, _value) {
-	/// game_frame_button_set_draw_underlay(this:game_frame_button, value:function<button:game_frame_button;x:number;y:number;width:number;height:number;void>)
+	/// game_frame_button_set_draw_underlay(this:game_frame_button, value:function<button:game_frame_button; x:number; y:number; width:number; height:number; void>)
 	/// @param {game_frame_button} this
-	/// @param {function<button:game_frame_button;x:number;y:number;width:number;height:number;void>} value
+	/// @param {function<button:game_frame_button; x:number; y:number; width:number; height:number; void>} value
 	/// @returns {void}
 	_this[@14/* draw_underlay */] = _value;
 }
 
 function game_frame_button_get_draw_underlay(_this) {
-	/// game_frame_button_get_draw_underlay(this:game_frame_button)->function<button:game_frame_button;x:number;y:number;width:number;height:number;void>
+	/// game_frame_button_get_draw_underlay(this:game_frame_button)->function<button:game_frame_button; x:number; y:number; width:number; height:number; void>
 	/// @param {game_frame_button} this
-	/// @returns {function<button:game_frame_button;x:number;y:number;width:number;height:number;void>}
+	/// @returns {function<button:game_frame_button; x:number; y:number; width:number; height:number; void>}
 	return _this[14/* draw_underlay */];
 }
 
 function game_frame_button_set_draw_icon(_this, _value) {
-	/// game_frame_button_set_draw_icon(this:game_frame_button, value:function<button:game_frame_button;x:number;y:number;width:number;height:number;void>)
+	/// game_frame_button_set_draw_icon(this:game_frame_button, value:function<button:game_frame_button; x:number; y:number; width:number; height:number; void>)
 	/// @param {game_frame_button} this
-	/// @param {function<button:game_frame_button;x:number;y:number;width:number;height:number;void>} value
+	/// @param {function<button:game_frame_button; x:number; y:number; width:number; height:number; void>} value
 	/// @returns {void}
 	_this[@15/* draw_icon */] = _value;
 }
 
 function game_frame_button_get_draw_icon(_this) {
-	/// game_frame_button_get_draw_icon(this:game_frame_button)->function<button:game_frame_button;x:number;y:number;width:number;height:number;void>
+	/// game_frame_button_get_draw_icon(this:game_frame_button)->function<button:game_frame_button; x:number; y:number; width:number; height:number; void>
 	/// @param {game_frame_button} this
-	/// @returns {function<button:game_frame_button;x:number;y:number;width:number;height:number;void>}
+	/// @returns {function<button:game_frame_button; x:number; y:number; width:number; height:number; void>}
 	return _this[15/* draw_icon */];
 }
 
@@ -450,7 +445,6 @@ function gameframe_button_reset() {
 
 function gameframe_button_update(_x, _y, _height, _mx, _my) {
 	// gameframe_button_update(x:number, y:number, height:int, mx:int, my:int)
-	/// @ignore
 	var _over_row = _mx >= _y && _my < _y + _height;
 	if (_over_row) {
 		if (gameframe_has_native_extension) {
@@ -470,7 +464,8 @@ function gameframe_button_update(_x, _y, _height, _mx, _my) {
 	var _pressed = mouse_check_button_pressed(1);
 	var _released = mouse_check_button_released(1);
 	var _disable = gameframe_drag_flags != 0 || !gameframe_can_input;
-	for (var _i = 0, __g1 = array_length(gameframe_button_array); _i < __g1; _i++) {
+	var _i = 0;
+	for (var __g1 = array_length(gameframe_button_array); _i < __g1; _i++) {
 		var _button = gameframe_button_array[_i];
 		_button[13/* update */](_button);
 		_x += _button[5/* margin_left */] * _dpiScale;
@@ -492,9 +487,9 @@ function gameframe_button_update(_x, _y, _height, _mx, _my) {
 
 function gameframe_button_draw(_x, _y, _height) {
 	// gameframe_button_draw(x:number, y:number, height:int)
-	/// @ignore
 	var _dpiScale = gameframe_effective_scale;
-	for (var _i = 0, __g1 = array_length(gameframe_button_array); _i < __g1; _i++) {
+	var _i = 0;
+	for (var __g1 = array_length(gameframe_button_array); _i < __g1; _i++) {
 		var _button = gameframe_button_array[_i];
 		_x += _button[5/* margin_left */] * _dpiScale;
 		var _width = _button[12/* get_width */](_button) * _dpiScale;
@@ -506,7 +501,6 @@ function gameframe_button_draw(_x, _y, _height) {
 
 function gameframe_button_add_defaults() {
 	// gameframe_button_add_defaults()
-	/// @ignore
 	gameframe_button_array = [];
 	var _minimize = game_frame_button_create("minimize", gameframe_spr_buttons, 0, function(_button) {
 		gameframe_minimize()
@@ -553,7 +547,6 @@ function gameframe_button_add_defaults() {
 
 function gameframe_tools_rect__new(_x, _y, _w, _h) {
 	// gameframe_tools_rect__new(...:int)->gameframe_tools_rect
-	/// @ignore
 	if (_x == undefined) _x = 0;
 	if (_y == undefined) _y = 0;
 	if (_w == undefined) _w = 0;
@@ -564,7 +557,6 @@ function gameframe_tools_rect__new(_x, _y, _w, _h) {
 
 function gameframe_tools_rect_get_window_rect(_this1) {
 	// gameframe_tools_rect_get_window_rect(this:tools_GfRectImpl)
-	/// @ignore
 	_this1[@0/* x */] = window_get_x();
 	_this1[@1/* y */] = window_get_y();
 	_this1[@2/* width */] = window_get_width();
@@ -573,19 +565,16 @@ function gameframe_tools_rect_get_window_rect(_this1) {
 
 function gameframe_tools_rect_set_window_rect(_this1) {
 	// gameframe_tools_rect_set_window_rect(this:tools_GfRectImpl)
-	/// @ignore
 	window_set_rectangle(_this1[0/* x */], _this1[1/* y */], _this1[2/* width */], _this1[3/* height */]);
 }
 
 function gameframe_tools_rect_equals(_this1, _o) {
 	// gameframe_tools_rect_equals(this:tools_GfRectImpl, o:gameframe_tools_rect)->bool
-	/// @ignore
 	return _this1[0/* x */] == _o[0/* x */] && _this1[1/* y */] == _o[1/* y */] && _this1[2/* width */] == _o[2/* width */] && _this1[3/* height */] == _o[3/* height */];
 }
 
 function gameframe_tools_rect_set_to(_this1, _o) {
 	// gameframe_tools_rect_set_to(this:tools_GfRectImpl, o:gameframe_tools_rect)
-	/// @ignore
 	_this1[@0/* x */] = _o[0/* x */];
 	_this1[@1/* y */] = _o[1/* y */];
 	_this1[@2/* width */] = _o[2/* width */];
@@ -611,7 +600,6 @@ function gameframe_minimize() {
 
 function gameframe_minimise() {
 	// gameframe_minimise()
-	/// @ignore
 	if (!gameframe_is_natively_minimized()) {
 		gameframe_button_reset();
 		gameframe_delayed_call_impl(function() {
@@ -631,7 +619,6 @@ function gameframe_is_minimized() {
 
 function gameframe_is_minimised() {
 	// gameframe_is_minimised()->bool
-	/// @ignore
 	return gameframe_is_natively_minimized();
 }
 
@@ -646,7 +633,6 @@ function gameframe_maximize() {
 
 function gameframe_maximise() {
 	// gameframe_maximise()
-	/// @ignore
 	if (!(gameframe_isMaximized_hx || gameframe_isFullscreen_hx || window_get_fullscreen())) {
 		gameframe_isMaximized_hx = true;
 		gameframe_store_rect();
@@ -662,13 +648,11 @@ function gameframe_is_maximized() {
 
 function gameframe_is_maximised() {
 	// gameframe_is_maximised()->bool
-	/// @ignore
 	return gameframe_isMaximized_hx;
 }
 
 function gameframe_maximize_1() {
 	// gameframe_maximize_1()
-	/// @ignore
 	var __work = gameframe_tools_mon_get_active()[1/* workspace */];
 	if (gameframe_debug) gameframe_log("maximize: ", __work);
 	gameframe_tools_rect_set_window_rect(__work);
@@ -677,7 +661,6 @@ function gameframe_maximize_1() {
 
 function gameframe_store_rect() {
 	// gameframe_store_rect()
-	/// @ignore
 	gameframe_tools_rect_get_window_rect(gameframe_restoreRect_hx);
 	if (gameframe_debug) gameframe_log("storeRect: ", gameframe_restoreRect_hx);
 }
@@ -726,7 +709,6 @@ function gameframe_is_fullscreen_window() {
 
 function gameframe_set_fullscreen_1(__mode, __wasFullscreen) {
 	// gameframe_set_fullscreen_1(_mode:int, _wasFullscreen:bool = false)
-	/// @ignore
 	if (__wasFullscreen == undefined) __wasFullscreen = false;
 	if (false) show_debug_message(argument[1]);
 	if (gameframe_debug) gameframe_log("setFullscreen(mode:", __mode, ", wasfs:", __wasFullscreen, ")");
@@ -779,7 +761,6 @@ function gameframe_set_fullscreen_1(__mode, __wasFullscreen) {
 
 function gameframe_set_window_cursor(_cr1) {
 	// gameframe_set_window_cursor(cr:window_cursor)
-	/// @ignore
 	gameframe_current_cursor = _cr1;
 	if (gameframe_set_cursor) {
 		if (window_get_cursor() != _cr1) window_set_cursor(_cr1);
@@ -788,7 +769,6 @@ function gameframe_set_window_cursor(_cr1) {
 
 function gameframe_get_border_width() {
 	// gameframe_get_border_width()->int
-	/// @ignore
 	if (gameframe_isMaximized_hx) return 0; else return gameframe_border_width;
 }
 
@@ -821,19 +801,16 @@ function gameframe_caption_get_overlap() {
 
 function gameframe_caption_draw_border_default(__x, __y, __width, __height) {
 	// gameframe_caption_draw_border_default(_x:int, _y:int, _width:int, _height:int)
-	/// @ignore
 	draw_sprite_stretched_ext(gameframe_spr_border, (window_has_focus() ? 1 : 0), __x, __y, __width, __height, gameframe_blend, gameframe_alpha);
 }
 
 function gameframe_caption_draw_caption_rect_default(__x, __y, __width, __height, __buttons_x) {
 	// gameframe_caption_draw_caption_rect_default(_x:int, _y:int, _width:int, _height:int, _buttons_x:int)
-	/// @ignore
 	draw_sprite_stretched_ext(gameframe_spr_caption, (window_has_focus() ? 1 : 0), __x, __y, __width, __height, gameframe_blend, gameframe_alpha * gameframe_caption_alpha);
 }
 
 function gameframe_caption_draw_caption_text_default(__x, __y, __width, __height) {
 	// gameframe_caption_draw_caption_text_default(_x:number, _y:number, _width:number, _height:int)
-	/// @ignore
 	var _dpiScale = gameframe_effective_scale;
 	var __right = __x + __width;
 	__x += gameframe_caption_margin * _dpiScale;
@@ -870,7 +847,6 @@ function gameframe_caption_draw_caption_text_default(__x, __y, __width, __height
 
 function gameframe_cover_ensure() {
 	// gameframe_cover_ensure()
-	/// @ignore
 	var __just_changed = gameframe_cover_check_for_success;
 	if (__just_changed) gameframe_cover_check_for_success = false;
 	var __target_rect;
@@ -906,7 +882,6 @@ function gameframe_cover_ensure() {
 
 function gameframe_delayed_call_impl(_func, _delay, _arg0, _arg1, _arg2, _arg3) {
 	// gameframe_delayed_call_impl(func:any, delay:int, arg:any, arg:any, arg:any, arg:any)
-	/// @ignore
 	var _item;
 	if (ds_stack_empty(gameframe_delayed_pool)) _item = gameframe_delayed_item_create(); else _item = ds_stack_pop(gameframe_delayed_pool);
 	_item[@1/* func */] = _func;
@@ -920,7 +895,6 @@ function gameframe_delayed_call_impl(_func, _delay, _arg0, _arg1, _arg2, _arg3) 
 
 function gameframe_delayed_update() {
 	// gameframe_delayed_update()
-	/// @ignore
 	gameframe_delayed_frame_index += 1;
 	var _f;
 	while (!ds_queue_empty(gameframe_delayed_queue)) {
@@ -944,7 +918,6 @@ function gameframe_delayed_update() {
 
 function gameframe_delayed_item_create() {
 	// gameframe_delayed_item_create()
-	/// @ignore
 	var _this = [mt_gameframe_delayed_item];
 	array_copy(_this, 1, mq_gameframe_delayed_item, 1, 6);
 	/// @typedef {tuple<any,func:any,time:int,arg0:any,arg1:any,arg2:any,arg3:any>} gameframe_delayed_item
@@ -958,7 +931,6 @@ function gameframe_delayed_item_create() {
 
 function gameframe_drag_start(__flags) {
 	// gameframe_drag_start(_flags:int)
-	/// @ignore
 	gameframe_drag_flags = __flags;
 	gameframe_drag_mx = (display_mouse_get_x() | 0);
 	gameframe_drag_my = (display_mouse_get_y() | 0);
@@ -970,19 +942,16 @@ function gameframe_drag_start(__flags) {
 
 function gameframe_drag_stop() {
 	// gameframe_drag_stop()
-	/// @ignore
 	gameframe_drag_flags = 0;
 }
 
 function gameframe_drag_set_rect(_x, _y, _w, _h) {
 	// gameframe_drag_set_rect(x:int, y:int, w:int, h:int)
-	/// @ignore
 	window_set_rectangle(_x, _y, _w, _h);
 }
 
 function gameframe_drag_update() {
 	// gameframe_drag_update()
-	/// @ignore
 	if (gameframe_drag_flags == 0) exit;
 	var __mx = (display_mouse_get_x() | 0);
 	var __my = (display_mouse_get_y() | 0);
@@ -1031,13 +1000,11 @@ function gameframe_drag_update() {
 
 function gameframe_tools_keyctl_create_key(_keyCode) {
 	// gameframe_tools_keyctl_create_key(keyCode:gml_input_KeyCode)->GfKeyboardKey
-	/// @ignore
 	return [/* keyCode: */_keyCode, /* down: */false, /* pressed: */false];
 }
 
 function gameframe_tools_keyctl_update_key(_key) {
 	// gameframe_tools_keyctl_update_key(key:GfKeyboardKey)
-	/// @ignore
 	var _down0 = _key[1/* down */];
 	var _down1 = keyboard_check_direct(_key[0/* keyCode */]) != 0;
 	_key[@2/* pressed */] = !_down0 && _down1;
@@ -1046,20 +1013,20 @@ function gameframe_tools_keyctl_update_key(_key) {
 
 function gameframe_tools_keyctl_reset() {
 	// gameframe_tools_keyctl_reset()
-	/// @ignore
-	for (var _i = 0, __g1 = array_length(gameframe_tools_keyctl_keys); _i < __g1; _i++) {
+	var _i = 0;
+	for (var __g1 = array_length(gameframe_tools_keyctl_keys); _i < __g1; _i++) {
 		gameframe_tools_keyctl_keys[_i][@1/* down */] = false;
 	}
 }
 
 function gameframe_tools_keyctl_update() {
 	// gameframe_tools_keyctl_update()
-	/// @ignore
 	if (!(window_has_focus() && (keyboard_check_direct(91) != 0 || keyboard_check_direct(92) != 0))) {
 		gameframe_tools_keyctl_reset();
 		exit;
 	}
-	for (var _i = 0, __g1 = array_length(gameframe_tools_keyctl_keys); _i < __g1; _i++) {
+	var _i = 0;
+	for (var __g1 = array_length(gameframe_tools_keyctl_keys); _i < __g1; _i++) {
 		gameframe_tools_keyctl_update_key(gameframe_tools_keyctl_keys[_i]);
 	}
 	if (gameframe_tools_keyctl_up[2/* pressed */]) {
@@ -1086,10 +1053,10 @@ function gameframe_draw() {
 	var __borderWidth = (gameframe_isMaximized_hx ? 0 : gameframe_border_width);
 	var __titlebarHeight = gameframe_caption_get_height();
 	var __buttons_x = gameframe_button_get_combined_offset(_gw);
-	if (!gameframe_isMaximized_hx) gameframe_caption_draw_border(0, 0, _gw, _gh);
 	gameframe_caption_draw_background(__borderWidth, __borderWidth, _gw - __borderWidth * 2, __titlebarHeight, __buttons_x);
-	gameframe_caption_draw_text(__borderWidth, __borderWidth, __buttons_x - __borderWidth, __titlebarHeight);
+	gameframe_caption_draw_text(__borderWidth + 16, __borderWidth, __buttons_x - __borderWidth, __titlebarHeight);
 	gameframe_button_draw(__buttons_x, __borderWidth, __titlebarHeight);
+	if (!gameframe_isMaximized_hx) gameframe_caption_draw_border(-1.5, -2.5, _gw + 2.5, _gh + 1.5);
 	__display_gui_restore();
 }
 
@@ -1099,12 +1066,11 @@ function gameframe_draw() {
 
 function gameframe_std_Std_stringify(_value) {
 	// gameframe_std_Std_stringify(value:any)->string
-	/// @ignore
 	if (_value == undefined) return "null";
 	if (is_string(_value)) return _value;
 	var _n, _i, _s;
 	if (is_struct(_value)) {
-		var _e = _value[$ "__enum__"];
+		var _e = _value[$"__enum__"];
 		if (_e == undefined) return string(_value);
 		var _ects = _e.constructors;
 		if (_ects != undefined) {
@@ -1119,7 +1085,7 @@ function gameframe_std_Std_stringify(_value) {
 		_s += "(";
 		var _fields = _value.__enumParams__;
 		_n = array_length(_fields);
-		for (_i = -1; ++_i < _n; _s += gameframe_std_Std_stringify(_value[$  _fields[_i]])) {
+		for (_i = -1; ++_i < _n; _s += gameframe_std_Std_stringify(_value[$ _fields[_i]])) {
 			if (_i > 0) _s += ", ";
 		}
 		return _s + ")";
@@ -1162,7 +1128,6 @@ function gameframe_std_Std_stringify(_value) {
 
 function gameframe_std_haxe_class(_id, _name) constructor {
 	// gameframe_std_haxe_class(id:int, name:string)
-	/// @ignore
 	static superClass = undefined; /// @is {haxe_class<any>}
 	static marker = undefined; /// @is {any}
 	static index = undefined; /// @is {int}
@@ -1180,7 +1145,6 @@ function gameframe_std_haxe_class(_id, _name) constructor {
 
 function gameframe_tools_mon_get_active() {
 	// gameframe_tools_mon_get_active()->tools_GfMonInfo
-	/// @ignore
 	var __list = gameframe_tools_mon_get_active_list;
 	if (__list == undefined) {
 		__list = ds_list_create();
@@ -1242,13 +1206,13 @@ gameframe_resize_padding = 6;
 globalvar gameframe_border_width; /// @is {int}
 gameframe_border_width = 2;
 globalvar gameframe_spr_border; /// @is {sprite}
-gameframe_spr_border = asset_get_index("spr_gameframe_border");
+gameframe_spr_border = spr_gameframe_border;
 globalvar gameframe_spr_caption; /// @is {sprite}
-gameframe_spr_caption = asset_get_index("spr_gameframe_caption");
+gameframe_spr_caption = spr_gameframe_caption;
 globalvar gameframe_spr_buttons; /// @is {sprite}
-gameframe_spr_buttons = asset_get_index("spr_gameframe_buttons");
+gameframe_spr_buttons = spr_gameframe_buttons;
 globalvar gameframe_spr_pixel; /// @is {sprite}
-gameframe_spr_pixel = asset_get_index("spr_gameframe_pixel");
+gameframe_spr_pixel = spr_gameframe_pixel;
 globalvar gameframe_default_cursor; /// @is {window_cursor}
 gameframe_default_cursor = cr_arrow;
 globalvar gameframe_set_cursor; /// @is {bool}
@@ -1289,11 +1253,11 @@ globalvar gameframe_caption_height_normal; /// @is {number}
 gameframe_caption_height_normal = -1;
 globalvar gameframe_caption_height_maximized; /// @is {number}
 gameframe_caption_height_maximized = -0.66667;
-globalvar gameframe_caption_draw_border; /// @is {function<x:int;y:int;width:int;height:int;void>}
+globalvar gameframe_caption_draw_border; /// @is {function<x:int; y:int; width:int; height:int; void>}
 gameframe_caption_draw_border = gameframe_caption_draw_border_default;
-globalvar gameframe_caption_draw_background; /// @is {function<x:int;y:int;width:int;height:int;buttonsX:int;void>}
+globalvar gameframe_caption_draw_background; /// @is {function<x:int; y:int; width:int; height:int; buttonsX:int; void>}
 gameframe_caption_draw_background = gameframe_caption_draw_caption_rect_default;
-globalvar gameframe_caption_draw_text; /// @is {function<x:number;y:number;width:int;height:int;void>}
+globalvar gameframe_caption_draw_text; /// @is {function<x:number; y:number; width:int; height:int; void>}
 gameframe_caption_draw_text = gameframe_caption_draw_caption_text_default;
 // gameframe_cover:
 globalvar gameframe_cover_check_for_success; /// @is {bool}

@@ -10,6 +10,7 @@ enum aspectratios
 #macro CAM_WIDTH obj_screensizer.ideal_width
 #macro CAM_HEIGHT obj_screensizer.ideal_height
 
+lb_sprs = [bg_letterbox, bg_letterbox2, bg_letterbox3]
 global.resolutions[aspectratios.ratio_16_9] = [[480, 270], [960, 540], [1024, 576], [1280, 720], [1600, 900], [1920, 1080]];
 global.resolutions[aspectratios.ratio_4_3] = [[640, 480], [800, 600], [1024, 768], [1152, 864], [1440, 1080]];
 gameframe_init();

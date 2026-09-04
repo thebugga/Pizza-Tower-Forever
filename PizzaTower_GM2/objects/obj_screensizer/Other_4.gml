@@ -5,7 +5,7 @@ while (surface_get_target() != -1 && surface_get_target() != application_surface
 {
 	surface_reset_target();
 }
-if (room != Loadiingroom)
+if (room != Loadingroom)
 {
 	lang_init = true;
 }

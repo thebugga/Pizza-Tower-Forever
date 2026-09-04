@@ -32,4 +32,4 @@ if ((!scr_slope() && instance_place(x + sign(hsp), y, obj_solid)) || bouncedestr
 	}
 	instance_destroy();
 }
-scr_collision();
+scr_collide();

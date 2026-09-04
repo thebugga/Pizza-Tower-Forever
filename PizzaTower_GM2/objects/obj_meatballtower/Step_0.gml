@@ -27,4 +27,4 @@ switch (state)
 		break;
 }
 mask_index = spr_meatball_roll;
-scr_collision();
+scr_collide();

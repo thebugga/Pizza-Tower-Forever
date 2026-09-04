@@ -18,7 +18,7 @@ if (use_collision)
 			fmod_event_one_shot_3d("event:/sfx/pep/step", x, y);
 			hsp = 0;
 			start = true;
-			if (sprite_index == spr_pepperman_scared)
+			if (sprite_index == spr_playerPM_panic)
 			{
 				fmod_event_one_shot_3d("event:/sfx/voice/peppermanscared", x, y);
 			}
@@ -42,7 +42,7 @@ if (use_collision)
 		hsp = Approach(hsp, 0, 0.1);
 		sprite_index = angryspr;
 	}
-	scr_collision();
+	scr_collide();
 }
 else
 {

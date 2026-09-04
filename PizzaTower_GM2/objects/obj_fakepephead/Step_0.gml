@@ -23,4 +23,4 @@ else
 		instance_destroy();
 	}
 }
-scr_collision();
+scr_collide();

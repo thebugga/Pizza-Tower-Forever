@@ -12,4 +12,4 @@ if (ANIMATION_END)
 	image_index = image_number - 1;
 }
 mask_index = spr_player_mask;
-scr_collision();
+scr_collide();

@@ -85,7 +85,7 @@ function scr_playersounds()
 		{
 			fmod_event_instance_stop(freefallsnd, true);
 		}
-		if ((character == characters.Noise && (state == states.mach2 || state == states.mach3 || state == states.climbwall)) || (state == states.rocket && sprite_index != spr_rocketstart))
+		if ((character == characters.Peppino && (state == states.mach2 || state == states.mach3 || state == states.climbwall)) || (state == states.rocket && sprite_index != spr_rocketstart))
 		{
 			fmod_event_instance_set_paused(machsnd, false);
 			if (!fmod_event_instance_is_playing(machsnd))

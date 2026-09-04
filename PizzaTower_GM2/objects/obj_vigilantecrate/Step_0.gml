@@ -9,7 +9,7 @@ else
 	{
 		vsp += 0.25;
 	}
-	scr_collision();
+	scr_collide();
 	if (grounded && vsp > 0)
 	{
 		instance_destroy();

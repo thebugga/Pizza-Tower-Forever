@@ -1,6 +1,6 @@
 function scr_player_shoulderbash()
 {
-	movespeed = (sprite_index == spr_pepperman_shoulderstart) ? shoulderbash_mspeed_start : Approach(movespeed, shoulderbash_mspeed_loop, 0.5);
+	movespeed = (sprite_index == spr_playerPM_mach1) ? shoulderbash_mspeed_start : Approach(movespeed, shoulderbash_mspeed_loop, 0.5);
 	hsp = xscale * movespeed;
 	if (!instance_exists(chargeeffectid))
 	{
@@ -11,11 +11,11 @@ function scr_player_shoulderbash()
 			depth = other.depth - 1;
 		}
 	}
-	if (sprite_index == spr_pepperman_shoulderstart && ANIMATION_END)
+	if (sprite_index == spr_playerPM_mach1 && ANIMATION_END)
 	{
-		sprite_index = spr_pepperman_shoulderloop;
+		sprite_index = spr_playerPM_mach4;
 	}
-	if (sprite_index == spr_pepperman_shoulderloop && !key_attack)
+	if (sprite_index == spr_playerPM_mach4 && !key_attack)
 	{
 		state = states.normal;
 		image_index = 0;

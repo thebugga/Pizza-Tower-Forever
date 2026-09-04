@@ -16,25 +16,3 @@ bg_2yoffset = 0;
 fg1_x = 0;
 fg1_y = 0;
 backgrounds = ["Backgrounds_still1", "Backgrounds_still2"];
-timer = 0;
-var _groundFunc = function(_cam)
-{	
-	return
-	{
-		x : _cam.x * intensity,
-		y : y
-	};
-}
-
-layers = 
-{
-	Assets_BG2 : new parallaxLayer("Assets_BG2", .1, 202),
-	Assets_BG1 : new parallaxLayer("Assets_BG1", .05, 201),
-	Backgrounds_1 : new parallaxLayer("Backgrounds_1", .25),
-	Backgrounds_2 : new parallaxLayer("Backgrounds_2", .2),
-	Backgrounds_3 : new parallaxLayer("Backgrounds_3", .15),
-	
-	Backgrounds_Ground1 : new parallaxLayer("Backgrounds_Ground1", .2, _groundFunc),
-	Backgrounds_Ground2 : new parallaxLayer("Backgrounds_Ground2", .18, _groundFunc),
-	Backgrounds_Ground3 : new parallaxLayer("Backgrounds_Ground3", .16, _groundFunc),
-};

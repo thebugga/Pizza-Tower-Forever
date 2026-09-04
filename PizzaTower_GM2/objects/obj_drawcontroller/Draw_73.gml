@@ -5,7 +5,7 @@ with (obj_player)
 		draw_superslam_enemy();
 	}
 }
-if (room == Mainmenu || room == Longintro || room == Realtitlescreen)
+if (room == Mainmenu || room == Longintro || room == init_obj_room)
 {
 	use_dark = false;
 	kidsparty_lightning = false;

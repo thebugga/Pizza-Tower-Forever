@@ -90,27 +90,24 @@ add_option_press(video_menu, 0, "option_back", function()
 {
 	menu_goto(menuids.categories);
 });
-if (!steam_utils_is_steam_running_on_steam_deck())
+add_option_press(video_menu, 1, "option_window_mode", function()
 {
-	add_option_press(video_menu, 1, "option_window_mode", function()
-	{
-		menu_goto(menuids.window);
-	});
-	var res = [];
-	for (var i = 0; i < array_length(global.resolutions[obj_screensizer.aspect_ratio]); i++)
-	{
-		var b = global.resolutions[obj_screensizer.aspect_ratio][i];
-		array_push(res, create_option_value(concat(b[0], "X", b[1]), i, false));
-	}
-	add_option_multiple(video_menu, 2, "option_resolution", res, function(_resolution)
-	{
-		ini_open_from_string(obj_savesystem.ini_str_options);
-		ini_write_real("Option", "resolution", _resolution);
-		obj_savesystem.ini_str_options = ini_close();
-		global.option_resolution = _resolution;
-		screen_apply_size();
-	}).value = global.option_resolution;
+	menu_goto(menuids.window);
+});
+var res = [];
+for (var i = 0; i < array_length(global.resolutions[obj_screensizer.aspect_ratio]); i++)
+{
+	var b = global.resolutions[obj_screensizer.aspect_ratio][i];
+	array_push(res, create_option_value(concat(b[0], "X", b[1]), i, false));
 }
+add_option_multiple(video_menu, 2, "option_resolution", res, function(_resolution)
+{
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("Option", "resolution", _resolution);
+	obj_savesystem.ini_str_options = ini_close();
+	global.option_resolution = _resolution;
+	screen_apply_size();
+}).value = global.option_resolution;
 add_option_toggle(video_menu, 3, "option_vsync", function(_vsync)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);
@@ -126,6 +123,21 @@ add_option_toggle(video_menu, 4, "option_texfilter", function(_texfilter)
 	obj_savesystem.ini_str_options = ini_close();
 	global.option_texfilter = _texfilter;
 }).value = global.option_texfilter;
+add_option_toggle(video_menu, array_length(video_menu), "option_panicbg", function(_panbg)
+{
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("Option", "panicbg", _panbg);
+	obj_savesystem.ini_str_options = ini_close();
+    global.M_option_panbg = _panbg;
+}).value = global.M_option_panbg;
+add_option_multiple(video_menu, array_length(video_menu), "option_letterbox_type", [create_option_value("option_letterbox_checkered", 0), create_option_value("option_letterbox_bricks", 1), create_option_value("option_letterbox_cheese", 2)], function(_type)
+{
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("Option", "letterbox", _type);
+	ini_write_real("Option", "letterbox_type", _type);
+	obj_savesystem.ini_str_options = ini_close();
+	global.M_option_letterboxindex = _type;
+}).value = global.M_option_letterboxindex;
 add_option_toggle(video_menu, 5, "option_hud", function(_hud)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);

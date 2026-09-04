@@ -10,7 +10,7 @@ else
 	{
 		pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, texture, true);
 	}
-	pal_swap_set(spr_palette, paletteselect, false);
+	pal_swap_set(spr_palette, paletteselect);
 	lang_draw_sprite(sprite_index, image_index, x, y);
 	if (texture != noone)
 	{

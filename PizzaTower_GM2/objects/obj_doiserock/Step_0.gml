@@ -30,4 +30,4 @@ if (dir != 0)
 		instance_destroy();
 	}
 }
-scr_collision();
+scr_collide();

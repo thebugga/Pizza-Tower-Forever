@@ -12,4 +12,4 @@ if (scr_solid(x + image_xscale, y) && !grounded)
 	image_xscale *= -1;
 	hsp *= -1;
 }
-scr_collision();
+scr_collide();

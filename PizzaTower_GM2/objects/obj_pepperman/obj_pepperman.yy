@@ -46,8 +46,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_pepperman_idle",
-    "path":"sprites/spr_pepperman_idle/spr_pepperman_idle.yy",
+    "name":"spr_playerPM_idle",
+    "path":"sprites/spr_playerPM_idle/spr_playerPM_idle.yy",
   },
   "spriteMaskId":{
     "name":"spr_pepperman_mask",

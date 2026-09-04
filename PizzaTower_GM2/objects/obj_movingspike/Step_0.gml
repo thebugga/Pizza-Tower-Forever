@@ -1,4 +1,4 @@
-scr_collision();
+scr_collide();
 if (important && grounded)
 {
 	instance_destroy();

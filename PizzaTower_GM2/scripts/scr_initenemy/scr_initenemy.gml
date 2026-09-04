@@ -19,7 +19,7 @@ function scr_initenemy()
 	vsp_carry = 0;
 	xscale = 1;
 	yscale = 1;
-	scr_collision_init();
+	scr_collide_init();
 	stunned = 0;
 	alarm[0] = 150;
 	roaming = true;

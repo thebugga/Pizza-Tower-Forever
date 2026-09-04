@@ -320,7 +320,7 @@ switch (introstate)
 			}
 			with (obj_pizzafacep3_prop)
 			{
-				if (angryspr != spr_pepperman_sour)
+				if (angryspr != spr_playerPM_3hpidle)
 				{
 					hsp = irandom_range(8, 10);
 					vsp = -11;
@@ -330,8 +330,8 @@ switch (introstate)
 				{
 					other.peppermanid = id;
 					hsp = 6;
-					angryspr = spr_pepperman_scared;
-					sprite_index = spr_pepperman_scared;
+					angryspr = spr_playerPM_panic;
+					sprite_index = spr_playerPM_panic;
 				}
 			}
 			if (global.swapmode)
@@ -573,7 +573,7 @@ else
 {
 	fmod_event_instance_stop(snd_spin, true);
 }
-scr_collision();
+scr_collide();
 if (global.swapmode)
 {
 	with (peppinoID)

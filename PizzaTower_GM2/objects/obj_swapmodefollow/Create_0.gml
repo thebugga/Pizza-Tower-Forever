@@ -54,7 +54,7 @@ get_character_spr = function()
 	}
 	else
 	{
-		spr_palette = spr_noisepalette;
+		spr_palette = spr_peppaletteN;
 		spr_idle = spr_playerN_idle;
 		spr_move = spr_playerN_move;
 		spr_air = spr_playerN_doublejump;

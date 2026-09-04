@@ -52,6 +52,22 @@ function stop_music()
 	}
 }
 
+function pause_unpause_music_global(_pause)
+{
+	with (obj_music)
+	{
+		if (music != noone)
+		{
+			fmod_event_instance_set_paused(music.event, _pause);
+			fmod_event_instance_set_paused(music.event_secret, _pause);
+		}
+		fmod_event_instance_set_paused(pillarmusicID, _pause);
+		fmod_event_instance_set_paused(panicmusicID, _pause);
+		fmod_event_instance_set_paused(kidspartychaseID, _pause);
+	}
+}
+
+
 function hub_state(_hubroom, _snd, arg2)
 {
 	var s = 0;

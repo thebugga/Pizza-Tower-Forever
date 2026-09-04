@@ -68,4 +68,4 @@ if (state != states.fall)
 		instance_destroy();
 	}
 }
-scr_collision();
+scr_collide();

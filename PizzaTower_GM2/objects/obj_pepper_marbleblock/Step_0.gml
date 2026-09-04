@@ -1,7 +1,7 @@
 mask_index = spr_pepperman_statues1;
 if (hitLag <= 0)
 {
-	scr_collision();
+	scr_collide();
 }
 else
 {

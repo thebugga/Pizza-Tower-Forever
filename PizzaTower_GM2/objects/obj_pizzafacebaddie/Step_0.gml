@@ -1,6 +1,6 @@
 if (collision)
 {
-	scr_collision();
+	scr_collide();
 	if (grounded && vsp > 0)
 	{
 		with (instance_create(x, y, content))

@@ -1,3 +1,12 @@
+function scr_collide_init() {
+	grounded = false;
+	grav = 0;		
+	hsp = 0;
+	vsp = 0;
+	vsp_carry = 0;
+	hsp_carry = 0;
+}
+
 function scr_collide()
 {
 	grounded = false;

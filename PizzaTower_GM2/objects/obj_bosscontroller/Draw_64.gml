@@ -67,7 +67,7 @@ switch (state)
 			}
 			shader_set(global.Pal_Shader);
 			pattern_set(global.Base_Pattern_Color, playerspr, 0, 1, 1, global.palettetexture);
-			pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect, false);
+			pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect);
 			draw_sprite_ext(playerspr, -1, px, py, 1, 1, 0, c_player, 1);
 			if (bossspr == spr_vsfakepep || bossspr == spr_vsfakepep2)
 			{
@@ -139,7 +139,7 @@ switch (state)
 					{
 						pattern_set(global.Base_Pattern_Color, sprite_index, image_index, 1, 1, palettetexture);
 					}
-					pal_swap_set(spr_palette, paletteselect, false);
+					pal_swap_set(spr_palette, paletteselect);
 					draw_sprite(sprite_index, image_index, x, y);
 				}
 				else if (type == 1)
@@ -151,7 +151,7 @@ switch (state)
 					else
 					{
 						image_index += image_speed;
-						pal_swap_set(spr_palette, paletteselect, false);
+						pal_swap_set(spr_palette, paletteselect);
 						draw_sprite(sprite_index, image_index, x, y);
 					}
 				}

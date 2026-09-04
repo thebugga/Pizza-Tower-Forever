@@ -1,8 +1,3 @@
-if (obj_savesystem.character != characters.Peppino)
-{
-	exit;
-}
-
 var _add_spot = function(_x, _y, _scale)
 {
 	var q = 

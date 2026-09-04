@@ -251,7 +251,7 @@ if (vsp > 0 && grounded && !place_meeting(x, y, obj_spike))
 }
 if (grabbed == false && ratgrabbed == false && use_collision)
 {
-	scr_collision();
+	scr_collide();
 }
 if (place_meeting(x, y, obj_swordhitbox) && thrown == false)
 {

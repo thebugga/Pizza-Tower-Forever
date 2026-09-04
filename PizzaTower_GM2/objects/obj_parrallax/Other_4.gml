@@ -19,17 +19,7 @@ var asset_parallax = [[0.1, 0.1], [0.05, 0.05], [0.1, 0.1], [0.05, 0], [-0.1, -0
 for (var i = 0; i < array_length(asset_layers); i++)
 {
 	var b = asset_layers[i];
-	var p = layers[$ b] ?? noone;
-	
-	if (p != noone)
-	{
-		p = is_struct(p.intensity) ? [p.intensity.x, p.intensity.y] : array_create(2, p.intensity);
-	}
-	else
-	{
-		p = [1, 1];	
-	}
-	
+	var p = asset_parallax[i];
 	if (layer_exists(b))
 	{
 		b = layer_get_id(b);

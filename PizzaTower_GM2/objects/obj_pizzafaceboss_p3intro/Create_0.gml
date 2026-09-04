@@ -11,7 +11,7 @@ peppermanid = noone;
 prop = 0;
 proparr =
 [
-	[spr_pepperman_scared, spr_pepperman_sour, spr_pepperman_mask, -7],
+	[spr_playerPM_panic, spr_playerPM_3hpidle, spr_pepperman_mask, -7],
 	[spr_playerV_hurt, spr_playerV_angryidle, spr_player_mask, -6],
 	[spr_playerN_hurt, spr_playerN_panicidle, spr_player_mask, -5],
 	[spr_fakepeppino_stun, spr_fakepeppino_intro3loop, spr_player_mask, -4]

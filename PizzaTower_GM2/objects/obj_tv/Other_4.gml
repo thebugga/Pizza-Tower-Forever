@@ -20,68 +20,74 @@ else
 {
 	timer_tower = false;
 }
-tv_bg_index = 0;
-switch (global.leveltosave)
-{
-	case "entrance":
-		tv_bg_index = 1;
-		break;
-	case "medieval":
-		tv_bg_index = 2;
-		break;
-	case "ruin":
-		tv_bg_index = 3;
-		break;
-	case "dungeon":
-		tv_bg_index = 4;
-		break;
-	case "badland":
-		tv_bg_index = 5;
-		break;
-	case "graveyard":
-		tv_bg_index = 6;
-		break;
-	case "farm":
-		tv_bg_index = 7;
-		break;
-	case "saloon":
-		tv_bg_index = 8;
-		break;
-	case "plage":
-		tv_bg_index = 9;
-		break;
-	case "forest":
-		tv_bg_index = 10;
-		break;
-	case "space":
-		tv_bg_index = 11;
-		break;
-	case "minigolf":
-		tv_bg_index = 12;
-		break;
-	case "street":
-		tv_bg_index = 13;
-		break;
-	case "sewer":
-		tv_bg_index = 14;
-		break;
-	case "industrial":
-		tv_bg_index = 15;
-		break;
-	case "freezer":
-		tv_bg_index = 16;
-		break;
-	case "chateau":
-		tv_bg_index = 17;
-		break;
-	case "kidsparty":
-		tv_bg_index = 18;
-		break;
-	case "war":
-		tv_bg_index = 19;
-		break;
-}
-if (special_prompts == noone && room != Realtitlescreen && room != characterselect)
+//tv_bg_index = 0;
+//switch (global.leveltosave)
+//{
+//	case "entrance":
+//		tv_bg_index = 1;
+//		break;
+//	case "medieval":
+//		tv_bg_index = 2;
+//		break;
+//	case "ruin":
+//		tv_bg_index = 3;
+//		break;
+//	case "dungeon":
+//		tv_bg_index = 4;
+//		break;
+//	case "badland":
+//		tv_bg_index = 5;
+//		break;
+//	case "graveyard":
+//		tv_bg_index = 6;
+//		break;
+//	case "farm":
+//		tv_bg_index = 7;
+//		break;
+//	case "saloon":
+//		tv_bg_index = 8;
+//		break;
+//	case "plage":
+//		tv_bg_index = 9;
+//		break;
+//	case "forest":
+//		tv_bg_index = 10;
+//		break;
+//	case "space":
+//		tv_bg_index = 11;
+//		break;
+//	case "minigolf":
+//		tv_bg_index = 12;
+//		break;
+//	case "street":
+//		tv_bg_index = 13;
+//		break;
+//	case "sewer":
+//		tv_bg_index = 14;
+//		break;
+//	case "industrial":
+//		tv_bg_index = 15;
+//		break;
+//	case "freezer":
+//		tv_bg_index = 16;
+//		break;
+//	case "chateau":
+//		tv_bg_index = 17;
+//		break;
+//	case "kidsparty":
+//		tv_bg_index = 18;
+//		break;
+//	case "war":
+//		tv_bg_index = 19;
+//		break;
+//}
+
+if global.leveltosave != noone
+    bgsprite = asset_get_index(concat("spr_gate_", global.leveltosave, "BG"))
+else
+    bgsprite = spr_gate_exitBG
+
+if (special_prompts == noone && room != init_obj_room && room != characterselect)
 {
 	special_prompts = ds_map_create();
 	ini_open(concat("saveData", global.currentsavefile, ".ini"));
@@ -99,7 +105,7 @@ if (special_prompts == noone && room != Realtitlescreen && room != charactersele
 	ds_map_set(special_prompts, "rocket", ini_read_real("Prompts", "rocket", 0));
 	ini_close();
 }
-if (room == Realtitlescreen)
+if (room == init_obj_room)
 {
 	if (special_prompts != noone)
 	{
@@ -188,3 +194,4 @@ switch (room)
 global.arank = floor(global.srank / 2);
 global.brank = floor(global.arank / 2);
 global.crank = floor(global.brank / 2);
+scr_hub_bg_reinit(tv_x, tv_y + hud_posY)

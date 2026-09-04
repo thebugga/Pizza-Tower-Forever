@@ -121,7 +121,7 @@ function scr_boss_pizzaheadjump()
 		switch (object_index)
 		{
 			case obj_pepperman:
-				sprite_index = spr_pepperman_idle;
+				sprite_index = spr_playerPM_idle;
 				break;
 			case obj_vigilanteboss:
 				sprite_index = spr_playerV_idle;

@@ -1,4 +1,4 @@
-if (room == Realtitlescreen)
+if (room == init_obj_room)
 {
 	ini_str = "";
 }

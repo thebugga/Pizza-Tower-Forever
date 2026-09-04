@@ -13,4 +13,4 @@ switch (state)
 		hsp = 0;
 		break;
 }
-scr_collision();
+scr_collide();

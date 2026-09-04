@@ -51,7 +51,7 @@ switch (state)
 		{
 			vsp += grav;
 		}
-		scr_collision();
+		scr_collide();
 		break;
 	case states.grabbed:
 		grounded = false;

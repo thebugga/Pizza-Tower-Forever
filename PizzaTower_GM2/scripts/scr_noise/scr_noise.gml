@@ -211,7 +211,7 @@ function scr_noise_arenaintro()
 						{
 							sprite_index = spr_player_gnomecutscene4;
 						}
-						else if (sprite_index == spr_player_idlefrown)
+						else if (sprite_index == spr_player_idle2)
 						{
 							sprite_index = spr_idle;
 						}
@@ -226,9 +226,9 @@ function scr_noise_arenaintro()
 						image_index = 0;
 						fmod_event_one_shot("event:/sfx/pep/screamboss");
 					}
-					if (other.sprite_index == spr_noise_intro2 && sprite_index != spr_player_idlefrown && sprite_index != spr_idle)
+					if (other.sprite_index == spr_noise_intro2 && sprite_index != spr_player_idle2 && sprite_index != spr_idle)
 					{
-						sprite_index = spr_player_idlefrown;
+						sprite_index = spr_player_idle2;
 						image_index = 0;
 					}
 				}
@@ -318,7 +318,7 @@ function scr_noise_arenaintro()
 					{
 						sprite_index = spr_player_gnomecutscene4;
 					}
-					else if (sprite_index == spr_player_idlefrown)
+					else if (sprite_index == spr_player_idle2)
 					{
 						sprite_index = spr_idle;
 					}

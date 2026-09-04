@@ -28,7 +28,7 @@ function screen_apply_size()
 
 function screen_apply_vsync()
 {
-	if (room != Loadiingroom)
+	if (room != Loadingroom)
 	{
 		trace("Applying VSync: ", global.option_vsync);
 		display_reset(0, global.option_vsync);
@@ -202,6 +202,9 @@ function get_options()
 	global.option_unfocus_mute = ini_read_real("Option", "unfocus_mute", 0);
 	global.option_texfilter = ini_read_real("Option", "texfilter", 1);
 	global.option_vsync = ini_read_real("Option", "vsync", 0);
+	global.M_option_letterbox = ini_read_real("M_Option", "letterbox", 0)
+	global.M_option_letterboxindex = ini_read_real("M_Option", "letterbox_type", 0)
+    global.M_option_panbg = ini_read_real("M_Option", "panicbg", 0);
 	var lang = ini_read_string("Option", "lang", "none");
 	if (lang == "none")
 	{
@@ -252,11 +255,6 @@ function get_options()
 	global.offload_lang = noone;
 	global.option_screenshake = ini_read_real("Option", "screenshake", 1);
 	global.lang = global.option_lang;
-	if (IS_WINDOWS && steam_utils_is_steam_running_on_steam_deck())
-	{
-		global.option_fullscreen = 1;
-		global.option_resolution = 1;
-	}
 	ini_close();
 	screen_apply_fullscreen(global.option_fullscreen);
 	obj_screensizer.start_sound = false;

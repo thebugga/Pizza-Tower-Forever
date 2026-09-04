@@ -1,4 +1,4 @@
-function dialog_create(_text, _namespr = noone, _endfunc = noone, _unknown = noone)
+function dialog_create(_text, _namespr = noone, _bgspr = bg_noelle, _charname = "NOELLE", _func = noone, _endfunc = noone)
 {
-	return [_text, _namespr, _endfunc, _unknown]; // last argument is never used afaik
+	return [_text, _namespr, _bgspr, _charname, _func, _endfunc];
 }

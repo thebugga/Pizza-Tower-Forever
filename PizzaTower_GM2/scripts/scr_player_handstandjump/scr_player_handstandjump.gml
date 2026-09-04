@@ -135,6 +135,33 @@ function scr_player_handstandjump()
 		fmod_event_instance_play(snd_crouchslide);
 	}
 	mask_index = spr_player_mask;
+	if (input_buffer_slap > 8)
+    {
+		image_index = 0;
+		switch (character)
+		{
+		    case characters.Noise:
+				sprite_index = spr_playerN_spin;
+		        break;
+            
+		    default:
+				sprite_index = spr_player_faceplant;
+		        break;
+		}
+		state = states.faceplant;
+		with (instance_create(x, y, obj_jumpdust))
+		{
+		    image_xscale = other.xscale;
+		}
+		if (!instance_exists(crazyruneffectid))
+		{
+		    with (instance_create(x, y, obj_crazyrunothereffect))
+		    {
+		        playerid = other.object_index
+		        other.crazyruneffectid = id
+		    }
+		}
+	}
 	if ((!grounded && (place_meeting(x + hsp, y, obj_solid) || scr_solid_slope(x + hsp, y)) && !place_meeting(x + hsp, y, obj_destructibles)) || (grounded && (place_meeting(x + sign(hsp), y - 16, obj_solid) || scr_solid_slope(x + sign(hsp), y - 16)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && scr_slope()))
 	{
 		var _climb = true;

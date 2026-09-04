@@ -8,4 +8,4 @@ if (place_meeting(x + hsp, y, obj_solid))
 //{
 //	instance_create(x, y, obj_canonexplosion);
 //}
-scr_collision();
+scr_collide();

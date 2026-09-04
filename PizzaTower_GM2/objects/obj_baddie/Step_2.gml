@@ -33,7 +33,7 @@ if (object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 &&
 }
 if (state != states.grabbed && state != states.pummel && object_index != obj_pepbat && object_index != obj_fakesanta && use_collision)
 {
-	scr_collision();
+	scr_collide();
 }
 if (invtime > 0)
 {

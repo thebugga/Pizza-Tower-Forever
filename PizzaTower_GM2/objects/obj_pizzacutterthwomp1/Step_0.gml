@@ -6,4 +6,4 @@ if (y == ydown)
 {
 	vsp = -1;
 }
-scr_collision();
+scr_collide();

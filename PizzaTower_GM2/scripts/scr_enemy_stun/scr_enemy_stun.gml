@@ -49,13 +49,13 @@ function scr_enemy_stun()
 		{
 			sprite_index = spr_dead;
 		}
-		else if (sprite_index != spr_pepperman_shoulderhurt && sprite_index != spr_pepperman_shoulderhurtstart)
+		else if (sprite_index != spr_playerPM_mach3hitwall && sprite_index != spr_playerPM_mach3hitwallstart)
 		{
 			sprite_index = stunfallspr;
 		}
-		if (sprite_index == spr_pepperman_shoulderhurtstart && ANIMATION_END)
+		if (sprite_index == spr_playerPM_mach3hitwallstart && ANIMATION_END)
 		{
-			sprite_index = spr_pepperman_shoulderhurt;
+			sprite_index = spr_playerPM_mach3hitwall;
 		}
 	}
 	else if (object_index == obj_fakepepboss || object_index == obj_pf_fakepep)

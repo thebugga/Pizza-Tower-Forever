@@ -19,6 +19,9 @@ if (frac(app_scale) > 0 && global.option_texfilter)
 	shader_set_uniform_f(shader_get_uniform(shd_aa, "u_vScale"), window_get_width() / surface_get_width(gui_surf), window_get_height() / surface_get_height(gui_surf));
 	shd = true;
 }
+var ratio = window_get_width() / window_get_height()
+if ratio != SCREEN_WIDTH / SCREEN_HEIGHT && global.M_option_letterbox
+	draw_sprite_tiled(lb_sprs[global.M_option_letterboxindex], 0, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 if (global.option_scale_mode == 0)
 {
 	draw_surface(gui_surf, 0, 0);
@@ -39,7 +42,7 @@ if (lang_init && !instance_exists(obj_langload))
 {
 	global.gameframe_caption_font = lang_get_font("captionfont");
 }
-if (window_has_focus())
-{
-	gameframe_draw();
-}
+if room != Loadingroom
+	draw_set_font(global.smallfont);
+gameframe_draw();
+

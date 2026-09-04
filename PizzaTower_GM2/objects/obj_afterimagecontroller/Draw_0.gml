@@ -73,7 +73,7 @@ for (var i = 0; i < ds_list_size(global.afterimage_list); i++)
 					{
 						pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, playerid.patterntexture);
 					}
-					pal_swap_set(playerid.spr_palette, playerid.paletteselect, false);
+					pal_swap_set(playerid.spr_palette, playerid.paletteselect);
 				}
 			}
 			draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, b, a);

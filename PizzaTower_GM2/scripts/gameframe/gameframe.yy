@@ -6,7 +6,7 @@
   "name":"gameframe",
   "parent":{
     "name":"Gameframe",
-    "path":"folders/Scripts/Gameframe.yy",
+    "path":"folders/Extensions/Gameframe.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -8,7 +8,10 @@ offload_arr = noone;
 depth = -600;
 noisehead = [];
 noisespots = [];
-alarm[1] = 1;
+if (obj_player.character == characters.Noise || obj_player.character == characters.Doise)
+{
+	alarm[1] = 1;
+}
 with (obj_gusbrickchase)
 {
 	fmod_event_instance_stop(snd, true);

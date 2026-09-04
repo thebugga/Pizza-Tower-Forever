@@ -8,7 +8,7 @@ if (!obj_player1.ispeppino)
 	spr = spr_noiseelevator;
 }
 pattern_set(global.Base_Pattern_Color, spr, peppino_index, 1, 1, global.palettetexture);
-pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect, false);
+pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect);
 draw_sprite(spr, peppino_index, peppino_x, peppino_y);
 pattern_reset();
 shader_reset();

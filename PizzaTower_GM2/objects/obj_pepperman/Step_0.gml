@@ -121,7 +121,7 @@ if (!pizzahead && wastedhits >= 10 && phase == 1 && state == states.walk && flic
 }
 if (state == states.stun)
 {
-	if (wastedhits >= 8 && sprite_index == spr_pepperman_shoulderhurt && grounded && vsp > 0 && !thrown && stunned > 10)
+	if (wastedhits >= 8 && sprite_index == spr_playerPM_mach3hitwall && grounded && vsp > 0 && !thrown && stunned > 10)
 	{
 		stunned = 1;
 	}
@@ -187,8 +187,8 @@ if (state == states.freefall || (state == states.rolling && vsp < 0))
 		with (hitboxID)
 		{
 			ID = other.id;
-			sprite_index = spr_pepperman_groundpoundstart;
-			mask_index = spr_pepperman_groundpoundstart;
+			sprite_index = spr_playerPM_bodyslamstart;
+			mask_index = spr_playerPM_bodyslamstart;
 		}
 	}
 }
@@ -204,7 +204,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (((state != states.stun || savedthrown != thrown || (wastedhits >= 8 && (sprite_index == spr_pepperman_shoulderhurt || sprite_index == spr_pepperman_shoulderhurtstart)) || thrown) && (state != states.freefallland || landbuffer <= 0) && (state != states.rolling || vsp < 0 || sprite_index == spr_pepperman_groundpoundland) && state != states.contemplate) || flickertime > 0 || (wastedhits == 9 && phase == 1))
+if (((state != states.stun || savedthrown != thrown || (wastedhits >= 8 && (sprite_index == spr_playerPM_mach3hitwall || sprite_index == spr_playerPM_mach3hitwallstart)) || thrown) && (state != states.freefallland || landbuffer <= 0) && (state != states.rolling || vsp < 0 || sprite_index == spr_playerPM_bodyslamland) && state != states.contemplate) || flickertime > 0 || (wastedhits == 9 && phase == 1))
 {
 	invincible = true;
 }
@@ -215,7 +215,7 @@ else
 if (pizzahead && elitehit <= 1)
 {
 	destroyable = true;
-	if (state == states.rolling && vsp > 0 && sprite_index != spr_pepperman_groundpoundland)
+	if (state == states.rolling && vsp > 0 && sprite_index != spr_playerPM_bodyslamland)
 	{
 		invincible = false;
 	}

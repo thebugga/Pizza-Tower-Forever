@@ -17,4 +17,4 @@ if (countdown > 0)
 {
 	countdown--;
 }
-scr_collision();
+scr_collide();

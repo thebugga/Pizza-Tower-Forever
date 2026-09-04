@@ -26,4 +26,4 @@ if (sprite_index == spr_pizzahead_haywireattack)
 		instance_create(x, y + 38, obj_pizzahead_cog);
 	}
 }
-scr_collision();
+scr_collide();

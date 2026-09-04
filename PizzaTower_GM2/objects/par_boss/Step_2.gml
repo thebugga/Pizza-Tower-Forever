@@ -20,7 +20,7 @@ if (grounded && state != states.hit && state != states.stun)
 }
 if (colliding)
 {
-	scr_collision();
+	scr_collide();
 }
 else
 {

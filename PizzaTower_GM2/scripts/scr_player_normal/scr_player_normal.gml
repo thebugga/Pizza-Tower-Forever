@@ -151,10 +151,6 @@ function scr_player_normal()
 				sprite_index = movespr;
 			}
 		}
-		if (place_meeting_collision(x + xscale, y, Exclude.SLOPES) && xscale == move)
-		{
-			movespeed = 0;
-		}
 		if (move != 0 && grounded && vsp > 0)
 		{
 			if (steppybuffer > 0)

@@ -29,7 +29,7 @@ if (floor(image_index) == 10)
 {
 	shoving = false;
 }
-if (room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom || room == Realtitlescreen || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+if (room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom || room == init_obj_room || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
 {
 	visible = false;
 }
@@ -263,4 +263,33 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 	}
 	offset_x = Approach(offset_x, 0, offset_speed);
 	offset_y = Approach(offset_y, 0, offset_speed);
+}
+if (global.panic && global.panicbg != 0 && global.M_option_panbg)
+{
+    global.panicshadetimer++;
+    var a = layer_get_all();
+    var b = [];
+    global.paniclayercount = 0;
+    
+    for (var i = 0; i < array_length(a); i++)
+    {
+        if (string_copy(layer_get_name(a[i]), 1, 12) == "Backgrounds_" || string_copy(layer_get_name(a[i]), 1, 7) == "Assets_" || string_copy(layer_get_name(a[i]), 1, 11) == "Foreground_")
+        {
+            b[global.paniclayercount] = a[i];
+            global.paniclayercount++;
+        }
+    }
+    
+    for (var j = 0; j < array_length(b); j++)
+    {
+        layer_script_begin(b[j], scr_panicbg_start);
+        layer_script_end(b[j], scr_panicbg_end);
+    }
+    
+    global.maxwave = instance_exists(obj_tv) ? obj_tv.chunkmax : 4000;
+    global.wave = (global.fill > 0) ? (global.maxwave - global.fill) : (global.maxwave + (global.panicshadetimer / 1000));
+}
+else if (global.panicshadetimer != 0)
+{
+    global.panicshadetimer = 0;
 }

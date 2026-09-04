@@ -27,7 +27,7 @@ switch (state)
 			vsp = 0;
 			sprite_index = spr_grabbiehand_catch;
 		}
-		scr_collision();
+		scr_collide();
 		break;
 	case states.stun:
 		if (stunned > 0)
@@ -44,7 +44,7 @@ switch (state)
 		{
 			hsp = 0;
 		}
-		scr_collision();
+		scr_collide();
 		break;
 	case states.ejected:
 		var _dir = point_direction(x, y, xstart, ystart);
@@ -122,7 +122,7 @@ switch (state)
 				instance_destroy();
 			}
 		}
-		scr_collision();
+		scr_collide();
 		break;
 }
 depth = 0;

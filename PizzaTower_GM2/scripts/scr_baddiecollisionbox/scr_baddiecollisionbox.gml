@@ -153,7 +153,7 @@ function baddiecollisionbox_update(_baddie)
 					other.baddieID.state = states.pummel;
 					other.baddieID.grabbedby = (object_index == obj_player1) ? 1 : 2;
 				}
-				else if (other.baddieID.thrown == false && (character == characters.Peppino || character == characters.Noise))
+				else if (other.baddieID.thrown == false)
 				{
 					movespeed = 0;
 					image_index = 0;

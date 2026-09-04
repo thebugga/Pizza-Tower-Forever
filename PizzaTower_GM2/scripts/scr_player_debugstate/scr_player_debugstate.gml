@@ -10,7 +10,10 @@ function scr_player_debugstate()
 	hsp = (key_left + key_right) * _spd;
 	vsp = -(key_up - key_down) * _spd;
 	image_speed = 1;
-	sprite_index = spr_idle;
+	if hsp == 0 || vsp == 0
+		sprite_index = spr_player_stairs;
+	else
+		sprite_index = spr_player_climbstairs;
 	if (key_jump || key_slap2)
 	{
 		image_speed = 0.35;

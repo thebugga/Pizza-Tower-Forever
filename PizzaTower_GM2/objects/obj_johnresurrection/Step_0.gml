@@ -39,7 +39,7 @@ if (!fadein)
 				state = 2;
 				with (obj_johnresurrection_peppino)
 				{
-					sprite_index = spr_player_idlefrown;
+					sprite_index = spr_player_idle2;
 					if (character == characters.Noise)
 					{
 						sprite_index = spr_playerN_doiseintro2;

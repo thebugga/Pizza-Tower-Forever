@@ -1,25 +1,18 @@
 function do_dialog(_dialog)
 {
-	with (instance_create(x, y, obj_dialogcontroller))
+	with (instance_create(x, y, obj_dialog_controller))
 	{
 		npcID = other.id;
 		dialog = _dialog;
-		dialogsprite = dialog[0][1];
-		currenttext = scr_calculate_text(dialog[0][0]);
+		dialogsprite = _dialog[0][1];
+		currenttext = scr_calculate_text(_dialog[0][0]);
 		dialogheight = scr_calculate_height(currenttext);
+		textbgspr = _dialog[0][2];
+		charactername = _dialog[0][3];
 	}
 	with (obj_player)
 	{
-		if (state == states.ghostpossess)
-		{
-			visible = true;
-			with (possessID)
-			{
-				state = states.stun;
-				stunned = 50;
-			}
-		}
-		sprite_index = spr_idle;
+		sprite_index = spr_player_idle;
 		image_speed = 0.35;
 		state = states.actor;
 		hsp = 0;
@@ -27,7 +20,6 @@ function do_dialog(_dialog)
 		movespeed = 0;
 	}
 }
-
 function npc_do_dialog()
 {
 	do_dialog(dialog);

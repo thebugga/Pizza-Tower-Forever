@@ -30,7 +30,7 @@ switch (state)
 			}
 			alarm[0] = 25;
 		}
-		scr_collision();
+		scr_collide();
 		break;
 	case states.transitioncutscene:
 		if (!comeback)
