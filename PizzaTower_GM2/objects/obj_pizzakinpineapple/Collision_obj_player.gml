@@ -2,7 +2,7 @@
 if (obj_player.state != states.hurt && global.pineapplefollow == false)
 {
 	global.heattime = 60;
-	global.style += 10;
+	global.style--;
 	ds_list_add(global.saveroom, id);
 	if (global.toppintotal < 5)
 	{

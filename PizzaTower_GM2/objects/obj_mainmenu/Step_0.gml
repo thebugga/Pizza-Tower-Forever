@@ -6,6 +6,7 @@ switch (state)
 		currentselect = -1;
 		if (!instance_exists(obj_noiseunlocked))
 		{
+			if !IS_DEBUG
 			jumpscarecount++;
 			if ((keyboard_check_pressed(vk_anykey) || scr_checkanygamepad(obj_inputAssigner.player_input_device[0]) != noone || scr_checkanystick(obj_inputAssigner.player_input_device[0])) && !instance_exists(obj_mainmenu_jumpscare))
 			{
@@ -228,46 +229,7 @@ switch (state)
 		}
 		if (key_jump)
 		{
-			state = states.victory;
-			with (obj_menutv)
-			{
-				if (trigger == other.currentselect)
-				{
-					fmod_event_instance_stop(obj_music.music.event, true);
-					if (!other.shownoise)
-					{
-						fmod_event_one_shot("event:/sfx/ui/fileselect");
-					}
-					else
-					{
-						fmod_event_one_shot("event:/sfx/ui/fileselectN");
-					}
-					state = states.victory;
-					sprite_index = confirmspr;
-				}
-			}
-			alarm[0] = 250;
-			if (shownoise)
-			{
-				alarm[3] = 100;
-				alarm[4] = 5;
-				timermax = 15;
-				explosionsnum = 1;
-				fmod_event_one_shot("event:/sfx/ui/menuexplosions");
-			}
-			fmod_event_one_shot("event:/sfx/misc/collectpizza");
-			switch (currentselect)
-			{
-				case 0:
-					sprite_index = spr_titlepep_left;
-					break;
-				case 1:
-					sprite_index = spr_titlepep_middle;
-					break;
-				case 2:
-					sprite_index = spr_titlepep_right;
-					break;
-			}
+			state = states.wait;
 		}
 		else if (key_quit2)
 		{
@@ -353,6 +315,43 @@ switch (state)
 				}
 			}
 			state = states.normal;
+		}
+		break;;
+	
+	case states.wait:
+		move = key_down2 - key_up2;
+		currentmodeselect = wrap(currentmodeselect + move, -1, array_length(global.modes) - 1);
+		
+		if (currentmodeselect != -1)
+		{	
+			if (key_left2)
+			{
+				global.modes[currentmodeselect].enabled = false;	
+			}
+			if ((array_length(scr_get_activemodes()) < 4 || 1) && key_right2)
+			{
+				global.modes[currentmodeselect].enabled = true;	
+			}
+		}
+		if (currentmodeselect <= -1 && key_jump)
+		{
+			state = states.victory;
+			fmod_event_instance_stop(obj_music.music.event, true)
+			fmod_event_one_shot("event:/sfx/ui/fileselect")
+			alarm[0] = 250;
+			if shownoise
+			{
+				alarm[4] = 5;
+				timermax = 15;
+				explosionsnum = 1;
+				fmod_event_one_shot("event:/sfx/ui/menuexplosions");
+			}
+			fmod_event_one_shot("event:/sfx/misc/collectpizza");
+			if currentselect == -1
+			{
+				array_push(global.game, game_empty())
+				currentselect = array_length(global.game) - 1
+			}	
 		}
 		break;
 	case states.finale:

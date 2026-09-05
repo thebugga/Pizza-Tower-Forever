@@ -31,6 +31,7 @@
     {"name":"inst_50ED8CAE","path":"rooms/init_obj_room/init_obj_room.yy",},
     {"name":"inst_13CC61DA","path":"rooms/init_obj_room/init_obj_room.yy",},
     {"name":"inst_56AB3705","path":"rooms/init_obj_room/init_obj_room.yy",},
+    {"name":"inst_5CFD15C0","path":"rooms/init_obj_room/init_obj_room.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -60,6 +61,7 @@
         {"$GMRInstance":"v4","%Name":"inst_50ED8CAE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_50ED8CAE","objectId":{"name":"obj_achievementtracker","path":"objects/obj_achievementtracker/obj_achievementtracker.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":288.0,"y":-128.0,},
         {"$GMRInstance":"v4","%Name":"inst_13CC61DA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_13CC61DA","objectId":{"name":"obj_globaltimer","path":"objects/obj_globaltimer/obj_globaltimer.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":-32.0,},
         {"$GMRInstance":"v4","%Name":"inst_56AB3705","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_56AB3705","objectId":{"name":"obj_consoledebug","path":"objects/obj_consoledebug/obj_consoledebug.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":-96.0,},
+        {"$GMRInstance":"v4","%Name":"inst_5CFD15C0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5CFD15C0","objectId":{"name":"obj_heatmetercontroller","path":"objects/obj_heatmetercontroller/obj_heatmetercontroller.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":-96.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
   ],
   "name":"init_obj_room",

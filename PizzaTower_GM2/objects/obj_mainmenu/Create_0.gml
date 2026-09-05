@@ -1,3 +1,4 @@
+currentmodeselect = 0;
 currentselect = 0;
 optionbuffer = 0;
 visualselect = 0;

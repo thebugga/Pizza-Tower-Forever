@@ -59,7 +59,7 @@ function Instakill()
 	other.baddieID.player_instakillmove = true;
 	if (!other.baddieID.important)
 	{
-		global.style += (2 + global.combo);
+		global.style += (2 * global.combo);
 	}
 	if (!other.baddieID.elite || other.baddieID.elitehit <= 0)
 	{

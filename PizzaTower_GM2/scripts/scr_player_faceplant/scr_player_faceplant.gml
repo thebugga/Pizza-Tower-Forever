@@ -20,13 +20,13 @@ function scr_player_faceplant()
 		}
 	}
 	
-	if (ANIMATION_END && !key_attack)
+	if (ANIMATION_END && !key_attack && !key_slap)
 	{
 		image_speed = 0.35;
 		state = states.normal;
 	}
 	
-	if (ANIMATION_END && key_attack)
+	if (ANIMATION_END && key_attack && !key_slap)
 	{
 		image_speed = 0.35;
 		state = states.mach3;

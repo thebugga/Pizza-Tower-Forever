@@ -22,32 +22,7 @@ function scr_player_shotgunshoot()
 	{
 		movespeed = Approach(movespeed, 0, 0.1);
 	}
-	if (character == characters.Peppino)
-	{
-		if (ANIMATION_END)
-		{
-			if (grounded)
-			{
-				state = states.normal;
-			}
-			else
-			{
-				state = states.jump;
-			}
-			if (move == -xscale)
-			{
-				xscale = move;
-				dir = xscale;
-				movespeed = abs(movespeed);
-				momemtum = true;
-			}
-		}
-		if (input_buffer_slap > 0 && image_index > (image_number - 3))
-		{
-			scr_shotgunshoot();
-		}
-	}
-	else
+	if (character == characters.Noise)
 	{
 		if (sprite_index != spr_shotgunshoot && sprite_index != spr_playerN_minigundown)
 		{
@@ -130,6 +105,31 @@ function scr_player_shotgunshoot()
 			minigunshot = 1;
 			minigunbuffer = 0;
 			vsp = -1;
+		}
+	}
+	else 
+	{
+		if (ANIMATION_END)
+		{
+			if (grounded)
+			{
+				state = states.normal;
+			}
+			else
+			{
+				state = states.jump;
+			}
+			if (move == -xscale)
+			{
+				xscale = move;
+				dir = xscale;
+				movespeed = abs(movespeed);
+				momemtum = true;
+			}
+		}
+		if (input_buffer_slap > 0 && image_index > (image_number - 3))
+		{
+			scr_shotgunshoot();
 		}
 	}
 }

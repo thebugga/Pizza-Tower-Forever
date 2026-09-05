@@ -12,6 +12,7 @@ if (room != rm_blank)
 {
 	depth = 50;
 }
+warexit = false;
 random_secret = false;
 roomname = room_get_name(room);
 global.progress = string_letters(roomname);

@@ -95,6 +95,26 @@ else
 	panicstart = false;
 	fmod_event_instance_stop(panicmusicID, true);
 }
+if scr_get_mode("war").enabled && instance_exists(obj_wartimer)
+{
+	trace("Starting war music: step");
+	if (room != war_1 || room != tower_finalhallway)
+	{
+		fmod_event_instance_play("event:/music/w5/war");
+		fmod_event_instance_set_paused("event:/music/w5/war", false);
+	}
+	if (music != noone)
+	{
+		fmod_event_instance_stop(music.event, true);
+		fmod_event_instance_stop(music.event_secret, true);
+	}
+	fmod_event_instance_stop(pillarmusicID, true);
+	fmod_set_parameter("pillarfade", 0, true);
+}
+else
+{
+	fmod_event_instance_stop("event:/music/w5/war", true);
+}
 var _found = false;
 with (obj_totem)
 {

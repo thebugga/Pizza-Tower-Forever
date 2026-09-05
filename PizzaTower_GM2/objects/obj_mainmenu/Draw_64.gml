@@ -70,3 +70,40 @@ else if (state == states.finale)
 	tdp_draw_text_color((SCREEN_WIDTH / 2) + 100, (SCREEN_HEIGHT / 2) + 30, lang_get_value("option_no"), c2, c2, c2, c2, 1);
 	tdp_text_commit(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 }
+else if (state == states.wait)
+{
+	draw_set_alpha(0.5);
+	draw_rectangle_color(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
+	draw_set_alpha(1);
+	
+	draw_set_font(lang_get_font("bigfont"));
+	draw_set_halign(fa_middle);
+	draw_set_valign(fa_middle);
+	
+	var pad = 100;
+	var h = string_height(lang_get_value("default_letter"));
+	
+	var m, scale, yy, xx;
+	
+	for(var i = 0; i < array_length(global.modes); i++)
+	{
+		m = global.modes[i];
+		scale = (currentmodeselect == i ? Wave(1.7, 1.5, 5, 0) : 1);
+		yy = m.enabled ? SCREEN_HEIGHT / 2 + (i < 2 ? -pad : pad) : pad * (i - currentmodeselect + 1);
+		xx = m.enabled ? (SCREEN_WIDTH / 2) + (pad * (1.5 + (i % 2))) : pad; 
+ 
+		draw_sprite_ext(spr_mainmenu_modes, m.image_index, xx, yy, scale, scale, 0, c_white, (currentmodeselect == i ? 1 : 0.5));
+		tdp_draw_text(xx, yy, string_upper(global.modes[i].name));
+	}
+	
+	tdp_draw_text(pad, (pad * -currentmodeselect), lang_get_value("option_confirm"));
+	
+	if (currentmodeselect != -1)
+	{
+		
+	}
+	
+	//scr_draw_text_arr(0, SCREEN_HEIGHT, scr_compile_icon_text(concat("[p]", lang_get_value("option_yes"))));
+	
+	tdp_text_commit(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+}

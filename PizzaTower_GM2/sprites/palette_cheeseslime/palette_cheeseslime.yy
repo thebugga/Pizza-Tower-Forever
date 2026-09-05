@@ -4,7 +4,7 @@
   "bboxMode":0,
   "bbox_bottom":3,
   "bbox_left":0,
-  "bbox_right":1,
+  "bbox_right":2,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"e77be1fb-a795-4823-b85b-ae69a488178d","name":"e77be1fb-a795-4823-b85b-ae69a488178d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"56a81469-2ce1-45bf-ba8f-564380ddc64d","name":"56a81469-2ce1-45bf-ba8f-564380ddc64d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":4,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"41c76879-7a87-492f-abca-7a033ca94570","blendMode":0,"displayName":"default","isLocked":false,"name":"41c76879-7a87-492f-abca-7a033ca94570","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"59003ec6-0746-4b5d-a545-ab05d6f585f8","blendMode":0,"displayName":"default","isLocked":false,"name":"59003ec6-0746-4b5d-a545-ab05d6f585f8","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"palette_cheeseslime",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e77be1fb-a795-4823-b85b-ae69a488178d","path":"sprites/palette_cheeseslime/palette_cheeseslime.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"e4ea7955-af5c-4bb5-9364-418e7e83f90b","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"56a81469-2ce1-45bf-ba8f-564380ddc64d","path":"sprites/palette_cheeseslime/palette_cheeseslime.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2e859627-e8eb-4081-8a80-1eebc9d74336","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":2,
+  "width":3,
 }

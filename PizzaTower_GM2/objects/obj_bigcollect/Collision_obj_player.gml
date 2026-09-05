@@ -12,6 +12,7 @@ if (other.state != states.gotoplayer)
 	if (other.object_index == obj_player1)
 	{
 		global.collect += val;
+		global.style   -= val;
 	}
 	else
 	{

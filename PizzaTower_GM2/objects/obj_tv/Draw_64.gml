@@ -57,6 +57,7 @@ if (room != rm_blank)
 			spr = sprite_index;
 		}
 		draw_sprite_ext(spr, image_index, tv_x + collect_x, tv_y + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
+		reset_shader_fix();
 	}
 	if (state == states.whitenoise)
 	{

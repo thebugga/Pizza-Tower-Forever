@@ -252,11 +252,19 @@ function instance_random(_obj)
 	return instance_find(_obj, irandom(instance_number(_obj) - 1));
 }
 
+
 function heat_calculate(_val)
 {
-	return _val;
+	if scr_get_mode("heatmeter").enabled 
+	{
+		trace(global.stylemultiplier)
+			return (_val + (round(_val * global.stylemultiplier)));
+	}
+	else
+	{
+		return _val;
+	}
 }
-
 function scr_hitwall(_x, _y)
 {
 	return place_meeting(_x, _y, obj_solid) || place_meeting_slopeSolid(_x, _y) || place_meeting_slopeSolid(_x, _y)

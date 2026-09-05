@@ -10,7 +10,7 @@ if (!IS_DEBUG)
 //}
 DEBUG = false;
 showcollisions = false;
-if (parameter_count() > 2)
+if IS_DEBUG
 {
 	DEBUG = true;
 }
@@ -58,7 +58,7 @@ create_command("NOCLIP", [], function()
 		state = states.debugstate;
 	}
 });
-create_command("CHANGE_CHARACTER", [["_PEPPINO", "NOISE", "PEPPERMAN", "PIZZELLE", "VIGILANTE", "BAD BREAKFAST", "PIZZA BOY", "SHOBON", "DOISE"]], function(_bool)
+create_command("CHANGE_CHARACTER", [["_PEPPINO", "NOISE", "PEPPERMAN", "BAD BREAKFAST", "PIZZA BOY", "SHOBON", "DOISE"]], function(_bool)
 {
 	var _char_enum = characters.Peppino
 	switch (_bool)

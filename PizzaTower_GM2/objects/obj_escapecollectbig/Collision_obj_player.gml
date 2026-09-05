@@ -1,4 +1,3 @@
-
 if (image_alpha == 1)
 {
 	if (other.state != states.gotoplayer)
@@ -16,6 +15,7 @@ if (image_alpha == 1)
 		if (other.object_index == obj_player1)
 		{
 			global.collect += val;
+			global.style   -= val;
 		}
 		else
 		{
@@ -26,5 +26,13 @@ if (image_alpha == 1)
 		{
 			number = string(val);
 		}
+	}
+	if (!scr_get_mode("war").enabled || global.leveltosave == "war")
+		exit;
+	with (obj_wartimer)
+	{
+		addseconds += 2
+		alarm[0] = -1;
+		alarm[2] = 1;
 	}
 }

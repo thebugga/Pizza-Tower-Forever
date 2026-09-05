@@ -1,4 +1,4 @@
-if (image_index == 1 && global.panic == false && room != war_13)
+if (image_index == 1 && global.panic == false && !warexit)
 {
 	with (obj_player)
 	{
@@ -33,6 +33,10 @@ if (image_index == 1 && global.panic == false && room != war_13)
 				}
 			}
 			other.image_index = 0;
+			if (scr_get_mode("war").enabled && global.leveltosave != -4 && global.leveltosave != "war")
+			{
+				instance_create_unique(0, 0, obj_wartimer).minutes = 1;	
+			}
 			ds_list_add(global.saveroom, other.id);
 		}
 	}
@@ -43,7 +47,7 @@ if (drop && dropstate != states.idle)
 }
 with (obj_player)
 {
-	if (grounded && (x > (other.x - 160) && x < (other.x + 160)) && key_up && (state == states.normal || state == states.Sjumpprep || state == states.mach1 || state == states.mach2 || state == states.mach3) && (global.panic == true || global.snickchallenge == true || room == war_13 || other.random_secret))
+	if (grounded && (x > (other.x - 160) && x < (other.x + 160)) && key_up && (state == states.normal || state == states.Sjumpprep || state == states.mach1 || state == states.mach2 || state == states.mach3) && (global.panic == true || global.snickchallenge == true || other.warexit == true || other.random_secret))
 	{
 		global.noisejetpack = false;
 		global.startgate = false;

@@ -15,23 +15,23 @@ function scr_player_tumble()
 	}
 	if (!grounded && (sprite_index == spr_crouchslip || sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
 	{
-		if (character == characters.Noise)
+		switch character
 		{
-			sprite_index = spr_playerN_divebomb;
-			state = states.machcancel;
-			savedmove = xscale;
-			vsp = 20;
-			movespeed = hsp;
-			input_buffer_slap = 0;
-			input_buffer_jump = 0;
-			image_index = 0;
-			exit;
-		}
-		else
-		{
-			vsp = 10;
-			sprite_index = spr_dive;
-			fmod_event_instance_play(snd_dive);
+			case characters.Noise:
+				sprite_index = spr_playerN_divebomb;
+				state = states.machcancel;
+				savedmove = xscale;
+				vsp = 20;
+				movespeed = hsp;
+				input_buffer_slap = 0;
+				input_buffer_jump = 0;
+				image_index = 0;
+			break;
+			default:
+				vsp = 10;
+				sprite_index = spr_dive;
+				fmod_event_instance_play(snd_dive);
+			break;
 		}
 	}
 	if (sprite_index == spr_tumble && grounded)

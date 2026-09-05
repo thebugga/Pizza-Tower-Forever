@@ -11,7 +11,7 @@ if (room == Mainmenu || room == Longintro || room == init_obj_room)
 	kidsparty_lightning = false;
 	dark_lightning = false;
 }
-if (kidsparty_lightning || dark_lightning)
+if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 {
 	var cw = camera_get_view_width(view_camera[0]) + 32;
 	var ch = camera_get_view_height(view_camera[0]) + 32;
@@ -19,7 +19,9 @@ if (kidsparty_lightning || dark_lightning)
 	{
 		surf = surface_create(cw, ch);
 	}
-	var tsw = sprite_get_width(spr_patrol_lightgradient);
+	if (surface_get_width(surf) != cw || surface_get_height(surf) != ch)
+        surface_resize(surf, cw, ch);
+    var tsw = sprite_get_width(spr_patrol_lightgradient);
 	var tsh = sprite_get_height(spr_patrol_lightgradient);
 	if (!surface_exists(patrolcone_tex))
 	{
@@ -47,7 +49,9 @@ if (kidsparty_lightning || dark_lightning)
 	{
 		surf2 = surface_create(cw, ch);
 	}
-	var surf_x = camera_get_view_x(view_camera[0]);
+    if (kidsparty_lightning && (surface_get_width(surf2) != cw || surface_get_height(surf2) != ch))
+        surface_resize(surf2, cw, ch);
+    var surf_x = camera_get_view_x(view_camera[0]);
 	var surf_y = camera_get_view_y(view_camera[0]);
 	if (kidsparty_lightning)
 	{
@@ -112,14 +116,22 @@ if (kidsparty_lightning || dark_lightning)
 			draw_set_alpha(1);
 		}
 	}
-	else if (dark_lightning)
+	else if (dark_lightning || scr_get_mode("lightsout").enabled)
 	{
+		
 		if (surface_exists(surf))
 		{
 			surface_set_target(surf);
 			draw_clear_alpha(c_black, 0);
 			draw_set_color(c_black);
-			draw_set_alpha(0.8);
+			if !(room == init_obj_room || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+			{
+				draw_set_alpha(scr_get_mode("lightsout").enabled ? max(global.toppintotal, 5) : 0.8);
+			}
+			else
+			{
+				draw_set_alpha(0)
+			}
 			draw_rectangle(0, 0, cw, ch, false);
 			gpu_set_blendmode(bm_subtract);
 			draw_set_color(c_white);
@@ -143,17 +155,84 @@ if (kidsparty_lightning || dark_lightning)
 					}
 				}
 			}
-			with (obj_chateaulight)
+			if scr_get_mode("lightsout").enabled
 			{
-				draw_set_alpha(circle_alpha_out);
-				draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), circle_size_out, false);
-				draw_set_alpha(circle_alpha_in);
-				draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), circle_size_in, false);
+				with (obj_pizzaboxunopen)
+				{
+					draw_set_alpha(other.circle_alpha_out);				
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 178, false);
+			
+					draw_set_alpha(other.circle_alpha_in);	
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 128, false);
+				}
+				
+				with (obj_followcharacter)
+				{
+					draw_set_alpha(other.circle_alpha_out);				
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 178, false);
+			
+					draw_set_alpha(other.circle_alpha_in);	
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 128, false);
+				}
+			
+				/*
+				
+				with (obj_baddie)
+				{
+					draw_set_alpha(other.circle_alpha_out);				
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 78, false);
+			
+					draw_set_alpha(other.circle_alpha_in);	
+					draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 48, false);
+				}
+				
+				with (obj_tv)
+				{
+					if (visible)
+					{
+						draw_set_alpha(other.circle_alpha_out);
+						draw_circle((tv_x + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (tv_y + hud_posY - 25 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 2 + 60, false);
+				
+						draw_set_alpha(other.circle_alpha_in);		
+						draw_circle((tv_x + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (tv_y + hud_posY - 25 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 1.5 + 47, false);
+					}
+				}
+			
+			
+				with (obj_camera)
+				{
+					if (visible)
+					{
+						draw_set_alpha(other.circle_alpha_out);
+				
+						draw_circle((121 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (90 - (sprite_get_height(spr_pizzascore) / 7) + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 2 + 70, false);
+						draw_circle((263 - 3 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (68 - (sprite_get_height(spr_ranks_hud) / 4.2) + 16 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 2 + 64, false);
+				
+						draw_set_alpha(other.circle_alpha_in);
+				
+						draw_circle((121 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (90 - (sprite_get_height(spr_pizzascore) / 7) + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 1.5 + 60, false);
+						draw_circle((263 - 3 + view_get_xport(view_camera[0])) + irandom_range(-1, 1), (68 - (sprite_get_height(spr_ranks_hud) / 4.2) + 16 + view_get_yport(view_camera[0])) + irandom_range(-1, 1), global.combotime * 1.5 + 47, false);
+					}
+				}
+				*/
 			}
+			
 			gpu_set_blendmode(bm_normal);
 			draw_set_alpha(1);
 			surface_reset_target();
 			draw_surface(surf, surf_x, surf_y);
 		}
 	}
+}
+var normal_border = (room != Mainmenu && room != rank_room && room != boss_pizzafacefinale && !instance_exists(obj_climbingupstairs));
+var pizzaface_border = (room == boss_pizzafacefinale && (layer_get_visible("Backgrounds_tower4") || layer_get_visible("Backgrounds_piledriver")));
+if (normal_border || pizzaface_border) {
+    draw_set_color(c_black);
+    var bordx = (obj_screensizer.actual_width / 2) + 32;
+    var bordy = (obj_screensizer.actual_height / 2) + 32;
+    draw_rectangle(0, -bordy, -bordx, room_height + bordy, 0);
+    draw_rectangle(room_width, -bordy, room_width + bordx, room_height + bordy, 0);
+    draw_rectangle(0, 0, room_width, -bordy, 0);
+    draw_rectangle(0, room_height, room_width, room_height + bordy, 0);
+    draw_set_color(c_white);
 }

@@ -227,7 +227,7 @@ if (place_meeting(x, y, obj_player) && sprite_index == spr_pizzaboxunopen)
 		}
 		instance_create(x, y, obj_taunteffect);
 		global.heattime = 60;
-		global.style += 10;
+		global.style--;
 		if (global.toppintotal < 5)
 		{
 			obj_tv.message = "YOU NEED " + string(5 - global.toppintotal) + " MORE TOPPINS!";

@@ -85,15 +85,7 @@ function scr_player_Sjump()
 	}
 	else if ((key_attack2 || input_buffer_slap > 0) && sprite_index != spr_superspringplayer && sprite_index != spr_player_Sjumpcancelstart)
 	{
-		if (character == characters.Peppino)
-		{
-			input_buffer_shoot = 0;
-			input_buffer_slap = 0;
-			image_index = 0;
-			sprite_index = spr_player_Sjumpcancelstart;
-			fmod_event_one_shot_3d("event:/sfx/pep/superjumpcancel", x, y);
-		}
-		else
+		if (character == characters.Noise)
 		{
 			image_speed = 0.5;
 			input_buffer_shoot = 0;
@@ -117,6 +109,14 @@ function scr_player_Sjump()
 			particle_set_scale(particletypes.jumpdust, xscale, 1);
 			create_particle(x, y, particletypes.jumpdust, 0);
 			return true;
+		}
+		else
+		{
+			input_buffer_shoot = 0;
+			input_buffer_slap = 0;
+			image_index = 0;
+			sprite_index = spr_player_Sjumpcancelstart;
+			fmod_event_one_shot_3d("event:/sfx/pep/superjumpcancel", x, y);
 		}
 	}
 	if (sprite_index == spr_player_Sjumpcancelstart)
