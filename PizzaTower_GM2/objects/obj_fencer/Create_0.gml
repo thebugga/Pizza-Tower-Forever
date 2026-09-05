@@ -16,6 +16,7 @@ stomped = false;
 shot = false;
 reset = false;
 hp = 3;
+spr_palette = palette_fencer;
 hitboxcreate = false;
 grounded = true;
 idlespr = spr_fencer;

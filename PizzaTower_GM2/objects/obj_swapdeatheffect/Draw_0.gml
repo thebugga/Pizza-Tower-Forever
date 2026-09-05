@@ -1,4 +1,4 @@
-shader_set(global.Pal_Shader);
+//shader_set(global.retro_pal_swapper);
 if (character == characters.Noise)
 {
 	spr_palette = spr_peppalette;

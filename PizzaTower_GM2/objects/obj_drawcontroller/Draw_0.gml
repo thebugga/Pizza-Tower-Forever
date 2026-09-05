@@ -59,7 +59,7 @@ with (obj_baddie)
 		draw_enemy(_kungfu, true);
 	}
 }
-shader_set(global.Pal_Shader);
+//shader_set(global.retro_pal_swapper);
 with (obj_heatafterimage)
 {
 	if (visible)
@@ -137,7 +137,7 @@ for (var i = 0; i < array_length(flash_arr); i++)
 		}
 	}
 }
-shader_set(global.Pal_Shader);
+//shader_set(global.retro_pal_swapper);
 pal_swap_set(spr_peppalette, 0, false);
 with (obj_pizzagoblinbomb)
 {

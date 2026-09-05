@@ -1,7 +1,7 @@
 if (start)
 {
 	draw_sprite(bgsprite, bgindex, 0, 0);
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	var cy = irandom_range(-shake_mag, shake_mag);
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, 1, 1, global.palettetexture);
 	if (sprite_index != spr_taxitransition_gus)

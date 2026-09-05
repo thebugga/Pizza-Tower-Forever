@@ -15,6 +15,7 @@ stomped = false;
 shot = false;
 reset = false;
 hp = 1;
+spr_palette = palette_ancho;
 hitboxcreate = false;
 grounded = false;
 idlespr = spr_ancho;

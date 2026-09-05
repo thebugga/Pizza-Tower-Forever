@@ -4,7 +4,7 @@ if (sprite_index == spr_rankNP || sprite_index == spr_rankNPend)
 }
 if (brownfade < 1)
 {
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, global.palettetexture);
 	if (global.collect >= global.collectN)
 	{

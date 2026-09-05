@@ -4,7 +4,7 @@ draw_rectangle(camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[
 draw_set_alpha(1);
 if (!instance_exists(obj_rank))
 {
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	with (obj_player)
 	{
 		if (object_index == obj_player1)

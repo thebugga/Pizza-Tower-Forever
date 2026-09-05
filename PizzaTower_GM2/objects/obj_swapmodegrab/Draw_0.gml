@@ -2,7 +2,7 @@ if (isgustavo && ispeppino)
 {
 	draw_sprite(spr_lonebrick_wait, -1, xstart, ystart);
 }
-shader_set(global.Pal_Shader);
+//shader_set(global.retro_pal_swapper);
 pal_swap_set(spr_palette, paletteselect);
 pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, patterntexture);
 draw_self();

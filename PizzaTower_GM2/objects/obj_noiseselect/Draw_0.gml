@@ -1,4 +1,4 @@
-shader_set(global.Pal_Shader);
+//shader_set(global.retro_pal_swapper);
 var game = global.gameN[global.currentsavefile - 1];
 var pal = game.palette;
 var tex = game.palettetexture;

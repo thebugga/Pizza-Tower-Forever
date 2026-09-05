@@ -1,4 +1,4 @@
-shader_set(global.Pal_Shader);
+//shader_set(global.retro_pal_swapper);
 var pal = spr_ratmountpalette;
 if (!obj_player1.ispeppino)
 {

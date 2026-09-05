@@ -43,7 +43,7 @@ if (obj_player.state != states.gameover)
 	var b = 0;
 	var hud_xx = 121 + irandom_range(-collect_shake, collect_shake);
 	var hud_yy = 90 + irandom_range(-collect_shake, collect_shake) + hud_posY;
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	if scr_get_mode("heatmeter").enabled 
 	{
 		b = global.stylemultiplier;
@@ -192,7 +192,7 @@ if (obj_player.state != states.gameover)
 		}
 		lastcollect = sc;
 	}
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	draw_set_alpha(alpha);
 	for (var i = 0; i < num; i++)
 	{

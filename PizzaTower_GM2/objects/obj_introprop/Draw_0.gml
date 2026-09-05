@@ -4,7 +4,7 @@ if (!sprite_exists(sprite_index))
 }
 if (sprite_index == spr_towerending_swapmode)
 {
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	var pal_info = get_pep_palette_info();
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, pal_info.patterntexture);
 	pal_swap_set(pal_info.spr_palette, pal_info.paletteselect);
@@ -18,7 +18,7 @@ else if (sprite_index != spr_towerending_gustavo && sprite_index != spr_towerend
 }
 else
 {
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, global.palettetexture);
 	if (sprite_index == spr_towerending_gustavo)
 	{

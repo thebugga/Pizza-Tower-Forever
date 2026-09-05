@@ -1,6 +1,6 @@
 if (state < 4)
 {
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect);
 	draw_self();
 	shader_reset();

@@ -32,6 +32,7 @@ if (flash == true && alarm[2] <= 0)
 }
 if (state == states.walk)
 {
+	sprite_index = idlespr;
 	state = states.idle;
 }
 if (state != states.grabbed)
@@ -51,4 +52,16 @@ if (boundbox == false)
 		baddieID = other.id;
 		other.boundbox = true;
 	}
+}
+if elite 
+{
+	idlespr = spr_pizzabro;
+	stunfallspr = spr_pizzabro_stun;
+	spr_dead = spr_pizzabro;
+}
+else
+{
+	idlespr = spr_pizzaboy;
+	stunfallspr = spr_pizzaboy_stun;
+	spr_dead = spr_pizzaboy;
 }

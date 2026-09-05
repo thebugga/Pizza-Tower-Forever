@@ -109,7 +109,7 @@ function scr_palette_texture(_spr, _imageindex, _x, _y, _xscale, _yscale, _rotat
 	{
 		_is_gui = false;
 	}
-	if (shader_current() == global.Pal_Shader)
+	if (shader_current() == global.retro_pal_swapper)
 	{
 		pal_swap_set(spr_peppalette, 1, false);
 	}

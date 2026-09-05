@@ -5,7 +5,7 @@ if (sprite_index != spr_newclothes && sprite_index != spr_newclothesN)
 }
 else
 {
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	if (texture != noone)
 	{
 		pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, texture, true);

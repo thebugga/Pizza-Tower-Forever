@@ -1,4 +1,4 @@
-shader_set(global.Pal_Shader);
+//shader_set(global.retro_pal_swapper);
 var spr_pal = spr_palette;
 if (character == characters.Noise && room == boss_pizzaface && instance_exists(obj_pizzaface_thunderdark))
 {

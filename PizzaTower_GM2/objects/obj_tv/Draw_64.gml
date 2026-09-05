@@ -16,7 +16,7 @@ var _minX = _cx - 56;
 var _maxX = _cx + 59;
 combofill_x = lerp(combofill_x, _minX + ((_maxX - _minX) * _perc), 0.5);
 combofill_y = _cy;
-shader_set(global.Pal_Shader);
+//shader_set(global.retro_pal_swapper);
 pal_swap_set(spr_tv_combofillpalette, (!global.combodropped && global.prank_enemykilled) ? 2 : 1, false);
 draw_sprite(spr_tv_combobubblefill, combofill_index, combofill_x, combofill_y);
 pal_swap_set(spr_tv_combopalette, obj_player1.character, false);

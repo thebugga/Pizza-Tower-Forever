@@ -7,7 +7,7 @@ with (debrisid)
 {
 	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 }
-shader_set(global.Pal_Shader);
+//shader_set(global.retro_pal_swapper);
 with (obj_player)
 {
 	if (visible)

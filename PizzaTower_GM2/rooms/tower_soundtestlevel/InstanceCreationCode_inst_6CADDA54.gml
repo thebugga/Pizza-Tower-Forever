@@ -1,7 +1,7 @@
 targetRoom = secret_entrance;
 level = "secretworld";
-sprite_index = spr_gate_secret;
-bgsprite = spr_gate_secretBG;
+sprite_index = spr_gate_secretworld;
+bgsprite = spr_gate_secretworldBG;
 title_index = 0;
 title_sprite = spr_titlecardsecrettitle;
 titlecard_sprite = spr_titlecardsecret;

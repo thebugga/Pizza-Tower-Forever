@@ -23,7 +23,7 @@ if (!obj_player1.ispeppino)
 	{
 		draw_sprite(spr_noisearmgolfcloud, cloud_index, tx, ty);
 	}
-	shader_set(global.Pal_Shader);
+	//shader_set(global.retro_pal_swapper);
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, global.palettetexture);
 	pal_swap_set(obj_player1.spr_palette, obj_player1.paletteselect);
 	draw_sprite(spr_noisearmgolf, 0, tx + irandom_range(-hand_shake, hand_shake), ty + hand_yoffset + irandom_range(-hand_shake, hand_shake));
