@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"save_level_update",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"save_level_update",
+  "parent":{
+    "name":"Editor",
+    "path":"folders/Scripts/Editor.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

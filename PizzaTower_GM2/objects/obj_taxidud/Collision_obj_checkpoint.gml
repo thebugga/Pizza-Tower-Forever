@@ -14,7 +14,7 @@ if (playerid.visible == false)
 			sprite_index = spr_player_ratmountidle;
 		}
 	}
-	if (global.coop == true)
+	if (global.coopmode == true)
 	{
 		with (obj_player2)
 		{

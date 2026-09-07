@@ -138,6 +138,7 @@ function scr_collide_player()
 	}
 	grounded |= scr_solid_player(x, y + 1);
 	grounded |= (vsp > 0 && !place_meeting(x, y, obj_platform) && place_meeting(x, y + 1, obj_platform));
+	grounded |= (vsp > 0 && !place_meeting(x, y, obj_platform_slope) && place_meeting(x, y + 1, obj_platform_slope));
 	grinding = !place_meeting(x, y, obj_grindrail) && place_meeting(x, y + 1, obj_grindrail);
 	grounded |= grinding;
 	if (platformid != noone || (place_meeting(x, y + 1, obj_movingplatform) && !place_meeting(x, y - 3, obj_movingplatform)) || place_meeting(x, y + 8, obj_movingplatform && !place_meeting(x, y + 6, obj_movingplatform)))

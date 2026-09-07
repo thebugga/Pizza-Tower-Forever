@@ -37,7 +37,7 @@ function scr_solid(_x, _y)
 		for (var i = 0; i < num; i++)
 		{
 			var b = ds_list_find_value(global.instancelist, i);
-			if (id != b.id && !place_meeting(x, old_y, b) && place_meeting(x, y, b))
+			if (id != b.id && check_slope(b))
 			{
 				_collided = true;
 			}
@@ -51,12 +51,6 @@ function scr_solid(_x, _y)
 		}
 	}
 	if (check_slope(obj_slope))
-	{
-		x = old_x;
-		y = old_y;
-		return true;
-	}
-	if (check_slope(obj_platform_slope))
 	{
 		x = old_x;
 		y = old_y;

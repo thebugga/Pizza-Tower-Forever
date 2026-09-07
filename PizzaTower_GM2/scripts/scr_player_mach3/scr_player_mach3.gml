@@ -80,7 +80,7 @@ function scr_player_mach3()
 			momemtum = true;
 			move = key_right + key_left;
 			move2 = key_right2 + key_left2;
-			if (fightball == true && global.coop == true)
+			if (fightball == true && global.coopmode == true)
 			{
 				if (object_index == obj_player1)
 				{

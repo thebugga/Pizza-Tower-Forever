@@ -77,7 +77,7 @@ if (!place_meeting(x, y, obj_doorblocked))
 				}
 				mach2 = 0;
 			}
-			if (instance_exists(obj_player2) && global.coop == true)
+			if (instance_exists(obj_player2) && global.coopmode == true)
 			{
 				if (object_index == obj_player2)
 				{

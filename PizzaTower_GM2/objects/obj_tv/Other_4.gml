@@ -82,7 +82,7 @@ else
 //		break;
 //}
 
-if global.leveltosave != noone
+if global.leveltosave != noone && (room != boss_pepperman && room != boss_vigilante && room != boss_noise && room != boss_fakepep && room != boss_pizzaface && room != Mainmenu && room != tower_outside && room != init_obj_room && room != Longintro && room != Endingroom && room != Johnresurrectionroom && room != Creditsroom && room != rank_room)
     bgsprite = asset_get_index(concat("spr_gate_", global.leveltosave, "BG"))
 else
     bgsprite = spr_gate_exitBG

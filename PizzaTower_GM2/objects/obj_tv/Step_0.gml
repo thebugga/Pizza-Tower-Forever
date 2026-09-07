@@ -7,7 +7,7 @@ if (global.combotime > 0 && global.combo > 0)
 {
 	visualcombo = global.combo;
 }
-if (room == init_obj_room || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+if (room == init_obj_room || room == rm_editor || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic)) || ((instance_exists(obj_debugcontroller) && !obj_debugcontroller.showhud) || !global.option_hud)
 {
 	visible = false;
 	sprite_index = spr_tv_off;
@@ -15,10 +15,6 @@ if (room == init_obj_room || room == Longintro || room == Mainmenu || room == ra
 else
 {
 	visible = true;
-}
-if ((instance_exists(obj_debugcontroller) && !obj_debugcontroller.showhud) || !global.option_hud)
-{
-	visible = false;
 }
 image_speed = 0.35;
 //if (bubblespr != noone && bubblespr != spr_tv_bubbleclosed)
@@ -50,7 +46,11 @@ switch (state)
 {
 	case states.normal:
 		idlespr = spr_tv_idle;
-		if (!obj_player1.ispeppino)
+		if (obj_player1.character == characters.Noise)
+		{
+			idlespr = spr_tv_idleN;
+		}
+		if (obj_player1.character == characters.Vigilante)
 		{
 			idlespr = spr_tv_idleN;
 		}
@@ -360,6 +360,7 @@ switch (state)
 				break;
 			case spr_tv_exprmach3:
 			case spr_tv_exprmach3N:
+			case Sprite3605:
 				with (obj_player1)
 				{
 					if (state != states.mach3 && state != states.climbwall && (state != states.chainsaw || (tauntstoredstate != states.mach3 && tauntstoredstate != states.climbwall)) && sprite_index != spr_mach3boost && mach4mode == false)

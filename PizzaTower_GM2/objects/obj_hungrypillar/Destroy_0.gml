@@ -123,7 +123,7 @@ if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == fa
 	instance_create(x, y, obj_baddiegibs);
 	instance_create(x, y, obj_baddiegibs);
 	instance_create(x, y, obj_baddiegibs);
-	if (global.coop == true)
+	if (global.coopmode == true)
 	{
 		obj_player1.x = x;
 		obj_player2.x = x;

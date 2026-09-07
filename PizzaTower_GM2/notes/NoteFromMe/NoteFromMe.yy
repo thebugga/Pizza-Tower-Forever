@@ -3,8 +3,8 @@
   "%Name":"NoteFromMe",
   "name":"NoteFromMe",
   "parent":{
-    "name":"PizzaTower_GM2",
-    "path":"PizzaTower_GM2.yyp",
+    "name":"PizzaTowerEggspansion_LTS26",
+    "path":"PizzaTowerEggspansion_LTS26.yyp",
   },
   "resourceType":"GMNotes",
   "resourceVersion":"2.0",

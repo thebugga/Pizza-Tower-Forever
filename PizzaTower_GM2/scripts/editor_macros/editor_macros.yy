@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"editor_macros",
   "parent":{
-    "name":"Utility",
-    "path":"folders/Scripts/Utility.yy",
+    "name":"Editor",
+    "path":"folders/Scripts/Editor.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

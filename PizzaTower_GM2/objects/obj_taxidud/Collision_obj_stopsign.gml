@@ -19,7 +19,7 @@ if (playerid.visible == false)
 		ratmount_movespeed = 0;
 		cutscene = false;
 	}
-	if (global.coop == true)
+	if (global.coopmode == true)
 	{
 		with (obj_player2)
 		{

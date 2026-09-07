@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"editor_camera_init",
   "parent":{
-    "name":"Unused",
-    "path":"folders/Scripts/Unused.yy",
+    "name":"Editor",
+    "path":"folders/Scripts/Editor.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

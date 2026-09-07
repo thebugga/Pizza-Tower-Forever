@@ -1,1 +1,1 @@
-targetRoom = tower_ruinsecret;
+targetRoom = tower_pepperpaletteroom;

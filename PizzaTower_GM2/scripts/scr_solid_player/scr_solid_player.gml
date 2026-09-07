@@ -77,7 +77,7 @@ function scr_solid_player(_x, _y)
 		for (var i = 0; i < num; i++)
 		{
 			var b = ds_list_find_value(global.instancelist, i);
-			if (!place_meeting(x, old_y, b) && place_meeting(x, y, b))
+			if (vsp > 0 && check_slope_player(b))
 			{
 				_collided = true;
 			}
@@ -97,12 +97,6 @@ function scr_solid_player(_x, _y)
 		return true;
 	}
 	if (check_slope_player(obj_slope))
-	{
-		x = old_x;
-		y = old_y;
-		return true;
-	}
-	if (check_slope_player(obj_platform_slope))
 	{
 		x = old_x;
 		y = old_y;

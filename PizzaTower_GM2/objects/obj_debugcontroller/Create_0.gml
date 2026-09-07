@@ -380,7 +380,7 @@
 //		{
 //			with (obj_player)
 //			{
-//				if (object_index == obj_player1 || global.coop)
+//				if (object_index == obj_player1 || global.coopmode)
 //				{
 //					state = _state;
 //					var _spr = sprite_index;

@@ -93,7 +93,7 @@ function pal_swap_init_system(_shader, _html5_sprite_shader, _html5_surface_shad
 }
 	
 ///@func pal_swap_set(palette_sprite_index, palette_index, palette is surface);
-function pal_swap_set(_pal_sprite, _pal_index, _is_surface) {
+function pal_swap_set(_pal_sprite, _pal_index, _is_surface = false) {
 	
 	var _swapper = global.retro_pal_swapper;
 	if(_pal_index == 0) exit;

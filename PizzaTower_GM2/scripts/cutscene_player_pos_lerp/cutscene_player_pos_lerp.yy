@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"cutscene_player_pos_lerp",
   "parent":{
-    "name":"Unused",
-    "path":"folders/Scripts/Unused.yy",
+    "name":"Cutscene",
+    "path":"folders/Scripts/Cutscene.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

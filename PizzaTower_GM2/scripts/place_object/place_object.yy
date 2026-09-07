@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"place_object",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"place_object",
+  "parent":{
+    "name":"Editor",
+    "path":"folders/Scripts/Editor.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

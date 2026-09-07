@@ -160,7 +160,7 @@ function scr_puppet_detect()
 {
 	with (obj_player)
 	{
-		if ((object_index != obj_player2 || global.coop) && !place_meeting(x, y, obj_tutorialblock))
+		if ((object_index != obj_player2 || global.coopmode) && !place_meeting(x, y, obj_tutorialblock))
 		{
 			return id;
 		}

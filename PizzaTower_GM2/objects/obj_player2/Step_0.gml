@@ -3,7 +3,7 @@ visible = false;
 x = -10000;
 y = -10000;
 scr_getinput2();
-if (!global.coop)
+if (!global.coopmode)
 {
 	obj_player1.spotlight = true;
 	x = -1000;

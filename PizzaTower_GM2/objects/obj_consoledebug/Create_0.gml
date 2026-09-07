@@ -58,7 +58,16 @@ create_command("NOCLIP", [], function()
 		state = states.debugstate;
 	}
 });
-create_command("CHANGE_CHARACTER", [["_PEPPINO", "NOISE", "PEPPERMAN", "BAD BREAKFAST", "PIZZA BOY", "SHOBON", "DOISE"]], function(_bool)
+create_command("EDITOR", [], function()
+{
+	with (obj_player)
+	{
+		targetRoom = rm_editor;
+		targetDoor = "A";
+	}
+	instance_create_unique(0, 0, obj_fadeout);
+});
+create_command("CHANGE_CHARACTER", [["_PEPPINO", "THE NOISE", "THE VIGILANTE", "PEPPERMAN", "BAD BREAKFAST", "SHOBON", "THE DOISE"]], function(_bool)
 {
 	var _char_enum = characters.Peppino
 	switch (_bool)
@@ -66,20 +75,20 @@ create_command("CHANGE_CHARACTER", [["_PEPPINO", "NOISE", "PEPPERMAN", "BAD BREA
 		case "_PEPPINO":
 			_char_enum = characters.Peppino
 		break;
-		case "NOISE":
+		case "THE NOISE":
 			_char_enum = characters.Noise
 		break;
 		case "DOISE":
 			_char_enum = characters.Doise
 		break;
-		case "PEPPERMAN":
+		case "THE PEPPERMAN":
 			_char_enum = characters.Pepperman
 		break;
 		case "BAD BREAKFAST":
 			_char_enum = characters.DrBadBreakfast
 		break;
-		case "PIZZA BOY":
-			_char_enum = characters.Pizzaboy
+		case "THE VIGILANTE":
+			_char_enum = characters.Vigilante
 		break;
 		case "SHOBON":
 			_char_enum = characters.Shobon

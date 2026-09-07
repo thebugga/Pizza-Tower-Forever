@@ -165,6 +165,7 @@ function scr_collide()
 	}
 	grounded |= scr_solid(x, y + 1);
 	grounded |= (!place_meeting(x, y, obj_platform) && place_meeting(x, y + 1, obj_platform));
+	grounded |= (!place_meeting(x, y, obj_platform_slope) && place_meeting(x, y + 1, obj_platform_slope));
 	if (platformid != noone || (place_meeting(x, y + 1, obj_movingplatform) && !place_meeting(x, y - 2, obj_movingplatform)))
 	{
 		grounded = true;

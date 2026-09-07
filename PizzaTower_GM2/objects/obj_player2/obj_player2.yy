@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_pepcooter",
-    "path":"sprites/spr_pepcooter/spr_pepcooter.yy",
+    "name":"spr_playerN_idle",
+    "path":"sprites/spr_playerN_idle/spr_playerN_idle.yy",
   },
   "spriteMaskId":{
     "name":"spr_player_mask",

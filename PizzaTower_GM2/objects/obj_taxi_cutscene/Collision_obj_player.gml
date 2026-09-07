@@ -11,7 +11,7 @@ playerid = obj_player1;
 sprite_index = spr_taximove;
 hsp = 10;
 obj_player1.cutscene = true;
-if (global.coop == true)
+if (global.coopmode == true)
 {
 	obj_player2.sprite_index = obj_player2.spr_idle;
 	playerid = obj_player2;

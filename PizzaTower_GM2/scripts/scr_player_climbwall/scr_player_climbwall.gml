@@ -1,5 +1,21 @@
 function scr_player_climbwall()
 {
+	if (character == characters.Noise && !skateboarding)
+	{
+		with (instance_create(x, y, obj_noiseeffect))
+		{
+			sprite_index = spr_noisewalljumpeffect;
+		}
+		sprite_index = spr_playerN_wallbounce;
+		state = states.machcancel;
+		savedmove = xscale;
+		vsp = -(17 * (1 - (noisewalljump * 0.15)));
+		noisewalljump++;
+		hsp = 0;
+		movespeed = 0;
+		image_index = 0;
+		exit;
+	}
 	if (windingAnim < 200)
 	{
 		windingAnim++;
@@ -109,21 +125,6 @@ function scr_player_climbwall()
 	if (wallspeed < 0 && place_meeting(x, y + 12, obj_solid))
 	{
 		wallspeed = 0;
-	}
-	if (character == characters.Noise && !skateboarding)
-	{
-		with (instance_create(x, y, obj_noiseeffect))
-		{
-			sprite_index = spr_noisewalljumpeffect;
-		}
-		sprite_index = spr_playerN_wallbounce;
-		state = states.machcancel;
-		savedmove = xscale;
-		vsp = -(17 * (1 - (noisewalljump * 0.15)));
-		noisewalljump++;
-		hsp = 0;
-		movespeed = 0;
-		image_index = 0;
 	}
 	if (input_buffer_jump > 8 && ispeppino)
 	{

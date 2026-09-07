@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"do_dialog",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"do_dialog",
+  "parent":{
+    "name":"Utility",
+    "path":"folders/Scripts/Utility.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

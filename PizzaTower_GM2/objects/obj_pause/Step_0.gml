@@ -4,56 +4,49 @@ if (instance_exists(obj_softlockcrash))
 }
 if (!pause && instance_exists(obj_player1) && alarm[3] == -1 && obj_player1.key_start && room != Mainmenu && room != Finalintro && room != hub_loadingscreen && room != Endingroom && room != Creditsroom && room != Johnresurrectionroom && room != Longintro && room != init_obj_room && room != rank_room)
 {
-	var _cutscenehandler = false;
-	with (obj_cutscene_handler)
-	{
-		if (!loop)
-		{
-			_cutscenehandler = true;
-		}
-	}
+	var _cant_pause = false;
 	with (obj_player)
 	{
 		if ((state == states.victory && place_meeting(x, y, obj_startgate)) || (state == states.door && place_meeting(x, y, obj_exitgate)))
 		{
-			_cutscenehandler = true;
+			_cant_pause = true;
 		}
 	}
 	with (obj_charswitch_intro)
 	{
-		_cutscenehandler = true;
+		_cant_pause = true;
 	}
 	with (obj_bossplayerdeath)
 	{
-		_cutscenehandler = true;
+		_cant_pause = true;
 	}
 	with (obj_titlecard)
 	{
-		_cutscenehandler = true;
+		_cant_pause = true;
 	}
 	with (obj_taxi)
 	{
 		if (move)
 		{
-			_cutscenehandler = true;
+			_cant_pause = true;
 		}
 	}
 	with (obj_taxidud)
 	{
 		if (!start)
 		{
-			_cutscenehandler = true;
+			_cant_pause = true;
 		}
 	}
 	with (obj_pizzafaceboss_p3intro)
 	{
-		_cutscenehandler = true;
+		_cant_pause = true;
 	}
 	with (obj_pizzahead_finalecutscene)
 	{
-		_cutscenehandler = true;
+		_cant_pause = true;
 	}
-	if (obj_savesystem.state == 0 && !_cutscenehandler && (room != rank_room && room != init_obj_room && room != timesuproom) && !instance_exists(obj_jumpscare) && !instance_exists(obj_technicaldifficulty))
+	if (obj_savesystem.state == 0 && !_cant_pause && (room != rank_room && room != init_obj_room && room != timesuproom) && !instance_exists(obj_jumpscare) && !instance_exists(obj_technicaldifficulty))
 	{
 		selected = 0;
 		fadein = true;

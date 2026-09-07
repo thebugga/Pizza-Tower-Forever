@@ -2,7 +2,7 @@ if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
 {
     var _cam_x = camera_get_view_x(view_camera[0]);
     var _cam_y = camera_get_view_y(view_camera[0]);
-	if global.coop
+	if global.coopmode
 	{
 	    _cam_x = camera_get_view_x(view_camera[0]) && camera_get_view_x(view_camera[1]);
 	    _cam_y = camera_get_view_y(view_camera[0]) && camera_get_view_y(view_camera[1]);

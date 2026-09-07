@@ -5,12 +5,12 @@ enum characters
 	Doise,
 	DrBadBreakfast,
 	Pepperman,
-	Pizzaboy,
+	Vigilante,
 	Shobon
 };
 
 //peppino, noise, doise, i think u get it 
-global.charPrefix = ["", "N", "D", "DBB", "PM", "PB", "S"];
+global.charPrefix = ["", "N", "D", "DBB", "PM", "V", "S"];
 
 function scr_getchar_sprite(_sprite, _char = character, _prefix = "spr_player")
 {

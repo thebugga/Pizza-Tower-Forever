@@ -18,7 +18,7 @@ if (image_index == 1 && global.panic == false && !warexit)
 					shake_mag_acc = 30 / room_speed;
 				}
 			}
-			if (global.coop == true)
+			if (global.coopmode == true)
 			{
 				with (obj_player2)
 				{

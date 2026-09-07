@@ -26,7 +26,7 @@ if (instance_exists(obj_player))
 				}
 			}
 		}
-		if (global.coop == true)
+		if (global.coopmode == true)
 		{
 			if (room != obj_player2.targetRoom || roomreset)
 			{

@@ -1,0 +1,1 @@
+draw_sprite(spr_editor_cursor, hovered_object, x, y);

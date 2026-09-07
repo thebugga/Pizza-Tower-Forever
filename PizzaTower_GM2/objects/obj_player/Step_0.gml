@@ -846,7 +846,7 @@ if (visible == false && state == states.comingoutdoor)
 		coopdelay = 0;
 	}
 }
-if (global.coop == true)
+if (global.coopmode == true)
 {
 	if ((state == states.punch || state == states.handstandjump) && !(obj_player2.state == states.punch || obj_player2.state == states.handstandjump))
 	{
@@ -930,7 +930,7 @@ if (state == states.gameover && y > (room_height * 2) && !instance_exists(obj_ba
 {
 	targetDoor = "HUB";
 	scr_playerreset();
-	if (global.coop == true)
+	if (global.coopmode == true)
 	{
 		with (obj_player2)
 		{

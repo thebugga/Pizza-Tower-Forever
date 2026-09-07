@@ -265,7 +265,9 @@ function heat_calculate(_val)
 		return _val;
 	}
 }
-function scr_hitwall(_x, _y)
+
+function scr_add_background_chunk(arg0, arg1, arg2, arg3)
 {
-	return place_meeting(_x, _y, obj_solid) || place_meeting_slopeSolid(_x, _y) || place_meeting_slopeSolid(_x, _y)
+	return [arg0, arg1, arg2, 0, arg3];
 }
+

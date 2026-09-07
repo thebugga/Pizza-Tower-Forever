@@ -32,7 +32,6 @@ global.palettesurfaceclip = noone;
 global.levelattempts = 0;
 global.exitrank = false;
 global.playerhit = 0;
-global.swapmode = false;
 global.door_sprite = spr_door;
 global.door_index = 0;
 global.pistol = false;
@@ -612,7 +611,7 @@ if (!variable_global_exists("saveroom"))
 	global.monsterspeed = 0;
 	global.monsterlives = 3;
 	global.giantkey = false;
-	global.coop = false;
+	global.coopmode = false;
 	global.baddiespeed = 1;
 	global.baddiepowerup = false;
 	global.baddierage = false;

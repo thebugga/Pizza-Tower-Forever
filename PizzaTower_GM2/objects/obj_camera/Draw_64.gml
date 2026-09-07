@@ -54,7 +54,7 @@ if (obj_player.state != states.gameover)
 	}
 	draw_sprite_ext(spr_pizzascore, pizzascore_index, hud_xx, hud_yy, 1, 1, 0, c_white, alpha);
 	var _score = global.collect;
-	if (global.coop)
+	if (global.coopmode)
 	{
 		_score += global.collectN;
 	}

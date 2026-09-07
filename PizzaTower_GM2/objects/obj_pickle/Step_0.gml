@@ -79,7 +79,7 @@ if (sprite_index == scaredspr)
 if (bombreset == 0 && state == states.walk)
 {
 	attacking = false;
-	targetplayer = global.coop ? instance_nearest(x, y, obj_player) : obj_player1;
+	targetplayer = global.coopmode ? instance_nearest(x, y, obj_player) : obj_player1;
 	if ((targetplayer.x > (x - threshold_x) && targetplayer.x < (x + threshold_x)) && (y <= (targetplayer.y + threshold_y) && y >= (targetplayer.y - threshold_y)))
 	{
 		attacking = true;

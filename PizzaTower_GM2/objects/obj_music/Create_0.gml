@@ -22,6 +22,7 @@ add_music(Endingroom, "event:/music/ending", noone, false);
 add_music(Creditsroom, "event:/music/credits", noone, false);
 add_music(Johnresurrectionroom, "event:/music/ending", noone, false);
 add_music(characterselect, "event:/music/characterselect", noone, false);
+add_music(rm_editor, "event:/music/editor", noone, false);
 add_music(Longintro, "event:/music/intro", noone, false, function(_room, _event_instance)
 {
 	fmod_event_instance_set_parameter(_event_instance, "state", 0, true);
@@ -35,6 +36,7 @@ add_music(tower_tutorial1N, "event:/music/tutorial", "event:/music/pillarmusic",
 add_music(tower_entrancehall, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
 add_music(tower_johngutterhall, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
 add_music(tower_1, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
+add_music(tower_pepperpaletteroom, "event:/music/soundtest/pepperman", "event:/music/pillarmusic", false);
 add_music(tower_2, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
 add_music(tower_3, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
 add_music(tower_4, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);

@@ -1,0 +1,6 @@
+since i obviously can't package in the assets for legal reasons, here's what youre meant to do to fix noise's superjump sfx
+
+
+disable the streaming of the audio by going to assets, searching for sjump and then disable stream, that fixes the delay of noise's super jump's sfx for some..reason, strange ass program
+
+other then that, should be good to go.

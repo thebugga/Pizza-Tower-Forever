@@ -33,7 +33,7 @@ if (!global.horse && (obj_player1.state == states.normal || obj_player1.state ==
 		}
 		obj_player1.state = states.victory;
 		obj_player1.image_index = 0;
-		if (instance_exists(obj_player2) && global.coop == true)
+		if (instance_exists(obj_player2) && global.coopmode == true)
 		{
 			obj_player2.x = obj_player1.x;
 			obj_player2.y = obj_player1.y;
@@ -53,7 +53,7 @@ if (place_meeting(x, y, obj_player1) && floor(obj_player1.image_index) == (obj_p
 	{
 		obj_player1.targetDoor = other.targetDoor;
 		obj_player1.targetRoom = other.targetRoom;
-		if (instance_exists(obj_player2) && global.coop == true)
+		if (instance_exists(obj_player2) && global.coopmode == true)
 		{
 			obj_player2.targetDoor = other.targetDoor;
 			obj_player2.targetRoom = other.targetRoom;

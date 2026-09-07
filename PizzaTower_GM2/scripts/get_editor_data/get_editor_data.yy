@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"get_editor_data",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"get_editor_data",
+  "parent":{
+    "name":"Editor",
+    "path":"folders/Scripts/Editor.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
