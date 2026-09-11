@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{b5b8a827-f0fb-4dec-989f-7acfa0b2fbea}">
 		<property name="assetPath">
-			<value>shobon on the moon.flac</value>
+			<value>c_music/shobon on the moon.flac</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

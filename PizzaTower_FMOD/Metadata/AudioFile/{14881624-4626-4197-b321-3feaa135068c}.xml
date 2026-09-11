@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{14881624-4626-4197-b321-3feaa135068c}">
 		<property name="assetPath">
-			<value>uh oh you found a SCARY SECRET.ogg</value>
+			<value>c_music/uh oh you found a SCARY SECRET.ogg</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

@@ -2,7 +2,10 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{3f763fa8-d44c-4e81-8bfe-895e9ea1fca7}">
 		<property name="assetPath">
-			<value>sfx_pizzacoin.wav</value>
+			<value>c_sfx/sfx_pizzacoin.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.03.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{bc5206f6-4d10-4e0b-8b5a-6165aca0ac14}">
 		<property name="assetPath">
-			<value>entrance doise.wav</value>
+			<value>c_music/entrance doise.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

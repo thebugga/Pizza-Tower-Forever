@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{30c41ba0-4c3c-42d2-8672-7a92145aaa61}">
 		<property name="assetPath">
-			<value>Ground Bound.mp3</value>
+			<value>c_music/Ground Bound.mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
