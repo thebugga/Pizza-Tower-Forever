@@ -1,5 +1,11 @@
 scr_menu_getinput()
-text_xscale = (960 - 64) / sprite_get_width(spr_tutorialbubble);
+
+player_v = fmod_event_create_instance("event:/sfx/voice/diaplayer");
+gus_v = fmod_event_create_instance("event:/sfx/voice/diagus");
+
+text_xscale = (960 - 64) / sprite_get_width(bubble_spr);
+text_x -= 0.7;
+
 if (textbuffer > 0)
 {
 	fmod_event_instance_stop(player_v)
@@ -24,14 +30,14 @@ else
             }
         }
         
-        displaytext = string_insert(letterstr, displaytext, string_length(displaytext) + 1);
-        displaytext = scr_separate_text(displaytext);
+        text = string_insert(letterstr, text, string_length(text) + 1);
+        text = scr_separate_text(text);
         textbuffer = textspeed;
-		if textbgspr == spr_peppattern7
+		if character_name == "PEPPINO"
 		{
 			scr_fmod_soundeffect(player_v)
 		}
-		if textbgspr == bg_gus
+		if character_name == "GUSTAVO"
 		{
 			scr_fmod_soundeffect(gus_v)
 		}
@@ -44,7 +50,7 @@ else
 			currentdialog    ++;
 			currentpos       = 0;
 			textbuffer       = textspeed;
-			displaytext      = "";
+			text			 = "";
 			currenttext      = scr_calculate_text(dialog[currentdialog][0]);
 			dialogheight     = scr_calculate_height(currenttext);
 			dialogsprite     = dialog[currentdialog][1];
@@ -88,6 +94,8 @@ else
 			{
 				sprite_index = spr_player_idle;
 				state = states.normal
+				vsp = 0;
+				hsp = 0;
 			}
 			fmod_event_instance_stop(player_v)
 			fmod_event_instance_stop(gus_v)

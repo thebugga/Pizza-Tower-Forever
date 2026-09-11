@@ -1,0 +1,17 @@
+{
+  "FolderOrderSettings":[
+    {"name":"Bloodsauce Dungeon","order":1,"path":"folders/Sprites/World/Floor 1/Bloodsauce Dungeon.yy",},
+    {"name":"Hub","order":2,"path":"folders/Sprites/World/Floor 1/Hub.yy",},
+    {"name":"John Gutter","order":3,"path":"folders/Sprites/World/Floor 1/John Gutter.yy",},
+    {"name":"Pepperman Boss","order":4,"path":"folders/Sprites/World/Floor 1/Pepperman Boss.yy",},
+    {"name":"Pizzascape","order":5,"path":"folders/Sprites/World/Floor 1/Pizzascape.yy",},
+    {"name":"Tricky Treat","order":6,"path":"folders/Sprites/World/Floor 1/Tricky Treat.yy",},
+    {"name":"Tutorial","order":7,"path":"folders/Sprites/World/Floor 1/Tutorial.yy",},
+  ],
+  "ResourceOrderSettings":[
+    {"name":"gutter_2","order":1,"path":"rooms/gutter_2/gutter_2.yy",},
+    {"name":"bg_gutter","order":2,"path":"sprites/bg_gutter/bg_gutter.yy",},
+    {"name":"bg_pepperman","order":8,"path":"sprites/bg_pepperman/bg_pepperman.yy",},
+    {"name":"tile_gutter","order":1,"path":"sprites/tile_gutter/tile_gutter.yy",},
+  ],
+}

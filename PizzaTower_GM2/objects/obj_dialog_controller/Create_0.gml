@@ -1,14 +1,8 @@
-player_v = fmod_event_create_instance("event:/sfx/voice/diaplayer");
-gus_v = fmod_event_create_instance("event:/sfx/voice/diagus");
-
 dialogsprite = noone;
 text = "";
 character_name = "";
 bubble_spr = spr_computerbubble;
 background_spr = spr_pizzagrannytexture;
-text_arr_1 = noone;
-text_arr_2 = noone;
-text_arr_3 = noone;
 
 savedstate = states.normal;
 dialog = noone;
@@ -31,5 +25,5 @@ surfclip2 = -4;
 surffinal2 = -4;
 wave_timer = 0;
 text_x = 0;
-text_ystart = SCREEN_HEIGHT - dialogheight + text_contentpad + (text_contentpad * 2) + text_y - 60;
 text_y = 400;
+text_ystart = SCREEN_HEIGHT - dialogheight + text_contentpad + (text_contentpad * 2) + text_y - 60;

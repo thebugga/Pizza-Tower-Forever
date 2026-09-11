@@ -17,10 +17,18 @@ function scr_getchar_sprite(_sprite, _char = character, _prefix = "spr_player")
 	var _spr = sprite_get_name(_sprite);
 	
 	_spr = string_delete(_spr, 0, string_length(_prefix) + 1);
-	_spr = concat(_prefix, global.charPrefix[_char], "_", _spr);
 	
-	if (!sprite_exists(asset_get_index(_spr)) && _char == characters.Doise)
-		_spr = concat(_prefix, "N_", _spr);
+	if _char == characters.Doise
+	{
+		if !sprite_exists(asset_get_index(_spr)) && _spr != "idle"
+			_spr = concat(_prefix, "N_", _spr);
+		else
+			_spr = concat(_prefix, "D_", _spr);
+	}
+	else
+	{
+		_spr = concat(_prefix, global.charPrefix[_char], "_", _spr);
+	}
 	
 	// mods obv unfished so like 
 	//if (!sprite_exists(asset_get_index(_spr)))
@@ -28,7 +36,10 @@ function scr_getchar_sprite(_sprite, _char = character, _prefix = "spr_player")
 	
 	_spr = asset_get_index(_spr);
 	
-	return sprite_exists(_spr) ? _spr : _sprite;	
+	if _char != characters.Doise
+		return sprite_exists(_spr) ? _spr : _sprite;
+	else
+		return _spr;
 }
 
 function scr_characterspr()

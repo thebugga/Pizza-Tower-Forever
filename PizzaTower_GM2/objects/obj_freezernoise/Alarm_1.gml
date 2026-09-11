@@ -3,13 +3,13 @@ with instance_create(obj_player1.x, obj_player1.y, obj_sausageman_dead)
 {
 	hsp = obj_player1.image_xscale * 3;
 	image_xscale = -other.image_xscale;
-	if character == characters.Peppino
+	if other.character != characters.Peppino
 		sprite_index = obj_player1.spr_dead;
 	else 
 		sprite_index = spr_peppinoshotandkilled;
-	spr_palette = spr_palette;
-	paletteselect = paletteselect;
-	oldpalettetexture = global.palettetexture;
+	other.spr_palette = spr_palette;
+	other.paletteselect = paletteselect;
+	other.oldpalettetexture = global.palettetexture;
 }
 with obj_player1
 {
