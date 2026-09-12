@@ -16,6 +16,7 @@ if (!grabbed && other.state == states.handstandjump && unpickable == false)
 	
 	playerid = other.object_index;
 	grabbed = true;
+	been_grabbed = true;
 }
 
 if (!grabbed && unpickable == false && !ratgrabbed && other.state == states.ratmountattack)
@@ -25,4 +26,5 @@ if (!grabbed && unpickable == false && !ratgrabbed && other.state == states.ratm
 	state = states.ratgrabbed;
 	other.ratgrabbedID = id;
 	other.state = states.ratmount;
+	been_grabbed = true;
 }

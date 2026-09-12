@@ -1,4 +1,4 @@
-targetRoom = ruin_1;
+targetRoom = sanctum_1;
 level = "ruin";
 sprite_index = spr_gate_ruin;
 bgsprite = spr_gate_ruinBG;

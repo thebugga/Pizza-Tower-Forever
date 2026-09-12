@@ -204,7 +204,7 @@ function get_options()
 	global.option_vsync = ini_read_real("Option", "vsync", 0);
 	global.M_option_letterbox = ini_read_real("M_Option", "letterbox", 0)
 	global.M_option_letterboxindex = ini_read_real("M_Option", "letterbox_type", 0)
-    global.M_option_panbg = ini_read_real("M_Option", "panicbg", 0);
+    global.M_option_panbg = ini_read_real("M_Option", "panicbg", 1);
 	var lang = ini_read_string("Option", "lang", "none");
 	if (lang == "none")
 	{

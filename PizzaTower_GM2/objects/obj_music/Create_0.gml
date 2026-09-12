@@ -80,11 +80,8 @@ add_music(boss_pizzaface, "event:/music/boss/pizzaface", noone, false, function(
 		fmod_event_instance_set_parameter(_event_instance, "state", 5, false);
 	}
 });
-add_music(entrance_1, "event:/music/w1/entrance", "event:/music/w1/entrancesecret", false, function(_room, _event_instance, _unknown)
-{
-	var s = 0;
-	fmod_event_instance_set_parameter(_event_instance, "state", s, true);
-});
+add_music(entrance_1, "event:/music/w1/entrance", "event:/music/w1/entrancesecret", false)
+add_music(gutter_1,   "event:/music/w1/entrance", "event:/music/w1/entrancesecret", false)
 add_music(medieval_1, "event:/music/w1/medieval", "event:/music/w1/medievalsecret", false, function(_room, _event_instance, _unknown)
 {
 	var s = -1;
@@ -96,7 +93,7 @@ add_music(medieval_1, "event:/music/w1/medieval", "event:/music/w1/medievalsecre
 			break;
 		case medieval_3:
 		case medieval_5:
-			s = 0;
+			s = 1;
 			break;
 		case medieval_6:
 			s = 2;
@@ -107,24 +104,25 @@ add_music(medieval_1, "event:/music/w1/medieval", "event:/music/w1/medievalsecre
 		fmod_event_instance_set_parameter(_event_instance, "state", s, true);
 	}
 });
-add_music(ruin_1, "event:/music/w1/ruin", "event:/music/w1/ruinsecret", false, function(_room, _event_instance)
-{
-	var s = -1;
-	switch (_room)
-	{
-		case ruin_1:
-		case ruin_5:
-			s = 0;
-			break;
-		case ruin_6:
-			s = 1;
-			break;
-	}
-	if (s != -1)
-	{
-		fmod_event_instance_set_parameter(_event_instance, "state", s, true);
-	}
-});
+add_music(sanctum_1, "event:/music/w1/sanctum", "event:/music/w1/dungeonsecret", false);
+//add_music(ruin_1, "event:/music/w1/ruin", "event:/music/w1/ruinsecret", false, function(_room, _event_instance)
+//{
+//	var s = -1;
+//	switch (_room)
+//	{
+//		case ruin_1:
+//		case ruin_5:
+//			s = 0;
+//			break;
+//		case ruin_6:
+//			s = 1;
+//			break;
+//	}
+//	if (s != -1)
+//	{
+//		fmod_event_instance_set_parameter(_event_instance, "state", s, true);
+//	}
+//});
 add_music(dungeon_1, "event:/music/w1/dungeon", "event:/music/w1/dungeonsecret", false);
 add_music(badland_1, "event:/music/w2/desert", "event:/music/w2/desertsecret", false, function(_room, _event_instance)
 {
