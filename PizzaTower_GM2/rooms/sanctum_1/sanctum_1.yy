@@ -238,7 +238,7 @@
           157,158,154,155,156,157,158,154,155,156,157,158,154,155,156,157,158,154,155,156,157,158,154,155,156,
           157,158,154,155,156,157,158,154,155,156,157,158,154,155,156,157,158,154,155,156,157,158,154,
         ],"TileDataFormat":1,},"tilesetId":{"name":"tile_sanctum","path":"tilesets/tile_sanctum/tile_sanctum.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
-    {"$GMRTileLayer":"","%Name":"Tiles_3","depth":300,"effectEnabled":false,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_3","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":32,"SerialiseWidth":80,"TileCompressedData":[
+    {"$GMRTileLayer":"","%Name":"Tiles_BG","depth":300,"effectEnabled":false,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_BG","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":32,"SerialiseWidth":80,"TileCompressedData":[
           -344,0,3,486,487,488,-32,0,3,486,487,488,-42,0,3,513,514,515,-32,0,3,513,514,515,-42,0,3,540,541,542,
           -32,0,3,540,541,542,-42,0,3,567,568,569,-17,0,3,486,487,488,-12,0,3,567,568,569,-42,0,3,594,595,596,
           -17,0,3,513,514,515,-12,0,3,594,595,596,-42,0,3,621,622,623,-17,0,3,540,541,542,-12,0,3,621,622,623,
