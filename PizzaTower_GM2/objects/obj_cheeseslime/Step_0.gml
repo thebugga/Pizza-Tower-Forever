@@ -1,7 +1,22 @@
-
 if (snotty)
 {
+	usepalette = true;
 	paletteselect = 1;
+}
+else if (billythecondimentboy)
+{
+	usepalette = true;
+	paletteselect = 2;
+}
+else if (global.stylethreshold >= 2)
+{
+	usepalette = true;
+	paletteselect = 3;
+}
+else 
+{
+	usepalette = false;
+	paletteselect = 0;
 }
 switch (state)
 {

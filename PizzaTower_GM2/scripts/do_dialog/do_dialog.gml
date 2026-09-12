@@ -7,8 +7,8 @@ function do_dialog(_dialog)
 		dialogsprite = _dialog[0][1];
 		currenttext = scr_calculate_text(_dialog[0][0]);
 		dialogheight = scr_calculate_height(currenttext);
-		textbgspr = _dialog[0][2];
-		charactername = _dialog[0][3];
+		background_spr = _dialog[0][2];
+		character_name = _dialog[0][3];
 	}
 	with (obj_player)
 	{

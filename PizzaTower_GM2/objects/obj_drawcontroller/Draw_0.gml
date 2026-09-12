@@ -146,7 +146,7 @@ with (obj_pizzagoblinbomb)
 	}
 	draw_self();
 }
-with (obj_player1)
+with (obj_player)
 {
 	if (!other.hungrypillarflash && visible && state != states.titlescreen && bbox_in_camera(view_camera[0], 32))
 	{
@@ -198,14 +198,15 @@ with (obj_player)
 {
 	if (visible && flash && bbox_in_camera(view_camera[0], 32))
 	{
-		draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha);
+		if sprite_index != noone && sprite_index != -1
+			draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha);
 	}
 }
 shader_reset();
 if (room == boss_pizzaface)
 {
 	shader_set(shd_supernoise);
-	with (obj_player1)
+	with (obj_player)
 	{
 		if (sprite_index == spr_playerN_phase3intro2 || sprite_index == spr_playerN_phase3intro2 || instance_exists(obj_pizzaface_thunderdark))
 		{

@@ -36,7 +36,7 @@ add_music(tower_tutorial1N, "event:/music/tutorial", "event:/music/pillarmusic",
 add_music(tower_entrancehall, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
 add_music(tower_johngutterhall, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
 add_music(tower_1, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
-add_music(tower_pepperpaletteroom, "event:/music/soundtest/pepperman", "event:/music/pillarmusic", false);
+add_music(tower_pepperpaletteroom, "event:/music/peppermanroom", "event:/music/pillarmusic", false);
 add_music(tower_2, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
 add_music(tower_3, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);
 add_music(tower_4, "event:/music/hub", "event:/music/pillarmusic", false, hub_state);

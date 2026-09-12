@@ -1,8 +1,8 @@
 # Do not ignore .yy files anywhere under sprites
 !PizzaTower_GM2/sprites/**/*.yy
 
-# datafiles
-PizzaTower_GM2/datafiles/*
+# music
+PizzaTower_GM2/datafiles/sound
 
 # unignore all tileset sprites
 !PizzaTower_GM2/sprites/bg_grindrail/**

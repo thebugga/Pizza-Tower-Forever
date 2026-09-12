@@ -1,6 +1,10 @@
-if (!grabbed && (other.state == states.handstandjump || other.state == states.punch || other.state == states.lungeattack) && unpickable == false)
+if (!grabbed && other.state == states.handstandjump && unpickable == false)
 {
-	//instance_create(x + (obj_player1.xscale * 40), y, obj_punchdust);
+	with instance_create(x + (obj_player1.xscale * 40), y, obj_parryeffect)
+	{
+		sprite_index = spr_punchdust;
+	}
+	
 	with (other)
 	{
 		image_index = 0;
@@ -9,9 +13,11 @@ if (!grabbed && (other.state == states.handstandjump || other.state == states.pu
 		grabbingenemy = true;
 		state = states.grab;
 	}
+	
 	playerid = other.object_index;
 	grabbed = true;
 }
+
 if (!grabbed && unpickable == false && !ratgrabbed && other.state == states.ratmountattack)
 {
 	ratplayerid = other.id;

@@ -1,5 +1,5 @@
 scr_initenemy();
-usepalette = true;
+usepalette = false;
 is_controllable = true;
 possess_movespeed = 0;
 grav = 0.5;
@@ -45,3 +45,4 @@ grabbedby = 0;
 stuntouchbuffer = 0;
 scaredbuffer = 0;
 snotty = false;
+billythecondimentboy = false;

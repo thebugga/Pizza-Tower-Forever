@@ -136,21 +136,23 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 			//shader_set(global.retro_pal_swapper);
 			pal_swap_set(spr_peppalette, 1, false);
 		}
-		//shader_set(global.retro_pal_swapper);
-		pal_swap_set(spr_peppalette, 0);
-		if (!global.swapmode)
+		else if (usepalette && _pal)
 		{
-			if ((object_index == obj_fakepepboss || object_index == obj_gustavograbbable) && obj_player1.ispeppino)
+			pal_swap_set(spr_peppalette, 0);
+			if (!global.swapmode)
 			{
-				pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale * xscale, image_yscale * yscale, global.palettetexture);
+				if ((object_index == obj_fakepepboss || object_index == obj_gustavograbbable) && obj_player1.ispeppino)
+				{
+					pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale * xscale, image_yscale * yscale, global.palettetexture);
+				}
 			}
+			else if (object_index == obj_fakepepboss || object_index == obj_gustavograbbable)
+			{
+				var palinfo = get_pep_palette_info();
+				pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale * xscale, image_yscale * yscale, palinfo.patterntexture);
+			}
+			pal_swap_set(spr_palette, paletteselect);
 		}
-		else if (object_index == obj_fakepepboss || object_index == obj_gustavograbbable)
-		{
-			var palinfo = get_pep_palette_info();
-			pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale * xscale, image_yscale * yscale, palinfo.patterntexture);
-		}
-		pal_swap_set(spr_palette, paletteselect);
 		var _ys = 1;
 		if (state == states.grabbed)
 		{
@@ -180,7 +182,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 				draw_sprite_ext(sprite_index, image_index, x, y + _stun, xscale * image_xscale, yscale * _ys, angle, b, image_alpha);
 			}
 		}
-		if (object_index == obj_peppinoclone)
+		if (object_index == obj_peppinoclone || (usepalette && _pal))
 		{
 			pattern_reset();
 			shader_reset();
@@ -278,7 +280,8 @@ function draw_player()
 		spr = spr_noisepalette_rage;
 	}
 	pal_swap_set(spr, ps, false);
-	draw_sprite_ext(_sprite_index, _image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
+	if _sprite_index != noone && _sprite_index != -1
+		draw_sprite_ext(_sprite_index, _image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
 	if (global.noisejetpack && (character == characters.Peppino || noisepizzapepper))
 	{
 		pal_swap_set(spr_palette, 2, false);

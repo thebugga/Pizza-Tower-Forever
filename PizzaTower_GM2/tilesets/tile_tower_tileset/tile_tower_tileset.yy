@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"tile_tower_tileset",
-  "out_columns":20,
+  "out_columns":28,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"tile_tower",
-    "path":"sprites/tile_tower/tile_tower.yy",
+    "name":"tile_gutter",
+    "path":"sprites/tile_gutter/tile_gutter.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -34,5 +34,5 @@
   "tileWidth":32,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":400,
+  "tile_count":768,
 }

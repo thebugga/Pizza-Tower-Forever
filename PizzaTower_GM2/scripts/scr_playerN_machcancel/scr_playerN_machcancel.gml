@@ -127,7 +127,7 @@ function scr_playerN_machcancel()
 		jumpstop = true;
 		state = states.mach3;
 		movespeed = 12;
-		sprite_index = spr_playerN_mach3;
+		sprite_index = spr_playerN_mach4;
 		with (instance_create(x, y, obj_noiseeffect))
 		{
 			sprite_index = spr_noisegrounddasheffect;

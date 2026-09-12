@@ -13,7 +13,10 @@
     "name":"Level Structure",
     "path":"folders/Objects/Room Structure/Level Structure.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_junk",
+    "path":"objects/obj_junk/obj_junk.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

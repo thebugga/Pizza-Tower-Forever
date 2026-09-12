@@ -869,7 +869,7 @@ function scr_vigilante_mach2()
 {
 	image_speed = 0.35;
 	hsp = image_xscale * attackspeed;
-	if (sprite_index == spr_playerV_bootsmove)
+	if (sprite_index == spr_playerV_mach)
 	{
 		if (attackspeed < 8)
 		{
@@ -882,7 +882,7 @@ function scr_vigilante_mach2()
 	}
 	if (ANIMATION_END && sprite_index == spr_playerV_mach1)
 	{
-		sprite_index = spr_playerV_bootsmove;
+		sprite_index = spr_playerV_mach;
 	}
 	if (sprite_index == spr_playerV_crouchmove)
 	{
