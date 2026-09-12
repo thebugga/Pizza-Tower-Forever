@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"tile_sanctum",
-  "out_columns":32,
+  "out_columns":14,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"tsspr_sanctum12",
-    "path":"sprites/tsspr_sanctum12/tsspr_sanctum12.yy",
+    "name":"tsspr_sanctum",
+    "path":"sprites/tsspr_sanctum/tsspr_sanctum.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
@@ -34,5 +34,5 @@
   "tileWidth":32,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":1026,
+  "tile_count":207,
 }

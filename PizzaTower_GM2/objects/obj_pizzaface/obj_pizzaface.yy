@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_pizzaface",
-    "path":"sprites/spr_pizzaface/spr_pizzaface.yy",
+    "name":"spr_poopaface",
+    "path":"sprites/spr_poopaface/spr_poopaface.yy",
   },
   "spriteMaskId":{
     "name":"spr_player_mask",
