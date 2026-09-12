@@ -249,11 +249,11 @@ if (vsp > 0 && grounded && !place_meeting(x, y, obj_spike))
 {
 	hsp = 0;
 }
-if (playerid.state != states.handstandjump && grounded)
+if (been_grabbed && playerid.state != states.handstandjump && grounded)
 {	
 	use_collision = false;
 }
-if (grabbed == false && ratgrabbed == false && use_collision)
+if (!grabbed && !ratgrabbed && use_collision)
 {
 	scr_collide();
 }

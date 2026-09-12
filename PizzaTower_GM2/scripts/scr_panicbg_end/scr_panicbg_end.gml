@@ -14,7 +14,7 @@ function scr_panicbg_end()
         var time_id = shader_get_uniform(shd_panicbg, "time");
         shader_set_uniform_f(time_id, global.panicshadetimer / 1000);
         
-        with (obj_parrallax)
+        with (obj_parallax)
             event_perform(ev_other, ev_user0);
         
         draw_surface(global.panicbg_surface, _cam_x, _cam_y);

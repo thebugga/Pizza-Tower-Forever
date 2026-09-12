@@ -126,15 +126,21 @@ add_option_toggle(video_menu, 4, "option_texfilter", function(_texfilter)
 add_option_toggle(video_menu, array_length(video_menu), "option_panicbg", function(_panbg)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);
-	ini_write_real("Option", "panicbg", _panbg);
+	ini_write_real("M_Option", "panicbg", _panbg);
 	obj_savesystem.ini_str_options = ini_close();
     global.M_option_panbg = _panbg;
 }).value = global.M_option_panbg;
+add_option_toggle(video_menu, array_length(video_menu), "option_letterbox", function(_lette)
+{
+	ini_open_from_string(obj_savesystem.ini_str_options);
+	ini_write_real("M_Option", "letterbox", _lette);
+	obj_savesystem.ini_str_options = ini_close();
+    global.M_option_letterbox = _lette;
+}).value = global.M_option_letterbox;
 add_option_multiple(video_menu, array_length(video_menu), "option_letterbox_type", [create_option_value("option_letterbox_checkered", 0), create_option_value("option_letterbox_bricks", 1), create_option_value("option_letterbox_cheese", 2)], function(_type)
 {
 	ini_open_from_string(obj_savesystem.ini_str_options);
-	ini_write_real("Option", "letterbox", _type);
-	ini_write_real("Option", "letterbox_type", _type);
+	ini_write_real("M_Option", "letterbox_type", _type);
 	obj_savesystem.ini_str_options = ini_close();
 	global.M_option_letterboxindex = _type;
 }).value = global.M_option_letterboxindex;
