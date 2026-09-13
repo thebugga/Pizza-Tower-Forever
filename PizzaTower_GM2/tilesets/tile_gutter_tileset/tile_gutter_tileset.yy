@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"tile_gutter_tileset",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"tile_gutter_tileset",
+  "out_columns":28,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"John Gutter",
+    "path":"folders/Tile Sets/Floor 1/John Gutter.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"tile_gutter",
+    "path":"sprites/tile_gutter/tile_gutter.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"entrancegroup",
+    "path":"texturegroups/entrancegroup",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.00015,
+  "tileHeight":32,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":32,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":768,
+}

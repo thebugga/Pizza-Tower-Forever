@@ -1,12 +1,12 @@
-if !global.panic && !global.panicbg && !global.M_option_panbg
+if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
 {
     var _cam_x = camera_get_view_x(view_camera[0]);
     var _cam_y = camera_get_view_y(view_camera[0]);
-	//if global.coop
-	//{
-	//    _cam_x = camera_get_view_x(view_camera[0]) && camera_get_view_x(view_camera[1]);
-	//    _cam_y = camera_get_view_y(view_camera[0]) && camera_get_view_y(view_camera[1]);
-	//}
+	if global.coopmode
+	{
+	    _cam_x = camera_get_view_x(view_camera[0]) && camera_get_view_x(view_camera[1]);
+	    _cam_y = camera_get_view_y(view_camera[0]) && camera_get_view_y(view_camera[1]);
+	}
     var lay_arr = layer_get_all();
     
     for (var i = 0; i < array_length(lay_arr); i++)
@@ -229,6 +229,11 @@ if !global.panic && !global.panicbg && !global.M_option_panbg
                 layer_x(lay, _cam_x * -0.1);
                 layer_y(lay, _cam_y * -0.1);
                 break;
+        
+	        default:
+	            layer_x(lay, 0);
+	            layer_y(lay, 0);
+	            break;
         }
     }
 }

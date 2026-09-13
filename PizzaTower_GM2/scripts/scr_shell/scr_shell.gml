@@ -1,372 +1,204 @@
-DebugCommand("set_game_speed", "Sets the game speed", "<int>", function(_int)
+//obj_shell commands to use ingame
+#region Roomnames
+var i = 0;
+while room_exists(i)
 {
-	game_set_speed(floor(real(_int)), gamespeed_fps);
-});
-DebugCommand("test_p_rank", "", "", function()
+	global.roomlist[i] = room_get_name(i)
+	i++
+}	
+#endregion	
+
+#region Collision
+
+function sh_toggle_collisions(args) 
 {
-	global.collect = global.srank + 5000;
-	global.lap = true;
-	global.treasure = true;
-	global.secretfound = 3;
-	global.combodropped = false;
-	global.prank_enemykilled = true;
-	global.combotime = 60;
-	global.combo = 99;
-	global.panic = true;
-});
-DebugCommand("kill_boss", "", "", function()
+	var arg1 = args[1]	
+	switch arg1
+	{
+		case "true": 
+		case "1":
+		arg1 = true 
+		break;
+		case "false": 
+		case "0":
+		arg1 = false 
+		break;
+		default: 
+		arg1 = !global.showcollisions
+		break;		
+	}	
+	global.showcollisions = arg1 
+	toggle_collision_function()
+}
+function meta_toggle_collisions() 
 {
-	instance_destroy(obj_baddie);
-});
-DebugCommand("set_boss_hp", "", "<int>", function(_int)
+	return {
+		description: "toggles collision object visibility",
+		arguments: ["<bool>"],
+		suggestions: [
+			["true","false"]
+		],
+		argumentDescriptions: [
+			"toggles visibility"
+		]
+	}
+}
+function toggle_collision_function()
 {
-	with (obj_baddie)
-	{
-		elitehit = real(_int);
+	if !variable_global_exists("showcollisionarray")
+	{	
+		var i = 0;
+		global.showcollisionarray[i++] = obj_solid;
+		global.showcollisionarray[i++] = obj_slope;
+		global.showcollisionarray[i++] = obj_platform;
+		global.showcollisionarray[i++] = obj_sidePlatform;
+		global.showcollisionarray[i++] = obj_secretbigblock;
+		global.showcollisionarray[i++] = obj_secrettile;
+		global.showcollisionarray[i++] = obj_secretblock;
+		global.showcollisionarray[i++] = obj_secretdestroyable;
+		global.showcollisionarray[i++] = obj_secretmetalblock;
+		global.showcollisionarray[i++] = obj_iceblock;
+		global.showcollisionarray[i++] = obj_iceblockslope;
 	}
-});
-DebugCommand("switch_char", "Switches character", "", function(arg0)
-{
-	var _chars = ["P", "N"];
-	with (obj_player)
+	var array  = global.showcollisionarray
+	var length = array_length(array)
+	//Start from the end to the start (more optimized)
+
+	for (var i = length - 1; i >= 0; --i)
 	{
-		character = array_get_index(_chars, arg0[1]);
-		scr_characterspr();
-	}
-}, [["P", "N"]]);
-DebugCommand("gateswitchmax", "", "", function()
-{
-	global.gateswitch = global.gateswitchmax;
-});
-DebugCommand("show_debug_overlay", "Toggles debug overlay", "", function()
-{
-	show_debug_overlay(!showoverlay);
-	showoverlay = !showoverlay;
-});
-DebugCommand("roomcheck", "", "", function()
-{
-	instance_create_unique(0, 0, obj_roomcheck);
-});
-DebugCommand("unlock_toppins", "Unlocks the toppins of the given level", "<level_name_ini>", function(_level_name_ini)
-{
-	if (is_undefined(_level_name_ini))
-	{
-		exit;
-	}
-	ini_open_from_string(obj_savesystem.ini_str);
-	ini_write_real("Toppin", concat(_level_name_ini, 1), true);
-	ini_write_real("Toppin", concat(_level_name_ini, 2), true);
-	ini_write_real("Toppin", concat(_level_name_ini, 3), true);
-	ini_write_real("Toppin", concat(_level_name_ini, 4), true);
-	ini_write_real("Toppin", concat(_level_name_ini, 5), true);
-	obj_savesystem.ini_str = ini_close();
-	gamesave_async_save();
-});
-DebugCommand("unlock_boss_key", "Unlocks the boss key of the given world (1, 2, 3, 4)", "<number>", function(_number)
-{
-	if (is_undefined(_number))
-	{
-		exit;
-	}
-	_number = real(_number);
-	ini_open_from_string(obj_savesystem.ini_str);
-	var n = concat("w", _number, "stick");
-	ini_write_real(n, "bosskey", true);
-	obj_savesystem.ini_str = ini_close();
-	gamesave_async_save();
-});
-DebugCommand("lockcam", "", "", function()
-{
-	with (obj_camera)
-	{
-		lock = !lock;
-	}
-});
-DebugCommand("bossinv", "", "", function()
-{
-	global.boss_invincible = !global.boss_invincible;
-});
-DebugCommand("hidetiles", "", "<bool>", function(_bool)
-{
-	if (is_undefined(_bool))
-	{
-		global.hidetiles = !global.hidetiles;
-	}
-	else
-	{
-		global.hidetiles = _bool;
-	}
-	layer_set_visible("Tiles_BG", !global.hidetiles);
-	layer_set_visible("Tiles_BG2", !global.hidetiles);
-	layer_set_visible("Tiles_BG3", !global.hidetiles);
-	layer_set_visible("Tiles_1", !global.hidetiles);
-	layer_set_visible("Tiles_2", !global.hidetiles);
-	layer_set_visible("Tiles_3", !global.hidetiles);
-	layer_set_visible("Tiles_4", !global.hidetiles);
-	layer_set_visible("Tiles_Foreground1", !global.hidetiles);
-	layer_set_visible("Tiles_Foreground2", !global.hidetiles);
-	layer_set_visible("Tiles_Foreground3", !global.hidetiles);
-});
-DebugCommand("throwarc", "", "<bool>", function(_bool)
-{
-	if (is_undefined(_bool))
-	{
-		global.throwarc = !global.throwarc;
-	}
-	else
-	{
-		global.throwarc = _bool;
-	}
-});
-DebugCommand("editor", "", "", function()
-{
-	with (obj_player)
-	{
-		targetRoom = rm_blank;
-		targetDoor = "A";
-	}
-	instance_create_unique(0, 0, obj_fadeout);
-});
-DebugCommand("noclip", "", "", function()
-{
-	with (obj_player1)
-	{
-		state = states.debugstate;
-	}
-});
-DebugCommand("givekey", "", "", function()
-{
-	global.key_inv = true;
-});
-DebugCommand("loadtest", "", "", function()
-{
-	with (obj_debugcontroller)
-	{
-		DoCommand("player_room rm_testing4 A");
-		alarm[0] = 20;
-	}
-});
-DebugCommand("othertest", "", "", function()
-{
-	with (obj_debugcontroller)
-	{
-		DoCommand("showcollisions 1");
-		DoCommand("player_room rm_testing4 A");
-		DoCommand("switch_char");
-		alarm[0] = 20;
-	}
-});
-DebugCommand("set_combo", "Set the combo", "<combo> <combotime:optional>", function(_combo, _combotime)
-{
-	if (_combo == undefined)
-	{
-		exit;
-	}
-	_combotime ??= 60
-	global.combo = real(_combo);
-	global.combotime = real(_combotime);
-	with (obj_player)
-	{
-		supercharge = 10;
-	}
-});
-DebugCommand("giveheat", "Gives heat", "", function()
-{
-	global.style += 100;
-});
-DebugCommand("alltoppins", "Adds all the toppins", "", function()
-{
-	if (!instance_exists(obj_pizzakincheese))
-	{
-		instance_create(obj_player1.x, obj_player1.y, obj_pizzakincheese);
-	}
-	if (!instance_exists(obj_pizzakintomato))
-	{
-		instance_create(obj_player1.x, obj_player1.y, obj_pizzakintomato);
-	}
-	if (!instance_exists(obj_pizzakinsausage))
-	{
-		instance_create(obj_player1.x, obj_player1.y, obj_pizzakinsausage);
-	}
-	if (!instance_exists(obj_pizzakinpineapple))
-	{
-		instance_create(obj_player1.x, obj_player1.y, obj_pizzakinpineapple);
-	}
-	if (!instance_exists(obj_pizzakinshroom))
-	{
-		instance_create(obj_player1.x, obj_player1.y, obj_pizzakinshroom);
-	}
-	global.cheesefollow = true;
-	global.tomatofollow = true;
-	global.sausagefollow = true;
-	global.pineapplefollow = true;
-	global.shroomfollow = true;
-});
-DebugCommand("panic", "Toggles pizza time", "<fill>", function(_fill)
-{
-	if (_fill != undefined && _fill != "")
-	{
-		_fill = get_number_string(_fill);
-	}
-	else
-	{
-		_fill = 4000;
-	}
-	global.panic = !global.panic;
-	global.fill = _fill;
-	if (global.panic)
-	{
-		obj_camera.alarm[1] = 60;
-	}
-	obj_tv.chunkmax = global.fill;
-});
-DebugCommand("showcollisions", "Shows the collisions", "<bool>", function(_bool)
-{
-	if (_bool == undefined)
-	{
-		exit;
-	}
-	_bool = get_bool(_bool);
-	if (_bool != undefined)
-	{
-		showcollisions = _bool;
-		event_perform(ev_other, ev_room_start);
-	}
-});
-DebugCommand("showhud", "Shows the HUD", "<bool>", function(_bool)
-{
-	if (_bool == undefined)
-	{
-		exit;
-	}
-	_bool = get_bool(_bool);
-	show_debug_message(!_bool);
-	if (_bool != undefined)
-	{
-		showhud = _bool;
-		with (obj_tv)
+		with array[i]
 		{
-			visible = _bool;
-			show_debug_message(visible);
-		}
-		with (obj_camera)
-		{
-			visible = _bool;
-			show_debug_message(visible);
-		}
-		with (obj_roomname)
-		{
-			visible = _bool;
-			show_debug_message(visible);
-		}
-		with (obj_pigtotal)
-		{
-			visible = _bool;
-			show_debug_message(visible);
+			if (object_index == array[i])
+				visible = global.showcollisions
 		}
 	}
-});
-DebugCommand("player_room", "Go to given room", "<targetRoom> <targetDoor>", function(_targetRoom, _targetDoor)
+	layer_set_visible("Tiles_Solid",global.showcollisions);	
+}
+#endregion
+
+#region Hitboxes
+
+function sh_toggle_hitboxes(args) 
 {
-	if (_targetRoom == undefined)
+	var arg1 = args[1]	
+	switch arg1
 	{
-		exit;
-	}
-	if (_targetDoor == undefined)
-	{
-		exit;
-	}
-	_targetRoom = asset_get_index(_targetRoom);
-	if (_targetRoom == -1)
-	{
-		exit;
-	}
-	with (obj_player)
-	{
-		targetRoom = _targetRoom;
-		targetDoor = _targetDoor;
-	}
-	instance_create(x, y, obj_fadeout);
-});
-DebugCommand("camera_zoom", "Zoom", "<targetzoom> <spd>", function(arg)
+		case "true": 
+		case "1":
+		arg1 = true 
+		break;
+		case "false": 
+		case "0":
+		arg1 = false 
+		break;
+		default: 
+		arg1 = !global.showhitboxes
+		break;		
+	}	
+	global.showhitboxes = arg1 
+	toggle_hitboxes_function()
+}
+function meta_toggle_hitboxes() 
 {
-	var _targetzoom = arg[1];
-	var _spd = arg[2];
-	if (_targetzoom == undefined)
-	{
-		exit;
+	return {
+		description: "toggles hitbox object visibility",
+		arguments: ["<bool>"],
+		suggestions: [
+			["true","false"]
+		],
+		argumentDescriptions: [
+			"toggles visibility for hitboxes"
+		]
 	}
-	if (_spd != undefined)
-	{
-		_spd = get_number_string(_spd);
+}
+function toggle_hitboxes_function()
+{
+	if !variable_global_exists("showcollisionarray")
+	{	
+		var i = 0;
+		global.showhitboxesarray[i++] = obj_slaphitbox;
+		global.showhitboxesarray[i++] = obj_bosshitbox;
+		global.showhitboxesarray[i++] = obj_chargeenemyhitbox;
+		global.showhitboxesarray[i++] = obj_lungehitbox;
+		global.showhitboxesarray[i++] = obj_swordhitbox;
+		global.showhitboxesarray[i++] = obj_swingdinghitbox;
+		global.showhitboxesarray[i++] = obj_morthitbox;
+		global.showhitboxesarray[i++] = obj_pepgoblin_kickhitbox;
+		global.showhitboxesarray[i++] = obj_minijohn_hitbox;
+		global.showhitboxesarray[i++] = obj_parryhitbox;
+		global.showhitboxesarray[i++] = obj_pineahitbox;
+		global.showhitboxesarray[i++] = obj_forkhitbox;
+		global.showhitboxesarray[i++] = obj_peasantohitbox;
 	}
-	with (obj_camera)
+	var array  = global.showhitboxesarray
+	var length = array_length(array)
+	//Start from the end to the start (more optimized)
+
+	for (var i = length - 1; i >= 0; --i)
 	{
-		targetzoom = _targetzoom;
-		targetzoom = clamp(targetzoom, 0, max_zoom);
-		if (_spd != undefined)
+		with array[i]
 		{
-			zoomspd = abs(_spd);
+			if (object_index == array[i])
+				visible = global.showhitboxes
 		}
 	}
-});
-DebugCommand("destroyice", "", "", function()
-{
-	instance_destroy(obj_iceblock);
-	instance_destroy(obj_iceblockslope);
-});
-DebugCommand("hardmode", "Toggles hardmode", "<bool>", function(arg)
-{
-	var _bool = arg[1];
-	if (_bool == undefined)
+}
+#endregion
+
+#region Room Goto
+	///commands[arrayi++] = "room_goto [roomname] [targetdoor]"
+	function sh_room_goto(args) 
 	{
-		exit;
-	}
-	_bool = get_bool(_bool);
-	show_debug_message(!_bool);
-	if (_bool != undefined)
-	{
-		global.hardmode = _bool;
-		with (obj_hardmode)
+		var arg1 = asset_get_index(args[1]), arg2 = args[2]	
+		//Error Check 
+		if asset_get_type(args[1]) != asset_room { return "Can't find room " + string(args[1]); } //Shamelessy took this from Ethgaming
+		//Go to Room
+		if asset_get_type(args[1]) = asset_room
 		{
-			event_perform(ev_other, ev_room_start);
+			obj_player1.targetRoom = arg1
+			obj_player2.targetRoom = arg1
+			obj_player1.targetDoor = arg2
+			obj_player2.targetDoor = arg2
+			instance_create(0, 0, obj_fadeout) 			
 		}
 	}
-}, [["True", "False"]]);
-DebugCommand("player_set_state", "Changes the player state", "<states.state>", function(arg)
-{
-	var _state = arg[1];
-	if (_state == undefined)
-	{
-		exit;
-	}
-	_state = ds_map_find_value(state_map, _state);
-	if (!is_undefined(_state))
-	{
-		with (obj_player)
-		{
-			state = _state;
-			var _spr = sprite_index;
-			switch (_state)
-			{
-				case states.normal:
-					_spr = spr_idle;
-					break;
-				case states.cheesepep:
-					_spr = spr_cheesepep_idle;
-					break;
-				case states.knightpep:
-					_spr = spr_knightpepidle;
-					break;
-				case states.firemouth:
-					_spr = spr_firemouth;
-					break;
-				case states.ratmount:
-					_spr = spr_player_ratmountidle;
-					break;
-			}
-			sprite_index = _spr;
-			image_index = 0;
+	function meta_room_goto() 
+	{	
+		return {
+			description: "allows you to go to another room",
+			arguments: ["<room>","<door>"],
+			suggestions: [
+				global.roomlist,
+				["N/A","A","B","C","D","E","F","G","H","I","J","K","start"]
+			],
+			argumentDescriptions: [
+				"sets targetRoom",
+				"sets targetDoor"
+			]
 		}
+	}	
+
+
+	#endregion
+	
+	
+#region Noclip
+	///commands[arrayi++] = "room_goto [roomname] [targetdoor]"
+	function sh_noclip() 
+	{
+		obj_player1.state = (266 << 0)
 	}
-});
+	function meta_noclip() 
+	{	
+		return {
+			description: "Noclip",
+			arguments: [],
+			suggestions: [
+			],
+			argumentDescriptions: [
+			]
+		}
+	}	
+
+
+	#endregion

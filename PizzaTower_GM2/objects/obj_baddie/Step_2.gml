@@ -158,3 +158,7 @@ if (global.stylethreshold >= 2)
 	if (object_index != obj_ninja && object_index != obj_thug_red && object_index != obj_smokingpizzaslice)
 		paletteselect = 3;
 }
+if obj_player.baddiegrabbedID = id
+	persistent = true
+else
+	persistent = false

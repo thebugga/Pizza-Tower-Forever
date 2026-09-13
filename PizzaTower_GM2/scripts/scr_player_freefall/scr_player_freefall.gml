@@ -196,5 +196,5 @@ function scr_player_freefall()
 	{
 		image_speed = 0.4;
 	}
-	
+	superslam++;
 }

@@ -249,14 +249,14 @@ if (vsp > 0 && grounded && !place_meeting(x, y, obj_spike))
 {
 	hsp = 0;
 }
-if (been_grabbed && playerid.state != states.handstandjump && grounded)
-{	
-	use_collision = false;
-}
-if (!grabbed && !ratgrabbed && use_collision)
-{
-	scr_collide();
-}
+//if (been_grabbed && playerid.state != states.handstandjump && grounded)
+//{	
+//	use_collision = false;
+//}
+//if (!grabbed && !ratgrabbed && use_collision)
+//{
+//	scr_collide();
+//}
 if (place_meeting(x, y, obj_swordhitbox) && thrown == false)
 {
 	grabbed = false;

@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_shell",
   "parent":{
-    "name":"PizzaTowerEggspansion_LTS26",
-    "path":"PizzaTowerEggspansion_LTS26.yyp",
+    "name":"Utility",
+    "path":"folders/Scripts/Utility.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -186,10 +186,11 @@ function scr_player_jump()
 	if (vsp > 5 && sprite_index != spr_mortdoublejump)
 	{
 		fallinganimation++;
+		superslam++;
 	}
 	if (fallinganimation >= 40 && fallinganimation < 80)
 	{
-		sprite_index = spr_facestomp;
+		sprite_index = spr_facestomp;	
 	}
 	else if (fallinganimation >= 80)
 	{
@@ -252,6 +253,10 @@ function scr_player_jump()
 	else if (sprite_index == spr_stompprep && ANIMATION_END)
 	{
 		sprite_index = spr_stomp;
+	}
+	if (sprite_index == spr_groundpoundjump && ANIMATION_END)
+	{
+		sprite_index = spr_fall;
 	}
 	if (scr_check_groundpound() && !global.kungfu)
 	{

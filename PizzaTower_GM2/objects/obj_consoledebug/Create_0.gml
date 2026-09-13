@@ -67,7 +67,7 @@ create_command("EDITOR", [], function()
 	}
 	instance_create_unique(0, 0, obj_fadeout);
 });
-create_command("CHANGE_CHARACTER", [["_PEPPINO", "THE NOISE", "PEPPERMAN", "THE DOISE", "BAD BREAKFAST", "SHOBON"]], function(_bool)
+create_command("CHANGE_CHARACTER", [["_PEPPINO", "THE NOISE", "PEPPERMAN", "THE DOISE", "THE VIGILANTE", "SHOBON"]], function(_bool)
 {
 	var _char_enum = characters.Peppino
 	switch (_bool)
@@ -78,17 +78,14 @@ create_command("CHANGE_CHARACTER", [["_PEPPINO", "THE NOISE", "PEPPERMAN", "THE 
 		case "THE NOISE":
 			_char_enum = characters.Noise
 		break;
-		//case "THE VIGILANTE":
-		//	_char_enum = characters.Vigilante
-		//break;
+		case "THE VIGILANTE":
+			_char_enum = characters.Vigilante
+		break;
 		case "PEPPERMAN":
 			_char_enum = characters.Pepperman
 		break;
 		case "THE DOISE":
 			_char_enum = characters.Doise
-		break;
-		case "BAD BREAKFAST":
-			_char_enum = characters.DrBadBreakfast
 		break;
 		case "SHOBON":
 			_char_enum = characters.Shobon

@@ -10,6 +10,7 @@ flash = true;
 unpickable = false;
 hp = 0;
 grounded = true;
+use_collision = false;
 state = 0;
 playerid = obj_player1;
 mask_index = spr_player_mask;

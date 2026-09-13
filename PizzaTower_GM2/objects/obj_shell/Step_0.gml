@@ -10,9 +10,7 @@ if (saveHistory) {
 		loadedHistoryScrolled = true;
 	}
 }
-if (self._key_combo_pressed(openModifiers, hitboxesKey)) {
-	showHitboxes = !showHitboxes;	
-}
+
 if (!isOpen) {
 	if (self._key_combo_pressed(openModifiers, openKey)) {
 		self.open();

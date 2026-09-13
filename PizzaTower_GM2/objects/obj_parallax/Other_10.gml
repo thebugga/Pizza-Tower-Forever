@@ -468,5 +468,10 @@ for (var i = 0; i < array_length(lay_arr); i++)
             layer_x(lay, _cam_x * -0.1);
             layer_y(lay, _cam_y * -0.1);
             break;
+        
+	    default:
+	        layer_x(lay, 0);
+	        layer_y(lay, 0);
+	        break;
     }
 }
