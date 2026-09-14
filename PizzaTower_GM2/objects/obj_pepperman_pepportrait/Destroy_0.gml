@@ -1,5 +1,5 @@
 instance_create(x, y, obj_bangeffect);
-with (instance_create(x, y, obj_sausageman_dead))
+with (instance_create(x, y, obj_baddie_dead))
 {
 	sprite_index = other.sprite_index;
 	image_xscale = other.image_xscale;

@@ -7,7 +7,7 @@ if (global.combotime > 0 && global.combo > 0)
 {
 	visualcombo = global.combo;
 }
-if (room == init_obj_room || room == rm_editor || room == Longintro || room == Mainmenu || room == rank_room || room == timesuproom  || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic)) || ((instance_exists(obj_debugcontroller) && !obj_debugcontroller.showhud) || !global.option_hud)
+if in_hudlessRoom || no_hud
 {
 	visible = false;
 	sprite_index = spr_tv_off;
@@ -589,3 +589,4 @@ if (combofill_index > (sprite_get_number(spr_tv_combobubblefill) - 1))
 	combofill_index = frac(combofill_index);
 }
 scr_hub_bg_step()
+tv_y = tv_y + Wave(-5, 5, 2, 20);

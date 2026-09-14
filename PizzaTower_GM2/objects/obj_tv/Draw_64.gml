@@ -1,12 +1,11 @@
-
+if (in_hudlessRoom || instance_exists(obj_tutorialbook))
+{
+	exit;
+}
 draw_set_font(lang_get_font("bigfont"));
 draw_set_halign(fa_center);
 draw_set_color(c_white);
 draw_set_alpha(1);
-if (in_bossRoom || instance_exists(obj_tutorialbook))
-{
-	exit;
-}
 var collect_x = irandom_range(-collect_shake, collect_shake);
 var collect_y = irandom_range(-collect_shake, collect_shake);
 var _cx = tv_x - 205 + combo_posX;

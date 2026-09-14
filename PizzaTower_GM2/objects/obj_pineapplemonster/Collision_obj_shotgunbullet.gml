@@ -21,7 +21,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
 	global.enemykilled++;
 }
 global.combotime = 60;
-with (instance_create(x, y, obj_sausageman_dead))
+with (instance_create(x, y, obj_baddie_dead))
 {
 	sprite_index = spr_monsterpineapple_dead;
 }

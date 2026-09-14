@@ -48,7 +48,7 @@ if (pizzahead && elitehit <= 0 && destroyable)
 	}
 	if (doise)
 	{
-		with (instance_create(x, y, obj_sausageman_dead))
+		with (instance_create(x, y, obj_baddie_dead))
 		{
 			sprite_index = other.spr_dead;
 			spr_palette = other.spr_palette;

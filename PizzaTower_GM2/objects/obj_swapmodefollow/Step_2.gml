@@ -238,7 +238,7 @@ if (instance_exists(obj_swapmodegrab) || instance_exists(obj_swapplayergrabbable
 	visible = false;
 	usable = false;
 }
-with (obj_sausageman_dead)
+with (obj_baddie_dead)
 {
 	if (sprite_index == other.spr_dead)
 	{

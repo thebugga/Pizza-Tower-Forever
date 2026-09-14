@@ -87,7 +87,7 @@ if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == fa
 			break;
 	}
 	var debris;
-	with (instance_create(x, y, obj_sausageman_dead))
+	with (instance_create(x, y, obj_baddie_dead))
 	{
 		debris = id;
 		sprite_index = spr_hungrypillar_dead;

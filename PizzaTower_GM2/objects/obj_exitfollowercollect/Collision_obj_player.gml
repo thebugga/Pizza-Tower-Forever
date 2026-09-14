@@ -11,7 +11,7 @@ if (!other.ispeppino || global.swapmode)
 	global.combotime = 60;
 	instance_create(x, y, obj_bangeffect);
 	instance_create(x, y, obj_genericpoofeffect);
-	with (instance_create(x, y, obj_sausageman_dead))
+	with (instance_create(x, y, obj_baddie_dead))
 	{
 		if (other.object_index == obj_fakepepfollower)
 		{

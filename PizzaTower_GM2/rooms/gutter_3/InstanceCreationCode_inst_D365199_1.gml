@@ -1,1 +1,1 @@
-targetRoom = entrance_2;
+targetRoom = gutter_2;

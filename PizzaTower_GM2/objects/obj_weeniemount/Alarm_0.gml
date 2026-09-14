@@ -1,4 +1,4 @@
-with (instance_create(x, y, obj_sausageman_dead))
+with (instance_create(x, y, obj_baddie_dead))
 {
 	sprite_index = spr_weeniemount_dead;
 }

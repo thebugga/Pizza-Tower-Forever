@@ -13,7 +13,7 @@ else
 {
 	notification_push(notifications.noisebomb_wasted, []);
 	fmod_event_one_shot_3d("event:/sfx/pep/bump", x, y);
-	with (instance_create(x, y, obj_sausageman_dead))
+	with (instance_create(x, y, obj_baddie_dead))
 	{
 		sprite_index = spr_playerN_noisebombdead;
 		usepalette = true;

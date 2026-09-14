@@ -18,7 +18,7 @@ var layid = layer_get_id("Backgrounds_3");
 layer_set_visible(layid, true);
 with (obj_micnoise)
 {
-	with (instance_create(x, y, obj_sausageman_dead))
+	with (instance_create(x, y, obj_baddie_dead))
 	{
 		sprite_index = spr_noisey_dead;
 	}

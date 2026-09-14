@@ -2,6 +2,7 @@
 // feather ignore all
 isOpen = false;
 isAutocompleteOpen = false;
+global.showhitboxes = false;
 
 shellSurface = noone;
 scrollSurface = noone;

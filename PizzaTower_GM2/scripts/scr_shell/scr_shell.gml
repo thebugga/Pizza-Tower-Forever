@@ -48,17 +48,47 @@ function toggle_collision_function()
 	if !variable_global_exists("showcollisionarray")
 	{	
 		var i = 0;
-		global.showcollisionarray[i++] = obj_solid;
-		global.showcollisionarray[i++] = obj_slope;
-		global.showcollisionarray[i++] = obj_platform;
-		global.showcollisionarray[i++] = obj_sidePlatform;
-		global.showcollisionarray[i++] = obj_secretbigblock;
-		global.showcollisionarray[i++] = obj_secrettile;
-		global.showcollisionarray[i++] = obj_secretblock;
-		global.showcollisionarray[i++] = obj_secretdestroyable;
-		global.showcollisionarray[i++] = obj_secretmetalblock;
-		global.showcollisionarray[i++] = obj_iceblock;
-		global.showcollisionarray[i++] = obj_iceblockslope;
+	    global.showcollisionarray[i++] = obj_solid    
+	    global.showcollisionarray[i++] = obj_slope    
+	    global.showcollisionarray[i++] = obj_platform    
+	    global.showcollisionarray[i++] = obj_platform_slope    
+	    global.showcollisionarray[i++] = obj_ladder
+   
+	    global.showcollisionarray[i++] = obj_grindrail    
+	    global.showcollisionarray[i++] = obj_grindrailslope
+   
+	    global.showcollisionarray[i++] = obj_secretblock    
+	    global.showcollisionarray[i++] = obj_secretbigblock    
+	    global.showcollisionarray[i++] = obj_secretmetalblock    
+	    global.showcollisionarray[i++] = obj_iceblock    
+	    global.showcollisionarray[i++] = obj_iceblockslope 
+	    global.showcollisionarray[i++] = obj_pineapplemonsterzone    
+	    global.showcollisionarray[i++] = obj_frontcanongoblin_trigger    
+	    global.showcollisionarray[i++] = obj_moving_hstop    
+	    global.showcollisionarray[i++] = obj_moving_vstop
+   
+	    global.showcollisionarray[i++] = obj_tubeleft    
+	    global.showcollisionarray[i++] = obj_tuberight    
+	    global.showcollisionarray[i++] = obj_tubedown    
+	    global.showcollisionarray[i++] = obj_tubeup    
+	    global.showcollisionarray[i++] = obj_horseyleft    
+	    global.showcollisionarray[i++] = obj_horseyright    
+	    global.showcollisionarray[i++] = obj_horseydown    
+	    global.showcollisionarray[i++] = obj_horseyup    
+	    global.showcollisionarray[i++] = obj_lightsource     
+	    global.showcollisionarray[i++] = obj_vigilantespot    
+	    global.showcollisionarray[i++] = obj_fakepepsolid    
+	    //global.showcollisionarray[i++] = obj_tutorialtrap    
+	    global.showcollisionarray[i++] = obj_conveyordespawner
+	    global.showcollisionarray[i++] = obj_hallway    
+	    global.showcollisionarray[i++] = obj_verticalhallway    
+	    global.showcollisionarray[i++] = obj_doorA    
+	    global.showcollisionarray[i++] = obj_doorB    
+	    global.showcollisionarray[i++] = obj_doorC    
+	    global.showcollisionarray[i++] = obj_doorD    
+	    global.showcollisionarray[i++] = obj_doorE    
+	    global.showcollisionarray[i++] = obj_doorF    
+	    global.showcollisionarray[i++] = obj_doorG
 	}
 	var array  = global.showcollisionarray
 	var length = array_length(array)
@@ -186,7 +216,7 @@ function toggle_hitboxes_function()
 	///commands[arrayi++] = "room_goto [roomname] [targetdoor]"
 	function sh_noclip() 
 	{
-		obj_player1.state = (266 << 0)
+		obj_player1.state = states.debugstate
 	}
 	function meta_noclip() 
 	{	
@@ -202,3 +232,73 @@ function toggle_hitboxes_function()
 
 
 	#endregion
+	
+	
+#region Switch Char
+	function sh_switch_char(args) 
+	{
+		var _char_enum = characters.Peppino
+		switch (args[1])
+		{
+			case "PEPPINO":
+				_char_enum = characters.Peppino
+			break;
+			case "THE_NOISE":
+				_char_enum = characters.Noise
+			break;
+			case "THE_VIGILANTE":
+				_char_enum = characters.Vigilante
+			break;
+			case "PEPPERMAN":
+				_char_enum = characters.Pepperman
+			break;
+			case "THE_DOISE":
+				_char_enum = characters.Doise
+			break;
+			case "SHOBON":
+				_char_enum = characters.Shobon
+			break;
+		}
+		with (obj_player1)
+		{
+			character = _char_enum;
+			scr_characterspr();
+		}
+	}
+	function meta_switch_char() 
+	{	
+		return {
+			description: "switch_char",
+			arguments: ["<character>"],
+			suggestions: [
+				["PEPPINO", "THE_NOISE", "THE_VIGILANTE", "PEPPERMAN", "THE_DOISE", "SHOBON"]
+			],
+			argumentDescriptions: [
+			]
+		}
+	}	
+#endregion
+
+	
+#region Switch Char
+	function sh_editor(args) 
+	{
+		with (obj_player)
+		{
+			targetRoom = rm_editor;
+			targetDoor = "A";
+		}
+		instance_create_unique(0, 0, obj_fadeout);
+	}
+	function meta_editor() 
+	{	
+		return {
+			description: "editor",
+			arguments: ["<bool>"],
+			suggestions: [
+			],
+			argumentDescriptions: [
+			]
+		}
+	}	
+#endregion

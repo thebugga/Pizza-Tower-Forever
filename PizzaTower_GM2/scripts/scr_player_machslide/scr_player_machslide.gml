@@ -10,7 +10,10 @@ function scr_player_machslide()
 		hsp = (xscale * movespeed) + (_railinst.movespeed * _railinst.dir);
 	}
 	move = key_right + key_left;
-	movespeed = Approach(movespeed, 0, 0.4);
+	if character != characters.Noise
+		movespeed = Approach(movespeed, 0, 0.4);
+	else	
+		movespeed = Approach(movespeed, 0, 0.2);
 	if (sprite_index == spr_machslidestart && ANIMATION_END)
 	{
 		sprite_index = spr_machslide;

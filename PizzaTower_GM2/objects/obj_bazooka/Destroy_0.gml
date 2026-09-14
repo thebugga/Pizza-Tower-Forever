@@ -25,7 +25,7 @@ else
 {
 	global.combotime = 60;
 	fmod_event_one_shot_3d("event:/sfx/enemies/kill", x, y);
-	with (instance_create(x, y, obj_sausageman_dead))
+	with (instance_create(x, y, obj_baddie_dead))
 	{
 		sprite_index = spr_piraneapple_dead;
 	}

@@ -175,6 +175,10 @@ function scr_getinput()
 	{
 		exit;
 	}
+	if (instance_exists(obj_shell) && obj_shell.isOpen)
+	{
+		exit;
+	}
 	var verticaldeadzone = global.input_controller_deadzone_vertical;
 	var horizontaldeadzone = global.input_controller_deadzone_horizontal;
 	var vertpress_dz = global.input_controller_deadzone_press;

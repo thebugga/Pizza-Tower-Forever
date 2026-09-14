@@ -1,5 +1,5 @@
 pause_unpause_music_global(false);
-with instance_create(obj_player1.x, obj_player1.y, obj_sausageman_dead)
+with instance_create(obj_player1.x, obj_player1.y, obj_baddie_dead)
 {
 	hsp = obj_player1.image_xscale * 3;
 	image_xscale = -other.image_xscale;

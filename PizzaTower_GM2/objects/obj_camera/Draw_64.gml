@@ -1,8 +1,9 @@
 draw_set_alpha(1);
-if (in_bossRoom || instance_exists(obj_tutorialbook))
+if (in_hudlessRoom || instance_exists(obj_tutorialbook))
 {
 	exit;
 }
+hud_posY = hud_posY + Wave(-5, 5, 2, 20);
 if (obj_player.state != states.gameover)
 {
 	if (obj_player1.x < 250 && obj_player1.y < 169)
@@ -42,7 +43,7 @@ if (obj_player.state != states.gameover)
 	var sh = sprite_get_height(spr_heatmeter_fill);
 	var b = 0;
 	var hud_xx = 121 + irandom_range(-collect_shake, collect_shake);
-	var hud_yy = 90 + irandom_range(-collect_shake, collect_shake) + hud_posY;
+	var hud_yy = 90 + irandom_range(-collect_shake, collect_shake) + Wave(-5, 5, 2, 20);
 	//shader_set(global.retro_pal_swapper);
 	if scr_get_mode("heatmeter").enabled 
 	{

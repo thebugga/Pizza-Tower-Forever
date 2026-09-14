@@ -5,11 +5,6 @@ if (!hub)
 	obj_player1.targetRoom = init_obj_room;
 	obj_player2.targetRoom = init_obj_room;
 	room = init_obj_room;
-	with (obj_player1)
-	{
-		character = characters.Peppino;
-		scr_characterspr();
-	}
 	global.leveltosave = noone;
 	global.leveltorestart = noone;
 	scr_playerreset();
