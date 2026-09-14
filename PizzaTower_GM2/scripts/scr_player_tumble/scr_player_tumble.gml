@@ -13,7 +13,7 @@ function scr_player_tumble()
 	{
 		movespeed = 6;
 	}
-	if (!grounded && (sprite_index == spr_crouchslip || sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
+	if (!grounded && (/*sprite_index == spr_crouchslip ||*/ sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
 	{
 		switch character
 		{
@@ -48,6 +48,13 @@ function scr_player_tumble()
 		{
 			movespeed = Approach(movespeed, 10, 0.25);
 		}
+	}	
+	if (input_buffer_jump > 0 && sprite_index == spr_player_crouchslip)
+	{
+		vsp = -16;
+		sprite_index = spr_player_jumpdive1;
+		image_index = 0;
+		instance_create(x, y, obj_superdashcloud);
 	}
 	if (grounded && sprite_index == spr_dive)
 	{
@@ -103,6 +110,10 @@ function scr_player_tumble()
 	if (sprite_index == spr_player_Sjumpcancelland && ANIMATION_END)
 	{
 		sprite_index = spr_player_Sjumpcancelslide;
+	}
+	if (sprite_index == spr_player_jumpdive1 && ANIMATION_END)
+	{
+		sprite_index = spr_player_jumpdive2;
 	}
 	if (sprite_index == spr_player_jumpdive2 && grounded)
 	{

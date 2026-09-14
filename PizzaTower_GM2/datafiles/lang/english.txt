@@ -60,6 +60,7 @@ creditsfont = "creditsfont_en"
 bigfont = "bigfont_en"
 smallfont = "smallfont_en"
 captionfont = "captionfont_en"
+font_small = "font_small_en"
 
 # -------------
 # GAMEPAD ICONS

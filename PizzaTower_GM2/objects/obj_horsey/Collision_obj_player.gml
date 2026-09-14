@@ -7,7 +7,7 @@ if ((sprite_index == spr_horsey_win || sprite_index == spr_horsey_lose) && !othe
 	global.combotime = 60;
 	instance_create(x, y, obj_bangeffect);
 	instance_create(x, y, obj_genericpoofeffect);
-	with (instance_create(x, y, obj_sausageman_dead))
+	with (instance_create(x, y, obj_baddie_dead))
 	{
 		image_xscale = -t.xscale;
 		sprite_index = spr_horsey_lose;

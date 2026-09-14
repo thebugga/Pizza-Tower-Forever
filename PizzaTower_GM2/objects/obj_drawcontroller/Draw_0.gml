@@ -176,7 +176,7 @@ for (var i = 0; i < array_length(particles); i++)
 		draw_sprite(sprite_index, image_index, x, y);
 	}
 }
-with (obj_sausageman_dead)
+with (obj_baddie_dead)
 {
 	if (!gui && visible)
 	{

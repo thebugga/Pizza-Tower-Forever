@@ -1,32 +1,8 @@
 // feather disable all
 // feather ignore all
-
-depth = -500;
-DEBUG = os_get_config() == "Playtest";
-if (parameter_count() > 2)
-{
-	DEBUG = true;
-}
-if (!DEBUG)
-{
-	var n = parameter_count();
-	for (var i = 0; i < n; i++)
-	{
-		var s = parameter_string(i);
-		if (s == "-debug" || s == "debug")
-		{
-			DEBUG = true;
-		}
-	}
-}
-if (!DEBUG)
-{
-	instance_destroy();
-	exit;
-}
 isOpen = false;
-showHitboxes = false;
 isAutocompleteOpen = false;
+global.showhitboxes = false;
 
 shellSurface = noone;
 scrollSurface = noone;
@@ -142,12 +118,7 @@ for (var i = 0; i < array_length(globalVariables); i++) {
 	if (string_pos("meta_", string_lower(globalVariables[i])) == 1) {
 		// Strip off the meta_ when we store them in our data struct
 		var name = string_delete(string_lower(globalVariables[i]), 1, 5);
-		var val = variable_instance_get(global, globalVariables[i]);
-		if (is_callable(val))
-		{
-			val = val();
-		}
-		functionData[$ name] = val;
+		functionData[$ name] = variable_instance_get(global, globalVariables[i])();
 	}
 }
 // Then fetch all the functions themselves

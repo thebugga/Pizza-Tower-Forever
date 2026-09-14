@@ -286,3 +286,4 @@ if (boundbox == false)
 	}
 }
 scr_pepperman_sounds();
+scr_pepperman_sprites();

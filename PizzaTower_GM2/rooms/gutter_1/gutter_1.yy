@@ -134,7 +134,7 @@
           -78,105,12,170,171,39,40,38,39,40,41,38,39,40,41,-5,-2147483648,15,103,104,103,104,103,104,103,104,103,
           104,103,104,103,104,103,-78,105,12,202,70,71,72,73,70,71,72,73,70,71,72,-20,-2147483648,-78,105,2,106,
           107,-30,-2147483648,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"tile_tower_tileset","path":"tilesets/tile_tower_tileset/tile_tower_tileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+        ],"TileDataFormat":1,},"tilesetId":{"name":"tile_gutter_tileset","path":"tilesets/tile_gutter_tileset/tile_gutter_tileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Tiles_1","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":25,"SerialiseWidth":110,"TileCompressedData":[
           -74,102,24,193,230,231,232,233,230,231,232,230,231,232,233,230,231,232,233,230,231,232,233,230,231,232,
           233,-18,102,63,198,199,200,201,198,199,200,201,198,199,200,201,198,199,200,198,199,200,201,198,199,200,
@@ -177,7 +177,7 @@
           73,70,71,72,73,70,71,72,73,70,71,72,73,136,136,-76,0,15,39,40,41,40,41,41,38,39,40,41,38,39,268435662,
           268435661,268435694,-17,102,-2,136,-76,0,14,136,72,73,72,73,73,70,71,72,73,70,71,268435694,104,-18,102,
           -2,136,-76,0,14,136,104,105,104,105,105,102,103,104,105,102,103,104,105,-18,102,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"tile_tower_tileset","path":"tilesets/tile_tower_tileset/tile_tower_tileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+        ],"TileDataFormat":1,},"tilesetId":{"name":"tile_gutter_tileset","path":"tilesets/tile_gutter_tileset/tile_gutter_tileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"Tiles_BG","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_BG","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":25,"SerialiseWidth":110,"TileCompressedData":[
           -174,-2147483648,6,536871097,536871098,536871099,536871100,536871101,536871102,-18,-2147483648,11,536871096,
           536871097,536871098,536871099,536871100,155,155,536871099,536871100,536871101,536871102,-75,-2147483648,
@@ -207,7 +207,7 @@
           240,241,242,243,-5,-2147483648,8,568,569,570,571,572,573,574,575,-41,-2147483648,7,517,518,519,520,521,
           522,523,-103,-2147483648,7,549,550,551,552,553,554,555,-103,-2147483648,7,581,582,583,584,585,586,587,
           -103,-2147483648,7,613,614,615,616,617,618,619,-103,-2147483648,7,645,646,647,648,649,650,651,-350,-2147483648,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"tile_tower_tileset","path":"tilesets/tile_tower_tileset/tile_tower_tileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+        ],"TileDataFormat":1,},"tilesetId":{"name":"tile_gutter_tileset","path":"tilesets/tile_gutter_tileset/tile_gutter_tileset.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRBackgroundLayer":"","%Name":"Backgrounds_stillH1","animationFPS":15.0,"animationSpeedType":0,"colour":4294967295,"depth":800,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Backgrounds_stillH1","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"bg_gutter","path":"sprites/bg_gutter/bg_gutter.yy",},"stretch":false,"userdefinedAnimFPS":true,"userdefinedDepth":true,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":0,},
   ],
   "name":"gutter_1",

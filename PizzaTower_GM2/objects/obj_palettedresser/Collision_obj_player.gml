@@ -2,7 +2,7 @@ if (other.key_up2 && other.ispeppino == ispeppino)
 {
 	with (other)
 	{
-		with (instance_create(x, y, obj_sausageman_dead))
+		with (instance_create(x, y, obj_baddie_dead))
 		{
 			fmod_event_one_shot_3d("event:/sfx/misc/clotheswitch", x, y);
 			hsp = irandom_range(-5, 5);

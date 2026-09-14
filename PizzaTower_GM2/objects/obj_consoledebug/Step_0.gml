@@ -93,15 +93,6 @@ switch (state)
 }
 if DEBUG
 {
-	if keyboard_check_pressed(vk_f1)
-	{
-		with (obj_player)
-		{
-			state = states.debugstate
-		}
-	}
-	if keyboard_check_pressed(vk_f2)
-		showcollisions = !showcollisions
 	//if keyboard_check_pressed(vk_f3)
 	//{
 	//	with (obj_player)

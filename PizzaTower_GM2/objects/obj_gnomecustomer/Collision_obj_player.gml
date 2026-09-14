@@ -54,13 +54,13 @@ if (ds_list_find_index(global.saveroom, id) == -1)
 		global.combo += 2;
 		instance_create(x, y, obj_bangeffect);
 		instance_create(x, y, obj_genericpoofeffect);
-		with (instance_create(x, y, obj_sausageman_dead))
+		with (instance_create(x, y, obj_baddie_dead))
 		{
 			image_xscale = -t.xscale;
 			sprite_index = other.sprite_index;
 			hsp = t.xscale * 10;
 		}
-		with (instance_create(x, y, obj_sausageman_dead))
+		with (instance_create(x, y, obj_baddie_dead))
 		{
 			image_xscale = -t.xscale;
 			sprite_index = other.spr_idle;

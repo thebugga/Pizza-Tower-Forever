@@ -20,7 +20,7 @@ with (other)
 		ghostangle = 0;
 		ghosttimer = 0;
 		sprite_index = spr_ghostidle;
-		with (instance_create(x, y, obj_sausageman_dead))
+		with (instance_create(x, y, obj_baddie_dead))
 		{
 			hsp = other.image_xscale * 3;
 			image_xscale = -other.image_xscale;

@@ -1,16 +1,15 @@
-
+if (in_hudlessRoom || instance_exists(obj_tutorialbook))
+{
+	exit;
+}
 draw_set_font(lang_get_font("bigfont"));
 draw_set_halign(fa_center);
 draw_set_color(c_white);
 draw_set_alpha(1);
-if (in_bossRoom || instance_exists(obj_tutorialbook))
-{
-	exit;
-}
 var collect_x = irandom_range(-collect_shake, collect_shake);
 var collect_y = irandom_range(-collect_shake, collect_shake);
-var _cx = tv_x + combo_posX;
-var _cy = tv_y + 117 + hud_posY + combo_posY;
+var _cx = tv_x - 205 + combo_posX;
+var _cy = tv_y - 10 + hud_posY + combo_posY;
 var _perc = global.combotime / 60;
 var _minX = _cx - 56;
 var _maxX = _cx + 59;
@@ -22,7 +21,7 @@ draw_sprite(spr_tv_combobubblefill, combofill_index, combofill_x, combofill_y);
 pal_swap_set(spr_tv_combopalette, obj_player1.character, false);
 lang_draw_sprite(spr_tv_combobubble, 0, _cx, _cy);
 draw_set_font(global.combofont2);
-draw_set_halign(fa_left);
+draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 var _tx = _cx - 64;
 var _ty = _cy - 12;

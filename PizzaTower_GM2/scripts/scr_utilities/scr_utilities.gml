@@ -1,28 +1,16 @@
-function Approach(_val1, _val2, _amount)
+function Approach(a, b, amt)
 {
-	if (_val1 < _val2)
-	{
-		_val1 += _amount;
-		if (_val1 > _val2)
-		{
-			return _val2;
-		}
-	}
-	else
-	{
-		_val1 -= _amount;
-		if (_val1 < _val2)
-		{
-			return _val2;
-		}
-	}
-	return _val1;
+    return (a-amt > b ? a-amt : (a+amt < b ? a+amt : b)); 
 }
 
 function get_milliseconds()
 {
 	return get_timer() / 1000;
 }
+
+function c_rainbow(divider) {
+    return make_color_hsv ((current_time / divider) mod 255,255,255);
+} 
 
 function camera_zoom(_zoom, _zoomspd)
 {

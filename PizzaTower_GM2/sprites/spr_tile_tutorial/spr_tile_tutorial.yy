@@ -2,9 +2,9 @@
   "$GMSprite":"v2",
   "%Name":"spr_tile_tutorial",
   "bboxMode":0,
-  "bbox_bottom":479,
-  "bbox_left":96,
-  "bbox_right":1759,
+  "bbox_bottom":1663,
+  "bbox_left":0,
+  "bbox_right":479,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":480,
+  "height":1760,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"cd9c62ca-cb45-4768-b2a9-e3ba6de338a7","blendMode":0,"displayName":"default","isLocked":false,"name":"cd9c62ca-cb45-4768-b2a9-e3ba6de338a7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":1760,
+  "width":480,
 }

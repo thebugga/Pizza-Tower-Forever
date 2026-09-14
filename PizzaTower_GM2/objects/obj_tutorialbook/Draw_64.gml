@@ -25,7 +25,4 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(font);
 draw_set_color(text_color);
-scr_draw_text_arr(xx + text_contentpad, yy + text_contentpad, text_arr, text_color, 1, text_effects.wave, 
-{
-	offset: 1
-});
+draw_text(xx + text_contentpad, yy + text_contentpad, text)

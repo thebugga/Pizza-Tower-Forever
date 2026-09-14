@@ -36,7 +36,7 @@ if (room != Mainmenu && gameframe_get_fullscreen() > 0)
 {
 	cr = -1;
 }
-if (room == Mainmenu && window_get_cursor() == -1)
+if (room == Mainmenu && window_get_cursor() == -1) || (instance_exists(obj_shell) && obj_shell.isOpen == true)
 {
 	cr = 0;
 }

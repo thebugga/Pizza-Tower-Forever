@@ -1,27 +1,24 @@
-var p = false;
-with (obj_player)
+if global.gerome
 {
-	if (targetDoor == "LAP")
+	with (obj_player)
 	{
+		sprite_index = spr_bodyslamstart;
+		image_index = 0;
+		state = states.freefallprep;
+		freefallsmash = false;
+		vsp = -5;
 		p = true;
-		state = states.actor;
 		x = other.x;
 		y = other.y;
 		roomstartx = x;
 		roomstarty = y;
-		visible = false;
-		with (obj_pizzaface)
+		if (targetDoor == "LAP")
 		{
-			x = other.x;
-			y = other.y;
+			with (obj_pizzaface)
+			{
+				x = other.x;
+				y = other.y;
+			}
 		}
 	}
-}
-if (!p)
-{
-	instance_destroy();
-}
-else
-{
-	active = true;
 }

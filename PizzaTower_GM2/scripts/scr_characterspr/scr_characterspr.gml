@@ -3,14 +3,13 @@ enum characters
 	Peppino,
 	Noise,
 	Doise,
-	DrBadBreakfast,
 	Pepperman,
 	Vigilante,
 	Shobon
 };
 
 //peppino, noise, doise, i think u get it 
-global.charPrefix = ["", "N", "D", "DBB", "PM", "V", "S"];
+global.charPrefix = ["", "N", "D", "PM", "V", "S"];
 
 function scr_getchar_sprite(_sprite, _char = character, _prefix = "spr_player")
 {
@@ -290,6 +289,7 @@ function scr_characterspr()
 	spr_backslideland = scr_getchar_sprite(spr_player_backslideland);
 	spr_breakdanceuppercut = scr_getchar_sprite(spr_player_breakdanceuppercut);
 	spr_breakdanceuppercutend = scr_getchar_sprite(spr_player_breakdanceuppercutend);
+	spr_groundpoundjump = scr_getchar_sprite(spr_player_groundpoundjump);
 	if character == characters.Peppino
 		spr_palette = spr_peppalette;
 	else if character == characters.Noise

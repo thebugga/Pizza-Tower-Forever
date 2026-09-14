@@ -24,15 +24,15 @@
   "name":"spr_solid",
   "nineSlice":{
     "$GMNineSliceData":"",
-    "bottom":2,
-    "enabled":false,
+    "bottom":4,
+    "enabled":true,
     "guideColour":[4294902015,4294902015,4294902015,4294902015,],
     "highlightColour":1728023040,
     "highlightStyle":0,
-    "left":2,
+    "left":8,
     "resourceType":"GMNineSliceData",
     "resourceVersion":"2.0",
-    "right":9,
+    "right":3,
     "tileMode":[
       0,
       0,
@@ -40,7 +40,7 @@
       0,
       0,
     ],
-    "top":8,
+    "top":9,
   },
   "origin":0,
   "parent":{

@@ -6,13 +6,13 @@ if (!other.ispeppino && (other.instakillmove == true || other.state == states.ha
 	ds_list_add(global.baddieroom, id);
 	instance_create(x, y, obj_bangeffect);
 	instance_create(x, y, obj_genericpoofeffect);
-	with (instance_create(x, y, obj_sausageman_dead))
+	with (instance_create(x, y, obj_baddie_dead))
 	{
 		image_xscale = -t.xscale;
 		sprite_index = spr_playerPM_hurt;
 		hsp = t.xscale * 10;
 	}
-	with (instance_create(x, y, obj_sausageman_dead))
+	with (instance_create(x, y, obj_baddie_dead))
 	{
 		image_xscale = -t.xscale;
 		sprite_index = spr_peppermanglasses;

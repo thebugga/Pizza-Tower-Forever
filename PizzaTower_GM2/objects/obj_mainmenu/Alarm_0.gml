@@ -1,11 +1,11 @@
 if (!showswap)
 {
 	global.swapmode = false;
-	with (obj_player1)
-	{
-		character = other.shownoise ? characters.Noise : characters.Peppino;
-		scr_characterspr();
-	}
+	//with (obj_player1)
+	//{
+	//	character = other.shownoise ? characters.Noise : characters.Peppino;
+	//	scr_characterspr();
+	//}
 	scr_start_game(currentselect + 1, shownoise ? characters.Noise : characters.Peppino);
 }
 else

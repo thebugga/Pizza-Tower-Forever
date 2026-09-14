@@ -29,7 +29,7 @@ if (floor(image_index) == 10)
 {
 	shoving = false;
 }
-if (room == Longintro || room == rm_editor || room == Mainmenu || room == rank_room || room == timesuproom || room == init_obj_room || room == characterselect || room == hub_loadingscreen || (string_copy(room_get_name(room), 1, 5) == "tower" && !global.panic))
+if in_hudlessRoom || no_hud
 {
 	visible = false;
 }
@@ -37,10 +37,7 @@ else
 {
 	visible = true;
 }
-if ((instance_exists(obj_debugcontroller) && !obj_debugcontroller.showhud) || !global.option_hud)
-{
-	visible = false;
-}
+
 if (global.combo > 0)
 {
 	comboend = true;

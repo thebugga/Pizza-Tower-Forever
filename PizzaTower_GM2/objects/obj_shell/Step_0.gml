@@ -10,9 +10,77 @@ if (saveHistory) {
 		loadedHistoryScrolled = true;
 	}
 }
-if (self._key_combo_pressed(openModifiers, hitboxesKey)) {
-	showHitboxes = !showHitboxes;	
+
+if IS_DEBUG
+{
+	if keyboard_check_pressed(vk_f2)
+		global.showhitboxes = !global.showhitboxes
+		
+    var _objs = [
+	    obj_solid,
+	    obj_slope,
+	    obj_platform,
+	    obj_platform_slope,
+	    obj_ladder,
+   
+	    obj_grindrail,
+	    obj_grindrailslope,
+   
+	    obj_secretblock,
+	    obj_secretbigblock,
+	    obj_secretmetalblock,
+	    obj_iceblock,
+	    obj_iceblockslope,
+	    obj_pineapplemonsterzone,
+	    obj_frontcanongoblin_trigger,
+	    obj_moving_hstop,
+	    obj_moving_vstop,
+   
+	    obj_tubeleft,
+	    obj_tuberight,
+	    obj_tubedown,
+	    obj_tubeup,
+	    obj_horseyleft,
+	    obj_horseyright,
+	    obj_horseydown,
+	    obj_horseyup,
+	    obj_lightsource,
+	    obj_vigilantespot,
+	    obj_fakepepsolid,
+	    //obj_tutorialtrap,
+	    obj_conveyordespawner,
+
+	    obj_hallway,
+	    obj_verticalhallway,
+	    obj_doorA,
+	    obj_doorB,
+	    obj_doorC,
+	    obj_doorD,
+	    obj_doorE,
+	    obj_doorF,
+	    obj_doorG,
+    ]
+	
+    for (var i = 0; i < array_length(_objs); i++)
+    {
+        with _objs[i]
+        {
+            if object_index = _objs[i]
+            {
+                visible = global.showhitboxes
+            }
+        }
+    }
 }
+
+if keyboard_check_pressed(vk_f1)
+{
+	with (obj_player)
+	{
+		state = states.debugstate
+	}
+}
+
 if (!isOpen) {
 	if (self._key_combo_pressed(openModifiers, openKey)) {
 		self.open();

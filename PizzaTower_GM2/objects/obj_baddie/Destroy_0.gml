@@ -3,7 +3,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && (!elite || elitehit <= 0)
 {
 	if (object_index != obj_peppinoclone && object_index != obj_ghoul && object_index != obj_bazookabaddie && object_index != obj_snowman)
 	{
-		with (instance_create(x, y, obj_sausageman_dead))
+		with (instance_create(x, y, obj_baddie_dead))
 		{
 			sprite_index = other.spr_dead;
 			spr_palette = other.spr_palette;
@@ -69,7 +69,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && (!elite || elitehit <= 0)
 	{
 		repeat (3)
 		{
-			with (instance_create(x, y, obj_sausageman_dead))
+			with (instance_create(x, y, obj_baddie_dead))
 			{
 				sprite_index = other.spr_content_dead;
 			}
@@ -77,13 +77,13 @@ if (ds_list_find_index(global.baddieroom, id) == -1 && (!elite || elitehit <= 0)
 	}
 	if (object_index == obj_bazookabaddie)
 	{
-		with (instance_create(x, y, obj_sausageman_dead))
+		with (instance_create(x, y, obj_baddie_dead))
 		{
 			sprite_index = spr_tank_dead;
 		}
 		repeat (4)
 		{
-			with (instance_create(x, y, obj_sausageman_dead))
+			with (instance_create(x, y, obj_baddie_dead))
 			{
 				sprite_index = spr_tank_wheel;
 			}

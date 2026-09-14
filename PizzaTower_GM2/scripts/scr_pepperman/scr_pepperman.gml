@@ -4,6 +4,20 @@ function scr_pepperman_init_sounds()
 	snd_groundpound = fmod_event_create_instance("event:/sfx/pepperman/groundpound");
 }
 
+function scr_pepperman_sprites()
+{
+	if obj_player1.character == characters.Pepperman
+	{
+		idlespr = spr_lonegustavoD_idle;
+		mask_index = spr_flower_mask;
+	}
+	else
+	{
+		idlespr = spr_playerPM_idle;
+		mask_index = spr_pepperman_mask;
+	}
+}
+
 function destroy_sounds(_sound_array)
 {
 	for (var i = 0; i < array_length(_sound_array); i++)
@@ -222,7 +236,7 @@ function scr_pepperman_arenaintro()
 	}
 	else
 	{
-		scr_boss_genericintro(spr_playerPM_idle);
+		scr_boss_genericintro(idlespr);
 	}
 }
 
@@ -255,7 +269,7 @@ function scr_pepperman_walk()
 		}
 		else
 		{
-			sprite_index = spr_playerPM_idle;
+			sprite_index = idlespr;
 		}
 	}
 	woosh = false;
@@ -766,7 +780,7 @@ function scr_pepperman_mini()
 				else if (sprite_index == spr_pepperman_miniend)
 				{
 					state = states.walk;
-					sprite_index = spr_playerPM_idle;
+					sprite_index = idlespr;
 				}
 			}
 			break;

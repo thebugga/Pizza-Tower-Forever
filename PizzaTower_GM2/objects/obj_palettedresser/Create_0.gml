@@ -2,10 +2,10 @@ depth = 100;
 player_palettes = [];
 player_palettes[0] = [
   ["classic", true, 1],
+  ["blood", true, 6],
   ["unfunny", false, 3],
   ["money", false, 4],
   ["sage", false, 5],
-  ["blood", false, 6],
   ["tv", false, 7],
   ["dark", false, 8],
   ["shitty", false, 9],

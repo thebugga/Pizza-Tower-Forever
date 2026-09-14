@@ -164,7 +164,7 @@ function scr_hurtplayer(_player)
 		else if (pizzashield == true)
 		{
 			pizzashield = false;
-			with (instance_create(x, y, obj_sausageman_dead))
+			with (instance_create(x, y, obj_baddie_dead))
 			{
 				sprite_index = spr_pizzashield_collectible;
 			}
