@@ -38,6 +38,7 @@
     {"name":"obj_shell","order":1,"path":"objects/obj_shell/obj_shell.yy",},
     {"name":"obj_text","order":1,"path":"objects/obj_text/obj_text.yy",},
     {"name":"gutter_2","order":1,"path":"rooms/gutter_2/gutter_2.yy",},
+    {"name":"gutter_3","order":3,"path":"rooms/gutter_3/gutter_3.yy",},
     {"name":"gutter_lap","order":2,"path":"rooms/gutter_lap/gutter_lap.yy",},
     {"name":"sanctum_1","order":1,"path":"rooms/sanctum_1/sanctum_1.yy",},
     {"name":"__scribble_class_event","order":1,"path":"scripts/__scribble_class_event/__scribble_class_event.yy",},
