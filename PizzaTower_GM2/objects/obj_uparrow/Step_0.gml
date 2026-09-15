@@ -1,14 +1,26 @@
 image_speed = 0.35;
+trans = lerp(trans, !destroyed, 0.1);
+
 with (playerid)
 {
-	if (!place_meeting(x, y, obj_uparrowhitbox))
+	if (!place_meeting(x, y, other.hitboxid))
 	{
-		instance_destroy(other);
-	}
-	if (!grounded || (state != states.normal && state != states.ratmount))
-	{
-		instance_destroy(other);
+		other.destroyed = true;
+		arrowID = noone
 	}
 }
-x = playerid.x;
-y = playerid.y - 50;
+
+if (instance_exists(hitboxid))
+{
+	x = hitboxid.x;
+	y = hitboxid.y;
+}
+else
+{
+	instance_destroy();	
+}
+
+if (destroyed)
+{
+	instance_destroy();	
+}

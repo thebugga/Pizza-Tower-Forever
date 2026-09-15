@@ -1,6 +1,7 @@
-function Approach(a, b, amt)
+#macro Approach approach
+function approach(_val, _valTo, _amt)
 {
-    return (a-amt > b ? a-amt : (a+amt < b ? a+amt : b)); 
+	return _val + clamp(_valTo - _val, -_amt, _amt);
 }
 
 function get_milliseconds()
