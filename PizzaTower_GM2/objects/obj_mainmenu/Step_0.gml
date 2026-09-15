@@ -125,30 +125,6 @@ switch (state)
 					shownoise = false;
 					showswap = false;
 				}
-				else
-				{
-					shownoise = true;
-					if (charselect == 2)
-					{
-						showswap = true;
-					}
-					else
-					{
-						showswap = false;
-					}
-				}
-				if (_noise != shownoise)
-				{
-					with (obj_menutv)
-					{
-						if (selected)
-						{
-							state = "transitioncutscene";
-							sprite_index = transspr;
-							image_index = 0;
-						}
-					}
-				}
 			}
 		}
 		if ((sprite_index != spr_titlepep_punch && sprite_index != spr_titlepep_angry) || move != 0)
@@ -332,13 +308,6 @@ switch (state)
 			fmod_event_instance_stop(obj_music.music.event, true)
 			fmod_event_one_shot("event:/sfx/ui/fileselect")
 			alarm[0] = 250;
-			if shownoise
-			{
-				alarm[4] = 5;
-				timermax = 15;
-				explosionsnum = 1;
-				fmod_event_one_shot("event:/sfx/ui/menuexplosions");
-			}
 			fmod_event_one_shot("event:/sfx/misc/collectpizza");
 			if currentselect == -1
 			{

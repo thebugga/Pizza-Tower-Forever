@@ -3,6 +3,7 @@ function scr_read_game(_save)
 	var q = game_empty();
 	ini_open(_save);
 	q.percentage = ini_read_real("Game", "percent", 0);
+	q.character = ini_read_string("Game", "character", "");
 	q.started = ini_read_real("Tutorial", "finished", false);
 	q.judgement = ini_read_string("Game", "finalrank", "none");
 	q.john = ini_read_real("Game", "john", false);
@@ -24,6 +25,7 @@ function menu_get_game(_game, _noise_unlocked)
 	var q = 
 	{
 		percentage: g.percentage,
+		character: g.character,
 		percvisual: 0,
 		snotty: g.snotty,
 		john: g.john,
@@ -49,6 +51,7 @@ function game_empty()
 {
 	return 
 	{
+		character: "peppino",
 		percentage: 0,
 		started: false,
 		judgement: "none",

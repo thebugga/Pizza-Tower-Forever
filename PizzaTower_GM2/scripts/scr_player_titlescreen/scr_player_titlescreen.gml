@@ -1,5 +1,6 @@
 function player_titlescreen()
 {
+	angle = 0;
 	if (object_index == obj_player1)
 	{
 		targetDoor = "A";
