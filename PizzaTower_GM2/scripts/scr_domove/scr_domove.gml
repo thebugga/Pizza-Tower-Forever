@@ -110,7 +110,7 @@ function scr_douppercut()
 			[20, 21],
 			[6,   9]
 		]
-		vsp = -_heights[character][grounded]
+		vsp = -_heights[character_num][grounded]
 		movespeed = hsp;
 		if (key_attack)
 		{
