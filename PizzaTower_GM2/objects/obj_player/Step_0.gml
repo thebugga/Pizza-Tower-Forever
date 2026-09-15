@@ -888,7 +888,7 @@ if (object_index == obj_player1)
 		global.style -= 0.05;
 	}
 }
-if (key_jump && !grounded && (state == "mach2" || state == "mach3") && (state != ("climbwall" & walljumpbuffer)) <= 0)
+if (key_jump && !grounded && (state == "mach2" || state == "mach3") && (state != "climbwall" && walljumpbuffer<= 0))
 {
 	input_buffer_walljump = 24;
 }
