@@ -1,4 +1,4 @@
-selected = 1;
+selected = 0;
 image_speed = 0.35;
 ready = false;
 depth = -2;

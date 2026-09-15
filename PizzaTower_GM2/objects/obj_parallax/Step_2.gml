@@ -144,6 +144,7 @@ if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
                 break;
             
             case "Backgrounds_scroll":
+            case "Backgrounds_scroll1":
                 layer_x(lay, (_cam_x * 0.85) + bg_scrollx + bg_scrollxoffset);
                 layer_y(lay, (_cam_y * 0.85) + bg_scrolly + bg_scrollyoffset);
                 bg_scrollx += layer_get_hspeed(lay);
@@ -200,9 +201,11 @@ if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
                 break;
             
 			case "Foreground_1":
-				layer_x(lay, (_cam_x * -0.15) + fg_1xoffset);
-				layer_y(lay, (_cam_y * -0.15) + fg_speed + fg_1yoffset);
+				layer_x(lay, (_cam_x * -0.15) + bg_scrollx + fg_1xoffset);
+				layer_y(lay, (_cam_y * -0.15) + bg_scrollx + fg_speed + fg_1yoffset);
 				fg_speed += layer_get_vspeed(lay);
+				bg_scrollx += layer_get_hspeed(lay);
+                bg_scrolly += layer_get_vspeed(lay);
 				break;
 			
 			case "Foreground_2":

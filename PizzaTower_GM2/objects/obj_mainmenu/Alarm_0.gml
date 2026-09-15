@@ -13,7 +13,7 @@ with (obj_player)
 	state = "titlescreen";
 	character = global.game[other.currentselect].character
 }
-global.swapmode = true;
+global.swapmode = false;
 global.currentsavefile = currentselect + 1;
 with (instance_create(0, 0, obj_fadeout))
 {

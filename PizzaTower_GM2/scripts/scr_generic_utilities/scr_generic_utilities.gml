@@ -1,6 +1,11 @@
+<<<<<<< HEAD:PizzaTower_GM2/scripts/scr_generic_utilities/scr_generic_utilities.gml
 function approach(a, b, amt)
+=======
+#macro Approach approach
+function approach(_val, _valTo, _amt)
+>>>>>>> 7d427903e0d0852042ed29a17ede6d2d9282d615:PizzaTower_GM2/scripts/scr_utilities/scr_utilities.gml
 {
-    return (a-amt > b ? a-amt : (a+amt < b ? a+amt : b)); 
+	return _val + clamp(_valTo - _val, -_amt, _amt);
 }
 
 /// @description Returns true, if an object has ended it's animation.

@@ -19,7 +19,7 @@
   "height":1504,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"9e1b5c84-6cc0-492f-a613-890b0c32465b","blendMode":0,"displayName":"default","isLocked":false,"name":"9e1b5c84-6cc0-492f-a613-890b0c32465b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"9e1b5c84-6cc0-492f-a613-890b0c32465b","blendMode":0,"displayName":"default","isLocked":false,"name":"9e1b5c84-6cc0-492f-a613-890b0c32465b","opacity":65.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_tile_towerfloor5",
   "nineSlice":null,
