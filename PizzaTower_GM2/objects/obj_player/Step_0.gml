@@ -1404,13 +1404,17 @@ else
 {
 	cutscene = false;
 }
-if ((state == states.normal || state == states.ratmount) && obj_player1.spotlight == true && !instance_exists(obj_uparrow) && (collision_flags & collisionflags.on_floor) > 0)
+if (obj_player1.spotlight == true && !instance_exists(obj_uparrow))
 {
 	if (place_meeting(x, y, obj_uparrowhitbox))
 	{
-		with (instance_create(x, y, obj_uparrow))
+		var _arrowHitbox = instance_place(x, y, obj_uparrowhitbox);
+		arrowID = instance_create(x, y, obj_uparrow);
+		
+		with (arrowID)
 		{
 			playerid = other.object_index;
+			hitboxid = _arrowHitbox;
 		}
 	}
 }

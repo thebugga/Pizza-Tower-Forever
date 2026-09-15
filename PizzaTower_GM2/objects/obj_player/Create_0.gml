@@ -89,6 +89,7 @@ dropboost = false;
 uncrouch = 0;
 parryID = noone;
 gauntletportalID = noone;
+arrowID = noone;
 bodyslam_notif = false;
 swingdingthrow = false;
 sjumptimer = 0;
