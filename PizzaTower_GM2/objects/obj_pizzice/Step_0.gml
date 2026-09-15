@@ -25,7 +25,7 @@ switch (state)
 		var is = 1.25;
 		if (image_speed < is)
 		{
-			image_speed = Approach(image_speed, is, 0.015);
+			image_speed = approach(image_speed, is, 0.015);
 		}
 		else if (cooldown > 0)
 		{

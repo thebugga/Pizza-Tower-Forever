@@ -21,7 +21,7 @@ else if (hooked)
 	}
 	if (blinking)
 	{
-		movespeed = Approach(movespeed, 0, 0.35);
+		movespeed = approach(movespeed, 0, 0.35);
 		if (movespeed <= 0)
 		{
 			instance_destroy();

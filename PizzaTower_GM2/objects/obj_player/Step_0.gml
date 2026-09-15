@@ -556,11 +556,11 @@ if (!place_meeting(x, y + 1, obj_railparent))
 {
 	if (state == states.mach3 || state == states.mach2 || state == states.tumble)
 	{
-		railmovespeed = Approach(railmovespeed, 0, 0.1);
+		railmovespeed = approach(railmovespeed, 0, 0.1);
 	}
 	else
 	{
-		railmovespeed = Approach(railmovespeed, 0, 0.5);
+		railmovespeed = approach(railmovespeed, 0, 0.5);
 	}
 }
 if (state != states.handstandjump && state != states.tumble)

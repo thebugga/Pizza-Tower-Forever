@@ -196,7 +196,7 @@ function scr_pizzaface_p3_walk()
 			{
 				image_xscale = move;
 			}
-			walkspeed = Approach(walkspeed, maxwalkspeed, walkaccel);
+			walkspeed = approach(walkspeed, maxwalkspeed, walkaccel);
 			if (abs(x - targetplayer.x) < walkdisx1)
 			{
 				sprite_index = spr_pizzahead_phase3walkback;
@@ -227,7 +227,7 @@ function scr_pizzaface_p3_walk()
 		}
 		else
 		{
-			hsp = Approach(hsp, 0, 0.5);
+			hsp = approach(hsp, 0, 0.5);
 			laugh--;
 			move = sign(targetplayer.x - x);
 			if (move != 0)
@@ -309,11 +309,11 @@ function scr_pizzaface_p3_walk()
 		sprite_index = spr_pizzahead_phase3flicker;
 		if (grounded)
 		{
-			hsp = Approach(hsp, 0, 0.25);
+			hsp = approach(hsp, 0, 0.25);
 		}
 		if (grounded && vsp > 0 && flickertime > 0)
 		{
-			hsp = Approach(hsp, 0, 0.5);
+			hsp = approach(hsp, 0, 0.5);
 			create_particle(x, y + 33, particletypes.landcloud);
 			vsp = -5;
 			touchedground = true;
@@ -409,7 +409,7 @@ function scr_pizzaface_p3_stomp()
 
 function scr_pizzaface_p3_punch()
 {
-	hsp = Approach(hsp, 0, 0.25);
+	hsp = approach(hsp, 0, 0.25);
 	if (floor(image_index) == 15)
 	{
 		hsp = image_xscale * 5;
@@ -480,7 +480,7 @@ function scr_pizzaface_p3_throwing()
 
 function scr_pizzaface_p3_staggered()
 {
-	hsp = Approach(hsp, 0, 0.1);
+	hsp = approach(hsp, 0, 0.1);
 	if (cooldown > 0)
 	{
 		cooldown--;
@@ -507,7 +507,7 @@ function scr_pizzaface_p3_handstandjump()
 
 function scr_pizzaface_p3_supergrab()
 {
-	hsp = Approach(hsp, 0, 0.5);
+	hsp = approach(hsp, 0, 0.5);
 	sprite_index = spr_pizzahead_hurt;
 	with (playerid)
 	{

@@ -32,11 +32,11 @@ function scr_player_cheesepep()
 	if (move != 0 && sprite_index != spr_cheesepepjumpstart)
 	{
 		xscale = move;
-		movespeed = Approach(movespeed, 6, 0.25);
+		movespeed = approach(movespeed, 6, 0.25);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 1);
+		movespeed = approach(movespeed, 0, 1);
 	}
 	image_speed = 0.35;
 	if ((grounded && (floor(image_index) % 4) == 0) && hsp != 0)

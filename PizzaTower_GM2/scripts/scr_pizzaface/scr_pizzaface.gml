@@ -184,7 +184,7 @@ function scr_pizzaface_arenaintro()
 					}
 				}
 				var ty = room_height / 2;
-				y = Approach(y, ty, 2);
+				y = approach(y, ty, 2);
 				if (y > 0)
 				{
 					with (obj_player1)
@@ -288,7 +288,7 @@ function scr_pizzaface_normal()
 		hsp = floatdir * 5;
 		vsp = 0;
 		var ty = room_height * 0.3;
-		y = Approach(y, ty, 2);
+		y = approach(y, ty, 2);
 		if (y == ty && !on_y)
 		{
 			on_y = true;
@@ -400,7 +400,7 @@ function scr_pizzaface_normal()
 		sprite_index = spr_pizzaface_hurt;
 		if (grounded)
 		{
-			hsp = Approach(hsp, 0, 0.25);
+			hsp = approach(hsp, 0, 0.25);
 		}
 		if (place_meeting(x + hsp, y, obj_solid))
 		{
@@ -409,7 +409,7 @@ function scr_pizzaface_normal()
 		}
 		if (grounded && vsp > 0 && flickertime > 0)
 		{
-			hsp = Approach(hsp, 0, 0.5);
+			hsp = approach(hsp, 0, 0.5);
 			create_particle(x, 401, particletypes.landcloud);
 			vsp = -5;
 			touchedground = true;
@@ -422,8 +422,8 @@ function scr_pizzaface_ram()
 	switch (substate)
 	{
 		case states.arenaintro:
-			ramhsp = Approach(ramhsp, 0, 0.3);
-			ramvsp = Approach(ramvsp, 0, 0.3);
+			ramhsp = approach(ramhsp, 0, 0.3);
+			ramvsp = approach(ramvsp, 0, 0.3);
 			hsp = ramhsp;
 			vsp = ramvsp;
 			if (ANIMATION_END)

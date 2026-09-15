@@ -44,7 +44,7 @@ switch (state)
 		if (sprite_index == spr_minijohn_punchstart)
 		{
 			image_speed = 0.35;
-			hsp = Approach(hsp, 0, 1);
+			hsp = approach(hsp, 0, 1);
 			if (ANIMATION_END)
 			{
 				fmod_event_one_shot_3d("event:/sfx/enemies/minijohnpunch", x, y);
@@ -64,7 +64,7 @@ switch (state)
 		else if (sprite_index == spr_minijohn_punch)
 		{
 			image_speed = 0.25;
-			punchspd = Approach(punchspd, 0, 0.25);
+			punchspd = approach(punchspd, 0, 0.25);
 			hsp = punchspd * image_xscale;
 			with (instance_place(x + hsp, y, obj_destructibles))
 			{

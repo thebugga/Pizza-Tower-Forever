@@ -218,7 +218,7 @@ function scr_boss_pizzaheadKO()
 {
 	if (grounded)
 	{
-		hsp = Approach(hsp, 0, 0.2);
+		hsp = approach(hsp, 0, 0.2);
 	}
 	switch (object_index)
 	{

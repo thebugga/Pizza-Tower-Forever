@@ -26,7 +26,7 @@ switch (state)
 		}
 		break;
 	case states.jump:
-		y = Approach(y, ystart, 2);
+		y = approach(y, ystart, 2);
 		if (y == ystart)
 		{
 			state = states.normal;

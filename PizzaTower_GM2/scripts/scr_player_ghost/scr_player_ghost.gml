@@ -74,9 +74,9 @@ function scr_player_ghost()
 		{
 			var maxspeed = 6;
 			var accel = 1;
-			movespeed = Approach(movespeed, move_h * maxspeed, accel);
+			movespeed = approach(movespeed, move_h * maxspeed, accel);
 			hsp = movespeed;
-			vsp = Approach(vsp, move_v * maxspeed, accel);
+			vsp = approach(vsp, move_v * maxspeed, accel);
 			if (move_v < 0)
 			{
 				sprite_index = spr_ghostjump;
@@ -137,11 +137,11 @@ function scr_player_ghost()
 				{
 					maxspeed = 26;
 				}
-				movespeed = Approach(movespeed, maxspeed, accel);
+				movespeed = approach(movespeed, maxspeed, accel);
 			}
 			else
 			{
-				movespeed = Approach(movespeed, 0, deccel);
+				movespeed = approach(movespeed, 0, deccel);
 				if (movespeed <= 2 || (movespeed <= 6 && (move_h != 0 || move_v != 0)))
 				{
 					ghostdash = false;
@@ -167,8 +167,8 @@ function scr_player_ghost()
 			}
 			var dx = lengthdir_x(movespeed, angle);
 			var dy = lengthdir_y(movespeed, angle);
-			hsp = Approach(hsp, dx, velaccel);
-			vsp = Approach(vsp, dy, velaccel);
+			hsp = approach(hsp, dx, velaccel);
+			vsp = approach(vsp, dy, velaccel);
 			if (scr_solid_player(x + sign(hsp), y + sign(vsp)) && !place_meeting(x + sign(hsp), y + sign(vsp), obj_destructibles) && (ghostpepper < 3 || !place_meeting(x + sign(hsp), y + sign(vsp), obj_metalblock)) && !place_meeting(x + sign(hsp), y + sign(vsp), obj_slope))
 			{
 				ghostbumpbuffer++;
@@ -311,9 +311,9 @@ function scr_player_ghost()
 				hspaccel = 1;
 				vspaccel = 1;
 			}
-			movespeed = Approach(movespeed, move_h * maxspeed, hspaccel);
+			movespeed = approach(movespeed, move_h * maxspeed, hspaccel);
 			hsp = movespeed;
-			vsp = Approach(vsp, move_v * maxspeed, vspaccel);
+			vsp = approach(vsp, move_v * maxspeed, vspaccel);
 			if (move_v < 0)
 			{
 				sprite_index = spr_ghostjump;
@@ -352,9 +352,9 @@ function scr_player_ghost()
 			{
 				dy = move_v * m;
 			}
-			movespeed = Approach(movespeed, dx, hspaccel);
+			movespeed = approach(movespeed, dx, hspaccel);
 			hsp = movespeed;
-			vsp = Approach(vsp, dy, vspaccel);
+			vsp = approach(vsp, dy, vspaccel);
 			if (character == characters.Noise && ghostdashstart)
 			{
 				ghostdashstart = false;
@@ -364,7 +364,7 @@ function scr_player_ghost()
 			if (m != 0)
 			{
 				scr_player_ghostdash_sprites();
-				ghostbump = Approach(ghostbump, 1, 0.1);
+				ghostbump = approach(ghostbump, 1, 0.1);
 				if (character == characters.Peppino && scr_solid_player(x + sign(hsp), y) && !place_meeting(x + sign(hsp), y + sign(vsp), obj_slope))
 				{
 					movespeed = 0;

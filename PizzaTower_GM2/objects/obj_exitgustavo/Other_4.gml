@@ -30,3 +30,7 @@ if (!obj_player1.ispeppino || global.swapmode)
 		sprite_index = spr_noisette_fall;
 	}
 }
+if global.gerome
+{
+	image_xscale = -image_xscale
+}

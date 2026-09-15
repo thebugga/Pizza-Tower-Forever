@@ -1,6 +1,6 @@
 if (state == 0)
 {
-	x = Approach(x, obj_noiseboss.x, abs(hsp));
+	x = approach(x, obj_noiseboss.x, abs(hsp));
 	y = lerp(y, obj_noiseboss.y, 0.08);
 	if (place_meeting(x, y, obj_noiseboss))
 	{
@@ -19,7 +19,7 @@ if (state == 0)
 }
 else
 {
-	vsp = Approach(vsp, -11, 0.8);
+	vsp = approach(vsp, -11, 0.8);
 	x += hsp;
 	y += vsp;
 	with (obj_noiseboss)

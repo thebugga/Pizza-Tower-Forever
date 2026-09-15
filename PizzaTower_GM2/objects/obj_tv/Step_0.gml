@@ -50,9 +50,9 @@ switch (state)
 		{
 			idlespr = spr_tv_idleN;
 		}
-		if (obj_player1.character == characters.Vigilante)
+		if (obj_player1.character == characters.Pepperman)
 		{
-			idlespr = spr_tv_idleN;
+			idlespr = spr_tv_idlePM;
 		}
 		if (global.panic)
 		{
@@ -458,11 +458,11 @@ if (bubblespr != noone && obj_player1.x > 316 && obj_player1.y < 101)
 var spd = 15;
 if (change_pos)
 {
-	hud_posY = Approach(hud_posY, -300, spd);
+	hud_posY = approach(hud_posY, -300, spd);
 }
 else
 {
-	hud_posY = Approach(hud_posY, 0, spd);
+	hud_posY = approach(hud_posY, 0, spd);
 }
 pizzaface_index += 0.35;
 hand_index += 0.35;
@@ -472,11 +472,11 @@ if (global.panic && global.fill > 0)
 	showtime_buffer = 100;
 	if (!instance_exists(obj_ghostcollectibles))
 	{
-		timer_y = Approach(timer_y, timer_ystart, 1);
+		timer_y = approach(timer_y, timer_ystart, 1);
 	}
 	else
 	{
-		timer_y = Approach(timer_y, timer_ystart + 212, 4);
+		timer_y = approach(timer_y, timer_ystart + 212, 4);
 	}
 }
 else if (global.panic)
@@ -500,7 +500,7 @@ else if (global.panic)
 	}
 	else
 	{
-		timer_y = Approach(timer_y, timer_ystart + 212, 1);
+		timer_y = approach(timer_y, timer_ystart + 212, 1);
 	}
 }
 else
@@ -572,14 +572,14 @@ if (global.combotime > 0 && global.combo != 0)
 			}
 			else
 			{
-				combo_posY = Approach(combo_posY, 0, 10);
+				combo_posY = approach(combo_posY, 0, 10);
 			}
 			break;
 	}
 }
 else
 {
-	combo_posY = Approach(combo_posY, -500, 5);
+	combo_posY = approach(combo_posY, -500, 5);
 	combo_vsp = 0;
 	combo_state = 0;
 }

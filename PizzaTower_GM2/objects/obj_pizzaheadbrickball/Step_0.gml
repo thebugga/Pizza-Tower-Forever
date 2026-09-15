@@ -45,9 +45,9 @@ switch (state)
 		else
 		{
 			depth = -99;
-			x = Approach(x, obj_pizzafaceboss_p2.x, cbspeed);
-			y = Approach(y, obj_pizzafaceboss_p2.y, cbspeed);
-			cbspeed = Approach(cbspeed, 20, 1);
+			x = approach(x, obj_pizzafaceboss_p2.x, cbspeed);
+			y = approach(y, obj_pizzafaceboss_p2.y, cbspeed);
+			cbspeed = approach(cbspeed, 20, 1);
 		}
 		break;
 }

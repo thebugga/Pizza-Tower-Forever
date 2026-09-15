@@ -19,7 +19,7 @@ function scr_player_rocketslide()
 		exit;
 	}
 	hsp = xscale * movespeed;
-	movespeed = Approach(movespeed, 0, 0.5);
+	movespeed = approach(movespeed, 0, 0.5);
 	vsp = 0;
 	if (steppybuffer > 0)
 	{

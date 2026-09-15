@@ -13,7 +13,7 @@ function scr_player_boxxedpepspin()
 	hsp = movespeed + (railmovespeed * raildir);
 	if (abs(movespeed) > 0)
 	{
-		movespeed = Approach(movespeed, 0, 0.1);
+		movespeed = approach(movespeed, 0, 0.1);
 	}
 	instance_destroy(instance_place(x + hsp, y, obj_destructibles));
 	if (scr_solid(x + hsp, y) && !place_meeting(x + hsp, y, obj_ratblock) && !place_meeting(x + hsp, y, obj_destructibles) && (!place_meeting(x + hsp, y, obj_slope) || scr_solid_slope(x + hsp, y)))

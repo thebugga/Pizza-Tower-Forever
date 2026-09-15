@@ -12,16 +12,16 @@ function scr_player_ratmountcrouch()
 		{
 			if (abs(movespeed) < 4)
 			{
-				movespeed = Approach(movespeed, xscale * 4, 0.5);
+				movespeed = approach(movespeed, xscale * 4, 0.5);
 			}
 			else
 			{
-				movespeed = Approach(movespeed, xscale * 4, 0.1);
+				movespeed = approach(movespeed, xscale * 4, 0.1);
 			}
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 			if (abs(movespeed) <= 0)
 			{
 				xscale = move;
@@ -42,7 +42,7 @@ function scr_player_ratmountcrouch()
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 	if (!grounded)
 	{

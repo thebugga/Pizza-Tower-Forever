@@ -101,16 +101,16 @@ function scr_player_ratmount()
 		{
 			if (move == xscale)
 			{
-				movespeed = Approach(movespeed, xscale * ratmount_movespeed, 0.5);
+				movespeed = approach(movespeed, xscale * ratmount_movespeed, 0.5);
 			}
 			else
 			{
-				movespeed = Approach(movespeed, 0, 0.5);
+				movespeed = approach(movespeed, 0, 0.5);
 			}
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 		}
 	}
 	else
@@ -288,7 +288,7 @@ function scr_player_ratmount()
 		move = xscale;
 		if (ratmount_movespeed < 12)
 		{
-			ratmount_movespeed = Approach(ratmount_movespeed, 12, 0.15);
+			ratmount_movespeed = approach(ratmount_movespeed, 12, 0.15);
 		}
 	}
 	if (((input_buffer_slap > 0 && key_up) || key_shoot2) && brick && gusdashpadbuffer == 0)

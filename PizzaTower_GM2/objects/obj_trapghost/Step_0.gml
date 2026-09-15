@@ -25,8 +25,8 @@ switch (state)
 			var xto = trapid.x + trapid.xoffset;
 			var yto = trapid.y + trapid.yoffset;
 			var dir = point_direction(x, y, xto, yto);
-			x = Approach(x, xto, abs(lengthdir_x(32, dir)));
-			y = Approach(y, yto, abs(lengthdir_y(32, dir)));
+			x = approach(x, xto, abs(lengthdir_x(32, dir)));
+			y = approach(y, yto, abs(lengthdir_y(32, dir)));
 			if (x == xto && y == yto)
 			{
 				state = states.chase;
@@ -105,7 +105,7 @@ if (distance_to_object(obj_player1) <= 200)
 }
 if (alpha)
 {
-	image_alpha = Approach(image_alpha, target_alpha, 0.01);
+	image_alpha = approach(image_alpha, target_alpha, 0.01);
 }
 if (room == rank_room)
 {

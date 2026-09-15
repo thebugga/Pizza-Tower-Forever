@@ -45,7 +45,7 @@ switch (state)
 		var acc = 0.05;
 		if (!fadein)
 		{
-			image_alpha = Approach(image_alpha, 0, acc);
+			image_alpha = approach(image_alpha, 0, acc);
 			with (playerid)
 			{
 				hsp = 0;
@@ -97,7 +97,7 @@ switch (state)
 		}
 		else
 		{
-			image_alpha = Approach(image_alpha, 1, acc);
+			image_alpha = approach(image_alpha, 1, acc);
 			with (playerid)
 			{
 				image_alpha = other.image_alpha;

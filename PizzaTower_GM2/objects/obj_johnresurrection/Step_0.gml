@@ -2,7 +2,7 @@ with (obj_player)
 {
 	state = states.titlescreen;
 }
-whitefade = Approach(whitefade, 0, 0.1);
+whitefade = approach(whitefade, 0, 0.1);
 var PLAYER_MOVESPEED = 5;
 if (!fadein)
 {
@@ -14,7 +14,7 @@ if (!fadein)
 			{
 				sprite_index = obj_player1.spr_move;
 				image_speed = 0.5;
-				x = Approach(x, tx, PLAYER_MOVESPEED);
+				x = approach(x, tx, PLAYER_MOVESPEED);
 				if (x == tx)
 				{
 					other.state++;
@@ -113,7 +113,7 @@ if (!fadein)
 				{
 					fmod_event_instance_play(other.snd);
 				}
-				hsp = Approach(hsp, 0, 0.1);
+				hsp = approach(hsp, 0, 0.1);
 				vsp += 0.5;
 				x += hsp;
 				y += vsp;
@@ -229,7 +229,7 @@ if (!fadein)
 			with (obj_johnresurrection_pillar)
 			{
 				x += hsp;
-				hsp = Approach(hsp, 0, 0.2);
+				hsp = approach(hsp, 0, 0.2);
 				if (ANIMATION_END && !other.shot)
 				{
 					other.shot = true;
@@ -309,7 +309,7 @@ if (!fadein)
 			{
 				x -= hsp;
 				y += vsp;
-				hsp = Approach(hsp, 0, 0.1);
+				hsp = approach(hsp, 0, 0.1);
 				if (vsp < 10)
 				{
 					vsp += 0.1;
@@ -317,7 +317,7 @@ if (!fadein)
 				image_angle += 10;
 				if (y > 100)
 				{
-					image_xscale = Approach(image_xscale, 0, 0.04);
+					image_xscale = approach(image_xscale, 0, 0.04);
 					image_yscale = image_xscale;
 					if (image_xscale <= 0 || y >= ((room_height / 2) + 120))
 					{
@@ -382,7 +382,7 @@ if (!fadein)
 }
 else
 {
-	fade = Approach(fade, 1, 0.01);
+	fade = approach(fade, 1, 0.01);
 	if (fade >= 1 && !instance_exists(obj_fadeout))
 	{
 		with (obj_player)

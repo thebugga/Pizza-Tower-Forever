@@ -82,7 +82,7 @@ switch (state)
 		{
 			movespeed += 0.1;
 		}
-		x = Approach(x, target_x, movespeed);
+		x = approach(x, target_x, movespeed);
 		if (x == target_x)
 		{
 			if character == characters.Peppino

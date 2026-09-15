@@ -7,7 +7,7 @@ function scr_player_ratmountpunch()
 	sprite_index = spr_lonegustavo_punch;
 	if (grounded)
 	{
-		movespeed = Approach(movespeed, xscale * 4, 0.1);
+		movespeed = approach(movespeed, xscale * 4, 0.1);
 	}
 	ratmountpunchtimer--;
 	if (ratmountpunchtimer < 0 && (!key_slap || gustavohitwall))

@@ -10,11 +10,11 @@ function scr_player_punch()
 		if (move != 0)
 		{
 			dir = move;
-			movespeed = Approach(movespeed, move * 4, 0.5);
+			movespeed = approach(movespeed, move * 4, 0.5);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 		}
 		if (ANIMATION_END && sprite_index == spr_breakdanceuppercut)
 		{

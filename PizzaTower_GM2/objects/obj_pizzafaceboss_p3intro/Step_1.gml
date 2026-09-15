@@ -440,8 +440,8 @@ switch (introstate)
 		obj_screensizer.camzoom = camzoom;
 		camzoom = lerp(camzoom, 0.5, 0.07);
 		obj_player1.hsp = 1;
-		obj_player1.image_speed = Approach(obj_player1.image_speed, 0.1, 0.1);
-		peppermanid.image_speed = Approach(peppermanid.image_speed, 0.1, 0.1);
+		obj_player1.image_speed = approach(obj_player1.image_speed, 0.1, 0.1);
+		peppermanid.image_speed = approach(peppermanid.image_speed, 0.1, 0.1);
 		if (obj_player1.x > (peppermanid.x - 50))
 		{
 			obj_player1.x = peppermanid.x - 50;

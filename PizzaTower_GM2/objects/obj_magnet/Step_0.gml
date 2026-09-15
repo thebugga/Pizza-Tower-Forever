@@ -29,12 +29,12 @@ switch (state)
 			depth = 0;
 			sprite_index = spr_pizzaball_roll;
 			sit = false;
-			x = Approach(x, other.x, 8);
-			y = Approach(y, other.y, 8);
+			x = approach(x, other.x, 8);
+			y = approach(y, other.y, 8);
 			if (state != states.golf)
 			{
-				other.hsp = Approach(hsp, 0, 1);
-				other.vsp = Approach(vsp, 0, 1);
+				other.hsp = approach(hsp, 0, 1);
+				other.vsp = approach(vsp, 0, 1);
 			}
 			else
 			{

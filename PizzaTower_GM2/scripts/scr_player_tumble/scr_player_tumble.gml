@@ -13,7 +13,7 @@ function scr_player_tumble()
 	{
 		movespeed = 6;
 	}
-	if (!grounded && (/*sprite_index == spr_crouchslip ||*/ sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
+	if (!grounded && (/*sprite_index == spr_crouchslip ||*/ sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland)|| ((sprite_index == spr_player_jumpdive1 || sprite_index == spr_player_jumpdive2) && character == characters.Noise))
 	{
 		switch character
 		{
@@ -38,15 +38,15 @@ function scr_player_tumble()
 	{
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, 12, 0.25);
+			movespeed = approach(movespeed, 12, 0.25);
 		}
 		else if (move == -xscale)
 		{
-			movespeed = Approach(movespeed, 8, 0.25);
+			movespeed = approach(movespeed, 8, 0.25);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 10, 0.25);
+			movespeed = approach(movespeed, 10, 0.25);
 		}
 	}	
 	if (input_buffer_jump > 0 && sprite_index == spr_player_crouchslip)

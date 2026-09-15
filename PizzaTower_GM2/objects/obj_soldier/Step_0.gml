@@ -82,7 +82,7 @@ switch (state)
 		}
 		break;
 	case states.charge:
-		hsp = Approach(hsp, 0, 0.5);
+		hsp = approach(hsp, 0, 0.5);
 		if (sprite_index == spr_soldier_shootstart && ANIMATION_END)
 		{
 			sprite_index = spr_soldier_shoot;

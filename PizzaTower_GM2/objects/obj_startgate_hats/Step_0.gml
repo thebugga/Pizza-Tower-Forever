@@ -1,4 +1,4 @@
-image_alpha = Approach(image_alpha, 1, 0.1);
+image_alpha = approach(image_alpha, 1, 0.1);
 if (!obj_player1.ispeppino)
 {
 	sprite_index = spr_bossfight_noiseHP;
@@ -34,6 +34,6 @@ switch (state)
 		}
 		break;
 	case 1:
-		rank_scale = Approach(rank_scale, 1, 0.1);
+		rank_scale = approach(rank_scale, 1, 0.1);
 		break;
 }

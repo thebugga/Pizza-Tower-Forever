@@ -14,12 +14,12 @@ function scr_player_barrelslide()
 	{
 		if (abs(movespeed) < 14)
 		{
-			movespeed = Approach(movespeed, xscale * 14, 0.1);
+			movespeed = approach(movespeed, xscale * 14, 0.1);
 		}
 	}
 	else if (abs(movespeed) < 16)
 	{
-		movespeed = Approach(movespeed, xscale * 16, 0.15);
+		movespeed = approach(movespeed, xscale * 16, 0.15);
 	}
 	if ((dashcloudtimer == 0 && abs(hsp) > 8) && grounded)
 	{

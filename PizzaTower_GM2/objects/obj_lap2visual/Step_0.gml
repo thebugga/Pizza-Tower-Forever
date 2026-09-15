@@ -1,7 +1,7 @@
 if (down)
 {
 	var ty = 24;
-	y = Approach(y, ty, movespeed);
+	y = approach(y, ty, movespeed);
 	if (y >= ty && alarm[0] == -1)
 	{
 		alarm[0] = 80;
@@ -10,7 +10,7 @@ if (down)
 else
 {
 	var ty = -sprite_height;
-	y = Approach(y, ty, movespeed);
+	y = approach(y, ty, movespeed);
 	if (y <= ty)
 	{
 		instance_destroy();

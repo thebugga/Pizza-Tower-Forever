@@ -64,7 +64,7 @@ switch (state)
 				}
 				else
 				{
-					hsp = Approach(hsp, 0, 0.5);
+					hsp = approach(hsp, 0, 0.5);
 				}
 			}
 			if (hsp == 0)
@@ -88,7 +88,7 @@ switch (state)
 					movespeed = -4;
 				}
 			}
-			movespeed = Approach(movespeed, 8, 0.1);
+			movespeed = approach(movespeed, 8, 0.1);
 			hsp = image_xscale * movespeed;
 		}
 		if (object_index == obj_blobmonster)

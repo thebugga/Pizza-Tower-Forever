@@ -18,7 +18,7 @@ function scr_enemy_chase()
 			momentum = -image_xscale * (movespeed + 4);
 		}
 		hsp = (image_xscale * movespeed) + momentum;
-		momentum = Approach(momentum, 0, 0.1);
+		momentum = approach(momentum, 0, 0.1);
 		if (grounded && vsp > 0)
 		{
 			steppy--;

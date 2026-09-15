@@ -152,7 +152,7 @@ switch (state)
 		{
 			with (obj_player1)
 			{
-				hsp = Approach(hsp, 0, 0.1);
+				hsp = approach(hsp, 0, 0.1);
 			}
 		}
 		if (sprite_index == spr_noisettestick_takemoney1)

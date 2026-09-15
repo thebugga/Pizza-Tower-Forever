@@ -17,11 +17,11 @@ if (fadein)
 	var t = 0.5;
 	if (start)
 	{
-		fade = Approach(fade, t, 0.05);
+		fade = approach(fade, t, 0.05);
 	}
 	else
 	{
-		fade = Approach(fade, t, 0.1);
+		fade = approach(fade, t, 0.1);
 	}
 	if (fade >= t)
 	{
@@ -34,7 +34,7 @@ if (fadein)
 }
 else
 {
-	fade = Approach(fade, 0, 0.05);
+	fade = approach(fade, 0, 0.05);
 	if (fade <= 0)
 	{
 		fadein = true;

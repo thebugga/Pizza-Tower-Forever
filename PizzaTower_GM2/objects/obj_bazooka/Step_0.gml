@@ -3,11 +3,11 @@ count++;
 image_angle = direction;
 if (sprite_index == spr_piraneapple_projectile)
 {
-	speed = Approach(speed, 4, 0.1);
+	speed = approach(speed, 4, 0.1);
 }
 else
 {
-	speed = Approach(speed, 4, 0.2);
+	speed = approach(speed, 4, 0.2);
 }
 if (sprite_index == spr_piraneapple_projectile && image_angle > 90)
 {

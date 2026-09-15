@@ -68,7 +68,7 @@ switch (state)
 		}
 		break;
 	case states.punch:
-		attackvsp = Approach(attackvsp, -11, 0.5);
+		attackvsp = approach(attackvsp, -11, 0.5);
 		vsp = attackvsp;
 		hsp = image_xscale * 10;
 		if (y < attack_y && vsp < 0)

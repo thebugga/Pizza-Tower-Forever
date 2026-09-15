@@ -16,9 +16,9 @@ if (!trapped)
 	if (comeback == true)
 	{
 		depth = obj_player1.depth + 1;
-		x = Approach(x, obj_player1.x, cbspeed);
-		y = Approach(y, obj_player1.y, cbspeed);
-		cbspeed = Approach(cbspeed, 20, 1);
+		x = approach(x, obj_player1.x, cbspeed);
+		y = approach(y, obj_player1.y, cbspeed);
+		cbspeed = approach(cbspeed, 20, 1);
 	}
 	else if (wait == false)
 	{

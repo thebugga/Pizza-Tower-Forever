@@ -46,16 +46,16 @@ function scr_player_boxxedpepjump()
 		}
 		else if (move != xscale)
 		{
-			movespeed = Approach(movespeed, 0, 0.8);
+			movespeed = approach(movespeed, 0, 0.8);
 		}
 	}
 	else if (!boxxeddash)
 	{
-		movespeed = Approach(movespeed, 0, 0.8);
+		movespeed = approach(movespeed, 0, 0.8);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.25);
+		movespeed = approach(movespeed, 0, 0.25);
 	}
 	if (grounded && vsp > 0)
 	{

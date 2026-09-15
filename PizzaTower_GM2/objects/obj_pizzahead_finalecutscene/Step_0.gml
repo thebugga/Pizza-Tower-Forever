@@ -9,7 +9,7 @@ switch (state)
 		{
 			y += vsp;
 		}
-		vsp = Approach(vsp, -10, 0.1);
+		vsp = approach(vsp, -10, 0.1);
 		if (ANIMATION_END)
 		{
 			if (image_speed < 2)
@@ -199,9 +199,9 @@ switch (state)
 		}
 		break;
 	case states.superslam:
-		layer_vspeed(beatdown1_lay, Approach(layer_get_vspeed(beatdown1_lay), -8, 0.1));
-		layer_vspeed(beatdown2_lay, Approach(layer_get_vspeed(beatdown2_lay), -9, 0.1));
-		layer_vspeed(beatdown3_lay, Approach(layer_get_vspeed(beatdown3_lay), -10, 0.1));
+		layer_vspeed(beatdown1_lay, approach(layer_get_vspeed(beatdown1_lay), -8, 0.1));
+		layer_vspeed(beatdown2_lay, approach(layer_get_vspeed(beatdown2_lay), -9, 0.1));
+		layer_vspeed(beatdown3_lay, approach(layer_get_vspeed(beatdown3_lay), -10, 0.1));
 		if (image_speed < 0.6)
 		{
 			image_speed += 0.01;

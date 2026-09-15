@@ -45,6 +45,6 @@ switch (state)
 		}
 		break;
 	case 2:
-		rank_scale = Approach(rank_scale, 1, 0.1);
+		rank_scale = approach(rank_scale, 1, 0.1);
 		break;
 }

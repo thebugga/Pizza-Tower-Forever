@@ -276,7 +276,7 @@ else
 }
 if (state != states.duel)
 {
-	signy = Approach(signy, -sprite_get_height(signspr), 20);
+	signy = approach(signy, -sprite_get_height(signspr), 20);
 }
 if (state == states.stun && stunned > 100 && birdcreated == false)
 {

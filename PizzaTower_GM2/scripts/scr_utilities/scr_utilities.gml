@@ -1,6 +1,16 @@
-function Approach(a, b, amt)
+function approach(a, b, amt)
 {
     return (a-amt > b ? a-amt : (a+amt < b ? a+amt : b)); 
+}
+
+/// @description Returns true, if an object has ended it's animation.
+/// @function sprite_animation_end
+/// @param [ind] The sprite_index to check.
+/// @param [img] image_index.
+/// @param [i_end] image_number - 1.
+/// @param [i_spd] image_speed.
+function sprite_animation_end(ind = sprite_index, img = image_index,  i_end = sprite_get_number(ind), i_spd = image_speed) {
+    return (img + (i_spd) * sprite_get_speed(ind) / (sprite_get_speed_type(ind) == spritespeed_framespergameframe ? 1 : game_get_speed(gamespeed_fps)) >= i_end);    
 }
 
 function get_milliseconds()
@@ -254,8 +264,23 @@ function heat_calculate(_val)
 	}
 }
 
-function scr_add_background_chunk(arg0, arg1, arg2, arg3)
+function add_background_chunk(sprite, xoffset, yoffset, imagespeed)
 {
-	return [arg0, arg1, arg2, 0, arg3];
+	return [sprite, xoffset, yoffset, 0, imagespeed];
 }
+
+function randomize_animations(_array)
+{
+	if (ds_list_size(animlist) >= array_length(_array))
+	{
+		ds_list_clear(animlist);
+	}
+	sprite_index = _array[irandom(array_length(_array) - 1)];
+	while (ds_list_find_index(animlist, sprite_index) != -1)
+	{
+		sprite_index = _array[irandom(array_length(_array) - 1)];
+	}
+	ds_list_add(animlist, sprite_index);
+}
+
 

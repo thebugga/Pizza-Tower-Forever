@@ -46,7 +46,7 @@ else
 	{
 		if (currentdialog < (array_length(dialog) - 1))
 		{
-			text_y = Approach(text_y, 0, 2);
+			text_y = approach(text_y, 0, 2);
 			currentdialog    ++;
 			currentpos       = 0;
 			textbuffer       = textspeed;
@@ -74,7 +74,7 @@ else
 		}
 		else
 		{
-			text_y = Approach(text_y, text_ystart, 2);
+			text_y = approach(text_y, text_ystart, 2);
 			var endfunc = dialog[currentdialog][5];
 			if (endfunc != noone)
 			{

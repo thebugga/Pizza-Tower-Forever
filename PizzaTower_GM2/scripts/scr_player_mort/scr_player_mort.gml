@@ -9,11 +9,11 @@ function scr_player_mort()
 	{
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, xscale * 8, 0.8);
+			movespeed = approach(movespeed, xscale * 8, 0.8);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.8);
+			movespeed = approach(movespeed, 0, 0.8);
 		}
 		if (movespeed <= 0)
 		{
@@ -22,7 +22,7 @@ function scr_player_mort()
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.8);
+		movespeed = approach(movespeed, 0, 0.8);
 	}
 	if (move != 0 && grounded && vsp > 0)
 	{

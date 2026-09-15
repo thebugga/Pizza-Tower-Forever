@@ -81,7 +81,7 @@ if (sprite_index != spr_rankNPend && sprite_index != spr_rankNPendstart)
 }
 if (brown)
 {
-	brownfade = Approach(brownfade, 1, 0.07);
+	brownfade = approach(brownfade, 1, 0.07);
 	if (brownfade == 1 && sprite_index == spr_rankNP)
 	{
 		sprite_index = spr_rankNPendstart;
@@ -120,7 +120,7 @@ if (brown)
 			}
 			break;
 		case states.transitioncutscene:
-			toppin_yscale[toppin_index] = Approach(toppin_yscale[toppin_index], 1, 0.1);
+			toppin_yscale[toppin_index] = approach(toppin_yscale[toppin_index], 1, 0.1);
 			if (toppin_yscale[toppin_index] == 1)
 			{
 				toppin_index++;

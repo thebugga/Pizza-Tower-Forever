@@ -268,8 +268,8 @@
   ],
   "name":"sanctum_1",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Ancient Cheese",
+    "path":"folders/Rooms/World/Floor 1/Ancient Cheese.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

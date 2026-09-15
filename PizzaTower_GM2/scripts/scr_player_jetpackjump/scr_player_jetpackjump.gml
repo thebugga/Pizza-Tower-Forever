@@ -132,17 +132,17 @@ function scr_player_jetpackjump()
 			GamepadSetVibration(0, 0.3, 0.3, 0.65);
 			if (!key_down)
 			{
-				vsp = Approach(vsp, -11, 0.8);
+				vsp = approach(vsp, -11, 0.8);
 			}
 			else
 			{
-				vsp = Approach(vsp, 0, 0.8);
+				vsp = approach(vsp, 0, 0.8);
 			}
-			image_speed = Approach(image_speed, 0.6, 0.05);
+			image_speed = approach(image_speed, 0.6, 0.05);
 		}
 		else
 		{
-			image_speed = Approach(image_speed, 0.4, 0.1);
+			image_speed = approach(image_speed, 0.4, 0.1);
 		}
 		if (sprite_index == spr_player_jetpackstart && vsp > 0)
 		{
@@ -173,7 +173,7 @@ function scr_player_jetpackjump()
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.7);
+			movespeed = approach(movespeed, 0, 0.7);
 		}
 		hsp = move * movespeed;
 	}

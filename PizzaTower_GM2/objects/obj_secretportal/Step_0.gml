@@ -15,8 +15,8 @@ if (touched && sprite_index == spr_secretportal_close)
 		vsp = 0;
 		x = other.x;
 		y = other.y;
-		scale_xs = Approach(scale_xs, 0, 0.05);
-		scale_ys = Approach(scale_ys, 0, 0.05);
+		scale_xs = approach(scale_xs, 0, 0.05);
+		scale_ys = approach(scale_ys, 0, 0.05);
 		fallinganimation = 0;
 		if (state == states.mach2 || state == states.mach3)
 		{

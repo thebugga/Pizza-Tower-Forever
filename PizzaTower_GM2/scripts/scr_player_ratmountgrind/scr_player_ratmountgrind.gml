@@ -6,12 +6,12 @@ function scr_player_ratmountgrind()
 	if (move != 0)
 	{
 		xscale = move;
-		movespeed = Approach(movespeed, move * 6, 0.5);
+		movespeed = approach(movespeed, move * 6, 0.5);
 		sprite_index = spr_lonegustavo_hangwalk;
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 		sprite_index = spr_lonegustavo_hang;
 	}
 	if (character == characters.Noise)

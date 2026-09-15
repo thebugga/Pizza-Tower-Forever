@@ -23,7 +23,7 @@ if (sprite_index == spr_boxcrusher_land && ANIMATION_END)
 }
 if (gobackup == true)
 {
-	y = Approach(y, ystart, 2);
+	y = approach(y, ystart, 2);
 }
 if (y == ystart)
 {

@@ -75,8 +75,8 @@ switch (state)
 				}
 				break;
 			case states.jump:
-				movespeed = Approach(movespeed, 0, 0.2);
-				vsp = Approach(vsp, -15, 0.1);
+				movespeed = approach(movespeed, 0, 0.2);
+				vsp = approach(vsp, -15, 0.1);
 				x += movespeed;
 				y += vsp;
 				if (!bbox_in_camera(view_camera[0], 50))

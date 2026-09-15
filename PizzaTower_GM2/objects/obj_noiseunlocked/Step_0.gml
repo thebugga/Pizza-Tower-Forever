@@ -7,7 +7,7 @@ with (obj_music)
 }
 if (fadein)
 {
-	fade = Approach(fade, 1, 0.05);
+	fade = approach(fade, 1, 0.05);
 	if (fade >= 1)
 	{
 		instance_destroy();
@@ -15,5 +15,5 @@ if (fadein)
 }
 else
 {
-	fade = Approach(fade, 0, 0.1);
+	fade = approach(fade, 0, 0.1);
 }

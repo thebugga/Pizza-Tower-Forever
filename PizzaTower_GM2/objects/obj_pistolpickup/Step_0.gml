@@ -1,7 +1,7 @@
 scr_collide();
 if (grounded && vsp > 0)
 {
-	hsp = Approach(hsp, 0, 0.5);
+	hsp = approach(hsp, 0, 0.5);
 }
 grabindex += 0.35;
 if (!obj_player1.ispeppino || (global.swapmode && global.pistol))

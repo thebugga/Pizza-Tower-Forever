@@ -10,11 +10,11 @@ function scr_player_rideweenie()
 	{
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, xscale * 16, 0.35);
+			movespeed = approach(movespeed, xscale * 16, 0.35);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.7);
+			movespeed = approach(movespeed, 0, 0.7);
 			if (abs(movespeed) <= 0)
 			{
 				xscale = move;
@@ -37,7 +37,7 @@ function scr_player_rideweenie()
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.7);
+		movespeed = approach(movespeed, 0, 0.7);
 	}
 	if (sprite_index == spr_weenieturn && ANIMATION_END)
 	{

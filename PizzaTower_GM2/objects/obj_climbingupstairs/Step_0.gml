@@ -3,7 +3,7 @@ switch (state)
 	case states.idle:
 		cliff_index = 1;
 		var tx = SCREEN_WIDTH - 73;
-		gerome_x = Approach(gerome_x, tx, 2);
+		gerome_x = approach(gerome_x, tx, 2);
 		if (gerome_x == tx)
 		{
 			alarm[0] = 1;
@@ -14,7 +14,7 @@ switch (state)
 		break;
 	case states.jump:
 		cliff_index = 0;
-		peppino_y = Approach(peppino_y, 0, 1);
+		peppino_y = approach(peppino_y, 0, 1);
 		peppino_x = peppino_xstart + irandom_range(-1, 1);
 		if (peppino_y < ((SCREEN_HEIGHT / 2) - 120))
 		{

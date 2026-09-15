@@ -1,5 +1,5 @@
-playerx = Approach(playerx, dest_x, speedx);
-playery = Approach(playery, dest_y, speedy);
+playerx = approach(playerx, dest_x, speedx);
+playery = approach(playery, dest_y, speedy);
 playerindex += 0.35;
 if (buffer > 0)
 {

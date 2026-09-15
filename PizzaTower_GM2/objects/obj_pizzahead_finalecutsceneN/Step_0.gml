@@ -75,7 +75,7 @@ switch (state)
 		{
 			noise.image_index = noise.image_number - 1;
 		}
-		whitefade = Approach(whitefade, 1, 0.009);
+		whitefade = approach(whitefade, 1, 0.009);
 		with (bomb)
 		{
 			x += hsp;
@@ -87,7 +87,7 @@ switch (state)
 			}
 			if (vsp > 0)
 			{
-				grav = Approach(grav, 0.1, 0.005);
+				grav = approach(grav, 0.1, 0.005);
 			}
 			if (vsp < 10)
 			{
@@ -116,10 +116,10 @@ switch (state)
 		}
 		break;
 	case 3:
-		shake = Approach(shake, shake_max, 0.1);
+		shake = approach(shake, shake_max, 0.1);
 		if (floor(pizzaheadshot.image_index) < 24)
 		{
-			whitefade = Approach(whitefade, 0, 0.05);
+			whitefade = approach(whitefade, 0, 0.05);
 		}
 		if (floor(pizzaheadshot.image_index) >= 24)
 		{
@@ -151,7 +151,7 @@ switch (state)
 		}
 		break;
 	case 4:
-		whitefade = Approach(whitefade, 0, 0.05);
+		whitefade = approach(whitefade, 0, 0.05);
 		if (buffer > 0)
 		{
 			buffer--;

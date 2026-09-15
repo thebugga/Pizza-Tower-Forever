@@ -39,7 +39,7 @@ if (use_collision)
 	}
 	else
 	{
-		hsp = Approach(hsp, 0, 0.1);
+		hsp = approach(hsp, 0, 0.1);
 		sprite_index = angryspr;
 	}
 	scr_collide();

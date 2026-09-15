@@ -15,7 +15,7 @@ function scr_player_cheeseballclimbwall()
 			create_debris(x + random_range(-8, 8), y + random_range(-8, 8), spr_cheesechunk);
 		}
 	}
-	wallspeed = Approach(wallspeed, 12, 1);
+	wallspeed = approach(wallspeed, 12, 1);
 	if (!scr_solid(x + xscale, y))
 	{
 		if (movespeed > 8)

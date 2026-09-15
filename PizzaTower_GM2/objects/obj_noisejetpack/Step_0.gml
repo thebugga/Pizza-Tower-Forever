@@ -13,10 +13,10 @@ switch (state)
 		break;
 	case states.fall:
 		var ty = playerid.y + 30;
-		y = Approach(y, ty, movespeed);
+		y = approach(y, ty, movespeed);
 		if (abs(y - ty) <= 50)
 		{
-			movespeed = Approach(movespeed, 0, 0.1);
+			movespeed = approach(movespeed, 0, 0.1);
 		}
 		if (y == ty || movespeed <= 0)
 		{

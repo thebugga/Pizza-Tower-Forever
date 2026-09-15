@@ -19,7 +19,7 @@ function scr_player_Sjumpprep()
 	}
 	if (sprite_index == spr_superjumpprep)
 	{
-		movespeed = Approach(movespeed, 0, 1);
+		movespeed = approach(movespeed, 0, 1);
 	}
 	if (ANIMATION_END && sprite_index == spr_superjumpprep)
 	{

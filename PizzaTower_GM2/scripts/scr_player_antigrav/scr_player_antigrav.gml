@@ -25,7 +25,7 @@ function scr_player_antigrav()
 				target_vsp -= 0.2;
 			}
 		}
-		hsp = Approach(hsp, move_h * 8, 0.5);
+		hsp = approach(hsp, move_h * 8, 0.5);
 		image_speed = abs(vsp) / 15;
 		if (key_up)
 		{
@@ -92,7 +92,7 @@ function scr_player_antigrav()
 		sprite_index = spr_playerN_bubbleidle;
 	}
 	move = key_right + key_left;
-	hsp = Approach(hsp, move * 8, 0.5);
+	hsp = approach(hsp, move * 8, 0.5);
 	movespeed = hsp;
 	if (vsp > -14)
 	{

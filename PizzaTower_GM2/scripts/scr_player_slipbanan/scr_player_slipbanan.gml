@@ -3,7 +3,7 @@ function scr_player_slipbanan()
 	hsp = xscale * movespeed;
 	if (grounded)
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 	if (ANIMATION_END && sprite_index != spr_rockethitwall)
 	{
@@ -36,7 +36,7 @@ function scr_player_slipbanan()
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/slipbump", x, y);
 			vsp = -6;
-			movespeed = Approach(movespeed, 0, 3);
+			movespeed = approach(movespeed, 0, 3);
 			sprite_index = spr_rockethitwall;
 			instance_create(x, y + 43, obj_bangeffect);
 		}
@@ -53,7 +53,7 @@ function scr_player_slipbanan()
 		fmod_event_one_shot_3d("event:/sfx/pep/slipbump", x, y);
 		if (sprite_index == spr_slipbanan1)
 		{
-			movespeed = Approach(movespeed, 0, 3);
+			movespeed = approach(movespeed, 0, 3);
 		}
 		sprite_index = spr_rockethitwall;
 		instance_create(x + 30, y, obj_bangeffect);

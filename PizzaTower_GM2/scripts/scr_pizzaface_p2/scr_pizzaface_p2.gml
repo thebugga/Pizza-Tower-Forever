@@ -318,11 +318,11 @@ function scr_pizzaface_p2_normal()
 			sprite_index = spr_pizzahead_hurt;
 			if (grounded)
 			{
-				hsp = Approach(hsp, 0, 0.25);
+				hsp = approach(hsp, 0, 0.25);
 			}
 			if (grounded && vsp > 0 && flickertime > 0)
 			{
-				hsp = Approach(hsp, 0, 0.5);
+				hsp = approach(hsp, 0, 0.5);
 				create_particle(x, y, particletypes.landcloud);
 				vsp = -5;
 				touchedground = true;

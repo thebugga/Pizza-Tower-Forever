@@ -1,15 +1,4 @@
-if (player < 2)
-{
-	if (place_meeting(xstart, ystart, obj_player1) && obj_player1.state != states.chainsaw)
-	{
-		player = 1;
-	}
-	else if (!global.panic && !place_meeting(xstart, ystart, obj_player1))
-	{
-		player = 2;
-	}
-}
-if (global.panic == false && player != 1)
+if (global.panic == false || global.gerome == true)
 {
 	x = xstart;
 	y = ystart;
@@ -18,7 +7,7 @@ if (global.panic == false && player != 1)
 }
 else
 {
-	x = -100;
-	y = -100;
+	x = -1000;
+	y = -1000;
 	sprite_index = spr_minipillarsleep;
 }

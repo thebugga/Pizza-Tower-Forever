@@ -714,4 +714,60 @@ function scr_playersounds()
 	{
 		fmod_event_instance_stop(snd_noiseanimatronic, true);
 	}
+	if character == characters.Pepperman
+	{
+		if (state == states.Sjumpprep)
+		{
+			if (!fmod_event_instance_is_playing(snd_peppermanSjump))
+			{
+				fmod_event_instance_play(snd_peppermanSjump);
+			}
+		}
+		else
+		{
+			fmod_event_instance_stop(snd_peppermanSjump, true);
+		}
+		if (state == states.Sjump)
+		{
+			fmod_event_instance_play(snd_peppermanSjumprelease);
+		}
+		else
+		{
+			fmod_event_instance_stop(snd_peppermanSjump, true);
+		}
+		if (state == states.mach2 || state == states.mach3 || state == states.climbwall)
+		{
+			if (!fmod_event_instance_is_playing(snd_peppermanmach))
+			{
+				fmod_event_instance_play(snd_peppermanmach);
+			}
+			var s = 0;
+			if (state == states.mach2 || state == states.climbwall)
+			{
+				s = 1;
+			}
+			else if (state == states.mach3 && sprite_index != spr_crazyrun)
+			{
+				s = 2;
+			}
+			else if (sprite_index == spr_crazyrun)
+			{
+				s = 3;
+			}
+			fmod_event_instance_set_3d_attributes(snd_peppermanmach, x, y);
+			fmod_event_instance_set_parameter(snd_peppermanmach, "state", s, true);
+			if (grounded || state == states.climbwall)
+			{
+				fmod_event_instance_set_parameter(snd_peppermanmach, "ground", 1, true);
+			}
+			else
+			{
+				fmod_event_instance_set_parameter(snd_peppermanmach, "ground", 0, true);
+			}
+		}
+		else
+		{
+			fmod_event_instance_stop(snd_peppermanmach, true);
+		}
+	}
 }

@@ -28,24 +28,24 @@ function scr_player_rocket()
 		var _accel = 1;
 		if (key_up && !key_down)
 		{
-			rocketvsp = Approach(rocketvsp, -_spd, _accel);
+			rocketvsp = approach(rocketvsp, -_spd, _accel);
 		}
 		else if (key_down && !key_up)
 		{
-			rocketvsp = Approach(rocketvsp, _spd, _accel);
+			rocketvsp = approach(rocketvsp, _spd, _accel);
 		}
 		else
 		{
-			rocketvsp = Approach(rocketvsp, 0, _accel);
+			rocketvsp = approach(rocketvsp, 0, _accel);
 		}
 		vsp = rocketvsp;
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, 16, 0.15);
+			movespeed = approach(movespeed, 16, 0.15);
 		}
 		else if (movespeed > 12)
 		{
-			movespeed = Approach(movespeed, 12, 0.15);
+			movespeed = approach(movespeed, 12, 0.15);
 		}
 	}
 	else

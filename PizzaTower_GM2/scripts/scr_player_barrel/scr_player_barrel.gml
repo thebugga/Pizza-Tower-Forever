@@ -15,11 +15,11 @@ function scr_player_barrel()
 	{
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, xscale * 8, 0.5);
+			movespeed = approach(movespeed, xscale * 8, 0.5);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 		}
 		if (movespeed <= 0)
 		{
@@ -28,7 +28,7 @@ function scr_player_barrel()
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 	if (sprite_index == spr_barrelland && ANIMATION_END)
 	{
@@ -53,7 +53,7 @@ function scr_player_barrel()
 			{
 				if (sign(image_xscale) == -sign(other.xscale))
 				{
-					other.movespeed = Approach(other.movespeed, other.xscale * 12, 0.5);
+					other.movespeed = approach(other.movespeed, other.xscale * 12, 0.5);
 				}
 			}
 		}

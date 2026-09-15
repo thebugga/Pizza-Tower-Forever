@@ -8,7 +8,7 @@ offload_arr = noone;
 depth = -600;
 noisehead = [];
 noisespots = [];
-if (obj_player.character == characters.Noise || obj_player.character == characters.Doise)
+if (obj_player.character == characters.Noise)// || obj_player.character == characters.Doise)
 {
 	alarm[1] = 1;
 }

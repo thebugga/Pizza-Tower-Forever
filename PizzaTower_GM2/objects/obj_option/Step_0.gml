@@ -24,11 +24,11 @@ for (var i = 0; i < array_length(bg_alpha); i++)
 {
 	if (i == j)
 	{
-		bg_alpha[i] = Approach(bg_alpha[i], 1, 0.1);
+		bg_alpha[i] = approach(bg_alpha[i], 1, 0.1);
 	}
 	else
 	{
-		bg_alpha[i] = Approach(bg_alpha[i], 0, 0.05);
+		bg_alpha[i] = approach(bg_alpha[i], 0, 0.05);
 	}
 }
 bg_x -= 1;

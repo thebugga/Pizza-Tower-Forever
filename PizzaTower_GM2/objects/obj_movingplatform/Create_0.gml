@@ -50,13 +50,13 @@ moveCode = function() {
 
 	// Smooth in and out.
 	if (stopped) {
-		stopSpeed = Approach(stopSpeed, stopSpeedMax, stopSpeedAcc);
+		stopSpeed = approach(stopSpeed, stopSpeedMax, stopSpeedAcc);
 		if (stopSpeed >= stopSpeedMax) {
 			targetDirection = platformDirection;
 			stopped = false;
 		}
 	} else {
-		stopSpeed = Approach(stopSpeed, 0, stopSpeedDecc);
+		stopSpeed = approach(stopSpeed, 0, stopSpeedDecc);
 	}
 	hasMove = true;
 }

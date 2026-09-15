@@ -32,7 +32,7 @@ switch (state)
 		}
 		break;
 	case 3:
-		fade = Approach(fade, 1, 0.1);
+		fade = approach(fade, 1, 0.1);
 		fmod_event_one_shot("event:/sfx/intro/pepgustavointro");
 		if (fade >= 1)
 		{
@@ -81,7 +81,7 @@ switch (state)
 		}
 		break;
 	case 4:
-		fade = Approach(fade, 0, 0.05);
+		fade = approach(fade, 0, 0.05);
 		if (introbuffer > 0)
 		{
 			introbuffer--;
@@ -93,7 +93,7 @@ switch (state)
 		}
 		break;
 	case 5:
-		whitefade = Approach(whitefade, 1, 0.1);
+		whitefade = approach(whitefade, 1, 0.1);
 		if (introbuffer > 0)
 		{
 			introbuffer--;
@@ -104,7 +104,7 @@ switch (state)
 		}
 		break;
 	case 6:
-		fade = Approach(fade, 1, 0.1);
+		fade = approach(fade, 1, 0.1);
 		if (fade >= 1 && !instance_exists(obj_fadeout))
 		{
 			with (obj_player)

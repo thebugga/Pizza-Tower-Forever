@@ -272,7 +272,7 @@ if (obj_player1.key_slap_p2 && sprite_index != spr_fightball && usable && grabbu
 }
 if (breakdance_pressed >= 10 && usable)
 {
-	breakdance_speed = Approach(breakdance_speed, 0.6, 0.005);
+	breakdance_speed = approach(breakdance_speed, 0.6, 0.005);
 	sprite_index = spr_breakdance;
 	breakdance_index += breakdance_speed;
 	image_index = breakdance_index;

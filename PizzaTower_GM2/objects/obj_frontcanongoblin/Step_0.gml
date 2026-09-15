@@ -35,8 +35,8 @@ switch (state)
 		else
 		{
 			var cy = SCREEN_HEIGHT + sprite_get_height(captain_sprite);
-			captain_y = Approach(captain_y, cy, 2);
-			canon_y = Approach(canon_y, cy, 1.8);
+			captain_y = approach(captain_y, cy, 2);
+			canon_y = approach(canon_y, cy, 1.8);
 			if (captain_y >= cy)
 			{
 				instance_destroy();

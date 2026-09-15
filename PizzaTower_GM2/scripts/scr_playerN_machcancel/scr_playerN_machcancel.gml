@@ -28,16 +28,16 @@ function scr_playerN_machcancel()
 		{
 			if (abs(movespeed) < 12)
 			{
-				movespeed = Approach(movespeed, move * 12, 1);
+				movespeed = approach(movespeed, move * 12, 1);
 			}
 			else
 			{
-				movespeed = Approach(movespeed, move * abs(movespeed), 1);
+				movespeed = approach(movespeed, move * abs(movespeed), 1);
 			}
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.25);
+			movespeed = approach(movespeed, 0, 0.25);
 		}
 		var xx = movespeed;
 		if (xx == 0)
@@ -68,11 +68,11 @@ function scr_playerN_machcancel()
 	}
 	else if (move != 0)
 	{
-		movespeed = Approach(movespeed, move * 8, 1);
+		movespeed = approach(movespeed, move * 8, 1);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 	if (scr_noise_machcancel_grab())
 	{

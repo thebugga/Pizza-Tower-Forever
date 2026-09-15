@@ -60,7 +60,7 @@ function scr_player_supergrab()
 		{
 			case states.punch:
 				image_speed = 1;
-				hsp = Approach(hsp, 0, 0.2);
+				hsp = approach(hsp, 0, 0.2);
 				vsp = 0;
 				baddiegrabbedID.image_speed = 0.35;
 				baddiegrabbedID.x = x + supergrabx;
@@ -316,7 +316,7 @@ function scr_player_supergrab()
 				hsp = movespeed;
 				if (grounded && vsp > 0)
 				{
-					movespeed = Approach(movespeed, 0, 0.2);
+					movespeed = approach(movespeed, 0, 0.2);
 					if (movespeed == 0)
 					{
 						state = states.normal;

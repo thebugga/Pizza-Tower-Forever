@@ -1,4 +1,4 @@
-if (global.panic == 1)
+if global.panic
 {
 	global.gerome = true;
 	ds_list_add(global.saveroom, id);
@@ -12,43 +12,43 @@ if (global.panic == 1)
 	fmod_event_one_shot_3d("event:/sfx/voice/geromegot", x, y);
 	instance_create(x, y, obj_geromefollow);
 	instance_create(x, y, obj_baddietaunteffect);
-	if (!instance_exists(obj_fadeout))
+	//if (!instance_exists(obj_fadeout))
+	//{
+		//with (obj_player)
+		//{
+		//	targetDoor = "LAP";
+		//	targetRoom = other.targetRoom;
+		//}
+	for (var i = 0; i < ds_list_size(global.escaperoom); i++)
 	{
-		with (obj_player)
+		var b = ds_list_find_value(global.escaperoom, i);
+		var q = ds_list_find_index(global.baddieroom, b);
+		var t = false;
+		if (q == -1)
 		{
-			targetDoor = "LAP";
-			targetRoom = other.targetRoom;
+			q = ds_list_find_index(global.saveroom, b);
+			t = true;
 		}
-		for (var i = 0; i < ds_list_size(global.escaperoom); i++)
+		if (q != -1)
 		{
-			var b = ds_list_find_value(global.escaperoom, i);
-			var q = ds_list_find_index(global.baddieroom, b);
-			var t = false;
-			if (q == -1)
+			if (!t)
 			{
-				q = ds_list_find_index(global.saveroom, b);
-				t = true;
+				ds_list_delete(global.baddieroom, q);
 			}
-			if (q != -1)
+			else
 			{
-				if (!t)
-				{
-					ds_list_delete(global.baddieroom, q);
-				}
-				else
-				{
-					ds_list_delete(global.saveroom, q);
-				}
+				ds_list_delete(global.saveroom, q);
 			}
 		}
-		global.laps++;
-		global.lap = true;
-		instance_create(0, 0, obj_fadeout);
 	}
+	global.laps++;
+	global.lap = true;
+	//	instance_create(0, 0, obj_fadeout);
+	//}
 	instance_destroy();
 }
 
-if (global.panic == 0)
+if !global.panic
 {
 	event_inherited()
 }

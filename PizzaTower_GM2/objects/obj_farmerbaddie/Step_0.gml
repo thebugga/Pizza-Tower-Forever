@@ -15,7 +15,7 @@ switch (state)
 		else
 		{
 			sprite_index = idlespr;
-			hsp = Approach(hsp, 0, 1);
+			hsp = approach(hsp, 0, 1);
 		}
 		break;
 	case states.land:
@@ -123,12 +123,12 @@ else if (state == states.charge)
 		}
 		else
 		{
-			attackspeed = Approach(attackspeed, 0, 0.1);
+			attackspeed = approach(attackspeed, 0, 0.1);
 		}
 	}
 	else
 	{
-		attackspeed = Approach(attackspeed, attackmaxspeed, 1);
+		attackspeed = approach(attackspeed, attackmaxspeed, 1);
 	}
 	if (attackspeed <= 0)
 	{

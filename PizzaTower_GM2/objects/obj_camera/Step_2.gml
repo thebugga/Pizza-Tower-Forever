@@ -149,31 +149,31 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			{
 				if (player.state == states.actor && room == tower_pizzafacehall)
 				{
-					chargecamera = Approach(chargecamera, 150, 8);
+					chargecamera = approach(chargecamera, 150, 8);
 				}
 				else
 				{
-					chargecamera = Approach(chargecamera, 0, 10);
+					chargecamera = approach(chargecamera, 0, 10);
 				}
 			}
 			else if (target.state == states.mach2 || target.state == states.mach3)
 			{
 				if (target.state == states.mach3 && target.sprite_index == target.spr_fightball && sign(chargecamera) != target.xscale)
 				{
-					chargecamera = Approach(chargecamera, 0, 10);
+					chargecamera = approach(chargecamera, 0, 10);
 				}
 				else
 				{
 					var _targetcharge = target.xscale * ((target.movespeed / 4) * 50);
 					var _tspeed = 0.3;
-					chargecamera = Approach(chargecamera, _targetcharge, _tspeed);
+					chargecamera = approach(chargecamera, _targetcharge, _tspeed);
 				}
 			}
 			else if (target.ratmount_movespeed > 2 && target.key_attack && (target.state == states.ratmount || target.state == states.ratmountjump))
 			{
 				var _targetcharge = target.xscale * ((abs(target.hsp) / 4) * 70);
 				var _tspeed = 0.3;
-				chargecamera = Approach(chargecamera, _targetcharge, _tspeed);
+				chargecamera = approach(chargecamera, _targetcharge, _tspeed);
 			}
 			else if ((abs(target.hsp) >= 16 || (target.state == states.chainsaw && target.tauntstoredmovespeed >= 16)) && player.state != states.climbwall && player.state != states.Sjump && player.state != states.ghost)
 			{
@@ -183,15 +183,15 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 				{
 					_tspeed = 8;
 				}
-				chargecamera = Approach(chargecamera, _targetcharge, _tspeed);
+				chargecamera = approach(chargecamera, _targetcharge, _tspeed);
 			}
 			else if (target.state == states.machslide)
 			{
-				chargecamera = Approach(chargecamera, 0, 10);
+				chargecamera = approach(chargecamera, 0, 10);
 			}
 			else
 			{
-				chargecamera = Approach(chargecamera, 0, 6);
+				chargecamera = approach(chargecamera, 0, 6);
 			}
 			var cam_width = camera_get_view_width(view_camera[0]);
 			var cam_height = camera_get_view_height(view_camera[0]);
@@ -228,8 +228,8 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			var tx = followtarget.x;
 			var ty = followtarget.y - 50;
 			var dir = point_direction(x, y, followtarget.x, ty);
-			cx = Approach(cx, followtarget.x, followspeed);
-			cy = Approach(cy, ty, followspeed);
+			cx = approach(cx, followtarget.x, followspeed);
+			cy = approach(cy, ty, followspeed);
 			if (abs(cx - followtarget.x) <= 4 && abs(cy - ty) <= 4)
 			{
 				state = states.normal;
@@ -258,8 +258,8 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			camera_set_view_pos(view_camera[0], cam_x, cam_y);
 			break;
 	}
-	offset_x = Approach(offset_x, 0, offset_speed);
-	offset_y = Approach(offset_y, 0, offset_speed);
+	offset_x = approach(offset_x, 0, offset_speed);
+	offset_y = approach(offset_y, 0, offset_speed);
 }
 if (global.panic && global.panicbg != 0 && global.M_option_panbg)
 {

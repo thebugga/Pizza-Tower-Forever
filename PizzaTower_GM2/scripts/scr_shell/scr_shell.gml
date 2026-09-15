@@ -175,6 +175,46 @@ function toggle_hitboxes_function()
 }
 #endregion
 
+#region Panic
+	function sh_panic(args)
+	{
+	    if (array_length(args) > 1)
+	    {
+	        global.panic = bool(args[1]);
+	        args[2] = real(args[2]) * 60 * 12;
+	        args[3] = real(args[3]) * 12;
+	        global.fill = args[2] + args[3];
+        
+	        if (global.panic)
+			{
+	            obj_camera.alarm[1] = 60;
+				obj_tv.chunkmax = global.fill;
+			}
+	    }
+	    else
+	    {
+	        global.panic = !global.panic;
+	        global.fill = 4000;
+        
+	        if (global.panic)
+			{
+	            obj_camera.alarm[1] = 60;
+				obj_tv.chunkmax = global.fill;
+			}
+	    }
+	}
+
+	function meta_panic()
+	{
+	    return 
+	    {
+	        description: "Sets Pizza Time",
+	        arguments: ["<bool>", "<minutes>", "<seconds>"],
+	        suggestions: [["true", "false"], [], []]
+	    };
+	}
+#endregion
+
 #region Room Goto
 	///commands[arrayi++] = "room_goto [roomname] [targetdoor]"
 	function sh_room_goto(args) 
@@ -246,18 +286,18 @@ function toggle_hitboxes_function()
 			case "THE_NOISE":
 				_char_enum = characters.Noise
 			break;
-			case "THE_VIGILANTE":
-				_char_enum = characters.Vigilante
-			break;
 			case "PEPPERMAN":
 				_char_enum = characters.Pepperman
 			break;
-			case "THE_DOISE":
-				_char_enum = characters.Doise
-			break;
-			case "SHOBON":
-				_char_enum = characters.Shobon
-			break;
+			//case "THE_VIGILANTE":
+			//	_char_enum = characters.Vigilante
+			//break;
+			//case "THE_DOISE":
+			//	_char_enum = characters.Doise
+			//break;
+			//case "SHOBON":
+			//	_char_enum = characters.Shobon
+			//break;
 		}
 		with (obj_player1)
 		{
@@ -271,7 +311,7 @@ function toggle_hitboxes_function()
 			description: "switch_char",
 			arguments: ["<character>"],
 			suggestions: [
-				["PEPPINO", "THE_NOISE", "THE_VIGILANTE", "PEPPERMAN", "THE_DOISE", "SHOBON"]
+				["PEPPINO", "THE_NOISE", "PEPPERMAN",/* "THE_VIGILANTE", "THE_DOISE", "SHOBON"*/]
 			],
 			argumentDescriptions: [
 			]

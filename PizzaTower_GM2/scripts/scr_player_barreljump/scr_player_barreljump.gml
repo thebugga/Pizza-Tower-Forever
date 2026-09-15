@@ -16,11 +16,11 @@ function scr_player_barreljump()
 	{
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, xscale * 8, 0.5);
+			movespeed = approach(movespeed, xscale * 8, 0.5);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 		}
 		if (movespeed <= 0)
 		{
@@ -29,7 +29,7 @@ function scr_player_barreljump()
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 	if (input_buffer_jump > 0 && !key_down && vsp > 0 && can_jump)
 	{

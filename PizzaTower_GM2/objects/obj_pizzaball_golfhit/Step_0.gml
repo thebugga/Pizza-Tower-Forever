@@ -8,7 +8,7 @@ if (instance_exists(obj_pizzaball))
 }
 if (state == states.normal)
 {
-	y = Approach(y, SCREEN_HEIGHT, 5);
+	y = approach(y, SCREEN_HEIGHT, 5);
 	if (!instance_exists(obj_pizzaball))
 	{
 		state = states.gameover;
@@ -17,7 +17,7 @@ if (state == states.normal)
 else
 {
 	var ty = SCREEN_HEIGHT + sprite_height;
-	y = Approach(y, ty, 7);
+	y = approach(y, ty, 7);
 	if (instance_exists(obj_pizzaball))
 	{
 		state = states.normal;

@@ -61,11 +61,11 @@ function scr_pepperman_sounds()
 	}
 	if (state == states.mini)
 	{
-		shrinkstate = Approach(shrinkstate, 1, 0.05);
+		shrinkstate = approach(shrinkstate, 1, 0.05);
 	}
 	else
 	{
-		shrinkstate = Approach(shrinkstate, 0, 0.05);
+		shrinkstate = approach(shrinkstate, 0, 0.05);
 	}
 	with (obj_music)
 	{
@@ -244,11 +244,11 @@ function scr_pepperman_walk()
 {
 	if (grounded)
 	{
-		hsp = Approach(hsp, 0, 0.25);
+		hsp = approach(hsp, 0, 0.25);
 	}
 	if (grounded && vsp > 0 && sprite_index == spr_playerPM_panic && flickertime > 2)
 	{
-		hsp = Approach(hsp, 0, 0.5);
+		hsp = approach(hsp, 0, 0.5);
 		create_particle(x, y, particletypes.landcloud);
 		vsp = -5;
 		touchedground = true;
@@ -400,7 +400,7 @@ function scr_pepperman_freefallprep()
 
 function scr_pepperman_freefall()
 {
-	hsp = Approach(hsp, sign(targetspot.x - x) * 5, 0.2);
+	hsp = approach(hsp, sign(targetspot.x - x) * 5, 0.2);
 	if (hsp != 0)
 	{
 		image_xscale = sign(hsp);
@@ -727,11 +727,11 @@ function scr_pepperman_shoulderturn()
 {
 	if (sprite_index != spr_playerPM_machslideboost3)
 	{
-		attackspeed = Approach(attackspeed, 0, 0.5);
+		attackspeed = approach(attackspeed, 0, 0.5);
 	}
 	else
 	{
-		attackspeed = Approach(attackspeed, 0, 0.1);
+		attackspeed = approach(attackspeed, 0, 0.1);
 	}
 	hsp = image_xscale * attackspeed;
 	if (sprite_index == spr_playerPM_machslideboost3 && ANIMATION_END)
@@ -790,7 +790,7 @@ function scr_pepperman_mini()
 			{
 				move = sign(x - targetplayer.x);
 			}
-			hsp = Approach(hsp, move * 8, 0.5);
+			hsp = approach(hsp, move * 8, 0.5);
 			if (hsp != 0)
 			{
 				image_xscale = sign(hsp);

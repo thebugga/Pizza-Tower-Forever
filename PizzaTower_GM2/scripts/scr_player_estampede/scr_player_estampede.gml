@@ -21,7 +21,7 @@ function scr_player_estampede()
 	}
 	if (grounded && vsp > 0)
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 		if (sprite_index != spr_slipbanan2)
 		{
 			sprite_index = spr_slipbanan2;
@@ -30,10 +30,10 @@ function scr_player_estampede()
 	}
 	else if (move != 0)
 	{
-		movespeed = Approach(movespeed, move * 6, 0.5);
+		movespeed = approach(movespeed, move * 6, 0.5);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 }

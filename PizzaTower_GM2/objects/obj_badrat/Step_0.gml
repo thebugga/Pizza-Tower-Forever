@@ -113,7 +113,7 @@ if (state == states.pizzagoblinthrow)
 	}
 	else
 	{
-		hsp = Approach(hsp, 0, 0.2);
+		hsp = approach(hsp, 0, 0.2);
 		if (ANIMATION_END)
 		{
 			sprite_index = walkspr;

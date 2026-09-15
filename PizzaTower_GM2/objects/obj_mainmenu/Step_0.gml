@@ -161,7 +161,7 @@ switch (state)
 			currentselect = clamp(currentselect, 0, 2);
 			if (currentselect != visualselect && (sprite_index == spr_titlepep_left || sprite_index == spr_titlepep_middle || sprite_index == spr_titlepep_right))
 			{
-				visualselect = Approach(visualselect, currentselect, 1);
+				visualselect = approach(visualselect, currentselect, 1);
 				alarm[2] = showbuffer_max;
 				image_index = 0;
 				if (visualselect == 0 && sprite_index == spr_titlepep_middle)
@@ -401,7 +401,7 @@ if (optionbuffer > 0)
 }
 if (state != states.titlescreen && state != states.transitioncutscene)
 {
-	extrauialpha = Approach(extrauialpha, 1, 0.1);
+	extrauialpha = approach(extrauialpha, 1, 0.1);
 }
 if (currentselect != -1)
 {
@@ -410,10 +410,10 @@ if (currentselect != -1)
 	if (state != states.titlescreen && state != states.transitioncutscene)
 	{
 		var a = floor(abs(pep_percvisual - pep_game.percentage) / 10) + 1;
-		pep_percvisual = Approach(pep_percvisual, pep_game.percentage, a);
+		pep_percvisual = approach(pep_percvisual, pep_game.percentage, a);
 		pep_game.percvisual = pep_percvisual;
 		a = floor(abs(noise_percvisual - noise_game.percentage) / 10) + 1;
-		noise_percvisual = Approach(noise_percvisual, noise_game.percentage, a);
+		noise_percvisual = approach(noise_percvisual, noise_game.percentage, a);
 		noise_game.percvisual = noise_percvisual;
 	}
 }
@@ -433,13 +433,13 @@ else
 }
 if (shownoise)
 {
-	noise_alpha = Approach(noise_alpha, 1, acc);
-	pep_alpha = Approach(pep_alpha, 0, acc);
+	noise_alpha = approach(noise_alpha, 1, acc);
+	pep_alpha = approach(pep_alpha, 0, acc);
 }
 else
 {
-	noise_alpha = Approach(noise_alpha, 0, acc);
-	pep_alpha = Approach(pep_alpha, 1, acc);
+	noise_alpha = approach(noise_alpha, 0, acc);
+	pep_alpha = approach(pep_alpha, 1, acc);
 }
 if (currentselect != -1)
 {

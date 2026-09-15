@@ -1,4 +1,4 @@
-y = Approach(y, y_to, 2);
+y = approach(y, y_to, 2);
 x = xstart;
 if (y == y_to)
 {

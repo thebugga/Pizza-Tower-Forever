@@ -12,11 +12,11 @@ function scr_player_mortjump()
 	{
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, xscale * 8, 0.5);
+			movespeed = approach(movespeed, xscale * 8, 0.5);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 		}
 		if (movespeed <= 0)
 		{
@@ -25,7 +25,7 @@ function scr_player_mortjump()
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 	if (place_meeting(x + sign(hsp), y, obj_solid) && !place_meeting(x + sign(hsp), y, obj_slope))
 	{

@@ -38,8 +38,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_towerblock",
-    "path":"sprites/spr_towerblock/spr_towerblock.yy",
+    "name":"spr_bigdestroyable",
+    "path":"sprites/spr_bigdestroyable/spr_bigdestroyable.yy",
   },
   "spriteMaskId":null,
   "visible":true,

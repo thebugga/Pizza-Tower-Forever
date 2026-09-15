@@ -11,16 +11,16 @@ function scr_player_shotgunshoot()
 	{
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, 4, 0.25);
+			movespeed = approach(movespeed, 4, 0.25);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, -8, 0.2);
+			movespeed = approach(movespeed, -8, 0.2);
 		}
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.1);
+		movespeed = approach(movespeed, 0, 0.1);
 	}
 	if (character == characters.Noise)
 	{

@@ -4,7 +4,7 @@ if (state == states.transitioncutscene)
 	y -= movespeed;
 	if (abs(y - ty) < 200)
 	{
-		movespeed = Approach(movespeed, 1, 0.05);
+		movespeed = approach(movespeed, 1, 0.05);
 	}
 	if (abs(y - ty) < 16)
 	{
@@ -15,7 +15,7 @@ if (state == states.transitioncutscene)
 else if (state == states.fall)
 {
 	y += movespeed;
-	movespeed = Approach(movespeed, 8, 2);
+	movespeed = approach(movespeed, 8, 2);
 	if (y > (SCREEN_HEIGHT + sprite_height))
 	{
 		instance_destroy();

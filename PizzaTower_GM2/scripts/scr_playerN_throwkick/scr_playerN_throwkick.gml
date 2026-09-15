@@ -2,7 +2,7 @@ function scr_playerN_throwkick()
 {
 	hsp = -xscale * movespeed;
 	move = key_left + key_right;
-	movespeed = Approach(movespeed, 0, 0.2);
+	movespeed = approach(movespeed, 0, 0.2);
 	if (image_index > 4 && !bombthrow)
 	{
 		with (instance_create(x + (xscale * 20), y, obj_playerbomb))

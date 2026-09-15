@@ -95,11 +95,11 @@ function scr_vigilante_update_sounds()
 	}
 	if (state == states.duel)
 	{
-		songstate = Approach(songstate, 1, 0.05);
+		songstate = approach(songstate, 1, 0.05);
 	}
 	else
 	{
-		songstate = Approach(songstate, 0, 0.05);
+		songstate = approach(songstate, 0, 0.05);
 	}
 	with (obj_music)
 	{
@@ -359,7 +359,7 @@ function scr_vigilante_walk()
 	image_speed = 0.35;
 	if (grounded && vsp > 0 && sprite_index == spr_playerV_hurt && flickertime > 2)
 	{
-		hsp = Approach(hsp, 0, 1);
+		hsp = approach(hsp, 0, 1);
 		create_particle(x, y, particletypes.landcloud);
 		vsp = -5;
 		touchedground = true;
@@ -368,11 +368,11 @@ function scr_vigilante_walk()
 	{
 		if (place_meeting(x, y, obj_vigilantespot) && vsp > 0)
 		{
-			hsp = Approach(hsp, 0, 1);
+			hsp = approach(hsp, 0, 1);
 		}
 		else
 		{
-			hsp = Approach(hsp, 0, 1);
+			hsp = approach(hsp, 0, 1);
 		}
 	}
 	if (flickertime > 0 && place_meeting(x + hsp, y, obj_solid))
@@ -695,7 +695,7 @@ function scr_vigilante_jump()
 
 function scr_vigilante_wait()
 {
-	hsp = Approach(hsp, 0, 1);
+	hsp = approach(hsp, 0, 1);
 	if (sprite_index == spr_playerV_revolverend)
 	{
 		sprite_index = spr_playerV_revolverhold;
@@ -763,7 +763,7 @@ function scr_vigilante_estampede()
 function scr_vigilante_revolver()
 {
 	image_speed = 0.35;
-	hsp = Approach(hsp, 0, 1);
+	hsp = approach(hsp, 0, 1);
 	if (ANIMATION_END)
 	{
 		if (sprite_index == spr_playerV_revolverstart)
@@ -816,7 +816,7 @@ function scr_vigilante_do_reload(_reloadbuffer = 360)
 
 function scr_vigilante_dynamite()
 {
-	hsp = Approach(hsp, 0, 1);
+	hsp = approach(hsp, 0, 1);
 	if (ANIMATION_END)
 	{
 		if (!scr_vigilante_throw_dynamite())
@@ -828,7 +828,7 @@ function scr_vigilante_dynamite()
 
 function scr_vigilante_throwing()
 {
-	hsp = Approach(hsp, 0, 1);
+	hsp = approach(hsp, 0, 1);
 	if (throwbuffer > 0)
 	{
 		throwbuffer--;
@@ -849,7 +849,7 @@ function scr_vigilante_throwing()
 function scr_vigilante_reloading()
 {
 	image_speed = 0.35;
-	hsp = Approach(hsp, 0, 1);
+	hsp = approach(hsp, 0, 1);
 	if (reloadbuffer > 0)
 	{
 		reloadbuffer--;
@@ -1029,14 +1029,14 @@ function scr_vigilante_duel()
 		switch (duelphase)
 		{
 			case 0:
-				signy = Approach(signy, 0, s);
+				signy = approach(signy, 0, s);
 				if (signy >= 0)
 				{
 					duelbuffer--;
 				}
 				break;
 			case 1:
-				signy = Approach(signy, -sprite_get_height(signspr), s);
+				signy = approach(signy, -sprite_get_height(signspr), s);
 				if (obj_player1.character == characters.Peppino && signy <= -sprite_get_height(signspr))
 				{
 					duelbuffer = 80;
@@ -1060,7 +1060,7 @@ function scr_vigilante_duel()
 		}
 		if (duelphase == 2 && obj_player1.character == characters.Peppino && !_cheat)
 		{
-			signy = Approach(signy, 0, 20);
+			signy = approach(signy, 0, 20);
 		}
 	}
 	else

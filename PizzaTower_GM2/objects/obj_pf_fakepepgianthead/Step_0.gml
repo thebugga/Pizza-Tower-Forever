@@ -7,4 +7,4 @@ else if (image_xscale < 0 && x < -200)
 {
 	instance_destroy();
 }
-spd = Approach(spd, 7, 0.05);
+spd = approach(spd, 7, 0.05);

@@ -37,12 +37,12 @@ if (active)
 	{
 		depth = desireddepth;
 	}
-	alpha = Approach(alpha, 0, 0.05);
+	alpha = approach(alpha, 0, 0.05);
 }
 else
 {
 	depth = desireddepth;
-	alpha = Approach(alpha, 1, 0.05);
+	alpha = approach(alpha, 1, 0.05);
 }
 if (place_meeting(x, y, obj_baddie))
 {

@@ -25,11 +25,11 @@ function scr_player_slipnslide()
 		{
 			if (xscale == move)
 			{
-				movespeed = Approach(movespeed, 15, 0.4);
+				movespeed = approach(movespeed, 15, 0.4);
 			}
 			else
 			{
-				movespeed = Approach(movespeed, 0, 0.2);
+				movespeed = approach(movespeed, 0, 0.2);
 				if (movespeed == 0)
 				{
 					xscale = move;
@@ -38,7 +38,7 @@ function scr_player_slipnslide()
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.1);
+			movespeed = approach(movespeed, 0, 0.1);
 		}
 		if (scr_noise_machcancel_grab())
 		{

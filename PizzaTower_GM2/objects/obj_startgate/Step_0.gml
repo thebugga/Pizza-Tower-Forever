@@ -94,5 +94,5 @@ if (!drawing)
 }
 else
 {
-	bgalpha = Approach(bgalpha, 0, 0.1);
+	bgalpha = approach(bgalpha, 0, 0.1);
 }

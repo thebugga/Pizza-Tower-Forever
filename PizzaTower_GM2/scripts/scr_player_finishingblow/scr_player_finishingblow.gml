@@ -4,11 +4,11 @@ function scr_player_finishingblow()
 	move = key_right + key_left;
 	if (floor(image_index) < 4 && sprite_index != spr_swingdingend)
 	{
-		movespeed = Approach(movespeed, 0, 1);
+		movespeed = approach(movespeed, 0, 1);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, -xscale * 4, 0.5);
+		movespeed = approach(movespeed, -xscale * 4, 0.5);
 	}
 	if (ANIMATION_END)
 	{

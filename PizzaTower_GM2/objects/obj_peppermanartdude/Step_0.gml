@@ -2,11 +2,11 @@ if (fall == false)
 {
 	if (image_xscale == 1)
 	{
-		x = Approach(x, 64, 1);
+		x = approach(x, 64, 1);
 	}
 	if (image_xscale == -1)
 	{
-		x = Approach(x, room_width - 64, 1);
+		x = approach(x, room_width - 64, 1);
 	}
 }
 if (fall == true)

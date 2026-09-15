@@ -1,19 +1,24 @@
 with (obj_player1)
 {
-	state = states.actor;
-	sprite_index = spr_player_outofpizza1;
-	image_index = 0;
-	deathspeed = 10;
-	vsp = -12;
-	if (character == characters.Noise)
+	switch character
 	{
-		fmod_event_instance_set_parameter(snd_bossdeathN, "state", 0, true);
-		scr_fmod_soundeffect(snd_bossdeathN, x, y);
-		sprite_index = spr_playerN_bossdeath1;
-		targetvsp = vsp;
-		deathbuffer = 50;
-		vsp = -7;
-		deathspeed = 16;
+		default:
+			state = states.actor;
+			sprite_index = spr_player_outofpizza1;
+			image_index = 0;
+			deathspeed = 10;
+			vsp = -12;
+		break;
+		
+		case characters.Noise:
+			fmod_event_instance_set_parameter(snd_bossdeathN, "state", 0, true);
+			scr_fmod_soundeffect(snd_bossdeathN, x, y);
+			sprite_index = spr_playerN_bossdeath1;
+			targetvsp = vsp;
+			deathbuffer = 50;
+			vsp = -7;
+			deathspeed = 16;
+		break;
 	}
 }
 with (obj_playerbomb)

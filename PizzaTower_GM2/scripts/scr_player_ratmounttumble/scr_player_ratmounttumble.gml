@@ -6,7 +6,7 @@ function scr_player_ratmounttumble()
 	image_speed = -abs(movespeed) / 15;
 	if (!key_attack)
 	{
-		movespeed = Approach(movespeed, 0, 1);
+		movespeed = approach(movespeed, 0, 1);
 	}
 	if (scr_slope() && hsp != 0)
 	{

@@ -13,7 +13,7 @@ function scr_player_lungeattack()
 	else
 	{
 		image_speed = 0.35;
-		movespeed = Approach(movespeed, 0, 0.1);
+		movespeed = approach(movespeed, 0, 0.1);
 	}
 	if (key_slap2 && !supercharged)
 	{
@@ -97,20 +97,6 @@ function scr_player_lungeattack()
 			other.lungeattackID = id;
 		}
 	}
-}
-
-function randomize_animations(_array)
-{
-	if (ds_list_size(animlist) >= array_length(_array))
-	{
-		ds_list_clear(animlist);
-	}
-	sprite_index = _array[irandom(array_length(_array) - 1)];
-	while (ds_list_find_index(animlist, sprite_index) != -1)
-	{
-		sprite_index = _array[irandom(array_length(_array) - 1)];
-	}
-	ds_list_add(animlist, sprite_index);
 }
 
 function DoFinisher()

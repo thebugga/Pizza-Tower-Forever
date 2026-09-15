@@ -508,11 +508,11 @@ function scr_fakepepboss_walk()
 	{
 		if (grounded)
 		{
-			hsp = Approach(hsp, 0, 0.25);
+			hsp = approach(hsp, 0, 0.25);
 		}
 		if (grounded && vsp > 0 && flickertime > 2)
 		{
-			hsp = Approach(hsp, 0, 0.5);
+			hsp = approach(hsp, 0, 0.5);
 			create_particle(x, y, particletypes.landcloud);
 			vsp = -5;
 			touchedground = true;
@@ -525,7 +525,7 @@ function scr_fakepepboss_walk()
 	{
 		image_speed = 0.35;
 		var ix = sign(targetplayer.x - x);
-		hsp = Approach(hsp, ix * 8, 0.3);
+		hsp = approach(hsp, ix * 8, 0.3);
 		if (hsp != 0)
 		{
 			image_xscale = sign(hsp);
@@ -697,7 +697,7 @@ function scr_fakepepboss_deformed()
 
 function scr_fakepepboss_staggered()
 {
-	hsp = Approach(hsp, 0, 0.25);
+	hsp = approach(hsp, 0, 0.25);
 	cooldown = 0;
 	if (!instance_exists(dashcloudid))
 	{
@@ -759,7 +759,7 @@ function scr_fakepepboss_grabthrow()
 		x = other.x + (other.image_xscale * 20);
 		y = other.y;
 	}
-	hsp = Approach(hsp, 0, 1);
+	hsp = approach(hsp, 0, 1);
 	if (floor(image_index) >= 4 && playerID != noone)
 	{
 		playerID.invtime = 0;
@@ -834,7 +834,7 @@ function scr_fakepepboss_freefall()
 	if (sprite_index != spr_fakepeppino_bodyslamland && !bodyslam)
 	{
 		var t = sign(targetplayer.x - x);
-		hsp = Approach(hsp, t * spr_introasset2, 0.5);
+		hsp = approach(hsp, t * spr_introasset2, 0.5);
 		if (hsp != 0)
 		{
 			image_xscale = sign(hsp);

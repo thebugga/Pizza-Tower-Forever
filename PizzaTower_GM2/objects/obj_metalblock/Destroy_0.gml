@@ -1,13 +1,13 @@
 if (ds_list_find_index(global.saveroom, id) == -1)
 {
-	repeat (8)
+	for (var i = 0; i < 7; i++)
 	{
 		with (create_debris(x + random_range(0, 64), y + random_range(0, 64), spr_metalblockdebris, false))
 		{
 			hsp = random_range(-5, 5);
 			vsp = random_range(-10, 10);
 			image_speed = 0;
-			image_index = random_range(0, image_number - 1);
+			image_index = i;
 		}
 	}
 	scr_sleep(5);

@@ -16,9 +16,9 @@ with (obj_achievementviewer)
 }
 if (collision)
 {
-	alpha = Approach(alpha, 1, 0.1);
+	alpha = approach(alpha, 1, 0.1);
 }
 else
 {
-	alpha = Approach(alpha, 0, 0.1);
+	alpha = approach(alpha, 0, 0.1);
 }

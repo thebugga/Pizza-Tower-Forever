@@ -43,8 +43,8 @@ switch (state)
 	case states.turn:
 		sprite_index = spr_pepbat_move;
 		var dir = point_direction(x, y, xstart, ystart);
-		x = Approach(x, xstart, abs(lengthdir_x(5, dir)));
-		y = Approach(y, ystart, abs(lengthdir_y(5, dir)));
+		x = approach(x, xstart, abs(lengthdir_x(5, dir)));
+		y = approach(y, ystart, abs(lengthdir_y(5, dir)));
 		if (xstart != x)
 		{
 			image_xscale = sign(xstart - x);

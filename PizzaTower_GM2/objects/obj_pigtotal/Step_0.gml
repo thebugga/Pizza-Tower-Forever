@@ -9,7 +9,7 @@ switch (state)
 		}
 		break;
 	case states.transitioncutscene:
-		y = Approach(y, SCREEN_HEIGHT - 100, 6);
+		y = approach(y, SCREEN_HEIGHT - 100, 6);
 		if (y == (SCREEN_HEIGHT - 100))
 		{
 			state = states.animation;

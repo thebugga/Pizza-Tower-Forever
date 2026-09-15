@@ -18,7 +18,7 @@ if (place_meeting(x + sign(hsp), y, obj_solid))
 }
 if (dir != 0)
 {
-	anglespd = Approach(anglespd, 1, 0.2);
+	anglespd = approach(anglespd, 1, 0.2);
 	angle += (anglespd * -dir);
 	image_xscale = dir;
 	if (cooldown > 0)

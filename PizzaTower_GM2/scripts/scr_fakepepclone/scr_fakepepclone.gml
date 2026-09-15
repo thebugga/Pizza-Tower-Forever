@@ -63,7 +63,7 @@ function scr_fakepepclone_walk()
 {
 	image_speed = 0.35;
 	var ix = sign(targetplayer.x - x);
-	hsp = Approach(hsp, ix * 8, 0.3);
+	hsp = approach(hsp, ix * 8, 0.3);
 	if (hsp != 0)
 	{
 		image_xscale = sign(hsp);

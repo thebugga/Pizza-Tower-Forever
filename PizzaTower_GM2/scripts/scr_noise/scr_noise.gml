@@ -475,11 +475,11 @@ function scr_noise_walk()
 	}
 	if (grounded)
 	{
-		hsp = Approach(hsp, 0, 0.25);
+		hsp = approach(hsp, 0, 0.25);
 	}
 	if (grounded && vsp > 0 && sprite_index == spr_playerN_hurt && flickertime > 2)
 	{
-		hsp = Approach(hsp, 0, 0.5);
+		hsp = approach(hsp, 0, 0.5);
 		create_particle(x, y, particletypes.landcloud);
 		vsp = -5;
 		touchedground = true;
@@ -1115,11 +1115,11 @@ function scr_noise_drop()
 		sprite_index = spr_noisehotair;
 	}
 	var ix = sign(targetplayer.x - x);
-	hsp = Approach(hsp, ix * 7, 0.4);
+	hsp = approach(hsp, ix * 7, 0.4);
 	vsp = 0;
-	y = Approach(y, jetpack_ystart + jetpack_y, 3);
+	y = approach(y, jetpack_ystart + jetpack_y, 3);
 	var jy = jetpack_ydir * 16;
-	jetpack_y = Approach(jetpack_y, jy, 0.5);
+	jetpack_y = approach(jetpack_y, jy, 0.5);
 	if (jetpack_y == jy)
 	{
 		jetpack_ydir *= -1;
@@ -1403,7 +1403,7 @@ function scr_noise_fightball()
 				xscale = other.image_xscale;
 			}
 			hsp = 0;
-			x = Approach(x, room_width / 2, 10);
+			x = approach(x, room_width / 2, 10);
 			with (obj_player1)
 			{
 				x = other.x;
@@ -1423,10 +1423,10 @@ function scr_noise_fightball()
 			}
 			break;
 		case states.bump:
-			hsp = Approach(hsp, 0, 0.2);
+			hsp = approach(hsp, 0, 0.2);
 			with (obj_player1)
 			{
-				hsp = Approach(hsp, 0, 0.2);
+				hsp = approach(hsp, 0, 0.2);
 			}
 			if (introbuffer > 0)
 			{
@@ -1496,7 +1496,7 @@ function scr_noise_finale()
 				xscale = other.image_xscale;
 			}
 			hsp = 0;
-			x = Approach(x, room_width / 2, 10);
+			x = approach(x, room_width / 2, 10);
 			with (obj_player1)
 			{
 				x = other.x;
@@ -1516,10 +1516,10 @@ function scr_noise_finale()
 			}
 			break;
 		case states.bump:
-			hsp = Approach(hsp, 0, 0.2);
+			hsp = approach(hsp, 0, 0.2);
 			with (obj_player1)
 			{
-				hsp = Approach(hsp, 0, 0.2);
+				hsp = approach(hsp, 0, 0.2);
 			}
 			if (doise && cratebuffer > 0)
 			{

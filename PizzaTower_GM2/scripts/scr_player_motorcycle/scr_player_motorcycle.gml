@@ -3,11 +3,11 @@ function scr_player_motorcycle()
 	hsp = xscale * movespeed;
 	if (grounded || !jumped)
 	{
-		movespeed = Approach(movespeed, 13, 0.5);
+		movespeed = approach(movespeed, 13, 0.5);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 8, 0.5);
+		movespeed = approach(movespeed, 8, 0.5);
 	}
 	image_speed = 0.35;
 	if (grounded)

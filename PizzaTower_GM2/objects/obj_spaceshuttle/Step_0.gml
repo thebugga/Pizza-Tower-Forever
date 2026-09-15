@@ -19,7 +19,7 @@ else if (state == states.spaceshuttle)
 	x = hitX + irandom_range(-2, 2);
 	depth = -100;
 	sprite_index = spr_shuttlemove;
-	movespeed = Approach(movespeed, 10, 0.1);
+	movespeed = approach(movespeed, 10, 0.1);
 	y -= movespeed;
 	if (y < (camera_get_view_y(view_camera[0]) - 236) && !instance_exists(obj_spaceshuttlecutscene))
 	{

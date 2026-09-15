@@ -28,7 +28,7 @@ function scr_player_tackle()
 	else
 	{
 		invtime = 30;
-		movespeed = Approach(movespeed, 0, 0.1);
+		movespeed = approach(movespeed, 0, 0.1);
 		if (ANIMATION_END && grounded && vsp > 0)
 		{
 			state = states.normal;

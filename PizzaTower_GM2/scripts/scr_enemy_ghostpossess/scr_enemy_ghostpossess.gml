@@ -22,7 +22,7 @@ function scr_enemy_ghostpossess()
 		image_speed = 0.35;
 		if (_move != 0)
 		{
-			possess_movespeed = Approach(possess_movespeed, 6, 0.5);
+			possess_movespeed = approach(possess_movespeed, 6, 0.5);
 		}
 		else
 		{

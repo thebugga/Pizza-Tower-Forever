@@ -21,7 +21,7 @@ switch (state)
 			}
 			if (targetplayer.x > (x - 100) && targetplayer.x < (x + 100) && grounded)
 			{
-				hsp = Approach(hsp, 0, 0.5);
+				hsp = approach(hsp, 0, 0.5);
 				if (cooldown <= 0)
 				{
 					state = states.punch;
@@ -69,7 +69,7 @@ switch (state)
 		}
 		break;
 	case states.punch:
-		hsp = Approach(hsp, 0, 1);
+		hsp = approach(hsp, 0, 1);
 		if (!shot && floor(image_index) > 14)
 		{
 			if (!fmod_event_instance_is_playing(snd))

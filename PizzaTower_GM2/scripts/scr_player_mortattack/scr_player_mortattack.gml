@@ -6,8 +6,8 @@ function scr_player_mortattack()
 	{
 		if (instance_exists(mortprojectileID) && instance_exists(mortprojectileID.target) && mortprojectileID.target.object_index == obj_morthook)
 		{
-			targethsp = Approach(targethsp, 0, 0.8);
-			targetvsp = Approach(targetvsp, 0, 0.8);
+			targethsp = approach(targethsp, 0, 0.8);
+			targetvsp = approach(targetvsp, 0, 0.8);
 			hsp = targethsp;
 			vsp = targetvsp;
 		}
@@ -17,7 +17,7 @@ function scr_player_mortattack()
 			move = key_left + key_right;
 			if (move != 0)
 			{
-				movespeed = Approach(movespeed, move * 4, 0.1);
+				movespeed = approach(movespeed, move * 4, 0.1);
 			}
 		}
 		if (ANIMATION_END)

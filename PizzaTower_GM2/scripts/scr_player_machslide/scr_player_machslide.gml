@@ -11,9 +11,9 @@ function scr_player_machslide()
 	}
 	move = key_right + key_left;
 	if character != characters.Noise
-		movespeed = Approach(movespeed, 0, 0.4);
+		movespeed = approach(movespeed, 0, 0.4);
 	else	
-		movespeed = Approach(movespeed, 0, 0.2);
+		movespeed = approach(movespeed, 0, 0.2);
 	if (sprite_index == spr_machslidestart && ANIMATION_END)
 	{
 		sprite_index = spr_machslide;
@@ -30,10 +30,6 @@ function scr_player_machslide()
 			{
 				sprite_index = spr_mach3boostfall;
 			}
-		}
-		else
-		{
-			image_index = image_number - 1;
 		}
 	}
 	else

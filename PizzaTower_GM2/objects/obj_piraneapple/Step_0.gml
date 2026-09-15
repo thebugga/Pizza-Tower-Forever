@@ -9,7 +9,7 @@ switch (state)
 		}
 		if ((targetplayer.x > x && image_xscale < 0) || (targetplayer.x < x && image_xscale > 0))
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 			if (movespeed <= 0)
 			{
 				movespeed = 0;

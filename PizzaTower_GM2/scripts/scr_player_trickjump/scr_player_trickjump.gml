@@ -36,7 +36,7 @@ function scr_player_trickjump()
 	}
 	if (character == characters.Noise)
 	{
-		image_speed = Approach(image_speed, 0.4, 0.1);
+		image_speed = approach(image_speed, 0.4, 0.1);
 	}
 	if (grounded && ramp_buffer <= 0)
 	{

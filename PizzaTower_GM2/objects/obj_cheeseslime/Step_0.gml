@@ -2,21 +2,25 @@ if (snotty)
 {
 	usepalette = true;
 	paletteselect = 1;
+	walkspr = spr_slimemove;
 }
 else if (billythecondimentboy)
 {
 	usepalette = true;
 	paletteselect = 2;
+	walkspr = spr_carlmove;
 }
 else if (global.stylethreshold >= 2)
 {
 	usepalette = true;
 	paletteselect = 3;
+	walkspr = spr_slimemove;
 }
 else 
 {
 	usepalette = false;
 	paletteselect = 0;
+	walkspr = spr_slimemove;
 }
 switch (state)
 {
