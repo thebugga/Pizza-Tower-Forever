@@ -13,7 +13,7 @@ function scr_scareenemy()
 					sprite_index = scaredspr;
 					if (x != player.x)
 					{
-						image_xscale = -sign(x - player.x);
+						xscale = -sign(x - player.x);
 					}
 					scaredbuffer = 100;
 					if (irandom(100) <= 5)

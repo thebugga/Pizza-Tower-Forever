@@ -177,4 +177,12 @@ function scr_collide()
 	{
 		grounded = true;
 	}
+	if xscale != 0
+	{
+		xscale = round(xscale)
+	}
+	else
+	{
+		xscale = sign(xscale)
+	}
 }
