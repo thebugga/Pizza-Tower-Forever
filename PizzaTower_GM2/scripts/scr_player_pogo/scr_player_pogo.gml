@@ -1,4 +1,4 @@
-function scr_player_pogo()
+function player_pogo()
 {
 	move = key_left + key_right;
 	if (move == 0 && hsp != 0)
@@ -97,7 +97,7 @@ function scr_player_pogo()
 	}
 	if (!key_attack)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	image_speed = 0.35;
 	if (key_taunt2 && sprite_index != spr_playerN_pogobounce && sprite_index != spr_playerN_pogobouncemach)
@@ -106,7 +106,7 @@ function scr_player_pogo()
 		tauntstoredmovespeed = movespeed;
 		tauntstoredsprite = sprite_index;
 		tauntstoredstate = state;
-		state = states.backbreaker;
+		state = "backbreaker";
 		if (supercharged == true)
 		{
 			image_index = 0;

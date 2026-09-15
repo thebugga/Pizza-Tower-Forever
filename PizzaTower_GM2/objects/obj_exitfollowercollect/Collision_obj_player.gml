@@ -16,9 +16,9 @@ if (!other.ispeppino || global.swapmode)
 		if (other.object_index == obj_fakepepfollower)
 		{
 			use_palette = true;
-			spr_palette = spr_peppalette;
+			spr_palette = pal_peppino;
 			paletteselect = 1;
-			if (other.character == characters.Peppino)
+			if (other.character == "Peppino")
 			{
 				paletteselect = obj_player1.paletteselect;
 			}
@@ -36,7 +36,7 @@ if (!other.ispeppino || global.swapmode)
 			spr_palette = other.spr_palette;
 			oldpalettetexture = other.palettetexture;
 		}
-		if (t.state == states.machcancel && t.hsp != 0)
+		if (t.state == "machcancel" && t.hsp != 0)
 		{
 			image_xscale = -sign(hsp);
 		}

@@ -8,7 +8,7 @@ function scr_bombshoot(_state)
 		sprite_index = spr_playerN_noisebombkick;
 		fmod_event_one_shot_3d("event:/sfx/playerN/bombthrow", x, y);
 		savedgrounded = grounded;
-		state = states.bombthrow;
+		state = "bombthrow";
 		pistolcooldown = 50;
 		machslideAnim = false;
 		landAnim = false;
@@ -19,9 +19,9 @@ function scr_bombshoot(_state)
 		windingAnim = 0;
 		bombthrow = false;
 		jumpstop = true;
-		if (_state == states.mach2 || _state == states.mach3)
+		if (_state == "mach2" || _state == "mach3")
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 }

@@ -1,4 +1,4 @@
-if (buffer <= 0 && other.state != states.ghost)
+if (buffer <= 0 && other.state != "ghost")
 {
 	buffer = 50;
 	image_alpha = 0;
@@ -32,7 +32,7 @@ if (buffer <= 0 && other.state != states.ghost)
 		{
 			playerid = other.id;
 		}
-		state = states.trashroll;
+		state = "trashroll";
 		repeat (5)
 		{
 			with (create_debris(x, y, spr_graveyarddebris2, false))

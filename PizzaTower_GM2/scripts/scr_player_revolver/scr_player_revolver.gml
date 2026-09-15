@@ -1,4 +1,4 @@
-function scr_player_revolver()
+function player_revolver()
 {
 	hsp = xscale * movespeed;
 	landAnim = false;
@@ -33,7 +33,7 @@ function scr_player_revolver()
 	if (ANIMATION_END && sprite_index == spr_playerV_revolvershoot)
 	{
 		image_index = 0;
-		state = states.normal;
+		state = "default";
 		sprite_index = spr_playerV_revolverend;
 		movespeed = 2;
 	}
@@ -41,23 +41,23 @@ function scr_player_revolver()
 	{
 		if (key_attack && movespeed >= 6)
 		{
-			state = states.mach2;
+			state = "mach2";
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 	if (ANIMATION_END && sprite_index == spr_playerV_airrevolver)
 	{
 		if (key_attack && movespeed >= 6)
 		{
-			state = states.mach2;
+			state = "mach2";
 		}
 		else
 		{
 			image_index = 0;
-			state = states.normal;
+			state = "default";
 		}
 	}
 	image_speed = 0.4;

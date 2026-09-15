@@ -1,4 +1,4 @@
-if (state == states.punch)
+if (state == "punch")
 {
 	scr_hurtplayer(other);
 }

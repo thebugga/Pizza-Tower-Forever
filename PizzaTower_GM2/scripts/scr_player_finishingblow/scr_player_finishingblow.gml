@@ -1,4 +1,4 @@
-function scr_player_finishingblow()
+function player_finishingblow()
 {
 	hsp = movespeed;
 	move = key_right + key_left;
@@ -15,7 +15,7 @@ function scr_player_finishingblow()
 		movespeed = 0;
 		railmovespeed = 4;
 		raildir = -xscale;
-		state = states.normal;
+		state = "default";
 	}
 	if (floor(image_index) == 0 && !instance_exists(obj_swordhitbox))
 	{

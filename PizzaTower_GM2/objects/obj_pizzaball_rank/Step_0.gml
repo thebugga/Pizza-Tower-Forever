@@ -1,4 +1,4 @@
-if (state == states.transitioncutscene)
+if (state == "transitioncutscene")
 {
 	var ty = SCREEN_HEIGHT / 2;
 	y -= movespeed;
@@ -9,7 +9,7 @@ if (state == states.transitioncutscene)
 	if (abs(y - ty) < 16)
 	{
 		y = ty;
-		state = states.normal;
+		state = "default";
 	}
 }
 else if (state == states.fall)

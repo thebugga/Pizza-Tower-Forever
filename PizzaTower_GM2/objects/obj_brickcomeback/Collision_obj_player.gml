@@ -1,9 +1,9 @@
 if (!trapped)
 {
-	if (comeback == true && obj_player1.state != states.ratmountpunch && obj_player1.sprite_index != spr_lonegustavo_hurt && obj_player1.state != states.ratmountgroundpound)
+	if (comeback == true && obj_player1.state != "ratmountpunch" && obj_player1.sprite_index != spr_lonegustavo_hurt && obj_player1.state != "ratmountgroundpound")
 	{
 		other.brick = true;
-		if (other.state != states.ratmountcrouch && other.state != states.backbreaker && other.state != states.bump && other.state != states.ratmounthurt)
+		if (other.state != "ratmountcrouch" && other.state != "backbreaker" && other.state != "bump" && other.state != "ratmounthurt")
 		{
 			if (!other.grounded)
 			{
@@ -14,12 +14,12 @@ if (!trapped)
 				other.sprite_index = spr_player_ratmountidle;
 			}
 		}
-		if (other.state == states.ratmountjump)
+		if (other.state == "ratmountjump")
 		{
 			other.sprite_index = spr_player_ratmountfall;
 			other.jumpAnim = false;
 		}
-		else if (other.state == states.bump)
+		else if (other.state == "bump")
 		{
 			other.sprite_index = spr_player_ratmountbump;
 		}
@@ -27,7 +27,7 @@ if (!trapped)
 		instance_destroy();
 	}
 }
-else if (other.state == states.ratmountpunch && baddieID == noone)
+else if (other.state == "ratmountpunch" && baddieID == noone)
 {
 	fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
 	vsp = -6;

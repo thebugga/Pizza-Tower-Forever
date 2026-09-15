@@ -55,7 +55,7 @@ function scr_do_rank(_showtoppins = true, _isboss = false)
 			var currhats = _extrahats + _hats;
 			if (currhats >= maxhats && !global.bossplayerhurt)
 			{
-				_rank = characters.Peppino;
+				_rank = "Peppino";
 			}
 			else if (currhats >= (maxhats - 2))
 			{
@@ -159,11 +159,11 @@ function scr_do_rank(_showtoppins = true, _isboss = false)
 			}
 		}
 	}
-	obj_player1.state = states.door;
+	obj_player1.state = "door";
 	obj_player1.sprite_index = obj_player1.spr_lookdoor;
 	if (instance_exists(obj_player2))
 	{
-		obj_player2.state = states.door;
+		obj_player2.state = "door";
 		obj_player2.sprite_index = obj_player2.spr_lookdoor;
 		if (global.coopmode)
 		{

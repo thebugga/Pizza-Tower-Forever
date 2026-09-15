@@ -1,5 +1,5 @@
 
-if (other.state != states.gotoplayer)
+if (other.state != "gotoplayer")
 {
 	if (object_index != obj_escapecollect)
 	{

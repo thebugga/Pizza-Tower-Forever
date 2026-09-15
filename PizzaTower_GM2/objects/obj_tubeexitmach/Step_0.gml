@@ -1,4 +1,4 @@
-if (state == states.tube)
+if (state == "tube")
 {
 	if (floor(image_index) >= 6)
 	{
@@ -24,7 +24,7 @@ if (state == states.tube)
 				}
 			}
 			machhitAnim = false;
-			state = states.mach3;
+			state = "mach3";
 			if (movespeed < 14)
 			{
 				movespeed = 14;
@@ -44,7 +44,7 @@ if (state == states.tube)
 			with (other)
 			{
 				playerid = -1;
-				state = states.normal;
+				state = "default";
 			}
 		}
 	}

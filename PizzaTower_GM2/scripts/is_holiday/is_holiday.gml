@@ -13,7 +13,7 @@ function is_holiday(_holiday)
 	var found = false;
 	for (var i = 0; i < 3; i++)
 	{
-		if (global.game[i].judgement != "none" || global.gameN[i].judgement != "none")
+		if (global.game[i].judgement != "none")
 		{
 			found = true;
 			return true;

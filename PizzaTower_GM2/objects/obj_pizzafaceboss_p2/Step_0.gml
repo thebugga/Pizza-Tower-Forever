@@ -18,44 +18,44 @@ switch (state)
 	case states.pullinglevel:
 		boss_pizzahead_pullinglevel();
 		break;
-	case states.throwing:
+	case "throwing":
 		boss_pizzahead_throwing();
 		break;
 	case states.portraitthrow:
 		boss_pizzahead_portraitthrow();
 		break;
-	case states.shotgun:
+	case "shotgun":
 		boss_pizzahead_shotgun();
 		break;
-	case states.animation:
+	case "animation":
 		boss_pizzahead_pinup();
 		break;
 	case states.phase1hurt:
 		boss_pizzahead_p2_phase1hurt();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
 		scr_enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
 		scr_enemy_staggered();
 		break;
 }
-if (obj_player1.state != states.actor && obj_player1.y >= (y - 20) && obj_player1.state != states.animation && state != states.hit && state != states.stun && state != states.phase1hurt && hsp == 0 && state != states.fall)
+if (obj_player1.state != "actor" && obj_player1.y >= (y - 20) && obj_player1.state != "animation" && state != "hit" && state != states.stun && state != states.phase1hurt && hsp == 0 && state != states.fall)
 {
 	if ((x > (room_width / 2) && obj_player1.x >= (x - 60)) || (x <= (room_width / 2) && obj_player1.x <= (x + 60)))
 	{
 		with (obj_player)
 		{
-			if (state != states.tackle)
+			if (state != "tackle")
 			{
 				var ix = (x > (room_width / 2)) ? 1 : -1;
 				xscale = ix;
@@ -63,7 +63,7 @@ if (obj_player1.state != states.actor && obj_player1.y >= (y - 20) && obj_player
 				hsp = -xscale * 8;
 				movespeed = abs(hsp);
 				vsp = -7;
-				state = states.tackle;
+				state = "tackle";
 				grounded = false;
 				fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
 				instance_create(x, y, obj_bumpeffect);
@@ -150,7 +150,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

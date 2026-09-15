@@ -4,7 +4,7 @@ if (in_hudlessRoom || instance_exists(obj_tutorialbook))
 	exit;
 }
 hud_posY = hud_posY + Wave(-5, 5, 2, 20);
-if (obj_player.state != states.gameover)
+if (obj_player.state != "gameover")
 {
 	if (obj_player1.x < 250 && obj_player1.y < 169)
 	{

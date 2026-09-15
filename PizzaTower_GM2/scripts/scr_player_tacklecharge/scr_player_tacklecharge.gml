@@ -1,4 +1,4 @@
-function scr_player_tacklecharge()
+function player_tacklecharge()
 {
 	if (windingAnim < 2000)
 	{
@@ -52,7 +52,7 @@ function scr_player_tacklecharge()
 					other.flash = true;
 					x = other.x;
 					y = other.y;
-					state = states.hurt;
+					state = "hurt";
 					hsp = -image_xscale * 10;
 					vsp = -10;
 					alarm[8] = 60;
@@ -62,7 +62,7 @@ function scr_player_tacklecharge()
 			}
 		}
 		movespeed = 0;
-		state = states.bump;
+		state = "bump";
 		hsp = -2.5;
 		vsp = -3;
 		mach2 = 0;
@@ -74,27 +74,27 @@ function scr_player_tacklecharge()
 	if (key_down && grounded)
 	{
 		sprite_index = spr_crouchslip;
-		if (character == characters.Peppino)
+		if (character == "Peppino")
 		{
 			machhitAnim = false;
 		}
-		state = states.crouchslide;
+		state = "crouchslide";
 	}
 	if (!key_attack && move != xscale && grounded)
 	{
 		image_index = 0;
-		state = states.machslide;
+		state = "machslide";
 		sprite_index = spr_machslidestart;
 	}
 	if (move == -xscale && grounded)
 	{
 		image_index = 0;
-		state = states.machslide;
+		state = "machslide";
 		sprite_index = spr_machslideboost;
 	}
 	if (move == xscale && !key_attack && grounded)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (!instance_exists(dashcloudid) && grounded)
 	{

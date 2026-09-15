@@ -1,4 +1,4 @@
-if (state == states.normal && other.state != states.knightpep)
+if (state == "default" && other.state != "knightpep")
 {
 	scr_hurtplayer(other);
 }

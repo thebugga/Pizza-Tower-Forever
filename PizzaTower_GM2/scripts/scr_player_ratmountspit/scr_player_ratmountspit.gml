@@ -1,4 +1,4 @@
-function scr_player_ratmountspit()
+function player_ratmountspit()
 {
 	image_speed = 0.6;
 	hsp = 0;
@@ -9,7 +9,7 @@ function scr_player_ratmountspit()
 	}
 	if (ANIMATION_END)
 	{
-		state = states.ratmount;
+		state = "ratmount";
 		ratgrabbedID = noone;
 	}
 }

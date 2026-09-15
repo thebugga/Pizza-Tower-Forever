@@ -5,7 +5,7 @@ step = function()
 {
 	with (obj_player)
 	{
-		if (place_meeting(x, y, other) && state != states.superslam && state != states.chainsaw)
+		if (place_meeting(x, y, other) && state != "superslam" && state != "chainsaw")
 		{
 			other.piledriver = false;
 		}

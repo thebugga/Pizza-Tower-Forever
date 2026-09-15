@@ -7,7 +7,7 @@ function scr_enemy_pummel()
 	image_xscale = sign(_playerinst.x - x);
 	with (_playerinst)
 	{
-		if (state != states.pummel)
+		if (state != "pummel")
 		{
 			with (other)
 			{
@@ -30,7 +30,7 @@ function scr_enemy_pummel()
 				else
 				{
 					sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4);
-					state = states.tackle;
+					state = "tackle";
 					movespeed = 5;
 					image_index = 0;
 					other.state = states.stun;
@@ -51,7 +51,7 @@ function scr_enemy_pummel()
 			{
 				if (key_up)
 				{
-					state = states.punch;
+					state = "punch";
 					sprite_index = spr_breakdanceuppercut;
 					image_index = 0;
 					vsp = -14;
@@ -81,7 +81,7 @@ function scr_enemy_pummel()
 				{
 					vsp = -4;
 					movespeed = 9;
-					state = states.punch;
+					state = "punch";
 					sprite_index = spr_player_breakdancestart;
 					breakdance = 35;
 					image_index = 0;

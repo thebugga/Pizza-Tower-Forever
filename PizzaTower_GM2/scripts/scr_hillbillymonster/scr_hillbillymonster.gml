@@ -21,7 +21,7 @@ function scr_hillbilly_chase()
 	hsp = approach(hsp, image_xscale * movespeed, accel);
 	if (!distance_to_pos(x, y, playerinst.x, playerinst.y, threshold_idle_x, threshold_idle_y))
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (playerinst.x > (x - 16) && playerinst.x < (x + 16))
 	{
@@ -30,7 +30,7 @@ function scr_hillbilly_chase()
 	dir = (playerinst.x > x) ? 1 : -1;
 	if (dir != image_xscale && playerinst.x > (x - slide_threshold_x) && playerinst.x < (x + slide_threshold_x))
 	{
-		state = states.machslide;
+		state = "machslide";
 		hsp = image_xscale * movespeed;
 	}
 }

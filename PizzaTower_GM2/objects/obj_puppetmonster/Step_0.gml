@@ -35,11 +35,11 @@ switch (state)
 					}
 					else
 					{
-						substate = states.jump;
+						substate = "jump";
 					}
 				}
 				break;
-			case states.jump:
+			case "jump":
 				yy -= 3;
 				if (yy < -100)
 				{

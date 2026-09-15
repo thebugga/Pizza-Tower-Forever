@@ -2,7 +2,7 @@ function scr_switchgustavo(_setstate = true, _noisegloves = false)
 {
 	with (obj_player1)
 	{
-		if (character == characters.Peppino)
+		if (character == "Peppino")
 		{
 			ratmount_movespeed = 8;
 			gustavodash = 0;
@@ -10,7 +10,7 @@ function scr_switchgustavo(_setstate = true, _noisegloves = false)
 			if (_setstate)
 			{
 				visible = true;
-				state = states.ratmount;
+				state = "ratmount";
 				sprite_index = spr_player_ratmountidle;
 				jumpAnim = false;
 			}
@@ -26,14 +26,14 @@ function scr_switchgustavo(_setstate = true, _noisegloves = false)
 			{
 				visible = true;
 				jumpAnim = false;
-				state = states.normal;
+				state = "default";
 				sprite_index = spr_idle;
 				if (room == street_jail && !_noisegloves)
 				{
 					actor_buffer = 40;
 					sprite_index = spr_playerN_glovesstart;
 					image_index = 0;
-					state = states.animation;
+					state = "animation";
 				}
 			}
 		}
@@ -49,7 +49,7 @@ function scr_switchpeppino(_setstate = true)
 {
 	with (obj_player1)
 	{
-		if (character == characters.Peppino)
+		if (character == "Peppino")
 		{
 			gustavodash = 0;
 			ratmount_movespeed = 8;
@@ -60,7 +60,7 @@ function scr_switchpeppino(_setstate = true)
 			if (_setstate)
 			{
 				visible = true;
-				state = states.normal;
+				state = "default";
 				jumpAnim = false;
 				sprite_index = spr_player_idle;
 			}
@@ -74,7 +74,7 @@ function scr_switchpeppino(_setstate = true)
 				jumpAnim = false;
 				sprite_index = spr_idle;
 				visible = true;
-				state = states.normal;
+				state = "default";
 			}
 		}
 	}

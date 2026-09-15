@@ -4,7 +4,7 @@ character_name = "";
 bubble_spr = spr_computerbubble;
 background_spr = spr_pizzagrannytexture;
 
-savedstate = states.normal;
+savedstate = "default";
 dialog = noone;
 npcID = noone;
 

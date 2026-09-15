@@ -12,7 +12,7 @@ function scr_playerN_hookshot()
 		instance_create(x, y, obj_washingmachine);
 		sprite_index = spr_jump;
 		stompAnim = false;
-		state = states.jump;
+		state = "jump";
 		jumpAnim = true;
 		jumpstop = false;
 		image_index = 0;

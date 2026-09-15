@@ -1,4 +1,4 @@
-if (staggerbuffer <= 0 && flickertime <= 0 && ((other.state == states.handstandjump || other.instakillmove) && visible && (state == states.walk || (state == states.jump && sprite_index == spr_fakepeppino_bodyslamstart) || (state == states.freefall && sprite_index == spr_fakepeppino_bodyslamland) || (state == states.mach2 && attackspeed < 18) || state == states.Sjumpprep || (state == states.throwing && sprite_index != spr_fakepeppino_flailing))))
+if (staggerbuffer <= 0 && flickertime <= 0 && ((other.state == "handstandjump" || other.instakillmove) && visible && (state == states.walk || (state == "jump" && sprite_index == spr_fakepeppino_bodyslamstart) || (state == "freefall" && sprite_index == spr_fakepeppino_bodyslamland) || (state == "mach2" && attackspeed < 18) || state == "Sjumpprep" || (state == "throwing" && sprite_index != spr_fakepeppino_flailing))))
 {
 	if (subhp > 0)
 	{
@@ -49,22 +49,22 @@ if (staggerbuffer <= 0 && flickertime <= 0 && ((other.state == states.handstandj
 		fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 		image_index = 0;
 		movespeed = 4;
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
 			sprite_index = choose(spr_player_lungehit, spr_player_kungfu1, spr_player_kungfu2, spr_player_kungfu3);
 		}
 		else
 		{
-			if (state == states.machcancel && hsp != 0)
+			if (state == "machcancel" && hsp != 0)
 			{
 				xscale = sign(hsp);
 			}
 			sprite_index = choose(spr_playerN_backkick, spr_playerN_tackle);
 		}
-		state = states.tackle;
+		state = "tackle";
 	}
 }
-else if (state == states.freefall || (state == states.mach2 && attackspeed >= 18) || state == states.Sjump || (state == states.throwing && attackspeed > 4))
+else if (state == "freefall" || (state == "mach2" && attackspeed >= 18) || state == "Sjump" || (state == "throwing" && attackspeed > 4))
 {
 	if (other.flash)
 	{

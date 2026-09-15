@@ -30,7 +30,7 @@ else if (hooked)
 	y -= movespeed;
 	with (obj_player)
 	{
-		if (state == states.ladder && place_meeting(x, y, other))
+		if (state == "ladder" && place_meeting(x, y, other))
 		{
 			y -= 5;
 		}
@@ -41,7 +41,7 @@ else if (hooked)
 	}
 	with (obj_player1)
 	{
-		if (hooked && state == states.ladder && place_meeting(x, y, other))
+		if (hooked && state == "ladder" && place_meeting(x, y, other))
 		{
 			x = other.x + 16;
 			y = other.y + 40;

@@ -3,11 +3,11 @@ if (!instance_exists(_baddieID))
 {
 	exit;
 }
-if (_baddieID.state != states.grabbed && !_baddieID.invincible && _baddieID.hittable && _baddieID.state != states.ghostpossess)
+if (_baddieID.state != "grabbed" && !_baddieID.invincible && _baddieID.hittable && _baddieID.state != "ghostpossess")
 {
 	with (playerid)
 	{
-		if ((floor(image_index) < 4 || (global.attackstyle == 3 && image_index < 6)) && (state == states.lungeattack || state == states.handstandjump) && state != states.chainsaw && _baddieID.state != states.hit)
+		if ((floor(image_index) < 4 || (global.attackstyle == 3 && image_index < 6)) && (state == "lungeattack" || state == "handstandjump") && state != "chainsaw" && _baddieID.state != "hit")
 		{
 			var lag = 5;
 			var baddie_id = _baddieID.id;
@@ -19,7 +19,7 @@ if (_baddieID.state != states.grabbed && !_baddieID.invincible && _baddieID.hitt
 				{
 					hp -= 0.5;
 					instance_create(x, y, obj_bangeffect);
-					state = states.hit;
+					state = "hit";
 					image_xscale = -other.xscale;
 					hit_connected = true;
 					hithsp = ((other.x + ((other.movespeed + 0.5) * 60 * other.xscale)) - x) / 60;
@@ -40,9 +40,9 @@ if (_baddieID.state != states.grabbed && !_baddieID.invincible && _baddieID.hitt
 				lunge_hits++;
 				finisher_hits++;
 				lunge_hit_buffer = 100;
-				if (state == states.handstandjump)
+				if (state == "handstandjump")
 				{
-					state = states.lungeattack;
+					state = "lungeattack";
 					randomize_animations([spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_player_suplexmash5, spr_player_suplexmash6, spr_player_suplexmash7, spr_punch]);
 					image_index = 0;
 				}
@@ -50,7 +50,7 @@ if (_baddieID.state != states.grabbed && !_baddieID.invincible && _baddieID.hitt
 				tauntstoredsprite = sprite_index;
 				tauntstoredmovespeed = movespeed;
 				tauntstoredvsp = 0;
-				state = states.chainsaw;
+				state = "chainsaw";
 				hitLag = lag;
 				hitX = x;
 				if (hit_connected)

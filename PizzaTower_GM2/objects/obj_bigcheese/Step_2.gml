@@ -3,7 +3,7 @@ if (state == states.walk)
 {
 	image_speed = 0.25;
 }
-if (state == states.throwing)
+if (state == "throwing")
 {
 	image_speed = throwspeed;
 }

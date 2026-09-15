@@ -18,9 +18,9 @@ if (touched && sprite_index == spr_secretportal_close)
 		scale_xs = approach(scale_xs, 0, 0.05);
 		scale_ys = approach(scale_ys, 0, 0.05);
 		fallinganimation = 0;
-		if (state == states.mach2 || state == states.mach3)
+		if (state == "mach2" || state == "mach3")
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 	with (obj_heatafterimage)

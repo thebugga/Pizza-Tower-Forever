@@ -2,18 +2,18 @@ if (!other.grabbable)
 {
 	exit;
 }
-if (state != states.boxxedpepspin)
+if (state != "boxxedpepspin")
 {
-	if (state == states.handstandjump || state == states.lungeattack || state == states.punch)
+	if (state == "handstandjump" || state == "lungeattack" || state == "punch")
 	{
-		if (other.state == states.normal && scr_transformationcheck() && !cutscene && state != states.bombgrab && (state == states.handstandjump || state == states.punch || state == states.lungeattack))
+		if (other.state == "default" && scr_transformationcheck() && !cutscene && state != "bombgrab" && (state == "handstandjump" || state == "punch" || state == "lungeattack"))
 		{
-			state = states.bombgrab;
+			state = "bombgrab";
 			image_index = 0;
 			sprite_index = spr_haulingstart;
 			other.defused = true;
 			bombgrabID = other.id;
-			if (character == characters.Noise)
+			if (character == "Noise")
 			{
 				create_transformation_tip(lang_get_value("bombtipN"), "bombtipN");
 			}
@@ -26,7 +26,7 @@ if (state != states.boxxedpepspin)
 			}
 			with (other)
 			{
-				state = states.grabbed;
+				state = "grabbed";
 				playerid = other.id;
 			}
 		}

@@ -3,7 +3,7 @@ if (player_id == 2)
 {
 	my_player = obj_player2.id;
 }
-if (my_player.state != states.backbreaker && my_player.state != states.parry)
+if (my_player.state != "backbreaker" && my_player.state != "parry")
 {
 	instance_destroy();
 }

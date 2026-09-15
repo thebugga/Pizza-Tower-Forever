@@ -7,7 +7,7 @@ if (state == 1)
 	instance_destroy(obj_bazooka);
 	with (obj_player1)
 	{
-		state = states.actor;
+		state = "actor";
 	}
 	scr_monster_deactivate(false);
 }
@@ -20,18 +20,18 @@ else if (state == 2)
 	//y = 0
 	with (obj_player1)
 	{
-		state = states.animatronic;
+		state = "animatronic";
 		x = roomstartx;
 		y = roomstarty;
 		if (swap_player(false, true))
 		{
 			instance_destroy(obj_noiseanimatroniceffect);
-			state = states.normal;
+			state = "default";
 			with (obj_swapmodefollow)
 			{
 				animatronic = other.animatronic_buffer;
 			}
-			if character == characters.Peppino
+			if character == "Peppino"
 			{
 				instance_create(x, y, obj_noiseanimatroniceffect);
 			}

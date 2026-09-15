@@ -9,7 +9,7 @@ switch (state)
 		break;
 	case states.walk:
 		break;
-	case states.blockstance:
+	case "blockstance":
 		if (!instance_exists(playerid))
 		{
 			state = states.walk;
@@ -25,7 +25,7 @@ switch (state)
 		{
 			with (playerid)
 			{
-				if (state == states.taxi2)
+				if (state == "taxi2")
 				{
 					other.state = states.walk;
 				}
@@ -43,7 +43,7 @@ switch (state)
 					{
 						m = _xs;
 					}
-					if (!(state == states.machslide && sprite_index == spr_mach3boost))
+					if (!(state == "machslide" && sprite_index == spr_mach3boost))
 					{
 						hsp_carry = _xs * abs(m);
 					}
@@ -51,9 +51,9 @@ switch (state)
 					{
 						hsp_carry = -hsp;
 					}
-					if (state != states.bump && state != states.mach3 && state != states.mach2 && state != states.machslide && abs(x - other.x) > (dis + abs(movespeed) + 1))
+					if (state != "bump" && state != "mach3" && state != "mach2" && state != "machslide" && abs(x - other.x) > (dis + abs(movespeed) + 1))
 					{
-						state = states.bump;
+						state = "bump";
 						fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
 						sprite_index = spr_bump;
 						if (x != other.x)
@@ -75,25 +75,25 @@ switch (state)
 						flash = true;
 						fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
 					}
-					if (state == states.mach3 || (state == states.machslide && sprite_index == spr_mach3boost))
+					if (state == "mach3" || (state == "machslide" && sprite_index == spr_mach3boost))
 					{
 						launch = true;
 					}
-					if (state == states.machslide && sprite_index == spr_mach3boost && launch)
+					if (state == "machslide" && sprite_index == spr_mach3boost && launch)
 					{
 						movespeed -= 0.6;
 					}
-					if (state == states.mach3 && movespeed > 15)
+					if (state == "mach3" && movespeed > 15)
 					{
 						movespeed = 15;
 					}
 					freefallsmash = 0;
-					if (state == states.grind || state == states.climbwall || state == states.Sjumpprep || state == states.Sjump || state == states.Sjumpland || y < (other.y - 400))
+					if (state == "grind" || state == "climbwall" || state == "Sjumpprep" || state == "Sjump" || state == "Sjumpland" || y < (other.y - 400))
 					{
 						fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
 						vsp = -4;
 						hsp = -3 * xscale;
-						state = states.bump;
+						state = "bump";
 						sprite_index = spr_bump;
 						image_index = 0;
 					}
@@ -107,7 +107,7 @@ switch (state)
 					if (other.attract_player)
 					{
 						launched = false;
-						state = states.actor;
+						state = "actor";
 						hsp = 0;
 						vsp = 0;
 						movespeed = 0;
@@ -121,7 +121,7 @@ switch (state)
 						{
 							x = tx;
 							y = ty;
-							state = states.jump;
+							state = "jump";
 							other.attract_player = false;
 						}
 					}
@@ -172,7 +172,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -181,10 +181,10 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -193,7 +193,7 @@ switch (state)
 	case states.rage:
 		scr_enemy_rage();
 		break;
-	case states.ghostpossess:
+	case "ghostpossess":
 		scr_enemy_ghostpossess();
 		break;
 }
@@ -205,14 +205,14 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.walk && state != states.blockstance)
+if (state != states.walk && state != "blockstance")
 {
 	attract_player = false;
 }
 var _dis = 300;
-if (state == states.walk && obj_player1.isgustavo && !obj_player1.cutscene && obj_player1.state != states.spaceshuttle && obj_player1.state != states.taxi && ((distance_to_object(obj_player) < _dis && obj_player1.brick) || (distance_to_object(obj_brickcomeback) < _dis && instance_exists(obj_brickcomeback) && !obj_brickcomeback.trapped) || distance_to_object(obj_brickball) < _dis))
+if (state == states.walk && obj_player1.isgustavo && !obj_player1.cutscene && obj_player1.state != states.spaceshuttle && obj_player1.state != "taxi" && ((distance_to_object(obj_player) < _dis && obj_player1.brick) || (distance_to_object(obj_brickcomeback) < _dis && instance_exists(obj_brickcomeback) && !obj_brickcomeback.trapped) || distance_to_object(obj_brickball) < _dis))
 {
-	state = states.blockstance;
+	state = "blockstance";
 	sprite_index = spr_hamkuff_chain1;
 	var x1 = obj_player1.x;
 	var y1 = obj_player1.y;
@@ -251,7 +251,7 @@ if (state == states.walk && obj_player1.isgustavo && !obj_player1.cutscene && ob
 		fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
 		brick = false;
 		sprite_index = spr_lonegustavo_idle;
-		state = states.ratmount;
+		state = "ratmount";
 	}
 }
 if (state != states.stun)
@@ -262,7 +262,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

@@ -1,4 +1,4 @@
-state = states.titlescreen;
+state = "titlescreen";
 stick = false;
 vsp = 0;
 depth = 0;

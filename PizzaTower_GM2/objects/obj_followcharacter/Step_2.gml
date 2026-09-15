@@ -7,7 +7,7 @@ if (followid != noone && !instance_exists(obj_player1))
 	exit;
 }
 playerid = obj_player1.id;
-if (playerid.state != states.ladder && playerid.state != states.door && playerid.state != states.comingoutdoor)
+if (playerid.state != "ladder" && playerid.state != "door" && playerid.state != "comingoutdoor")
 {
 	if (space < maxspace && dir == -1)
 	{

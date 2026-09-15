@@ -226,7 +226,7 @@ switch (state)
 		{
 			with (obj_player)
 			{
-				state = states.titlescreen;
+				state = "titlescreen";
 			}
 			room_goto(init_obj_room);
 		}

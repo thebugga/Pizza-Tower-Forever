@@ -1,4 +1,4 @@
-function scr_player_debugstate()
+function player_debugstate()
 {
 	visible = true;
 	image_blend = c_white;
@@ -24,6 +24,6 @@ function scr_player_debugstate()
 	if (key_jump || key_slap2)
 	{
 		angle = 0
-		state = states.normal;
+		state = "default";
 	}
 }

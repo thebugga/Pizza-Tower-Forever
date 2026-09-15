@@ -1,4 +1,4 @@
-function scr_player_faceplant()
+function player_faceplant()
 {
 	hsp = xscale * movespeed;
 	move = key_right + key_left;
@@ -14,7 +14,7 @@ function scr_player_faceplant()
 		if (_bump)
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/splat", x, y);
-			state = states.bump;
+			state = "bump";
 			image_index = 0;
 			sprite_index = spr_wallsplat;
 		}
@@ -23,13 +23,13 @@ function scr_player_faceplant()
 	if (ANIMATION_END && !key_attack && !key_slap)
 	{
 		image_speed = 0.35;
-		state = states.normal;
+		state = "default";
 	}
 	
 	if (ANIMATION_END && key_attack && !key_slap)
 	{
 		image_speed = 0.35;
-		state = states.mach3;
+		state = "mach3";
 		sprite_index = spr_mach4
 		movespeed = 14;
 	}
@@ -38,7 +38,7 @@ function scr_player_faceplant()
 	{
 		sprite_index = spr_crouchslip;
 		machhitAnim = false;
-		state = states.tumble;
+		state = "tumble";
 		movespeed = 12;
 		crouchslipbuffer = 23;
 	}

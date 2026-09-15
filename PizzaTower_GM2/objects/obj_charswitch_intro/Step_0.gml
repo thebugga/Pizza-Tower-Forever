@@ -1,13 +1,13 @@
 switch (state)
 {
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		if (ANIMATION_END)
 		{
-			state = states.normal;
+			state = "default";
 			introbuffer = 50;
 		}
 		break;
-	case states.normal:
+	case "default":
 		if (introbuffer > 0)
 		{
 			introbuffer--;

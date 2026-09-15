@@ -21,7 +21,7 @@ steppybuffer = 0;
 
 get_character_spr = function()
 {
-	var palinfo = character == characters.Peppino ? get_pep_palette_info() : get_noise_palette_info();
+	var palinfo = character == "Peppino" ? get_pep_palette_info() : get_noise_palette_info();
 	paletteselect = palinfo.paletteselect;
 	patterntexture = palinfo.patterntexture;
 	taunttimer = 0;
@@ -30,9 +30,9 @@ get_character_spr = function()
 	instance_destroy(tauntID);
 	tauntID = noone;
 	scr_characterspr();
-	if (character == characters.Peppino)
+	if (character == "Peppino")
 	{
-		spr_palette = spr_peppalette;
+		spr_palette = pal_peppino;
 		spr_idle = spr_player_idle;
 		spr_move = spr_player_move;
 		spr_air = spr_player_flyingfollower;
@@ -54,7 +54,7 @@ get_character_spr = function()
 	}
 	else
 	{
-		spr_palette = spr_peppaletteN;
+		spr_palette = pal_noiseplayer;
 		spr_idle = spr_playerN_idle;
 		spr_move = spr_playerN_move;
 		spr_air = spr_playerN_doublejump;

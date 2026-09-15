@@ -15,7 +15,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -24,7 +24,7 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
 }
@@ -40,7 +40,7 @@ if (state == states.walk)
 {
 	state = states.charge;
 }
-if (hitboxcreate == false && state == states.charge && obj_player.state != states.mach3)
+if (hitboxcreate == false && state == states.charge && obj_player.state != "mach3")
 {
 	hitboxcreate = true;
 	with (instance_create(x, y, obj_forkhitbox))
@@ -56,7 +56,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

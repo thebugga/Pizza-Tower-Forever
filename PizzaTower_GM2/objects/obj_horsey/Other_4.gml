@@ -1,12 +1,12 @@
 var flag = false;
 if (ds_list_find_index(global.baddieroom, id) != -1)
 {
-	state = states.finishingblow;
+	state = "finishingblow";
 	flag = true;
 }
 else if (ds_list_find_index(global.saveroom, id) != -1)
 {
-	state = states.gameover;
+	state = "gameover";
 	flag = true;
 }
 if (flag)

@@ -1,8 +1,8 @@
-function scr_player_mortattack()
+function player_mortattack()
 {
 	image_speed = 0.45;
 	hsp = movespeed;
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		if (instance_exists(mortprojectileID) && instance_exists(mortprojectileID.target) && mortprojectileID.target.object_index == obj_morthook)
 		{
@@ -25,17 +25,17 @@ function scr_player_mortattack()
 			image_index = image_number - 1;
 		}
 	}
-	if ((character == characters.Peppino && ANIMATION_END) || (character == characters.Noise && !instance_exists(mortprojectileID)))
+	if ((character == "Peppino" && ANIMATION_END) || (character == "Noise" && !instance_exists(mortprojectileID)))
 	{
 		if (grounded && vsp > 0)
 		{
-			state = states.mort;
+			state = "mort";
 			sprite_index = spr_playermortidle;
 			landAnim = false;
 		}
 		else
 		{
-			state = states.mortjump;
+			state = "mortjump";
 			sprite_index = spr_playermortjump;
 		}
 	}

@@ -1,4 +1,4 @@
-if obj_player.character == characters.Noise// || obj_player.character == characters.Doise
+if obj_player.character == "Noise"// || obj_player.character == characters.Doise
 {
 	instance_destroy();
 	exit;

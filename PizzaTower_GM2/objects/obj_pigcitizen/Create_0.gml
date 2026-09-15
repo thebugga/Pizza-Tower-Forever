@@ -1,4 +1,4 @@
-state = states.normal;
+state = "default";
 male = true;
 randombuffer = 80 + irandom(40);
 movespeed = 0;

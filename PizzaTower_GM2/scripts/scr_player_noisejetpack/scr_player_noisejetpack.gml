@@ -1,4 +1,4 @@
-function scr_player_noisejetpack()
+function player_noisejetpack()
 {
 	hsp = xscale * movespeed;
 	move = key_left + key_right;
@@ -37,15 +37,15 @@ function scr_player_noisejetpack()
 	{
 		sprite_index = spr_bodyslamstart;
 		image_index = 0;
-		state = states.freefallprep;
-		vsp = (character == characters.Peppino) ? -5 : -7;
+		state = "freefallprep";
+		vsp = (character == "Peppino") ? -5 : -7;
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.normal;
+		state = "default";
 		if (movespeed >= 12)
 		{
-			state = states.mach3;
+			state = "mach3";
 			sprite_index = spr_dashpadmach;
 			image_index = 0;
 		}

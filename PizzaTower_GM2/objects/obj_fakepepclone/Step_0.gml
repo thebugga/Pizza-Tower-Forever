@@ -2,7 +2,7 @@ targetplayer = obj_player1.id;
 mask_index = spr_player_mask;
 switch (state)
 {
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		scr_fakepepclone_transitioncutscene();
 		break;
 	case states.walk:
@@ -14,29 +14,29 @@ switch (state)
 	case states.grabthrow:
 		scr_fakepepboss_grabthrow();
 		break;
-	case states.jump:
+	case "jump":
 		scr_fakepepboss_jump();
 		break;
-	case states.freefall:
+	case "freefall":
 		scr_fakepepboss_freefall();
 		break;
-	case states.mach2:
+	case "mach2":
 		scr_fakepepboss_mach2();
 		break;
-	case states.Sjumpprep:
+	case "Sjumpprep":
 		scr_fakepepclone_Sjumpprep();
 		break;
-	case states.Sjump:
+	case "Sjump":
 		scr_fakepepclone_Sjump();
 		break;
-	case states.throwing:
+	case "throwing":
 		scr_fakepepclone_throwing();
 		break;
-	case states.backbreaker:
+	case "backbreaker":
 		scr_fakepepboss_backbreaker();
 		break;
 }
-if (state == states.Sjump)
+if (state == "Sjump")
 {
 	if (!instance_exists(hitboxID))
 	{
@@ -48,15 +48,15 @@ if (state == states.Sjump)
 		}
 	}
 }
-if ((state == states.grabdash || (state == states.mach2 && attackspeed >= 10) || (state == states.throwing && sprite_index == spr_fakepeppino_flailing) || state == states.freefall) && alarm[0] == -1)
+if ((state == states.grabdash || (state == "mach2" && attackspeed >= 10) || (state == "throwing" && sprite_index == spr_fakepeppino_flailing) || state == "freefall") && alarm[0] == -1)
 {
 	alarm[0] = 10;
-	if (state == states.freefall)
+	if (state == "freefall")
 	{
 		alarm[0] = 5;
 	}
 }
-if (state == states.jump)
+if (state == "jump")
 {
 	grav = 0.4;
 }

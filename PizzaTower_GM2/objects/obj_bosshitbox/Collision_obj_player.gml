@@ -1,4 +1,4 @@
-if (parryable && other.state == states.backbreaker && other.parry_inst != noone)
+if (parryable && other.state == "backbreaker" && other.parry_inst != noone)
 {
 	exit;
 }

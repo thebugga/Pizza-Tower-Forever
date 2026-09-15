@@ -1,4 +1,4 @@
-function scr_player_cheeseballclimbwall()
+function player_cheeseballclimbwall()
 {
 	hsp = 0;
 	vsp = -wallspeed;
@@ -8,7 +8,7 @@ function scr_player_cheeseballclimbwall()
 		image_index = 0;
 		movespeed = 0;
 		cheesepeptimer = 2;
-		state = states.cheesepepjump;
+		state = "cheesepepjump";
 		sprite_index = spr_cheesepepfall;
 		repeat (8)
 		{
@@ -24,7 +24,7 @@ function scr_player_cheeseballclimbwall()
 		}
 		instance_create(x, y, obj_jumpdust);
 		vsp = 0;
-		state = states.cheeseball;
+		state = "cheeseball";
 		movespeed = wallspeed;
 		hsp = xscale * movespeed;
 	}
@@ -32,7 +32,7 @@ function scr_player_cheeseballclimbwall()
 	{
 		vsp = -6;
 		movespeed = 6;
-		state = states.cheeseball;
+		state = "cheeseball";
 		repeat (4)
 		{
 			create_debris(x + (xscale * 30), y + random_range(-8, 8), spr_slimedebris);

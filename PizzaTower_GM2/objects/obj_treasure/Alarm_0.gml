@@ -8,13 +8,13 @@ scr_savescore(namestring);
 if (!instance_exists(obj_endlevelfade))
     instance_create(x, y, obj_endlevelfade);
 
-obj_player1.state = states.door;
+obj_player1.state = "door";
 obj_player1.sprite_index = obj_player1.spr_lookdoor;
 obj_player1.image_index = 0;
 
 if (instance_exists(obj_player2)) 
 {
-    obj_player2.state = states.door;
+    obj_player2.state = "door";
     obj_player2.sprite_index = obj_player2.spr_lookdoor;
     obj_player2.image_index = 0;
 }

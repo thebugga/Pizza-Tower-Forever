@@ -1,4 +1,4 @@
-function scr_player_stringfling()
+function player_stringfling()
 {
 	sprite_index = spr_mrpinch;
 	hsp = move * movespeed;

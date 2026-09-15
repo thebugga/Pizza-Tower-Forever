@@ -8,5 +8,5 @@ instance_destroy(obj_pigtotal);
 instance_destroy(obj_swapmodefollow);
 with (obj_player)
 {
-	state = states.titlescreen;
+	state = "titlescreen";
 }

@@ -1,4 +1,4 @@
-if (state != states.parry && state != states.backbreaker)
+if (state != "parry" && state != "backbreaker")
 {
 	exit;
 }
@@ -12,10 +12,10 @@ with (other)
 	}
 	spd = _maxhsp * _dir;
 }
-if (state != states.parry)
+if (state != "parry")
 {
 	sprite_index = parryspr;
 	movespeed = 8;
-	state = states.parry;
+	state = "parry";
 	image_index = 0;
 }

@@ -36,7 +36,7 @@ function scr_blob_fall()
 	if (grounded)
 	{
 		changeside_buffer = 20;
-		state = states.normal;
+		state = "default";
 	}
 }
 
@@ -62,6 +62,6 @@ function scr_blob_chase()
 	if (place_meeting(x + hsp, y, obj_solid) && !scr_slope() && grounded)
 	{
 		image_xscale *= -1;
-		state = states.normal;
+		state = "default";
 	}
 }

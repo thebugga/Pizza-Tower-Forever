@@ -4,26 +4,26 @@ switch (state)
 		add_y += 8;
 		if (add_y >= 0)
 		{
-			state = states.transitioncutscene;
+			state = "transitioncutscene";
 			y += 20;
 		}
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		y = approach(y, SCREEN_HEIGHT - 100, 6);
 		if (y == (SCREEN_HEIGHT - 100))
 		{
-			state = states.animation;
+			state = "animation";
 			buffer = 1;
 		}
 		break;
-	case states.animation:
+	case "animation":
 		if (global.pigtotal_add > 0)
 		{
 			global.pigtotal_add--;
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 		}
 		break;
 }

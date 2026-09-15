@@ -20,7 +20,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -31,7 +31,7 @@ switch (state)
 		image_alpha = 1;
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		image_alpha = 1;
 		scr_enemy_grabbed();
 		break;
@@ -55,7 +55,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

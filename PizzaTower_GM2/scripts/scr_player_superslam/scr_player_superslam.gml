@@ -1,4 +1,4 @@
-function scr_player_superslam()
+function player_superslam()
 {
 	if (vsp > 0)
 	{
@@ -42,7 +42,7 @@ function scr_player_superslam()
 				playerid = other.id;
 				maxmovespeed = 6;
 				vertical = true;
-				fadeoutstate = states.superslam;
+				fadeoutstate = "superslam";
 			}
 		}
 	}
@@ -98,7 +98,7 @@ function scr_player_superslam()
 		{
 			with (obj_baddie)
 			{
-				if (shakestun && grounded && point_in_camera(x, y, view_camera[0]) && grounded && vsp > 0 && !invincible && groundpound && state != states.grabbed)
+				if (shakestun && grounded && point_in_camera(x, y, view_camera[0]) && grounded && vsp > 0 && !invincible && groundpound && state != "grabbed")
 				{
 					state = states.stun;
 					if (stunned < 60)
@@ -131,7 +131,7 @@ function scr_player_superslam()
 	if (sprite_index == spr_piledriverland && ANIMATION_END)
 	{
 		vsp = -6;
-		state = states.jump;
+		state = "jump";
 	}
 	if (move != 0)
 	{
@@ -152,7 +152,7 @@ function scr_player_superslam()
 	{
 		movespeed -= 0.1;
 	}
-	if (character == characters.Noise && move != 0)
+	if (character == "Noise" && move != 0)
 	{
 		xscale = move;
 	}

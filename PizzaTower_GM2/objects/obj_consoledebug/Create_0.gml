@@ -55,7 +55,7 @@
 //{
 //	with (obj_player)
 //	{
-//		state = states.debugstate;
+//		state = "debugstate";
 //	}
 //});
 //create_command("EDITOR", [], function()
@@ -69,20 +69,20 @@
 //});
 //create_command("CHANGE_CHARACTER", [["_PEPPINO", "THE NOISE", "PEPPERMAN", "THE DOISE", "THE VIGILANTE", "SHOBON"]], function(_bool)
 //{
-//	var _char_enum = characters.Peppino
+//	var _char_enum = "Peppino"
 //	switch (_bool)
 //	{
 //		case "_PEPPINO":
-//			_char_enum = characters.Peppino
+//			_char_enum = "Peppino"
 //		break;
 //		case "THE NOISE":
-//			_char_enum = characters.Noise
+//			_char_enum = "Noise"
 //		break;
 //		case "THE VIGILANTE":
 //			_char_enum = characters.Vigilante
 //		break;
 //		case "PEPPERMAN":
-//			_char_enum = characters.Pepperman
+//			_char_enum = "Pepperman"
 //		break;
 //		case "THE DOISE":
 //			_char_enum = characters.Doise

@@ -6,7 +6,7 @@ if (instance_exists(ID))
 			y = ID.y - 20;
 			break;
 		case obj_gustavograbbable:
-			if (ID.state == states.grabbed)
+			if (ID.state == "grabbed")
 			{
 				instance_destroy();
 			}

@@ -1,9 +1,9 @@
 var _x = x;
 var _y = y;
-if (obj_player1.state == states.arenaintro)
+if (obj_player1.state == "arenaintro")
 {
 	var _sprite = spr_player_levelcomplete;
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		_sprite = spr_playerN_levelcomplete;
 	}
@@ -129,7 +129,7 @@ if (sprite_index == spr_playerN_doublejump && ANIMATION_END)
 if (animatronic > 0)
 {
 	animatronic--;
-	if (character == characters.Peppino && animatronic == 0)
+	if (character == "Peppino" && animatronic == 0)
 	{
 		with (instance_create(x, y, obj_peshinodebris))
 		{
@@ -196,14 +196,14 @@ if (spr != noone)
 		y -= 10;
 	}
 }
-if (instance_exists(obj_backtohub_fadeout) || (obj_player1.state == states.backtohub && obj_player1.y < camera_get_view_y(view_camera[0])))
+if (instance_exists(obj_backtohub_fadeout) || (obj_player1.state == "backtohub" && obj_player1.y < camera_get_view_y(view_camera[0])))
 {
 	visible = false;
 	usable = false;
 }
 if (instance_exists(obj_bosscontroller))
 {
-	if ((obj_player1.state == states.actor && obj_player1.sprite_index != spr_noise_duelend) || obj_player1.state == states.taxi || obj_player1.state == states.phase1hurt)
+	if ((obj_player1.state == "actor" && obj_player1.sprite_index != spr_noise_duelend) || obj_player1.state == "taxi" || obj_player1.state == states.phase1hurt)
 	{
 		is_visible = false;
 		visible = false;

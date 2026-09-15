@@ -16,7 +16,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -25,10 +25,10 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.actor:
+	case "actor":
 		hsp = 0;
 		if (anim_buffer > 0)
 		{
@@ -59,7 +59,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
@@ -76,7 +76,7 @@ if ((sprite_index == spr_archergoblin_shoot || sprite_index == spr_archergoblin_
 {
 	image_xscale = -sign(x - targetplayer.x);
 }
-if (x != targetplayer.x && targetplayer.state != states.bombpep && state != states.actor && state != states.pizzagoblinthrow && bombreset == 0 && grounded)
+if (x != targetplayer.x && targetplayer.state != "bombpep" && state != "actor" && state != states.pizzagoblinthrow && bombreset == 0 && grounded)
 {
 	if ((targetplayer.x > (x - 200) && targetplayer.x < (x + 200)) && (y <= (targetplayer.y + 200) && y >= (targetplayer.y - 200)))
 	{
@@ -93,7 +93,7 @@ if (x != targetplayer.x && targetplayer.state != states.bombpep && state != stat
 			if (!obj_player1.ispeppino && !provoked)
 			{
 				sprite_index = spr_archergoblin_wave;
-				state = states.actor;
+				state = "actor";
 				anim_buffer = 100;
 			}
 			provoked = false;

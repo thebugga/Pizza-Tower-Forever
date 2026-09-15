@@ -1,2 +1,2 @@
-state = states.normal;
+state = "default";
 hurtbounce = 0;

@@ -1,11 +1,11 @@
-function scr_player_ratmount()
+function player_ratmount()
 {
 	if (global.swapmode && key_attack && key_fightball && ratmount_movespeed >= 12 && !instance_exists(obj_swapmodegrab) && !instance_exists(obj_swapdeatheffect) && !instance_exists(obj_noiseanimatroniceffect) && obj_swapmodefollow.animatronic <= 0)
 	{
 		sprite_index = spr_fightball;
 		jump_p2 = false;
 		instance_create_unique(x, y, obj_swapgusfightball);
-		state = states.mach3;
+		state = "mach3";
 		movespeed = abs(hsp);
 		if (movespeed < 12)
 		{
@@ -39,7 +39,7 @@ function scr_player_ratmount()
 			if (_bump)
 			{
 				fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
-				state = states.bump;
+				state = "bump";
 				if (brick)
 				{
 					sprite_index = spr_player_ratmountbump;
@@ -83,7 +83,7 @@ function scr_player_ratmount()
 		if (abs(movespeed) > 2 && abs(hsp) > 2 && grounded)
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/backslide", x, y);
-			state = states.ratmountskid;
+			state = "ratmountskid";
 			movespeed = abs(movespeed);
 		}
 	}
@@ -228,7 +228,7 @@ function scr_player_ratmount()
 			}
 		}
 	}
-	if (input_buffer_jump > 0 && can_jump && gusdashpadbuffer == 0 && state != states.ratmountskid)
+	if (input_buffer_jump > 0 && can_jump && gusdashpadbuffer == 0 && state != "ratmountskid")
 	{
 		input_buffer_jump = 0;
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
@@ -255,13 +255,13 @@ function scr_player_ratmount()
 		}
 		image_index = 0;
 		jumpAnim = true;
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		vsp = -11;
 		jumpstop = false;
 	}
 	if (!grounded)
 	{
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		jumpAnim = false;
 		if (ratmount_movespeed >= 12)
 		{
@@ -295,7 +295,7 @@ function scr_player_ratmount()
 	{
 		input_buffer_slap = 0;
 		ratmount_kickbrick();
-		if (state == states.ratmountskid)
+		if (state == "ratmountskid")
 		{
 			movespeed = -movespeed;
 			hsp = movespeed;
@@ -316,7 +316,7 @@ function scr_player_ratmount()
 		brick = false;
 		ratmountpunchtimer = 25;
 		gustavohitwall = false;
-		state = states.ratmountpunch;
+		state = "ratmountpunch";
 		image_index = 0;
 		if (move != 0)
 		{
@@ -335,7 +335,7 @@ function scr_player_ratmount()
 	}
 	if ((key_down && grounded && vsp > 0 && gusdashpadbuffer <= 0) || scr_solid(x, y))
 	{
-		state = states.ratmountcrouch;
+		state = "ratmountcrouch";
 		if (brick = true)
 		{
 			with (instance_create(x, y, obj_brickcomeback))
@@ -355,7 +355,7 @@ function scr_player_ratmount()
 
 function ratmount_dotaunt()
 {
-	if (key_taunt2 && state != states.backbreaker && brick && gusdashpadbuffer == 0)
+	if (key_taunt2 && state != "backbreaker" && brick && gusdashpadbuffer == 0)
 	{
 		notification_push(notifications.taunted, [room]);
 		tauntstoredisgustavo = true;
@@ -365,7 +365,7 @@ function ratmount_dotaunt()
 		tauntstoredsprite = sprite_index;
 		tauntstoredstate = state;
 		tauntstoredvsp = vsp;
-		state = states.backbreaker;
+		state = "backbreaker";
 		if (!supercharged || !key_up)
 		{
 			scr_create_parryhitbox();
@@ -395,14 +395,14 @@ function ratmount_kickbrick()
 	fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x + (image_xscale * _pad), y);
 	with (instance_create(x + (image_xscale * _pad), y, obj_brickball))
 	{
-		if (other.state == states.ratmountjump || other.state == states.ratmountbounce)
+		if (other.state == "ratmountjump" || other.state == "ratmountbounce")
 		{
 			up = true;
 		}
 		image_xscale = other.xscale;
 		xoffset = _pad;
 	}
-	state = states.ratmountgroundpound;
+	state = "ratmountgroundpound";
 	sprite_index = spr_lonegustavo_kick;
 	image_index = 0;
 	image_speed = 0.35;

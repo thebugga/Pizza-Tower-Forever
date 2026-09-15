@@ -24,7 +24,7 @@ if (obj_player1.ispeppino && !global.swapmode)
 {
 	instance_destroy();
 }
-if ((target == obj_player1.id && (obj_player1.state == states.slipnslide || obj_player1.state == states.trashjump)) || room == rank_room)
+if ((target == obj_player1.id && (obj_player1.state == "slipnslide" || obj_player1.state == "trashjump")) || room == rank_room)
 {
 	visible = false;
 }

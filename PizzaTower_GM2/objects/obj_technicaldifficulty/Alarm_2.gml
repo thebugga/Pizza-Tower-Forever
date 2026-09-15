@@ -3,11 +3,11 @@ with (playerid)
 {
 	if (!isgustavo)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	else
 	{
-		state = states.ratmount;
+		state = "ratmount";
 	}
 	visible = true;
 }

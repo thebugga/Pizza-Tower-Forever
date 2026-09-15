@@ -1,2 +1,2 @@
-chosenstate = states.tackle;
+chosenstate = "tackle";
 escape = true;

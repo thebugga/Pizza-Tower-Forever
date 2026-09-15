@@ -23,7 +23,7 @@ if (sprite_index != spr_rankNPend && sprite_index != spr_rankNPendstart)
 {
 	if (global.collect >= global.collectN)
 	{
-		if (obj_player1.character == characters.Peppino)
+		if (obj_player1.character == "Peppino")
 		{
 			if (global.rank == "s")
 			{
@@ -91,7 +91,7 @@ if (brown)
 	}
 	switch (toppin_state)
 	{
-		case states.jump:
+		case "jump":
 			if (brownfade < 1)
 			{
 				break;
@@ -115,23 +115,23 @@ if (brown)
 					fmod_event_one_shot_3d("event:/sfx/misc/toppingot", room_width / 2, room_height / 2);
 				}
 				toppin_y[toppin_index] = yy;
-				toppin_state = states.transitioncutscene;
+				toppin_state = "transitioncutscene";
 				brown = true;
 			}
 			break;
-		case states.transitioncutscene:
+		case "transitioncutscene":
 			toppin_yscale[toppin_index] = approach(toppin_yscale[toppin_index], 1, 0.1);
 			if (toppin_yscale[toppin_index] == 1)
 			{
 				toppin_index++;
 				if (toppin_index >= array_length(toppin))
 				{
-					toppin_state = states.normal;
+					toppin_state = "default";
 					alarm[3] = 40;
 				}
 				else
 				{
-					toppin_state = states.jump;
+					toppin_state = "jump";
 				}
 			}
 			break;

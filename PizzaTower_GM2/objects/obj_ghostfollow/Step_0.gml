@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.normal:
+	case "default":
 		if (!locked)
 		{
 			targetplayer = global.coopmode ? instance_nearest(x, y, obj_player) : obj_player1;
@@ -103,8 +103,8 @@ switch (state)
 				image_alpha = other.image_alpha;
 				if (image_alpha >= 1)
 				{
-					state = states.normal;
-					other.state = states.normal;
+					state = "default";
+					other.state = "default";
 					other.image_alpha = other.start_alpha;
 				}
 			}

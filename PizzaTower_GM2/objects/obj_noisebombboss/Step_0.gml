@@ -10,7 +10,7 @@ switch (state)
 			state = states.land;
 		}
 		break;
-	case states.normal:
+	case "default":
 		hsp = image_xscale * 6;
 		if (ANIMATION_END)
 		{
@@ -42,7 +42,7 @@ switch (state)
 		vsp = 0;
 		if (floor(image_index) >= 5)
 		{
-			state = states.normal;
+			state = "default";
 			vsp = -5;
 		}
 		break;

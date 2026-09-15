@@ -256,7 +256,7 @@ function toggle_hitboxes_function()
 	///commands[arrayi++] = "room_goto [roomname] [targetdoor]"
 	function sh_noclip() 
 	{
-		obj_player1.state = states.debugstate
+		obj_player1.state = "debugstate"
 	}
 	function meta_noclip() 
 	{	
@@ -277,17 +277,17 @@ function toggle_hitboxes_function()
 #region Switch Char
 	function sh_switch_char(args) 
 	{
-		var _char_enum = characters.Peppino
+		var _char_enum = "Peppino"
 		switch (args[1])
 		{
 			case "PEPPINO":
-				_char_enum = characters.Peppino
+				_char_enum = "Peppino"
 			break;
 			case "THE_NOISE":
-				_char_enum = characters.Noise
+				_char_enum = "Noise"
 			break;
 			case "PEPPERMAN":
-				_char_enum = characters.Pepperman
+				_char_enum = "Pepperman"
 			break;
 			//case "THE_VIGILANTE":
 			//	_char_enum = characters.Vigilante

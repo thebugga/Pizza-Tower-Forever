@@ -1,6 +1,6 @@
-if (other.state != states.handstandjump && !hasgrabbed)
+if (other.state != "handstandjump" && !hasgrabbed)
 {
-	if (other.state != states.knightpep && other.state != states.knightpepbump)
+	if (other.state != "knightpep" && other.state != "knightpepbump")
 	{
 		scr_hurtplayer(other);
 	}

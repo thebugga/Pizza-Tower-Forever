@@ -1,7 +1,7 @@
 var _found = false;
 with (obj_frontcanongoblin)
 {
-	if (state != states.gameover)
+	if (state != "gameover")
 	{
 		_found = true;
 	}
@@ -20,7 +20,7 @@ if (!active && !_found)
 		{
 			destroyed = false;
 			captain_sprite = 2196;
-			state = states.normal;
+			state = "default";
 		}
 	}
 	with (obj_frontcanongoblin_trigger)
@@ -32,11 +32,11 @@ else if (!start)
 {
 	with (obj_frontcanongoblin)
 	{
-		if (state != states.gameover && !destroyed)
+		if (state != "gameover" && !destroyed)
 		{
 			destroyed = false;
 			destroybuffer = 50;
-			state = states.gameover;
+			state = "gameover";
 			captain_sprite = spr_captaingoblin_end;
 			canon_sprite = spr_captaingoblin_canon;
 			captain_index = 0;

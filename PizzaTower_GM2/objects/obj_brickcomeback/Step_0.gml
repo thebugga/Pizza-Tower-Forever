@@ -5,7 +5,7 @@ if (obj_player.isgustavo == false)
 }
 if (!trapped)
 {
-	if (obj_player1.state == states.ratmountgrind || obj_player1.state == states.ratmountladder || obj_player1.state == states.ratmountcrouch)
+	if (obj_player1.state == "ratmountgrind" || obj_player1.state == "ratmountladder" || obj_player1.state == "ratmountcrouch")
 	{
 		wait = true;
 		sprite_index = spr_lonebrick_wait;

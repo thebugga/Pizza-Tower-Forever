@@ -7,7 +7,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_white);
 draw_set_alpha(1);
-if (state == states.titlescreen || (state == states.transitioncutscene && dark))
+if (state == "titlescreen" || (state == "transitioncutscene" && dark))
 {
 	draw_sprite(spr_menudark, 0, 0, 0);
 }
@@ -27,7 +27,7 @@ if (instance_exists(obj_fadeout))
 	draw_set_color(c_white);
 }
 draw_set_alpha(1);
-if (state == states.bombdelete)
+if (state == "bombdelete")
 {
 	draw_set_alpha(0.5);
 	draw_rectangle_color(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);

@@ -11,9 +11,9 @@ with (obj_bosskeyspawn)
 	{
 		with (obj_player1)
 		{
-			if (state == states.arenaintro)
+			if (state == "arenaintro")
 			{
-				state = states.normal;
+				state = "default";
 				isgustavo = false;
 			}
 		}
@@ -27,7 +27,7 @@ with (obj_bosskeyspawn)
 	{
 		with (other)
 		{
-			state = states.victory;
+			state = "victory";
 			with (obj_hpeffect)
 			{
 				spd = 16;

@@ -24,17 +24,12 @@ if (currentselect != -1)
 {
 	pal = global.game[currentselect].palette;
 	tex = global.game[currentselect].palettetexture;
-	if (shownoise && showswap)
-	{
-		pal = global.gameN[currentselect].palette_player2;
-		tex = global.gameN[currentselect].palettetexture_player2;
-	}
 }
 if (tex != noone)
 {
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, tex);
 }
-pal_swap_set(spr_peppalette, pal, false);
+pal_swap_set(pal_peppino, pal, false);
 if (!pep_debris)
 {
 	draw_sprite_ext(sprite_index, image_index, _x, _y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
@@ -142,10 +137,6 @@ var dal = 1;
 if (currentselect != -1)
 {
 	var _game = global.game[currentselect];
-	if (shownoise)
-	{
-		_game = global.gameN[currentselect];
-	}
 	if (!_game.started)
 	{
 		dal = 0.5;

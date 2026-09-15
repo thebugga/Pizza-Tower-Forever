@@ -1,4 +1,4 @@
-function scr_player_ejected()
+function player_ejected()
 {
 	sprite_index = spr_deathend;
 	if (vsp < 20)
@@ -19,7 +19,7 @@ function scr_player_ejected()
 			landAnim = false;
 			instance_create(x, y, obj_fadeout);
 			targetRoom = lastroom;
-			state = states.normal;
+			state = "default";
 			global.seconds = 20;
 			obj_camera.ded = false;
 		}
@@ -29,7 +29,7 @@ function scr_player_ejected()
 			{
 				landAnim = false;
 				targetRoom = lastroom;
-				state = states.normal;
+				state = "default";
 				global.seconds = 20;
 				obj_camera.ded = false;
 			}

@@ -1,4 +1,4 @@
-function scr_player_stringjump()
+function player_stringjump()
 {
 	hsp = xscale * movespeed;
 	move = key_left + key_right;
@@ -27,14 +27,14 @@ function scr_player_stringjump()
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.normal;
+		state = "default";
 		landAnim = true;
 		sprite_index = spr_land;
 		create_particle(x, y, particletypes.landcloud, 0);
 	}
 }
 
-function scr_player_stringfall()
+function player_stringfall()
 {
 	if (instance_exists(stringid))
 	{

@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_player_shoulderbash",
+  "%Name":"scr_pattern_utilities",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_player_shoulderbash",
+  "name":"scr_pattern_utilities",
   "parent":{
-    "name":"States",
-    "path":"folders/Scripts/Player/States.yy",
+    "name":"Utility",
+    "path":"folders/Scripts/Utility.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

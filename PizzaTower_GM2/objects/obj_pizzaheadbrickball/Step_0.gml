@@ -5,7 +5,7 @@ if (!instance_exists(obj_pizzafaceboss_p2))
 }
 switch (state)
 {
-	case states.normal:
+	case "default":
 		hsp = image_xscale * movespeed;
 		if (scr_solid(x, y + 1) && vsp > 0)
 		{
@@ -19,7 +19,7 @@ switch (state)
 			instance_create(x, y, obj_bangeffect);
 			sprite_index = spr_lonebrick_hurt;
 			cbspeed = 0;
-			state = states.transitioncutscene;
+			state = "transitioncutscene";
 			comeback = false;
 			vsp = -5;
 			hsp = -image_xscale * 4;
@@ -32,7 +32,7 @@ switch (state)
 		}
 		scr_collide();
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		if (!comeback)
 		{
 			x += hsp;

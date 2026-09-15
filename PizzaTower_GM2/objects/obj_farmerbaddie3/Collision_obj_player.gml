@@ -2,14 +2,14 @@ if (state == states.charge)
 {
 	with (other)
 	{
-		if (state != states.gameover && state != states.rideweenie && state != states.gotoplayer)
+		if (state != "gameover" && state != "rideweenie" && state != "gotoplayer")
 		{
 			var _pindex = (object_index == obj_player1) ? 0 : 1;
 			GamepadSetVibration(_pindex, 1, 1, 0.85);
-			if (state != states.fireass)
+			if (state != "fireass")
 			{
 			}
-			state = states.fireass;
+			state = "fireass";
 			vsp = -25;
 			sprite_index = spr_fireass;
 			image_index = 0;

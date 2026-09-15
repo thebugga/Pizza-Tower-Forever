@@ -55,7 +55,7 @@ if (!pizza && (highscore > 0 || (boss && hats > 0)) && bbox_in_camera(view_camer
 			extrahats = ini_read_real("Extrahats", other.level, 0);
 			switch (other.rank)
 			{
-				case characters.Peppino:
+				case "Peppino":
 					rank_index = 5;
 					break;
 				case "s":

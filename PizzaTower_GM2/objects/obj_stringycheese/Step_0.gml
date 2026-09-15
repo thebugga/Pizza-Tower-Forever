@@ -2,7 +2,7 @@ targetplayer = instance_nearest(x, y, obj_player);
 image_speed = 0.35;
 switch (state)
 {
-	case states.normal:
+	case "default":
 		hand_xscale = (drawhandx < x) ? 1 : -1;
 		idlebuffer = 0;
 		spr_hand = spr_mrpinch_hand1;
@@ -34,7 +34,7 @@ switch (state)
 			playerid = instance_place(handx, handy, obj_player);
 			with (playerid)
 			{
-				if (state == states.cheeseball)
+				if (state == "cheeseball")
 				{
 					repeat (3)
 					{
@@ -42,7 +42,7 @@ switch (state)
 					}
 				}
 			}
-			if (playerid.state != states.hook)
+			if (playerid.state != "hook")
 			{
 				launch_hsp = sign(playerid.hsp) * 3;
 				launch_vsp = -20;
@@ -50,14 +50,14 @@ switch (state)
 				vsp = 10;
 				with (playerid)
 				{
-					if (state == states.trashjump || state == states.trashstart)
+					if (state == "trashjump" || state == states.trashstart)
 					{
 						create_debris(x, y, spr_player_trashlid);
 					}
 					tauntstoredstate = state;
 					tauntstoredmovespeed = movespeed;
 					tauntstoredsprite = sprite_index;
-					state = states.stringfall;
+					state = "stringfall";
 					stringid = other.id;
 					movespeed = hsp;
 					other.previousx = x;
@@ -71,32 +71,32 @@ switch (state)
 						movespeeddeccel = 0.5;
 					}
 				}
-				state = states.hook;
+				state = "hook";
 			}
 		}
 		break;
-	case states.hook:
+	case "hook":
 		sprite_index = spr_mrpinch_face2;
 		spr_hand = spr_mrpinch_hand2;
 		handx = playerid.x;
 		handy = playerid.y;
 		drawhandx = handx;
 		drawhandy = handy;
-		if (handy < (y - 200) || playerid.state == states.tube)
+		if (handy < (y - 200) || playerid.state == "tube")
 		{
-			state = states.normal;
+			state = "default";
 			with (playerid)
 			{
-				if (state == states.stringfall)
+				if (state == "stringfall")
 				{
-					if (tauntstoredstate == states.cheesepepjump)
+					if (tauntstoredstate == "cheesepepjump")
 					{
-						state = states.cheesepepjump;
+						state = "cheesepepjump";
 					}
 					else
 					{
 						sprite_index = spr_machfreefall;
-						state = states.jump;
+						state = "jump";
 					}
 				}
 			}
@@ -105,13 +105,13 @@ switch (state)
 		drawhandx = handx;
 		drawhandy = handy;
 		hand_xscale = playerid.xscale;
-		if (playerid.state != states.tube)
+		if (playerid.state != "tube")
 		{
 			with (playerid)
 			{
 				sprite_index = spr_mrpinch;
 				stringid = other.id;
-				state = states.stringfall;
+				state = "stringfall";
 				if (grounded && vsp > 0)
 				{
 					hsp_carry = sign(other.x - x) * 4;
@@ -124,7 +124,7 @@ switch (state)
 				{
 					if (y > (other.y + (other.maxhandlen / 2)) && vsp >= 0)
 					{
-						other.state = states.hookshot;
+						other.state = "hookshot";
 						other.shootbuffer = 60;
 						other.launch_dir = point_direction(0, 0, other.launch_hsp, other.launch_vsp);
 						stringid = other.id;
@@ -147,19 +147,19 @@ switch (state)
 				other.previousy = y;
 				if (other.idlebuffer > 60)
 				{
-					other.state = states.normal;
+					other.state = "default";
 					other.shootbuffer = 20;
 					other.idlebuffer = 0;
-					state = states.normal;
+					state = "default";
 				}
 			}
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 		}
 		break;
-	case states.hookshot:
+	case "hookshot":
 		sprite_index = spr_mrpinch_face2;
 		hand_index = spr_mrpinch_hand2;
 		hand_xscale = playerid.xscale;
@@ -191,17 +191,17 @@ switch (state)
 				momemtum = true;
 				jumpstop = true;
 				sprite_index = spr_machfreefall;
-				state = states.jump;
+				state = "jump";
 				with (other)
 				{
-					state = states.transitioncutscene;
+					state = "transitioncutscene";
 					shootbuffer = 80;
 				}
 				notification_push(notifications.touched_mrpinch, [room, other.id, id]);
 			}
 		}
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		hand_xscale = 1;
 		spr_hand = spr_mrpinch_hand3;
 		sprite_index = spr_mrpinch_face3;
@@ -215,7 +215,7 @@ switch (state)
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 			shootbuffer = 30;
 		}
 		break;

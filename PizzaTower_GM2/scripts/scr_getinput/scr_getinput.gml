@@ -58,7 +58,7 @@ function scr_mach_check_dive()
 
 function scr_check_dive()
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		return scr_check_groundpound2();
 	}
@@ -260,10 +260,10 @@ function scr_getinput()
 	}
 	if (object_index == obj_player1)
 	{
-		if (state == states.Sjumpprep || state == states.crouch || state == states.ratmountcrouch || state == states.machcancel)
+		if (state == "Sjumpprep" || state == "crouch" || state == "ratmountcrouch" || state == "machcancel")
 		{
 			var in, dz;
-			if (state == states.Sjumpprep)
+			if (state == "Sjumpprep")
 			{
 				in = tdp_input_get("player_upC");
 				dz = global.gamepad_deadzone_superjump;
@@ -296,7 +296,7 @@ function scr_getinput()
 								inverted_axis = gamepad_axis_value(_dvc, gp_axisrv);
 								break;
 						}
-						if (other.state == states.Sjumpprep)
+						if (other.state == "Sjumpprep")
 						{
 							if (axis_value <= (-0.8 + dz) && (axis_value != 0 || inverted_axis != 0))
 							{

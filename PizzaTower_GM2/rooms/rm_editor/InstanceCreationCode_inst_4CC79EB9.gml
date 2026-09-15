@@ -1,6 +1,6 @@
 ID = 0;
 depth = -500;
-state = states.normal;
+state = "default";
 var _menu1 =
 [
 	["New", function()

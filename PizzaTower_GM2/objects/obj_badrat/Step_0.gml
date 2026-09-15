@@ -13,16 +13,16 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
 		scr_enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -31,13 +31,13 @@ switch (state)
 	case states.rage:
 		scr_enemy_rage();
 		break;
-	case states.ghostpossess:
+	case "ghostpossess":
 		scr_enemy_ghostpossess();
 		break;
 	case states.pizzaheadjump:
 		scr_enemy_pizzaheadjump();
 		break;
-	case states.bump:
+	case "bump":
 		sprite_index = spr_badrat_stun;
 		if (grounded && vsp > 0)
 		{
@@ -144,7 +144,7 @@ if (place_meeting(x, y, obj_canonexplosion))
 	instance_destroy();
 }
 scr_scareenemy();
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

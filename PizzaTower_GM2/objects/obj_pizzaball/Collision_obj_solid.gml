@@ -6,7 +6,7 @@ with (obj_magnet)
 		_magnet = true;
 	}
 }
-if (!_magnet && state != states.golf && state != states.hit && state != states.grabbed && bigcheeseID == noone)
+if (!_magnet && state != "golf" && state != "hit" && state != "grabbed" && bigcheeseID == noone)
 {
 	x = obj_player1.x;
 	y = obj_player1.y;

@@ -13,7 +13,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -22,13 +22,13 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
 	case states.chase:
 		scr_enemy_chase();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -112,7 +112,7 @@ else
 {
 	fmod_event_instance_stop(snd, true);
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
@@ -130,7 +130,7 @@ if (boundbox == false)
 		other.boundbox = true;
 	}
 }
-if (state != states.chase && state != states.hit)
+if (state != states.chase && state != "hit")
 {
 	invincible = false;
 }

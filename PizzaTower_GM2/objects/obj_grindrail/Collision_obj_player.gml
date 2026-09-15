@@ -1,8 +1,8 @@
-if (!other.ignore_grind && (other.state != states.tumble || (other.sprite_index != other.spr_tumble && other.sprite_index != other.spr_tumblestart && other.sprite_index != other.spr_tumbleend)) && other.state != states.backbreaker && other.state != states.chainsaw && other.state != states.bump && other.y > other.yprevious && ((!other.isgustavo && (other.ispeppino || !other.noisecrusher) && other.y <= (y + 10)) || ((other.isgustavo || other.noisecrusher) && other.y < y)))
+if (!other.ignore_grind && (other.state != "tumble" || (other.sprite_index != other.spr_tumble && other.sprite_index != other.spr_tumblestart && other.sprite_index != other.spr_tumbleend)) && other.state != "backbreaker" && other.state != "chainsaw" && other.state != "bump" && other.y > other.yprevious && ((!other.isgustavo && (other.ispeppino || !other.noisecrusher) && other.y <= (y + 10)) || ((other.isgustavo || other.noisecrusher) && other.y < y)))
 {
 	if (!other.isgustavo && (other.ispeppino || !other.noisecrusher))
 	{
-		if (other.state == states.punch)
+		if (other.state == "punch")
 		{
 			other.movespeed = abs(other.hsp);
 		}
@@ -13,7 +13,7 @@ if (!other.ignore_grind && (other.state != states.tumble || (other.sprite_index 
 		{
 			offset_y += dif;
 		}
-		if (other.state == states.machcancel)
+		if (other.state == "machcancel")
 		{
 			if (other.move != 0)
 			{
@@ -29,9 +29,9 @@ if (!other.ignore_grind && (other.state != states.tumble || (other.sprite_index 
 			}
 			other.movespeed = abs(other.hsp);
 		}
-		other.state = states.grind;
+		other.state = "grind";
 	}
-	else if (other.state != states.ratmountgrind)
+	else if (other.state != "ratmountgrind")
 	{
 		with (other)
 		{
@@ -56,7 +56,7 @@ if (!other.ignore_grind && (other.state != states.tumble || (other.sprite_index 
 			}
 		}
 		other.y = y + 8;
-		other.state = states.ratmountgrind;
+		other.state = "ratmountgrind";
 		if (!other.ispeppino)
 		{
 			other.movespeed = other.hsp;

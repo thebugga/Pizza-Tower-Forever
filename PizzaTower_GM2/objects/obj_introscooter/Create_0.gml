@@ -10,7 +10,7 @@ boulder_y = 402;
 boulder_index = 0;
 with (obj_player)
 {
-	state = states.titlescreen;
+	state = "titlescreen";
 }
 fade = 0;
 whitefade = 0;

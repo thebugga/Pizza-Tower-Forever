@@ -1,8 +1,8 @@
 with (other)
 {
-	if (!isgustavo && state != states.ghost && state != states.ghostpossess && state != states.ghostcaught && state != states.actor && state != states.parry && state != states.gotoplayer)
+	if (!isgustavo && state != "ghost" && state != "ghostpossess" && state != states.ghostcaught && state != "actor" && state != "parry" && state != "gotoplayer")
 	{
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
 			create_transformation_tip(lang_get_value("ghosttip"), "ghost");
 		}
@@ -12,7 +12,7 @@ with (other)
 		}
 		fmod_event_one_shot("event:/sfx/pep/ghostintro");
 		grav = grav / 2;
-		state = states.ghost;
+		state = "ghost";
 		movespeed = hsp;
 		ghostdash = false;
 		ghostdashbuffer = 0;

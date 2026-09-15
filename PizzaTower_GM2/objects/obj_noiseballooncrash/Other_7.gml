@@ -1,5 +1,5 @@
 instance_destroy();
-if (obj_player1.character == characters.Peppino)
+if (obj_player1.character == "Peppino")
 {
 	fmod_event_one_shot("event:/sfx/noise/giantballoon2");
 }

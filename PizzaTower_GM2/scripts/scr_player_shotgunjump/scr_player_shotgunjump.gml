@@ -1,4 +1,4 @@
-function scr_player_shotgunjump()
+function player_shotgunjump()
 {
 	image_speed = 0.35;
 	move = key_left + key_right;
@@ -41,7 +41,7 @@ function scr_player_shotgunjump()
 	if (input_buffer_jump > 0 && can_jump)
 	{
 		input_buffer_jump = 8;
-		state = states.shotgunjump;
+		state = "shotgunjump";
 		vsp = -11;
 		jumpstop = false;
 		sprite_index = spr_shotgunjump;
@@ -52,11 +52,11 @@ function scr_player_shotgunjump()
 		sprite_index = spr_shotgunland;
 		image_index = 0;
 		landAnim = true;
-		state = states.shotgun;
+		state = "shotgun";
 	}
 	if (key_attack2)
 	{
-		state = states.shotgundash;
+		state = "shotgundash";
 		sprite_index = spr_shotgunsuplexdash;
 		image_index = 0;
 		movespeed = 10;
@@ -68,7 +68,7 @@ function scr_player_shotgunjump()
 		{
 			sprite_index = spr_shotgunshoot;
 			image_index = 0;
-			state = states.shotgunshoot;
+			state = "shotgunshoot";
 			with (instance_create(x, y, obj_pistoleffect))
 			{
 				image_xscale = other.xscale;
@@ -93,7 +93,7 @@ function scr_player_shotgunjump()
 		}
 		else
 		{
-			state = states.shotgunfreefall;
+			state = "shotgunfreefall";
 			sprite_index = spr_shotgunjump1;
 			image_index = 0;
 			vsp = -11;

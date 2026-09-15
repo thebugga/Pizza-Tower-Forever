@@ -1,4 +1,4 @@
-if (state == states.throwing)
+if (state == "throwing")
 {
 	with (golfid)
 	{

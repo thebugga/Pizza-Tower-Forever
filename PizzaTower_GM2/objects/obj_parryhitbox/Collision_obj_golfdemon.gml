@@ -1,4 +1,4 @@
-if (other.state != states.grabbed && other.state != states.stun)
+if (other.state != "grabbed" && other.state != states.stun)
 {
 	if (!collisioned)
 	{

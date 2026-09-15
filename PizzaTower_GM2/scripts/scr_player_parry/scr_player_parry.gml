@@ -1,11 +1,11 @@
-function scr_player_parry()
+function player_parry()
 {
 	if (image_index > (image_number - 1))
 	{
-		state = states.normal;
+		state = "default";
 		if (tauntstoredisgustavo)
 		{
-			state = states.ratmount;
+			state = "ratmount";
 		}
 	}
 	hsp = -xscale * movespeed;
@@ -25,7 +25,7 @@ function scr_player_parry()
 		var parry_threshold = 84;
 		with (obj_baddie)
 		{
-			if ((other.parryID == id || distance_to_object(other) <= parry_threshold) && state != states.hit && state != states.grabbed && state != states.stun && parryable && !(state == states.stun && thrown == true))
+			if ((other.parryID == id || distance_to_object(other) <= parry_threshold) && state != "hit" && state != "grabbed" && state != states.stun && parryable && !(state == states.stun && thrown == true))
 			{
 				notification_push(notifications.enemy_parried, [id, object_index, room]);
 				obj_player1.xscale = -image_xscale;
@@ -52,7 +52,7 @@ function scr_player_parry()
 				}
 				instance_create(x, y, obj_parryeffect);
 				alarm[3] = 1;
-				state = states.hit;
+				state = "hit";
 				image_xscale = -obj_player1.xscale;
 				instance_create(x, y, obj_slapstar);
 				instance_create(x, y, obj_slapstar);

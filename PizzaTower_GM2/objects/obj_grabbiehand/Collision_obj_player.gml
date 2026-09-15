@@ -1,10 +1,10 @@
-if (state != states.grabbing && other.state != states.bombgrab && x == xstart && y == ystart)
+if (state != "grabbing" && other.state != "bombgrab" && x == xstart && y == ystart)
 {
 	with (other)
 	{
 		fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
 		fmod_event_instance_play(other.snd);
-		if (state != states.chainsaw && state != states.backbreaker)
+		if (state != "chainsaw" && state != "backbreaker")
 		{
 			tauntstoredmovespeed = movespeed;
 			tauntstoredvsp = vsp;
@@ -17,7 +17,7 @@ if (state != states.grabbing && other.state != states.bombgrab && x == xstart &&
 			sprite_index = spr_grabhangeffect;
 			image_speed = 0.35;
 		}
-		state = states.actor;
+		state = "actor";
 		if (boxxed == false)
 		{
 			sprite_index = spr_catched;
@@ -27,19 +27,19 @@ if (state != states.grabbing && other.state != states.bombgrab && x == xstart &&
 			sprite_index = spr_boxxedpepair;
 		}
 		other.playerid = id;
-		other.state = states.grabbing;
-		if (tauntstoredstate != states.mach2 && tauntstoredstate != states.mach3)
+		other.state = "grabbing";
+		if (tauntstoredstate != "mach2" && tauntstoredstate != "mach3")
 		{
-			tauntstoredstate = states.jump;
+			tauntstoredstate = "jump";
 			tauntstoredsprite = spr_jump;
 			tauntstoredmovespeed = 0;
 			tauntstoredvsp = 0;
 		}
-		else if (tauntstoredstate == states.mach2)
+		else if (tauntstoredstate == "mach2")
 		{
 			sprite_index = spr_mach;
 		}
-		else if (tauntstoredstate == states.mach3)
+		else if (tauntstoredstate == "mach3")
 		{
 			sprite_index = spr_mach4;
 		}

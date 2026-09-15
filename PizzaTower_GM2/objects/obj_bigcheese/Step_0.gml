@@ -15,7 +15,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -24,7 +24,7 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
 }
@@ -32,7 +32,7 @@ if (state == states.walk)
 {
 	hsp = 0;
 }
-else if (state == states.throwing)
+else if (state == "throwing")
 {
 	hsp = 0;
 	if (ANIMATION_END)
@@ -105,7 +105,7 @@ else if (state == states.throwing)
 				movespeed = 0;
 				hsp = 0;
 				vsp = 0;
-				state = states.actor;
+				state = "actor";
 				jumpstop = true;
 				x = lerp(x, tx, 0.2);
 				y = lerp(y, ty, 0.2);
@@ -139,7 +139,7 @@ else if (state == states.throwing)
 				y = other.y;
 				xscale = other.image_xscale;
 				movespeed = 12;
-				state = states.tumble;
+				state = "tumble";
 				vsp = -14;
 				jumpstop = true;
 			}
@@ -173,7 +173,7 @@ if (state != states.stun)
 {
 	birdcreated = false;
 }
-if (state == states.throwing)
+if (state == "throwing")
 {
 	image_speed = throwspeed;
 }
@@ -185,7 +185,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

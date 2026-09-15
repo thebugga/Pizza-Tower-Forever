@@ -1,6 +1,6 @@
 with (obj_player)
 {
-	state = states.titlescreen;
+	state = "titlescreen";
 }
 whitefade = approach(whitefade, 0, 0.1);
 var PLAYER_MOVESPEED = 5;
@@ -20,7 +20,7 @@ if (!fadein)
 					other.state++;
 					other.cutscenebuffer = 100;
 					sprite_index = spr_player_idle;
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						sprite_index = spr_playerN_doiseintro1;
 					}
@@ -40,7 +40,7 @@ if (!fadein)
 				with (obj_johnresurrection_peppino)
 				{
 					sprite_index = spr_player_idle2;
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						sprite_index = spr_playerN_doiseintro2;
 						other.cutscenebuffer = 100;
@@ -74,7 +74,7 @@ if (!fadein)
 			{
 				if (ANIMATION_END)
 				{
-					if character == characters.Peppino
+					if character == "Peppino"
 					{
 						image_index = image_number - 1;
 					}
@@ -151,7 +151,7 @@ if (!fadein)
 			else
 			{
 				whitefade = 2;
-				if (obj_player1.character == characters.Peppino)
+				if (obj_player1.character == "Peppino")
 				{
 					state++;
 					cutscenebuffer = 370;

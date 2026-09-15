@@ -2,7 +2,7 @@ with (other)
 {
 	if (scr_transformationcheck())
 	{
-		if (state != states.firemouth && state != states.parry && hurted == false)
+		if (state != "firemouth" && state != "parry" && hurted == false)
 		{
 			fmod_event_one_shot_3d("event:/sfx/firemouth/start", x, y);
 			create_transformation_tip(lang_get_value("firemouthtip"), "firemouth");
@@ -10,10 +10,10 @@ with (other)
 			is_firing = false;
 			hsp = 0;
 			movespeed = 0;
-			state = states.firemouth;
+			state = "firemouth";
 			image_index = 0;
 			sprite_index = spr_firemouthintro;
-			state = states.firemouth;
+			state = "firemouth";
 			bombpeptimer = 3;
 			instance_destroy(other);
 		}

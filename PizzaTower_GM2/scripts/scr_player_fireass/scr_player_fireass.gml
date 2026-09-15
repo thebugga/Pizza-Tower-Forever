@@ -1,4 +1,4 @@
-function scr_player_fireass()
+function player_fireass()
 {
 	image_speed = 0.35;
 	alarm[5] = 2;
@@ -75,7 +75,7 @@ function scr_player_fireass()
 				alarm[5] = 2;
 				alarm[7] = 60;
 				hurted = true;
-				state = states.normal;
+				state = "default";
 				sprite_index = spr_idle;
 				image_index = 0;
 			}
@@ -100,7 +100,7 @@ function scr_player_fireass()
 			alarm[5] = 2;
 			alarm[7] = 60;
 			hurted = true;
-			state = states.normal;
+			state = "default";
 			sprite_index = spr_idle;
 			image_index = 0;
 		}
@@ -114,7 +114,7 @@ function scr_player_fireass()
 			alarm[5] = 2;
 			alarm[7] = 60;
 			hurted = true;
-			state = states.normal;
+			state = "default";
 			sprite_index = spr_idle;
 			image_index = 0;
 		}

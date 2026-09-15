@@ -1,1 +1,4 @@
-exit;
+function player_throwing()
+{
+	
+}

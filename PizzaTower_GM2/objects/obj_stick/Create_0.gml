@@ -1,5 +1,5 @@
 image_speed = 0.35;
-state = states.normal;
+state = "default";
 idle = 0;
 hsp = 0;
 vsp = 0;

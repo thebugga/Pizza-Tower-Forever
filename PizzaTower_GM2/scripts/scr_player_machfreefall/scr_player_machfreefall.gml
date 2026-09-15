@@ -1,4 +1,4 @@
-function scr_player_machfreefall()
+function player_machfreefall()
 {
 	hsp = move * movespeed;
 	movespeed = 4;
@@ -10,7 +10,7 @@ function scr_player_machfreefall()
 	if (scr_solid(x + 1, y) && xscale == 1)
 	{
 		machhitAnim = false;
-		state = states.bump;
+		state = "bump";
 		hsp = -3;
 		vsp = -3;
 		image_index = 0;
@@ -19,7 +19,7 @@ function scr_player_machfreefall()
 	else if (scr_solid(x - 1, y) && xscale == -1)
 	{
 		machhitAnim = false;
-		state = states.bump;
+		state = "bump";
 		hsp = 3;
 		vsp = -3;
 		image_index = 0;
@@ -36,12 +36,12 @@ function scr_player_machfreefall()
 		bounce = false;
 		if !key_attack
 		{
-			state = states.freefallland;
+			state = "freefallland";
 		}
 		else
 		{
 			movespeed = 9;
-			state = states.mach2;
+			state = "mach2";
 		}
 		jumpstop = false;
 		image_index = 0;
@@ -57,7 +57,7 @@ function scr_player_machfreefall()
 			if (shakestun && point_in_camera(x, y, view_camera[0]) && grounded && vsp > 0)
 			{
 				hp = -99;
-				state = states.hit;
+				state = "hit";
 				hitLag = lag;
 				hitX = x;
 				hitY = y;

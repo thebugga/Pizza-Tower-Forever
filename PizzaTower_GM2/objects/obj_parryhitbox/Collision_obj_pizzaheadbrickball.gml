@@ -1,4 +1,4 @@
-if (other.state == states.normal)
+if (other.state == "default")
 {
 	if (!collisioned)
 	{

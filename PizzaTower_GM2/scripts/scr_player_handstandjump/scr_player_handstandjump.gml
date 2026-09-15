@@ -1,4 +1,4 @@
-function scr_player_handstandjump()
+function player_handstandjump()
 {
 	landAnim = false;
 	hsp = xscale * movespeed;
@@ -77,7 +77,7 @@ function scr_player_handstandjump()
 		jumpstop = false;
 		image_index = 0;
 		vsp = -11;
-		state = states.mach2;
+		state = "mach2";
 		sprite_index = spr_longjump;
 	}
 	if (sprite_index == attackdash && !grounded)
@@ -85,11 +85,11 @@ function scr_player_handstandjump()
 		image_index = 0;
 		sprite_index = airattackdashstart;
 	}
-	if (grounded && sprite_index == airattackdash && (!key_attack || character == characters.Noise) && global.attackstyle != 2)
+	if (grounded && sprite_index == airattackdash && (!key_attack || character == "Noise") && global.attackstyle != 2)
 	{
 		if (global.attackstyle != 3)
 		{
-			state = states.normal;
+			state = "default";
 			if (move != xscale)
 			{
 				movespeed = 2;
@@ -101,13 +101,13 @@ function scr_player_handstandjump()
 			image_index = image_number - 6;
 		}
 	}
-	if (grounded && sprite_index == airattackdash && key_attack && character != characters.Noise && global.attackstyle != 2)
+	if (grounded && sprite_index == airattackdash && key_attack && character != "Noise" && global.attackstyle != 2)
 	{
-		state = states.mach2;
+		state = "mach2";
 	}
 	if (ANIMATION_END && sprite_index == attackdash)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (ANIMATION_END && sprite_index == airattackdashstart)
 	{
@@ -116,7 +116,7 @@ function scr_player_handstandjump()
 	if (ANIMATION_END && key_attack && sprite_index == attackdash)
 	{
 		image_speed = 0.35;
-		state = states.mach2;
+		state = "mach2";
 		grav = 0.5;
 	}
 	if (scr_mach_check_dive() && grounded && global.attackstyle != 2)
@@ -131,7 +131,7 @@ function scr_player_handstandjump()
 		sprite_index = spr_crouchslip;
 		image_index = 0;
 		machhitAnim = false;
-		state = states.tumble;
+		state = "tumble";
 		fmod_event_instance_play(snd_crouchslide);
 	}
 	mask_index = spr_player_mask;
@@ -140,7 +140,7 @@ function scr_player_handstandjump()
 		image_index = 0;
 		switch (character)
 		{
-		    case characters.Noise:
+		    case "Noise":
 				sprite_index = spr_playerN_spin;
 		        break;
             
@@ -148,7 +148,7 @@ function scr_player_handstandjump()
 				sprite_index = spr_player_faceplant;
 		        break;
 		}
-		state = states.faceplant;
+		state = "faceplant";
 		with (instance_create(x, y, obj_jumpdust))
 		{
 		    image_xscale = other.xscale;
@@ -165,7 +165,7 @@ function scr_player_handstandjump()
 	if ((!grounded && (place_meeting(x + hsp, y, obj_solid) || scr_solid_slope(x + hsp, y)) && !place_meeting(x + hsp, y, obj_destructibles)) || (grounded && (place_meeting(x + sign(hsp), y - 16, obj_solid) || scr_solid_slope(x + sign(hsp), y - 16)) && !place_meeting(x + hsp, y, obj_destructibles) && !place_meeting(x + hsp, y, obj_metalblock) && scr_slope()))
 	{
 		var _climb = true;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			_climb = ledge_bump(32, abs(hsp) + 1);
 		}
@@ -173,7 +173,7 @@ function scr_player_handstandjump()
 		{
 			wallspeed = 6;
 			grabclimbbuffer = 10;
-			state = states.climbwall;
+			state = "climbwall";
 		}
 	}
 	if (grounded && scr_solid(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_destructibles) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)))
@@ -183,7 +183,7 @@ function scr_player_handstandjump()
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/splat", x, y);
 			jumpstop = true;
-			state = states.jump;
+			state = "jump";
 			vsp = -4;
 			sprite_index = spr_suplexbump;
 			instance_create(x + (xscale * 10), y + 10, obj_bumpeffect);
@@ -197,7 +197,7 @@ function scr_player_handstandjump()
 		}
 	}
 	image_speed = 0.35;
-	if (state != states.bump && move != xscale && move != 0)
+	if (state != "bump" && move != xscale && move != 0)
 	{
 		image_index = 0;
 		if (!grounded)
@@ -206,11 +206,11 @@ function scr_player_handstandjump()
 			sprite_index = spr_suplexcancel;
 			jumpAnim = true;
 			grav = 0.5;
-			state = states.jump;
+			state = "jump";
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 			movespeed = 2;
 			grav = 0.5;
 		}

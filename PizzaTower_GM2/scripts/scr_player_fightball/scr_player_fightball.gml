@@ -1,4 +1,4 @@
-function scr_player_fightball()
+function player_fightball()
 {
 	image_speed = 0.4;
 	if (noisecrusher || isgustavo)
@@ -35,11 +35,11 @@ function scr_player_fightball()
 		{
 			swap_player(false);
 		}
-		state = states.mach3;
+		state = "mach3";
 		sprite_index = spr_mach4;
 		if (isgustavo)
 		{
-			state = states.ratmount;
+			state = "ratmount";
 			ratmount_movespeed = abs(movespeed);
 			if (ratmount_movespeed < 12)
 			{
@@ -83,7 +83,7 @@ function scr_player_fightball()
 	var b = false;
 	with (obj_hamkuff)
 	{
-		if (state == states.blockstance && playerid == other.id)
+		if (state == "blockstance" && playerid == other.id)
 		{
 			b = true;
 		}

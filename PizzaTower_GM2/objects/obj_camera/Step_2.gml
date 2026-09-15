@@ -13,7 +13,7 @@ if (healthshaketime == 0)
 {
 	healthshake = 0;
 }
-else if (obj_player1.character == characters.Peppino)
+else if (obj_player1.character == "Peppino")
 {
 	if (healthold != global.hp)
 	{
@@ -124,12 +124,12 @@ if (shake_mag > 0)
 detachedby = -1;
 detach = false;
 follow_golf = false;
-if (instance_exists(player) && !lock && player.state != states.timesup && player.state != states.gameover)
+if (instance_exists(player) && !lock && player.state != "timesup" && player.state != "gameover")
 {
 	switch (state)
 	{
-		case states.normal:
-			if (room == boss_pizzaface && instance_exists(obj_player1) && instance_exists(obj_pizzaface_thunderdark) && obj_player1.state != states.supergrab)
+		case "default":
+			if (room == boss_pizzaface && instance_exists(obj_player1) && instance_exists(obj_pizzaface_thunderdark) && obj_player1.state != "supergrab")
 			{
 				camera_set_view_size(view_camera[0], SCREEN_WIDTH * camzoom, SCREEN_HEIGHT * camzoom);
 				camzoom = lerp(camzoom, 1, 0.08);
@@ -141,13 +141,13 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			var target = player;
 			var tx = target.x + offset_x;
 			var ty = target.y + offset_y;
-			if (target.state == states.backtohub)
+			if (target.state == "backtohub")
 			{
 				ty = target.backtohubstarty;
 			}
 			if (target.cutscene || (target.collision_flags & collisionflags.secret) > 0)
 			{
-				if (player.state == states.actor && room == tower_pizzafacehall)
+				if (player.state == "actor" && room == tower_pizzafacehall)
 				{
 					chargecamera = approach(chargecamera, 150, 8);
 				}
@@ -156,9 +156,9 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 					chargecamera = approach(chargecamera, 0, 10);
 				}
 			}
-			else if (target.state == states.mach2 || target.state == states.mach3)
+			else if (target.state == "mach2" || target.state == "mach3")
 			{
-				if (target.state == states.mach3 && target.sprite_index == target.spr_fightball && sign(chargecamera) != target.xscale)
+				if (target.state == "mach3" && target.sprite_index == target.spr_fightball && sign(chargecamera) != target.xscale)
 				{
 					chargecamera = approach(chargecamera, 0, 10);
 				}
@@ -169,13 +169,13 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 					chargecamera = approach(chargecamera, _targetcharge, _tspeed);
 				}
 			}
-			else if (target.ratmount_movespeed > 2 && target.key_attack && (target.state == states.ratmount || target.state == states.ratmountjump))
+			else if (target.ratmount_movespeed > 2 && target.key_attack && (target.state == "ratmount" || target.state == "ratmountjump"))
 			{
 				var _targetcharge = target.xscale * ((abs(target.hsp) / 4) * 70);
 				var _tspeed = 0.3;
 				chargecamera = approach(chargecamera, _targetcharge, _tspeed);
 			}
-			else if ((abs(target.hsp) >= 16 || (target.state == states.chainsaw && target.tauntstoredmovespeed >= 16)) && player.state != states.climbwall && player.state != states.Sjump && player.state != states.ghost)
+			else if ((abs(target.hsp) >= 16 || (target.state == "chainsaw" && target.tauntstoredmovespeed >= 16)) && player.state != "climbwall" && player.state != "Sjump" && player.state != "ghost")
 			{
 				var _targetcharge = target.xscale * ((abs(target.hsp) / 4) * 50);
 				var _tspeed = 2;
@@ -185,7 +185,7 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 				}
 				chargecamera = approach(chargecamera, _targetcharge, _tspeed);
 			}
-			else if (target.state == states.machslide)
+			else if (target.state == "machslide")
 			{
 				chargecamera = approach(chargecamera, 0, 10);
 			}
@@ -232,7 +232,7 @@ if (instance_exists(player) && !lock && player.state != states.timesup && player
 			cy = approach(cy, ty, followspeed);
 			if (abs(cx - followtarget.x) <= 4 && abs(cy - ty) <= 4)
 			{
-				state = states.normal;
+				state = "default";
 			}
 			var cam_x = cx - (cam_width / 2);
 			var cam_y = cy - (cam_height / 2);

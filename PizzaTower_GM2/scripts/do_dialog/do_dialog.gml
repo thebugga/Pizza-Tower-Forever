@@ -14,7 +14,7 @@ function do_dialog(_dialog)
 	{
 		sprite_index = spr_player_idle;
 		image_speed = 0.35;
-		state = states.actor;
+		state = "actor";
 		hsp = 0;
 		vsp = 0;
 		movespeed = 0;

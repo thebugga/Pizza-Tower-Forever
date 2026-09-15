@@ -1,4 +1,4 @@
-function scr_player_motorcycle()
+function player_motorcycle()
 {
 	hsp = xscale * movespeed;
 	if (grounded || !jumped)
@@ -33,7 +33,7 @@ function scr_player_motorcycle()
 	{
 		jumpstop = false;
 		vsp = -11;
-		state = states.tumble;
+		state = "tumble";
 		sprite_index = spr_mach2jump;
 		var i = 0;
 		repeat (sprite_get_number(spr_pizzacar_debris) - 1)

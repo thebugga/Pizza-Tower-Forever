@@ -11,7 +11,7 @@ if (start)
 			continue;
 		}
 		head.visual_scale = approach(head.visual_scale, 1, 0.25);
-		if (obj_player.character == characters.Noise)
+		if (obj_player.character == "Noise")
 			draw_sprite_ext(spr_titlecard_noise, head.image_index, head.x, head.y, head.scale * head.visual_scale, head.scale * head.visual_scale, 0, c_white, 1);
 		//if (obj_player.character == characters.Doise)
 		//	draw_sprite_ext(spr_titlecard_doise, head.image_index, head.x, head.y, head.scale * head.visual_scale, head.scale * head.visual_scale, 0, c_white, 1);

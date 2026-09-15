@@ -1,4 +1,4 @@
-function scr_player_firemouth()
+function player_firemouth()
 {
 	alarm[5] = 2;
 	alarm[7] = 60;
@@ -40,7 +40,7 @@ function scr_player_firemouth()
 	}
 	if ((scr_slope() && hsp != 0) && movespeed > 8)
 	{
-		scr_player_addslopemomentum(0.1, 0.25);
+		player_addslopemomentum(0.1, 0.25);
 	}
 	with (instance_place(x + xscale, y, obj_destructibles))
 	{
@@ -69,7 +69,7 @@ function scr_player_firemouth()
 		sprite_index = spr_firemouth;
 		dir = xscale;
 	}
-	if (character == characters.Noise && !grounded && key_jump2 && !jumpstop)
+	if (character == "Noise" && !grounded && key_jump2 && !jumpstop)
 	{
 		vsp -= 0.25;
 	}
@@ -85,7 +85,7 @@ function scr_player_firemouth()
 			doublejump = false;
 			if (move != 0)
 			{
-				if character == characters.Peppino
+				if character == "Peppino"
 				{
 					if (movespeed <= 8)
 					{
@@ -134,7 +134,7 @@ function scr_player_firemouth()
 						xscale = move;
 					}
 				}
-				else if character == characters.Peppino
+				else if character == "Peppino"
 				{
 					if (movespeed <= 8)
 					{
@@ -202,7 +202,7 @@ function scr_player_firemouth()
 	{
 		alarm[5] = 2;
 		alarm[7] = 60;
-		state = states.normal;
+		state = "default";
 		sprite_index = spr_idle;
 		image_index = 0;
 	}
@@ -220,7 +220,7 @@ function scr_player_firemouth()
 			instance_create(x, y, obj_firemouthflame);
 		}
 		vsp = -15;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			vsp = -12;
 		}

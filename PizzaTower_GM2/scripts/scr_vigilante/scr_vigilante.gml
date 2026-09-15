@@ -68,7 +68,7 @@ function scr_vigilante_update_sounds()
 	{
 		fmod_event_instance_stop(snd_flame, false);
 	}
-	if (state == states.mach2 && sprite_index != spr_playerV_crouchmove)
+	if (state == "mach2" && sprite_index != spr_playerV_crouchmove)
 	{
 		if (!fmod_event_instance_is_playing(snd_mach1))
 		{
@@ -116,7 +116,7 @@ function scr_vigilante_arenaintro()
 	{
 		with (obj_player)
 		{
-			state = states.actor;
+			state = "actor";
 			image_speed = 0.35;
 			hsp = 0;
 			movespeed = 0;
@@ -127,7 +127,7 @@ function scr_vigilante_arenaintro()
 		}
 		sprite_index = spr_playerV_dynamitethrow;
 		image_index = 0;
-		if (character == characters.Peppino)
+		if (character == "Peppino")
 		{
 			sprite_index = spr_playerV_idle;
 			image_index = 0;
@@ -138,7 +138,7 @@ function scr_vigilante_arenaintro()
 		{
 			spotlightID.expand = true;
 		}
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			with (instance_create(x, y, obj_pistolpickup))
 			{
@@ -149,7 +149,7 @@ function scr_vigilante_arenaintro()
 		with (obj_player)
 		{
 			hsp = 0;
-			state = states.normal;
+			state = "default";
 			sprite_index = spr_idle;
 		}
 	}
@@ -158,7 +158,7 @@ function scr_vigilante_arenaintro()
 		image_speed = 0.35;
 		with (obj_player1)
 		{
-			state = states.actor;
+			state = "actor";
 			image_speed = 0.35;
 			xscale = -other.image_xscale;
 			hsp = 0;
@@ -167,7 +167,7 @@ function scr_vigilante_arenaintro()
 			x = roomstartx;
 			if (other.sprite_index == spr_vigilante_intro1 || other.sprite_index == spr_vigilante_intro1N)
 			{
-				if (character == characters.Peppino)
+				if (character == "Peppino")
 				{
 					sprite_index = spr_player_gnomecutscene1;
 				}
@@ -204,7 +204,7 @@ function scr_vigilante_arenaintro()
 				fmod_event_one_shot_3d("event:/sfx/voice/vigiintro", x, y);
 				with (obj_player1)
 				{
-					if (character == characters.Peppino)
+					if (character == "Peppino")
 					{
 						if (sprite_index == spr_player_gnomecutscene2)
 						{
@@ -228,7 +228,7 @@ function scr_vigilante_arenaintro()
 			introbuffer = 130;
 			with (obj_player1)
 			{
-				if (character == characters.Peppino)
+				if (character == "Peppino")
 				{
 					sprite_index = spr_player_gnomecutscene2;
 					image_index = 0;
@@ -243,7 +243,7 @@ function scr_vigilante_arenaintro()
 		}
 		else if (sprite_index == spr_vigilante_intro2 || sprite_index == spr_vigilante_intro2N)
 		{
-			if (obj_player1.character == characters.Peppino)
+			if (obj_player1.character == "Peppino")
 			{
 				with (instance_create(x, y, obj_pistolpickup))
 				{
@@ -258,15 +258,15 @@ function scr_vigilante_arenaintro()
 			spotlightID.expand = true;
 			with (obj_player)
 			{
-				if (character == characters.Peppino)
+				if (character == "Peppino")
 				{
 					sprite_index = spr_player_screamtransition;
 					image_index = 0;
 					image_speed = 0.35;
 				}
 				landAnim = false;
-				tauntstoredstate = states.normal;
-				state = states.animation;
+				tauntstoredstate = "default";
+				state = "animation";
 			}
 		}
 	}
@@ -313,10 +313,10 @@ function scr_vigilante_phase1hurt()
 		actorbuffer = 10000;
 		hsp = 0;
 		vsp = 0;
-		state = states.actor;
+		state = "actor";
 		pistolanim = noone;
 		sprite_index = spr_player_pistolshotend;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			sprite_index = spr_playerN_bosstransition;
 		}
@@ -343,12 +343,12 @@ function scr_vigilante_phase1hurt()
 		obj_camera.lock = false;
 		camzoom = 1;
 		camera_set_view_size(view_camera[0], SCREEN_WIDTH, SCREEN_HEIGHT);
-		state = states.hit;
+		state = "hit";
 		linethrown = true;
 		mach2 = false;
 		with (obj_player)
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 	obj_screensizer.camzoom = camzoom;
@@ -416,7 +416,7 @@ function scr_vigilante_walk()
 				{
 					image_xscale = sign(t.x - x);
 				}
-				state = states.mach2;
+				state = "mach2";
 				kick = false;
 				attackspeed = 0;
 				cooldown = 2;
@@ -440,7 +440,7 @@ function scr_vigilante_walk()
 			{
 				image_xscale = sign(t.x - x);
 			}
-			state = states.mach2;
+			state = "mach2";
 			kick = false;
 			attackspeed = 0;
 			cooldown = 2;
@@ -478,7 +478,7 @@ function scr_vigilante_walk()
 				break;
 			case vigilante_attacks.estampede:
 				estampedemax = attack[1];
-				state = states.estampede;
+				state = "estampede";
 				estampedecooldown = 30;
 				sprite_index = spr_vigilante_intro2;
 				image_index = 16;
@@ -555,7 +555,7 @@ function scr_vigilante_walk()
 				}
 				break;
 			case vigilante_attacks.kick:
-				state = states.mach2;
+				state = "mach2";
 				kickbuffer = attack[1];
 				kick = true;
 				if (kickbuffer == 0)
@@ -586,7 +586,7 @@ function scr_vigilante_throw_cow()
 	if (shot > 0)
 	{
 		shot--;
-		state = states.throwing;
+		state = "throwing";
 		throwbuffer = throwbuffermax;
 		sprite_index = spr_playerV_dynamitethrow;
 		image_index = 0;
@@ -613,7 +613,7 @@ function scr_vigilante_do_revolver(_shot, _revolverbuffer, _do_jump = false)
 {
 	shot = _shot;
 	jump = _do_jump;
-	state = states.revolver;
+	state = "revolver";
 	revolverbuffer = _revolverbuffer;
 	if (sprite_index != spr_playerV_revolvershoot && sprite_index != spr_playerV_revolverend)
 	{
@@ -631,17 +631,17 @@ function scr_vigilante_do_revolver(_shot, _revolverbuffer, _do_jump = false)
 	if (jump)
 	{
 		revolverbuffer = 0;
-		state = states.jump;
+		state = "jump";
 		vsp = -9;
 		sprite_index = spr_playerV_jump;
-		tauntstoredstate = states.revolver;
+		tauntstoredstate = "revolver";
 	}
 }
 
 function scr_vigilante_do_dynamite(_shot)
 {
 	shot = _shot;
-	state = states.dynamite;
+	state = "dynamite";
 	scr_vigilante_throw_dynamite();
 }
 
@@ -685,7 +685,7 @@ function scr_vigilante_jump()
 		jump = false;
 		switch (tauntstoredstate)
 		{
-			case states.revolver:
+			case "revolver":
 				scr_vigilante_do_revolver(shot, 0);
 				sprite_index = spr_playerV_revolverhold;
 				break;
@@ -917,7 +917,7 @@ function scr_vigilante_mach2()
 		{
 			fmod_event_instance_play(snd_slide);
 			image_alpha = 1;
-			state = states.crouchslide;
+			state = "crouchslide";
 			kick = false;
 			attackspeed = 12;
 			sprite_index = spr_playerV_divekickstart;
@@ -999,7 +999,7 @@ function scr_vigilante_duel()
 		pistolchargeshooting = false;
 		pistolanim = noone;
 	}
-	var _cheat = character == characters.Noise || global.swapmode;
+	var _cheat = character == "Noise" || global.swapmode;
 	if (duelphase == 2)
 	{
 		with (obj_player1)
@@ -1015,7 +1015,7 @@ function scr_vigilante_duel()
 	{
 		with (obj_player1)
 		{
-			if (key_slap2 && character == characters.Peppino && !_cheat)
+			if (key_slap2 && character == "Peppino" && !_cheat)
 			{
 				other.duelbuffer = 0;
 				other.duelphase = 2;
@@ -1037,7 +1037,7 @@ function scr_vigilante_duel()
 				break;
 			case 1:
 				signy = approach(signy, -sprite_get_height(signspr), s);
-				if (obj_player1.character == characters.Peppino && signy <= -sprite_get_height(signspr))
+				if (obj_player1.character == "Peppino" && signy <= -sprite_get_height(signspr))
 				{
 					duelbuffer = 80;
 					fmod_event_one_shot_3d("event:/sfx/enemies/minijohnpunch", room_width / 2, room_height / 2);
@@ -1058,7 +1058,7 @@ function scr_vigilante_duel()
 				duelbuffer--;
 				break;
 		}
-		if (duelphase == 2 && obj_player1.character == characters.Peppino && !_cheat)
+		if (duelphase == 2 && obj_player1.character == "Peppino" && !_cheat)
 		{
 			signy = approach(signy, 0, 20);
 		}
@@ -1071,7 +1071,7 @@ function scr_vigilante_duel()
 				with (obj_player1)
 				{
 					sprite_index = spr_peppino_duel;
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						sprite_index = spr_noise_duel;
 					}
@@ -1086,7 +1086,7 @@ function scr_vigilante_duel()
 				if (!duelplayer)
 				{
 					fmod_event_one_shot("event:/sfx/vigilante/finalshot");
-					obj_player1.state = states.normal;
+					obj_player1.state = "default";
 					scr_hurtplayer(obj_player1);
 					duelphase++;
 					destroyable = false;
@@ -1097,7 +1097,7 @@ function scr_vigilante_duel()
 				{
 					fmod_event_one_shot("event:/sfx/vigilante/finalshot");
 					var lag = 0;
-					state = states.hit;
+					state = "hit";
 					hitX = x;
 					hitY = y;
 					hitLag = lag;
@@ -1146,7 +1146,7 @@ function scr_vigilante_duel()
 					}
 					with (obj_player1)
 					{
-						if (_cheat && character == characters.Peppino)
+						if (_cheat && character == "Peppino")
 						{
 							swap_player(false);
 							with (instance_create(x, y, obj_swapdeatheffect))
@@ -1163,12 +1163,12 @@ function scr_vigilante_duel()
 						}
 						sprite_index = spr_player_pistolshotend;
 						image_index = 2;
-						if (character == characters.Noise)
+						if (character == "Noise")
 						{
 							sprite_index = spr_noise_duelend;
 							image_index = 0;
 						}
-						state = states.actor;
+						state = "actor";
 						actorbuffer = 120;
 					}
 				}

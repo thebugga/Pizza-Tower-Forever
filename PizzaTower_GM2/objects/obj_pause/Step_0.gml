@@ -7,7 +7,7 @@ if (!pause && instance_exists(obj_player1) && alarm[3] == -1 && obj_player1.key_
 	var _cant_pause = false;
 	with (obj_player)
 	{
-		if ((state == states.victory && place_meeting(x, y, obj_startgate)) || (state == states.door && place_meeting(x, y, obj_exitgate)))
+		if ((state == "victory" && place_meeting(x, y, obj_startgate)) || (state == "door" && place_meeting(x, y, obj_exitgate)))
 		{
 			_cant_pause = true;
 		}
@@ -146,57 +146,57 @@ if (!pause && instance_exists(obj_player1) && alarm[3] == -1 && obj_player1.key_
 		with (obj_player1)
 		{
 			_state = state;
-			if (state == states.chainsaw)
+			if (state == "chainsaw")
 			{
 				_state = tauntstoredstate;
 			}
 			switch (_state)
 			{
-				case states.knightpep:
-				case states.knightpepslopes:
-				case states.knightpepbump:
+				case "knightpep":
+				case "knightpepslopes":
+				case "knightpepbump":
 					_txt = lang_get_value("knighttip");
 					break;
-				case states.firemouth:
+				case "firemouth":
 					_txt = lang_get_value("firemouthtip");
 					break;
-				case states.boxxedpep:
-				case states.boxxedpepjump:
-				case states.boxxedpepspin:
+				case "boxxedpep":
+				case "boxxedpepjump":
+				case "boxxedpepspin":
 					_txt = lang_get_value("boxxedtip");
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						_txt = lang_get_value("boxxedtipN");
 					}
 					break;
-				case states.mort:
-				case states.mortattack:
-				case states.morthook:
-				case states.mortjump:
+				case "mort":
+				case "mortattack":
+				case "morthook":
+				case "mortjump":
 					_txt = lang_get_value("morttip");
 					break;
-				case states.ghost:
+				case "ghost":
 					_txt = lang_get_value("ghosttip");
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						_txt = lang_get_value("ghosttipN");
 					}
 					break;
-				case states.rocket:
-				case states.rocketslide:
+				case "rocket":
+				case "rocketslide":
 					_txt = lang_get_value("rockettip");
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						_txt = lang_get_value("rockettipN");
 					}
 					break;
-				case states.barrel:
-				case states.barrelclimbwall:
-				case states.barreljump:
-				case states.barrelslide:
+				case "barrel":
+				case "barrelclimbwall":
+				case "barreljump":
+				case "barrelslide":
 					_txt = lang_get_value("barreltip");
 					break;
-				case states.trashroll:
+				case "trashroll":
 					if (sprite_index == spr_playercorpsesurf || sprite_index == spr_playercorpsestart)
 					{
 						_txt = lang_get_value("gravesurftip");
@@ -204,34 +204,34 @@ if (!pause && instance_exists(obj_player1) && alarm[3] == -1 && obj_player1.key_
 					else
 					{
 						_txt = lang_get_value("trashrolltip");
-						if (character == characters.Noise)
+						if (character == "Noise")
 						{
 							_txt = lang_get_value("trashrolltipN");
 						}
 					}
 					break;
-				case states.antigrav:
+				case "antigrav":
 					_txt = lang_get_value("antigravtip");
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						_txt = lang_get_value("antigravtipN");
 					}
 					break;
-				case states.cheesepep:
-				case states.cheesepepstickside:
-				case states.cheesepepstick:
-				case states.cheesepepjump:
-				case states.cheesepepstickup:
+				case "cheesepep":
+				case "cheesepepstickside":
+				case "cheesepepstick":
+				case "cheesepepjump":
+				case "cheesepepstickup":
 					_txt = lang_get_value("cheesedtip");
 					break;
-				case states.golf:
+				case "golf":
 					_txt = lang_get_value("golftip");
 					break;
-				case states.rideweenie:
+				case "rideweenie":
 					_txt = lang_get_value("weenietip");
 					break;
-				case states.bombpep:
-					if (character == characters.Noise)
+				case "bombpep":
+					if (character == "Noise")
 					{
 						_txt = lang_get_value("bombtipN");
 					}

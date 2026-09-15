@@ -1,4 +1,4 @@
-if (other.state != states.knightpep)
+if (other.state != "knightpep")
 {
 	scr_hurtplayer(other);
 }

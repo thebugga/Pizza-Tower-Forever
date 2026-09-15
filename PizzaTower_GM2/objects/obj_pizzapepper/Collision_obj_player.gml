@@ -16,7 +16,7 @@ if (visible == true)
 	{
 		with (other)
 		{
-			if (state == states.jetpackjump)
+			if (state == "jetpackjump")
 			{
 				if (sprite_index != spr_jetpackstart2)
 				{
@@ -28,7 +28,7 @@ if (visible == true)
 			}
 			else
 			{
-				state = states.jetpackjump;
+				state = "jetpackjump";
 			}
 			vsp = -14;
 			sprite_index = spr_player_jetpackstart;
@@ -56,7 +56,7 @@ if (visible == true)
 	{
 		with (other)
 		{
-			if (state != states.jetpackjump)
+			if (state != "jetpackjump")
 			{
 				fmod_event_instance_play(pizzapeppersnd);
 				scr_fmod_soundeffect(jumpsnd, x, y);

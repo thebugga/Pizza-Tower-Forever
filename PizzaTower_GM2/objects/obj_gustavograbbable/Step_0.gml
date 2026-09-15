@@ -30,7 +30,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -46,10 +46,10 @@ switch (state)
 	case states.pizzaheadjump:
 		scr_boss_pizzaheadjump();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -58,7 +58,7 @@ switch (state)
 	case states.rage:
 		scr_enemy_rage();
 		break;
-	case states.ghostpossess:
+	case "ghostpossess":
 		scr_enemy_ghostpossess();
 		break;
 }
@@ -78,7 +78,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
@@ -96,7 +96,7 @@ if (boundbox == false)
 		other.boundbox = true;
 	}
 }
-if (state == states.pizzaheadjump && obj_player1.state != states.handstandjump && place_meeting(x, y, obj_solid))
+if (state == states.pizzaheadjump && obj_player1.state != "handstandjump" && place_meeting(x, y, obj_solid))
 {
 	invincible = true;
 }

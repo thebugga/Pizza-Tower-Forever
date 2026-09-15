@@ -1,9 +1,9 @@
 with (other)
 {
-	if (key_up && ladderbuffer <= 0 && (state == states.normal || state == states.pogo || state == states.machcancel || state == states.mach2 || (state == states.mach3 && sprite_index != spr_fightball) || state == states.mach1 || state == states.punch || state == states.shotgunjump || state == states.jump || state == states.highjump || (state == states.ratmountbounce && character == characters.Noise)) && state != states.hurt && state != states.machslide && state != states.freefall && state != states.freefallland)
+	if (key_up && ladderbuffer <= 0 && (state == "default" || state == "pogo" || state == "machcancel" || state == "mach2" || (state == "mach3" && sprite_index != spr_fightball) || state == "mach1" || state == "punch" || state == "shotgunjump" || state == "jump" || state == "highjump" || (state == "ratmountbounce" && character == "Noise")) && state != "hurt" && state != "machslide" && state != "freefall" && state != "freefallland")
 	{
 		input_buffer_jump = 0;
-		state = states.ladder;
+		state = "ladder";
 		x = other.x + 16;
 		y = floor(y);
 		if ((y % 2) == 1)
@@ -11,10 +11,10 @@ with (other)
 			y -= 1;
 		}
 	}
-	if (key_up && ladderbuffer <= 0 && isgustavo && (state == states.ratmountjump || state == states.ratmountbounce || state == states.noisecrusher || state == states.ratmount))
+	if (key_up && ladderbuffer <= 0 && isgustavo && (state == "ratmountjump" || state == "ratmountbounce" || state == "noisecrusher" || state == "ratmount"))
 	{
 		input_buffer_jump = 0;
-		state = states.ratmountladder;
+		state = "ratmountladder";
 		if (brick == true)
 		{
 			with (instance_create(x, y, obj_brickcomeback))

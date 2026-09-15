@@ -1,4 +1,4 @@
-function scr_player_keyget()
+function player_keyget()
 {
 	hsp = 0;
 	vsp = 0;
@@ -23,7 +23,7 @@ function scr_player_keyget()
 	if (ANIMATION_END)
 	{
 		global.keyget = false;
-		state = states.normal;
+		state = "default";
 		image_index = 0;
 		with (instance_create(x, y, obj_keyfollow))
 		{

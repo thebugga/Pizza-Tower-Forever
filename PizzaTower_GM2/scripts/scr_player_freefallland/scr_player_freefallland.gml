@@ -1,4 +1,4 @@
-function scr_player_freefallland()
+function player_freefallland()
 {
 	mach2 = 0;
 	jumpAnim = true;
@@ -20,7 +20,7 @@ function scr_player_freefallland()
 		facehurt = true;
 		sprite_index = spr_facehurtup;
 		image_index = 0;
-		state = states.normal;
+		state = "default";
 		jumpstop = true;
 	}
 	image_speed = 0.35;

@@ -1,4 +1,4 @@
-function scr_player_lungeattack()
+function player_lungeattack()
 {
 	if (sprite_index != spr_player_backflip)
 	{
@@ -27,7 +27,7 @@ function scr_player_lungeattack()
 	{
 		suplexmove = true;
 		fmod_event_instance_play(suplexdashsnd);
-		state = states.handstandjump;
+		state = "handstandjump";
 		movespeed = 5;
 		image_index = 0;
 		flash = true;
@@ -36,7 +36,7 @@ function scr_player_lungeattack()
 	var cancelindex = 4;
 	if (floor(image_index) > (image_number - 2) && !hit_connected)
 	{
-		if (state != states.punch && input_attack_buffer > 0)
+		if (state != "punch" && input_attack_buffer > 0)
 		{
 			ds_list_clear(hitlist);
 			hit_connected = false;
@@ -49,7 +49,7 @@ function scr_player_lungeattack()
 					finisher_buffer += 15;
 				}
 				input_attack_buffer = 0;
-				state = states.lungeattack;
+				state = "lungeattack";
 				randomize_animations([spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_player_suplexmash5, spr_player_suplexmash6, spr_player_suplexmash7, spr_punch]);
 				image_index = 0;
 			}
@@ -57,7 +57,7 @@ function scr_player_lungeattack()
 	}
 	if (ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 		ds_list_clear(hitlist);
 		hit_connected = false;
 	}
@@ -70,7 +70,7 @@ function scr_player_lungeattack()
 				DoFinisher();
 			}
 		}
-		if (state != states.punch && input_attack_buffer > 0)
+		if (state != "punch" && input_attack_buffer > 0)
 		{
 			ds_list_clear(hitlist);
 			hit_connected = false;
@@ -83,7 +83,7 @@ function scr_player_lungeattack()
 					finisher_buffer += 15;
 				}
 				input_attack_buffer = 0;
-				state = states.lungeattack;
+				state = "lungeattack";
 				randomize_animations([spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_player_suplexmash5, spr_player_suplexmash6, spr_player_suplexmash7, spr_punch]);
 				image_index = 0;
 			}
@@ -108,7 +108,7 @@ function DoFinisher()
 	hit_connected = false;
 	if (key_up)
 	{
-		state = states.punch;
+		state = "punch";
 		movespeed = 6;
 		image_index = 0;
 		sprite_index = spr_breakdanceuppercut;
@@ -119,7 +119,7 @@ function DoFinisher()
 	}
 	else if ((key_left + key_right) == xscale)
 	{
-		state = states.punch;
+		state = "punch";
 		sprite_index = spr_player_lungehit;
 		image_index = 0;
 		movespeed = 14;
@@ -135,14 +135,14 @@ function DoFinisher()
 		sprite_index = spr_player_breakdance;
 		image_index = 0;
 		machhitAnim = false;
-		state = states.tumble;
+		state = "tumble";
 		movespeed = 4;
-		state = states.tumble;
+		state = "tumble";
 		vsp = 10;
 	}
 	else
 	{
-		state = states.punch;
+		state = "punch";
 		sprite_index = spr_player_lungehit;
 		image_index = 0;
 		movespeed = 14;

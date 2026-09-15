@@ -24,7 +24,7 @@ function scr_playerN_throwkick()
 	image_speed = 0.35;
 	if (ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (punch_afterimage > 0)
 	{
@@ -40,6 +40,6 @@ function scr_playerN_throwkick()
 	}
 	if (input_buffer_shoot > 0)
 	{
-		scr_bombshoot(states.bombthrow);
+		scr_bombshoot("bombthrow");
 	}
 }

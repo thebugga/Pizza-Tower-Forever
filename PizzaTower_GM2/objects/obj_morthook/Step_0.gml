@@ -1,7 +1,7 @@
 var _found = false;
 with (obj_player)
 {
-	if (state == states.mort || state == states.mortjump || state == states.mortattack || state == states.morthook)
+	if (state == "mort" || state == "mortjump" || state == "mortattack" || state == "morthook")
 	{
 		_found = true;
 	}

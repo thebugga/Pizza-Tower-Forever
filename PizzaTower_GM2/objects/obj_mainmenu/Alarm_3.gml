@@ -7,13 +7,8 @@ with (instance_create(x, y, obj_baddie_dead))
 	{
 		var pal = global.game[other.currentselect].palette;
 		var tex = global.game[other.currentselect].palettetexture;
-		if (other.shownoise && other.showswap)
-		{
-			pal = global.gameN[other.currentselect].palette_player2;
-			tex = global.gameN[other.currentselect].palettetexture_player2;
-		}
 		use_palette = true;
-		spr_palette = spr_peppalette;
+		spr_palette = pal_peppino;
 		paletteselect = pal;
 		oldpalettetexture = tex;
 	}

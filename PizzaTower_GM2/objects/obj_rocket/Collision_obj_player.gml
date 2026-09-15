@@ -4,13 +4,13 @@ if (buffer > 0)
 }
 with (other)
 {
-	if (other.playerid == noone && state != states.rocket && state != states.actor && state != states.rocketslide && state != states.gotoplayer)
+	if (other.playerid == noone && state != "rocket" && state != "actor" && state != "rocketslide" && state != "gotoplayer")
 	{
 		xscale = other.image_xscale;
-		state = states.rocket;
+		state = "rocket";
 		other.playerid = id;
 		other.buffer = 10;
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
 			create_transformation_tip(lang_get_value("rockettip"), "rocket");
 		}

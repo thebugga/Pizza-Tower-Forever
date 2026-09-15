@@ -10,5 +10,5 @@ noise = false;
 fmod_event_one_shot("event:/sfx/ui/tvswitch");
 with (obj_player)
 {
-	state = states.actor;
+	state = "actor";
 }

@@ -1,8 +1,8 @@
 with (other)
 {
-	if ((state == states.ghost || (state == states.chainsaw && tauntstoredstate == states.ghost)) && other.visible == true)
+	if ((state == "ghost" || (state == "chainsaw" && tauntstoredstate == "ghost")) && other.visible == true)
 	{
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
 			ghostdash = true;
 		}

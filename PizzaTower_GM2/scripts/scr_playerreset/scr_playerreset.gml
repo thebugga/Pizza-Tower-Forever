@@ -55,7 +55,7 @@ function scr_playerreset(_stop_music = true)
 	{
 		camzoom = 1;
 		lock = false;
-		state = states.normal;
+		state = "default";
 	}
 	with (obj_swapmodefollow)
 	{
@@ -138,7 +138,7 @@ function scr_playerreset(_stop_music = true)
 			{
 				sprite_index = spr_tv_off;
 				tvsprite = spr_tv_idle;
-				state = states.normal;
+				state = "default";
 				tv_set_idle();
 			}
 		}
@@ -257,7 +257,7 @@ function scr_playerreset(_stop_music = true)
 		image_alpha = 1;
 		hallway = false;
 		verticalhallway = false;
-		tauntstoredstate = states.normal;
+		tauntstoredstate = "default";
 		ratpowerup = noone;
 		scale_xs = 1;
 		scale_ys = 1;
@@ -276,7 +276,7 @@ function scr_playerreset(_stop_music = true)
 		//	var destroy = true;
 		//	with (obj_player)
 		//	{
-		//		if (state == states.gameover || state == states.timesup)
+		//		if (state == "gameover" || state == "timesup")
 		//		{
 		//			destroy = false;
 		//		}
@@ -294,10 +294,10 @@ function scr_playerreset(_stop_music = true)
 		audio_stop_all();
 		global.seconds = 59;
 		global.minutes = 1;
-		obj_player1.prevstate = states.comingoutdoor;
-		obj_player1.state = states.comingoutdoor;
-		obj_player2.prevstate = states.comingoutdoor;
-		obj_player2.state = states.comingoutdoor;
+		obj_player1.prevstate = "comingoutdoor";
+		obj_player1.state = "comingoutdoor";
+		obj_player2.prevstate = "comingoutdoor";
+		obj_player2.state = "comingoutdoor";
 		obj_player1.visible = true;
 		obj_player2.visible = true;
 		ds_list_clear(global.saveroom);

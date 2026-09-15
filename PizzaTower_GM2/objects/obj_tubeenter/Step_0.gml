@@ -1,18 +1,18 @@
-if (state == states.tube)
+if (state == "tube")
 {
 	if (floor(image_index) >= 11 && !shot)
 	{
 		shot = true;
 		with (playerid)
 		{
-			state = states.tube;
+			state = "tube";
 			tube_id = other.id;
 			if (other.stored_spd == 0)
 			{
 				other.stored_spd = 1;
 			}
 			var ms = other.movespeed;
-			if (character == characters.Noise)
+			if (character == "Noise")
 			{
 				ms += 5;
 			}
@@ -37,7 +37,7 @@ if (state == states.tube)
 			with (other)
 			{
 				playerid = -1;
-				state = states.normal;
+				state = "default";
 				shot = false;
 			}
 		}

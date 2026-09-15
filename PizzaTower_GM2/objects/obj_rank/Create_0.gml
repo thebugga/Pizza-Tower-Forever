@@ -54,15 +54,15 @@ else
 	{
 		if (global.collect_player[0] >= global.collect_player[1])
 		{
-			scorewins = characters.Noise;
+			scorewins = "Noise";
 		}
 		else
 		{
-			scorewins = characters.Peppino;
+			scorewins = "Peppino";
 		}
 		if (obj_savesystem.ispeppino)
 		{
-			scorewins = (scorewins == characters.Noise) ? characters.Peppino : characters.Noise;
+			scorewins = (scorewins == "Noise") ? "Peppino" : "Noise";
 		}
 		draw_set_font(lang_get_font("bigfont"));
 		var w1 = string_width(text[1][1]);
@@ -74,7 +74,7 @@ else
 }
 text_pos = 0;
 toppin_index = 0;
-toppin_state = states.jump;
+toppin_state = "jump";
 toppin_buffer = 0;
 brown = false;
 brownfade = 0;

@@ -1,12 +1,12 @@
-if (obj_player1.state == states.debugstate)
+if (obj_player1.state == "debugstate")
 {
 	exit;
 }
-if (obj_player1.state == states.backtohub)
+if (obj_player1.state == "backtohub")
 {
 	exit;
 }
-if (obj_player1.state == states.titlescreen)
+if (obj_player1.state == "titlescreen")
 {
 	exit;
 }
@@ -56,11 +56,11 @@ with (other)
 			group_arr = hall.group_arr;
 		}
 	}
-	if (state == states.climbwall)
+	if (state == "climbwall")
 	{
 		trace("climbwall verticalhallway");
 		verticalbuffer = 10;
-		verticalstate = states.climbwall;
+		verticalstate = "climbwall";
 		var i = 0;
 		x = floor(x);
 		while (!scr_solid(x + xscale, y))

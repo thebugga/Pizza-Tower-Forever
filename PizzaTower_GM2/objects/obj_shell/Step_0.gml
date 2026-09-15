@@ -77,7 +77,7 @@ if keyboard_check_pressed(vk_f1)
 {
 	with (obj_player)
 	{
-		state = states.debugstate
+		state = "debugstate"
 	}
 }
 

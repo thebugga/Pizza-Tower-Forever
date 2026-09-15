@@ -1,12 +1,12 @@
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		scr_bosscontroller_intro();
 		break;
-	case states.normal:
+	case "default":
 		scr_bosscontroller_normal();
 		break;
-	case states.victory:
+	case "victory":
 		scr_bosscontroller_victory();
 		break;
 }

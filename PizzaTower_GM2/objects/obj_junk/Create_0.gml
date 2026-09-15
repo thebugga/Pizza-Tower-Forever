@@ -2,7 +2,7 @@ scr_collide_init();
 ratgrabbed = false;
 grabbed = false;
 been_grabbed = false;
-state = states.normal;
+state = "default";
 hsp = 0;
 vsp = 0;
 grav = 0.5;

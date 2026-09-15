@@ -4,7 +4,7 @@ targetplayer = obj_player1.id;
 wastedhits = maxhp - elitehit;
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		scr_pizzaface_p3_arenaintro();
 		break;
 	case states.fall:
@@ -19,13 +19,13 @@ switch (state)
 	case states.stomp:
 		scr_pizzaface_p3_stomp();
 		break;
-	case states.punch:
+	case "punch":
 		scr_pizzaface_p3_punch();
 		break;
-	case states.jump:
+	case "jump":
 		scr_pizzaface_p3_jump();
 		break;
-	case states.throwing:
+	case "throwing":
 		scr_pizzaface_p3_throwing();
 		break;
 	case states.swinging:
@@ -37,16 +37,16 @@ switch (state)
 	case states.pizzaheadjump:
 		scr_boss_pizzaheadjump();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
 		scr_enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 }
@@ -116,7 +116,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if ((state == states.punch || state == states.stomp || state == states.swinging || state == states.jump) && alarm[4] == -1)
+if ((state == "punch" || state == states.stomp || state == states.swinging || state == "jump") && alarm[4] == -1)
 {
 	alarm[4] = 5;
 }
@@ -134,10 +134,10 @@ if (!invincible && alarm[5] < 0 && !flash)
 {
 	alarm[5] = 0.15 * room_speed;
 }
-if ((state == states.grabdash || (state == states.mach2 && attackspeed >= 10) || (state == states.throwing && sprite_index == spr_fakepeppino_flailing)) && alarm[4] < 0)
+if ((state == states.grabdash || (state == "mach2" && attackspeed >= 10) || (state == "throwing" && sprite_index == spr_fakepeppino_flailing)) && alarm[4] < 0)
 {
 	alarm[4] = 10;
-	if (state == states.freefall)
+	if (state == "freefall")
 	{
 		alarm[4] = 5;
 	}
@@ -151,7 +151,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

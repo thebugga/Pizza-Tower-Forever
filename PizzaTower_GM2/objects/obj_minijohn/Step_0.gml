@@ -13,7 +13,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -22,13 +22,13 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
 	case states.chase:
 		scr_enemy_chase();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -40,7 +40,7 @@ switch (state)
 	case states.pizzaheadjump:
 		scr_enemy_pizzaheadjump();
 		break;
-	case states.punch:
+	case "punch":
 		if (sprite_index == spr_minijohn_punchstart)
 		{
 			image_speed = 0.35;
@@ -159,7 +159,7 @@ if (state == states.chase && ragecooldown <= 0)
 			sprite_index = spr_minijohn_punchstart;
 			image_index = 0;
 			ragecooldown = 100;
-			state = states.punch;
+			state = "punch";
 		}
 	}
 }
@@ -197,7 +197,7 @@ if (instance_exists(obj_player2))
 {
 	if ((obj_player2.x > (x - 400) && obj_player2.x < (x + 400)) && (y <= (obj_player2.y + 60) && y >= (obj_player2.y - 60)))
 	{
-		if (state != states.idle && obj_player2.state == states.mach3)
+		if (state != states.idle && obj_player2.state == "mach3")
 		{
 			state = states.idle;
 			sprite_index = scaredspr;
@@ -208,7 +208,7 @@ if (instance_exists(obj_player2))
 		}
 	}
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

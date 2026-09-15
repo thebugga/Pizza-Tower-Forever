@@ -1,4 +1,4 @@
-if (obj_player.state == states.taxi)
+if (obj_player.state == "taxi")
 {
 	//if (!global.pizzadelivery)
 	//{
@@ -25,12 +25,12 @@ if (obj_player.state == states.taxi)
 	//	}
 	//}
 }
-if (obj_player.state == states.taxi2)
+if (obj_player.state == "taxi2")
 {
 	with (obj_player)
 	{
 		visible = true;
-		state = states.normal;
+		state = "default";
 	}
 }
 if (obj_player.state == states.spaceshuttle)

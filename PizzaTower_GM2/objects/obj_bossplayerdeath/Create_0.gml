@@ -3,14 +3,14 @@ with (obj_player1)
 	switch character
 	{
 		default:
-			state = states.actor;
+			state = "actor";
 			sprite_index = spr_player_outofpizza1;
 			image_index = 0;
 			deathspeed = 10;
 			vsp = -12;
 		break;
 		
-		case characters.Noise:
+		case "Noise":
 			fmod_event_instance_set_parameter(snd_bossdeathN, "state", 0, true);
 			scr_fmod_soundeffect(snd_bossdeathN, x, y);
 			sprite_index = spr_playerN_bossdeath1;
@@ -31,7 +31,7 @@ depth = -600;
 fade = 0;
 fade2 = 0;
 fade2start = false;
-state = states.jump;
+state = "jump";
 with (obj_music)
 {
 	if (music != noone)

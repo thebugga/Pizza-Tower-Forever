@@ -1,4 +1,4 @@
-function scr_player_trashjump()
+function player_trashjump()
 {
 	image_speed = 0.35;
 	hsp = movespeed;
@@ -29,13 +29,13 @@ function scr_player_trashjump()
 	{
 		sprite_index = spr_player_trashjump;
 	}
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		sprite_index = spr_playerN_trash;
 	}
 	if (grounded && vsp > 0)
 	{
-		if (character == characters.Peppino)
+		if (character == "Peppino")
 		{
 			create_transformation_tip(lang_get_value("trashrolltip"), "trashroll");
 			if (instance_place(x, y + 1, obj_slope))
@@ -51,11 +51,11 @@ function scr_player_trashjump()
 			{
 				image_xscale = other.xscale;
 			}
-			state = states.trashroll;
+			state = "trashroll";
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 			with (instance_create(x, y, obj_jumpdust))
 			{
 				image_xscale = other.xscale;

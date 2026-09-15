@@ -1,4 +1,4 @@
-if (grounded && other.sprite_index == spr_swordstone && (state == states.handstandjump || state == states.punch || state == states.lungeattack))
+if (grounded && other.sprite_index == spr_swordstone && (state == "handstandjump" || state == "punch" || state == "lungeattack"))
 {
 	transformationlives = 3;
 	fmod_event_one_shot_3d("event:/sfx/knight/start", x, y);
@@ -9,7 +9,7 @@ if (grounded && other.sprite_index == spr_swordstone && (state == states.handsta
 	image_index = 0;
 	image_speed = 0.35;
 	sprite_index = spr_knightpepstart;
-	state = states.knightpep;
+	state = "knightpep";
 	hsp = 0;
 	vsp = 0;
 	notification_push(notifications.knight_obtained, [room]);

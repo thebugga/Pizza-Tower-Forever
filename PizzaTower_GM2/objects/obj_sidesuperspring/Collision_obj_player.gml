@@ -1,8 +1,8 @@
 with (other)
 {
-	if (state != states.gotoplayer)
+	if (state != "gotoplayer")
 	{
-		if (state == states.bombpepside || state == states.motorcycle || state == states.slipnslide || state == states.rocket || state == states.grind || state == states.tumble || state == states.cheeseball || state == states.knightpepslopes || state == states.machroll || state == states.mach3 || state == states.mach2)
+		if (state == "bombpepside" || state == "motorcycle" || state == "slipnslide" || state == "rocket" || state == "grind" || state == "tumble" || state == "cheeseball" || state == "knightpepslopes" || state == "machroll" || state == "mach3" || state == "mach2")
 		{
 			other.sprite_index = spr_sidespringblock_bounce;
 			other.image_index = 0;

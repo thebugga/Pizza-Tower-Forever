@@ -3,10 +3,10 @@ if (!showswap)
 	global.swapmode = false;
 	//with (obj_player1)
 	//{
-	//	character = other.shownoise ? characters.Noise : characters.Peppino;
+	//	character = other.shownoise ? "Noise" : "Peppino";
 	//	scr_characterspr();
 	//}
-	scr_start_game(currentselect + 1, shownoise ? characters.Noise : characters.Peppino);
+	scr_start_game(currentselect + 1, shownoise ? "Noise" : "Peppino");
 }
 else
 {
@@ -15,7 +15,7 @@ else
 	{
 		targetRoom = characterselect;
 		targetDoor = "A";
-		state = states.titlescreen;
+		state = "titlescreen";
 	}
 	global.swapmode = true;
 	global.currentsavefile = currentselect + 1;

@@ -1,9 +1,9 @@
 with (other)
 {
-	if (other.buffer <= 0 && state == states.handstandjump)
+	if (other.buffer <= 0 && state == "handstandjump")
 	{
 		fmod_event_one_shot_3d("event:/sfx/weenie/start", x, y);
-		state = states.rideweenie;
+		state = "rideweenie";
 		movespeed = hsp;
 		sprite_index = spr_rideweenie;
 		xscale = other.image_xscale;

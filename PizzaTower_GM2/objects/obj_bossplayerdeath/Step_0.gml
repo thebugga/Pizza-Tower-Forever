@@ -11,7 +11,7 @@ with (obj_player1)
 		default:
 			switch (other.state)
 			{
-				case states.jump:
+				case "jump":
 					if (sprite_index == spr_player_outofpizza1 && ANIMATION_END)
 					{
 						sprite_index = spr_player_outofpizza2;
@@ -27,12 +27,12 @@ with (obj_player1)
 					{
 						image_index = 0;
 						sprite_index = spr_player_outofpizza3;
-						other.state = states.normal;
+						other.state = "default";
 						other.alarm[0] = 200;
 						other.alarm[2] = 150;
 					}
 					break;
-				case states.normal:
+				case "default":
 					if (sprite_index == spr_player_outofpizza3 && ANIMATION_END)
 					{
 						sprite_index = spr_player_outofpizza4;
@@ -42,10 +42,10 @@ with (obj_player1)
 					break;
 				}
 		break;
-		case characters.Noise:
+		case "Noise":
 			switch (other.state)
 			{
-				case states.jump:
+				case "jump":
 					if (sprite_index == spr_playerN_bossdeath1 && ANIMATION_END)
 					{
 						sprite_index = spr_playerN_bossdeath1loop;
@@ -85,12 +85,12 @@ with (obj_player1)
 					if (grounded && vsp > 0)
 					{
 						hsp = 0;
-						other.state = states.normal;
+						other.state = "default";
 						other.alarm[0] = 100;
 						other.alarm[2] = 50;
 					}
 					break;
-				case states.normal:
+				case "default":
 					if (ANIMATION_END)
 					{
 						image_index = image_number - 1;

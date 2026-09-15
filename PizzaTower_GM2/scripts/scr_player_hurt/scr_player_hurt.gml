@@ -1,4 +1,4 @@
-function scr_player_hurt()
+function player_hurt()
 {
 	if (sprite_index == spr_hurtjump)
 	{
@@ -37,7 +37,7 @@ function scr_player_hurt()
 	if (grounded && vsp > 0)
 	{
 		movespeed = 0;
-		state = states.normal;
+		state = "default";
 	}
 	if (scr_solid(x + hsp, y))
 	{

@@ -1,4 +1,4 @@
-function scr_player_estampede()
+function player_estampede()
 {
 	hsp = movespeed;
 	move = key_left + key_right;
@@ -11,7 +11,7 @@ function scr_player_estampede()
 		image_speed = 0;
 		if (sprite_index == spr_slipbanan2 && abs(hsp) <= 2)
 		{
-			state = states.normal;
+			state = "default";
 			movespeed = 0;
 		}
 	}

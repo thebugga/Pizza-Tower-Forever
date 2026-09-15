@@ -1,9 +1,9 @@
 fmod_event_instance_set_3d_attributes(snd, x, y);
 switch (state)
 {
-	case states.normal:
+	case "default":
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		if (ANIMATION_END)
 		{
 			state = states.fall;
@@ -36,7 +36,7 @@ switch (state)
 		}
 		else if (grounded)
 		{
-			state = states.ejected;
+			state = "ejected";
 			sprite_index = spr_grabbiehand_idle;
 			grounded = false;
 		}
@@ -46,19 +46,19 @@ switch (state)
 		}
 		scr_collide();
 		break;
-	case states.ejected:
+	case "ejected":
 		var _dir = point_direction(x, y, xstart, ystart);
 		x = approach(x, xstart, abs(lengthdir_x(8, _dir)));
 		y = approach(y, ystart, abs(lengthdir_y(8, _dir)));
 		if (x > (xstart - 8) && x < (xstart + 8) && y > (ystart - 8) && y < (ystart + 8))
 		{
-			state = states.normal;
+			state = "default";
 			x = xstart;
 			y = ystart;
 			fmod_event_instance_stop(snd, true);
 		}
 		break;
-	case states.grabbing:
+	case "grabbing":
 		sprite_index = spr_grabbiehand_catch;
 		if (!reverse)
 		{
@@ -78,7 +78,7 @@ switch (state)
 			xscale = other.image_xscale;
 			if (object_index != obj_pizzagoblinbomb)
 			{
-				state = states.actor;
+				state = "actor";
 				if (boxxed == false)
 				{
 					sprite_index = spr_catched;
@@ -87,11 +87,11 @@ switch (state)
 				{
 					sprite_index = spr_boxxedpepair;
 				}
-				if (tauntstoredstate == states.mach2)
+				if (tauntstoredstate == "mach2")
 				{
 					sprite_index = spr_mach;
 				}
-				else if (tauntstoredstate == states.mach3)
+				else if (tauntstoredstate == "mach3")
 				{
 					sprite_index = spr_mach4;
 				}
@@ -108,7 +108,7 @@ switch (state)
 					vsp = 0;
 					sprite_index = tauntstoredsprite;
 					state = tauntstoredstate;
-					if (state == states.mach3)
+					if (state == "mach3")
 					{
 						sprite_index = spr_mach4;
 						machhitAnim = false;
@@ -116,7 +116,7 @@ switch (state)
 				}
 			}
 			sprite_index = spr_grabbiehand_idle;
-			state = states.ejected;
+			state = "ejected";
 			if (fake)
 			{
 				instance_destroy();

@@ -3,12 +3,12 @@ switch (state)
 	case states.idle:
 		if (selected)
 		{
-			state = states.transitioncutscene;
+			state = "transitioncutscene";
 			sprite_index = transspr;
 			image_index = 0;
 		}
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		if (ANIMATION_END)
 		{
 			if (selected)
@@ -17,11 +17,11 @@ switch (state)
 				{
 					fmod_event_instance_stop(staticsnd, true);
 				}
-				state = states.normal;
+				state = "default";
 				sprite_index = selectedspr;
 				noisehead = irandom(sprite_get_number(spr_titlecard_noise) - 1);
 				surface_rebuild = true;
-				var _started = obj_mainmenu.shownoise ? global.gameN[trigger].started : global.game[trigger].started;
+				var _started = global.game[trigger].started;
 				if (!_started)
 				{
 					sprite_index = transspr;
@@ -35,7 +35,7 @@ switch (state)
 			}
 		}
 		break;
-	case states.normal:
+	case "default":
 		if (sprite_index == transspr && ANIMATION_END)
 		{
 			image_index = image_number - 3;
@@ -44,7 +44,7 @@ switch (state)
 		{
 			sprite_index = transspr;
 			image_index = 2;
-			state = states.transitioncutscene;
+			state = "transitioncutscene";
 		}
 		break;
 }

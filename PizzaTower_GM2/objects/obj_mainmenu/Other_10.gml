@@ -1,4 +1,4 @@
-if (state == states.normal && !instance_exists(obj_option) && !instance_exists(obj_noiseunlocked))
+if (state == "default" && !instance_exists(obj_option) && !instance_exists(obj_noiseunlocked))
 {
 	if (sprite_index != spr_titlepep_punch && sprite_index != spr_titlepep_angry)
 	{

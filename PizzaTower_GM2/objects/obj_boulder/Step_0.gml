@@ -6,7 +6,7 @@ switch (state)
 			hsp = 0;
 			vsp = 0;
 			sprite_index = spr_meatball_idle;
-			if (point_in_camera(x, y, view_camera[0]) && (obj_camera.shake_mag >= 10 || obj_player.state == states.freefallland))
+			if (point_in_camera(x, y, view_camera[0]) && (obj_camera.shake_mag >= 10 || obj_player.state == "freefallland"))
 			{
 				active = true;
 				sprite_index = spr_meatball_roll;
@@ -54,7 +54,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -134,10 +134,10 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -146,7 +146,7 @@ switch (state)
 	case states.rage:
 		scr_enemy_rage();
 		break;
-	case states.ghostpossess:
+	case "ghostpossess":
 		scr_enemy_ghostpossess();
 		break;
 }
@@ -187,7 +187,7 @@ if (flash == true && alarm[2] <= 0)
 }
 angle = 0;
 flash = false;
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

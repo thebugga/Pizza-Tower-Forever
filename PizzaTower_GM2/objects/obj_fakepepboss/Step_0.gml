@@ -21,7 +21,7 @@ if (!pizzahead || elitehit > 1)
 }
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		scr_fakepepboss_arenaintro();
 		break;
 	case states.walk:
@@ -39,25 +39,25 @@ switch (state)
 	case states.grabthrow:
 		scr_fakepepboss_grabthrow();
 		break;
-	case states.jump:
+	case "jump":
 		scr_fakepepboss_jump();
 		break;
-	case states.freefall:
+	case "freefall":
 		scr_fakepepboss_freefall();
 		break;
-	case states.mach2:
+	case "mach2":
 		scr_fakepepboss_mach2();
 		break;
-	case states.Sjumpprep:
+	case "Sjumpprep":
 		scr_fakepepboss_Sjumpprep();
 		break;
-	case states.Sjump:
+	case "Sjump":
 		scr_fakepepboss_Sjump();
 		break;
-	case states.throwing:
+	case "throwing":
 		scr_fakepepboss_throwing();
 		break;
-	case states.backbreaker:
+	case "backbreaker":
 		scr_fakepepboss_backbreaker();
 		break;
 	case states.pizzaheadjump:
@@ -66,16 +66,16 @@ switch (state)
 	case states.pizzaheadKO:
 		scr_boss_pizzaheadKO();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
 		scr_enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 }
@@ -91,7 +91,7 @@ if (phase == 2 && state != states.stun && state != states.deformed)
 		scr_fakepepboss_do_projectiles(phase - 1, wastedhits);
 	}
 }
-if (state == states.Sjump)
+if (state == "Sjump")
 {
 	if (!instance_exists(hitboxID))
 	{
@@ -118,7 +118,7 @@ if (flashbuffer > 0)
 	flashbuffer--;
 }
 boss_hurt_gustavo();
-if (state == states.jump)
+if (state == "jump")
 {
 	grav = 0.4;
 }
@@ -278,7 +278,7 @@ else if (invincible && state != states.staggered && flashbuffer <= 0)
 {
 	flash = false;
 }
-if ((state == states.grabdash || (state == states.mach2 && attackspeed >= 10) || (state == states.throwing && sprite_index == spr_fakepeppino_flailing && attackspeed > 4) || state == states.freefall) && alarm[4] < 0)
+if ((state == states.grabdash || (state == "mach2" && attackspeed >= 10) || (state == "throwing" && sprite_index == spr_fakepeppino_flailing && attackspeed > 4) || state == "freefall") && alarm[4] < 0)
 {
 	alarm[4] = 10;
 }
@@ -291,7 +291,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

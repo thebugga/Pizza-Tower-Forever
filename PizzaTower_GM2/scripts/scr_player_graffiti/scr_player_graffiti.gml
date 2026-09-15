@@ -1,14 +1,14 @@
-function scr_player_graffiti()
+function player_graffiti()
 {
 	hsp = 0;
 	vsp = -grav;
 	image_speed = 0.5;
 	if (ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 		if (tauntstoredisgustavo)
 		{
-			state = states.ratmount;
+			state = "ratmount";
 		}
 		if (global.graffiticount >= global.graffitimax)
 		{

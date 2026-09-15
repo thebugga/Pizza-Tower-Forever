@@ -2,19 +2,19 @@ if (place_meeting(x, y - 1, obj_player))
 {
 	with (obj_player)
 	{
-		if (state != states.gotoplayer && state != states.trashjump && state != states.trashstart && state != states.mach3 && state != states.parry && sprite_index != spr_mach3boost)
+		if (state != "gotoplayer" && state != "trashjump" && state != states.trashstart && state != "mach3" && state != "parry" && sprite_index != spr_mach3boost)
 		{
-			if (state != states.machcancel || sprite_index == spr_playerN_divebomb || sprite_index == spr_playerN_divebombfall || sprite_index == spr_playerN_divebombland)
+			if (state != "machcancel" || sprite_index == spr_playerN_divebomb || sprite_index == spr_playerN_divebombfall || sprite_index == spr_playerN_divebombland)
 			{
 				if (place_meeting(x, y + 1, other))
 				{
-					if (state != states.trashroll)
+					if (state != "trashroll")
 					{
 						fmod_event_one_shot("event:/sfx/misc/watersplash");
 						sprite_index = spr_scaredjump1;
 						image_index = 0;
 						image_speed = 0.35;
-						state = states.fireass;
+						state = "fireass";
 						movespeed = hsp;
 						vsp = -14;
 						instance_create(x, y + 20, obj_piranneapplewater);

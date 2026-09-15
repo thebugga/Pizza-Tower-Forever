@@ -1,5 +1,5 @@
 
-if (obj_player.state != states.hurt && global.shroomfollow == false)
+if (obj_player.state != "hurt" && global.shroomfollow == false)
 {
 	global.heattime = 60;
 	global.style--;

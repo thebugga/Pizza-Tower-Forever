@@ -81,7 +81,7 @@ ds_map_set(collision_function, obj_baddie, function(_obj)
 	{
 		with (_obj)
 		{
-			if (staggerbuffer <= 0 && flickertime <= 0 && visible && (state == states.walk || (state == states.jump && sprite_index == spr_fakepeppino_bodyslamstart) || (state == states.freefall && sprite_index == spr_fakepeppino_bodyslamland) || (state == states.mach2 && attackspeed < 18) || state == states.Sjumpprep || (state == states.throwing && sprite_index != spr_fakepeppino_flailing)))
+			if (staggerbuffer <= 0 && flickertime <= 0 && visible && (state == states.walk || (state == "jump" && sprite_index == spr_fakepeppino_bodyslamstart) || (state == "freefall" && sprite_index == spr_fakepeppino_bodyslamland) || (state == "mach2" && attackspeed < 18) || state == "Sjumpprep" || (state == "throwing" && sprite_index != spr_fakepeppino_flailing)))
 			{
 				var ix = -other.image_xscale;
 				if (x != other.x)
@@ -136,7 +136,7 @@ ds_map_set(collision_function, obj_baddie, function(_obj)
 			}
 		}
 	}
-	if (instance_exists(_obj) && _obj.invtime == 0 && _obj.state != states.grabbed && !_obj.invincible && _obj.instantkillable)
+	if (instance_exists(_obj) && _obj.invtime == 0 && _obj.state != "grabbed" && !_obj.invincible && _obj.instantkillable)
 	{
 		if (room == boss_pizzaface && (_obj.object_index == obj_pepperman || _obj.object_index == obj_vigilanteboss || _obj.object_index == obj_noiseboss || _obj.object_index == obj_fakepepboss || _obj.object_index == obj_pizzafaceboss_p3))
 		{
@@ -166,7 +166,7 @@ ds_map_set(collision_function, obj_baddie, function(_obj)
 			_obj.hp -= 1;
 			instance_create(_obj.x, _obj.y, obj_parryeffect);
 			_obj.alarm[3] = 3;
-			_obj.state = states.hit;
+			_obj.state = "hit";
 			if (_obj.x != other.x)
 			{
 				_obj.image_xscale = sign(other.x - _obj.x);

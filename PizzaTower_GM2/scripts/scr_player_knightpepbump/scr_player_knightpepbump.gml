@@ -1,11 +1,11 @@
-function scr_player_knightpepbump()
+function player_knightpepbump()
 {
 	alarm[5] = 2;
 	alarm[7] = 60;
 	hsp = -xscale * movespeed;
 	if (grounded && vsp > 0)
 	{
-		state = states.knightpep;
+		state = "knightpep";
 		sprite_index = spr_knightpepland;
 		image_index = 0;
 		fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);

@@ -3,8 +3,15 @@ function scr_collide_init() {
 	grav = 0;		
 	hsp = 0;
 	vsp = 0;
+	movespeed = 0;
 	vsp_carry = 0;
 	hsp_carry = 0;
+	platformid = noone;
+	xscale = 1;
+	yscale = 1;
+	scale_xs = 1;
+	scale_ys = 1;
+	angle = 0;
 }
 
 function scr_collide()

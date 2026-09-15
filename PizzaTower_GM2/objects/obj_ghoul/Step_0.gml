@@ -25,7 +25,7 @@ switch (state)
 			}
 			else if (t)
 			{
-				state = states.transitioncutscene;
+				state = "transitioncutscene";
 				sprite_index = spr_ghoul_attackstart;
 				image_index = 0;
 				attack_y = y;
@@ -55,19 +55,19 @@ switch (state)
 			image_xscale = sign(x - xstart);
 		}
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		hsp = 0;
 		vsp = 0;
 		if (ANIMATION_END)
 		{
 			fmod_event_one_shot_3d("event:/sfx/enemies/minijohnpunch", x, y);
-			state = states.punch;
+			state = "punch";
 			attackvsp = 11;
 			attack_y = y;
 			sprite_index = spr_ghoul_attack;
 		}
 		break;
-	case states.punch:
+	case "punch":
 		attackvsp = approach(attackvsp, -11, 0.5);
 		vsp = attackvsp;
 		hsp = image_xscale * 10;
@@ -85,7 +85,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -95,10 +95,10 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -121,7 +121,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

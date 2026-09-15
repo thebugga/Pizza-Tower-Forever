@@ -1,4 +1,4 @@
-function scr_player_mort()
+function player_mort()
 {
 	move = key_right + key_left;
 	hsp = movespeed;
@@ -82,13 +82,13 @@ function scr_player_mort()
 	}
 	if (!grounded)
 	{
-		state = states.mortjump;
+		state = "mortjump";
 		sprite_index = spr_playermortjump;
 	}
 	else if (input_buffer_jump > 0)
 	{
 		input_buffer_jump = 0;
-		state = states.mortjump;
+		state = "mortjump";
 		doublejump = false;
 		vsp = -11;
 		sprite_index = spr_playermortjumpstart;
@@ -101,12 +101,12 @@ function scr_player_mort()
 
 function mort_attack()
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		if (input_buffer_slap > 0)
 		{
 			input_buffer_slap = 0;
-			state = states.mortattack;
+			state = "mortattack";
 			sprite_index = spr_playerN_mortthrow;
 			image_index = 0;
 			if (move != 0)
@@ -123,7 +123,7 @@ function mort_attack()
 	if (input_buffer_slap > 0)
 	{
 		input_buffer_slap = 0;
-		state = states.mortattack;
+		state = "mortattack";
 		sprite_index = spr_player_mortattackfront;
 		image_index = 0;
 		if (move != 0)
@@ -215,7 +215,7 @@ function Mort_DownMovement()
 	{
 		with (playerid)
 		{
-			if character == characters.Peppino
+			if character == "Peppino"
 			{
 				doublejump = false;
 				vsp = -14;

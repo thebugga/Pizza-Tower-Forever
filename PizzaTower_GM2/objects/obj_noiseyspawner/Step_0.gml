@@ -1,7 +1,7 @@
 var b = false;
 with (obj_bosscontroller)
 {
-	if (state == states.arenaintro)
+	if (state == "arenaintro")
 	{
 		b = false;
 	}
@@ -12,7 +12,7 @@ with (obj_noisey)
 }
 with (obj_noiseboss)
 {
-	if (state == states.arenaintro || state == states.stun || wastedhits >= 6)
+	if (state == "arenaintro" || state == states.stun || wastedhits >= 6)
 	{
 		b = false;
 	}

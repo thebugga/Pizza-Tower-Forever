@@ -47,7 +47,7 @@ pizzahead = true;
 override_throw = false;
 playerpowerup = true;
 playerid = noone;
-introstate = states.arenaintro;
+introstate = "arenaintro";
 lastattack = -1;
 laugh = 0;
 instance_destroy(obj_gustavograbbable);

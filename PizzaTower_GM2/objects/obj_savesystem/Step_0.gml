@@ -2,7 +2,7 @@ if (room == hub_loadingscreen && state != 2)
 {
 	with (obj_player)
 	{
-		state = states.comingoutdoor;
+		state = "comingoutdoor";
 		sprite_index = spr_walkfront;
 		image_index = 0;
 	}
@@ -25,7 +25,7 @@ if (room == hub_loadingscreen && state != 2)
 			{
 				targetRoom = tower_entrancehall;
 				targetDoor = "A";
-				state = states.victory;
+				state = "victory";
 				character = other.character;
 				scr_characterspr();
 			}
@@ -33,7 +33,7 @@ if (room == hub_loadingscreen && state != 2)
 			{
 				targetRoom = Finalintro;
 				targetDoor = "A";
-				state = states.titlescreen;
+				state = "titlescreen";
 			}
 		}
 		with (instance_create(x, y, obj_fadeout))

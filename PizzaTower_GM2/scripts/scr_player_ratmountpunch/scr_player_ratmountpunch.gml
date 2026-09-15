@@ -1,4 +1,4 @@
-function scr_player_ratmountpunch()
+function player_ratmountpunch()
 {
 	image_speed = abs(movespeed) / 12;
 	hsp = movespeed;
@@ -13,7 +13,7 @@ function scr_player_ratmountpunch()
 	if (ratmountpunchtimer < 0 && (!key_slap || gustavohitwall))
 	{
 		sprite_index = spr_lonegustavo_walk;
-		state = states.ratmount;
+		state = "ratmount";
 		if (hsp != 0)
 		{
 			dir = sign(hsp);
@@ -32,12 +32,12 @@ function scr_player_ratmountpunch()
 	}
 	if ((key_down && grounded && !gustavohitwall) || scr_solid(x, y))
 	{
-		state = states.ratmountcrouch;
+		state = "ratmountcrouch";
 	}
 	if (scr_check_groundpound2() && !grounded && !gustavohitwall)
 	{
 		movespeed = hsp;
-		state = states.ratmountgroundpound;
+		state = "ratmountgroundpound";
 		image_index = 0;
 		sprite_index = spr_lonegustavo_groundpoundstart;
 	}

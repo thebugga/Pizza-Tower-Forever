@@ -1,4 +1,4 @@
-function scr_player_backbreaker()
+function player_backbreaker()
 {
 	mach2 = 0;
 	if (sprite_index != spr_player_machfreefall)
@@ -22,7 +22,7 @@ function scr_player_backbreaker()
 	landAnim = false;
 	//if (sprite_index == spr_player_machfreefall && place_meeting(x, y + 1, obj_solid))
 	//{
-	//	state = states.machslide;
+	//	state = "machslide";
 	//	sprite_index = spr_player_crouchslide;
 	//}
 	if (sprite_index == spr_taunt || sprite_index == spr_supertaunt1 || sprite_index == spr_supertaunt2 || sprite_index == spr_supertaunt3 || sprite_index == spr_supertaunt4 || sprite_index == spr_player_ratmounttaunt || sprite_index == spr_player_ratmountsupertaunt)
@@ -37,7 +37,7 @@ function scr_player_backbreaker()
 				if (point_in_camera(x, y, view_camera[0]) && supertauntable)
 				{
 					hp = -99;
-					state = states.hit;
+					state = "hit";
 					hitLag = lag;
 					hitX = x;
 					hitY = y;
@@ -137,15 +137,15 @@ function scr_player_backbreaker()
 	}
 	if (ANIMATION_END && sprite_index == spr_player_throw)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (ANIMATION_END && sprite_index == spr_Timesup && place_meeting(x, y, obj_exitgate))
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (ANIMATION_END && (sprite_index == spr_player_levelcomplete || sprite_index == spr_playerN_victory))
 	{
-		state = states.normal;
+		state = "default";
 	}
 	//if (key_jump && sprite_index == spr_player_phoneidle)
 	//{
@@ -160,7 +160,7 @@ function scr_player_backbreaker()
 	//}
 	//if (global.miniboss == true && sprite_index == spr_bossintro && ANIMATION_END)
 	//{
-	//	state = states.normal;
+	//	state = "default";
 	//}
 	image_speed = 0.4;
 	if (supercharged && key_up)

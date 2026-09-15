@@ -1,9 +1,9 @@
-function scr_player_ratmountbounce()
+function player_ratmountbounce()
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		isgustavo = false;
-		scr_player_noisecrusher();
+		player_noisecrusher();
 		exit;
 	}
 	if (sprite_index == spr_player_ratmountwalljump && vsp > 0)
@@ -34,7 +34,7 @@ function scr_player_ratmountbounce()
 			{
 				xscale = sign(hsp);
 			}
-			state = states.ratmount;
+			state = "ratmount";
 		}
 	}
 	else
@@ -67,7 +67,7 @@ function scr_player_ratmountbounce()
 				}
 			}
 			brick = false;
-			state = states.ratmountpunch;
+			state = "ratmountpunch";
 			gustavohitwall = false;
 			ratmountpunchtimer = 25;
 			image_index = 0;
@@ -84,7 +84,7 @@ function scr_player_ratmountbounce()
 			if (move != 0 && move == sign(hsp) && key_jump2)
 			{
 				fmod_event_one_shot_3d("event:/sfx/ratmount/walljump1", x, y);
-				state = states.ratmountclimbwall;
+				state = "ratmountclimbwall";
 				sticktime = 15;
 				xscale = sign(hsp);
 				landAnim = false;

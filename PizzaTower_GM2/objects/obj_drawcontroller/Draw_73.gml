@@ -1,6 +1,6 @@
 with (obj_player)
 {
-	if (state == states.backbreaker && (sprite_index == spr_supertaunt1 || sprite_index == spr_supertaunt2 || sprite_index == spr_supertaunt3 || sprite_index == spr_supertaunt4))
+	if (state == "backbreaker" && (sprite_index == spr_supertaunt1 || sprite_index == spr_supertaunt2 || sprite_index == spr_supertaunt3 || sprite_index == spr_supertaunt4))
 	{
 		draw_superslam_enemy();
 	}
@@ -141,7 +141,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 				draw_set_alpha(circle_alpha_out);
 				with (_player)
 				{
-					if (state != states.gotoplayer)
+					if (state != "gotoplayer")
 					{
 						draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 178, false);
 					}
@@ -149,7 +149,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 				draw_set_alpha(circle_alpha_in);
 				with (_player)
 				{
-					if (state != states.gotoplayer)
+					if (state != "gotoplayer")
 					{
 						draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 128, false);
 					}

@@ -6,7 +6,7 @@ with (obj_player)
 {
 	if (other.image_yscale == 1)
 	{
-		if (((key_down && !place_meeting(x, y + 1, obj_destructibles) && place_meeting(x, y + 1, other) && ((state == states.crouch) || state == states.machroll || (state == states.tumble && sprite_index == spr_dive))) || ((state == states.crouchslide || (state == states.tumble && key_down) || state == states.machcancel || state == states.unknown300 || state == states.unknown303 || state == states.freefall || state == states.freefallland) && !place_meeting(x, y + 1, obj_destructibles) && place_meeting(x, y + 1, other))) && !instance_exists(obj_fadeout) && state != states.door && state != states.comingoutdoor)
+		if (((key_down && !place_meeting(x, y + 1, obj_destructibles) && place_meeting(x, y + 1, other) && ((state == "crouch") || state == "machroll" || (state == "tumble" && sprite_index == spr_dive))) || ((state == "crouchslide" || (state == "tumble" && key_down) || state == "machcancel" || state == states.unknown300 || state == states.unknown303 || state == "freefall" || state == "freefallland") && !place_meeting(x, y + 1, obj_destructibles) && place_meeting(x, y + 1, other))) && !instance_exists(obj_fadeout) && state != "door" && state != "comingoutdoor")
 		{
 			obj_player1.lastroom = room;
 			obj_player2.lastroom = room;
@@ -31,25 +31,25 @@ with (obj_player)
 				}
 				obj_player1.sprite_index = obj_player1.spr_downpizzabox;
 				obj_player1.image_index = 0;
-				obj_player1.state = states.door;
+				obj_player1.state = "door";
 				obj_player2.sprite_index = obj_player2.spr_downpizzabox;
 				obj_player2.image_index = 0;
-				if (obj_player2.state != states.gotoplayer)
+				if (obj_player2.state != "gotoplayer")
 				{
-					obj_player2.state = states.door;
+					obj_player2.state = "door";
 				}
 			}
 			else
 			{
 				sprite_index = spr_downpizzabox;
 				image_index = 0;
-				state = states.door;
+				state = "door";
 			}
 		}
 	}
 	if (other.image_yscale == -1)
 	{
-		if (((key_up && !place_meeting(x, y - 1, obj_destructibles) && place_meeting(x, y - 10, other) && (state == states.normal || state == states.machcancel || state == states.pogo || state == states.unknown300 || state == states.unknown302 || state == states.machcancel || state == states.jump || state == states.mach1 || state == states.mach2 || state == states.mach3 || state == states.Sjumpprep || (state == states.punch && sprite_index == spr_breakdanceuppercut))) || ((state == states.Sjump || state == states.machcancel || state == states.Sjumpland) && !place_meeting(x, y - 1, obj_destructibles) && place_meeting(x, y - 1, other))) && !instance_exists(obj_fadeout) && state != states.door && state != states.comingoutdoor)
+		if (((key_up && !place_meeting(x, y - 1, obj_destructibles) && place_meeting(x, y - 10, other) && (state == "default" || state == "machcancel" || state == "pogo" || state == states.unknown300 || state == states.unknown302 || state == "machcancel" || state == "jump" || state == "mach1" || state == "mach2" || state == "mach3" || state == "Sjumpprep" || (state == "punch" && sprite_index == spr_breakdanceuppercut))) || ((state == "Sjump" || state == "machcancel" || state == "Sjumpland") && !place_meeting(x, y - 1, obj_destructibles) && place_meeting(x, y - 1, other))) && !instance_exists(obj_fadeout) && state != "door" && state != "comingoutdoor")
 		{
 			obj_player1.lastroom = room;
 			obj_player2.lastroom = room;
@@ -78,19 +78,19 @@ with (obj_player)
 				}
 				obj_player1.sprite_index = obj_player1.spr_uppizzabox;
 				obj_player1.image_index = 0;
-				obj_player1.state = states.door;
+				obj_player1.state = "door";
 				obj_player2.sprite_index = obj_player2.spr_uppizzabox;
 				obj_player2.image_index = 0;
-				if (obj_player2.state != states.gotoplayer)
+				if (obj_player2.state != "gotoplayer")
 				{
-					obj_player2.state = states.door;
+					obj_player2.state = "door";
 				}
 			}
 			else
 			{
 				sprite_index = spr_uppizzabox;
 				image_index = 0;
-				state = states.door;
+				state = "door";
 			}
 		}
 	}

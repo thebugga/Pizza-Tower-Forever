@@ -1,4 +1,4 @@
-function scr_player_bump()
+function player_bump()
 {
 	if (sprite_index != spr_wallsplat)
 	{
@@ -38,17 +38,17 @@ function scr_player_bump()
 			{
 				if (sprite_index != spr_rockethitwall || (grounded && vsp > 0))
 				{
-					state = states.normal;
+					state = "default";
 				}
 			}
 			else
 			{
-				state = states.mach2;
+				state = "mach2";
 			}
 		}
 		if (grounded && vsp > 0 && _gus)
 		{
-			state = states.ratmount;
+			state = "ratmount";
 		}
 		if (sprite_index != spr_player_catched && sprite_index != spr_boxxedpep_air && sprite_index != spr_rockethitwall && sprite_index != spr_tumbleend && sprite_index != spr_hitwall && !_gus && sprite_index != spr_mach && sprite_index != spr_mach4)
 		{
@@ -62,12 +62,12 @@ function scr_player_bump()
 		vsp = 0;
 		if (ANIMATION_END)
 		{
-			state = states.normal;
+			state = "default";
 		}
 		image_speed = 0.35;
 	}
-	if (state == states.normal && isgustavo)
+	if (state == "default" && isgustavo)
 	{
-		state = states.ratmount;
+		state = "ratmount";
 	}
 }

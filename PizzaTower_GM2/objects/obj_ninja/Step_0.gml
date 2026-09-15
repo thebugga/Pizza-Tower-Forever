@@ -15,7 +15,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -24,7 +24,7 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
 	case states.pizzaheadjump:
@@ -97,7 +97,7 @@ if (state == states.walk)
 		}
 	}
 }
-else if (state == states.punch)
+else if (state == "punch")
 {
 	image_speed = 0.35;
 	hsp = 0;
@@ -167,7 +167,7 @@ if (sprite_index == spr_pizzaboy)
 else if (state == states.walk && attack_buffer <= 0)
 {
 	attack_buffer = attack_max + irandom_range(-attack_random, attack_random);
-	state = states.punch;
+	state = "punch";
 	hsp = 0;
 	hitboxcreate = false;
 	if (!elite)
@@ -198,7 +198,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

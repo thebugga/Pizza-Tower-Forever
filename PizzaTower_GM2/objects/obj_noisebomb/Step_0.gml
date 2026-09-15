@@ -2,7 +2,7 @@ if (room == rank_room || room == timesuproom)
 {
 	visible = false;
 }
-if (obj_player.state == states.pizzathrow)
+if (obj_player.state == "pizzathrow")
 {
 	visible = false;
 }

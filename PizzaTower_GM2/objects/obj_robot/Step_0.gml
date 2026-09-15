@@ -16,7 +16,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -25,10 +25,10 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.mach1:
+	case "mach1":
 		if (image_index > (image_number - 1))
 		{
 			hsp = image_xscale * startmachspeed;
@@ -39,10 +39,10 @@ switch (state)
 			}
 			sprite_index = spr_robot_mach;
 			image_index = 0;
-			state = states.mach2;
+			state = "mach2";
 		}
 		break;
-	case states.mach2:
+	case "mach2":
 		hsp = approach(hsp, image_xscale * machspeed, 0.5) + railmovespeed;
 		if (place_meeting(x, y + 1, obj_railparent))
 		{
@@ -67,7 +67,7 @@ switch (state)
 			sprite_index = stunfallspr;
 		}
 		break;
-	case states.tackle:
+	case "tackle":
 		if (image_index > 8)
 		{
 			hsp = image_xscale * tacklespeed;
@@ -98,7 +98,7 @@ switch (state)
 			sprite_index = stunfallspr;
 		}
 		break;
-	case states.slap:
+	case "slap":
 		hsp = 0;
 		if (image_index > (image_number - 1))
 		{
@@ -127,7 +127,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
@@ -153,7 +153,7 @@ if (x != targetplayer.x && state != states.pizzagoblinthrow && bombreset == 0)
 			bombreset = 100;
 			switch (state)
 			{
-				case states.mach1:
+				case "mach1":
 					sprite_index = spr_robot_machstart;
 					image_index = 0;
 					image_speed = 0.6;
@@ -166,13 +166,13 @@ if (x != targetplayer.x && state != states.pizzagoblinthrow && bombreset == 0)
 					image_speed = 0.35;
 					hsp = 0;
 					break;
-				case states.tackle:
+				case "tackle":
 					sprite_index = spr_robot_tackle;
 					image_index = 0;
 					image_speed = 0.6;
 					hsp = 0;
 					break;
-				case states.slap:
+				case "slap":
 					sprite_index = spr_robot_slap;
 					image_index = 0;
 					image_speed = 0.6;
@@ -194,7 +194,7 @@ if (boundbox == false)
 		other.boundbox = true;
 	}
 }
-if (state == states.slap && image_index > 11)
+if (state == "slap" && image_index > 11)
 {
 	if (snd == false)
 	{
@@ -203,7 +203,7 @@ if (state == states.slap && image_index > 11)
 	}
 	snd = true;
 }
-if (state == states.mach2)
+if (state == "mach2")
 {
 	if (snd == false)
 	{
@@ -211,7 +211,7 @@ if (state == states.mach2)
 	}
 	snd = true;
 }
-if (state == states.tackle && image_index > 8)
+if (state == "tackle" && image_index > 8)
 {
 	if (snd == false)
 	{
@@ -219,22 +219,22 @@ if (state == states.tackle && image_index > 8)
 	}
 	snd = true;
 }
-if (state != states.slap && state != states.mach2 && state != states.tackle)
+if (state != "slap" && state != "mach2" && state != "tackle")
 {
 	snd = false;
 }
-if (state == states.mach2 || (state == states.slap && image_index > 11) || (state == states.tackle && image_index > 8))
+if (state == "mach2" || (state == "slap" && image_index > 11) || (state == "tackle" && image_index > 8))
 {
 	if (!hitboxcreate)
 	{
 		hitboxcreate = true;
 		with (instance_create(x, y, obj_forkhitbox))
 		{
-			if (other.state == states.slap)
+			if (other.state == "slap")
 			{
 				sprite_index = spr_swordhitbox;
 			}
-			else if (other.state == states.mach2 || other.state == states.tackle)
+			else if (other.state == "mach2" || other.state == "tackle")
 			{
 				sprite_index = spr_bighitbox;
 			}

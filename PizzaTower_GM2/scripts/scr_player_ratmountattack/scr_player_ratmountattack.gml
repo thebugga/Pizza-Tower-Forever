@@ -1,4 +1,4 @@
-function scr_player_ratmountattack()
+function player_ratmountattack()
 {
 	image_speed = 0.35;
 	hsp = xscale * movespeed;
@@ -17,13 +17,13 @@ function scr_player_ratmountattack()
 	{
 		doublejump = true;
 		vsp = -11;
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		jumpstop = false;
 		sprite_index = spr_player_ratmountwalljump;
 	}
 	if (ANIMATION_END)
 	{
-		state = states.ratmount;
+		state = "ratmount";
 	}
 	if (scr_solid(x + xscale, y) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x + xscale, y, obj_destructibles))
 	{

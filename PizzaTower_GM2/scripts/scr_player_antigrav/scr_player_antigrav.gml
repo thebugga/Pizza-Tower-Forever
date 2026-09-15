@@ -1,6 +1,6 @@
-function scr_player_antigrav()
+function player_antigrav()
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		sprite_index = spr_playerN_bubbleidle;
 		move_h = key_right_axis + key_left_axis;
@@ -41,7 +41,7 @@ function scr_player_antigrav()
 		{
 			input_buffer_jump = 0;
 			movespeed = abs(hsp);
-			state = states.jump;
+			state = "jump";
 			sprite_index = spr_machfreefall;
 			fmod_event_one_shot_3d("event:/sfx/antigrav/end", x, y);
 		}
@@ -87,7 +87,7 @@ function scr_player_antigrav()
 		exit;
 	}
 	sprite_index = spr_currentplayer;
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		sprite_index = spr_playerN_bubbleidle;
 	}
@@ -102,7 +102,7 @@ function scr_player_antigrav()
 	{
 		input_buffer_jump = 0;
 		movespeed = abs(hsp);
-		state = states.jump;
+		state = "jump";
 		sprite_index = spr_machfreefall;
 		fmod_event_one_shot_3d("event:/sfx/antigrav/end", x, y);
 	}

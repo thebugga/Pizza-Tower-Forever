@@ -1,6 +1,6 @@
-function scr_player_rocketslide()
+function player_rocketslide()
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		if (image_speed == 0)
 		{
@@ -10,7 +10,7 @@ function scr_player_rocketslide()
 		vsp = 0;
 		if (ANIMATION_END)
 		{
-			state = states.rocket;
+			state = "rocket";
 			sprite_index = spr_rocket;
 			image_index = 0;
 			movespeed = 12;
@@ -32,7 +32,7 @@ function scr_player_rocketslide()
 	}
 	if (movespeed <= 0)
 	{
-		state = states.rocket;
+		state = "rocket";
 		sprite_index = spr_rocket;
 		image_index = 0;
 		movespeed = 12;

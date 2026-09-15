@@ -1,8 +1,8 @@
 instance_destroy();
-if (obj_player1.character == characters.Noise)
+if (obj_player1.character == "Noise")
 {
 	image_speed = 0;
-	if (obj_player1.image_index < 18 || obj_player1.state != states.backbreaker)
+	if (obj_player1.image_index < 18 || obj_player1.state != "backbreaker")
 	{
 		instance_destroy();
 	}

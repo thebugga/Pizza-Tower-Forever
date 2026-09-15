@@ -1,8 +1,8 @@
-function scr_player_cheesepepstick()
+function player_cheesepepstick()
 {
 	hsp = 0;
 	vsp = 0;
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		vsp = (key_down - key_up) * 4;
 		if (vsp < 0)
@@ -25,14 +25,14 @@ function scr_player_cheesepepstick()
 	}
 	if (!grounded && !place_meeting(x + 1, y, obj_solid) && !place_meeting(x - 1, y, obj_solid))
 	{
-		state = states.cheesepepjump;
+		state = "cheesepepjump";
 		jumpAnim = false;
 		sprite_index = spr_cheesepepfall;
 	}
 	if (grounded)
 	{
 		fmod_event_one_shot_3d("event:/sfx/cheese/step", x, y);
-		state = states.cheesepep;
+		state = "cheesepep";
 		sprite_index = spr_cheesepepland;
 		image_index = 0;
 		landAnim = true;
@@ -45,7 +45,7 @@ function scr_player_cheesepepstick()
 		scr_fmod_soundeffect(jumpsnd, x, y);
 		xscale *= -1;
 		dir = xscale;
-		state = states.cheesepepjump;
+		state = "cheesepepjump";
 		sprite_index = spr_cheesepep_walljump;
 		image_index = 0;
 		movespeed = xscale * 3;
@@ -53,7 +53,7 @@ function scr_player_cheesepepstick()
 		{
 			vsp = -11;
 		}
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			sprite_index = spr_playerN_cheesedwalljump;
 			movespeed = xscale * 8;
@@ -65,7 +65,7 @@ function scr_player_cheesepepstick()
 	}
 }
 
-function scr_player_cheesepepstickside()
+function player_cheesepepstickside()
 {
 	sprite_index = spr_cheesepepstickside;
 	image_speed = 0.35;
@@ -74,7 +74,7 @@ function scr_player_cheesepepstickside()
 	hurted = true;
 	move = key_down - key_up;
 	moveside = key_left + key_right;
-	if (character == characters.Peppino && character == characters.Noise && move != 0)
+	if (character == "Peppino" && character == "Noise" && move != 0)
 	{
 		yscale = -move;
 	}
@@ -113,14 +113,14 @@ function scr_player_cheesepepstickside()
 			vsp = -11;
 		}
 		image_index = 0;
-		state = states.cheesepep;
+		state = "cheesepep";
 		hsp = move * movespeed;
 		cheesepep_buffer = 0;
 	}
 	if (!place_meeting(x + 1, y, obj_solid) && !place_meeting(x - 1, y, obj_solid))
 	{
 		grav = 0.5;
-		state = states.cheesepep;
+		state = "cheesepep";
 		sprite_index = spr_cheesepepidle;
 		hsp = move * movespeed;
 		cheesepep_buffer = 0;
@@ -129,7 +129,7 @@ function scr_player_cheesepepstickside()
 	{
 		cheesepep_buffer = 0;
 		grav = 0.5;
-		state = states.cheesepep;
+		state = "cheesepep";
 		sprite_index = spr_cheesepepidle;
 		hsp = move * movespeed;
 	}
@@ -174,14 +174,14 @@ function scr_player_cheesepepstickside()
 			if (rvsp > 0)
 			{
 				stickdir = -1;
-				state = states.cheesepepstickup;
+				state = "cheesepepstickup";
 				sprite_index = spr_cheesepepstickceiling;
 				vsp = 0;
 				hsp = xscale * movespeed;
 			}
 			else
 			{
-				state = states.cheesepep;
+				state = "cheesepep";
 				mask_index = spr_player_mask;
 				sprite_index = spr_cheesepepidle;
 				vsp = 0;
@@ -195,7 +195,7 @@ function scr_player_cheesepepstickside()
 	}
 }
 
-function scr_player_cheesepepstickup()
+function player_cheesepepstickup()
 {
 	sprite_index = (stickdir == -1) ? spr_cheesepepstickceiling : spr_cheesepepstickfloor;
 	image_speed = 0.35;
@@ -236,7 +236,7 @@ function scr_player_cheesepepstickup()
 	{
 		sprite_index = spr_cheesepepstickside;
 		cheesepep_buffer = cheesepep_max;
-		state = states.cheesepepstickside;
+		state = "cheesepepstickside";
 		vsp = move * movespeed;
 	}
 	if (input_buffer_jump > 0 && !(place_meeting(x, y + 1, obj_solid) && place_meeting(x, y - 1, obj_solid)))
@@ -250,14 +250,14 @@ function scr_player_cheesepepstickup()
 			}
 		}
 		input_buffer_jump = 0;
-		state = states.cheesepep;
+		state = "cheesepep";
 		cheesepep_buffer = 0;
 		vsp = 2;
 		hsp = move * movespeed;
 	}
 	if (!place_meeting(x, y - 1, obj_solid) && !place_meeting(x, y + 1, obj_solid))
 	{
-		state = states.cheesepep;
+		state = "cheesepep";
 		cheesepep_buffer = 0;
 		hsp = move * movespeed;
 	}
@@ -265,14 +265,14 @@ function scr_player_cheesepepstickup()
 	{
 		if (!place_meeting(x, y - (4 * stickdir), obj_solid))
 		{
-			state = states.cheesepep;
+			state = "cheesepep";
 			cheesepep_buffer = 2;
 			hsp = move * movespeed;
 			sprite_index = spr_cheesepepidle;
 		}
 		else
 		{
-			state = states.cheesepepstickup;
+			state = "cheesepepstickup";
 			stickdir *= -1;
 		}
 	}
@@ -292,7 +292,7 @@ function scr_player_cheesepepstickup()
 			y = old_y;
 			y += (16 * stickdir);
 			cheesepep_buffer = cheesepep_max;
-			state = states.cheesepepstickside;
+			state = "cheesepepstickside";
 			sprite_index = spr_cheesepepstickside;
 			hsp = 0;
 			vsp = move * movespeed;

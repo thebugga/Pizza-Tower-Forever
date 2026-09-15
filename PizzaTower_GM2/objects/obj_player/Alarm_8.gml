@@ -1,6 +1,6 @@
-if (state == states.hurt)
+if (state == "hurt")
 {
-	state = states.normal;
+	state = "default";
 	movespeed = 0;
 	if (scr_solid(x, y))
 	{
@@ -11,8 +11,8 @@ if (state == states.hurt)
 		}
 	}
 }
-else if (state == states.ratmounthurt)
+else if (state == "ratmounthurt")
 {
-	state = states.ratmount;
+	state = "ratmount";
 	movespeed = 0;
 }

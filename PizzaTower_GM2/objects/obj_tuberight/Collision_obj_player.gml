@@ -2,11 +2,11 @@ if (other.tube_id == id)
 {
 	exit;
 }
-if (other.state == states.hurt)
+if (other.state == "hurt")
 {
 	exit;
 }
-if (other.state == states.gotoplayer)
+if (other.state == "gotoplayer")
 {
 	exit;
 }
@@ -21,14 +21,14 @@ with (other)
 	vsp = 0;
 	movespeed = 0;
 	tube_vsp = 0;
-	state = states.tube;
+	state = "tube";
 	x = approach(x, other.x + _offset_x, other.approach_spd);
 	y = approach(y, other.y + _offset_y, other.approach_spd);
 }
 if (floor(other.x) == (x + _offset_x) && floor(other.y) == (y + _offset_y))
 {
 	GamepadSetVibration(0, 0.8, 0.8, 0.65);
-	other.state = states.tube;
+	other.state = "tube";
 	other.tube_id = id;
 	var ms = movespeed;
 	if (!other.ispeppino)

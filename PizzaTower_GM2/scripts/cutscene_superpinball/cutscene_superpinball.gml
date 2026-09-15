@@ -3,7 +3,7 @@ function cutscene_superpinball_start()
 	var _finish = false;
 	with (obj_player1)
 	{
-		if (state != states.door && state != states.comingoutdoor)
+		if (state != "door" && state != "comingoutdoor")
 		{
 			_finish = true;
 		}
@@ -14,7 +14,7 @@ function cutscene_superpinball_start()
 		{
 			if (check_player_coop())
 			{
-				state = states.actor;
+				state = "actor";
 				sprite_index = spr_idle;
 			}
 		}
@@ -101,7 +101,7 @@ function cutscene_superpinball_end()
 	{
 		if (check_player_coop())
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 	global.pubcutscene = true;

@@ -1,5 +1,5 @@
 alarm[8] = targetguy_max + irandom(200);
-if (!pizzahead && state != states.duel && state != states.phase1hurt && state != states.hit && !thrown && state != states.arenaintro && state != states.actor)
+if (!pizzahead && state != states.duel && state != states.phase1hurt && state != "hit" && !thrown && state != "arenaintro" && state != "actor")
 {
 	with (instance_create(irandom_range(120, room_width - 120), -77, obj_targetguy))
 	{

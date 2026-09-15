@@ -1,16 +1,16 @@
 mask_index = spr_player_mask;
-if (obj_player1.state == states.backbreaker && state != states.backbreaker)
+if (obj_player1.state == "backbreaker" && state != "backbreaker")
 {
 	storedstate = state;
 	storedsprite = sprite_index;
-	state = states.backbreaker;
+	state = "backbreaker";
 	instance_create(x, y, obj_tinytaunt);
 	sprite_index = tauntspr;
 	image_index = irandom(sprite_get_number(tauntspr) - 1);
 }
 switch (state)
 {
-	case states.normal:
+	case "default":
 		sprite_index = movespr;
 		hsp = image_xscale * 2;
 		if (scr_solid(x + sign(hsp), y))
@@ -29,10 +29,10 @@ switch (state)
 		sprite_index = idlespr;
 		hsp = 0;
 		break;
-	case states.backbreaker:
+	case "backbreaker":
 		hsp = 0;
 		vsp = 0;
-		if (obj_player1.state != states.backbreaker)
+		if (obj_player1.state != "backbreaker")
 		{
 			state = storedstate;
 			sprite_index = storedsprite;

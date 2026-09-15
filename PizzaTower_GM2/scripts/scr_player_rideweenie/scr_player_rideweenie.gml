@@ -1,4 +1,4 @@
-function scr_player_rideweenie()
+function player_rideweenie()
 {
 	hsp = movespeed;
 	move = key_right + key_left;
@@ -73,7 +73,7 @@ function scr_player_rideweenie()
 			movespeed = 8;
 		}
 		dir = xscale;
-		state = states.mach2;
+		state = "mach2";
 		sprite_index = spr_mach2jump;
 		jumpstop = false;
 		vsp = -11;

@@ -1,10 +1,10 @@
 visible = (room == rank_room || room == timesuproom) ? false : playerid.visible;
-if (obj_player.state == states.pizzathrow)
+if (obj_player.state == "pizzathrow")
 {
 	visible = false;
 }
 playerid = obj_player1.spotlight ? obj_player1 : obj_player2;
-if (state != states.backbreaker)
+if (state != "backbreaker")
 {
 	if (object_index != obj_pizzakinpineapple || (sprite_index != spr_monsterpineapple_pose1 && sprite_index != spr_monsterpineapple_pose2 && sprite_index != spr_monsterpineapple_pose3))
 	{
@@ -31,12 +31,12 @@ if (state != states.backbreaker)
 			sprite_index = spr_toppinpineapple;
 		}
 	}
-	if (obj_player1.state == states.backbreaker)
+	if (obj_player1.state == "backbreaker")
 	{
 		instance_create(x, y, obj_tinytaunt);
 		sprite_index = spr_taunt;
 		image_index = irandom(sprite_get_number(spr_taunt) - 1);
-		state = states.backbreaker;
+		state = "backbreaker";
 		lock = true;
 	}
 }
@@ -53,12 +53,12 @@ else
 			image_index = 0;
 		}
 	}
-	if (obj_player1.state != states.backbreaker || (sprite_index == spr_intro && ANIMATION_END))
+	if (obj_player1.state != "backbreaker" || (sprite_index == spr_intro && ANIMATION_END))
 	{
 		instance_destroy(obj_tinytaunt);
 		interp = 0;
 		sprite_index = spr_idle;
 		lock = false;
-		state = states.normal;
+		state = "default";
 	}
 }

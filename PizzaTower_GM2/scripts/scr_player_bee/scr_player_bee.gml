@@ -1,4 +1,4 @@
-function scr_player_bee()
+function player_bee()
 {
 	image_speed = 0.8;
 	sprite_index = spr_hurtwalk;
@@ -14,6 +14,6 @@ function scr_player_bee()
 	}
 	else
 	{
-		state = states.normal;
+		state = "default";
 	}
 }

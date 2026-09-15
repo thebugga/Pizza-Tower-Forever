@@ -1,4 +1,4 @@
-if (!other.hurted && other.state != states.parry && (other.state != states.backbreaker || !instance_exists(obj_parryhitbox)))
+if (!other.hurted && other.state != "parry" && (other.state != "backbreaker" || !instance_exists(obj_parryhitbox)))
 {
 	instance_destroy();
 }

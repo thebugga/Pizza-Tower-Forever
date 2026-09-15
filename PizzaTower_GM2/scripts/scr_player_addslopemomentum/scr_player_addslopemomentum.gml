@@ -1,4 +1,4 @@
-function scr_player_addslopemomentum(_accel, _decel)
+function player_addslopemomentum(_accel, _decel)
 {
 	with (instance_place(x, y + 1, obj_slope))
 	{

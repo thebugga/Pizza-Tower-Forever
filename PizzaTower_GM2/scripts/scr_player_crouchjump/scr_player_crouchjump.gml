@@ -1,4 +1,4 @@
-function scr_player_crouchjump()
+function player_crouchjump()
 {
 	move = key_left + key_right;
 	mask_index = spr_crouchmask;
@@ -16,7 +16,7 @@ function scr_player_crouchjump()
 	}
 	if (grounded)
 	{
-		state = states.crouch;
+		state = "crouch";
 		jumpAnim = true;
 		crouchAnim = true;
 		image_index = 0;

@@ -1,4 +1,4 @@
-function scr_player_transitioncutscene()
+function player_transitioncutscene()
 {
 	costumercutscenetimer--;
 	global.heattime = 60;
@@ -23,7 +23,7 @@ function scr_player_transitioncutscene()
 	}
 	if (sprite_index == spr_player_levelcomplete && costumercutscenetimer < 0)
 	{
-		if (grounded && (x > (other.x + 32) && x < (other.x + 160)) && key_up && (state == states.normal || state == states.mach1 || state == states.mach2 || state == states.mach3))
+		if (grounded && (x > (other.x + 32) && x < (other.x + 160)) && key_up && (state == "default" || state == "mach1" || state == "mach2" || state == "mach3"))
 		{
 			if (global.collect >= global.srank)
 			{
@@ -50,11 +50,11 @@ function scr_player_transitioncutscene()
 			{
 				instance_create(x, y, obj_endlevelfade);
 			}
-			if (state != states.door)
+			if (state != "door")
 			{
 				audio_stop_all();
 				stop_music();
-				state = states.door;
+				state = "door";
 				obj_endlevelfade.alarm[0] = 235;
 				image_index = 0;
 			}

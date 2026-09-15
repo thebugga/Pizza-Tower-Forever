@@ -8,7 +8,7 @@ if (use_collision)
 			with (obj_player1)
 			{
 				sprite_index = spr_player_gnomecutscene1;
-				if (character == characters.Noise)
+				if (character == "Noise")
 				{
 					sprite_index = spr_playerN_bosscutscene1;
 				}

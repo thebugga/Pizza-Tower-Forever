@@ -1,9 +1,9 @@
-if (state != states.blockstance)
+if (state != "blockstance")
 {
 	obj_player1.brick = false;
-	state = states.blockstance;
+	state = "blockstance";
 	sprite_index = spr_hamkuff_chain1;
-	state = states.blockstance;
+	state = "blockstance";
 	with (instance_create(other.x, other.y, obj_brickcomeback))
 	{
 		trapped = true;

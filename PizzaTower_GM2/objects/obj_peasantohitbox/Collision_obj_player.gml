@@ -1,10 +1,10 @@
 with (other)
 {
-	if (state != states.mach3 && (state != states.chainsaw || tauntstoredstate != states.mach3) && state != states.boots && state != states.gameover && state != states.rideweenie && state != states.gotoplayer)
+	if (state != "mach3" && (state != "chainsaw" || tauntstoredstate != "mach3") && state != states.boots && state != "gameover" && state != "rideweenie" && state != "gotoplayer")
 	{
 		var _pindex = (object_index == obj_player1) ? 0 : 1;
 		GamepadSetVibration(_pindex, 1, 1, 0.85);
-		state = states.fireass;
+		state = "fireass";
 		vsp = -25;
 		sprite_index = spr_fireass;
 		image_index = 0;

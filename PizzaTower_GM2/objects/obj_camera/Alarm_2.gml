@@ -14,7 +14,7 @@ if (global.miniboss == true)
 		{
 			instance_create(x, y, obj_slapstar);
 		}
-		state = states.ejected;
+		state = "ejected";
 		vsp = -10;
 		audio_stop_all();
 		stop_music();

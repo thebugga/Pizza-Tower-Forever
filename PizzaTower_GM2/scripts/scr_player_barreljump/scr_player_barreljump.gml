@@ -1,4 +1,4 @@
-function scr_player_barreljump()
+function player_barreljump()
 {
 	image_speed = 0.35;
 	hsp = movespeed;
@@ -43,7 +43,7 @@ function scr_player_barreljump()
 				xscale = move;
 			}
 		}
-		state = states.barreljump;
+		state = "barreljump";
 		sprite_index = spr_barreljump;
 		image_index = 0;
 		jumpstop = false;
@@ -51,7 +51,7 @@ function scr_player_barreljump()
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.barrel;
+		state = "barrel";
 		sprite_index = spr_barrelland;
 		image_index = 0;
 		create_particle(x, y, particletypes.landcloud, 0);

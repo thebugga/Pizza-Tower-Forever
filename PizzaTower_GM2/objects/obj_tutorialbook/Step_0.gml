@@ -37,7 +37,7 @@ if (showgranny)
 var _hide = false;
 with (obj_grannypizzasign)
 {
-	if (text_state != states.titlescreen)
+	if (text_state != "titlescreen")
 	{
 		_hide = true;
 	}
@@ -48,12 +48,12 @@ if (instance_exists(obj_mrsticknotification))
 }
 switch (text_state)
 {
-	case states.titlescreen:
+	case "titlescreen":
 		repeat (_hide + 1)
 		{
 			text_y = approach(text_y, -(text_sprite_height * text_yscale), 5);
 		}
-		if (obj_player1.state != states.backtohub && place_meeting(x, y, obj_player) && !_hide)
+		if (obj_player1.state != "backtohub" && place_meeting(x, y, obj_player) && !_hide)
 		{
 			text_state = states.fall;
 			text_vsp = 0;
@@ -72,14 +72,14 @@ switch (text_state)
 		}
 		if (text_y > text_ystart)
 		{
-			text_state = states.normal;
+			text_state = "default";
 		}
 		break;
-	case states.normal:
+	case "default":
 		text_y = approach(text_y, text_ystart, 2);
 		if (!place_meeting(x, y, obj_player) || _hide)
 		{
-			text_state = states.titlescreen;
+			text_state = "titlescreen";
 		}
 		break;
 }

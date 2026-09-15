@@ -7,19 +7,19 @@ if (elitehit <= 1 && pizzahead)
 }
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		scr_noise_arenaintro();
 		break;
 	case states.walk:
 		scr_noise_walk();
 		break;
-	case states.mach2:
+	case "mach2":
 		scr_noise_mach2();
 		break;
-	case states.machslide:
+	case "machslide":
 		scr_noise_machslide();
 		break;
-	case states.jump:
+	case "jump":
 		scr_noise_jump();
 		break;
 	case states.jetpackstart:
@@ -31,7 +31,7 @@ switch (state)
 	case states.bounce:
 		scr_noise_bounce();
 		break;
-	case states.pogo:
+	case "pogo":
 		scr_noise_pogo();
 		break;
 	case states.dropstart:
@@ -43,13 +43,13 @@ switch (state)
 	case states.droptrap:
 		scr_noise_droptrap();
 		break;
-	case states.golf:
+	case "golf":
 		scr_noise_golf();
 		break;
-	case states.freefall:
+	case "freefall":
 		scr_noise_freefall();
 		break;
-	case states.noisecrusher:
+	case "noisecrusher":
 		scr_noise_noisecrusher();
 		break;
 	case states.spin:
@@ -61,10 +61,10 @@ switch (state)
 	case states.phase1hurt:
 		scr_noise_phase1hurt();
 		break;
-	case states.fightball:
+	case "fightball":
 		scr_noise_fightball();
 		break;
-	case states.punch:
+	case "punch":
 		scr_vigilante_punch();
 		break;
 	case states.finale:
@@ -73,19 +73,19 @@ switch (state)
 	case states.pizzaheadKO:
 		scr_boss_pizzaheadKO();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
 		scr_enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_boss_grabbed();
 		break;
 	case states.pizzaheadjump:
 		scr_boss_pizzaheadjump();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -285,7 +285,7 @@ if (doise && pizzahead)
 	invincible = true;
 	flash = false;
 }
-if ((state == states.mach2 || state == states.machslide || state == states.jetpack || state == states.bounce || state == states.pogo) && alarm[4] < 0)
+if ((state == "mach2" || state == "machslide" || state == states.jetpack || state == states.bounce || state == "pogo") && alarm[4] < 0)
 {
 	alarm[4] = 5;
 }
@@ -298,7 +298,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

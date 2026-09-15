@@ -1,4 +1,4 @@
-function scr_player_titlescreen()
+function player_titlescreen()
 {
 	if (object_index == obj_player1)
 	{

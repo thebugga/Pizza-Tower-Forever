@@ -1,12 +1,12 @@
-if (state != states.grabbing && x == xstart && y == ystart)
+if (state != "grabbing" && x == xstart && y == ystart)
 {
 	with (other)
 	{
 		other.playerid = id;
-		other.state = states.grabbing;
-		if (state == states.grabbed)
+		other.state = "grabbing";
+		if (state == "grabbed")
 		{
-			state = states.normal;
+			state = "default";
 			with (playerid)
 			{
 				bombgrabID = noone;

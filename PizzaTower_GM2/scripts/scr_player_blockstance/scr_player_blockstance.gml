@@ -1,4 +1,4 @@
-function scr_player_blockstance()
+function player_blockstance()
 {
 	hsp = approach(hsp, 0, 0.5);
 	movespeed = 0;
@@ -8,7 +8,7 @@ function scr_player_blockstance()
 	//}
 	//if (!key_attack && sprite_index != spr_player_airattackstart)
 	//{
-	//	state = states.normal;
+	//	state = "default";
 	//	landAnim = false;
 	//}
 }

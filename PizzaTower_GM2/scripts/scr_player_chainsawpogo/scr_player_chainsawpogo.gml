@@ -1,4 +1,4 @@
-function scr_player_chainsawpogo()
+function player_chainsawpogo()
 {
 	hsp = xscale * movespeed;
 	if ((scr_solid(x + 1, y) && xscale == 1) || (scr_solid(x - 1, y) && xscale == -1))
@@ -18,7 +18,7 @@ function scr_player_chainsawpogo()
 	if ((scr_solid(x + 1, y) && xscale == 1) && !place_meeting(x + sign(hsp), y, obj_slope))
 	{
 		machhitAnim = false;
-		state = states.chainsawbump;
+		state = "chainsawbump";
 		hsp = -2.5;
 		vsp = -3;
 		mach2 = 0;
@@ -28,7 +28,7 @@ function scr_player_chainsawpogo()
 	else if ((scr_solid(x - 1, y) && xscale == -1) && !place_meeting(x + sign(hsp), y, obj_slope))
 	{
 		machhitAnim = false;
-		state = states.chainsawbump;
+		state = "chainsawbump";
 		hsp = 2.5;
 		vsp = -3;
 		mach2 = 0;
@@ -38,7 +38,7 @@ function scr_player_chainsawpogo()
 	if (!key_down)
 	{
 		sprite_index = spr_player_chainsawair;
-		state = states.chainsaw;
+		state = "chainsaw";
 	}
 	if (sprite_index != spr_player_chainsawpogobounce)
 	{

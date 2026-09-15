@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.gottreasure:
+	case "gottreasure":
 		if (cutscenebuffer > 0)
 		{
 			cutscenebuffer--;
@@ -22,13 +22,13 @@ switch (state)
 		{
 			create_particle(x, y, particletypes.genericpoofeffect);
 			scr_sound_multiple("event:/sfx/misc/collect", x, y);
-			state = states.transitioncutscene;
+			state = "transitioncutscene";
 			cutscenebuffer = 70;
 			flamebuffer = 0;
 			orangealpha = 1.5;
 		}
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		if (orangealpha > 0)
 		{
 			orangealpha -= 0.08;
@@ -62,11 +62,11 @@ switch (state)
 			global.combotime = 60;
 			with (playerid)
 			{
-				state = states.actor;
+				state = "actor";
 				sprite_index = spr_player_poweredup;
 				image_index = 0;
 				image_speed = 0.35;
-				if (character == characters.Noise)
+				if (character == "Noise")
 				{
 					noisepizzapepper = true;
 					sprite_index = spr_playerN_pizzapepper;
@@ -81,10 +81,10 @@ switch (state)
 				}
 			}
 			cutscenebuffer = 100;
-			state = states.actor;
+			state = "actor";
 		}
 		break;
-	case states.actor:
+	case "actor":
 		if (flamebuffer > 0)
 		{
 			flamebuffer--;
@@ -114,7 +114,7 @@ switch (state)
 					fmod_event_instance_set_parameter(music.event, "state", 1, true);
 				}
 			}
-			playerid.state = states.normal;
+			playerid.state = "default";
 			playerid.landAnim = false;
 			playerid.flash = true;
 			instance_destroy();

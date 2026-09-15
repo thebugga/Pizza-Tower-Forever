@@ -1,4 +1,4 @@
-function scr_player_hit()
+function player_hit()
 {
 	hsp = 0;
 	vsp = 0;
@@ -24,7 +24,7 @@ function scr_player_hit()
 		}
 		movespeed = abs(hithsp);
 		vsp = hitvsp;
-		state = states.thrown;
+		state = "thrown";
 		stunned = hitstunned;
 	}
 }

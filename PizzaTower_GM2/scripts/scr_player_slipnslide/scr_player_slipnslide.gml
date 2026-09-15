@@ -1,4 +1,4 @@
-function scr_player_slipnslide()
+function player_slipnslide()
 {
 	mach2 = 0;
 	jumpAnim = true;
@@ -15,7 +15,7 @@ function scr_player_slipnslide()
 	hurted = true;
 	machhitAnim = false;
 	crouchslideAnim = true;
-	if (character == characters.Noise && instance_exists(obj_surfback))
+	if (character == "Noise" && instance_exists(obj_surfback))
 	{
 		image_speed = 0.35;
 		sprite_index = spr_playerN_surfing;
@@ -69,10 +69,10 @@ function scr_player_slipnslide()
 			}
 			else
 			{
-				state = states.normal;
+				state = "default";
 				if (key_attack)
 				{
-					state = states.mach2;
+					state = "mach2";
 					if (movespeed < 6)
 					{
 						movespeed = 6;
@@ -86,14 +86,14 @@ function scr_player_slipnslide()
 	hsp = xscale * movespeed;
 	if (movespeed <= 0)
 	{
-		state = states.normal;
+		state = "default";
 		movespeed = 0;
 		mach2 = 0;
 		image_index = 0;
 	}
 	if (scr_solid(x + xscale, y) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x + sign(hsp), y, obj_destructibles))
 	{
-		state = states.jump;
+		state = "jump";
 		vsp = -14;
 		jumpstop = true;
 	}
@@ -125,8 +125,8 @@ function scr_player_slipnslide()
 		vsp = -5;
 		sprite_index = spr_slipbanan1;
 		image_index = 0;
-		state = states.slipbanan;
-		if (character == characters.Noise)
+		state = "slipbanan";
+		if (character == "Noise")
 		{
 			with (instance_create(x, y, obj_floaterdebris))
 			{

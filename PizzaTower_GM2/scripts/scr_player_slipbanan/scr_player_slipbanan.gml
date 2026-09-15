@@ -1,4 +1,4 @@
-function scr_player_slipbanan()
+function player_slipbanan()
 {
 	hsp = xscale * movespeed;
 	if (grounded)
@@ -15,7 +15,7 @@ function scr_player_slipbanan()
 	}
 	if (sprite_index == spr_slipbanan2)
 	{
-		scr_player_addslopemomentum(0.25, 0.75);
+		player_addslopemomentum(0.25, 0.75);
 		if (!grounded)
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/slip", x, y);
@@ -45,7 +45,7 @@ function scr_player_slipbanan()
 	{
 		if (ANIMATION_END && abs(hsp) <= 2)
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 	if (scr_solid(x + xscale, y) && !scr_slope() && (scr_solid_slope(x + sign(hsp), y) || place_meeting(x + sign(hsp), y, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_destructibles))
@@ -62,6 +62,6 @@ function scr_player_slipbanan()
 	}
 	if (sprite_index != spr_slipbanan2 && scr_solid_player(x, y))
 	{
-		state = states.crouch;
+		state = "crouch";
 	}
 }

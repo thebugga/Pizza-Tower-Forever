@@ -112,12 +112,12 @@ if (state == states.charge)
 	}
 	else
 	{
-		state = states.punch;
+		state = "punch";
 		attackspeed = attackspeed_max;
 		hsp = image_xscale * attackspeed;
 	}
 }
-if (state == states.punch)
+if (state == "punch")
 {
 	if (!instance_exists(punchinst))
 	{
@@ -168,7 +168,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -178,7 +178,7 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		chasing = true;
 		scr_enemy_grabbed();
 		break;
@@ -220,7 +220,7 @@ if (ragecooldown > 0)
 	ragecooldown--;
 }
 scr_scareenemy();
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

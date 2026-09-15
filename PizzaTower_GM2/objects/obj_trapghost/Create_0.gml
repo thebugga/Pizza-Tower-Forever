@@ -10,6 +10,6 @@ depth = -7;
 image_alpha = 0;
 target_alpha = 0.6;
 alpha = false;
-state = states.normal;
+state = "default";
 trapid = noone;
 image_speed = 0.35;

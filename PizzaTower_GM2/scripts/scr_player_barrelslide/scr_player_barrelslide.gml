@@ -1,4 +1,4 @@
-function scr_player_barrelslide()
+function player_barrelslide()
 {
 	image_speed = abs(movespeed) / 8;
 	if (image_speed < 0.35)
@@ -10,7 +10,7 @@ function scr_player_barrelslide()
 		image_speed = 0.85;
 	}
 	hsp = movespeed;
-	if character == characters.Peppino
+	if character == "Peppino"
 	{
 		if (abs(movespeed) < 14)
 		{
@@ -60,11 +60,11 @@ function scr_player_barrelslide()
 		{
 			if (grounded)
 			{
-				state = states.barrel;
+				state = "barrel";
 			}
 			else
 			{
-				state = states.barreljump;
+				state = "barreljump";
 				sprite_index = spr_barrelfall;
 			}
 		}
@@ -93,9 +93,9 @@ function scr_player_barrelslide()
 			{
 				vsp = -abs(movespeed);
 			}
-			state = states.barrelclimbwall;
+			state = "barrelclimbwall";
 			movespeed = 0;
-			if (character == characters.Noise)
+			if (character == "Noise")
 			{
 				wallspeed = abs(vsp);
 			}

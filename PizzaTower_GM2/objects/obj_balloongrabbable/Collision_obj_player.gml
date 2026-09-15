@@ -5,7 +5,7 @@ if (active)
 		if (other.isgustavo && other.brick)
 		{
 			fmod_event_one_shot_3d("event:/sfx/rat/grabeat", x, y);
-			other.state = states.ratmountballoon;
+			other.state = "ratmountballoon";
 			active = false;
 			cooldown = 100;
 			other.balloonbuffer = 250;
@@ -13,7 +13,7 @@ if (active)
 		else if (other.isgustavo == false)
 		{
 			fmod_event_one_shot_3d("event:/sfx/rat/grab", x, y);
-			other.state = states.balloon;
+			other.state = "balloon";
 			other.movespeed = other.hsp;
 			active = false;
 			with (other)
@@ -32,7 +32,7 @@ if (active)
 	{
 		create_transformation_tip(lang_get_value("balloontipN"), "balloonN");
 		fmod_event_one_shot_3d("event:/sfx/rat/grab", x, y);
-		other.state = states.balloon;
+		other.state = "balloon";
 		other.movespeed = other.hsp;
 		other.savedmove = other.xscale;
 		active = false;

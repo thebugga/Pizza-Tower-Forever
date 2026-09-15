@@ -156,7 +156,7 @@ function scr_fakepep_destroy_sounds()
 function scr_fakepep_update_sounds()
 {
 	fmod_event_instance_set_3d_attributes(snd_grab, x, y);
-	if (state == states.freefall || state == states.jump)
+	if (state == "freefall" || state == "jump")
 	{
 		if (!fmod_event_instance_is_playing(snd_bodyslam))
 		{
@@ -168,7 +168,7 @@ function scr_fakepep_update_sounds()
 	{
 		fmod_event_instance_stop(snd_bodyslam, false);
 	}
-	if (state == states.mach2)
+	if (state == "mach2")
 	{
 		if (!fmod_event_instance_is_playing(snd_mach))
 		{
@@ -180,14 +180,14 @@ function scr_fakepep_update_sounds()
 	{
 		fmod_event_instance_stop(snd_mach, false);
 	}
-	if ((state == states.Sjumpprep || state == states.Sjump) && sprite_index != spr_fakepeppino_idle)
+	if ((state == "Sjumpprep" || state == "Sjump") && sprite_index != spr_fakepeppino_idle)
 	{
 		if (!fmod_event_instance_is_playing(snd_superjump))
 		{
 			fmod_event_instance_play(snd_superjump);
 		}
 		var s = 0;
-		if (state == states.Sjumpprep)
+		if (state == "Sjumpprep")
 		{
 			s = 0;
 		}
@@ -365,12 +365,12 @@ function scr_fakepepboss_arenaintro()
 			movespeed = 0;
 			flash = false;
 			x = roomstartx;
-			state = states.actor;
+			state = "actor";
 			image_speed = 0.35;
 			xscale = -other.image_xscale;
 			if (other.sprite_index == spr_fakepeppino_intro1)
 			{
-				if character == characters.Peppino
+				if character == "Peppino"
 				{
 					sprite_index = spr_player_gnomecutscene1;
 				}
@@ -429,7 +429,7 @@ function scr_fakepepboss_arenaintro()
 			introbuffer = 70;
 			with (obj_player)
 			{
-				if character == characters.Peppino
+				if character == "Peppino"
 				{
 					sprite_index = spr_player_gnomecutscene2;
 					image_index = 0;
@@ -449,7 +449,7 @@ function scr_fakepepboss_arenaintro()
 			introbuffer = 130;
 			with (obj_player)
 			{
-				if character == characters.Peppino
+				if character == "Peppino"
 				{
 					fmod_event_one_shot("event:/sfx/pep/screamboss");
 					sprite_index = spr_player_gnomecutscene3;
@@ -478,7 +478,7 @@ function scr_fakepepboss_arenaintro()
 			}
 			with (obj_player)
 			{
-				if character == characters.Peppino
+				if character == "Peppino"
 				{
 					sprite_index = spr_player_screamtransition;
 					image_index = 0;
@@ -491,8 +491,8 @@ function scr_fakepepboss_arenaintro()
 					image_speed = 0.35;
 				}
 				landAnim = false;
-				tauntstoredstate = states.normal;
-				state = states.animation;
+				tauntstoredstate = "default";
+				state = "animation";
 			}
 		}
 	}
@@ -568,7 +568,7 @@ function scr_fakepepboss_walk()
 					}
 					sprite_index = spr_fakepeppino_bodyslamstart;
 					image_index = 0;
-					state = states.jump;
+					state = "jump";
 					cooldown = attack.cooldown;
 					break;
 				case fakepep_attacks.mach:
@@ -577,7 +577,7 @@ function scr_fakepepboss_walk()
 						image_xscale = ix;
 					}
 					attackspeed = 0;
-					state = states.mach2;
+					state = "mach2";
 					machdir = 0;
 					machcooldown = 220;
 					cooldown = attack.cooldown;
@@ -592,7 +592,7 @@ function scr_fakepepboss_walk()
 					superjumpdir = 0;
 					superjumpbounce = 3;
 					cooldown = attack.cooldown;
-					state = states.Sjumpprep;
+					state = "Sjumpprep";
 					sprite_index = spr_fakepeppino_superjumpstart;
 					image_index = 0;
 					break;
@@ -603,7 +603,7 @@ function scr_fakepepboss_walk()
 					}
 					attackspeed = 0;
 					hsp = 0;
-					state = states.throwing;
+					state = "throwing";
 					sprite_index = spr_fakepeppino_throwhead;
 					image_index = 0;
 					cooldown = attack.cooldown;
@@ -611,7 +611,7 @@ function scr_fakepepboss_walk()
 				case fakepep_attacks.taunt:
 					fmod_event_one_shot_3d("event:/sfx/fakepep/jump", x, y);
 					create_particle(x, y, particletypes.highjumpcloud2);
-					state = states.backbreaker;
+					state = "backbreaker";
 					taunted = false;
 					sprite_index = spr_fakepeppino_jump;
 					image_index = 0;
@@ -738,7 +738,7 @@ function scr_fakepepboss_grabdash()
 		}
 		with (instance_place(x, y, obj_player))
 		{
-			if (!hurted && state != states.grabthrow && state != states.tackle && state != states.actor && state != states.supergrab)
+			if (!hurted && state != states.grabthrow && state != "tackle" && state != "actor" && state != "supergrab")
 			{
 				other.state = states.grabthrow;
 				other.playerID = id;
@@ -813,7 +813,7 @@ function scr_fakepepboss_jump()
 		hsp = image_xscale * attackspeed;
 		if (vsp > 0)
 		{
-			state = states.freefall;
+			state = "freefall";
 			sprite_index = spr_fakepeppino_bodyslamfall;
 			image_index = 0;
 			bodyslamlandbuffer = 0;
@@ -933,7 +933,7 @@ function scr_fakepepboss_mach2()
 			}
 			else if ((image_xscale > 0 && x >= targetplayer.x) || (image_xscale < 0 && x <= targetplayer.x))
 			{
-				state = states.freefall;
+				state = "freefall";
 				sprite_index = spr_fakepeppino_bodyslamfall;
 				bodyslamlandbuffer = 0;
 				hsp = 0;
@@ -963,7 +963,7 @@ function scr_fakepepboss_Sjumpprep()
 	vsp = 0;
 	if (ANIMATION_END)
 	{
-		state = states.Sjump;
+		state = "Sjump";
 		var h = 11;
 		var v = 22;
 		steppybuffer = 0;
@@ -1056,7 +1056,7 @@ function scr_fakepepboss_Sjump()
 		{
 			superjumpbounce--;
 			superjumpdir = !superjumpdir;
-			state = states.Sjumpprep;
+			state = "Sjumpprep";
 			if (hitvsp > 0)
 			{
 				sprite_index = spr_fakepeppino_superjumpstart;

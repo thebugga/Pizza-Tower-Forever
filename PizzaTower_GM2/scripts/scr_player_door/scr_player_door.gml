@@ -1,4 +1,4 @@
-function scr_player_door()
+function player_door()
 {
 	hsp = 0;
 	mach2 = 0;

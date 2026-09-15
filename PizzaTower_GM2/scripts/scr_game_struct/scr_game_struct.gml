@@ -21,10 +21,6 @@ function scr_read_game(_save)
 function menu_get_game(_game, _noise_unlocked)
 {
 	var g = global.game[_game];
-	if (!_noise_unlocked)
-	{
-		g = global.gameN[_game];
-	}
 	var q = 
 	{
 		percentage: g.percentage,

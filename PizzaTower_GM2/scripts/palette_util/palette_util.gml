@@ -1,16 +1,17 @@
 function get_pep_palette_info()
 {
+	if (live_call()) return live_result;
 	if (global.swapmode)
 	{
 		var pal = 1;
 		return 
 		{
-			spr_palette: spr_peppalette,
+			spr_palette: pal_peppino,
 			paletteselect: obj_player1.player_paletteselect[pal],
 			patterntexture: obj_player1.player_patterntexture[pal]
 		};
 	}
-	else if (obj_savesystem.character == characters.Peppino)
+	else if (obj_savesystem.ispeppino)
 	{
 		return 
 		{
@@ -21,7 +22,7 @@ function get_pep_palette_info()
 	}
 	return 
 	{
-		spr_palette: spr_peppalette,
+		spr_palette: pal_peppino,
 		paletteselect: 1,
 		patterntexture: noone
 	};
@@ -29,17 +30,18 @@ function get_pep_palette_info()
 
 function get_noise_palette_info()
 {
+	if (live_call()) return live_result;
 	if (global.swapmode)
 	{
 		var pal = 0;
 		return 
 		{
-			spr_palette: spr_peppaletteN,
+			spr_palette: pal_noiseplayer,
 			paletteselect: obj_player1.player_paletteselect[pal],
 			patterntexture: obj_player1.player_patterntexture[pal]
 		};
 	}
-	else if (obj_savesystem.character == characters.Noise)
+	else if (obj_savesystem.character != "Peppino")
 	{
 		return 
 		{
@@ -50,7 +52,7 @@ function get_noise_palette_info()
 	}
 	return 
 	{
-		spr_palette: spr_peppaletteN,
+		spr_palette: pal_noiseplayer,
 		paletteselect: 1,
 		patterntexture: noone
 	};

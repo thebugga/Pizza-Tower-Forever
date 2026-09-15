@@ -9,9 +9,9 @@ with (other)
 		vsp *= 0.5;
 		scr_fmod_soundeffect(global.snd_cheesejump, x, y);
 	}
-	if (state == states.climbwall)
+	if (state == "climbwall")
 	{
-		state = grounded ? states.normal : states.jump;
+		state = grounded ? "default" : "jump";
 	}
 	if (hsp != 0 && (floor(image_index) % 4) == 0)
 	{

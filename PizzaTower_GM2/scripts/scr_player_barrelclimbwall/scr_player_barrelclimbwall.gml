@@ -1,6 +1,6 @@
-function scr_player_barrelclimbwall()
+function player_barrelclimbwall()
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		move = key_left + key_right;
 		vsp = -wallspeed;
@@ -11,14 +11,14 @@ function scr_player_barrelclimbwall()
 			if (!place_meeting(x, y, obj_solid))
 			{
 				movespeed = 0;
-				state = states.barreljump;
+				state = "barreljump";
 				sprite_index = spr_barrelfall;
 			}
 		}
 		if (scr_solid(x, y - 1))
 		{
 			movespeed = 0;
-			state = states.barreljump;
+			state = "barreljump";
 			sprite_index = spr_barrelfall;
 			mask_index = spr_player_mask;
 			while (place_meeting(x, y, obj_solid))
@@ -29,7 +29,7 @@ function scr_player_barrelclimbwall()
 		if (!scr_solid(x + xscale, y))
 		{
 			ledge_bump(32);
-			state = states.barrelslide;
+			state = "barrelslide";
 			vsp = 0;
 			if (wallspeed < 6)
 			{
@@ -43,7 +43,7 @@ function scr_player_barrelclimbwall()
 			fmod_event_one_shot_3d("event:/sfx/pep/jump", x, y);
 			input_buffer_jump = 0;
 			key_jump = false;
-			state = states.barrelslide;
+			state = "barrelslide";
 			vsp = -11;
 			jumpstop = false;
 			movespeed = 10;
@@ -69,13 +69,13 @@ function scr_player_barrelclimbwall()
 		if (!place_meeting(x, y, obj_solid))
 		{
 			movespeed = 0;
-			state = states.barreljump;
+			state = "barreljump";
 			sprite_index = spr_barrelfall;
 		}
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.barrelslide;
+		state = "barrelslide";
 		xscale *= -1;
 		movespeed = xscale * 8;
 	}

@@ -1,8 +1,8 @@
-if (state == states.grabbed && (object_index != obj_pepperman && object_index != obj_pizzafaceboss && object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 && object_index != obj_noiseboss && object_index != obj_pf_fakepep))
+if (state == "grabbed" && (object_index != obj_pepperman && object_index != obj_pizzafaceboss && object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 && object_index != obj_noiseboss && object_index != obj_pf_fakepep))
 {
 	scr_enemy_grabbed();
 }
-else if (state == states.lungeattack)
+else if (state == "lungeattack")
 {
 	scr_enemy_lungeattack();
 }
@@ -15,7 +15,7 @@ if (room == boss_pizzaface && state != states.pizzaheadjump)
 	use_collision = true;
 }
 scr_squash();
-if (state != states.stun && state != states.hit)
+if (state != states.stun && state != "hit")
 {
 	linethrown = false;
 }
@@ -31,7 +31,7 @@ if (object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 &&
 	}
 	instance_destroy();
 }
-if (state != states.grabbed && state != states.pummel && object_index != obj_pepbat && object_index != obj_fakesanta && use_collision)
+if (state != "grabbed" && state != "pummel" && object_index != obj_pepbat && object_index != obj_fakesanta && use_collision)
 {
 	scr_collide();
 }
@@ -83,7 +83,7 @@ if (object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 &&
 		var _taunted = false;
 		with (instance_nearest(x, y, obj_player))
 		{
-			if (state == states.backbreaker)
+			if (state == "backbreaker")
 			{
 				_taunted = true;
 				other.stunned = 0;
@@ -135,7 +135,7 @@ if (state != states.pizzaheadjump && object_index != obj_pepperman && object_ind
 		}
 	}
 }
-if (state != states.hit)
+if (state != "hit")
 {
 	player_instakillmove = false;
 }

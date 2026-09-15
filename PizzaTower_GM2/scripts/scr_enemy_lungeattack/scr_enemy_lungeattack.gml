@@ -5,7 +5,7 @@ function scr_enemy_lungeattack()
 	var _l = false;
 	with (obj_player)
 	{
-		if (state == states.lungeattack && image_index <= 4)
+		if (state == "lungeattack" && image_index <= 4)
 		{
 			_l = true;
 		}

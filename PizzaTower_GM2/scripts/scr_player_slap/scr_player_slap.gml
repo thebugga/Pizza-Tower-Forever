@@ -1,4 +1,4 @@
-function scr_player_slap()
+function player_slap()
 {
 	if (!grounded)
 	{
@@ -6,7 +6,7 @@ function scr_player_slap()
 		if (fallinganimation >= 40 && fallinganimation < 80)
 		{
 			sprite_index = spr_player_facestomp;
-			state = states.jump;
+			state = "jump";
 		}
 	}
 	move = key_left + key_right;
@@ -146,11 +146,11 @@ function scr_player_slap()
 	{
 		if (mach2 >= 35)
 		{
-			state = states.mach2;
+			state = "mach2";
 		}
 		else if (mach2 >= 100)
 		{
-			state = states.mach3;
+			state = "mach3";
 		}
 		else if (grounded)
 		{
@@ -158,7 +158,7 @@ function scr_player_slap()
 			{
 				dir = move;
 			}
-			state = states.normal;
+			state = "default";
 		}
 		else if (!grounded)
 		{
@@ -167,7 +167,7 @@ function scr_player_slap()
 				dir = move;
 			}
 			sprite_index = spr_player_fall;
-			state = states.jump;
+			state = "jump";
 		}
 	}
 	if (!instance_exists(obj_cloudeffect) && grounded && move != 0 && (floor(image_index) == 4 || floor(image_index) == 10))

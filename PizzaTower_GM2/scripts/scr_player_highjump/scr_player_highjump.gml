@@ -1,4 +1,4 @@
-function scr_player_highjump()
+function player_highjump()
 {
 	move = key_left + key_right;
 	if (momemtum == false)
@@ -47,7 +47,7 @@ function scr_player_highjump()
 		{
 			landAnim = false;
 		}
-		state = states.normal;
+		state = "default";
 		jumpAnim = true;
 		jumpstop = false;
 		image_index = 0;
@@ -57,7 +57,7 @@ function scr_player_highjump()
 	{
 		input_buffer_jump = 0;
 		vsp = -9;
-		state = states.jump;
+		state = "jump";
 		jumpAnim = true;
 		jumpstop = false;
 		image_index = 0;
@@ -86,6 +86,6 @@ function scr_player_highjump()
 		mach2 = 0;
 		image_index = 0;
 		vsp = -7;
-		state = states.freefallprep;
+		state = "freefallprep";
 	}
 }

@@ -8,7 +8,7 @@ if (scr_solid(x, y + 1) && vsp > 0)
 		movespeed -= 1;
 	}
 }
-if (obj_explosion != obj_dynamiteexplosion_boss && obj_explosion != obj_canonexplosion && playerid.key_shoot2 && playerid.state != states.dynamite)
+if (obj_explosion != obj_dynamiteexplosion_boss && obj_explosion != obj_canonexplosion && playerid.key_shoot2 && playerid.state != "dynamite")
 {
 	instance_destroy();
 	instance_create(x, y, obj_explosion);

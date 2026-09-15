@@ -1,4 +1,4 @@
-function scr_player_ghostdash_sprites(_max_magnitude = 2.5)
+function player_ghostdash_sprites(_max_magnitude = 2.5)
 {
 	var _h = abs(hsp) > 0;
 	var mag = magnitude(hsp, vsp);
@@ -45,7 +45,7 @@ function scr_player_ghostdash_sprites(_max_magnitude = 2.5)
 	}
 }
 
-function scr_player_ghost()
+function player_ghost()
 {
 	visible = true;
 	image_speed = 0.35;
@@ -64,7 +64,7 @@ function scr_player_ghost()
 	visible = true;
 	alarm[5] = -1;
 	alarm[6] = -1;
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		if (hsp != 0)
 		{
@@ -98,7 +98,7 @@ function scr_player_ghost()
 				movespeed = magnitude(abs(hsp), abs(vsp));
 				scr_fmod_soundeffect(snd_ghostdash, x, y);
 			}
-			if (character == characters.Noise)
+			if (character == "Noise")
 			{
 				var g = point_direction(0, 0, move_h, move_v);
 				if (move_h != 0 || move_v != 0)
@@ -207,7 +207,7 @@ function scr_player_ghost()
 					image_speed = 0.35;
 				}
 			}
-			scr_player_ghostdash_sprites(!ghostdashend ? 0 : 2.5);
+			player_ghostdash_sprites(!ghostdashend ? 0 : 2.5);
 		}
 		exit;
 	}
@@ -224,7 +224,7 @@ function scr_player_ghost()
 		{
 			vspaccel = 0.4;
 		}
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			if (ghostdashbuffer > 0)
 			{
@@ -251,7 +251,7 @@ function scr_player_ghost()
 		if (ghostdash)
 		{
 			sprite_index = spr_ghostdash;
-			if character == characters.Peppino
+			if character == "Peppino"
 			{
 				if (ghostpepper == 1)
 				{
@@ -306,7 +306,7 @@ function scr_player_ghost()
 		}
 		if (!ghostdash)
 		{
-			if (character == characters.Noise)
+			if (character == "Noise")
 			{
 				hspaccel = 1;
 				vspaccel = 1;
@@ -322,7 +322,7 @@ function scr_player_ghost()
 			{
 				sprite_index = spr_ghostidle;
 			}
-			if (character == characters.Noise)
+			if (character == "Noise")
 			{
 				var g = point_direction(0, 0, move_h, move_v);
 				if (move_h != 0 || move_v != 0)
@@ -338,7 +338,7 @@ function scr_player_ghost()
 			{
 				ghostangle = point_direction(0, 0, move_h, move_v);
 			}
-			else if character == characters.Peppino
+			else if character == "Peppino"
 			{
 				m = 0;
 			}
@@ -355,7 +355,7 @@ function scr_player_ghost()
 			movespeed = approach(movespeed, dx, hspaccel);
 			hsp = movespeed;
 			vsp = approach(vsp, dy, vspaccel);
-			if (character == characters.Noise && ghostdashstart)
+			if (character == "Noise" && ghostdashstart)
 			{
 				ghostdashstart = false;
 				movespeed = dx;
@@ -363,9 +363,9 @@ function scr_player_ghost()
 			}
 			if (m != 0)
 			{
-				scr_player_ghostdash_sprites();
+				player_ghostdash_sprites();
 				ghostbump = approach(ghostbump, 1, 0.1);
-				if (character == characters.Peppino && scr_solid_player(x + sign(hsp), y) && !place_meeting(x + sign(hsp), y + sign(vsp), obj_slope))
+				if (character == "Peppino" && scr_solid_player(x + sign(hsp), y) && !place_meeting(x + sign(hsp), y + sign(vsp), obj_slope))
 				{
 					movespeed = 0;
 				}
@@ -409,18 +409,18 @@ function scr_player_ghost()
 	}
 	//if (sprite_index == spr_ghostend && ANIMATION_END)
 	//{
-	//	state = states.normal;
+	//	state = "default";
 	//}
 }
 
-function scr_player_ghostpossess()
+function player_ghostpossess()
 {
 	visible = false;
 	hsp = 0;
 	if (!instance_exists(possessID))
 	{
 		visible = true;
-		state = states.ghost;
+		state = "ghost";
 		sprite_index = spr_ghostidle;
 	}
 }

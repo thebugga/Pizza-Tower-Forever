@@ -1,4 +1,4 @@
-if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.rattime <= 0 && baddieID.state != states.grabbed && baddieID.state != states.hit && !baddieID.invincible && baddieID.instantkillable)
+if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.rattime <= 0 && baddieID.state != "grabbed" && baddieID.state != "hit" && !baddieID.invincible && baddieID.instantkillable)
 {
 	fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
 	if (!baddieID.important)
@@ -29,7 +29,7 @@ if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.rattime <= 0 
 		baddieID.hp -= 1;
 		instance_create(baddieID.x, baddieID.y, obj_parryeffect);
 		baddieID.alarm[3] = 3;
-		baddieID.state = states.hit;
+		baddieID.state = "hit";
 		baddieID.image_xscale = -other.image_xscale;
 		instance_create(x, y, obj_slapstar);
 		instance_create(x, y, obj_slapstar);

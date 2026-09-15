@@ -1,10 +1,10 @@
 with (obj_player1)
 {
 	taunttimer = 0;
-	scr_player_backbreaker();
-	if (tauntstoredstate == states.mach2)
+	player_backbreaker();
+	if (tauntstoredstate == "mach2")
 	{
-		state = states.mach2;
+		state = "mach2";
 		movespeed = tauntstoredmovespeed;
 		if (movespeed < 6)
 		{
@@ -13,9 +13,9 @@ with (obj_player1)
 		sprite_index = spr_mach;
 		image_index = 0;
 	}
-	else if (tauntstoredstate == states.mach3)
+	else if (tauntstoredstate == "mach3")
 	{
-		state = states.mach3;
+		state = "mach3";
 		movespeed = tauntstoredmovespeed;
 		if (movespeed < 12)
 		{
@@ -24,9 +24,9 @@ with (obj_player1)
 		sprite_index = spr_mach4;
 		image_index = 0;
 	}
-	else if (tauntstoredstate == states.ratmount && tauntstoredratmount_movespeed >= 12 && character == characters.Noise)
+	else if (tauntstoredstate == "ratmount" && tauntstoredratmount_movespeed >= 12 && character == "Noise")
 	{
-		state = states.mach3;
+		state = "mach3";
 		movespeed = tauntstoredratmount_movespeed;
 		if (movespeed < 12)
 		{
@@ -35,11 +35,11 @@ with (obj_player1)
 		sprite_index = spr_mach4;
 		image_index = 0;
 	}
-	if (character == characters.Peppino && isgustavo)
+	if (character == "Peppino" && isgustavo)
 	{
-		if (state == states.mach2 || state == states.mach3)
+		if (state == "mach2" || state == "mach3")
 		{
-			if (state == states.mach3)
+			if (state == "mach3")
 			{
 				ratmount_movespeed = 12;
 				gusdashpadbuffer = 10;
@@ -48,7 +48,7 @@ with (obj_player1)
 			{
 				ratmount_movespeed = 6;
 			}
-			state = states.ratmount;
+			state = "ratmount";
 			movespeed = ratmount_movespeed * xscale;
 			if (tauntstoredhsp != 0)
 			{

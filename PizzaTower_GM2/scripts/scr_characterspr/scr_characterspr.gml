@@ -1,17 +1,7 @@
-enum characters
-{
-	Peppino,
-	Noise,
-	Pepperman,
-	//Doise,
-	//Vigilante,
-	//Shobon
-};
-
 //peppino, noise, pepperman, i think u get it 
 global.charPrefix = ["", "N", "PM"/*, "D", "V", "S"*/];
 
-function scr_getchar_sprite(_sprite, _char = character, _prefix = "spr_player")
+function scr_getchar_sprite(_sprite, _char = character_num, _prefix = "spr_player")
 {
 	var _spr = sprite_get_name(_sprite);
 	
@@ -276,12 +266,27 @@ function scr_characterspr()
 	spr_breakdanceuppercut = scr_getchar_sprite(spr_player_breakdanceuppercut);
 	spr_breakdanceuppercutend = scr_getchar_sprite(spr_player_breakdanceuppercutend);
 	spr_groundpoundjump = scr_getchar_sprite(spr_player_groundpoundjump);
-	if character == characters.Peppino
-		spr_palette = spr_peppalette;
-	else if character == characters.Noise
-		spr_palette = spr_peppaletteN;
+	if character == "Peppino"
+	{
+		spr_palette = pal_peppino;
+		spr_patterncolors = pal_peppatterncolors;
+		character_num = 0;
+	}
+	else if character == "Noise"
+	{
+		spr_palette = pal_noiseplayer;
+		spr_patterncolors = pal_noipatterncolors;
+		character_num = 1;
+	}
+	else if character == "Pepperman"
+	{
+		spr_palette = pal_peppermanplayable;
+		spr_patterncolors = pal_peppermanpatterncolors;
+		character_num = 2;
+	}
 	//else if character == characters.Doise
-	//	spr_palette = spr_peppaletteD;
-	else if character == characters.Pepperman
-		spr_palette = spr_peppalettePM;
+	//{
+	//	spr_patterncolors = pal_doipatterncolors;
+	//	spr_palette = pal_doiseplayer;
+	//}
 }

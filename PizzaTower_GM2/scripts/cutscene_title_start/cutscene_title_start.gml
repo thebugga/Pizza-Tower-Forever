@@ -2,7 +2,7 @@ function cutscene_title_start()
 {
 	with (obj_player1)
 	{
-		state = states.actor;
+		state = "actor";
 	}
 	cutscene_end_action();
 }
@@ -34,7 +34,7 @@ function cutscene_title_end()
 	{
 		with (obj_player1)
 		{
-			state = states.normal;
+			state = "default";
 		}
 		cutscene_end_action();
 	}

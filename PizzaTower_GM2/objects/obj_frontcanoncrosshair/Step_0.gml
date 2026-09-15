@@ -2,7 +2,7 @@ var player = instance_nearest(x, y, obj_player);
 image_speed = 0.35;
 switch (state)
 {
-	case states.normal:
+	case "default":
 		if (collisioned && fmod_event_instance_is_playing(snd))
 		{
 			fmod_event_instance_stop(snd, true);
@@ -21,11 +21,11 @@ switch (state)
 		}
 		else if (distance_to_pos(x, y, player.x, player.y, threshold_x, threshold_y) && instance_exists(obj_frontcanongoblin))
 		{
-			state = states.transitioncutscene;
+			state = "transitioncutscene";
 			attackbuffer = 20;
 		}
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		if (!fmod_event_instance_is_playing(snd))
 		{
 			fmod_event_instance_play(snd);
@@ -40,12 +40,12 @@ switch (state)
 		{
 			with (obj_frontcanongoblin)
 			{
-				if (state != states.transitioncutscene && state != states.gameover)
+				if (state != "transitioncutscene" && state != "gameover")
 				{
 					crosshair_x = other.x;
 					crosshair_y = other.y;
 					event_perform(ev_alarm, 0);
-					other.state = states.normal;
+					other.state = "default";
 					other.collisioned = false;
 					other.cooldown = 150;
 				}

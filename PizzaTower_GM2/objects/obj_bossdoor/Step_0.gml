@@ -1,7 +1,7 @@
 event_inherited();
 switch (state)
 {
-	case states.jump:
+	case "jump":
 		if (vsp < 20)
 		{
 			vsp += grav;
@@ -10,7 +10,7 @@ switch (state)
 		if (y > ystart && vsp > 0)
 		{
 			y = ystart;
-			state = states.normal;
+			state = "default";
 		}
 		break;
 }

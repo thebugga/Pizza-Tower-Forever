@@ -20,7 +20,7 @@ with (obj_player1)
 	y = backtohubstarty;
 	x = backtohubstartx;
 	y = backtohubstarty - (SCREEN_HEIGHT * 2);
-	state = states.backtohub;
+	state = "backtohub";
 	sprite_index = spr_slipbanan1;
 	image_index = 10;
 }

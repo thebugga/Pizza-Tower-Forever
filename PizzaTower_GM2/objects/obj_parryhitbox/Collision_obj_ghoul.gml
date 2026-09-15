@@ -1,4 +1,4 @@
-if (other.state == states.punch)
+if (other.state == "punch")
 {
 	if (!collisioned)
 	{

@@ -1,4 +1,4 @@
-function scr_player_barrel()
+function player_barrel()
 {
 	image_speed = abs(movespeed) / 4;
 	if (image_speed < 0.35)
@@ -69,7 +69,7 @@ function scr_player_barrel()
 					xscale = move;
 				}
 			}
-			state = states.barreljump;
+			state = "barreljump";
 			sprite_index = spr_barreljump;
 			image_index = 0;
 			jumpstop = false;
@@ -83,14 +83,14 @@ function scr_player_barrel()
 			{
 				image_xscale = other.xscale;
 			}
-			state = states.barrelslide;
+			state = "barrelslide";
 			sprite_index = spr_barrelslipnslide;
 			image_index = 0;
 		}
 	}
 	else if (!grounded)
 	{
-		state = states.barreljump;
+		state = "barreljump";
 		sprite_index = spr_barrelfall;
 		image_index = 0;
 		if (vsp < 0)

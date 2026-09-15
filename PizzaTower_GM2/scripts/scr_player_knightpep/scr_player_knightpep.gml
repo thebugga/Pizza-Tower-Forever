@@ -1,4 +1,4 @@
-function scr_player_knightpep()
+function player_knightpep()
 {
 	alarm[5] = 2;
 	alarm[7] = 60;
@@ -273,7 +273,7 @@ function scr_player_knightpep()
 		{
 			other.xscale = -sign(image_xscale);
 		}
-		state = states.knightpepslopes;
+		state = "knightpepslopes";
 		sprite_index = spr_knightpepdownslope;
 		slope_buffer = 20;
 	}

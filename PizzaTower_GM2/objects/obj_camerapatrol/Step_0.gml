@@ -26,7 +26,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -35,10 +35,10 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -96,7 +96,7 @@ if (state == states.walk)
 		alarm[5] = 30;
 	}
 }
-else if (state == states.stun || state == states.grabbed || state == states.hit)
+else if (state == states.stun || state == "grabbed" || state == "hit")
 {
 	alarm[5] = -1;
 }
@@ -110,7 +110,7 @@ if (state == states.walk && point_in_camera(x, y, view_camera[0]))
 	var p = false;
 	with (obj_player)
 	{
-		if (state == states.backbreaker && sprite_index == spr_taunt)
+		if (state == "backbreaker" && sprite_index == spr_taunt)
 		{
 			p = true;
 		}
@@ -132,7 +132,7 @@ if (state == states.walk && point_in_camera(x, y, view_camera[0]))
 		event_perform(ev_alarm, 5);
 	}
 }
-if (state == states.punch)
+if (state == "punch")
 {
 	hsp = 0;
 	if (ANIMATION_END)
@@ -146,7 +146,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

@@ -6,7 +6,7 @@ grav = 0.23;
 movespeed = 3;
 with (obj_player)
 {
-	state = states.backbreaker;
+	state = "backbreaker";
 	sprite_index = spr_bossintro;
 	image_index = 0;
 }

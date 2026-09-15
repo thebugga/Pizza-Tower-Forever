@@ -3,7 +3,7 @@ function toggle_panel(_id)
 	var _closed = false;
 	with (obj_panel)
 	{
-		if (ID == _id && state == states.revolver)
+		if (ID == _id && state == "revolver")
 		{
 			_closed = true;
 		}
@@ -14,11 +14,11 @@ function toggle_panel(_id)
 		{
 			if (ID == _id)
 			{
-				state = states.normal;
+				state = "default";
 			}
 			else if (ID != noone)
 			{
-				state = states.revolver;
+				state = "revolver";
 			}
 		}
 	}
@@ -28,7 +28,7 @@ function toggle_panel(_id)
 		{
 			if (ID != noone)
 			{
-				state = states.revolver;
+				state = "revolver";
 			}
 		}
 	}

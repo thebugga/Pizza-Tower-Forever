@@ -1,4 +1,4 @@
-function scr_player_ratmountladder()
+function player_ratmountladder()
 {
 	movespeed = 0;
 	hsp = 0;
@@ -33,7 +33,7 @@ function scr_player_ratmountladder()
 	ladderbuffer = 20;
 	if (!place_meeting(x, y, obj_ladder) && !place_meeting(x, y, obj_stairs))
 	{
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		sprite_index = spr_player_ratmountgroundpoundfall;
 		image_index = 0;
 		vsp = 0;
@@ -42,7 +42,7 @@ function scr_player_ratmountladder()
 	{
 		input_buffer_jump = 0;
 		ladderbuffer = 20;
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		sprite_index = spr_player_ratmountgroundpound;
 		if (key_down)
 		{
@@ -60,7 +60,7 @@ function scr_player_ratmountladder()
 	{
 		image_speed = 0.35;
 		sprite_index = spr_player_ratmountgroundpoundfall;
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		image_index = 0;
 	}
 }

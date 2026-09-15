@@ -1,5 +1,5 @@
 
-if (obj_player.state == states.knightpep || (obj_player.state == states.chainsaw && (obj_player.tauntstoredstate == states.knightpep || obj_player.tauntstoredstate == states.knightpepslopes)) || obj_player.state == states.knightpepattack || obj_player.state == states.knightpepslopes || obj_player.state == states.knightpepbump)
+if (obj_player.state == "knightpep" || (obj_player.state == "chainsaw" && (obj_player.tauntstoredstate == "knightpep" || obj_player.tauntstoredstate == "knightpepslopes")) || obj_player.state == "knightpepattack" || obj_player.state == "knightpepslopes" || obj_player.state == "knightpepbump")
 {
 	sprite_index = spr_swordstonetaken;
 }

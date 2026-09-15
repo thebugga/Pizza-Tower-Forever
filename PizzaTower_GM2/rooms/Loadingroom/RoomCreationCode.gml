@@ -7,17 +7,23 @@
 
 #region saves
 
-	var date = date_current_datetime();
-	var month = date_get_month(date);
-	var day = date_get_day(date);
+	global.game = []
+	global.currentsavefile = 1;
 	var achievement_arr = ["sranks1", "sranks2", "sranks3", "sranks4", "sranks5"];
-	var data_arr = [get_save_folder() + "/saveData1", get_save_folder() + "/saveData2", get_save_folder() + "/saveData3"];
-
-	for (var i = 0; i < array_length(data_arr); i++)
+	var filenumber = 0
+	var file = file_find_first(get_save_folder() + "/*", fa_directory)
+	while (file != "") && string_pos(file, ".ini") > -1
 	{
-		global.game[i] = scr_read_game(data_arr[i] + ".ini");
-		global.gameN[i] = scr_read_game(data_arr[i] + "N.ini");
+		filenumber++
+		file = file_find_next()
 	}
+	file_find_close()
+	for (var i = 0; i < filenumber; i++)
+	{
+		if file_exists(get_save_folder() + "/saveData" + string(i + 1) + ".ini")
+			array_push(global.game, scr_read_game(get_save_folder() + "/saveData" + string(i + 1) + ".ini"))
+	}
+
 	
 #endregion
 
@@ -38,7 +44,6 @@
 
 #region globals 
 
-	global.currentsavefile = 1;
 	global.stickreq[0] = 100;
 	global.stickreq[1] = 150;
 	global.stickreq[2] = 200;
@@ -394,6 +399,10 @@
 #endregion
 
 #region holidays
+
+	var date = date_current_datetime();
+	var month = date_get_month(date);
+	var day = date_get_day(date);
 
 	global.holiday = holidays.normal;
 

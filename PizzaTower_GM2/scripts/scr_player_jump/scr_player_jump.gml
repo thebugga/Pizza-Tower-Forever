@@ -1,4 +1,4 @@
-function scr_player_jump()
+function player_jump()
 {
 	var maxmovespeed = 8;
 	var maxmovespeed2 = 6;
@@ -119,7 +119,7 @@ function scr_player_jump()
 		scr_fmod_soundeffect(jumpsnd, x, y);
 		stompAnim = false;
 		vsp = jumpspeed;
-		state = states.jump;
+		state = "jump";
 		jumpAnim = true;
 		jumpstop = false;
 		freefallstart = 0;
@@ -144,7 +144,7 @@ function scr_player_jump()
 		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
 		create_particle(x, y, particletypes.highjumpcloud2, 0);
 	}
-	if (!can_jump && character == characters.Noise && key_up && noisedoublejump && input_buffer_jump > 0 && !key_down && !key_attack)
+	if (!can_jump && character == "Noise" && key_up && noisedoublejump && input_buffer_jump > 0 && !key_down && !key_attack)
 	{
 		freefallstart = 0;
 		railmomentum = false;
@@ -152,7 +152,7 @@ function scr_player_jump()
 		{
 			railmomentum = true;
 		}
-		scr_player_do_noisecrusher();
+		player_do_noisecrusher();
 	}
 	if (grounded && vsp > 0)
 	{
@@ -176,7 +176,7 @@ function scr_player_jump()
 				sprite_index = spr_player_pistolland;
 			}
 			input_buffer_secondjump = 0;
-			state = states.normal;
+			state = "default";
 			jumpAnim = true;
 			jumpstop = false;
 			freefallstart = 0;
@@ -265,16 +265,25 @@ function scr_player_jump()
 		{
 			sprite_index = spr_bodyslamstart;
 			image_index = 0;
-			state = states.freefall;
+			state = "freefall";
 			pistolanim = noone;
 			vsp = -6;
 		}
-		else if character == characters.Peppino
+		else if character == "Noise"
+		{
+			notification_push(notifications.shotgun_shot, [room]);
+			state = "shotgunshoot";
+			minigunshot = 3;
+			minigunbuffer = 0;
+			sprite_index = spr_playerN_minigundown;
+			image_index = 0;
+		}
+		else
 		{
 			fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 			sprite_index = spr_shotgunjump1;
 			image_index = 0;
-			state = states.freefall;
+			state = "freefall";
 			vsp = -11;
 			with (instance_create(x, y, obj_shotgunblast))
 			{
@@ -285,15 +294,6 @@ function scr_player_jump()
 					mask_index = other.mask_index;
 				}
 			}
-		}
-		else
-		{
-			notification_push(notifications.shotgun_shot, [room]);
-			state = states.shotgunshoot;
-			minigunshot = 3;
-			minigunbuffer = 0;
-			sprite_index = spr_playerN_minigundown;
-			image_index = 0;
 		}
 	}
 	if (sprite_index == spr_player_suplexcancel)
@@ -309,7 +309,7 @@ function scr_player_jump()
 		fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 		image_index = 0;
 		sprite_index = spr_bodyslamland;
-		state = states.freefallland;
+		state = "freefallland";
 		with (obj_baddie)
 		{
 			if (shakestun && point_in_camera(x, y, view_camera[0]) && grounded && vsp > 0)
@@ -324,52 +324,8 @@ function scr_player_jump()
 			shake_mag_acc = 30 / room_speed;
 		}
 	}
-	if (input_buffer_slap > 0 && !key_up && sprite_index != spr_suplexbump && shotgunAnim == false && !global.pistol)
-	{
-		input_buffer_slap = 0;
-		particle_set_scale(particletypes.jumpdust, xscale, 1);
-		create_particle(x, y, particletypes.jumpdust, 0);
-		image_index = 0;
-		sprite_index = spr_suplexdashjumpstart;
-		suplexmove = true;
-		fmod_event_instance_play(suplexdashsnd);
-		state = states.handstandjump;
-		movespeed = 5;
-	}
-	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == characters.Noise))
-	{
-		input_buffer_slap = 0;
-		state = states.punch;
-		image_index = 0;
-		sprite_index = spr_breakdanceuppercut;
-		fmod_event_instance_play(snd_uppercut);
-		if character == characters.Peppino
-		{
-			vsp = -10;
-		}
-		else
-		{
-			vsp = -21;
-		}
-		movespeed = hsp;
-		if (key_attack && grounded)
-		{
-			movespeed = abs(hsp);
-		}
-		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
-		create_particle(x, y, particletypes.highjumpcloud2, 0);
-		if (character == characters.Noise)
-		{
-			repeat (4)
-			{
-				with (instance_create(x + irandom_range(-40, 40), y + irandom_range(-40, 40), obj_explosioneffect))
-				{
-					sprite_index = spr_shineeffect;
-					image_speed = 0.35;
-				}
-			}
-		}
-	}
+	scr_dograb()
+	scr_douppercut()
 	if (input_buffer_shoot > 0)
 	{
 		if (shotgunAnim)
@@ -378,7 +334,7 @@ function scr_player_jump()
 		}
 		else if (global.pistol)
 		{
-			scr_pistolshoot(states.jump);
+			scr_pistolshoot("jump");
 		}
 	}
 	if (key_slap2 && shoot)
@@ -409,7 +365,7 @@ function scr_player_jump()
 				}
 				sprite_index = spr_mortthrow;
 				image_index = 0;
-				state = states.pistol;
+				state = "pistol";
 				mort = true;
 				with (obj_camera)
 				{
@@ -422,14 +378,14 @@ function scr_player_jump()
 				sprite_index = spr_pistolshot;
 				image_index = 0;
 				movespeed = 5;
-				state = states.handstandjump;
+				state = "handstandjump";
 				shoot = true;
 				with (obj_camera)
 				{
 					shake_mag = 3;
 					shake_mag = 3 / room_speed;
 				}
-				if character == characters.Peppino
+				if character == "Peppino"
 				{
 					with (instance_create(x + (xscale * 20), y, obj_shotgunbullet))
 					{
@@ -460,7 +416,7 @@ function scr_player_jump()
 			{
 				sprite_index = spr_mach1;
 				image_index = 0;
-				state = states.mach2;
+				state = "mach2";
 				if (movespeed < machspeed)
 				{
 					movespeed = machspeed;
@@ -476,13 +432,13 @@ function scr_player_jump()
 					sprite_index = spr_mach1;
 					image_index = 0;
 					movespeed = 6;
-					state = states.mach1;
+					state = "mach1";
 				}
 				else
 				{
 					sprite_index = spr_crazyrun;
 					movespeed = 20;
-					state = states.mach3;
+					state = "mach3";
 				}
 			}
 			if (key_shoot2 && !instance_exists(dynamite_inst))
@@ -493,7 +449,7 @@ function scr_player_jump()
 				{
 					movespeed = 0;
 				}
-				state = states.dynamite;
+				state = "dynamite";
 				with (instance_create(x, y, obj_dynamite))
 				{
 					image_xscale = other.xscale;
@@ -512,7 +468,7 @@ function scr_player_jump()
 				sprite_index = spr_playerV_airrevolver;
 				image_index = 0;
 				vsp = -5;
-				state = states.revolver;
+				state = "revolver";
 				with (instance_create(x + (xscale * 20), y + 20, obj_shotgunbullet))
 				{
 					is_solid = false;
@@ -547,7 +503,7 @@ function scr_player_jump()
 	}
 	if (place_meeting(x, y, obj_solid))
 	{
-		state = states.crouch;
+		state = "crouch";
 		landAnim = false;
 		crouchAnim = true;
 		image_index = 0;

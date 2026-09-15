@@ -3,7 +3,7 @@ wastedhits = 8 - elitehit;
 destroyable = false;
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		scr_pizzaface_arenaintro();
 		break;
 	case states.walk:
@@ -12,7 +12,7 @@ switch (state)
 	case states.ram:
 		scr_pizzaface_ram();
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		scr_pizzaface_transitioncutscene();
 		break;
 	case states.phase1hurt:
@@ -21,16 +21,16 @@ switch (state)
 		sprite_index = spr_pizzaface_hurt;
 		image_speed = 0.35;
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
 		scr_enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -73,8 +73,8 @@ if (prevhp != elitehit)
 			instance_destroy(obj_forkhitbox);
 			instance_destroy(obj_spitcheesespike);
 			instance_destroy(obj_banditochicken_dynamite);
-			state = states.transitioncutscene;
-			substate = states.animation;
+			state = "transitioncutscene";
+			substate = "animation";
 			introbuffer = 100;
 			flickertime = 0;
 			elitehit = 0;
@@ -92,12 +92,12 @@ if (prevhp != elitehit)
 				movespeed = 0;
 				image_index = 0;
 				sprite_index = spr_player_gnomecutscene1;
-				if (character == characters.Noise)
+				if (character == "Noise")
 				{
 					sprite_index = spr_noisebossintro2;
 				}
 				image_speed = 0.35;
-				state = states.actor;
+				state = "actor";
 				x = roomstartx;
 				y = roomstarty;
 			}
@@ -156,7 +156,7 @@ else if (invincible && (state != states.stun || (savedthrown != thrown && savedt
 {
 	flash = false;
 }
-if ((state == states.ram && substate != states.transitioncutscene) && alarm[4] < 0)
+if ((state == states.ram && substate != "transitioncutscene") && alarm[4] < 0)
 {
 	alarm[4] = 6;
 }

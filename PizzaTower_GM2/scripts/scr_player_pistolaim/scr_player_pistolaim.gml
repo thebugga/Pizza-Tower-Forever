@@ -1,4 +1,4 @@
-function scr_player_pistolaim()
+function player_pistolaim()
 {
 	mach2 = 0;
 	move = key_left + key_right;
@@ -13,7 +13,7 @@ function scr_player_pistolaim()
 	movespeed = 0;
 	if (!key_up)
 	{
-		state = states.normal;
+		state = "default";
 		image_index = 0;
 	}
 	if (move != 0)
@@ -28,27 +28,27 @@ function scr_player_pistolaim()
 	{
 		sprite_index = spr_player_pistol;
 		image_index = 0;
-		state = states.pistol;
+		state = "pistol";
 		shoot = true;
 	}
 	if (key_shoot2 && sprite_index == spr_player_aimup)
 	{
 		sprite_index = spr_player_shootup;
 		image_index = 0;
-		state = states.pistol;
+		state = "pistol";
 		shoot = true;
 	}
 	if (key_shoot2 && sprite_index == spr_player_aimdiagonal)
 	{
 		sprite_index = spr_player_shootdiagonal;
 		image_index = 0;
-		state = states.pistol;
+		state = "pistol";
 		shoot = true;
 	}
 	if (!grounded)
 	{
 		sprite_index = spr_player_fall;
-		state = states.jump;
+		state = "jump";
 	}
 	if (move != 0)
 	{

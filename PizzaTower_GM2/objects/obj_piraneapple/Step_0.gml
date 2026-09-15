@@ -56,7 +56,7 @@ switch (state)
 		}
 		scr_collide();
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		flash = false;
 		sprite_index = spr_piraneapplewater;
 		if (place_meeting(x, y, obj_solid))

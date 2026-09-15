@@ -15,5 +15,5 @@ with (instance_create(room_width / 2, room_height / 2, obj_logoprop))
 }
 with (obj_player)
 {
-	state = states.titlescreen;
+	state = "titlescreen";
 }

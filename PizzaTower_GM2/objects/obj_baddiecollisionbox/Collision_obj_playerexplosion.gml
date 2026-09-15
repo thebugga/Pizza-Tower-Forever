@@ -1,4 +1,4 @@
-if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.state != states.grabbed && !baddieID.invincible && baddieID.instantkillable)
+if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.state != "grabbed" && !baddieID.invincible && baddieID.instantkillable)
 {
 	if (room == boss_pizzaface && (baddieID.object_index == obj_pepperman || baddieID.object_index == obj_vigilanteboss || baddieID.object_index == obj_noiseboss || baddieID.object_index == obj_fakepepboss || baddieID.object_index == obj_pizzafaceboss_p3))
 	{
@@ -27,7 +27,7 @@ if (instance_exists(baddieID) && baddieID.invtime == 0 && baddieID.state != stat
 		baddieID.hp -= 1;
 		instance_create(baddieID.x, baddieID.y, obj_parryeffect);
 		baddieID.alarm[3] = 3;
-		baddieID.state = states.hit;
+		baddieID.state = "hit";
 		if (baddieID.x != other.x)
 		{
 			baddieID.image_xscale = sign(other.x - baddieID.x);

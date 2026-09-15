@@ -1,4 +1,4 @@
-function scr_player_golf()
+function player_golf()
 {
 	landAnim = false;
 	jumpAnim = false;
@@ -29,14 +29,14 @@ function scr_player_golf()
 	}
 	if (sprite_index == spr_golfswing && ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 	}
-	if (instance_exists(golfid) && golfid.state != states.golf && golfid.state != states.thrown)
+	if (instance_exists(golfid) && golfid.state != "golf" && golfid.state != "thrown")
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (!instance_exists(golfid))
 	{
-		state = states.normal;
+		state = "default";
 	}
 }

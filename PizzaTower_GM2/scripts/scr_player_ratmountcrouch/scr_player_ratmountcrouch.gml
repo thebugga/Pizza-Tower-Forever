@@ -1,4 +1,4 @@
-function scr_player_ratmountcrouch()
+function player_ratmountcrouch()
 {
 	move = key_left + key_right;
 	hsp = movespeed;
@@ -46,13 +46,13 @@ function scr_player_ratmountcrouch()
 	}
 	if (!grounded)
 	{
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		jumpAnim = false;
 		sprite_index = spr_player_ratmountgroundpoundfall;
 	}
 	if (((grounded && !key_down) || brick) && !scr_solid(x, y - 16) && !scr_solid(x, y - 32))
 	{
-		state = states.ratmount;
+		state = "ratmount";
 	}
 	if (hsp != 0)
 	{

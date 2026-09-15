@@ -18,7 +18,7 @@ function scr_enemy_ratgrabbed()
 		{
 			ratgrabbed = true;
 		}
-		if (ratplayerid.state == states.ratmountspit && ratplayerid.image_index >= 5)
+		if (ratplayerid.state == "ratmountspit" && ratplayerid.image_index >= 5)
 		{
 			hsp = ratplayerid.xscale * 22;
 			vsp = -2;

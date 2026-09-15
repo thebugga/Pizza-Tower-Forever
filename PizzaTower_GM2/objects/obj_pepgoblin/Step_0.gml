@@ -16,7 +16,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -25,10 +25,10 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -51,7 +51,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
@@ -65,7 +65,7 @@ if (bombreset > 0)
 	bombreset--;
 }
 var targetplayer = global.coopmode ? instance_nearest(x, y, obj_player) : obj_player1;
-if (x != targetplayer.x && state != states.pizzagoblinthrow && obj_player.state != states.tumble && bombreset <= 0 && grounded)
+if (x != targetplayer.x && state != states.pizzagoblinthrow && obj_player.state != "tumble" && bombreset <= 0 && grounded)
 {
 	if ((targetplayer.x > (x - 80) && targetplayer.x < (x + 80)) && (y <= (targetplayer.y + 100) && y >= (targetplayer.y - 100)))
 	{

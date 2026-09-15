@@ -24,7 +24,7 @@ switch (state)
 				hsp = approach(hsp, 0, 0.5);
 				if (cooldown <= 0)
 				{
-					state = states.punch;
+					state = "punch";
 					sprite_index = spr_pepclone_attack;
 					image_index = 0;
 					shot = false;
@@ -34,7 +34,7 @@ switch (state)
 			{
 				hsp = image_xscale * 6;
 			}
-			if (state != states.punch)
+			if (state != "punch")
 			{
 				if (grounded)
 				{
@@ -68,7 +68,7 @@ switch (state)
 			}
 		}
 		break;
-	case states.punch:
+	case "punch":
 		hsp = approach(hsp, 0, 1);
 		if (!shot && floor(image_index) > 14)
 		{
@@ -99,7 +99,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -108,10 +108,10 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
@@ -120,7 +120,7 @@ switch (state)
 	case states.rage:
 		scr_enemy_rage();
 		break;
-	case states.ghostpossess:
+	case "ghostpossess":
 		scr_enemy_ghostpossess();
 		break;
 }
@@ -144,7 +144,7 @@ if (state == states.stun && fmod_event_instance_is_playing(snd))
 {
 	fmod_event_instance_stop(snd);
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

@@ -3,26 +3,26 @@ if (place_meeting(x, y - 1, obj_player))
 {
 	with (obj_player)
 	{
-		if (state != states.golf && state != states.tackle && state != states.gotoplayer && state != states.stringfall && state != states.stringjump && state != states.stringfling)
+		if (state != "golf" && state != "tackle" && state != "gotoplayer" && state != "stringfall" && state != "stringjump" && state != "stringfling")
 		{
 			if (place_meeting(x, y + 1, other))
 			{
-				if ((state != states.trashjump && state != states.trashroll) || character == characters.Noise)
+				if ((state != "trashjump" && state != "trashroll") || character == "Noise")
 				{
 					if (!instance_exists(obj_surfback) || ispeppino)
 					{
-						if (state != states.barrel && state != states.barreljump && state != states.barrelslide && state != states.barrelclimbwall)
+						if (state != "barrel" && state != "barreljump" && state != "barrelslide" && state != "barrelclimbwall")
 						{
-							if (state != states.slipnslide || sprite_index != spr_currentplayer)
+							if (state != "slipnslide" || sprite_index != spr_currentplayer)
 							{
 								fmod_event_one_shot_3d("event:/sfx/misc/waterslidesplash", x, y);
 							}
-							state = states.slipnslide;
+							state = "slipnslide";
 							sprite_index = spr_currentplayer;
 						}
 						else
 						{
-							state = states.barrelslide;
+							state = "barrelslide";
 							if (sprite_index != spr_barrelslipnslide)
 							{
 								sprite_index = spr_barrelroll;
@@ -31,11 +31,11 @@ if (place_meeting(x, y - 1, obj_player))
 						xscale = sign(other.image_xscale);
 						movespeed = 20;
 					}
-					else if (state != states.slipnslide)
+					else if (state != "slipnslide")
 					{
 						fmod_event_one_shot_3d("event:/sfx/misc/waterslidesplash", x, y);
 						movespeed = 15;
-						state = states.slipnslide;
+						state = "slipnslide";
 					}
 				}
 				else
@@ -48,9 +48,9 @@ if (place_meeting(x, y - 1, obj_player))
 					}
 					vsp = -6;
 					image_index = 0;
-					if (state == states.trashjump)
+					if (state == "trashjump")
 					{
-						state = states.trashroll;
+						state = "trashroll";
 						movespeed = abs(movespeed);
 						dir = xscale;
 						movespeed += 3;

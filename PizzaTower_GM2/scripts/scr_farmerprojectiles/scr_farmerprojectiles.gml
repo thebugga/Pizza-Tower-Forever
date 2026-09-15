@@ -6,7 +6,7 @@ function scr_farmerpeasanto_projectile(_haystack, _unknown1)
 		{
 			sprite_index = spr_haystackburningup;
 			image_index = 0;
-			state = states.normal;
+			state = "default";
 			return true;
 		}
 	}

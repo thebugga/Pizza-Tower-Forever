@@ -7,25 +7,25 @@ if (elitehit <= 1 && phase == 2 && destroyable)
 }
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		scr_pepperman_arenaintro();
 		break;
 	case states.walk:
 		scr_pepperman_walk();
 		break;
-	case states.shoulderbash:
+	case "shoulderbash":
 		scr_pepperman_shoulderbash();
 		break;
-	case states.jump:
+	case "jump":
 		scr_pepperman_jump();
 		break;
-	case states.freefall:
+	case "freefall":
 		scr_pepperman_freefall();
 		break;
-	case states.freefallprep:
+	case "freefallprep":
 		scr_pepperman_freefallprep();
 		break;
-	case states.freefallland:
+	case "freefallland":
 		scr_pepperman_freefallland();
 		break;
 	case states.shoulderturn:
@@ -43,23 +43,23 @@ switch (state)
 	case states.phase1hurt:
 		scr_pepperman_phase1hurt();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
 		scr_enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
+	case "pummel":
 		scr_enemy_pummel();
 		break;
 	case states.staggered:
 		scr_enemy_staggered();
 		break;
 }
-if (state != states.stun && state != states.hit && state != states.phase1hurt && state != states.supergrab && (state != states.walk || flickertime <= 0))
+if (state != states.stun && state != "hit" && state != states.phase1hurt && state != "supergrab" && (state != states.walk || flickertime <= 0))
 {
 	scr_pepperman_do_contemplate();
 }
@@ -139,7 +139,7 @@ if (state == states.stun)
 			fmod_event_one_shot_3d("event:/sfx/pepperman/shrink", x, y);
 			fmod_event_one_shot_3d("event:/sfx/voice/peppermanscared", x, y);
 			state = states.mini;
-			ministate = states.transitioncutscene;
+			ministate = "transitioncutscene";
 			minibuffer = 480;
 			sprite_index = spr_pepperman_ministart;
 			image_index = 0;
@@ -179,7 +179,7 @@ if (prevhp != elitehit)
 	prevhp = elitehit;
 }
 boss_hurt_gustavo();
-if (state == states.freefall || (state == states.rolling && vsp < 0))
+if (state == "freefall" || (state == states.rolling && vsp < 0))
 {
 	if (!instance_exists(hitboxID))
 	{
@@ -204,7 +204,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (((state != states.stun || savedthrown != thrown || (wastedhits >= 8 && (sprite_index == spr_playerPM_mach3hitwall || sprite_index == spr_playerPM_mach3hitwallstart)) || thrown) && (state != states.freefallland || landbuffer <= 0) && (state != states.rolling || vsp < 0 || sprite_index == spr_playerPM_bodyslamland) && state != states.contemplate) || flickertime > 0 || (wastedhits == 9 && phase == 1))
+if (((state != states.stun || savedthrown != thrown || (wastedhits >= 8 && (sprite_index == spr_playerPM_mach3hitwall || sprite_index == spr_playerPM_mach3hitwallstart)) || thrown) && (state != "freefallland" || landbuffer <= 0) && (state != states.rolling || vsp < 0 || sprite_index == spr_playerPM_bodyslamland) && state != states.contemplate) || flickertime > 0 || (wastedhits == 9 && phase == 1))
 {
 	invincible = true;
 }
@@ -222,24 +222,24 @@ if (pizzahead && elitehit <= 1)
 }
 if (landbuffer2 > 0)
 {
-	if (state == states.freefallland)
+	if (state == "freefallland")
 	{
 		landbuffer2--;
 		invincible = true;
 	}
 }
-if ((!invincible || (state == states.mini && ministate != states.transitioncutscene) || (wastedhits == 9 && phase == 1 && state == states.contemplate)) && !flash && alarm[5] < 0)
+if ((!invincible || (state == states.mini && ministate != "transitioncutscene") || (wastedhits == 9 && phase == 1 && state == states.contemplate)) && !flash && alarm[5] < 0)
 {
 	alarm[5] = 0.15 * room_speed;
 }
-else if (invincible && (state != states.mini || ministate == states.transitioncutscene) && (wastedhits != 9 || phase != 1 || state != states.contemplate))
+else if (invincible && (state != states.mini || ministate == "transitioncutscene") && (wastedhits != 9 || phase != 1 || state != states.contemplate))
 {
 	flash = false;
 }
-if ((state == states.shoulderbash || state == states.freefall) && alarm[4] < 0)
+if ((state == "shoulderbash" || state == "freefall") && alarm[4] < 0)
 {
 	alarm[4] = 10;
-	if (state == states.freefall)
+	if (state == "freefall")
 	{
 		alarm[4] = 5;
 	}
@@ -253,7 +253,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

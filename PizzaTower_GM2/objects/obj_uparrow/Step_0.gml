@@ -5,7 +5,7 @@ with (playerid)
 	{
 		instance_destroy(other);
 	}
-	if (!grounded || (state != states.normal && state != states.ratmount))
+	if (!grounded || (state != "default" && state != "ratmount"))
 	{
 		instance_destroy(other);
 	}

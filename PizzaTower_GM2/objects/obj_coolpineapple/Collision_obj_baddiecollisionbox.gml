@@ -1,4 +1,4 @@
-if (state != states.parry && state != states.backbreaker)
+if (state != "parry" && state != "backbreaker")
 {
 	exit;
 }
@@ -12,10 +12,10 @@ with (other_baddie)
 		can_parry = true;
 	}
 }
-if (can_parry && state != states.parry && other.baddieID != id)
+if (can_parry && state != "parry" && other.baddieID != id)
 {
 	sprite_index = parryspr;
 	movespeed = 8;
-	state = states.parry;
+	state = "parry";
 	image_index = 0;
 }

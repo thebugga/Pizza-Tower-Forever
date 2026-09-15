@@ -1,5 +1,5 @@
 image_speed = 0.35;
-state = states.normal;
+state = "default";
 image_xscale = choose(-1, 1);
 alarm[0] = 80 + irandom(70);
 hsp = 0;

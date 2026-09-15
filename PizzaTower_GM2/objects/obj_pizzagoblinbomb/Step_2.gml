@@ -21,7 +21,7 @@ if (kickbuffer > 0)
 }
 switch (state)
 {
-	case states.normal:
+	case "default":
 		hsp = movespeed * image_xscale;
 		if (place_meeting(x + hsp, y, obj_solid) && !place_meeting(x + hsp, y, obj_ratblock))
 		{
@@ -53,26 +53,26 @@ switch (state)
 		}
 		scr_collide();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		grounded = false;
 		x = playerid.x + (-playerid.xscale * 6);
 		y = playerid.y - 55;
 		image_xscale = playerid.xscale;
-		if (playerid.state != states.bombgrab && playerid.state != states.superslam)
+		if (playerid.state != "bombgrab" && playerid.state != "superslam")
 		{
-			state = states.normal;
+			state = "default";
 		}
-		if (state == states.grabbed && _destroyed)
+		if (state == "grabbed" && _destroyed)
 		{
 			var h = playerid.hurted;
 			var _savedstate = playerid.state;
 			scr_hurtplayer(playerid);
-			if ((playerid.hurted && !h) || (playerid.state != _savedstate && playerid.state == states.hurt))
+			if ((playerid.hurted && !h) || (playerid.state != _savedstate && playerid.state == "hurt"))
 			{
 				notification_push(notifications.hurt, [id, _savedstate, obj_canonexplosion]);
 			}
 		}
-		if (playerid.state == states.superslam)
+		if (playerid.state == "superslam")
 		{
 			if (playerid.grounded)
 			{
@@ -81,7 +81,7 @@ switch (state)
 		}
 		break;
 	default:
-		state = states.normal;
+		state = "default";
 		break;
 }
 if (sprite_index == bomblit_spr)

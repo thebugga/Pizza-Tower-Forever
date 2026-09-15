@@ -1,4 +1,4 @@
-function scr_player_tubeenter()
+function player_tubeenter()
 {
 	visible = false;
 	with (tube_id)
@@ -12,25 +12,25 @@ function scr_player_tubeenter()
 			switch (object_index)
 			{
 				case obj_tubeenter:
-					if (state != states.normal)
+					if (state != "default")
 					{
 						if (ANIMATION_END)
 						{
-							other.state = states.tube;
+							other.state = "tube";
 							other.hsp = hsp * other.stored_hsp;
 							other.vsp = vsp * other.stored_vsp;
 							other.tube_vsp = vsp * other.stored_vsp;
-							state = states.normal;
+							state = "default";
 						}
 					}
 					else
 					{
-						state = states.tube;
+						state = "tube";
 						image_index = 0;
 					}
 					break;
 				default:
-					other.state = states.tube;
+					other.state = "tube";
 					other.hsp = hsp * other.stored_hsp;
 					other.vsp = vsp * other.stored_vsp;
 					other.tube_vsp = vsp * other.stored_vsp;

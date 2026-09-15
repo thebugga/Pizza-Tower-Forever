@@ -32,7 +32,7 @@ if (!ready)
 				obj_peppinoselect.image_index = 0;
 				with (obj_player1)
 				{
-					character = characters.Peppino;
+					character = "Peppino";
 					ispeppino = true;
 					scr_characterspr();
 				}
@@ -44,7 +44,7 @@ if (!ready)
 				obj_noiseselect.image_index = 0;
 				with (obj_player1)
 				{
-					character = characters.Noise;
+					character = "Noise";
 					ispeppino = true;
 					scr_characterspr();
 				}
@@ -60,7 +60,7 @@ if (!ready)
 			obj_noiseselect.image_index = 0;
 			with (obj_player1)
 			{
-				character = other.selected == 0 ? characters.Peppino : characters.Noise;
+				character = other.selected == 0 ? "Peppino" : "Noise";
 				ispeppino = true;
 				scr_characterspr();
 			}

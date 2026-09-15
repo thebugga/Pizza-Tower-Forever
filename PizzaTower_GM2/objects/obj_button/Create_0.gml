@@ -1,4 +1,4 @@
-state = states.normal;
+state = "default";
 hovered = false;
 selected = false;
 parent = noone;

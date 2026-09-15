@@ -64,8 +64,8 @@
 //	{
 //		with (obj_player)
 //		{
-//			character = characters.Peppino;
-//			ispeppino = character == characters.Noise;
+//			character = "Peppino";
+//			ispeppino = character == "Noise";
 //			scr_characterspr();
 //		}
 //	});
@@ -170,7 +170,7 @@
 //	{
 //		with (obj_player1)
 //		{
-//			state = states.debugstate;
+//			state = "debugstate";
 //		}
 //	});
 //	GIVEKEY = new DebugCommand("givekey", "", "", function()
@@ -386,19 +386,19 @@
 //					var _spr = sprite_index;
 //					switch (_state)
 //					{
-//						case states.normal:
+//						case "default":
 //							_spr = spr_idle;
 //							break;
-//						case states.cheesepep:
+//						case "cheesepep":
 //							_spr = spr_cheesepep_idle;
 //							break;
-//						case states.knightpep:
+//						case "knightpep":
 //							_spr = spr_knightpepidle;
 //							break;
-//						case states.firemouth:
+//						case "firemouth":
 //							_spr = spr_firemouth;
 //							break;
-//						case states.ratmount:
+//						case "ratmount":
 //							_spr = spr_player_ratmountidle;
 //							break;
 //					}
@@ -412,11 +412,11 @@
 //	showcollisions = false;
 //	showhud = true;
 //	state_map = ds_map_create();
-//	ds_map_set(state_map, "states.normal", states.normal);
-//	ds_map_set(state_map, "states.cheesepep", states.cheesepep);
-//	ds_map_set(state_map, "states.knightpep", states.knightpep);
-//	ds_map_set(state_map, "states.firemouth", states.firemouth);
-//	ds_map_set(state_map, "states.ratmount", states.ratmount);
+//	ds_map_set(state_map, ""default"", "default");
+//	ds_map_set(state_map, ""cheesepep"", "cheesepep");
+//	ds_map_set(state_map, ""knightpep"", "knightpep");
+//	ds_map_set(state_map, ""firemouth"", "firemouth");
+//	ds_map_set(state_map, ""ratmount"", "ratmount");
 //	command_list = ds_list_create();
 //	ds_list_add(command_list, DESTROYICE, SET_GAME_SPEED, SHOW_HUD, SHOW_COLLISIONS, PLAYER_ROOM, CAMERA_ZOOM, HARDMODE, PLAYER_SET_STATE, PANIC, ALLTOPPINS, GIVEHEAT, ROOMCHECK, SWITCH_CHAR, SET_BOSS_HP);
 //	ds_list_add(command_list, OTHERTEST, KILL_BOSS, TEST_P_RANK, FILL_GATESWITCH, SETCOMBO, GIVEKEY, LOADTEST, NOCLIP, THROWARC, HIDETILES, LOCKCAMERA, BOSSINVINCIBLE, UNLOCK_TOPPINS, UNLOCK_BOSS_KEY, SHOW_DEBUG_OVERLAY, GOTOEDITOR);

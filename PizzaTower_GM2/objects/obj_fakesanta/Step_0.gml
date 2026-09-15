@@ -11,13 +11,13 @@ if (activated == true)
 		case states.stun:
 			scr_enemy_stun();
 			break;
-		case states.hit:
+		case "hit":
 			scr_enemy_hit();
 			break;
-		case states.grabbed:
+		case "grabbed":
 			scr_enemy_grabbed();
 			break;
-		case states.pummel:
+		case "pummel":
 			scr_enemy_pummel();
 			break;
 		case states.staggered:
@@ -96,7 +96,7 @@ if (activated == true)
 		x = lerp(x, obj_player1.x + hsp, 0.08);
 		y = lerp(y, obj_player1.y + obj_player1.vsp + vsp, 0.04);
 	}
-	else if (state == states.punch)
+	else if (state == "punch")
 	{
 		var ii = floor(image_index);
 		hsp = 0;
@@ -113,7 +113,7 @@ if (activated == true)
 	{
 		alarm[2] = 0.15 * room_speed;
 	}
-	if (state != states.grabbed)
+	if (state != "grabbed")
 	{
 		depth = 0;
 	}

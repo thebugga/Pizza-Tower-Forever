@@ -2,31 +2,31 @@ if (playerid > -1)
 {
 	exit;
 }
-if (state != states.normal)
+if (state != "default")
 {
 	exit;
 }
-if (other.state == states.hurt)
+if (other.state == "hurt")
 {
 	exit;
 }
-if (other.state == states.gotoplayer)
+if (other.state == "gotoplayer")
 {
 	exit;
 }
-if (other.state == states.stringfall)
+if (other.state == "stringfall")
 {
 	exit;
 }
-if (other.state == states.stringjump)
+if (other.state == "stringjump")
 {
 	exit;
 }
-if (other.state == states.stringfling)
+if (other.state == "stringfling")
 {
 	exit;
 }
-if (object_index != obj_tubeenter && other.state != states.tube)
+if (object_index != obj_tubeenter && other.state != "tube")
 {
 	exit;
 }
@@ -37,7 +37,7 @@ with (other)
 	if (other.object_index == obj_tubeenter)
 	{
 		shot = false;
-		if (state != states.tube)
+		if (state != "tube")
 		{
 			repeat (6)
 			{
@@ -45,7 +45,7 @@ with (other)
 			}
 		}
 	}
-	state = states.tube;
+	state = "tube";
 	hsp = 0;
 	movespeed = 0;
 	vsp = 0;
@@ -73,7 +73,7 @@ if (floor(other.x) == (xstart + _offset_x) && floor(other.y) == (ystart + _offse
 		fmod_event_one_shot_3d("event:/sfx/pipe/end", x, y);
 	}
 	image_speed = 0.5;
-	other.state = states.tube;
+	other.state = "tube";
 	other.tube_vsp = 0;
-	state = states.tube;
+	state = "tube";
 }

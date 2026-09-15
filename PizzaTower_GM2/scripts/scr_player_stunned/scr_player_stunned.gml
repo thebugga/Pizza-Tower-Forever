@@ -1,4 +1,4 @@
-function scr_player_stunned()
+function player_stunned()
 {
 	hsp = 0;
 	combo = 0;
@@ -30,7 +30,7 @@ function scr_player_stunned()
 	if (ANIMATION_END)
 	{
 		mask_index = spr_player_mask;
-		state = states.normal;
+		state = "default";
 		sprite_index = spr_idle;
 		image_index = 0;
 	}

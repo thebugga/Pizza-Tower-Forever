@@ -19,10 +19,10 @@ if (instance_exists(obj_player))
 			}
 			with (obj_player)
 			{
-				if (state == states.ejected || state == states.taxi2)
+				if (state == "ejected" || state == "taxi2")
 				{
 					visible = true;
-					state = states.normal;
+					state = "default";
 				}
 			}
 		}
@@ -34,16 +34,16 @@ if (instance_exists(obj_player))
 			}
 			with (obj_player)
 			{
-				if (state == states.ejected)
+				if (state == "ejected")
 				{
-					state = states.normal;
+					state = "default";
 				}
 			}
 			with (obj_player2)
 			{
 				if (instance_exists(obj_coopplayerfollow))
 				{
-					state = states.gotoplayer;
+					state = "gotoplayer";
 				}
 			}
 		}

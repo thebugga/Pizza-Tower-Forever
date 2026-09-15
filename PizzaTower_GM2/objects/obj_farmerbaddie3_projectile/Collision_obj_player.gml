@@ -1,14 +1,14 @@
 with (other)
 {
-	if (state != states.boots && state != states.gameover && state != states.rideweenie && state != states.gotoplayer && state != states.backbreaker)
+	if (state != states.boots && state != "gameover" && state != "rideweenie" && state != "gotoplayer" && state != "backbreaker")
 	{
 		var _pindex = (object_index == obj_player1) ? 0 : 1;
 		GamepadSetVibration(_pindex, 1, 1, 0.85);
-		if (state != states.fireass)
+		if (state != "fireass")
 		{
 		}
 		hurted = false;
-		state = states.fireass;
+		state = "fireass";
 		vsp = -25;
 		fireasslock = true;
 		sprite_index = spr_fireass;

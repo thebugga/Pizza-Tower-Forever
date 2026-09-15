@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_player_normal",
+  "%Name":"scr_player_default",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_player_normal",
+  "name":"scr_player_default",
   "parent":{
     "name":"States",
     "path":"folders/Scripts/Player/States.yy",

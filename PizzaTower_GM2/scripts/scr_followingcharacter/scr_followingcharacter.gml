@@ -117,7 +117,7 @@ function following_moonwalk_fix()
 	{
 		exit;
 	}
-	if (playerid.state == states.machcancel && playerid.hsp != 0)
+	if (playerid.state == "machcancel" && playerid.hsp != 0)
 	{
 		image_xscale = sign(playerid.hsp) * playerid.scale_xs;
 	}

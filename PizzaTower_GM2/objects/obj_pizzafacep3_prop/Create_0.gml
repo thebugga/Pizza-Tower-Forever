@@ -10,7 +10,7 @@ start = false;
 stunspr = noone;
 angryspr = noone;
 use_collision = true;
-spr_palette = spr_peppalette;
+spr_palette = pal_peppino;
 paletteselect = 1;
 with (instance_create(x, y + 10, obj_jumpdust))
 {

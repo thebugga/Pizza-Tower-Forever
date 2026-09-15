@@ -1,15 +1,15 @@
 var t = id;
 with (other)
 {
-	if (state != states.gotoplayer && state != states.ghost && state != states.actor)
+	if (state != "gotoplayer" && state != "ghost" && state != "actor")
 	{
 		if (boxxed == false && isgustavo == false && other.buffer == 0 && other.sprite_index == spr_dashpad)
 		{
-			if (state == states.trashjump || state == states.trashstart)
+			if (state == "trashjump" || state == states.trashstart)
 			{
 				create_debris(x, y, spr_player_trashlid);
 			}
-			if (state == states.animatronic)
+			if (state == "animatronic")
 			{
 				with (instance_create(x, y, obj_peshinodebris))
 				{
@@ -44,7 +44,7 @@ with (other)
 			
 			scr_fmod_soundeffect(snd_dashpad, x, y);
 			machhitAnim = false;
-			state = states.mach3;
+			state = "mach3";
 			xscale = sign(other.image_xscale);
 			dir = xscale;
 			if (abs(movespeed) < 14)
@@ -88,7 +88,7 @@ with (other)
 				}
 				sprite_index = spr_boxxedpepwalk;
 				boxxeddashbuffer = 40;
-				state = states.boxxedpep;
+				state = "boxxedpep";
 				other.buffer = 30;
 			}
 			if (isgustavo && other.buffer == 0 && gusdashpadbuffer == 0)
@@ -118,7 +118,7 @@ with (other)
 				other.buffer = 30;
 				ratmount_movespeed = 14;
 				gustavodash = 51;
-				state = states.ratmount;
+				state = "ratmount";
 				if (abs(movespeed) < 14)
 				{
 					movespeed = other.image_xscale * 14;

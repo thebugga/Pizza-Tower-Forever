@@ -3,12 +3,12 @@ switch (state)
 	case states.idle:
 		if (start && distance_to_object(obj_player) <= 150)
 		{
-			state = states.actor;
+			state = "actor";
 			substate = states.idle;
 			cutscenebuffer = 120;
 			with (obj_player)
 			{
-				state = states.actor;
+				state = "actor";
 				sprite_index = spr_idle;
 				movespeed = 0;
 				image_speed = 0.35;
@@ -21,7 +21,7 @@ switch (state)
 			}
 		}
 		break;
-	case states.actor:
+	case "actor":
 		switch (substate)
 		{
 			case states.idle:
@@ -32,12 +32,12 @@ switch (state)
 				else
 				{
 					fmod_event_instance_set_parameter(snd, "state", 1, true);
-					substate = states.normal;
+					substate = "default";
 					cutscenebuffer = 100;
 					sprite_index = spr_pizzafaceshower3;
 				}
 				break;
-			case states.normal:
+			case "default":
 				if (cutscenebuffer > 0)
 				{
 					cutscenebuffer--;
@@ -45,12 +45,12 @@ switch (state)
 				else
 				{
 					fmod_event_instance_set_parameter(snd, "state", 2, true);
-					substate = states.transitioncutscene;
+					substate = "transitioncutscene";
 					cutscenebuffer = 100;
 					sprite_index = spr_pizzafaceshower2;
 				}
 				break;
-			case states.transitioncutscene:
+			case "transitioncutscene":
 				if (cutscenebuffer > 0)
 				{
 					cutscenebuffer--;
@@ -68,28 +68,28 @@ switch (state)
 					x += 13;
 					y += 16;
 					sprite_index = spr_pizzafaceshower4;
-					substate = states.jump;
+					substate = "jump";
 					movespeed = 15;
 					vsp = -4;
 					depth = 5;
 				}
 				break;
-			case states.jump:
+			case "jump":
 				movespeed = approach(movespeed, 0, 0.2);
 				vsp = approach(vsp, -15, 0.1);
 				x += movespeed;
 				y += vsp;
 				if (!bbox_in_camera(view_camera[0], 50))
 				{
-					substate = states.gameover;
+					substate = "gameover";
 					with (obj_player)
 					{
-						state = states.normal;
+						state = "default";
 						landAnim = false;
 					}
 				}
 				break;
-			case states.gameover:
+			case "gameover":
 				y -= 20;
 				if (y < -200)
 				{

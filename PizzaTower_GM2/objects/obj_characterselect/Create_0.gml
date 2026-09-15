@@ -4,5 +4,5 @@ ready = false;
 depth = -2;
 with (obj_player)
 {
-	state = states.titlescreen;
+	state = "titlescreen";
 }

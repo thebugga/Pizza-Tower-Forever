@@ -18,7 +18,7 @@ combofill_y = _cy;
 //shader_set(global.retro_pal_swapper);
 pal_swap_set(spr_tv_combofillpalette, (!global.combodropped && global.prank_enemykilled) ? 2 : 1, false);
 draw_sprite(spr_tv_combobubblefill, combofill_index, combofill_x, combofill_y);
-pal_swap_set(spr_tv_combopalette, obj_player1.character, false);
+pal_swap_set(spr_tv_combopalette, obj_player1.character_num, false);
 lang_draw_sprite(spr_tv_combobubble, 0, _cx, _cy);
 draw_set_font(global.combofont2);
 draw_set_halign(fa_center);
@@ -47,9 +47,9 @@ if (room != rm_blank)
 		pal_swap_set(obj_player.spr_palette, 2, false);
 		draw_sprite_ext(sprite_index, image_index, tv_x + collect_x, tv_y + collect_y + hud_posY, 1, 1, 0, c_white, alpha);
 	}
-	if (obj_player1.character != characters.Peppino || global.swapmode)
+	if (obj_player1.character != "Peppino" || global.swapmode)
 	{
-		pal_swap_set(spr_tv_palette, obj_player1.character, false);
+		pal_swap_set(spr_tv_palette, obj_player1.character_num, false);
 		var spr = spr_tv_empty;
 		if (sprite_index == spr_tv_open)
 		{
@@ -66,7 +66,7 @@ if (room != rm_blank)
 		}
 		draw_sprite(spr_tv_whitenoise, tv_trans, tv_x + collect_x, tv_y + collect_y + hud_posY);
 	}
-	if (sprite_index == spr_tv_exprheatN || obj_player1.character == characters.Pepperman)
+	if (sprite_index == spr_tv_exprheatN || obj_player1.character == "Pepperman")
 	{
 		pal_swap_set(obj_player.spr_palette, obj_player.paletteselect);
 		draw_sprite_ext(sprite_index, image_index, tv_x + collect_x, tv_y + collect_y + hud_posY, 1, 1, 0, c_white, alpha);

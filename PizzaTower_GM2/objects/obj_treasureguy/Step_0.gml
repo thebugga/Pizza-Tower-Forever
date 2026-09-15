@@ -10,7 +10,7 @@ switch (state)
 	case states.land:
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_enemy_hit();
 		break;
 	case states.stun:
@@ -19,7 +19,7 @@ switch (state)
 	case states.pizzagoblinthrow:
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_enemy_grabbed();
 		break;
 	case states.rage:
@@ -36,7 +36,7 @@ switch (state)
 			}
 			sprite_index = spr_minijohn_underground;
 			visible = false;
-			if (player.x > (x - 80) && player.x < (x + 80) && y <= (player.y + 60) && y >= (player.y - 60) && (player.state == states.freefallland || player.sprite_index == player.spr_piledriverland || (player.state == states.ratmountbounce && player.vsp > 0)))
+			if (player.x > (x - 80) && player.x < (x + 80) && y <= (player.y + 60) && y >= (player.y - 60) && (player.state == "freefallland" || player.sprite_index == player.spr_piledriverland || (player.state == "ratmountbounce" && player.vsp > 0)))
 			{
 				fmod_event_one_shot_3d("event:/sfx/enemies/treasureguy", x, y);
 				notification_push(notifications.treasureguy_uncovered, [room, object_index, id]);
@@ -112,7 +112,7 @@ if (state == states.idle)
 		image_speed = 0.35;
 	}
 }
-if (state != states.idle && state != states.underground && state != states.grabbed && state != states.hit && state != states.stun && state != states.chase && !running)
+if (state != states.idle && state != states.underground && state != "grabbed" && state != "hit" && state != states.stun && state != states.chase && !running)
 {
 	if ((x < (targetplayer.x + threshold_x) && x > (targetplayer.x - threshold_x)) && (y < (targetplayer.y + threshold_y) && y > (targetplayer.y - threshold_y)))
 	{
@@ -172,7 +172,7 @@ if (state == states.chase)
 		state = states.walk;
 	}
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

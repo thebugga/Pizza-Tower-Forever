@@ -1,4 +1,4 @@
-function scr_player_gauntletportal() {
+function player_gauntletportal() {
 	var _dist = 350 * gauntletportalID.transition;
 	
 	x = approach(x, gauntletportalID.x, 12);

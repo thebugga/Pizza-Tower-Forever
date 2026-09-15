@@ -48,7 +48,7 @@ if (active && sprite_index != spr_secretportal_open && !instance_exists(obj_jump
 	if (!touched)
 	{
 		other.superchargedeffectid = noone;
-		if (other.state != states.knightpep && other.state != states.knightpepslopes && other.state != states.knightpepbump && other.state != states.firemouth)
+		if (other.state != "knightpep" && other.state != "knightpepslopes" && other.state != "knightpepbump" && other.state != "firemouth")
 		{
 			if (!other.isgustavo)
 			{
@@ -60,10 +60,10 @@ if (active && sprite_index != spr_secretportal_open && !instance_exists(obj_jump
 			}
 			other.image_speed = 0.35;
 		}
-		if (other.state == states.knightpepslopes)
+		if (other.state == "knightpepslopes")
 		{
 			other.sprite_index = other.spr_knightpepfall;
-			other.state = states.knightpep;
+			other.state = "knightpep";
 			other.hsp = 0;
 			other.vsp = 0;
 		}

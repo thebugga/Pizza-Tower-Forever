@@ -93,7 +93,7 @@ else
 			with obj_player
 			{
 				sprite_index = spr_player_idle;
-				state = states.normal
+				state = "default"
 				vsp = 0;
 				hsp = 0;
 			}

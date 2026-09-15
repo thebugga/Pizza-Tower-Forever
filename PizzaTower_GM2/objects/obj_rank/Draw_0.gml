@@ -97,7 +97,7 @@ tdp_text_commit(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, false);
 if (global.swapmode && scorewins_show)
 {
 	var spr = spr_scorewinsP;
-	if (scorewins == characters.Noise)
+	if (scorewins == "Noise")
 	{
 		spr = spr_scorewinsN;
 	}

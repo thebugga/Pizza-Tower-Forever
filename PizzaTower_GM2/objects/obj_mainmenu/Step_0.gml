@@ -2,7 +2,7 @@ scr_menu_getinput();
 index += 0.1;
 switch (state)
 {
-	case states.titlescreen:
+	case "titlescreen":
 		currentselect = -1;
 		if (!instance_exists(obj_noiseunlocked))
 		{
@@ -10,7 +10,7 @@ switch (state)
 			jumpscarecount++;
 			if ((keyboard_check_pressed(vk_anykey) || scr_checkanygamepad(obj_inputAssigner.player_input_device[0]) != noone || scr_checkanystick(obj_inputAssigner.player_input_device[0])) && !instance_exists(obj_mainmenu_jumpscare))
 			{
-				state = states.transitioncutscene;
+				state = "transitioncutscene";
 				currentselect = -1;
 				visualselect = -1;
 				darkcount = 7;
@@ -30,7 +30,7 @@ switch (state)
 			}
 		}
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		if (darkbuffer > 0)
 		{
 			darkbuffer--;
@@ -61,13 +61,13 @@ switch (state)
 				currentselect = 0;
 				visualselect = 0;
 				dark = false;
-				state = states.normal;
+				state = "default";
 				sprite_index = spr_titlepep_forwardtoleft;
 				image_index = 0;
 			}
 		}
 		break;
-	case states.normal:
+	case "default":
 		if (key_start && optionbuffer <= 0 && !instance_exists(obj_option) && !instance_exists(obj_noiseunlocked))
 		{
 			with (instance_create(0, 0, obj_option))
@@ -143,7 +143,7 @@ switch (state)
 					{
 						if (selected)
 						{
-							state = states.transitioncutscene;
+							state = "transitioncutscene";
 							sprite_index = transspr;
 							image_index = 0;
 						}
@@ -251,10 +251,10 @@ switch (state)
 				}
 			}
 		}
-		else if (key_delete2 && ((!shownoise && global.game[currentselect].started) || (shownoise && global.gameN[currentselect].started)))
+		else if (key_delete2 && ((!shownoise && global.game[currentselect].started)))
 		{
 			deletebuffer = 0;
-			state = states.bombdelete;
+			state = "bombdelete";
 			deleteselect = 1;
 			fmod_event_one_shot_3d("event:/sfx/voice/pig", 480, 270);
 			switch (currentselect)
@@ -271,7 +271,7 @@ switch (state)
 			}
 		}
 		break;
-	case states.bombdelete:
+	case "bombdelete":
 		deleteselect += (key_left2 + key_right2);
 		deleteselect = clamp(deleteselect, 0, 1);
 		if (key_jump2)
@@ -291,14 +291,7 @@ switch (state)
 				{
 					file_delete(file);
 				}
-				if (!shownoise)
-				{
-					global.game[currentselect] = game_empty();
-				}
-				else
-				{
-					global.gameN[currentselect] = game_empty();
-				}
+				global.game[currentselect] = game_empty();
 				fmod_event_one_shot_3d("event:/sfx/misc/explosion", 480, 270);
 				fmod_event_one_shot_3d("event:/sfx/mort/mortdead", 480, 270);
 				with (obj_menutv)
@@ -314,7 +307,7 @@ switch (state)
 					shake_mag_acc = 5 / room_speed;
 				}
 			}
-			state = states.normal;
+			state = "default";
 		}
 		break;;
 	
@@ -335,7 +328,7 @@ switch (state)
 		}
 		if (currentmodeselect <= -1 && key_jump)
 		{
-			state = states.victory;
+			state = "victory";
 			fmod_event_instance_stop(obj_music.music.event, true)
 			fmod_event_one_shot("event:/sfx/ui/fileselect")
 			alarm[0] = 250;
@@ -365,7 +358,7 @@ switch (state)
 			}
 			else
 			{
-				state = states.normal;
+				state = "default";
 			}
 		}
 		break;
@@ -384,7 +377,7 @@ if (quitbuffer > 0)
 {
 	quitbuffer--;
 }
-if (state == states.bombdelete && deletebuffer > 0)
+if (state == "bombdelete" && deletebuffer > 0)
 {
 	if (!fmod_event_instance_is_playing(bombsnd))
 	{
@@ -399,7 +392,7 @@ if (optionbuffer > 0)
 {
 	optionbuffer--;
 }
-if (state != states.titlescreen && state != states.transitioncutscene)
+if (state != "titlescreen" && state != "transitioncutscene")
 {
 	extrauialpha = approach(extrauialpha, 1, 0.1);
 }
@@ -407,7 +400,7 @@ if (currentselect != -1)
 {
 	pep_game = menu_get_game(currentselect, true);
 	noise_game = menu_get_game(currentselect, false);
-	if (state != states.titlescreen && state != states.transitioncutscene)
+	if (state != "titlescreen" && state != "transitioncutscene")
 	{
 		var a = floor(abs(pep_percvisual - pep_game.percentage) / 10) + 1;
 		pep_percvisual = approach(pep_percvisual, pep_game.percentage, a);

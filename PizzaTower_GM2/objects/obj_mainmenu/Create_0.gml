@@ -2,7 +2,7 @@ currentmodeselect = 0;
 currentselect = 0;
 optionbuffer = 0;
 visualselect = 0;
-state = states.titlescreen;
+state = "titlescreen";
 image_speed = 0.35;
 depth = 0;
 mainmenu_sprite = -1;
@@ -56,7 +56,7 @@ unlock_noise = function(_showpopup)
 {
 	for (var i = 0; i < 3; i++)
 	{
-		if (global.game[i].judgement != "none" || global.gameN[i].judgement != "none")
+		if (global.game[i].judgement != "none")
 		{
 			_showpopup = true;
 			break;
@@ -92,14 +92,6 @@ unlock_noise = function(_showpopup)
 
 unlock_swap = function(_showpopup)
 {
-	for (var i = 0; i < 3; i++)
-	{
-		if (global.gameN[i].judgement != "none")
-		{
-			_showpopup = true;
-			break;
-		}
-	}
 	if (!_showpopup)
 	{
 		ini_open_from_string(obj_savesystem.ini_str_options);
@@ -127,7 +119,7 @@ unlock_swap = function(_showpopup)
 	}
 };
 
-unlock_noise(false);
+//unlock_noise(false);
 ini_open_from_string(obj_savesystem.ini_str_options);
 swap_unlocked = ini_read_real("Game", "swapmode", 0) == 1;
 ini_close();

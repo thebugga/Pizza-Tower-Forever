@@ -9,5 +9,5 @@ movespeed = 0;
 blur_effect = 0;
 jumpspeed = 8;
 comeback = false;
-state = states.normal;
+state = "default";
 alarm[1] = 10;

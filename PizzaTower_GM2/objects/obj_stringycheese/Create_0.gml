@@ -1,5 +1,5 @@
 playerid = noone;
-state = states.normal;
+state = "default";
 handx = x;
 handy = y;
 drawhandx = x;

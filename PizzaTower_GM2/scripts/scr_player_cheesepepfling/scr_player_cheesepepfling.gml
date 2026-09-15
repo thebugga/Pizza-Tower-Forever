@@ -1,4 +1,4 @@
-function scr_player_cheesepepfling()
+function player_cheesepepfling()
 {
 	hsp = 0;
 	sprite_index = spr_cheesepepintro;
@@ -13,13 +13,13 @@ function scr_player_cheesepepfling()
 			movespeed = fling;
 			hsp = movespeed * xscale;
 			vsp = -6;
-			state = states.cheesepeplaunch;
+			state = "cheesepeplaunch";
 			sprite_index = spr_cheesepepjumpstart;
 			image_index = 0;
 		}
 		else
 		{
-			state = states.cheesepep;
+			state = "cheesepep";
 			sprite_index = spr_cheesepepintro;
 			image_index = 0;
 		}

@@ -37,7 +37,7 @@ switch (state)
 			}
 			else if (ANIMATION_END)
 			{
-				state = states.normal;
+				state = "default";
 			}
 		}
 		else if (sprite_index == spr_noisettestick_helicopter)
@@ -53,11 +53,11 @@ switch (state)
 				}
 				sprite_index = spr_noisettestick_land;
 				image_index = 0;
-				state = states.normal;
+				state = "default";
 			}
 		}
 		break;
-	case states.normal:
+	case "default":
 		if (arrowID == noone)
 		{
 			arrowID = scr_create_uparrowhitbox();
@@ -117,7 +117,7 @@ switch (state)
 			ini_write_real(save, "reduction", maxscore);
 			global.pigreduction += maxscore;
 			obj_savesystem.ini_str = ini_close();
-			state = states.jump;
+			state = "jump";
 			sprite_index = spr_stick_takemoney1;
 			image_index = 0;
 			shot = false;
@@ -136,7 +136,7 @@ switch (state)
 				vsp = 0;
 				sprite_index = spr_idle;
 				image_speed = 0.35;
-				state = states.actor;
+				state = "actor";
 				xscale = -other.image_xscale;
 				if (other.noisette)
 				{
@@ -147,7 +147,7 @@ switch (state)
 			}
 		}
 		break;
-	case states.jump:
+	case "jump":
 		if (shot || noisette)
 		{
 			with (obj_player1)
@@ -170,7 +170,7 @@ switch (state)
 				else
 				{
 					sprite_index = spr_noisettestick_takemoney2;
-					if (obj_player1.character == characters.Peppino)
+					if (obj_player1.character == "Peppino")
 					{
 						fmod_event_one_shot_3d("event:/sfx/noisette/voice2", x, y);
 						sprite_index = spr_noisettestick_helicopterstart;
@@ -312,7 +312,7 @@ switch (state)
 				}
 				with (obj_player1)
 				{
-					state = states.normal;
+					state = "default";
 					landAnim = false;
 				}
 			}

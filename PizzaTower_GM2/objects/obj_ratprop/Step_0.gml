@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.normal:
+	case "default":
 		sprite_index = spr_stupidratprop1;
 		hsp = image_xscale * 3;
 		if (place_meeting(x + sign(hsp), y, obj_solid))

@@ -1,4 +1,4 @@
-if (state == states.hit)
+if (state == "hit")
 {
 	x = hitX + irandom_range(-4, 4);
 	y = hitY + irandom_range(-1, 1);

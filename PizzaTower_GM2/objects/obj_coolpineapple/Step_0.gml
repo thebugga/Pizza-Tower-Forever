@@ -21,7 +21,7 @@ switch (state)
 		grav = 0.5;
 		scr_enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		grav = 0.5;
 		scr_enemy_hit();
 		break;
@@ -33,7 +33,7 @@ switch (state)
 		grav = 0.5;
 		scr_pizzagoblin_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		grav = 0.5;
 		scr_enemy_grabbed();
 		break;
@@ -75,7 +75,7 @@ if (state == states.walk)
 		var _taunt = false;
 		with (obj_player)
 		{
-			if (state == states.backbreaker)
+			if (state == "backbreaker")
 			{
 				_taunt = true;
 			}
@@ -90,20 +90,20 @@ if (state == states.walk)
 			taunt_storedstate = state;
 			taunt_storedmovespeed = movespeed;
 			taunt_storedhsp = hsp;
-			state = states.backbreaker;
+			state = "backbreaker";
 			hsp = 0;
 			vsp = 0;
 			grav = 0;
 		}
 	}
 }
-if (state != states.backbreaker && instance_exists(taunteffect_inst))
+if (state != "backbreaker" && instance_exists(taunteffect_inst))
 {
 	instance_destroy(taunteffect_inst);
 }
 switch (state)
 {
-	case states.backbreaker:
+	case "backbreaker":
 		image_speed = 0;
 		image_index = index;
 		hsp = 0;
@@ -121,7 +121,7 @@ switch (state)
 			movespeed = taunt_storedmovespeed;
 		}
 		break;
-	case states.parry:
+	case "parry":
 		image_speed = 0.35;
 		if (trail_count > 0)
 		{
@@ -159,7 +159,7 @@ switch (state)
 			movespeed = taunt_storedmovespeed;
 		}
 		break;
-	case states.punch:
+	case "punch":
 		//if (sprite_index == spr_coolpinea_ragestart)
 		//{
 		//	hsp = 0;
@@ -213,7 +213,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }

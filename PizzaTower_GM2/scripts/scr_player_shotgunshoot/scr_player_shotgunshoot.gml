@@ -1,4 +1,4 @@
-function scr_player_shotgunshoot()
+function player_shotgunshoot()
 {
 	image_speed = 0.4;
 	move = key_left + key_right;
@@ -22,7 +22,7 @@ function scr_player_shotgunshoot()
 	{
 		movespeed = approach(movespeed, 0, 0.1);
 	}
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		if (sprite_index != spr_shotgunshoot && sprite_index != spr_playerN_minigundown)
 		{
@@ -77,11 +77,11 @@ function scr_player_shotgunshoot()
 				notification_push(notifications.shotgun_shot_end, [room]);
 				if (grounded)
 				{
-					state = states.normal;
+					state = "default";
 				}
 				else
 				{
-					state = states.jump;
+					state = "jump";
 				}
 				if (move == -xscale)
 				{
@@ -96,7 +96,7 @@ function scr_player_shotgunshoot()
 		{
 			notification_push(notifications.shotgun_shot_end, [room]);
 			vsp = -8;
-			state = states.freefall;
+			state = "freefall";
 			sprite_index = spr_shotgunjump1;
 			image_index = 0;
 		}
@@ -113,11 +113,11 @@ function scr_player_shotgunshoot()
 		{
 			if (grounded)
 			{
-				state = states.normal;
+				state = "default";
 			}
 			else
 			{
-				state = states.jump;
+				state = "jump";
 			}
 			if (move == -xscale)
 			{

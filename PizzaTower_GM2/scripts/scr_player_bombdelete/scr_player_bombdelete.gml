@@ -1,4 +1,4 @@
-function scr_player_bombdelete()
+function player_bombdelete()
 {
 	image_speed = 0.35;
 	hsp = move * movespeed;
@@ -31,7 +31,7 @@ function scr_player_bombdelete()
 	}
 	if (key_slap2)
 	{
-		state = states.normal;
+		state = "default";
 		with (instance_create(x, y, obj_bomb))
 		{
 			hsp = other.xscale * 10;

@@ -1,4 +1,4 @@
-function scr_player_boxxedpepspin()
+function player_boxxedpepspin()
 {
 	image_speed = 0.5;
 	hsp = xscale * movespeed;
@@ -23,19 +23,19 @@ function scr_player_boxxedpepspin()
 		movespeed = -(sign(hsp) * 6);
 		GamepadSetVibration(0, 0.4, 0.4, 0.65);
 	}
-	if character == characters.Peppino
+	if character == "Peppino"
 	{
 		if ((!key_slap || abs(movespeed) <= 3) && boxxedspinbuffer == 0)
 		{
 			target_vsp = 0;
-			state = states.boxxedpepjump;
+			state = "boxxedpepjump";
 			sprite_index = spr_boxxedpepair;
 		}
 	}
 	else if ((!key_slap || abs(movespeed) <= 3) && boxxedspinbuffer == 0)
 	{
 		target_vsp = 0;
-		state = states.boxxedpep;
+		state = "boxxedpep";
 		sprite_index = spr_boxxedpepidle;
 	}
 	if ((sprite_index == spr_playerN_boxxeddashstart || sprite_index == spr_playerN_boxxedhit) && ANIMATION_END)

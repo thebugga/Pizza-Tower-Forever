@@ -21,7 +21,7 @@ if (empty)
 	{
 		with (obj_player)
 		{
-			if (distance_to_object(other) <= 280 && state == states.machslide && (sprite_index == spr_machslideboost || sprite_index == spr_mach3boost))
+			if (distance_to_object(other) <= 280 && state == "machslide" && (sprite_index == spr_machslideboost || sprite_index == spr_mach3boost))
 			{
 				other.machslidecount++;
 				other.machslidebuffer = 30;

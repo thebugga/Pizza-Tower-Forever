@@ -1,4 +1,4 @@
-if (state == states.normal)
+if (state == "default")
 {
 	hsp = 0;
 	state = states.idle;
@@ -7,6 +7,6 @@ if (state == states.normal)
 else
 {
 	image_xscale *= -1;
-	state = states.normal;
+	state = "default";
 	alarm[0] = 60 + irandom(120);
 }

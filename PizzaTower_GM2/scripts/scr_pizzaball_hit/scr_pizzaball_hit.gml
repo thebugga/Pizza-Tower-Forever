@@ -15,7 +15,7 @@ function scr_pizzaball_hit()
 		}
 		notification_push(notifications.pizzaball_shot, [obj_player1]);
 		var p = obj_player1.id;
-		if (s == states.mach2 || (p.sprite_index == p.spr_machslidestart || p.sprite_index == p.spr_machslide || p.sprite_index == p.spr_machslideend))
+		if (s == "mach2" || (p.sprite_index == p.spr_machslidestart || p.sprite_index == p.spr_machslide || p.sprite_index == p.spr_machslideend))
 		{
 			scr_pizzaball_go_to_thrown(hithsp * 0.5, hitvsp * 0.5);
 		}
@@ -34,13 +34,13 @@ function scr_pizzaball_grabbed()
 	{
 		sprite_index = spr_golfidle;
 		image_index = 0;
-		state = states.golf;
+		state = "golf";
 		golfid = other.id;
 		hsp = 0;
 		vsp = 0;
 	}
 	player = pl;
-	state = states.golf;
+	state = "golf";
 	create_transformation_tip(lang_get_value("golftip"), "golf");
 }
 
@@ -60,6 +60,6 @@ function scr_pizzaball_go_to_thrown(_hsp, _vsp, _lock_vsp = true)
 	}
 	vsp = -jumpspeed;
 	bounced = false;
-	state = states.thrown;
-	substate = states.thrown;
+	state = "thrown";
+	substate = "thrown";
 }

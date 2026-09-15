@@ -1,2 +1,2 @@
-playerid.state = states.normal;
+playerid.state = "default";
 instance_destroy();

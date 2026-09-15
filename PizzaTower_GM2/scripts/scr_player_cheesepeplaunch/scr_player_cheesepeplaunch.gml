@@ -1,4 +1,4 @@
-function scr_player_cheesepeplaunch()
+function player_cheesepeplaunch()
 {
 	hsp = xscale * movespeed;
 	if (ANIMATION_END)
@@ -14,13 +14,13 @@ function scr_player_cheesepeplaunch()
 	}
 	if (grounded)
 	{
-		state = states.cheesepep;
+		state = "cheesepep";
 		sprite_index = spr_cheesepepland;
 		image_index = 0;
 	}
 	if (place_meeting(x + sign(xscale), y, obj_solid) && !place_meeting(x, y + 1, obj_slope))
 	{
-		state = states.cheesepepstick;
+		state = "cheesepepstick";
 		wallspeed = movespeed;
 		if (vsp < 0)
 		{

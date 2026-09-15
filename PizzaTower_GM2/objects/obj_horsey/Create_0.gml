@@ -3,7 +3,7 @@ vsp = 0;
 spd = 0;
 depth = 0;
 image_speed = 0.35;
-state = states.normal;
+state = "default";
 blurbuffer = 0;
 with (obj_horseyright)
 {

@@ -1,9 +1,9 @@
 var v = id;
 with (other)
 {
-	if (state != states.Sjump && state != states.gotoplayer && state != states.actor)
+	if (state != "Sjump" && state != "gotoplayer" && state != "actor")
 	{
-		//if (state == states.knightpep || state == states.knightpepattack || state == states.knightpepslopes)
+		//if (state == "knightpep" || state == "knightpepattack" || state == "knightpepslopes")
 		//{
 		//	with (instance_create(x, y, obj_knightdebris))
 		//	{
@@ -30,7 +30,7 @@ with (other)
 		//		image_index = 5;
 		//	}
 		//}
-		if (state == states.bombpep)
+		if (state == "bombpep")
 		{
 			instance_create(x, y, obj_bombexplosion);
 		}
@@ -42,12 +42,12 @@ with (other)
 		if (other.image_yscale == 1)
 		{
 			sprite_index = spr_superspringplayer;
-			state = states.Sjump;
+			state = "Sjump";
 			vsp = -10;
 		}
 		else
 		{
-			state = states.freefall;
+			state = "freefall";
 			vsp = 10;
 			sprite_index = spr_rockethitwall;
 		}

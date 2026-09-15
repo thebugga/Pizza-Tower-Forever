@@ -1,4 +1,4 @@
-function scr_player_ratmountgroundpound()
+function player_ratmountgroundpound()
 {
 	if (sprite_index == spr_player_ratmountgroundpound)
 	{
@@ -11,7 +11,7 @@ function scr_player_ratmountgroundpound()
 	hsp = movespeed;
 	if (brick == true)
 	{
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		sprite_index = spr_player_ratmountfall;
 	}
 	if (gustavokicktimer > 0)
@@ -66,7 +66,7 @@ function scr_player_ratmountgroundpound()
 				with (instance_place(x, y + 1, obj_slope))
 				{
 					other.xscale = -sign(image_xscale);
-					other.state = states.ratmount;
+					other.state = "ratmount";
 					other.movespeed = other.xscale * 8;
 					with (instance_create(other.x, other.y, obj_jumpdust))
 					{
@@ -126,7 +126,7 @@ function scr_player_ratmountgroundpound()
 			xscale = sign(hsp);
 		}
 		sprite_index = spr_lonegustavo_idle;
-		state = states.ratmount;
+		state = "ratmount";
 	}
 	if ((sprite_index == spr_lonegustavo_kick || sprite_index == spr_lonegustavo_jumpstart) && ANIMATION_END)
 	{
@@ -142,7 +142,7 @@ function scr_player_ratmountgroundpound()
 		{
 			sprite_index = spr_lonegustavo_jump;
 		}
-		state = states.ratmount;
+		state = "ratmount";
 	}
 	image_speed = 0.35;
 	if (punch_afterimage > 0)

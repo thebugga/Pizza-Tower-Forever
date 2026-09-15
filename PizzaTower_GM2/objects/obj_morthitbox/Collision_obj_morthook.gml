@@ -12,14 +12,14 @@ if (instance_exists(obj_parryeffect))
 }
 with (playerid)
 {
-	if (state != states.morthook)
+	if (state != "morthook")
 	{
 		fmod_event_one_shot_3d("event:/sfx/mort/hook", other.x, other.y);
-		state = states.morthook;
+		state = "morthook";
 		morthookID = mh_id;
 		tauntstoredmovespeed = movespeed;
 		movespeed = 12;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			movespeed = 20;
 		}

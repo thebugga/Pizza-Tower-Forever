@@ -1,4 +1,4 @@
-if (state != states.jump)
+if (state != "jump")
 {
 	event_inherited();
 }

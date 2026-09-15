@@ -9,7 +9,7 @@ function scr_enemy_ghostpossess()
 		_move = key_left + key_right;
 		if (key_up2)
 		{
-			state = states.ghost;
+			state = "ghost";
 			vsp = -10;
 			other.state = states.stun;
 			other.stunned = 50;
