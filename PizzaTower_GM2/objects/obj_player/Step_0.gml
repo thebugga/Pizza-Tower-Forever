@@ -1131,11 +1131,7 @@ else
 {
 	cutscene = false;
 }
-<<<<<<< HEAD
-if ((state == "default" || state == "ratmount") && obj_player1.spotlight == true && !instance_exists(obj_uparrow) && (collision_flags & collisionflags.on_floor) > 0)
-=======
 if (obj_player1.spotlight == true && !instance_exists(obj_uparrow))
->>>>>>> 7d427903e0d0852042ed29a17ede6d2d9282d615
 {
 	if (place_meeting(x, y, obj_uparrowhitbox))
 	{
