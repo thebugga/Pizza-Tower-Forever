@@ -15,33 +15,23 @@ var options_y = 84;
 lang_draw_sprite(spr_controlseggplant, 0, options_x, options_y);
 scr_draw_text_arr(options_x - 88, options_y - 37, start_key, c_white, extrauialpha);
 draw_set_alpha(1);
-if state == "titlescreen"
+if (state == "savepicker")
 {
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle);
-	var txt = lang_get_value_newline("swap_press_start");
-	txt = string_replace_all(txt, "%", lang_get_value("start_button_steam"));
-	draw_text(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 120, txt);
-}
-else if (state == "savepicker")
-{
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle);
+	var savenum = currentselect + 2; // adding 2 on currentselect makes it 1 :3
+	var col_1 = makingnewsave ? c_white : c_gray;
+	var col_2 = makingnewsave ? c_gray : c_white;
+	
 	draw_set_alpha(0.5);
 	draw_rectangle_color(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
-	var savenum = currentselect + 2; // adding 2 on currentselect makes it 1 :3
-	draw_set_color(c_white);
+	
 	draw_set_font(lang_get_font("creditsfont"));
-	draw_text(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, string_concat("SAVE", string(savenum)));
-	if !makingnewsave
-		draw_set_color(c_gray);
-	else
-		draw_set_color(c_white);
-	draw_text(SCREEN_WIDTH / 2 - 260, SCREEN_HEIGHT / 2, "NEW SAVE");
-	draw_set_color(c_gray);
-	draw_text(SCREEN_WIDTH / 2 + 260, SCREEN_HEIGHT / 2, string_concat("SAVE : ", string(savenum + 1)));
-	draw_set_color(c_white);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	
+	draw_text_color(SCREEN_WIDTH / 2 - 260, SCREEN_HEIGHT / 2, "NEW SAVE", col_1, col_1, col_1, col_1, 1);
+	draw_text_color(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, string_concat("SAVE : ", string(savenum)), col_2, col_2, col_2, col_2, 1);
+	draw_text_color(SCREEN_WIDTH / 2 + 260, SCREEN_HEIGHT / 2, string_concat("SAVE : ", string(savenum + 1)), col_2, col_2, col_2, col_2, 1);
 }
 else if (state == "wait")
 {

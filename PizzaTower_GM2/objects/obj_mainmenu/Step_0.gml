@@ -53,29 +53,27 @@ switch (state)
 	case "savepicker":
 		move = key_left2 + key_right2;
 		
-		if key_right2
+		if key_right2 && !makingnewsave
 		{
 			currentselect += move;
 			currentselect = clamp(currentselect, -1, array_length(global.game) - 1);
-			makingnewsave = false;
-		}
-		
-		if key_left2 
-		{
-			makingnewsave = true;
-			if key_jump
-			{
-				array_push(global.game, game_empty())
-				currentselect = array_length(global.game) - 1
-				state = "wait";
-			}
 		}
 			
-		if (key_jump && !makingnewsave)
+		if key_right2 && makingnewsave
+			makingnewsave = false;
+		
+		if key_left_alt2 && !makingnewsave
+			makingnewsave = true;
+			
+		if key_jump && !makingnewsave
+			state = "wait";
+		
+		if key_jump && makingnewsave
 		{
+			array_push(global.game, game_empty())
+			currentselect = array_length(global.game) - 1
 			state = "wait";
 		}
-		
 		break;
 	case "bombdelete":
 		deleteselect += (key_left2 + key_right2);
@@ -123,7 +121,7 @@ switch (state)
 		
 		if (currentmodeselect != -1)
 		{	
-			if (key_left2)
+			if (key_left_alt2)
 			{
 				global.modes[currentmodeselect].enabled = false;	
 			}

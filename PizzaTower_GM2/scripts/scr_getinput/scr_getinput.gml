@@ -6,6 +6,8 @@ function scr_init_input()
 	key_right2 = false;
 	key_left = false;
 	key_left2 = false;
+	key_left_alt = false;
+	key_left_alt2 = false;
 	key_down = false;
 	key_down2 = false;
 	key_jump = false;
@@ -95,6 +97,8 @@ function scr_menu_getinput()
 	key_down2 = tdp_input_get("menu_down").pressed || tdp_input_get("menu_downC").pressed;
 	key_left = -(tdp_input_get("menu_left").held || tdp_input_get("menu_leftC").held);
 	key_left2 = -(tdp_input_get("menu_left").pressed || tdp_input_get("menu_leftC").pressed);
+	key_left_alt = tdp_input_get("menu_left").held || tdp_input_get("menu_leftC").held;
+	key_left_alt2 = tdp_input_get("menu_left").pressed || tdp_input_get("menu_leftC").pressed;
 	key_right = tdp_input_get("menu_right").held || tdp_input_get("menu_rightC").held;
 	key_right2 = tdp_input_get("menu_right").pressed || tdp_input_get("menu_rightC").pressed;
 	key_start = tdp_input_get("menu_start").pressed || tdp_input_get("menu_startC").pressed;

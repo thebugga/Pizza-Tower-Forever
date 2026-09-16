@@ -1,4 +1,4 @@
-if sprite_index == spr_lonegustavo_idle || sprite_index == spr_player_ratmountidle || sprite_index == spr_player_idle || sprite_index == spr_playerS_idle
+if sprite_index == spr_lonegustavo_idle || sprite_index == spr_player_ratmountidle || sprite_index == spr_player_idle
 {
 	var _palinfo = get_pep_palette_info();
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, _palinfo.patterntexture);
