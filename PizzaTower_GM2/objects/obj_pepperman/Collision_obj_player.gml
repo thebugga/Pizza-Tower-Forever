@@ -8,8 +8,8 @@ if (state == "shoulderbash" && hsp != 0)
 	scr_hurtplayer(other);
 	if (other.state != s && other.state == "hurt")
 	{
-		state = states.stun;
-		hsp = -image_xscale * 5;
+		state = "stun";
+		hsp = -xscale * 5;
 		vsp = -8;
 		stunned = 220;
 		sprite_index = spr_playerPM_mach3hitwallstart;

@@ -1,32 +1,32 @@
 destroyable = true;
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case "mach1":
 		if (image_index > (image_number - 1))
@@ -60,7 +60,7 @@ switch (state)
 		if (place_meeting(x + sign(hsp), y, obj_solid) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x, y, obj_destructibles))
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
-			state = states.stun;
+			state = "stun";
 			stunned = 100;
 			vsp = -4;
 			hsp = -image_xscale * 2;
@@ -83,7 +83,7 @@ switch (state)
 		}
 		if (image_index > (image_number - 1))
 		{
-			state = states.walk;
+			state = "walk";
 			hsp = 0;
 			railspeed = 0;
 			sprite_index = walkspr;
@@ -91,7 +91,7 @@ switch (state)
 		if (place_meeting(x + sign(hsp), y, obj_solid) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x, y, obj_destructibles))
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
-			state = states.stun;
+			state = "stun";
 			stunned = 100;
 			vsp = -8;
 			hsp = -image_xscale * 5;
@@ -102,16 +102,16 @@ switch (state)
 		hsp = 0;
 		if (image_index > (image_number - 1))
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = walkspr;
 		}
 		break;
 }
-if (elitehit <= 0 && state != states.stun)
+if (elitehit <= 0 && state != "stun")
 {
 	instance_destroy();
 }
-if (state == states.stun && stunned > 40 && birdcreated == false)
+if (state == "stun" && stunned > 40 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -119,7 +119,7 @@ if (state == states.stun && stunned > 40 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -131,7 +131,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -140,11 +140,11 @@ if (bombreset > 0)
 	bombreset--;
 }
 targetplayer = instance_nearest(x, y, obj_player);
-if (x != targetplayer.x && state != states.pizzagoblinthrow && bombreset == 0)
+if (x != targetplayer.x && state != "enemy_throw" && bombreset == 0)
 {
 	if ((targetplayer.x > (x - 400) && targetplayer.x < (x + 400)) && (y <= (targetplayer.y + 20) && y >= (targetplayer.y - 20)))
 	{
-		if (state == states.walk || (state == states.idle && sprite_index != scaredspr))
+		if (state == "walk" || (state == "idle" && sprite_index != scaredspr))
 		{
 			fmod_event_one_shot_3d("event:/sfx/enemies/projectile", x, y);
 			image_index = 0;
@@ -159,7 +159,7 @@ if (x != targetplayer.x && state != states.pizzagoblinthrow && bombreset == 0)
 					image_speed = 0.6;
 					hsp = 0;
 					break;
-				case states.pizzagoblinthrow:
+				case "enemy_throw":
 					bombreset = 0;
 					sprite_index = spr_robot_attack;
 					image_index = 0;
@@ -191,6 +191,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

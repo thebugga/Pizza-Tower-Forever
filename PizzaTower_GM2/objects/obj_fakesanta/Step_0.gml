@@ -8,23 +8,23 @@ if (activated == true)
 {
 	switch (state)
 	{
-		case states.stun:
-			scr_enemy_stun();
+		case "stun":
+			enemy_stun();
 			break;
 		case "hit":
-			scr_enemy_hit();
+			enemy_hit();
 			break;
 		case "grabbed":
-			scr_enemy_grabbed();
+			enemy_grabbed();
 			break;
 		case "pummel":
-			scr_enemy_pummel();
+			enemy_pummel();
 			break;
-		case states.staggered:
-			scr_enemy_staggered();
+		case "staggered":
+			enemy_staggered();
 			break;
 	}
-	if (state == states.walk)
+	if (state == "walk")
 	{
 		highest_y = -250;
 		var _instY = collision_line(obj_player1.x, obj_player1.y, obj_player1.x, obj_player1.y - 270, obj_solid, false, true);
@@ -70,6 +70,7 @@ if (activated == true)
 								with (instance_create(x, y + 50, obj_fakesantapresent))
 								{
 									baddieID = other.id;
+		other.boxID = id;
 									content = other.content[n];
 								}
 							}
@@ -106,7 +107,7 @@ if (activated == true)
 		}
 		if (ii == (image_number - 1))
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 	if (flash == true && alarm[2] <= 0)
@@ -117,7 +118,7 @@ if (activated == true)
 	{
 		depth = 0;
 	}
-	if (state != states.stun)
+	if (state != "stun")
 	{
 		thrown = false;
 	}

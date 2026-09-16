@@ -16,5 +16,3 @@ fade = 0;
 whitefade = 0;
 image_speed = 0.35;
 depth = -10;
-fade = 1;
-state = 3;

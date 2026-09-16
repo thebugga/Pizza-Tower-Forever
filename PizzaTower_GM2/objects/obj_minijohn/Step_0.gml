@@ -1,44 +1,44 @@
 var player = instance_nearest(x, y, obj_player);
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case states.chase:
-		scr_enemy_chase();
+		enemy_chase();
 		break;
 	case "pummel":
-		scr_enemy_pummel();
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 	case states.pizzaheadjump:
-		scr_enemy_pizzaheadjump();
+		enemy_pizzaheadjump();
 		break;
 	case "punch":
 		if (sprite_index == spr_minijohn_punchstart)
@@ -121,7 +121,7 @@ switch (state)
 		}
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -145,7 +145,7 @@ if (state == states.chase && ragecooldown <= 0)
 			flash = true;
 			alarm[4] = 5;
 			ragecooldown = 100;
-			state = states.rage;
+			state = "rage";
 			create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale);
 			with (instance_create(x, y, obj_forkhitbox))
 			{
@@ -167,7 +167,7 @@ if (ragecooldown > 0)
 {
 	ragecooldown--;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -179,7 +179,7 @@ if (state != states.chase)
 {
 	momentum = 0;
 }
-if (state == states.walk || state == states.idle)
+if (state == "walk" || state == "idle")
 {
 	var targetplayer = obj_player1;
 	if (obj_player1.spotlight == false)
@@ -197,9 +197,9 @@ if (instance_exists(obj_player2))
 {
 	if ((obj_player2.x > (x - 400) && obj_player2.x < (x + 400)) && (y <= (obj_player2.y + 60) && y >= (obj_player2.y - 60)))
 	{
-		if (state != states.idle && obj_player2.state == "mach3")
+		if (state != "idle" && obj_player2.state == "mach3")
 		{
-			state = states.idle;
+			state = "idle";
 			sprite_index = scaredspr;
 			if (x != obj_player2.x)
 			{
@@ -212,7 +212,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -223,6 +223,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

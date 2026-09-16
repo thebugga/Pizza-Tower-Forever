@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.idle:
+	case "idle":
 		cliff_index = 1;
 		var tx = SCREEN_WIDTH - 73;
 		gerome_x = approach(gerome_x, tx, 2);

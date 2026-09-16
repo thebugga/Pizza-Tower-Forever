@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{520ebc3c-c011-4a5c-9ddb-8d3f23974277}">
 		<property name="assetPath">
-			<value>Pizza_Tower_-_Pesto_Anchovi_with_tempo_changes.ogg</value>
+			<value>c_music/Pizza_Tower_-_Pesto_Anchovi_with_tempo_changes.ogg</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

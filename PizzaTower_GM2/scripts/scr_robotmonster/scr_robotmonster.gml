@@ -10,7 +10,7 @@ function scr_robot_normal()
 	if (random_buffer <= 0)
 	{
 		turnbuffer = turnmax;
-		state = states.turn;
+		state = "turn";
 		sprite_index = turnspr;
 		image_speed = 0.25;
 		old_xscale = image_xscale;

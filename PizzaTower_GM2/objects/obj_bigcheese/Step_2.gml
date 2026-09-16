@@ -1,5 +1,5 @@
 event_inherited();
-if (state == states.walk)
+if (state == "walk")
 {
 	image_speed = 0.25;
 }

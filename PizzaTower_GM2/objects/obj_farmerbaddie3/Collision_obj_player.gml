@@ -1,4 +1,4 @@
-if (state == states.charge)
+if (state == "charge")
 {
 	with (other)
 	{

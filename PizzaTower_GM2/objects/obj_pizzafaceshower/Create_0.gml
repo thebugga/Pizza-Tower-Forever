@@ -1,5 +1,5 @@
 image_speed = 0.35;
-state = states.idle;
+state = "idle";
 alarm[0] = 1;
 depth = 10;
 start = false;

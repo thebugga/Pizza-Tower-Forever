@@ -82,14 +82,14 @@ function scr_pepperman_spawn_knight()
 	{
 		with (instance_create(room_width + 10, 416, obj_peppermanGIANTbowlingball))
 		{
-			image_xscale = -1;
+			xscale = -1;
 		}
 	}
 	if (knightdir == 1)
 	{
 		with (instance_create(-10, 416, obj_peppermanGIANTbowlingball))
 		{
-			image_xscale = 1;
+			xscale = 1;
 		}
 	}
 	knightdir *= -1;
@@ -130,7 +130,7 @@ function scr_pepperman_arenaintro()
 			movespeed = 0;
 			flash = false;
 			x = roomstartx;
-			xscale = -other.image_xscale;
+			xscale = -other.xscale;
 			if (other.sprite_index == spr_pepperman_intro1)
 			{
 				if character == "Peppino"
@@ -216,7 +216,7 @@ function scr_pepperman_arenaintro()
 					sprite_index = spr_pepperman_intro3end;
 					break;
 				case spr_pepperman_intro3end:
-					state = states.walk;
+					state = "walk";
 					spotlightID.expand = true;
 					with (obj_player1)
 					{
@@ -292,7 +292,7 @@ function scr_pepperman_walk()
 		image_index = 0;
 		if (x != targetplayer.x)
 		{
-			image_xscale = sign(targetplayer.x - x);
+			xscale = sign(targetplayer.x - x);
 		}
 	}
 	else if (stomp && cooldown == 0)
@@ -303,13 +303,13 @@ function scr_pepperman_walk()
 		landbuffer2 = 10;
 		if (x != targetplayer.x)
 		{
-			image_xscale = sign(targetplayer.x - x);
+			xscale = sign(targetplayer.x - x);
 		}
 		else
 		{
-			image_xscale = (x > (room_width / 2)) ? -1 : 1;
+			xscale = (x > (room_width / 2)) ? -1 : 1;
 		}
-		hsp = image_xscale * 15;
+		hsp = xscale * 15;
 		vsp = -16;
 		sprite_index = spr_playerPM_jump;
 		image_index = 0;
@@ -358,7 +358,7 @@ function scr_pepperman_jump()
 {
 	if (hsp != 0)
 	{
-		image_xscale = sign(hsp);
+		xscale = sign(hsp);
 	}
 	if (phase == 2)
 	{
@@ -369,7 +369,7 @@ function scr_pepperman_jump()
 		cooldown = 40;
 	}
 	targetspot = obj_player1.id;
-	if ((x >= (targetspot.x - 32) && x <= (targetspot.x + 32) && y < (targetspot.y - 48)) || (image_xscale > 0 && x > (targetspot.x + 100)) || (image_xscale < 0 && x < (targetspot.x - 100)) || vsp > 2)
+	if ((x >= (targetspot.x - 32) && x <= (targetspot.x + 32) && y < (targetspot.y - 48)) || (xscale > 0 && x > (targetspot.x + 100)) || (xscale < 0 && x < (targetspot.x - 100)) || vsp > 2)
 	{
 		state = "freefallprep";
 		sprite_index = spr_playerPM_bodyslamstart;
@@ -403,7 +403,7 @@ function scr_pepperman_freefall()
 	hsp = approach(hsp, sign(targetspot.x - x) * 5, 0.2);
 	if (hsp != 0)
 	{
-		image_xscale = sign(hsp);
+		xscale = sign(hsp);
 	}
 	if (vsp >= 2)
 	{
@@ -494,7 +494,7 @@ function scr_pepperman_freefall()
 			fmod_event_one_shot_3d("event:/sfx/pepperman/groundpoundjump", x, y);
 			if (x != targetplayer.x)
 			{
-				image_xscale = sign(targetplayer.x - x);
+				xscale = sign(targetplayer.x - x);
 			}
 			state = states.rolling;
 			sprite_index = spr_playerPM_bodyslamland;
@@ -514,19 +514,19 @@ function scr_pepperman_rolling()
 	{
 		image_speed = 0.35;
 		sprite_index = spr_playerPM_rolling;
-		hsp = image_xscale * 10;
+		hsp = xscale * 10;
 		if (place_meeting(x + hsp, y, obj_solid) && !place_meeting(x + hsp, y, obj_slope) && !place_meeting(x + hsp, y, obj_destructibles))
 		{
-			instance_create(x + (image_xscale * 20), y, obj_bangeffect);
-			image_xscale *= -1;
+			instance_create(x + (xscale * 20), y, obj_bangeffect);
+			xscale *= -1;
 			vsp = -10;
 			fmod_event_one_shot_3d("event:/sfx/pepperman/groundpoundbump", x, y);
 		}
 		if (grounded && vsp > 0)
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = spr_pepperman_exitmove;
-			hsp = image_xscale * 5;
+			hsp = xscale * 5;
 		}
 	}
 	else
@@ -556,7 +556,7 @@ function scr_pepperman_freefallland()
 		image_speed = 0.35;
 		if (ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 }
@@ -588,7 +588,7 @@ function scr_pepperman_shoulderbash()
 	if (_turn && !turned)
 	{
 		var ix = sign(targetplayer.x - x);
-		if (ix != image_xscale)
+		if (ix != xscale)
 		{
 			fmod_event_one_shot_3d("event:/sfx/pepperman/turn", x, y);
 			state = states.shoulderturn;
@@ -601,25 +601,25 @@ function scr_pepperman_shoulderbash()
 	}
 	if (attackspeed >= a_treshold)
 	{
-		hsp = image_xscale * attackspeed;
+		hsp = xscale * attackspeed;
 		if (woosh == false && phase == 2)
 		{
 			with (instance_create(x, y, obj_crazyrunothereffect))
 			{
-				image_xscale = other.image_xscale;
+				xscale = other.xscale;
 			}
 			with (instance_create(x, y, obj_superdashcloud))
 			{
-				image_xscale = other.image_xscale;
+				xscale = other.xscale;
 			}
 			woosh = true;
 		}
-		if (place_meeting(x + image_xscale, y, obj_solid) && !place_meeting(x + image_xscale, y, obj_slope) && !place_meeting(x + image_xscale, y, obj_destructibles))
+		if (place_meeting(x + xscale, y, obj_solid) && !place_meeting(x + xscale, y, obj_slope) && !place_meeting(x + xscale, y, obj_destructibles))
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 			fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
-			state = states.stun;
-			hsp = -image_xscale * 5;
+			state = "stun";
+			hsp = -xscale * 5;
 			vsp = -8;
 			stunned = 220;
 			sprite_index = spr_playerPM_mach3hitwallstart;
@@ -665,7 +665,7 @@ function scr_pepperman_shoulderbash()
 	}
 	else
 	{
-		hsp = -image_xscale * 1;
+		hsp = -xscale * 1;
 	}
 	if (attackspeed < 20)
 	{
@@ -697,7 +697,7 @@ function scr_pepperman_do_contemplate()
 				other.marbleblockID = id;
 				if (x != other.x)
 				{
-					other.image_xscale = sign(x - other.x);
+					other.xscale = sign(x - other.x);
 				}
 				contemplated = true;
 			}
@@ -733,7 +733,7 @@ function scr_pepperman_shoulderturn()
 	{
 		attackspeed = approach(attackspeed, 0, 0.1);
 	}
-	hsp = image_xscale * attackspeed;
+	hsp = xscale * attackspeed;
 	if (sprite_index == spr_playerPM_machslideboost3 && ANIMATION_END)
 	{
 		sprite_index = spr_playerPM_machslideboost3fall;
@@ -745,7 +745,7 @@ function scr_pepperman_shoulderturn()
 			attackspeed = 24;
 			with (instance_create(x, y, obj_crazyrunothereffect))
 			{
-				image_xscale = other.image_xscale;
+				xscale = other.xscale;
 			}
 		}
 		else
@@ -754,7 +754,7 @@ function scr_pepperman_shoulderturn()
 		}
 		state = "shoulderbash";
 		sprite_index = spr_playerPM_mach4;
-		image_xscale *= -1;
+		xscale *= -1;
 	}
 }
 
@@ -779,7 +779,7 @@ function scr_pepperman_mini()
 				}
 				else if (sprite_index == spr_pepperman_miniend)
 				{
-					state = states.walk;
+					state = "walk";
 					sprite_index = idlespr;
 				}
 			}
@@ -793,7 +793,7 @@ function scr_pepperman_mini()
 			hsp = approach(hsp, move * 8, 0.5);
 			if (hsp != 0)
 			{
-				image_xscale = sign(hsp);
+				xscale = sign(hsp);
 				sprite_index = spr_pepperman_minimove;
 			}
 			else
@@ -808,13 +808,13 @@ function scr_pepperman_mini()
 			}
 			else if (minibuffer > 0)
 			{
-				if (place_meeting(x + (image_xscale * 18), y, obj_solid) && distance_to_object(targetplayer) < 100)
+				if (place_meeting(x + (xscale * 18), y, obj_solid) && distance_to_object(targetplayer) < 100)
 				{
 					ministate = "jump";
 					vsp = -15;
 					if (targetplayer.x != x)
 					{
-						image_xscale = sign(targetplayer.x - x);
+						xscale = sign(targetplayer.x - x);
 					}
 					sprite_index = spr_pepperman_minijump;
 					image_index = 0;
@@ -833,7 +833,7 @@ function scr_pepperman_mini()
 			}
 			break;
 		case "jump":
-			hsp = image_xscale * attackspeed;
+			hsp = xscale * attackspeed;
 			if (ANIMATION_END && sprite_index == spr_pepperman_minijump)
 			{
 				sprite_index = spr_pepperman_minifall;

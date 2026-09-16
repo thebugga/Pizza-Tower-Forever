@@ -16,23 +16,26 @@ if (room == hub_loadingscreen && state != 2)
 			var _intro = ini_read_real("Tutorial", "finished", false);
 			player_paletteselect[0] = ini_read_real("Game", "palette", 6);
 			player_paletteselect[1] = ini_read_real("Game", "palette_player2", 1);
+			player_paletteselect[2] = ini_read_real("Game", "palette_player3", 1);
 			var _texture = ini_read_string("Game", "palettetexture", "none");
 			var _texture2 = ini_read_string("Game", "palettetexture_player2", "none");
+			var _texture3 = ini_read_string("Game", "palettetexture_player3", "none");
 			player_patterntexture[0] = scr_get_texture_palette(_texture);
 			player_patterntexture[1] = scr_get_texture_palette(_texture2);
+			player_patterntexture[2] = scr_get_texture_palette(_texture3);
 			ini_close();
-			if (_intro)
-			{
-				targetRoom = tower_entrancehall;
-				targetDoor = "A";
-				state = "victory";
-			}
-			else
-			{
-				targetRoom = Finalintro;
-				targetDoor = "A";
-				state = "titlescreen";
-			}
+			//if (_intro)
+			//{
+			targetRoom = tower_entrancehall;
+			targetDoor = "A";
+			state = "victory";
+			//}
+			//else
+			//{
+			//	targetRoom = Finalintro;
+			//	targetDoor = "A";
+			//	state = "titlescreen";
+			//}
 		}
 		with (instance_create(x, y, obj_fadeout))
 		{

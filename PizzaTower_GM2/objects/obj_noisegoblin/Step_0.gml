@@ -1,32 +1,32 @@
 
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case "actor":
 		hsp = 0;
@@ -37,12 +37,12 @@ switch (state)
 		else
 		{
 			sprite_index = walkspr;
-			state = states.walk;
+			state = "walk";
 			bombreset = global.reset_timer[object_index];
 		}
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -50,7 +50,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -63,7 +63,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -76,11 +76,11 @@ if ((sprite_index == spr_archergoblin_shoot || sprite_index == spr_archergoblin_
 {
 	image_xscale = -sign(x - targetplayer.x);
 }
-if (x != targetplayer.x && targetplayer.state != "bombpep" && state != "actor" && state != states.pizzagoblinthrow && bombreset == 0 && grounded)
+if (x != targetplayer.x && targetplayer.state != "bombpep" && state != "actor" && state != "enemy_throw" && bombreset == 0 && grounded)
 {
 	if ((targetplayer.x > (x - 200) && targetplayer.x < (x + 200)) && (y <= (targetplayer.y + 200) && y >= (targetplayer.y - 200)))
 	{
-		if (state == states.walk || (state == states.idle && sprite_index != scaredspr))
+		if (state == "walk" || (state == "idle" && sprite_index != scaredspr))
 		{
 			fmod_event_one_shot_3d("event:/sfx/enemies/noisegoblinbow");
 			sprite_index = spr_archergoblin_shoot;
@@ -89,7 +89,7 @@ if (x != targetplayer.x && targetplayer.state != "bombpep" && state != "actor" &
 			{
 				image_xscale = -sign(x - targetplayer.x);
 			}
-			state = states.pizzagoblinthrow;
+			state = "enemy_throw";
 			if (!obj_player1.ispeppino && !provoked)
 			{
 				sprite_index = spr_archergoblin_wave;
@@ -107,6 +107,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

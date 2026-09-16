@@ -108,7 +108,7 @@ function scr_douppercut()
 		[
 			[10, 14],
 			[20, 21],
-			[6,   9]
+			[8,  14]
 		]
 		vsp = -_heights[character_num][grounded]
 		movespeed = hsp;

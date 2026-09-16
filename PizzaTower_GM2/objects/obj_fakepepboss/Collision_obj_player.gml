@@ -1,10 +1,10 @@
-if (staggerbuffer <= 0 && flickertime <= 0 && ((other.state == "handstandjump" || other.instakillmove) && visible && (state == states.walk || (state == "jump" && sprite_index == spr_fakepeppino_bodyslamstart) || (state == "freefall" && sprite_index == spr_fakepeppino_bodyslamland) || (state == "mach2" && attackspeed < 18) || state == "Sjumpprep" || (state == "throwing" && sprite_index != spr_fakepeppino_flailing))))
+if (staggerbuffer <= 0 && flickertime <= 0 && ((other.state == "handstandjump" || other.instakillmove) && visible && (state == "walk" || (state == "jump" && sprite_index == spr_fakepeppino_bodyslamstart) || (state == "freefall" && sprite_index == spr_fakepeppino_bodyslamland) || (state == "mach2" && attackspeed < 18) || state == "Sjumpprep" || (state == "throwing" && sprite_index != spr_fakepeppino_flailing))))
 {
 	if (subhp > 0)
 	{
-		if (state == states.walk)
+		if (state == "walk")
 		{
-			state = states.staggered;
+			state = "staggered";
 			image_xscale = -other.xscale;
 			hsp = -image_xscale * 20;
 			vsp = 0;
@@ -30,7 +30,7 @@ if (staggerbuffer <= 0 && flickertime <= 0 && ((other.state == "handstandjump" |
 			create_particle(x, y, particletypes.genericpoofeffect);
 			instance_destroy(id, false);
 		}
-		state = states.stun;
+		state = "stun";
 		image_xscale = -other.xscale;
 		hsp = -image_xscale * 8;
 		vsp = -6;

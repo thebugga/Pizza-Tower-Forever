@@ -1,4 +1,4 @@
-function scr_enemy_bounce()
+function enemy_bounce()
 {
 	if (!grounded)
 	{
@@ -145,9 +145,8 @@ function scr_enemy_bounce()
 			}
 		}
 		image_index = 0;
-		state = states.idle;
+		state = "idle";
 		sprite_index = idlespr;
 	}
 	image_speed = 0.35;
-	scr_collide();
 }

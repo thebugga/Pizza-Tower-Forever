@@ -25,7 +25,7 @@ function player_parry()
 		var parry_threshold = 84;
 		with (obj_baddie)
 		{
-			if ((other.parryID == id || distance_to_object(other) <= parry_threshold) && state != "hit" && state != "grabbed" && state != states.stun && parryable && !(state == states.stun && thrown == true))
+			if ((other.parryID == id || distance_to_object(other) <= parry_threshold) && state != "hit" && state != "grabbed" && state != "stun" && parryable && !(state == "stun" && thrown == true))
 			{
 				notification_push(notifications.enemy_parried, [id, object_index, room]);
 				obj_player1.xscale = -image_xscale;

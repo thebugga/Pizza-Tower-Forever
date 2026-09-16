@@ -14,7 +14,9 @@ function scr_read_game(_save)
 	var _texture = ini_read_string("Game", "palettetexture", "none");
 	q.palettetexture = scr_get_texture_palette(_texture);
 	q.palette_player2 = ini_read_real("Game", "palette_player2", 1);
+	q.palette_player2 = ini_read_real("Game", "palette_player3", 1);
 	q.palettetexture_player2 = scr_get_texture_palette(ini_read_string("Game", "palettetexture_player2", "none"));
+	q.palettetexture_player3 = scr_get_texture_palette(ini_read_string("Game", "palettetexture_player3", "none"));
 	ini_close();
 	return q;
 }
@@ -62,6 +64,8 @@ function game_empty()
 		minutes: 0,
 		seconds: 0,
 		palette_player2: 1,
-		palettetexture_player2: noone
+		palettetexture_player2: noone,
+		palette_player3: 1,
+		palettetexture_player3: noone
 	};
 }

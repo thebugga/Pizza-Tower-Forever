@@ -1,45 +1,45 @@
 
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 }
 if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state == states.walk)
+if (state == "walk")
 {
 	sprite_index = idlespr;
-	state = states.idle;
+	state = "idle";
 }
 if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -50,6 +50,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

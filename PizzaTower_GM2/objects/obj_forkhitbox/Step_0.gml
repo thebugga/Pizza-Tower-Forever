@@ -11,7 +11,7 @@ with (ID)
 {
 	if (object_index == obj_coolpineapple || object_index == obj_ghostknight || object_index == obj_forknight || object_index == obj_noisey || object_index == obj_smokingpizzaslice)
 	{
-		if (state != states.walk && state != states.rage)
+		if (state != "walk" && state != "rage")
 		{
 			hitboxcreate = false;
 			instance_destroy(other);
@@ -20,7 +20,7 @@ with (ID)
 	switch (object_index)
 	{
 		case obj_golfdemon:
-			if (state != states.charge)
+			if (state != "charge")
 			{
 				instance_destroy(other);
 			}
@@ -46,7 +46,7 @@ with (ID)
 			break;
 		case obj_badrat:
 			other.x = x + (image_xscale * 16);
-			if (state != states.pizzagoblinthrow)
+			if (state != "enemy_throw")
 			{
 				instance_destroy(other);
 			}
@@ -55,7 +55,7 @@ with (ID)
 		case obj_farmerbaddie2:
 		case obj_farmerbaddie3:
 			other.x = x + (image_xscale * 16);
-			if (state != states.charge)
+			if (state != "charge")
 			{
 				instance_destroy(other);
 			}
@@ -88,13 +88,13 @@ with (ID)
 			break;
 		case obj_soldier:
 			other.x = x + (image_xscale * 24);
-			if (state != states.rage)
+			if (state != "rage")
 			{
 				instance_destroy(other);
 			}
 			break;
 		case obj_indiancheese:
-			if (state != states.walk && sprite_index != spr_indiancheese_howl)
+			if (state != "walk" && sprite_index != spr_indiancheese_howl)
 			{
 				hitboxcreate = false;
 				instance_destroy(other);
@@ -108,13 +108,13 @@ with (ID)
 			}
 			break;
 		case obj_minijohn:
-			if (state != states.rage && state != "punch")
+			if (state != "rage" && state != "punch")
 			{
 				instance_destroy(other);
 			}
 			break;
 		case obj_ninja:
-			if (state != states.charge && state != "punch")
+			if (state != "charge" && state != "punch")
 			{
 				instance_destroy(other);
 			}
@@ -134,7 +134,7 @@ with (ID)
 			}
 			break;
 		case obj_pickle:
-			if (state != states.pizzagoblinthrow)
+			if (state != "enemy_throw")
 			{
 				instance_destroy(other);
 			}
@@ -142,7 +142,7 @@ with (ID)
 		case obj_peasanto:
 		case obj_fencer:
 		case obj_ancho:
-			if (state != states.charge && state != states.rage)
+			if (state != "charge" && state != "rage")
 			{
 				hitboxcreate = false;
 				instance_destroy(other);
@@ -150,7 +150,7 @@ with (ID)
 			break;
 		case obj_snowman:
 			other.y = y - 22;
-			if (state != states.charge && state != states.rage)
+			if (state != "charge" && state != "rage")
 			{
 				hitboxcreate = false;
 				instance_destroy(other);

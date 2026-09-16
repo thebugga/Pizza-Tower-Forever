@@ -1,47 +1,47 @@
 
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case "pummel":
-		scr_enemy_pummel();
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 	case "ghostpossess":
-		scr_enemy_ghostpossess();
+		enemy_ghostpossess();
 		break;
 	case states.pizzaheadjump:
-		scr_enemy_pizzaheadjump();
+		enemy_pizzaheadjump();
 		break;
 	case "bump":
 		sprite_index = spr_badrat_stun;
 		if (grounded && vsp > 0)
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = walkspr;
 		}
 		break;
@@ -51,11 +51,11 @@ if (cooldown > 0)
 {
 	cooldown--;
 }
-if (state == states.walk && cooldown <= 0)
+if (state == "walk" && cooldown <= 0)
 {
 	if (targetplayer.x > (x - 200) && targetplayer.x < (x + 200) && targetplayer.y > (y - 50) && targetplayer.y < (y + 50))
 	{
-		state = states.pizzagoblinthrow;
+		state = "enemy_throw";
 		sprite_index = spr_badrat_attack1;
 		image_index = 0;
 		if (x != targetplayer.x)
@@ -64,7 +64,7 @@ if (state == states.walk && cooldown <= 0)
 		}
 	}
 }
-if (state == states.pizzagoblinthrow)
+if (state == "enemy_throw")
 {
 	var mv = 8;
 	image_speed = 0.35;
@@ -117,13 +117,13 @@ if (state == states.pizzagoblinthrow)
 		if (ANIMATION_END)
 		{
 			sprite_index = walkspr;
-			state = states.walk;
+			state = "walk";
 			instance_destroy(hitboxID);
 			cooldown = 80;
 		}
 	}
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -131,7 +131,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -155,10 +155,11 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }

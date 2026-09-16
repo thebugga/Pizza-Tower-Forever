@@ -233,7 +233,7 @@ function player_ratmountjump()
 	}
 	with (ratgrabbedID)
 	{
-		scr_enemy_ratgrabbed();
+		enemy_ratgrabbed();
 	}
 	ratmount_shootpowerup();
 	ratmount_dotaunt();

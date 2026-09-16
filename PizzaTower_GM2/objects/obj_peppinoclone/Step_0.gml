@@ -2,13 +2,13 @@
 targetplayer = instance_nearest(x, y, obj_player);
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
+	case "walk":
 		if (targetplayer.x > (x - 700) && targetplayer.x < (x + 700) && targetplayer.y < (y + 500) && targetplayer.y > (y - 500))
 		{
 			if (grounded && x != targetplayer.x)
@@ -59,7 +59,7 @@ switch (state)
 				var inst_down = collision_line(x + (sign(hsp) * 16), y, x + (sign(hsp) * 16), y + 64, obj_solid, false, true);
 				var inst_down2 = collision_line(x + (sign(hsp) * 16), y, x + (sign(hsp) * 16), y + 64, obj_platform, false, true);
 				var inst_up = collision_line(x + (sign(hsp) * 96), y + 25, x + (sign(hsp) * 96), (y - 78) + 50, obj_platform, false, true);
-				if (((!place_meeting(x, y + 1, obj_slope) && (inst_front != noone || inst_up != noone)) || (inst_down == noone && inst_down2 == noone)) && targetplayer.y <= (y + 32) && grounded && state != states.charge)
+				if (((!place_meeting(x, y + 1, obj_slope) && (inst_front != noone || inst_up != noone)) || (inst_down == noone && inst_down2 == noone)) && targetplayer.y <= (y + 32) && grounded && state != "charge")
 				{
 					vsp = -11;
 					sprite_index = spr_player_jump;
@@ -91,40 +91,40 @@ switch (state)
 		}
 		if (ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 			instance_destroy(hitboxID);
 			cooldown = 100;
 		}
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case "pummel":
-		scr_enemy_pummel();
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 	case "ghostpossess":
-		scr_enemy_ghostpossess();
+		enemy_ghostpossess();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -132,7 +132,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -140,7 +140,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state == states.stun && fmod_event_instance_is_playing(snd))
+if (state == "stun" && fmod_event_instance_is_playing(snd))
 {
 	fmod_event_instance_stop(snd);
 }
@@ -148,7 +148,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -159,6 +159,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

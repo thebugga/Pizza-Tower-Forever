@@ -1,22 +1,22 @@
-function scr_enemy_charge()
+function enemy_charge()
 {
 	if (object_index == obj_peasanto)
 	{
 		if (grounded || (grounded && !place_meeting(x, y, obj_platform)))
 		{
-			hsp = image_xscale * 6;
+			hsp = xscale * 6;
 		}
 		image_speed = 0.35;
-		if ((scr_solid(x + 1, y) && image_xscale == 1) || (scr_solid(x - 1, y) && image_xscale == -1) || place_meeting(x + hsp, y, obj_hallway))
+		if ((scr_solid(x + 1, y) && xscale == 1) || (scr_solid(x - 1, y) && xscale == -1) || place_meeting(x + hsp, y, obj_hallway))
 		{
 			if (!place_meeting(x + sign(hsp), y, obj_slope))
 			{
-				image_xscale *= -1;
+				xscale *= -1;
 			}
 		}
-		if (!(scr_solid(x + (image_xscale * 15), y + 31) || place_meeting(x + (image_xscale * 15), y + 31, obj_platform)))
+		if (!(scr_solid(x + (xscale * 15), y + 31) || place_meeting(x + (xscale * 15), y + 31, obj_platform)))
 		{
-			image_xscale *= -1;
+			xscale *= -1;
 		}
 		if (!(grounded || (grounded && !place_meeting(x, y, obj_platform))) && hsp < 0)
 		{
@@ -34,14 +34,14 @@ function scr_enemy_charge()
 		{
 			image_speed = 0;
 		}
-		hsp = image_xscale * movespeed;
+		hsp = xscale * movespeed;
 		if (grounded && vsp > 0)
 		{
-			if (place_meeting(x + image_xscale, y, obj_solid))
+			if (place_meeting(x + xscale, y, obj_solid))
 			{
-				image_xscale *= -1;
+				xscale *= -1;
 			}
-			state = states.walk;
+			state = "walk";
 			image_index = 0;
 			image_speed = 0.35;
 			sprite_index = spr_indiancheese_land;
@@ -49,14 +49,14 @@ function scr_enemy_charge()
 	}
 	if (object_index == obj_snowman)
 	{
-		hsp = image_xscale * movespeed;
+		hsp = xscale * movespeed;
 		image_speed = 0.35;
 		sprite_index = spr_newpizzice_walk;
-		if (((scr_solid(x + 1, y) && image_xscale == 1) || (scr_solid(x - 1, y) && image_xscale == -1)) && !place_meeting(x + sign(hsp), y, obj_slope))
+		if (((scr_solid(x + 1, y) && xscale == 1) || (scr_solid(x - 1, y) && xscale == -1)) && !place_meeting(x + sign(hsp), y, obj_slope))
 		{
 			image_index = 0;
 			sprite_index = spr_newpizzice_turn;
-			state = states.idle;
+			state = "idle";
 			hsp = 0;
 		}
 	}
@@ -66,7 +66,7 @@ function scr_enemy_charge()
 		{
 			if (grounded || (grounded && !place_meeting(x, y, obj_platform)))
 			{
-				hsp = image_xscale * movespeed;
+				hsp = xscale * movespeed;
 			}
 			else
 			{
@@ -75,29 +75,29 @@ function scr_enemy_charge()
 		}
 		else
 		{
-			hsp = image_xscale * movespeed;
+			hsp = xscale * movespeed;
 		}
-		if (((scr_solid(x + 1, y) && image_xscale == 1) || (scr_solid(x - 1, y) && image_xscale == -1)) && !place_meeting(x + sign(hsp), y, obj_slope))
+		if (((scr_solid(x + 1, y) && xscale == 1) || (scr_solid(x - 1, y) && xscale == -1)) && !place_meeting(x + sign(hsp), y, obj_slope))
 		{
-			image_xscale *= -1;
+			xscale *= -1;
 		}
 	}
 	if (object_index == obj_ancho)
 	{
-		hsp = image_xscale * movespeed;
+		hsp = xscale * movespeed;
 		if (place_meeting(x + hsp, y, obj_solid))
 		{
-			state = states.stun;
+			state = "stun";
 			stunned = 100;
 		}
 	}
 	if (object_index == obj_ninja)
 	{
 		inv_timer = 5;
-		hsp = image_xscale * 2;
+		hsp = xscale * 2;
 		if (grounded && vsp > 0)
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = idlespr;
 		}
 		if (alarm[4] == -1)

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{5360c68e-536a-4c4c-a47c-2849698af559}">
 		<property name="assetPath">
-			<value>peppermanescape.ogg (read description)-(152k).mp3</value>
+			<value>c_music/peppermanescape.ogg (read description)-(152k).mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

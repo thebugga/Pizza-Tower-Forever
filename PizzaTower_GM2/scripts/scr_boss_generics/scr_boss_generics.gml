@@ -117,7 +117,7 @@ function scr_boss_pizzaheadjump()
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.walk;
+		state = "walk";
 		switch (object_index)
 		{
 			case obj_pepperman:
@@ -142,7 +142,7 @@ function scr_boss_pizzaheadjump()
 		}
 		if (object_index == obj_noisey)
 		{
-			state = states.stun;
+			state = "stun";
 			stunned = 0;
 		}
 	}
@@ -163,7 +163,7 @@ function boss_update_pizzaheadKO(_hpsprite, _pal)
 		image_alpha = 1;
 		if (state == states.pizzaheadKO)
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 }
@@ -179,7 +179,7 @@ function boss_hurt_gustavo()
 			{
 				with (other)
 				{
-					state = states.stun;
+					state = "stun";
 					stunned = 1000;
 					thrown = false;
 					savedthrown = false;
@@ -282,7 +282,7 @@ function scr_boss_genericintro(_introspr, _introbuffer = 30)
 	}
 	else
 	{
-		state = states.walk;
+		state = "walk";
 		if (instance_exists(spotlightID))
 		{
 			spotlightID.expand = true;
@@ -321,7 +321,7 @@ function scr_boss_do_hurt_phase2(_player, _invulnerability = 100)
 	fmod_event_one_shot("event:/sfx/misc/blackoutpunch");
 	instance_create_unique(0, 0, obj_blackoutline);
 	instance_create_unique(0, 0, obj_superattackeffect);
-	image_xscale = -_player.xscale;
+	xscale = -_player.xscale;
 	if (!_player.ispeppino)
 	{
 		hitX = x;
@@ -367,7 +367,7 @@ function scr_boss_playerN_phase1hurt(_func = noone)
 		GamepadSetVibration(0, 0.8, 0.8, 0.65);
 		fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 		fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
-		state = states.stun;
+		state = "stun";
 		instance_create(x, y, obj_slapstar);
 		instance_create(x, y, obj_slapstar);
 		instance_create(x, y, obj_slapstar);
@@ -507,7 +507,7 @@ function scr_boss_phase1hurt(_func = noone)
 			GamepadSetVibration((player.object_index == obj_player1) ? 0 : 1, 0.8, 0.8, 0.65);
 			fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 			fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
-			state = states.stun;
+			state = "stun";
 			image_xscale = -player.xscale;
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);

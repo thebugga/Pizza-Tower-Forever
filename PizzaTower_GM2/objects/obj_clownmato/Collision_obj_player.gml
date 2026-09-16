@@ -1,6 +1,6 @@
 with (other)
 {
-	if ((!instakillmove || state == "mach2") && state != "animatronic" && state != "bump" && other.state == states.walk && state != "chainsaw")
+	if ((!instakillmove || state == "mach2") && state != "animatronic" && state != "bump" && other.state == "walk" && state != "chainsaw")
 	{
 		fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
 		vsp = -4;

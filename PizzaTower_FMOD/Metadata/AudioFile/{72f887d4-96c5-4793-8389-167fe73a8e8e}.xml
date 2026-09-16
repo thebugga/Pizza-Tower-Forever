@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{72f887d4-96c5-4793-8389-167fe73a8e8e}">
 		<property name="assetPath">
-			<value>Pizza_Tower_-_Distasteful_Anchovi_eitherfinalorverypolishedwipogg.ogg</value>
+			<value>c_music/Pizza_Tower_-_Distasteful_Anchovi_eitherfinalorverypolishedwipogg.ogg</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

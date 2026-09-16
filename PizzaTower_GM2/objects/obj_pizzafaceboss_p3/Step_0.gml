@@ -10,10 +10,10 @@ switch (state)
 	case states.fall:
 		scr_pizzaface_p3_fall();
 		break;
-	case states.staggered:
+	case "staggered":
 		scr_pizzaface_p3_staggered();
 		break;
-	case states.walk:
+	case "walk":
 		scr_pizzaface_p3_walk();
 		break;
 	case states.stomp:
@@ -38,16 +38,16 @@ switch (state)
 		scr_boss_pizzaheadjump();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
 	case "grabbed":
 		scr_boss_grabbed();
 		break;
 	case "pummel":
-		scr_enemy_pummel();
+		enemy_pummel();
 		break;
 }
 if (state != states.pizzaheadjump)
@@ -91,7 +91,7 @@ if (prevhp != elitehit)
 	}
 	prevhp = elitehit;
 }
-if (state == states.stun)
+if (state == "stun")
 {
 	if (thrown)
 	{
@@ -108,7 +108,7 @@ else
 {
 	savedthrown = false;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -121,12 +121,12 @@ if ((state == "punch" || state == states.stomp || state == states.swinging || st
 	alarm[4] = 5;
 }
 invincible = true;
-if (vulnerable_buffer > 0 && state == states.walk && flickertime <= 0)
+if (vulnerable_buffer > 0 && state == "walk" && flickertime <= 0)
 {
 	vulnerable_buffer--;
 	invincible = false;
 }
-if (state == states.stun && !savedthrown)
+if (state == "stun" && !savedthrown)
 {
 	invincible = false;
 }
@@ -143,7 +143,7 @@ if ((state == states.grabdash || (state == "mach2" && attackspeed >= 10) || (sta
 	}
 }
 mask_index = spr_pizzahead_idle;
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -155,7 +155,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -166,6 +166,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

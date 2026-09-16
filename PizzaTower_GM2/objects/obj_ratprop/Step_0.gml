@@ -8,7 +8,7 @@ switch (state)
 			image_xscale *= -1;
 		}
 		break;
-	case states.idle:
+	case "idle":
 		sprite_index = spr_stupidratprop2;
 		hsp = 0;
 		break;

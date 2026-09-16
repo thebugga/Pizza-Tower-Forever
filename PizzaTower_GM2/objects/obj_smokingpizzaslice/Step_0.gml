@@ -5,8 +5,8 @@ if (bombreset > 0)
 }
 switch (state)
 {
-	case states.walk:
-		if (state == states.pizzagoblinthrow)
+	case "walk":
+		if (state == "enemy_throw")
 		{
 			break;
 		}
@@ -20,17 +20,17 @@ switch (state)
 			var old_substate = substate;
 			while (substate == old_substate)
 			{
-				substate = choose(states.walk, states.idle, states.turn);
+				substate = choose("walk", "idle", "turn");
 			}
-			if (substate == states.turn && state == states.pizzagoblinthrow)
+			if (substate == "turn" && state == "enemy_throw")
 			{
-				substate = states.walk;
+				substate = "walk";
 			}
-			if (substate == states.walk)
+			if (substate == "walk")
 			{
 				image_xscale = choose(-1, 1);
 			}
-			else if (substate == states.turn)
+			else if (substate == "turn")
 			{
 				sprite_index = spr_pizzaslug_turn;
 				image_index = 0;
@@ -39,7 +39,7 @@ switch (state)
 		}
 		switch (substate)
 		{
-			case states.walk:
+			case "walk":
 				image_speed = 0.35;
 				if (sprite_index != spr_pizzaslug_walk)
 				{
@@ -50,14 +50,14 @@ switch (state)
 				{
 					y--;
 				}
-				scr_enemy_walk();
+				enemy_walk();
 				break;
-			case states.idle:
+			case "idle":
 				image_speed = 0.35;
 				hsp = 0;
 				sprite_index = spr_pizzaslug_idle;
 				break;
-			case states.turn:
+			case "turn":
 				image_speed = 0.35;
 				substate_buffer = 5;
 				if (sprite_index != spr_pizzaslug_turn)
@@ -69,44 +69,44 @@ switch (state)
 				{
 					image_xscale *= -1;
 					substate_buffer = substate_max;
-					substate = states.idle;
+					substate = "idle";
 					sprite_index = spr_pizzaslug_idle;
 				}
 				break;
-			case states.pizzagoblinthrow:
-				state = states.pizzagoblinthrow;
+			case "enemy_throw":
+				state = "enemy_throw";
 				substate_buffer = 0;
 				image_index = 0;
 				sprite_index = spr_pizzaslug_cough;
 				break;
 		}
 		break;
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -114,7 +114,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -123,7 +123,7 @@ if (flash == true && alarm[2] <= 0)
 	alarm[2] = 0.15 * room_speed;
 }
 var player = instance_nearest(x, y, obj_player);
-if (state == states.walk && substate != states.turn)
+if (state == "walk" && substate != "turn")
 {
 	if ((player.x > (x - 400) && player.x < (x + 400)) && (y <= (player.y + 60) && y >= (player.y - 60)) && ragecooldown == 0)
 	{
@@ -138,7 +138,7 @@ if (state == states.walk && substate != states.turn)
 			shot = false;
 			sprite_index = spr_pizzaslug_rage;
 			image_index = 0;
-			state = states.rage;
+			state = "rage";
 		}
 		else
 		{
@@ -147,7 +147,7 @@ if (state == states.walk && substate != states.turn)
 				image_xscale = -sign(x - player.x);
 			}
 			ragecooldown = 160;
-			state = states.pizzagoblinthrow;
+			state = "enemy_throw";
 			substate_buffer = 0;
 			image_index = 0;
 			sprite_index = spr_pizzaslug_cough;
@@ -163,7 +163,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -174,6 +174,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

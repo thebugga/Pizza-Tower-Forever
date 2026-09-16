@@ -1,4 +1,4 @@
-function scr_enemy_idle()
+function enemy_idle()
 {
 	hsp = 0;
 	if (vsp > 1 && (grounded || (grounded && !place_meeting(x, y, obj_platform))))
@@ -8,7 +8,7 @@ function scr_enemy_idle()
 	}
 	if ((vsp >= 0 || object_index == obj_miniufo || object_index == obj_kentukybomber) && sprite_index == scaredspr && scaredbuffer <= 0)
 	{
-		state = states.walk;
+		state = "walk";
 		sprite_index = walkspr;
 		if (object_index == obj_treasureguy)
 		{
@@ -27,44 +27,44 @@ function scr_enemy_idle()
 	if (sprite_index == spr_tank_spawnenemy && ANIMATION_END)
 	{
 		sprite_index = walkspr;
-		state = states.walk;
+		state = "walk";
 	}
 	if (sprite_index == spr_forknight_turn && ANIMATION_END)
 	{
 		sprite_index = walkspr;
-		state = states.walk;
+		state = "walk";
 	}
 	if (sprite_index == spr_patroller_turn && ANIMATION_END)
 	{
 		sprite_index = walkspr;
-		state = states.walk;
+		state = "walk";
 	}
 	if (sprite_index == spr_newpizzice_turn && ANIMATION_END)
 	{
-		image_xscale *= -1;
+		xscale *= -1;
 		sprite_index = walkspr;
-		state = states.charge;
+		state = "charge";
 	}
 	if (sprite_index == spr_ghostknight_turn && ANIMATION_END)
 	{
 		sprite_index = walkspr;
-		state = states.walk;
+		state = "walk";
 	}
 	if (sprite_index == spr_pizzaslug_turn && ANIMATION_END)
 	{
 		sprite_index = walkspr;
-		image_xscale *= -1;
-		state = states.walk;
+		xscale *= -1;
+		state = "walk";
 	}
 	if (sprite_index == spr_indiancheese_turn && ANIMATION_END)
 	{
 		sprite_index = walkspr;
-		state = states.walk;
+		state = "walk";
 	}
 	if (sprite_index == spr_tank_turn && ANIMATION_END)
 	{
 		sprite_index = walkspr;
-		state = states.walk;
+		state = "walk";
 	}
 	if (place_meeting(x, y + 1, obj_railparent))
 	{

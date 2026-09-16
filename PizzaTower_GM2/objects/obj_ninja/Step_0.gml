@@ -1,45 +1,45 @@
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case states.pizzaheadjump:
-		scr_enemy_pizzaheadjump();
+		enemy_pizzaheadjump();
 		break;
 }
 if (sprite_index != spr_pizzaboy)
 {
 	usepalette = true;
 }
-if (state != states.charge && sprite_index != spr_pizzaboy)
+if (state != "charge" && sprite_index != spr_pizzaboy)
 {
 	scr_scareenemy();
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -47,12 +47,12 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
 targetplayer = instance_nearest(x, y, obj_player);
-if (state == states.walk)
+if (state == "walk")
 {
 	if (sprite_index == spr_pizzaboy)
 	{
@@ -103,7 +103,7 @@ else if (state == "punch")
 	hsp = 0;
 	if (ANIMATION_END)
 	{
-		state = states.walk;
+		state = "walk";
 		sprite_index = walkspr;
 	}
 	if (image_index > 4 && image_index < 14)
@@ -139,7 +139,7 @@ if (sprite_index == spr_pizzaboy)
 {
 	if (x != targetplayer.x && targetplayer.x > (x - 200) && targetplayer.x < (x + 200) && targetplayer.y > (y - 150) && targetplayer.y < (y + 20))
 	{
-		if (state == states.walk || state == states.idle)
+		if (state == "walk" || state == "idle")
 		{
 			if (sprite_index == spr_pizzaboy)
 			{
@@ -149,7 +149,7 @@ if (sprite_index == spr_pizzaboy)
 			image_xscale = -sign(x - targetplayer.x);
 			sprite_index = spr_ninja_uppercut;
 			image_index = 0;
-			state = states.charge;
+			state = "charge";
 			roaming = true;
 			vsp = -14;
 			hsp = image_xscale * 4;
@@ -164,7 +164,7 @@ if (sprite_index == spr_pizzaboy)
 		}
 	}
 }
-else if (state == states.walk && attack_buffer <= 0)
+else if (state == "walk" && attack_buffer <= 0)
 {
 	attack_buffer = attack_max + irandom_range(-attack_random, attack_random);
 	state = "punch";
@@ -202,7 +202,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -213,6 +213,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

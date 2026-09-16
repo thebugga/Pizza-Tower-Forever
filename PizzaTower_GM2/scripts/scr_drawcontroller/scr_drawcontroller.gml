@@ -107,7 +107,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 		exit;
 	}
 	var _stun = 0;
-	if ((state == states.stun && thrown == false && object_index != obj_peppinoclone) || state == states.pizzaheadjump || (state == "supergrab" && sprite_index == stunfallspr))
+	if ((state == "stun" && thrown == false && object_index != obj_peppinoclone) || state == states.pizzaheadjump || (state == "supergrab" && sprite_index == stunfallspr))
 	{
 		_stun = 25;
 	}

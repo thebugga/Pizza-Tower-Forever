@@ -1,4 +1,4 @@
-if (state != states.stun)
+if (state != "stun")
 {
 	if (other.ispeppino)
 	{
@@ -36,6 +36,7 @@ if (state != states.stun)
 			{
 				trapped = true;
 				baddieID = other.id;
+		other.boxID = id;
 				other.playerid = id;
 			}
 		}

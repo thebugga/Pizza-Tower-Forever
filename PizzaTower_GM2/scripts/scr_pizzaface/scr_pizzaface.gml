@@ -246,7 +246,7 @@ function scr_pizzaface_arenaintro()
 				}
 				if (sprite_index == spr_pizzaface && _finish)
 				{
-					state = states.walk;
+					state = "walk";
 					with (obj_player1)
 					{
 						state = "default";
@@ -445,7 +445,7 @@ function scr_pizzaface_ram()
 			if ((vsp > 0 && grounded) || place_meeting(x + sign(hsp), y, obj_solid))
 			{
 				fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
-				substate = states.land;
+				substate = "land";
 				landbuffer = 80;
 				hitX = x;
 				hitY = y;
@@ -468,7 +468,7 @@ function scr_pizzaface_ram()
 				}
 			}
 			break;
-		case states.land:
+		case "land":
 			hsp = 0;
 			x = hitX + irandom_range(-1, 1);
 			y = hitY + irandom_range(-1, 1);
@@ -500,7 +500,7 @@ function scr_pizzaface_ram()
 			vsp = 0;
 			if (ANIMATION_END)
 			{
-				state = states.walk;
+				state = "walk";
 			}
 			break;
 	}

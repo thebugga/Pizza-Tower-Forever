@@ -1,38 +1,38 @@
 
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
 	case states.pizzaheadjump:
-		scr_enemy_pizzaheadjump();
+		enemy_pizzaheadjump();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -40,7 +40,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -49,18 +49,18 @@ if (flash == true && alarm[2] <= 0)
 	alarm[2] = 0.15 * room_speed;
 }
 var targetplayer = global.coopmode ? instance_nearest(x, y, obj_player) : obj_player1;
-if (state == states.walk || state == states.idle)
+if (state == "walk" || state == "idle")
 {
 	if ((targetplayer.x > (x - 400) && targetplayer.x < (x + 400)) && (y <= (targetplayer.y + 160) && y >= (targetplayer.y - 160)))
 	{
 		activated = true;
 	}
 }
-if (!activated && (state == states.walk || state == states.idle))
+if (!activated && (state == "walk" || state == "idle"))
 {
 	sprite_index = spr_banditochicken_sleep;
 }
-if ((state == states.walk || state == states.idle) && activated == true && sprite_index != spr_banditochicken_wake && sprite_index != spr_banditochicken_scared)
+if ((state == "walk" || state == "idle") && activated == true && sprite_index != spr_banditochicken_wake && sprite_index != spr_banditochicken_scared)
 {
 	fmod_event_one_shot_3d("event:/sfx/enemies/banditochicken", x, y);
 	movespeed = 0;
@@ -75,22 +75,22 @@ if (sprite_index == spr_banditochicken_wake && ANIMATION_END)
 {
 	image_xscale *= -1;
 	sprite_index = spr_banditochicken_chase;
-	state = states.charge;
+	state = "charge";
 	movespeed = 8;
 	with (instance_create(x, y, obj_jumpdust))
 	{
 		image_xscale = other.image_xscale;
 	}
 }
-if (state == states.charge && bonebuffer > 0)
+if (state == "charge" && bonebuffer > 0)
 {
 	bonebuffer--;
 }
-if (grounded && jumping < 40 && state == states.charge)
+if (grounded && jumping < 40 && state == "charge")
 {
 	jumping++;
 }
-if (state == states.charge && grounded && jumping >= 40)
+if (state == "charge" && grounded && jumping >= 40)
 {
 	vsp = -11;
 	jumping = 0;
@@ -130,7 +130,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -141,6 +141,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

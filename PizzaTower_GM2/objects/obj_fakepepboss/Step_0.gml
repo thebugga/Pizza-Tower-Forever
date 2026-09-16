@@ -24,13 +24,13 @@ switch (state)
 	case "arenaintro":
 		scr_fakepepboss_arenaintro();
 		break;
-	case states.walk:
+	case "walk":
 		scr_fakepepboss_walk();
 		break;
 	case states.deformed:
 		scr_fakepepboss_deformed();
 		break;
-	case states.staggered:
+	case "staggered":
 		scr_fakepepboss_staggered();
 		break;
 	case states.grabdash:
@@ -67,20 +67,20 @@ switch (state)
 		scr_boss_pizzaheadKO();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
 	case "grabbed":
 		scr_boss_grabbed();
 		break;
 	case "pummel":
-		scr_enemy_pummel();
+		enemy_pummel();
 		break;
 }
 boss_update_pizzaheadKO(spr_bossfight_fakepephp, spr_bossfight_fakepeppalette);
-if (phase == 2 && state != states.stun && state != states.deformed)
+if (phase == 2 && state != "stun" && state != states.deformed)
 {
 	if (deformed_cooldown > 0)
 	{
@@ -103,7 +103,7 @@ if (state == "Sjump")
 		}
 	}
 }
-if (state == states.stun)
+if (state == "stun")
 {
 	stunned = 100;
 	cooldown = 0;
@@ -126,7 +126,7 @@ else
 {
 	grav = 0.5;
 }
-if (state == states.stun)
+if (state == "stun")
 {
 	instance_destroy(obj_grabmarker);
 }
@@ -151,7 +151,7 @@ if (prevhp != elitehit)
 		subhp = maxsubhp;
 		var timer = fakepep_get_attack(phase - 1, wastedhits).deformed_timer;
 		var attack = fakepep_get_projectile(phase - 1, wastedhits, currentprojectile);
-		state = states.walk;
+		state = "walk";
 		if (phase == 1)
 		{
 			formed = false;
@@ -219,7 +219,7 @@ if (wastedhits >= 6 && !pizzahead)
 		layer_background_change(bg2, spr_fakepeppino_arena2);
 	}
 }
-if (state == states.stun)
+if (state == "stun")
 {
 	if (thrown)
 	{
@@ -236,7 +236,7 @@ else
 {
 	savedthrown = false;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -244,7 +244,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state == states.stun && savedthrown == thrown && !savedthrown)
+if (state == "stun" && savedthrown == thrown && !savedthrown)
 {
 	invincible = false;
 }
@@ -274,7 +274,7 @@ if (!invincible && !flash && alarm[5] < 0)
 {
 	alarm[5] = 0.15 * room_speed;
 }
-else if (invincible && state != states.staggered && flashbuffer <= 0)
+else if (invincible && state != "staggered" && flashbuffer <= 0)
 {
 	flash = false;
 }
@@ -283,7 +283,7 @@ if ((state == states.grabdash || (state == "mach2" && attackspeed >= 10) || (sta
 	alarm[4] = 10;
 }
 mask_index = spr_player_mask;
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -295,7 +295,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -306,6 +306,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

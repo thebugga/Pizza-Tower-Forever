@@ -20,7 +20,7 @@ function scr_bosscontroller_particle_hp(_spr, _subimg, _x, _y, _speedmult, _pals
 	}
 }
 
-function scr_bosscontroller_particle_anim(_spr, _subimg, _x, _y, _imgspeed, _palspr = spr_peppalette, _palindex = 0)
+function scr_bosscontroller_particle_anim(_spr, _subimg, _x, _y, _imgspeed, _palspr = pal_peppino, _palindex = 0)
 {
 	with (obj_bosscontroller)
 	{

@@ -3,7 +3,7 @@
   "%Name":"spr_peppinoselect",
   "bboxMode":0,
   "bbox_bottom":467,
-  "bbox_left":0,
+  "bbox_left":120,
   "bbox_right":514,
   "bbox_top":86,
   "collisionKind":1,

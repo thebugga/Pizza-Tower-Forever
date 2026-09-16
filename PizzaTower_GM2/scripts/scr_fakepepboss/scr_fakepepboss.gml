@@ -470,7 +470,7 @@ function scr_fakepepboss_arenaintro()
 		}
 		else if (sprite_index == spr_fakepeppino_intro4 && ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 			spotlightID.expand = true;
 			with (instance_create(x, y, obj_grabmarker))
 			{
@@ -621,7 +621,7 @@ function scr_fakepepboss_walk()
 					break;
 				case fakepep_attacks.stunned:
 					sprite_index = spr_fakepeppino_vulnerable;
-					state = states.stun;
+					state = "stun";
 					stunned = 5000;
 					if (ix != 0)
 					{
@@ -689,7 +689,7 @@ function scr_fakepepboss_deformed()
 		}
 		else if (ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = spr_fakepeppino_idle;
 		}
 	}
@@ -713,7 +713,7 @@ function scr_fakepepboss_staggered()
 	}
 	if (ANIMATION_END && hsp == 0)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -734,7 +734,7 @@ function scr_fakepepboss_grabdash()
 		hsp = image_xscale * attackspeed;
 		if (ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 		}
 		with (instance_place(x, y, obj_player))
 		{
@@ -781,7 +781,7 @@ function scr_fakepepboss_grabthrow()
 	}
 	if (ANIMATION_END)
 	{
-		state = states.walk;
+		state = "walk";
 		cooldown = 150;
 	}
 }
@@ -855,7 +855,7 @@ function scr_fakepepboss_freefall()
 	}
 	if (sprite_index == spr_fakepeppino_bodyslamland && bodyslamlandbuffer <= 0)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -877,7 +877,7 @@ function scr_fakepepboss_mach2()
 		}
 		else
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 	else if (attackspeed < 8)
@@ -1095,7 +1095,7 @@ function scr_fakepepboss_Sjump()
 		else
 		{
 			sprite_index = spr_fakepeppino_idle;
-			state = states.walk;
+			state = "walk";
 		}
 	}
 }
@@ -1160,7 +1160,7 @@ function scr_fakepepboss_throwing()
 	}
 	else if (sprite_index == spr_fakepeppino_gethead && ANIMATION_END)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -1208,6 +1208,6 @@ function scr_fakepepboss_backbreaker()
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }

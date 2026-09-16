@@ -40,7 +40,7 @@ if (contemplated)
 		{
 			instance_destroy(other);
 		}
-		else if (state != states.contemplate && state != "hit" && state != states.stun)
+		else if (state != states.contemplate && state != "hit" && state != "stun")
 		{
 			other.contemplated = false;
 			marbleblockID = noone;

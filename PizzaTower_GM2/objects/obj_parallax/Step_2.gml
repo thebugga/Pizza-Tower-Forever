@@ -172,6 +172,13 @@ if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
                 bg_scroll4y += layer_get_vspeed(lay);
                 break;
             
+            case "Backgrounds_scroll5":
+                layer_x(lay, (_cam_x * 0.25) + bg_scroll4x + bg_scroll4xoffset);
+                layer_y(lay, (_cam_y * 0.25) + bg_scroll4y + bg_scroll4yoffset);
+                bg_scroll4x += layer_get_hspeed(lay);
+                bg_scroll4y += layer_get_vspeed(lay);
+                break;
+            
             case "Backgrounds_zigzag1":
                 bg_zigzag1_x += bg_zigzag1_speed;
                 bg_zigzag1_y = Wave(-bg_zigzag1_offset, bg_zigzag1_offset, 4, 10);

@@ -1,4 +1,4 @@
-function scr_enemy_hit()
+function enemy_hit()
 {
 	x = hitX + random_range(-6, 6);
 	y = hitY + random_range(-6, 6);
@@ -68,7 +68,7 @@ function scr_enemy_hit()
 			instance_create(x, y, obj_genericpoofeffect);
 		}
 		stunned = 200;
-		state = states.stun;
+		state = "stun";
 		if (object_index == obj_pepperman || object_index == obj_vigilanteboss || object_index == obj_noiseboss || object_index == obj_pf_fakepep || object_index == obj_fakepepboss || object_index == obj_pizzafaceboss || object_index == obj_pizzafaceboss_p3)
 		{
 			if (obj_player.tauntstoredstate != "punch" && obj_player.tauntstoredstate != "freefall" && obj_player.tauntstoredstate != "superslam")
@@ -98,7 +98,7 @@ function scr_enemy_hit()
 				hsp = hithsp;
 				vsp = hitvsp;
 				flash = false;
-				state = states.stun;
+				state = "stun";
 				thrown = true;
 				linethrown = false;
 			}

@@ -1,5 +1,6 @@
 function scr_initenemy()
 {
+	boxID = noone;
 	chargesnd = fmod_event_create_instance("event:/sfx/enemies/charge");
 	pizzaheadKO = noone;
 	pizzaheadKO_ID = noone;
@@ -102,7 +103,7 @@ function scr_initenemy()
 	grav = 0.5;
 	hsp = 0;
 	vsp = 0;
-	state = states.walk;
+	state = "walk";
 	stunned = 0;
 	alarm[0] = 150;
 	roaming = true;

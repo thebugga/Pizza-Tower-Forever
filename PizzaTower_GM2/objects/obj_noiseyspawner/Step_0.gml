@@ -12,7 +12,7 @@ with (obj_noisey)
 }
 with (obj_noiseboss)
 {
-	if (state == "arenaintro" || state == states.stun || wastedhits >= 6)
+	if (state == "arenaintro" || state == "stun" || wastedhits >= 6)
 	{
 		b = false;
 	}

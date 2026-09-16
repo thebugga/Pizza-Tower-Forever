@@ -36,7 +36,7 @@ if (!instance_exists(obj_fadeout) && state != states.monsteridle && other.state 
 		{
 			x = xstart;
 			y = ystart;
-			state = states.walk;
+			state = "walk";
 		}
 		x = xstart;
 		y = ystart;

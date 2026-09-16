@@ -84,7 +84,7 @@ function scr_pizzaface_p3_arenaintro()
 			if (ANIMATION_END)
 			{
 				image_index = image_number - 1;
-				introstate = states.idle;
+				introstate = "idle";
 				introbuffer = 80;
 				with (obj_player1)
 				{
@@ -98,7 +98,7 @@ function scr_pizzaface_p3_arenaintro()
 				}
 			}
 			break;
-		case states.idle:
+		case "idle":
 			image_index = image_number - 1;
 			if (obj_player1.sprite_index != obj_player1.spr_victory)
 			{
@@ -175,7 +175,7 @@ function scr_pizzaface_p3_fall()
 {
 	if (grounded && vsp > 0)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -354,11 +354,11 @@ function scr_pizzaface_p3_jump()
 	if (sprite_index == spr_pizzahead_phase3jumpland && ANIMATION_END)
 	{
 		walkspeed = maxwalkspeed;
-		state = states.walk;
+		state = "walk";
 		image_xscale *= -1;
 		sprite_index = spr_pizzahead_phase3walk;
 	}
-	if (grounded && vsp > 0 && sprite_index != spr_pizzahead_phase3jumpland && state != states.walk)
+	if (grounded && vsp > 0 && sprite_index != spr_pizzahead_phase3jumpland && state != "walk")
 	{
 		sprite_index = spr_pizzahead_phase3jumpland;
 		image_index = 0;
@@ -403,7 +403,7 @@ function scr_pizzaface_p3_stomp()
 	}
 	if (ANIMATION_END)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -431,7 +431,7 @@ function scr_pizzaface_p3_punch()
 	}
 	if (ANIMATION_END)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -457,7 +457,7 @@ function scr_pizzaface_p3_swinging()
 		}
 		if (place_meeting(x + hsp, y, obj_solid))
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 }
@@ -473,7 +473,7 @@ function scr_pizzaface_p3_throwing()
 		}
 		else
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 }
@@ -487,7 +487,7 @@ function scr_pizzaface_p3_staggered()
 	}
 	if (abs(hsp) == 0)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
 

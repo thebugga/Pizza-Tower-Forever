@@ -46,6 +46,8 @@ if (other.key_up2 && other.ispeppino == ispeppino)
 	ini_write_real("Game", "palette_player2", other.player_paletteselect[1]);
 	ini_write_string("Game", "palettetexture", scr_get_texture_name(other.player_patterntexture[0]));
 	ini_write_string("Game", "palettetexture_player2", scr_get_texture_name(other.player_patterntexture[1]));
+	ini_write_real("Game", "palette_player3", other.player_paletteselect[1]);
+	ini_write_string("Game", "palettetexture_player3", scr_get_texture_name(other.player_patterntexture[1]));
 	obj_savesystem.ini_str = ini_close();
 	palettetitle = lang_get_value(concat("dresser_", palettes[paletteselect][0], "title"));
 	palettedesc = lang_get_value_newline(concat("dresser_", palettes[paletteselect][0]));

@@ -20,7 +20,7 @@ if (!attacking)
 else
 {
 	var sb = ds_map_find_value(boss_hurtstates, state);
-	if (!is_undefined(sb) && state != "chainsaw" && state != states.stun)
+	if (!is_undefined(sb) && state != "chainsaw" && state != "stun")
 	{
 		player_hurt(sb, _player);
 		lastplayerid = _player;

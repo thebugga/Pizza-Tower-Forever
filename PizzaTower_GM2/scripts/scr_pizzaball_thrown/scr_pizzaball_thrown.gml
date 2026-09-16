@@ -54,7 +54,7 @@ function scr_pizzaball_thrown()
 			if (hitspeed == 0)
 			{
 				sprite_index = walkspr;
-				state = states.walk;
+				state = "walk";
 			}
 			break;
 	}

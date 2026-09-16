@@ -6,7 +6,7 @@ switch (state)
 	case states.fall:
 		scr_pizzaface_p2_fall();
 		break;
-	case states.walk:
+	case "walk":
 		scr_pizzaface_p2_normal();
 		break;
 	case states.fishing:
@@ -34,22 +34,22 @@ switch (state)
 		boss_pizzahead_p2_phase1hurt();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case "pummel":
-		scr_enemy_pummel();
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
 }
-if (obj_player1.state != "actor" && obj_player1.y >= (y - 20) && obj_player1.state != "animation" && state != "hit" && state != states.stun && state != states.phase1hurt && hsp == 0 && state != states.fall)
+if (obj_player1.state != "actor" && obj_player1.y >= (y - 20) && obj_player1.state != "animation" && state != "hit" && state != "stun" && state != states.phase1hurt && hsp == 0 && state != states.fall)
 {
 	if ((x > (room_width / 2) && obj_player1.x >= (x - 60)) || (x <= (room_width / 2) && obj_player1.x <= (x + 60)))
 	{
@@ -98,7 +98,7 @@ if (prevhp != elitehit)
 	}
 	prevhp = elitehit;
 }
-if (state == states.stun)
+if (state == "stun")
 {
 	if (thrown)
 	{
@@ -114,7 +114,7 @@ else
 {
 	savedthrown = false;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -122,7 +122,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state == states.stun && savedthrown == thrown && !savedthrown)
+if (state == "stun" && savedthrown == thrown && !savedthrown)
 {
 	invincible = false;
 }
@@ -135,14 +135,14 @@ if (state == states.ram && alarm[4] < 0)
 	alarm[4] = 6;
 }
 mask_index = spr_pizzahead_idle;
-if (state == states.stun && thrown)
+if (state == "stun" && thrown)
 {
 	while (place_meeting(x, y, obj_solid))
 	{
 		y--;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -154,7 +154,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -165,6 +165,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

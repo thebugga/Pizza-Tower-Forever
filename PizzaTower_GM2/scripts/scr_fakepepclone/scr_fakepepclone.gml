@@ -18,7 +18,7 @@ function scr_fakepepclone_transitioncutscene()
 		if (sprite_index == spr_fakepeppino_reform)
 		{
 			attacked = false;
-			state = states.walk;
+			state = "walk";
 			cooldown = 15;
 			if (attack.attack == fakepep_attacks.mach || attack.attack == fakepep_attacks.throwhead || attack.attack == fakepep_attacks.taunt)
 			{
@@ -215,7 +215,7 @@ function scr_fakepepclone_Sjump()
 	}
 	if (place_meeting(x, y - 1, obj_solid))
 	{
-		state = states.walk;
+		state = "walk";
 		attacked = true;
 		with (instance_create(x, y + 20, obj_explosioneffect))
 		{
@@ -237,7 +237,7 @@ function scr_fakepepclone_throwing()
 		}
 		if (ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 			attacked = true;
 		}
 		if (floor(image_index) >= 32 && !instance_exists(headID))
@@ -263,7 +263,7 @@ function scr_fakepepclone_throwing()
 		hsp = image_xscale * attackspeed;
 		if (place_meeting(x + sign(hsp), y, obj_solid))
 		{
-			state = states.walk;
+			state = "walk";
 			attacked = true;
 		}
 	}

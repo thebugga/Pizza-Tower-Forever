@@ -91,7 +91,7 @@ shader_set(shd_hit);
 with (obj_baddie)
 {
 	var _stun = 0;
-	if (state == states.stun && object_index != obj_pizzaball)
+	if (state == "stun" && object_index != obj_pizzaball)
 	{
 		_stun = 25;
 	}

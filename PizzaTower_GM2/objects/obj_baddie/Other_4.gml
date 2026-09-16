@@ -11,6 +11,7 @@ if (escape == true && !_destroyed)
 		with (instance_create(x, y, obj_escapespawn))
 		{
 			baddieID = other.id;
+		other.boxID = id;
 			other.escapespawnID = id;
 		}
 		instance_deactivate_object(id);

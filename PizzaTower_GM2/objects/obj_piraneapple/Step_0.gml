@@ -1,7 +1,7 @@
 
 switch (state)
 {
-	case states.walk:
+	case "walk":
 		var targetplayer = obj_player1.id;
 		if (hamspotted == true)
 		{
@@ -68,7 +68,7 @@ switch (state)
 		{
 			if (grounded)
 			{
-				state = states.walk;
+				state = "walk";
 				sprite_index = spr_piraneappleattack;
 			}
 			scr_collide();

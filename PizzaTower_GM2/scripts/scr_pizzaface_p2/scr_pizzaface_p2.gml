@@ -234,7 +234,7 @@ function scr_pizzaface_p2_fall()
 			}
 			if (ANIMATION_END)
 			{
-				state = states.walk;
+				state = "walk";
 				image_xscale = 1;
 				with (obj_player1)
 				{
@@ -341,7 +341,7 @@ function scr_pizzaface_p2_look()
 	else if (fishcount > 0)
 	{
 		fishcount--;
-		state = states.walk;
+		state = "walk";
 		image_xscale *= -1;
 		sprite_index = spr_pizzahead_giddy;
 	}
@@ -499,7 +499,7 @@ function boss_pizzahead_portraitthrow()
 	if (ANIMATION_END)
 	{
 		image_xscale *= -1;
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -609,7 +609,7 @@ function boss_pizzahead_pullinglevel()
 		else if (sprite_index == spr_pizzahead_pullinglevel2)
 		{
 			sprite_index = spr_pizzahead_giddy;
-			state = states.walk;
+			state = "walk";
 			image_xscale *= -1;
 			idle_buffer = 0;
 			leveldown = false;
@@ -626,7 +626,7 @@ function boss_pizzahead_throwing()
 	{
 		if (ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 	else
@@ -678,7 +678,7 @@ function boss_pizzahead_throwing()
 		{
 			if (ANIMATION_END)
 			{
-				state = states.walk;
+				state = "walk";
 			}
 		}
 		if (sprite_index == spr_pizzahead_ratballidle)
@@ -804,7 +804,7 @@ function boss_pizzahead_shotgun()
 				}
 				else
 				{
-					state = states.walk;
+					state = "walk";
 					if (!global.pistol)
 					{
 						image_xscale = saveddir;

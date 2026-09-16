@@ -41,7 +41,7 @@ if (image_index == 1 && global.panic == false && !warexit)
 		}
 	}
 }
-if (drop && dropstate != states.idle)
+if (drop && dropstate != "idle")
 {
 	exit;
 }

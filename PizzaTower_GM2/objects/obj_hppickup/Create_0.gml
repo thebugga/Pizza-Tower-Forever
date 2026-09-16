@@ -1,3 +1,4 @@
+scr_collide_init()
 image_speed = 0.35;
 hsp = 0;
 vsp = 0;

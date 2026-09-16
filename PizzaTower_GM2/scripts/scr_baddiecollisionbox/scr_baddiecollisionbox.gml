@@ -60,7 +60,7 @@ function baddiecollisionbox_update(_baddie)
 						with (other.baddieID)
 						{
 							elitehit = 0;
-							state = states.stun;
+							state = "stun";
 							vsp = -7;
 							image_xscale = -other.xscale;
 							hsp = other.xscale * 5;
@@ -77,12 +77,12 @@ function baddiecollisionbox_update(_baddie)
 						}
 					}
 				}
-				if (_stagger && other.baddieID.state != states.staggered)
+				if (_stagger && other.baddieID.state != "staggered")
 				{
 					with (other.baddieID)
 					{
 						hp -= ((state == "mach2" || state == "machroll") ? 1 : 2);
-						state = (hp > 0) ? states.staggered : states.stun;
+						state = (hp > 0) ? "staggered" : "stun";
 						stagger_buffer = stagger_max;
 						stagger_dir = other.xscale;
 					}
@@ -139,12 +139,12 @@ function baddiecollisionbox_update(_baddie)
 				}
 				other.baddieID.stagger_buffer = other.baddieID.stagger_max;
 				other.baddieID.stagger_dir = xscale;
-				other.baddieID.state = (other.baddieID.hp > 0) ? states.staggered : states.stun;
+				other.baddieID.state = (other.baddieID.hp > 0) ? "staggered" : "stun";
 				other.baddieID.image_index = 0;
 			}
 			if (instance_exists(other.baddieID) && state == "handstandjump" && !other.baddieID.invincible)
 			{
-				if (other.baddieID.state != states.stun)
+				if (other.baddieID.state != "stun")
 				{
 					state = "pummel";
 					sprite_index = spr_grab;

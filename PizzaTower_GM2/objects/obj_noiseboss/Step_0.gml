@@ -10,7 +10,7 @@ switch (state)
 	case "arenaintro":
 		scr_noise_arenaintro();
 		break;
-	case states.walk:
+	case "walk":
 		scr_noise_walk();
 		break;
 	case "mach2":
@@ -74,10 +74,10 @@ switch (state)
 		scr_boss_pizzaheadKO();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
 	case "grabbed":
 		scr_boss_grabbed();
@@ -86,10 +86,10 @@ switch (state)
 		scr_boss_pizzaheadjump();
 		break;
 	case "pummel":
-		scr_enemy_pummel();
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
 }
 if (sprite_index == spr_playerN_fightball)
@@ -144,7 +144,7 @@ if (state == states.phase1hurt && doise)
 	image_speed = 0.35;
 	image_index = obj_player1.image_index;
 }
-if (droptrap && (state == states.walk || state == states.stun))
+if (droptrap && (state == "walk" || state == "stun"))
 {
 	if (abs(x - targetplayer.x) <= 200)
 	{
@@ -174,7 +174,7 @@ if (wastedhits >= 8 && phase == 1 && !pizzahead)
 	destroyable = false;
 	scr_sleep(25);
 }
-if (state == states.stun)
+if (state == "stun")
 {
 	if (thrown)
 	{
@@ -236,7 +236,7 @@ if (prevhp != elitehit)
 	}
 	prevhp = elitehit;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -244,7 +244,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if ((state == states.walk || (state == states.stun && !savedthrown)) && flickertime <= 0 && (wastedhits != 7 || pizzahead))
+if ((state == "walk" || (state == "stun" && !savedthrown)) && flickertime <= 0 && (wastedhits != 7 || pizzahead))
 {
 	invincible = false;
 }
@@ -270,11 +270,11 @@ if (pizzahead)
 		}
 	}
 }
-if ((!invincible || ((state == states.walk && flickertime <= 0) || (state == states.stun && !savedthrown))) && !flash && alarm[5] < 0)
+if ((!invincible || ((state == "walk" && flickertime <= 0) || (state == "stun" && !savedthrown))) && !flash && alarm[5] < 0)
 {
 	alarm[5] = 0.15 * room_speed;
 }
-else if (invincible && (state != states.walk || flickertime > 0) && (state != states.stun || savedthrown))
+else if (invincible && (state != "walk" || flickertime > 0) && (state != "stun" || savedthrown))
 {
 	flash = false;
 }
@@ -290,7 +290,7 @@ if ((state == "mach2" || state == "machslide" || state == states.jetpack || stat
 	alarm[4] = 5;
 }
 mask_index = spr_player_mask;
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -302,7 +302,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -313,6 +313,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

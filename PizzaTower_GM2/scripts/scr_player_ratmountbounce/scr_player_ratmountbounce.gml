@@ -107,7 +107,7 @@ function player_ratmountbounce()
 			{
 				if (shakestun && grounded && point_in_camera(x, y, view_camera[0]) && grounded && vsp > 0 && !invincible && groundpound)
 				{
-					state = states.stun;
+					state = "stun";
 					if (stunned < 60)
 					{
 						stunned = 60;

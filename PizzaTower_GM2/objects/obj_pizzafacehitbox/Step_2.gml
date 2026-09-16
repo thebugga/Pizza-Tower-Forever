@@ -5,7 +5,7 @@ if (!instance_exists(baddieID))
 }
 x = baddieID.x;
 y = baddieID.y;
-if (baddieID.state == states.walk)
+if (baddieID.state == "walk")
 {
 	sprite_index = spr_pizzaface_attackend;
 }

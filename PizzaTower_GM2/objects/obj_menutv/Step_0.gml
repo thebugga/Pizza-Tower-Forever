@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.idle:
+	case "idle":
 		if (selected)
 		{
 			state = "transitioncutscene";
@@ -30,7 +30,7 @@ switch (state)
 			}
 			else
 			{
-				state = states.idle;
+				state = "idle";
 				sprite_index = idlespr;
 			}
 		}

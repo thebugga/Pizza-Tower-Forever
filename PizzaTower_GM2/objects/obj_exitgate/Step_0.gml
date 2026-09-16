@@ -73,7 +73,7 @@ if (drop && global.panic)
 				depth = 50;
 				fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 				y = drop_y;
-				dropstate = states.idle;
+				dropstate = "idle";
 				handsprite = spr_grabbiehand_idle;
 				with (obj_camera)
 				{
@@ -82,7 +82,7 @@ if (drop && global.panic)
 				}
 			}
 			break;
-		case states.idle:
+		case "idle":
 			hand_y -= 6;
 			break;
 	}

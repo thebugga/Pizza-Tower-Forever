@@ -146,7 +146,7 @@ function scr_noise_arenaintro()
 					state = "actor";
 				}
 			}
-			if (state == states.walk)
+			if (state == "walk")
 			{
 				with (instance_create(x, y, obj_doisedead))
 				{
@@ -250,7 +250,7 @@ function scr_noise_arenaintro()
 				}
 				else if (sprite_index == spr_noise_intro3 || sprite_index == spr_playerN_idle)
 				{
-					state = states.walk;
+					state = "walk";
 					spotlightID.expand = true;
 					with (obj_player)
 					{
@@ -357,7 +357,7 @@ function scr_noise_arenaintro()
 			}
 			else if (sprite_index == spr_noise_vulnerable2)
 			{
-				state = states.walk;
+				state = "walk";
 				spotlightID.expand = true;
 				with (obj_player)
 				{
@@ -383,7 +383,7 @@ function scr_noise_arenaintro()
 			}
 			else if (sprite_index == spr_noise_intro3 || sprite_index == spr_playerN_idle)
 			{
-				state = states.walk;
+				state = "walk";
 				spotlightID.expand = true;
 				with (obj_player)
 				{
@@ -436,7 +436,7 @@ function scr_doise_end_start()
 
 function scr_noise_do_hurt(_obj)
 {
-	if (state != states.stun)
+	if (state != "stun")
 	{
 		if (x != _obj.x)
 		{
@@ -450,7 +450,7 @@ function scr_noise_do_hurt(_obj)
 		{
 			hsp = -image_xscale * 8;
 		}
-		state = states.stun;
+		state = "stun";
 		thrown = false;
 		savedthrown = false;
 		stunned = 800;
@@ -714,7 +714,7 @@ function scr_noise_machslide()
 		}
 		else if (sprite_index == spr_playerN_machslideend || sprite_index == spr_playerN_noisebombkick)
 		{
-			state = states.walk;
+			state = "walk";
 			hsp = 0;
 		}
 	}
@@ -956,7 +956,7 @@ function scr_noise_bounce()
 		{
 			cooldown = 100;
 		}
-		state = states.walk;
+		state = "walk";
 		hsp = image_xscale * 5;
 		if (phase == 2)
 		{
@@ -1050,7 +1050,7 @@ function scr_noise_pogo()
 			{
 				cooldown = 100;
 			}
-			state = states.walk;
+			state = "walk";
 			if (phase == 2)
 			{
 				fmod_event_one_shot_3d("event:/sfx/noise/noisecrusher", x, y);
@@ -1168,7 +1168,7 @@ function scr_noise_drop()
 				fmod_event_one_shot_3d("event:/sfx/vigilante/throw", x, y);
 				if (object_index == obj_noisey)
 				{
-					state = states.stun;
+					state = "stun";
 					stunned = 50;
 					important = true;
 				}
@@ -1251,7 +1251,7 @@ function scr_noise_freefall()
 		{
 			cooldown = 100;
 		}
-		state = states.walk;
+		state = "walk";
 		image_index = 0;
 		sprite_index = spr_playerN_facehurtup;
 		hsp = 0;
@@ -1312,7 +1312,7 @@ function scr_noise_noisecrusher()
 	if (sprite_index == spr_noise_crusherland && ANIMATION_END)
 	{
 		create_particle(x, y, particletypes.genericpoofeffect);
-		state = states.walk;
+		state = "walk";
 	}
 	if (grounded && vsp > 0 && sprite_index != spr_noise_crusherland)
 	{
@@ -1349,7 +1349,7 @@ function scr_noise_noiseballooncrash()
 	image_speed = 0.35;
 	if (ANIMATION_END)
 	{
-		state = states.walk;
+		state = "walk";
 		with (obj_player1)
 		{
 			state = "default";
@@ -1392,11 +1392,11 @@ function scr_noise_fightball()
 				fightballcount++;
 				if (fightballcount >= 2)
 				{
-					substate = states.walk;
+					substate = "walk";
 				}
 			}
 			break;
-		case states.walk:
+		case "walk":
 			with (obj_player1)
 			{
 				hsp = other.hsp;
@@ -1435,7 +1435,7 @@ function scr_noise_fightball()
 			else
 			{
 				elitehit--;
-				state = states.walk;
+				state = "walk";
 			}
 			break;
 	}
@@ -1485,11 +1485,11 @@ function scr_noise_finale()
 				fightballcount++;
 				if (fightballcount >= 4)
 				{
-					substate = states.walk;
+					substate = "walk";
 				}
 			}
 			break;
-		case states.walk:
+		case "walk":
 			with (obj_player1)
 			{
 				hsp = other.hsp;

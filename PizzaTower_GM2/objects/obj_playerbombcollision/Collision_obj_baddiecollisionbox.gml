@@ -69,7 +69,7 @@ if (baddie.object_index == obj_vigilanteboss && (baddie.state == "hit" || (baddi
 {
 	exit;
 }
-if (baddie.object_index == obj_noiseboss && (baddie.state == states.walk || baddie.state == states.droptrap) && baddie.droptrap)
+if (baddie.object_index == obj_noiseboss && (baddie.state == "walk" || baddie.state == states.droptrap) && baddie.droptrap)
 {
 	with (bombID)
 	{
@@ -77,7 +77,7 @@ if (baddie.object_index == obj_noiseboss && (baddie.state == states.walk || badd
 	}
 	exit;
 }
-if (baddie.object_index == obj_pizzafaceboss && baddie.state == states.ram && baddie.substate == states.land && baddie.elitehit == 1)
+if (baddie.object_index == obj_pizzafaceboss && baddie.state == states.ram && baddie.substate == "land" && baddie.elitehit == 1)
 {
 	with (bombID)
 	{
@@ -96,7 +96,7 @@ if (!baddie.invincible || baddie.object_index == obj_vigilanteboss || baddie.obj
 		instance_destroy();
 	}
 }
-else if ((baddie.object_index != obj_pizzafaceboss || ((baddie.state != states.ram || baddie.substate != "jump") && baddie.state != states.walk)) && (baddie.object_index != obj_pepperman || baddie.state != states.mini))
+else if ((baddie.object_index != obj_pizzafaceboss || ((baddie.state != states.ram || baddie.substate != "jump") && baddie.state != "walk")) && (baddie.object_index != obj_pepperman || baddie.state != states.mini))
 {
 	with (bombID)
 	{

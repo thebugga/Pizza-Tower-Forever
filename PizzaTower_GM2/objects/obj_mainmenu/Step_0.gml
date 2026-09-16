@@ -1,251 +1,81 @@
 scr_menu_getinput();
-index += 0.1;
+//index += 0.1;
 switch (state)
 {
 	case "titlescreen":
-		currentselect = -1;
-		if (!instance_exists(obj_noiseunlocked))
-		{
-			if !IS_DEBUG
-			jumpscarecount++;
-			if ((keyboard_check_pressed(vk_anykey) || scr_checkanygamepad(obj_inputAssigner.player_input_device[0]) != noone || scr_checkanystick(obj_inputAssigner.player_input_device[0])) && !instance_exists(obj_mainmenu_jumpscare))
-			{
-				state = "transitioncutscene";
-				currentselect = -1;
-				visualselect = -1;
-				darkcount = 7;
-				dark = false;
-				darkbuffer = 5;
-				jumpscarecount = 0;
-				fmod_event_one_shot("event:/sfx/ui/lightswitch");
-				with (obj_music)
-				{
-					fmod_event_instance_set_parameter(music.event, "state", 1, true);
-				}
-			}
-			if (jumpscarecount > 2400 && !instance_exists(obj_mainmenu_jumpscare))
-			{
-				instance_create(480, 270, obj_mainmenu_jumpscare);
-				fmod_event_one_shot("event:/sfx/enemies/jumpscare");
-			}
-		}
-		break;
-	case "transitioncutscene":
-		if (darkbuffer > 0)
-		{
-			darkbuffer--;
-		}
-		else
-		{
-			dark = !dark;
-			if (darkcount > 0)
-			{
-				darkcount--;
-				if (dark)
-				{
-					darkbuffer = 2 + irandom(3);
-				}
-				else
-				{
-					darkbuffer = 6 + irandom(5);
-				}
-				if (darkcount <= 0)
-				{
-					dark = false;
-					darkbuffer = 40;
-				}
-			}
-			else
-			{
-				alarm[2] = showbuffer_max;
-				currentselect = 0;
-				visualselect = 0;
-				dark = false;
-				state = "default";
-				sprite_index = spr_titlepep_forwardtoleft;
-				image_index = 0;
-			}
-		}
+		if ((keyboard_check_pressed(vk_anykey) || scr_checkanygamepad(obj_inputAssigner.player_input_device[0]) != noone || scr_checkanystick(obj_inputAssigner.player_input_device[0])) && !instance_exists(obj_mainmenu_jumpscare))
+			alarm[1] = 5;
 		break;
 	case "default":
-		if (key_start && optionbuffer <= 0 && !instance_exists(obj_option) && !instance_exists(obj_noiseunlocked))
+		if changex 
 		{
-			with (instance_create(0, 0, obj_option))
+			extrauialpha = twerp(TwerpType.out_quad, extrauialpha, 1, .02);
+			x = twerp(TwerpType.out_quad, x, 480, .02);
+		}
+		if x >= 400
+			can_press_stuff = true;
+		if can_press_stuff
+		{
+			if (key_start && optionbuffer <= 0 && !instance_exists(obj_option))
 			{
-				backbuffer = 2;
+				with (instance_create(0, 0, obj_option))
+				{
+					backbuffer = 2;
+				}
+				break;
 			}
-			break;
+			if (instance_exists(obj_option))
+			{
+				quitbuffer = 3;
+				break;
+			}
+			if (key_jump)
+			{
+				state = "savepicker";
+			}
+			else if (key_quit2)
+			{
+				if (quitbuffer <= 0)
+				{
+					state = states.finale;
+					exitselect = 1;
+				}
+			}
+			else if (key_delete2 && currentselect > -1)
+			{
+				deletebuffer = 0;
+				state = "bombdelete";
+				deleteselect = 1;
+				fmod_event_one_shot_3d("event:/sfx/voice/pig", 480, 270);
+			}
 		}
-		if (instance_exists(obj_option))
-		{
-			quitbuffer = 3;
-			break;
-		}
+		break;
+	case "savepicker":
 		move = key_left2 + key_right2;
-		if (instance_exists(obj_noiseunlocked))
+		
+		if key_right2
 		{
-			move = 0;
-			key_jump = false;
-			key_jump2 = false;
-			key_delete2 = false;
-			key_quit2 = false;
-			key_down2 = false;
-			key_up2 = false;
-		}
-		if (noise_unlocked && !key_jump && !key_delete2 && !key_quit2)
-		{
-			var p = 5;
-			var _move_v = key_down2 - key_up2;
-			if (_move_v != 0)
-			{
-				var c = charselect;
-				charselect += _move_v;
-				charselect = clamp(charselect, 0, 2);
-				if (charselect == 2 && !swap_unlocked)
-				{
-					charselect = 1;
-				}
-				if (charselect != c)
-				{
-					game_icon_y = p * _move_v;
-					game_icon_buffer = 8;
-					game_icon_index = 0;
-					if (_move_v > 0)
-					{
-						fmod_event_one_shot("event:/sfx/ui/switchcharup");
-					}
-					else
-					{
-						fmod_event_one_shot("event:/sfx/ui/switchchardown");
-					}
-				}
-				var _noise = shownoise;
-				if (charselect == 0)
-				{
-					shownoise = false;
-					showswap = false;
-				}
-			}
-		}
-		if ((sprite_index != spr_titlepep_punch && sprite_index != spr_titlepep_angry) || move != 0)
-		{
-			if (move != 0)
-			{
-				angrybuffer = 0;
-			}
 			currentselect += move;
-			currentselect = clamp(currentselect, 0, 2);
-			if (currentselect != visualselect && (sprite_index == spr_titlepep_left || sprite_index == spr_titlepep_middle || sprite_index == spr_titlepep_right))
-			{
-				visualselect = approach(visualselect, currentselect, 1);
-				alarm[2] = showbuffer_max;
-				image_index = 0;
-				if (visualselect == 0 && sprite_index == spr_titlepep_middle)
-				{
-					sprite_index = spr_titlepep_middletoleft;
-				}
-				if (visualselect == 1 && sprite_index == spr_titlepep_left)
-				{
-					sprite_index = spr_titlepep_lefttomiddle;
-				}
-				if (visualselect == 2 && sprite_index == spr_titlepep_middle)
-				{
-					sprite_index = spr_titlepep_middletoright;
-				}
-				if (visualselect == 1 && sprite_index == spr_titlepep_right)
-				{
-					sprite_index = spr_titlepep_righttomiddle;
-				}
-			}
-			if (ANIMATION_END)
-			{
-				switch (sprite_index)
-				{
-					case spr_titlepep_forwardtoleft:
-					case spr_titlepep_middletoleft:
-						sprite_index = spr_titlepep_left;
-						break;
-					case spr_titlepep_lefttomiddle:
-					case spr_titlepep_righttomiddle:
-						sprite_index = spr_titlepep_middle;
-						break;
-					case spr_titlepep_middletoright:
-						sprite_index = spr_titlepep_right;
-						break;
-				}
-			}
+			currentselect = clamp(currentselect, -1, array_length(global.game) - 1);
+			makingnewsave = false;
 		}
-		else if (sprite_index == spr_titlepep_angry)
+		
+		if key_left2 
 		{
-			y = ystart;
-			if (angrybuffer > 0)
+			makingnewsave = true;
+			if key_jump
 			{
-				angrybuffer--;
-			}
-			else
-			{
-				sprite_index = savedsprite;
-				switch (sprite_index)
-				{
-					case spr_titlepep_forwardtoleft:
-					case spr_titlepep_middletoleft:
-						sprite_index = spr_titlepep_left;
-						break;
-					case spr_titlepep_lefttomiddle:
-					case spr_titlepep_righttomiddle:
-						sprite_index = spr_titlepep_middle;
-						break;
-					case spr_titlepep_middletoright:
-						sprite_index = spr_titlepep_right;
-						break;
-				}
-				image_index = savedindex;
-				image_speed = 0.35;
+				array_push(global.game, game_empty())
+				currentselect = array_length(global.game) - 1
+				state = "wait";
 			}
 		}
-		if (key_jump)
+			
+		if (key_jump && !makingnewsave)
 		{
-			state = states.wait;
+			state = "wait";
 		}
-		else if (key_quit2)
-		{
-			if (quitbuffer <= 0)
-			{
-				state = states.finale;
-				exitselect = 1;
-				switch (currentselect)
-				{
-					case 0:
-						sprite_index = spr_titlepep_left;
-						break;
-					case 1:
-						sprite_index = spr_titlepep_middle;
-						break;
-					case 2:
-						sprite_index = spr_titlepep_right;
-						break;
-				}
-			}
-		}
-		else if (key_delete2 && ((!shownoise && global.game[currentselect].started)))
-		{
-			deletebuffer = 0;
-			state = "bombdelete";
-			deleteselect = 1;
-			fmod_event_one_shot_3d("event:/sfx/voice/pig", 480, 270);
-			switch (currentselect)
-			{
-				case 0:
-					sprite_index = spr_titlepep_left;
-					break;
-				case 1:
-					sprite_index = spr_titlepep_middle;
-					break;
-				case 2:
-					sprite_index = spr_titlepep_right;
-					break;
-			}
-		}
+		
 		break;
 	case "bombdelete":
 		deleteselect += (key_left2 + key_right2);
@@ -262,7 +92,7 @@ switch (state)
 		{
 			if (deleteselect == 0)
 			{
-				var file = concat(get_save_folder(), "/saveData", currentselect + 1, !shownoise ? ".ini" : "N.ini");
+				var file = concat(get_save_folder(), "/saveData", currentselect + 1, ".ini");
 				if (file_exists(file))
 				{
 					file_delete(file);
@@ -285,9 +115,9 @@ switch (state)
 			}
 			state = "default";
 		}
-		break;;
+		break;
 	
-	case states.wait:
+	case "wait":
 		move = key_down2 - key_up2;
 		currentmodeselect = wrap(currentmodeselect + move, -1, array_length(global.modes) - 1);
 		
@@ -365,20 +195,6 @@ if (state != "titlescreen" && state != "transitioncutscene")
 {
 	extrauialpha = approach(extrauialpha, 1, 0.1);
 }
-if (currentselect != -1)
-{
-	pep_game = menu_get_game(currentselect, true);
-	noise_game = menu_get_game(currentselect, false);
-	if (state != "titlescreen" && state != "transitioncutscene")
-	{
-		var a = floor(abs(pep_percvisual - pep_game.percentage) / 10) + 1;
-		pep_percvisual = approach(pep_percvisual, pep_game.percentage, a);
-		pep_game.percvisual = pep_percvisual;
-		a = floor(abs(noise_percvisual - noise_game.percentage) / 10) + 1;
-		noise_percvisual = approach(noise_percvisual, noise_game.percentage, a);
-		noise_game.percvisual = noise_percvisual;
-	}
-}
 var acc = 2;
 game_icon_index += 0.1;
 if (game_icon_y != 0)
@@ -392,21 +208,6 @@ if (game_icon_buffer > 0)
 else
 {
 	game_icon_y = 0;
-}
-if (shownoise)
-{
-	noise_alpha = approach(noise_alpha, 1, acc);
-	pep_alpha = approach(pep_alpha, 0, acc);
-}
-else
-{
-	noise_alpha = approach(noise_alpha, 0, acc);
-	pep_alpha = approach(pep_alpha, 1, acc);
-}
-if (currentselect != -1)
-{
-	pep_game.alpha = pep_alpha;
-	noise_game.alpha = noise_alpha;
 }
 with (obj_menutv)
 {

@@ -6,7 +6,7 @@ if ((state == "mach2" && hsp != 0) || (state == states.spin && image_index > 3) 
 	}
 	scr_hurtplayer(other);
 }
-else if (((state == states.walk || (state == states.stun && !savedthrown)) && flickertime <= 0 && wastedhits == 7 && (other.instakillmove || other.state == "handstandjump")) && !pizzahead)
+else if (((state == "walk" || (state == "stun" && !savedthrown)) && flickertime <= 0 && wastedhits == 7 && (other.instakillmove || other.state == "handstandjump")) && !pizzahead)
 {
 	if (phase == 1)
 	{

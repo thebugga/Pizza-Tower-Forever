@@ -2,7 +2,7 @@
 image_speed = 0.35;
 switch (state)
 {
-	case states.idle:
+	case "idle":
 		sprite_index = idlespr;
 		playerid = instance_nearest(x, y, obj_player);
 		hsp = 0;
@@ -32,10 +32,10 @@ switch (state)
 			}
 		}
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.walk:
+	case "walk":
 		sprite_index = idlespr;
 		var d = point_direction(x, y, xstart, ystart);
 		x += lengthdir_x(8, d);
@@ -44,7 +44,7 @@ switch (state)
 		vsp = 0;
 		if (x > (xstart - 10) && x < (xstart + 10) && y > (ystart - 10) && y < (ystart + 10))
 		{
-			state = states.idle;
+			state = "idle";
 			image_xscale = start_xscale;
 			cooldown = 100;
 			x = xstart;
@@ -75,37 +75,37 @@ switch (state)
 		{
 			y = attack_y;
 			vsp = 0;
-			state = states.idle;
+			state = "idle";
 			cooldown = 100;
 			image_xscale *= -1;
 		}
 		break;
-	case states.turn:
+	case "turn":
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		hit = true;
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case "pummel":
-		scr_enemy_pummel();
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -113,7 +113,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -125,7 +125,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -133,7 +133,7 @@ if (bombreset > 0)
 {
 	bombreset--;
 }
-if (grounded && state == states.pizzagoblinthrow && floor(image_index) == 3)
+if (grounded && state == "enemy_throw" && floor(image_index) == 3)
 {
 	vsp = -5;
 }
@@ -144,6 +144,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

@@ -1,4 +1,4 @@
-if (state == states.idle || (state == "actor" && substate == states.idle))
+if (state == "idle" || (state == "actor" && substate == "idle"))
 {
 	repeat (irandom_range(1, 3))
 	{

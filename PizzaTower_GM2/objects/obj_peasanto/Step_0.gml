@@ -1,34 +1,34 @@
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 }
-if (state == states.stun && stunned > 40 && birdcreated == false)
+if (state == "stun" && stunned > 40 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -36,11 +36,11 @@ if (state == states.stun && stunned > 40 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
-if (place_meeting(x + hsp, y, obj_iceblock) && state == states.charge)
+if (place_meeting(x + hsp, y, obj_iceblock) && state == "charge")
 {
 	with (instance_place(x + hsp, y, obj_iceblock))
 	{
@@ -48,12 +48,12 @@ if (place_meeting(x + hsp, y, obj_iceblock) && state == states.charge)
 	}
 }
 targetplayer = instance_nearest(x, y, obj_player);
-if (state == states.walk && attack_cooldown <= 0)
+if (state == "walk" && attack_cooldown <= 0)
 {
 	if (x != targetplayer.x && targetplayer.x > (x - 200) && targetplayer.x < (x + 200) && targetplayer.y < (y + 50) && targetplayer.y > (y - 50))
 	{
 		flame_buffer = flame_max;
-		state = states.charge;
+		state = "charge";
 		image_xscale = sign(targetplayer.x - x);
 		sprite_index = spr_peasanto_flameattack;
 		image_index = 0;
@@ -61,7 +61,7 @@ if (state == states.walk && attack_cooldown <= 0)
 		hitboxcreate = false;
 	}
 }
-if (state == states.charge)
+if (state == "charge")
 {
 	if (!hitboxcreate)
 	{
@@ -73,7 +73,7 @@ if (state == states.charge)
 	}
 	if (flame_buffer <= 0)
 	{
-		state = states.walk;
+		state = "walk";
 		sprite_index = walkspr;
 		attack_cooldown = attack_max;
 	}
@@ -98,7 +98,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -109,6 +109,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

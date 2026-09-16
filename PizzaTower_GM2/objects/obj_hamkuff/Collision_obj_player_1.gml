@@ -36,6 +36,7 @@ if (state != states.stun)
 			{
 				trapped = true;
 				baddieID = other.id;
+		other.boxID = id;
 				other.playerid = id;
 			}
 		}

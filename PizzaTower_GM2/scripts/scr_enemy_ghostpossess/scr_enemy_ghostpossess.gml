@@ -1,4 +1,4 @@
-function scr_enemy_ghostpossess()
+function enemy_ghostpossess()
 {
 	var _move = 0;
 	with (playerid)
@@ -11,7 +11,7 @@ function scr_enemy_ghostpossess()
 		{
 			state = "ghost";
 			vsp = -10;
-			other.state = states.stun;
+			other.state = "stun";
 			other.stunned = 50;
 			create_particle(x, y, particletypes.genericpoofeffect, 0);
 			visible = true;

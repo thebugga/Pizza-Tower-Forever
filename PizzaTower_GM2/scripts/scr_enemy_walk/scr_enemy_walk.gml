@@ -1,4 +1,4 @@
-function scr_enemy_walk()
+function enemy_walk()
 {
 	if (object_index != obj_robot && object_index != obj_pizzice && object_index != obj_spitcheese && object_index != obj_ninja && object_index != obj_camerapatrol && object_index != obj_trash && object_index != obj_fencer && object_index != obj_rancher && object_index != obj_banditochicken && object_index != obj_ancho && object_index != obj_pickle && object_index != obj_thug_red)
 	{
@@ -58,14 +58,14 @@ function scr_enemy_walk()
 				xscale *= -1;
 				image_index = 0;
 				sprite_index = spr_forknight_turn;
-				state = states.idle;
+				state = "idle";
 			}
 			else if (object_index == obj_snowman)
 			{
 				xscale *= -1;
 				image_index = 0;
 				sprite_index = spr_newpizzice_turn;
-				state = states.idle;
+				state = "idle";
 			}
 			else if (object_index == obj_patroller)
 			{
@@ -74,7 +74,7 @@ function scr_enemy_walk()
 					xscale *= -1;
 					image_index = 0;
 					sprite_index = spr_patroller_turn;
-					state = states.idle;
+					state = "idle";
 				}
 			}
 			else if (object_index == obj_tank)
@@ -82,14 +82,14 @@ function scr_enemy_walk()
 				xscale *= -1;
 				image_index = 0;
 				sprite_index = spr_tank_turn;
-				state = states.idle;
+				state = "idle";
 			}
 			else if (object_index == obj_ghostknight)
 			{
 				xscale *= -1;
 				image_index = 0;
 				sprite_index = spr_ghostknight_turn;
-				state = states.idle;
+				state = "idle";
 			}
 			else
 			{
@@ -127,14 +127,14 @@ function scr_enemy_walk()
 					xscale *= -1;
 					image_index = 0;
 					sprite_index = spr_forknight_turn;
-					state = states.idle;
+					state = "idle";
 				}
 				else if (object_index == obj_snowman)
 				{
 					xscale *= -1;
 					image_index = 0;
 					sprite_index = spr_newpizzice_turn;
-					state = states.idle;
+					state = "idle";
 				}
 				else if (object_index == obj_patroller)
 				{
@@ -143,7 +143,7 @@ function scr_enemy_walk()
 						xscale *= -1;
 						image_index = 0;
 						sprite_index = spr_patroller_turn;
-						state = states.idle;
+						state = "idle";
 					}
 				}
 				else if (object_index == obj_indiancheese)
@@ -151,21 +151,21 @@ function scr_enemy_walk()
 					xscale *= -1;
 					image_index = 0;
 					sprite_index = spr_indiancheese_turn;
-					state = states.idle;
+					state = "idle";
 				}
 				else if (object_index == obj_ghostknight)
 				{
 					xscale *= -1;
 					image_index = 0;
 					sprite_index = spr_ghostknight_turn;
-					state = states.idle;
+					state = "idle";
 				}
 				else if (object_index == obj_tank)
 				{
 					xscale *= -1;
 					image_index = 0;
 					sprite_index = spr_tank_turn;
-					state = states.idle;
+					state = "idle";
 				}
 				else
 				{

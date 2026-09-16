@@ -5,7 +5,7 @@ function player_ratmountspit()
 	vsp = 0;
 	with (ratgrabbedID)
 	{
-		scr_enemy_ratgrabbed();
+		enemy_ratgrabbed();
 	}
 	if (ANIMATION_END)
 	{

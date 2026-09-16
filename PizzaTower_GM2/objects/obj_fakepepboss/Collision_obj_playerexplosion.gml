@@ -1,4 +1,4 @@
-if (staggerbuffer <= 0 && flickertime <= 0 && visible && (state == states.walk || (state == "jump" && sprite_index == spr_fakepeppino_bodyslamstart) || (state == "freefall" && sprite_index == spr_fakepeppino_bodyslamland) || (state == "mach2" && attackspeed < 18) || state == "Sjumpprep" || (state == "throwing" && sprite_index != spr_fakepeppino_flailing)))
+if (staggerbuffer <= 0 && flickertime <= 0 && visible && (state == "walk" || (state == "jump" && sprite_index == spr_fakepeppino_bodyslamstart) || (state == "freefall" && sprite_index == spr_fakepeppino_bodyslamland) || (state == "mach2" && attackspeed < 18) || state == "Sjumpprep" || (state == "throwing" && sprite_index != spr_fakepeppino_flailing)))
 {
 	var ix = -other.image_xscale;
 	if (x != other.x)
@@ -7,9 +7,9 @@ if (staggerbuffer <= 0 && flickertime <= 0 && visible && (state == states.walk |
 	}
 	if (subhp > 0)
 	{
-		if (state == states.walk)
+		if (state == "walk")
 		{
-			state = states.staggered;
+			state = "staggered";
 			image_xscale = ix;
 			hsp = -image_xscale * 20;
 			vsp = 0;
@@ -35,7 +35,7 @@ if (staggerbuffer <= 0 && flickertime <= 0 && visible && (state == states.walk |
 			create_particle(x, y, particletypes.genericpoofeffect);
 			instance_destroy(id, false);
 		}
-		state = states.stun;
+		state = "stun";
 		image_xscale = ix;
 		hsp = -image_xscale * 8;
 		vsp = -6;

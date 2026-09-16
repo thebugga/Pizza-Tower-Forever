@@ -1,34 +1,34 @@
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 }
-if (state == states.walk)
+if (state == "walk")
 {
 	hsp = 0;
 }
@@ -37,7 +37,7 @@ else if (state == "throwing")
 	hsp = 0;
 	if (ANIMATION_END)
 	{
-		state = states.walk;
+		state = "walk";
 		sprite_index = spr_bigcheese_idle;
 		golfid = noone;
 		playerid = noone;
@@ -161,7 +161,7 @@ else if (state == "throwing")
 		playerid = noone;
 	}
 }
-if (state == states.stun && stunned > 40 && birdcreated == false)
+if (state == "stun" && stunned > 40 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -169,7 +169,7 @@ if (state == states.stun && stunned > 40 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -189,7 +189,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }

@@ -7,7 +7,7 @@ switch (state)
 			fmod_event_one_shot_3d("event:/sfx/noise/bombbounce", x, y);
 			sprite_index = spr_playerN_noisebombland;
 			image_index = 0;
-			state = states.land;
+			state = "land";
 		}
 		break;
 	case "default":
@@ -28,7 +28,7 @@ switch (state)
 			fmod_event_one_shot_3d("event:/sfx/noise/bombbounce", x, y);
 			sprite_index = spr_playerN_noisebombland;
 			image_index = 0;
-			state = states.land;
+			state = "land";
 		}
 		else if (place_meeting(x + sign(hsp), y, obj_solid))
 		{
@@ -37,7 +37,7 @@ switch (state)
 			image_xscale *= -1;
 		}
 		break;
-	case states.land:
+	case "land":
 		hsp = 0;
 		vsp = 0;
 		if (floor(image_index) >= 5)

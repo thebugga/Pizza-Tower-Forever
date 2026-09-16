@@ -60,7 +60,7 @@ ds_map_set(collision_function, obj_baddie, function(_obj)
 		}
 		return false;
 	}
-	if (_obj.object_index == obj_pizzafaceboss && _obj.state == states.ram && _obj.substate == states.land && _obj.elitehit == 1)
+	if (_obj.object_index == obj_pizzafaceboss && _obj.state == states.ram && _obj.substate == "land" && _obj.elitehit == 1)
 	{
 		with (instance_create(other.x, other.y, obj_explosioneffect))
 		{
@@ -81,7 +81,7 @@ ds_map_set(collision_function, obj_baddie, function(_obj)
 	{
 		with (_obj)
 		{
-			if (staggerbuffer <= 0 && flickertime <= 0 && visible && (state == states.walk || (state == "jump" && sprite_index == spr_fakepeppino_bodyslamstart) || (state == "freefall" && sprite_index == spr_fakepeppino_bodyslamland) || (state == "mach2" && attackspeed < 18) || state == "Sjumpprep" || (state == "throwing" && sprite_index != spr_fakepeppino_flailing)))
+			if (staggerbuffer <= 0 && flickertime <= 0 && visible && (state == "walk" || (state == "jump" && sprite_index == spr_fakepeppino_bodyslamstart) || (state == "freefall" && sprite_index == spr_fakepeppino_bodyslamland) || (state == "mach2" && attackspeed < 18) || state == "Sjumpprep" || (state == "throwing" && sprite_index != spr_fakepeppino_flailing)))
 			{
 				var ix = -other.image_xscale;
 				if (x != other.x)
@@ -90,9 +90,9 @@ ds_map_set(collision_function, obj_baddie, function(_obj)
 				}
 				if (subhp > 0)
 				{
-					if (state == states.walk)
+					if (state == "walk")
 					{
-						state = states.staggered;
+						state = "staggered";
 						image_xscale = ix;
 						hsp = -image_xscale * 20;
 						vsp = 0;
@@ -118,7 +118,7 @@ ds_map_set(collision_function, obj_baddie, function(_obj)
 						create_particle(x, y, particletypes.genericpoofeffect);
 						instance_destroy(id, false);
 					}
-					state = states.stun;
+					state = "stun";
 					image_xscale = ix;
 					hsp = -image_xscale * 8;
 					vsp = -6;

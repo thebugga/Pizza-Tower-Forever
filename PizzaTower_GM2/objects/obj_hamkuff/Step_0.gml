@@ -1,18 +1,18 @@
 
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
+	case "walk":
 		break;
 	case "blockstance":
 		if (!instance_exists(playerid))
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = spr_hamkuff_idle;
 			break;
 		}
@@ -27,7 +27,7 @@ switch (state)
 			{
 				if (state == "taxi2")
 				{
-					other.state = states.walk;
+					other.state = "walk";
 				}
 				else if (!launched)
 				{
@@ -127,7 +127,7 @@ switch (state)
 					}
 					if (launched)
 					{
-						other.state = states.walk;
+						other.state = "walk";
 						instance_destroy(other);
 						global.combotime = 60;
 					}
@@ -151,7 +151,7 @@ switch (state)
 		{
 			if (!obj_player1.isgustavo)
 			{
-				state = states.walk;
+				state = "walk";
 				sprite_index = spr_hamkuff_idle;
 				instance_destroy(playerid, false);
 				break;
@@ -169,35 +169,35 @@ switch (state)
 			}
 		}
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case "pummel":
-		scr_enemy_pummel();
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 	case "ghostpossess":
-		scr_enemy_ghostpossess();
+		enemy_ghostpossess();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -205,12 +205,12 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.walk && state != "blockstance")
+if (state != "walk" && state != "blockstance")
 {
 	attract_player = false;
 }
 var _dis = 300;
-if (state == states.walk && obj_player1.isgustavo && !obj_player1.cutscene && obj_player1.state != states.spaceshuttle && obj_player1.state != "taxi" && ((distance_to_object(obj_player) < _dis && obj_player1.brick) || (distance_to_object(obj_brickcomeback) < _dis && instance_exists(obj_brickcomeback) && !obj_brickcomeback.trapped) || distance_to_object(obj_brickball) < _dis))
+if (state == "walk" && obj_player1.isgustavo && !obj_player1.cutscene && obj_player1.state != states.spaceshuttle && obj_player1.state != "taxi" && ((distance_to_object(obj_player) < _dis && obj_player1.brick) || (distance_to_object(obj_brickcomeback) < _dis && instance_exists(obj_brickcomeback) && !obj_brickcomeback.trapped) || distance_to_object(obj_brickball) < _dis))
 {
 	state = "blockstance";
 	sprite_index = spr_hamkuff_chain1;
@@ -242,6 +242,7 @@ if (state == states.walk && obj_player1.isgustavo && !obj_player1.cutscene && ob
 	{
 		trapped = true;
 		baddieID = other.id;
+		other.boxID = id;
 		other.playerid = id;
 	}
 	with (obj_player1)
@@ -254,7 +255,7 @@ if (state == states.walk && obj_player1.isgustavo && !obj_player1.cutscene && ob
 		state = "ratmount";
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -266,7 +267,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }

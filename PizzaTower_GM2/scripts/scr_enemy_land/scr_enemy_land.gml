@@ -1,4 +1,4 @@
-function scr_enemy_land()
+function enemy_land()
 {
 	if (vsp > 0)
 	{
@@ -9,7 +9,7 @@ function scr_enemy_land()
 	if (ANIMATION_END)
 	{
 		sprite_index = idlespr;
-		state = states.idle;
+		state = "idle";
 		image_index = 0;
 	}
 	if (place_meeting(x, y + 1, obj_railparent))

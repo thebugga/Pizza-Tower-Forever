@@ -66,7 +66,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 			draw_set_color(c_white);
 			with (obj_patrolcone)
 			{
-				if (instance_exists(baddieID) && baddieID.state == states.walk)
+				if (instance_exists(baddieID) && baddieID.state == "walk")
 				{
 					var points = get_triangle_points(x, y, image_angle, len, size);
 					var c = c_white;
@@ -88,7 +88,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 			draw_set_color(c_white);
 			with (obj_patrolcone)
 			{
-				if (instance_exists(baddieID) && baddieID.state == states.walk)
+				if (instance_exists(baddieID) && baddieID.state == "walk")
 				{
 					var c = c_white;
 					draw_surface_ext(other.patrolcone_tex, x - surf_x, y - surf_y - (tsh / 2), (image_angle > 90) ? -1 : 1, 1, 0, c, 1);
@@ -100,7 +100,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 			draw_set_alpha(0.3);
 			with (obj_patrolcone)
 			{
-				if (instance_exists(baddieID) && baddieID.state == states.walk)
+				if (instance_exists(baddieID) && baddieID.state == "walk")
 				{
 					if (collision || (instance_exists(baddieID) && baddieID.alarm[5] != -1))
 					{

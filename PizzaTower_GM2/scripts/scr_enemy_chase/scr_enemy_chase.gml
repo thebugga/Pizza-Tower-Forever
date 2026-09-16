@@ -1,4 +1,4 @@
-function scr_enemy_chase()
+function enemy_chase()
 {
 	if (object_index == obj_minijohn || object_index == obj_banditochicken || object_index == obj_golfdemon)
 	{

@@ -1,44 +1,44 @@
 
 switch (state)
 {
-	case states.idle:
+	case "idle":
 		grav = 0.5;
-		scr_enemy_idle();
+		enemy_idle();
 		break;
-	case states.charge:
+	case "charge":
 		grav = 0.5;
-		scr_enemy_charge();
+		enemy_charge();
 		break;
-	case states.turn:
+	case "turn":
 		grav = 0.5;
-		scr_enemy_turn();
+		enemy_turn();
 		break;
-	case states.walk:
+	case "walk":
 		grav = 0.5;
-		scr_enemy_walk();
+		enemy_walk();
 		break;
-	case states.land:
+	case "land":
 		grav = 0.5;
-		scr_enemy_land();
+		enemy_land();
 		break;
 	case "hit":
 		grav = 0.5;
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
+	case "stun":
 		grav = 0.5;
-		scr_enemy_stun();
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
+	case "enemy_throw":
 		grav = 0.5;
-		scr_pizzagoblin_throw();
+		enemy_throw();
 		break;
 	case "grabbed":
 		grav = 0.5;
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 }
-if (!hitboxcreate && state == states.walk)
+if (!hitboxcreate && state == "walk")
 {
 	hitboxcreate = true;
 	with (instance_create(x, y, obj_forkhitbox))
@@ -51,7 +51,7 @@ if (inv_timer <= 0)
 {
 	scr_scareenemy();
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -59,7 +59,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -67,7 +67,7 @@ if (sprite_index == scaredspr)
 {
 	inv_timer = 0;
 }
-if (state == states.walk)
+if (state == "walk")
 {
 	grav = 0.5;
 	if (point_in_camera(x, y, view_camera[0]))
@@ -116,7 +116,7 @@ switch (state)
 		{
 			sprite_index = walkspr;
 			grav = taunt_storedgrav;
-			state = states.walk;
+			state = "walk";
 			hsp = taunt_storedhsp;
 			movespeed = taunt_storedmovespeed;
 		}
@@ -203,7 +203,7 @@ switch (state)
 		//	else
 		//	{
 		//		sprite_index = walkspr;
-		//		state = states.walk;
+		//		state = "walk";
 		//		breakdanceinst = noone;
 		//	}
 		//}
@@ -217,7 +217,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -228,6 +228,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

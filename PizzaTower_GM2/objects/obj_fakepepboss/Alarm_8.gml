@@ -1,4 +1,4 @@
-if (state == states.walk && formed)
+if (state == "walk" && formed)
 {
 	miniflash = !miniflash;
 }

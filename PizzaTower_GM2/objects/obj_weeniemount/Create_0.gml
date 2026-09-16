@@ -1,3 +1,4 @@
+scr_collide_init();
 image_speed = 0.35;
 mask_index = spr_player_mask;
 hsp = 0;

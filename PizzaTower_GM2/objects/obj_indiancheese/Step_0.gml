@@ -1,41 +1,41 @@
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		if (totemID != noone)
 		{
 			state = states.dance;
 		}
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
 	case "grabbed":
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 	case "ghostpossess":
-		scr_enemy_ghostpossess();
+		enemy_ghostpossess();
 		break;
 }
 scr_scareenemy();
@@ -84,9 +84,9 @@ if (state == states.dance && totemID != noone)
 }
 else if (state == states.dance && totemID == noone)
 {
-	state = states.walk;
+	state = "walk";
 }
-if (state == states.stun && stunned > 40 && birdcreated == false)
+if (state == "stun" && stunned > 40 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -94,7 +94,7 @@ if (state == states.stun && stunned > 40 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -107,7 +107,7 @@ if (elite && ragecooldown > 0)
 {
 	ragecooldown--;
 }
-if (state == states.walk && state != states.stun && sprite_index == walkspr && sprite_index != spr_indiancheese_scared && elite && ragecooldown == 0)
+if (state == "walk" && state != "stun" && sprite_index == walkspr && sprite_index != spr_indiancheese_scared && elite && ragecooldown == 0)
 {
 	if ((player.x > (x - 400) && player.x < (x + 400)) && (y <= (player.y + 60) && y >= (player.y - 60)))
 	{
@@ -115,7 +115,7 @@ if (state == states.walk && state != states.stun && sprite_index == walkspr && s
 		{
 			image_xscale = -sign(x - player.x);
 		}
-		state = states.rage;
+		state = "rage";
 		sprite_index = spr_indiancheese_howl;
 		image_index = 0;
 		shot = false;
@@ -139,7 +139,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -150,6 +150,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

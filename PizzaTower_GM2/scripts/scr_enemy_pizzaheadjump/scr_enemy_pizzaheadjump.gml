@@ -1,4 +1,4 @@
-function scr_enemy_pizzaheadjump()
+function enemy_pizzaheadjump()
 {
 	stompable = false;
 	if (place_meeting(x, y, obj_solid))
@@ -23,7 +23,7 @@ function scr_enemy_pizzaheadjump()
 	if (grounded && vsp > 0)
 	{
 		stompable = true;
-		state = states.stun;
+		state = "stun";
 		stunned = 2;
 	}
 }

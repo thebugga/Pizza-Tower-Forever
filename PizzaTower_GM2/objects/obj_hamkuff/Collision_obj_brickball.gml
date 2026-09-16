@@ -8,6 +8,7 @@ if (state != "blockstance")
 	{
 		trapped = true;
 		baddieID = other.id;
+		other.boxID = id;
 		other.playerid = id;
 	}
 	instance_destroy(other, false);

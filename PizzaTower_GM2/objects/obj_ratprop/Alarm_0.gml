@@ -1,7 +1,7 @@
 if (state == "default")
 {
 	hsp = 0;
-	state = states.idle;
+	state = "idle";
 	alarm[0] = 80 + irandom(100);
 }
 else

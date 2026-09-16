@@ -5,7 +5,7 @@ switch (state)
 	case "transitioncutscene":
 		scr_fakepepclone_transitioncutscene();
 		break;
-	case states.walk:
+	case "walk":
 		scr_fakepepclone_walk();
 		break;
 	case states.grabdash:

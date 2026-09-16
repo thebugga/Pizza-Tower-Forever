@@ -27,7 +27,7 @@ function scr_throwenemy()
 			alarm[1] = 5;
 			stunned = 1000;
 			thrown = true;
-			state = states.stun;
+			state = "stun";
 		}
 	}
 }

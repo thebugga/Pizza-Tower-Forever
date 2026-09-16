@@ -115,7 +115,7 @@ switch (state)
 			image_index = 0;
 		}
 		break;
-	case states.land:
+	case "land":
 		if (ANIMATION_END)
 		{
 			sprite_index = spr_gustavo_exitsign;

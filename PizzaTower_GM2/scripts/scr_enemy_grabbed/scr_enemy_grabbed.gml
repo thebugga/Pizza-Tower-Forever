@@ -1,9 +1,9 @@
-function scr_enemy_grabbed()
+function enemy_grabbed()
 {
 	if (!pepperman_grab)
 	{
 		var _obj_player = asset_get_index(concat("obj_player", grabbedby));
-		image_xscale = -_obj_player.xscale;
+		xscale = -_obj_player.xscale;
 		stunned = 200;
 		_obj_player.baddiegrabbedID = id;
 		if (_obj_player.state == "grabbing" || _obj_player.state == "grab" || _obj_player.state == "throwing" || _obj_player.state == "slam" || _obj_player.state == "tacklecharge")
@@ -29,7 +29,7 @@ function scr_enemy_grabbed()
 			{
 				y = _obj_player.y - 30;
 			}
-			image_xscale = -_obj_player.xscale;
+			xscale = -_obj_player.xscale;
 		}
 		with (_obj_player)
 		{
@@ -39,7 +39,7 @@ function scr_enemy_grabbed()
 			{
 				other.x = x;
 				other.y = y;
-				other.state = states.stun;
+				other.state = "stun";
 				other.image_index = 0;
 			}
 		}
@@ -58,8 +58,8 @@ function scr_enemy_grabbed()
 			x = _obj_player.x;
 			vsp = 0;
 			y = _obj_player.y;
-			state = states.stun;
-			hsp = -image_xscale * 25;
+			state = "stun";
+			hsp = -xscale * 25;
 			grav = 0;
 			if (object_index != obj_swapplayergrabbable)
 			{
@@ -106,9 +106,9 @@ function scr_enemy_grabbed()
 			thrown = true;
 			x = _obj_player.x;
 			y = _obj_player.y;
-			state = states.stun;
-			image_xscale *= -1;
-			hsp = -image_xscale * 20;
+			state = "stun";
+			xscale *= -1;
+			hsp = -xscale * 20;
 			vsp = -7;
 			if (object_index != obj_swapplayergrabbable)
 			{
@@ -141,19 +141,19 @@ function scr_enemy_grabbed()
 			thrown = true;
 			x = _obj_player.x;
 			y = _obj_player.y;
-			state = states.stun;
+			state = "stun";
 			if (_obj_player.sprite_index == spr_player_shoulder)
 			{
 				vsp = 15;
 			}
 			if (_obj_player.sprite_index == spr_player_diagonaldownthrow)
 			{
-				hsp = -image_xscale * 10;
+				hsp = -xscale * 10;
 				vsp = 15;
 			}
 			if (_obj_player.sprite_index == spr_player_diagonalupthrow)
 			{
-				hsp = -image_xscale * 10;
+				hsp = -xscale * 10;
 				vsp = -15;
 			}
 			if (object_index != obj_swapplayergrabbable)
@@ -216,8 +216,8 @@ function scr_enemy_grabbed()
 			{
 				scr_fmod_soundeffect(_obj_player.snd_noisepunch, x, y);
 			}
-			state = states.stun;
-			image_xscale = -_obj_player.xscale;
+			state = "stun";
+			xscale = -_obj_player.xscale;
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);
@@ -239,7 +239,7 @@ function scr_enemy_grabbed()
 				}
 				else
 				{
-					other.hithsp = -other.image_xscale * 25;
+					other.hithsp = -other.xscale * 25;
 					other.hitvsp = -8;
 					other.linethrown = true;
 				}
@@ -265,8 +265,8 @@ function scr_enemy_grabbed()
 			thrown = true;
 			x = _obj_player.x;
 			y = _obj_player.y;
-			state = states.stun;
-			hsp = -image_xscale * 8;
+			state = "stun";
+			hsp = -xscale * 8;
 			vsp = -6;
 			check_grabbed_solid(_obj_player);
 			check_grabbed_solid(_obj_player);
@@ -285,8 +285,8 @@ function scr_enemy_grabbed()
 			thrown = true;
 			x = _obj_player.x;
 			y = _obj_player.y;
-			hsp = -image_xscale * 2;
-			state = states.stun;
+			hsp = -xscale * 2;
+			state = "stun";
 			vsp = -20;
 			if (object_index != obj_swapplayergrabbable)
 			{
@@ -403,7 +403,7 @@ function scr_enemy_grabbed()
 				mach3destroy = true;
 			}
 			state = "hit";
-			image_xscale = -_obj_player.xscale;
+			xscale = -_obj_player.xscale;
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);
@@ -425,7 +425,7 @@ function scr_enemy_grabbed()
 					tauntstoredvsp = vsp;
 				}
 				state = "chainsaw";
-				other.hithsp = -other.image_xscale * 8;
+				other.hithsp = -other.xscale * 8;
 				other.hitvsp = -11;
 			}
 		}

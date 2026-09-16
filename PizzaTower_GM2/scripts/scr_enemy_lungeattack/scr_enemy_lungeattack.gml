@@ -1,4 +1,4 @@
-function scr_enemy_lungeattack()
+function enemy_lungeattack()
 {
 	hsp = -image_xscale * 4;
 	vsp = 0;
@@ -20,7 +20,7 @@ function scr_enemy_lungeattack()
 	}
 	else
 	{
-		state = states.stun;
+		state = "stun";
 		hsp = hithsp;
 		vsp = hitvsp;
 		stunned = 200;

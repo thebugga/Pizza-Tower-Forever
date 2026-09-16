@@ -11,9 +11,9 @@ if (!ready)
 		}
 		if (selected < 0)
 		{
-			selected = 1;
+			selected = 2;
 		}
-		else if (selected > 1)
+		else if (selected > 2)
 		{
 			selected = 0;
 		}
@@ -37,7 +37,7 @@ if (!ready)
 					scr_characterspr();
 				}
 			}
-			else
+			else if (selected == 1)
 			{
 				fmod_event_one_shot("event:/sfx/ui/noiseselect");
 				obj_noiseselect.sprite_index = spr_noiseselected;
@@ -45,6 +45,18 @@ if (!ready)
 				with (obj_player1)
 				{
 					character = "Noise";
+					ispeppino = false;
+					scr_characterspr();
+				}
+			}
+			else if (selected == 2)
+			{
+				fmod_event_one_shot("event:/sfx/ui/pepperselect");
+				obj_pepperselect.sprite_index = spr_pepperselected;
+				obj_pepperselect.image_index = 0;
+				with (obj_player1)
+				{
+					character = "Pepperman";
 					ispeppino = true;
 					scr_characterspr();
 				}

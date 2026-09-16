@@ -122,7 +122,7 @@ function scr_vigilante_arenaintro()
 			movespeed = 0;
 			flash = false;
 			x = roomstartx;
-			xscale = -other.image_xscale;
+			xscale = -other.xscale;
 			sprite_index = spr_idle;
 		}
 		sprite_index = spr_playerV_dynamitethrow;
@@ -142,7 +142,7 @@ function scr_vigilante_arenaintro()
 		{
 			with (instance_create(x, y, obj_pistolpickup))
 			{
-				hsp = other.image_xscale * 8;
+				hsp = other.xscale * 8;
 				vsp = -11;
 			}
 		}
@@ -160,7 +160,7 @@ function scr_vigilante_arenaintro()
 		{
 			state = "actor";
 			image_speed = 0.35;
-			xscale = -other.image_xscale;
+			xscale = -other.xscale;
 			hsp = 0;
 			movespeed = 0;
 			flash = false;
@@ -247,7 +247,7 @@ function scr_vigilante_arenaintro()
 			{
 				with (instance_create(x, y, obj_pistolpickup))
 				{
-					hsp = other.image_xscale * 8;
+					hsp = other.xscale * 8;
 					vsp = -11;
 				}
 			}
@@ -292,7 +292,7 @@ function scr_vigilante_arenaintro()
 		if (global.pistol)
 		{
 			sprite_index = spr_playerV_idle;
-			state = states.walk;
+			state = "walk";
 		}
 	}
 }
@@ -379,7 +379,7 @@ function scr_vigilante_walk()
 	{
 		hsp = floor(hsp / 2.2);
 		hsp *= -1;
-		image_xscale *= -1;
+		xscale *= -1;
 	}
 	if (cooldown > 0 && flickertime <= 0)
 	{
@@ -396,7 +396,7 @@ function scr_vigilante_walk()
 			sprite_index = spr_playerV_idle;
 			if (targetplayer.x != x)
 			{
-				image_xscale = sign(targetplayer.x - x);
+				xscale = sign(targetplayer.x - x);
 			}
 		}
 		if (!reposition)
@@ -414,7 +414,7 @@ function scr_vigilante_walk()
 				oldspotID = noone;
 				if (x != t.x)
 				{
-					image_xscale = sign(t.x - x);
+					xscale = sign(t.x - x);
 				}
 				state = "mach2";
 				kick = false;
@@ -438,7 +438,7 @@ function scr_vigilante_walk()
 			oldspotID = noone;
 			if (x != t.x)
 			{
-				image_xscale = sign(t.x - x);
+				xscale = sign(t.x - x);
 			}
 			state = "mach2";
 			kick = false;
@@ -484,7 +484,7 @@ function scr_vigilante_walk()
 				image_index = 16;
 				//with (instance_create(464, 195, obj_ladderhorizontal))
 				//{
-				//	dir = other.image_xscale;
+				//	dir = other.xscale;
 				//	if (other.phase == 1)
 				//	{
 				//		spd = 3;
@@ -497,7 +497,7 @@ function scr_vigilante_walk()
 				break;
 			case vigilante_attacks.wait:
 				waitbuffer = attack[1];
-				state = states.wait;
+				state = "wait";
 				if (sprite_index != spr_playerV_revolverend)
 				{
 					sprite_index = spr_playerV_idle;
@@ -507,7 +507,7 @@ function scr_vigilante_walk()
 				state = states.flamethrower;
 				if (targetplayer.x != x)
 				{
-					image_xscale = sign(targetplayer.x - x);
+					xscale = sign(targetplayer.x - x);
 				}
 				flamebuffer = attack[1];
 				hsp = 0;
@@ -527,7 +527,7 @@ function scr_vigilante_walk()
 				uziprepare = 2;
 				if (targetplayer.x != x)
 				{
-					image_xscale = sign(targetplayer.x - x);
+					xscale = sign(targetplayer.x - x);
 				}
 				break;
 			case vigilante_attacks.bazooka:
@@ -535,7 +535,7 @@ function scr_vigilante_walk()
 				state = states.bazooka;
 				hsp = 0;
 				vsp = -16;
-				image_xscale = (x > (room_width / 2)) ? -1 : 1;
+				xscale = (x > (room_width / 2)) ? -1 : 1;
 				sprite_index = spr_playerV_jump;
 				image_index = 0;
 				break;
@@ -551,7 +551,7 @@ function scr_vigilante_walk()
 				shot = false;
 				if (targetplayer.x != x)
 				{
-					image_xscale = sign(targetplayer.x - x);
+					xscale = sign(targetplayer.x - x);
 				}
 				break;
 			case vigilante_attacks.kick:
@@ -565,7 +565,7 @@ function scr_vigilante_walk()
 				attackspeed = 2;
 				if (targetplayer.x != x)
 				{
-					image_xscale = sign(targetplayer.x - x);
+					xscale = sign(targetplayer.x - x);
 				}
 				sprite_index = spr_playerV_mach1;
 				image_index = 0;
@@ -592,11 +592,11 @@ function scr_vigilante_throw_cow()
 		image_index = 0;
 		if (obj_player.x != x)
 		{
-			image_xscale = sign(obj_player.x - x);
+			xscale = sign(obj_player.x - x);
 		}
-		with (instance_create(x + (image_xscale * 100), y - 10, obj_vigilantecow))
+		with (instance_create(x + (xscale * 100), y - 10, obj_vigilantecow))
 		{
-			xscale = other.image_xscale;
+			xscale = other.xscale;
 			vsp = -16;
 			spd = 6;
 			bounce = 3;
@@ -626,7 +626,7 @@ function scr_vigilante_do_revolver(_shot, _revolverbuffer, _do_jump = false)
 	image_index = 0;
 	if (obj_player.x != x)
 	{
-		image_xscale = -sign(x - obj_player.x);
+		xscale = -sign(x - obj_player.x);
 	}
 	if (jump)
 	{
@@ -655,9 +655,9 @@ function scr_vigilante_throw_dynamite()
 		image_index = 0;
 		if (obj_player1.x != x)
 		{
-			image_xscale = -sign(x - obj_player1.x);
+			xscale = -sign(x - obj_player1.x);
 		}
-		with (instance_create(x + (image_xscale * 20), y - 16, obj_vigilantedynamite))
+		with (instance_create(x + (xscale * 20), y - 16, obj_vigilantedynamite))
 		{
 			calculate_jump_velocity(obj_player1.x, other.y, 18, grav);
 			if (abs(hsp) <= 1 && (abs(vsp) <= 1 || vsp > 0))
@@ -706,7 +706,7 @@ function scr_vigilante_wait()
 	}
 	else
 	{
-		state = states.walk;
+		state = "walk";
 		if (sprite_index == spr_playerV_revolverhold)
 		{
 			sprite_index = spr_playerV_revolverend;
@@ -746,7 +746,7 @@ function scr_vigilante_estampede()
 			}
 			if (!b)
 			{
-				state = states.walk;
+				state = "walk";
 				//with (obj_ladderhorizontal)
 				//{
 				//	destroy = true;
@@ -773,7 +773,7 @@ function scr_vigilante_revolver()
 		else if (sprite_index == spr_playerV_revolvershoot)
 		{
 			image_index = image_number - 1;
-			state = states.walk;
+			state = "walk";
 			sprite_index = spr_playerV_revolverend;
 			image_index = 0;
 		}
@@ -791,10 +791,10 @@ function scr_vigilante_revolver()
 			shot--;
 			sprite_index = spr_playerV_revolvershoot;
 			image_index = 0;
-			hsp = image_xscale * 4;
-			with (instance_create(x + (image_xscale * 80), y + 10, obj_vigilanteshot))
+			hsp = xscale * 4;
+			with (instance_create(x + (xscale * 80), y + 10, obj_vigilanteshot))
 			{
-				image_xscale = other.image_xscale;
+				xscale = other.xscale;
 				if (other.phase == 2)
 				{
 					woosh = false;
@@ -821,7 +821,7 @@ function scr_vigilante_dynamite()
 	{
 		if (!scr_vigilante_throw_dynamite())
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 }
@@ -837,7 +837,7 @@ function scr_vigilante_throwing()
 	{
 		if (!scr_vigilante_throw_cow())
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 	if (ANIMATION_END && sprite_index == spr_playerV_dynamitethrow)
@@ -858,17 +858,17 @@ function scr_vigilante_reloading()
 	{
 		ammo = 6;
 		sprite_index = spr_playerV_idle;
-		state = states.walk;
+		state = "walk";
 		hsp = 0;
 		cooldown = 0;
-		image_xscale = (x < (room_width / 2)) ? 1 : -1;
+		xscale = (x < (room_width / 2)) ? 1 : -1;
 	}
 }
 
 function scr_vigilante_mach2()
 {
 	image_speed = 0.35;
-	hsp = image_xscale * attackspeed;
+	hsp = xscale * attackspeed;
 	if (sprite_index == spr_playerV_mach)
 	{
 		if (attackspeed < 8)
@@ -940,8 +940,8 @@ function scr_vigilante_mach2()
 			image_alpha = 1;
 			reposition = false;
 			sprite_index = spr_playerV_idle;
-			state = states.walk;
-			image_xscale = (x < (room_width / 2)) ? 1 : -1;
+			state = "walk";
+			xscale = (x < (room_width / 2)) ? 1 : -1;
 		}
 	}
 }
@@ -966,7 +966,7 @@ function scr_vigilante_check_spot()
 
 function scr_vigilante_crouchslide()
 {
-	hsp = image_xscale * attackspeed;
+	hsp = xscale * attackspeed;
 	if (attackspeed > 0)
 	{
 		attackspeed -= 0.15;
@@ -977,12 +977,12 @@ function scr_vigilante_crouchslide()
 	}
 	if (place_meeting(x + sign(hsp), y, obj_solid))
 	{
-		image_xscale *= -1;
+		xscale *= -1;
 	}
 	if (attackspeed <= 0)
 	{
 		sprite_index = spr_playerV_idle;
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -1101,7 +1101,7 @@ function scr_vigilante_duel()
 					hitX = x;
 					hitY = y;
 					hitLag = lag;
-					hithsp = -image_xscale * 20;
+					hithsp = -xscale * 20;
 					hitvsp = 0;
 					linethrown = true;
 					destroyable = true;
@@ -1151,10 +1151,10 @@ function scr_vigilante_duel()
 							swap_player(false);
 							with (instance_create(x, y, obj_swapdeatheffect))
 							{
-								image_xscale = -1;
+								xscale = -1;
 								character = other.character
 								isgustavo = other.isgustavo;
-								hsp = -image_xscale * 8;
+								hsp = -xscale * 8;
 								vsp = -15;
 								sprite_index = spr_player_outofpizza1;
 							}
@@ -1177,7 +1177,7 @@ function scr_vigilante_duel()
 				if (ANIMATION_END)
 				{
 					sprite_index = spr_playerV_idle;
-					state = states.walk;
+					state = "walk";
 					cooldown = 10;
 					elitehit = 1;
 					wastedhits = 4;
@@ -1219,7 +1219,7 @@ function scr_vigilante_flamethrower()
 				{
 					sprite_index = spr_vigilante_flamethrower;
 					mask_index = spr_vigilante_flamethrower;
-					image_xscale = other.image_xscale;
+					xscale = other.xscale;
 					with (instance_create(x, y, obj_lightsource_attach))
 					{
 						objectID = other.id;
@@ -1232,15 +1232,15 @@ function scr_vigilante_flamethrower()
 		{
 			if (abs(hsp) < 8)
 			{
-				hsp += (image_xscale * 0.25);
+				hsp += (xscale * 0.25);
 			}
 			with (flameID)
 			{
 				x = other.x + other.hsp;
 				y = other.y;
-				image_xscale = other.image_xscale;
+				xscale = other.xscale;
 			}
-			if (place_meeting(x + image_xscale, y, obj_solid))
+			if (place_meeting(x + xscale, y, obj_solid))
 			{
 				sprite_index = spr_vigilante_flamethrowerturn;
 				image_index = 0;
@@ -1263,7 +1263,7 @@ function scr_vigilante_flamethrower()
 		}
 		else if (sprite_index == spr_vigilante_flamethrowerend && ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 	else
@@ -1273,7 +1273,7 @@ function scr_vigilante_flamethrower()
 		{
 			sprite_index = spr_vigilante_flamethrowerintro;
 			image_index = 13;
-			image_xscale *= -1;
+			xscale *= -1;
 		}
 	}
 }
@@ -1285,7 +1285,7 @@ function scr_vigilante_machinegun()
 		hsp = 0;
 		if (targetplayer.x != x)
 		{
-			image_xscale = sign(targetplayer.x - x);
+			xscale = sign(targetplayer.x - x);
 		}
 		if (ANIMATION_END && !uziprepareshot)
 		{
@@ -1314,14 +1314,14 @@ function scr_vigilante_machinegun()
 	}
 	else
 	{
-		hsp = image_xscale * 4;
+		hsp = xscale * 4;
 		if (sprite_index == spr_playerV_jump && (ANIMATION_END || vsp > -10))
 		{
 			sprite_index = spr_vigilante_uzi;
 		}
 		if (place_meeting(x + hsp, y, obj_solid))
 		{
-			image_xscale *= -1;
+			xscale *= -1;
 			if (sprite_index != spr_vigilante_uzi)
 			{
 				sprite_index = spr_vigilante_uzi;
@@ -1366,7 +1366,7 @@ function scr_vigilante_machinegun()
 		}
 		if (grounded && vsp > 0)
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 }
@@ -1393,9 +1393,9 @@ function scr_vigilante_bazooka()
 		{
 			shot = true;
 			vsp = -6;
-			with (instance_create(x + (image_xscale * 10), y, obj_vigilantebazooka))
+			with (instance_create(x + (xscale * 10), y, obj_vigilantebazooka))
 			{
-				image_xscale = other.image_xscale;
+				xscale = other.xscale;
 			}
 			fmod_event_one_shot_3d("event:/sfx/vigilante/bazookashoot", x, y);
 		}
@@ -1406,7 +1406,7 @@ function scr_vigilante_bazooka()
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -1422,7 +1422,7 @@ function scr_vigilante_crate()
 	}
 	if (ANIMATION_END)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
 
@@ -1449,7 +1449,7 @@ function scr_vigilante_hit()
 			x = hitX;
 			y = hitY;
 			elitehit--;
-			state = states.walk;
+			state = "walk";
 			hsp = hithsp;
 			vsp = hitvsp;
 			cooldown = 0;
@@ -1457,6 +1457,6 @@ function scr_vigilante_hit()
 	}
 	else
 	{
-		scr_enemy_hit();
+		enemy_hit();
 	}
 }

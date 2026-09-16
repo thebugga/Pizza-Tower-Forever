@@ -5,41 +5,41 @@ if (!instance_exists(cloneid))
 }
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
 	case "hit":
-		scr_enemy_hit();
+		enemy_hit();
 		break;
-	case states.stun:
+	case "stun":
 		image_alpha = 1;
-		scr_enemy_stun();
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
+	case "enemy_throw":
 		image_alpha = 1;
-		scr_pizzagoblin_throw();
+		enemy_throw();
 		break;
 	case "grabbed":
 		image_alpha = 1;
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
 	case states.chase:
-		scr_enemy_chase();
+		enemy_chase();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -47,7 +47,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -59,7 +59,7 @@ if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -76,7 +76,7 @@ if (sprite_index == scaredspr)
 	image_alpha = 1;
 	attacking = false;
 }
-if (bombreset == 0 && state == states.walk)
+if (bombreset == 0 && state == "walk")
 {
 	attacking = false;
 	targetplayer = global.coopmode ? instance_nearest(x, y, obj_player) : obj_player1;
@@ -159,7 +159,7 @@ if (state == states.chase)
 			{
 				image_xscale = old_xscale;
 			}
-			state = states.pizzagoblinthrow;
+			state = "enemy_throw";
 			if (elite && cloneid == noone)
 			{
 				var tx = image_xscale * 32;
@@ -175,7 +175,7 @@ if (state == states.chase)
 					bombreset = 0;
 					image_index = 0;
 					image_xscale = other.image_xscale;
-					state = states.pizzagoblinthrow;
+					state = "enemy_throw";
 					hsp = other.image_xscale * 2;
 					vsp = -6;
 				}
@@ -187,7 +187,7 @@ if (state == states.chase)
 	}
 }
 invincible = attacking;
-if (state == states.idle)
+if (state == "idle")
 {
 	if (scaredbuffer > 0 && attacking)
 	{
@@ -202,6 +202,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }
