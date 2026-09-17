@@ -3,8 +3,8 @@
   "%Name":"shd_panicbg",
   "name":"shd_panicbg",
   "parent":{
-    "name":"Unused",
-    "path":"folders/Shaders/Unused.yy",
+    "name":"Shaders",
+    "path":"folders/Shaders.yy",
   },
   "resourceType":"GMShader",
   "resourceVersion":"2.0",

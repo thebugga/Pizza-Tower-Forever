@@ -1,7 +1,7 @@
-function scr_player_ratmountskid()
+function player_ratmountskid()
 {
 	hsp = xscale * -movespeed;
-	movespeed = Approach(movespeed, 0, 0.8);
+	movespeed = approach(movespeed, 0, 0.8);
 	if (brick)
 	{
 		sprite_index = spr_ratmount_skid;
@@ -16,7 +16,7 @@ function scr_player_ratmountskid()
 	if (abs(movespeed) <= 0 || abs(hsp) <= 0)
 	{
 		movespeed = 0;
-		state = states.ratmount;
+		state = "ratmount";
 	}
 	if (input_buffer_jump > 0 && can_jump)
 	{
@@ -36,14 +36,14 @@ function scr_player_ratmountskid()
 			sprite_index = spr_player_ratmountgroundpound;
 		}
 		image_index = 0;
-		if (state != states.ratmount)
+		if (state != "ratmount")
 		{
 			xscale *= -1;
 		}
 		input_buffer_jump = 0;
 		movespeed = hsp;
 		jumpAnim = true;
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		vsp = -11;
 		jumpstop = false;
 	}
@@ -71,7 +71,7 @@ function scr_player_ratmountskid()
 		movespeed = -movespeed;
 		ratmountpunchtimer = 25;
 		gustavohitwall = false;
-		state = states.ratmountpunch;
+		state = "ratmountpunch";
 		image_index = 0;
 		if (move != 0)
 		{

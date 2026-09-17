@@ -11,9 +11,9 @@ if (!ready)
 		}
 		if (selected < 0)
 		{
-			selected = 1;
+			selected = 2;
 		}
-		else if (selected > 1)
+		else if (selected > 2)
 		{
 			selected = 0;
 		}
@@ -32,19 +32,31 @@ if (!ready)
 				obj_peppinoselect.image_index = 0;
 				with (obj_player1)
 				{
-					character = characters.Peppino;
+					character = "Peppino";
 					ispeppino = true;
 					scr_characterspr();
 				}
 			}
-			else
+			else if (selected == 1)
 			{
 				fmod_event_one_shot("event:/sfx/ui/noiseselect");
 				obj_noiseselect.sprite_index = spr_noiseselected;
 				obj_noiseselect.image_index = 0;
 				with (obj_player1)
 				{
-					character = characters.Noise;
+					character = "Noise";
+					ispeppino = false;
+					scr_characterspr();
+				}
+			}
+			else if (selected == 2)
+			{
+				fmod_event_one_shot("event:/sfx/ui/pepperselect");
+				obj_pepperselect.sprite_index = spr_pepperselected;
+				obj_pepperselect.image_index = 0;
+				with (obj_player1)
+				{
+					character = "Pepperman";
 					ispeppino = true;
 					scr_characterspr();
 				}
@@ -60,7 +72,7 @@ if (!ready)
 			obj_noiseselect.image_index = 0;
 			with (obj_player1)
 			{
-				character = other.selected == 0 ? characters.Peppino : characters.Noise;
+				character = other.selected == 0 ? "Peppino" : "Noise";
 				ispeppino = true;
 				scr_characterspr();
 			}

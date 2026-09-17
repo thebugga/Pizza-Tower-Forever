@@ -142,7 +142,7 @@ function scr_monster_detect(_w, _h, _obj)
 		{
 			with (_obj)
 			{
-				if (state != states.crouch || (!scr_solid(x, y - 24) && !place_meeting(x, y - 24, obj_platform)))
+				if (state != "crouch" || (!scr_solid(x, y - 24) && !place_meeting(x, y - 24, obj_platform)))
 				{
 					detect = true;
 				}

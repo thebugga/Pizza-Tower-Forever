@@ -2,7 +2,7 @@ if (obj_player1.ispeppino != ispeppino)
 {
 	ispeppino = obj_player1.ispeppino;
 	paletteselect = 0;
-	if (obj_player1.character == characters.Peppino)
+	if (obj_player1.character == "Peppino")
 	{
 		palettes = player_palettes[0];
 	}
@@ -36,9 +36,9 @@ if (instance_exists(obj_transfotip))
 }
 if (showtext)
 {
-	alpha = Approach(alpha, 1, 0.1);
+	alpha = approach(alpha, 1, 0.1);
 }
 else
 {
-	alpha = Approach(alpha, 0, 0.1);
+	alpha = approach(alpha, 0, 0.1);
 }

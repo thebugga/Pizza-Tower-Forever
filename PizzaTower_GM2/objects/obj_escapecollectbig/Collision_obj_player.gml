@@ -1,6 +1,6 @@
 if (image_alpha == 1)
 {
-	if (other.state != states.gotoplayer)
+	if (other.state != "gotoplayer")
 	{
 		global.heattime = 60;
 		with (obj_camera)

@@ -4,7 +4,7 @@ if (state > 0)
 }
 with (other)
 {
-	if (!hurted && (state == states.normal || state == states.jump || state == states.mach2 || state == states.ratmount || state == states.ratmountjump))
+	if (!hurted && (state == "default" || state == "jump" || state == "mach2" || state == "ratmount" || state == "ratmountjump"))
 	{
 		instance_destroy(other);
 		baddiegrabbedID = instance_create(x, y, obj_swapplayergrabbable);
@@ -39,27 +39,27 @@ with (other)
 					vsp = -6;
 				}
 				swingdingendcooldown = 0;
-				state = states.grab;
+				state = "grab";
 				grabbingenemy = true;
 				heavy = baddiegrabbedID.heavy;
-				baddiegrabbedID.state = states.grabbed;
+				baddiegrabbedID.state = "grabbed";
 				baddiegrabbedID.grabbedby = 1;
 			}
 			else
 			{
 				grabbingenemy = true;
-				baddiegrabbedID.state = states.grabbed;
+				baddiegrabbedID.state = "grabbed";
 				baddiegrabbedID.grabbedby = 1;
 				sprite_index = spr_piledriver;
 				vsp = -14;
-				state = states.superslam;
+				state = "superslam";
 				image_index = 0;
 				image_speed = 0.35;
 			}
 		}
 		else
 		{
-			state = states.ratmountpunch;
+			state = "ratmountpunch";
 			brick = false;
 			with (instance_create(x, y, obj_brickcomeback))
 			{

@@ -1,4 +1,4 @@
-function scr_player_ratmountcrouch()
+function player_ratmountcrouch()
 {
 	move = key_left + key_right;
 	hsp = movespeed;
@@ -12,16 +12,16 @@ function scr_player_ratmountcrouch()
 		{
 			if (abs(movespeed) < 4)
 			{
-				movespeed = Approach(movespeed, xscale * 4, 0.5);
+				movespeed = approach(movespeed, xscale * 4, 0.5);
 			}
 			else
 			{
-				movespeed = Approach(movespeed, xscale * 4, 0.1);
+				movespeed = approach(movespeed, xscale * 4, 0.1);
 			}
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 			if (abs(movespeed) <= 0)
 			{
 				xscale = move;
@@ -42,17 +42,17 @@ function scr_player_ratmountcrouch()
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 	if (!grounded)
 	{
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		jumpAnim = false;
 		sprite_index = spr_player_ratmountgroundpoundfall;
 	}
 	if (((grounded && !key_down) || brick) && !scr_solid(x, y - 16) && !scr_solid(x, y - 32))
 	{
-		state = states.ratmount;
+		state = "ratmount";
 	}
 	if (hsp != 0)
 	{

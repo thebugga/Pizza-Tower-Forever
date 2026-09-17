@@ -1,4 +1,4 @@
-function scr_player_grabbed()
+function player_grabbed()
 {
 	var _obj_player = (object_index == obj_player2) ? obj_player1 : obj_player2;
 	if (fightball == false)
@@ -6,12 +6,12 @@ function scr_player_grabbed()
 		xscale = -_obj_player.xscale;
 	}
 	_obj_player.baddiegrabbedID = id;
-	if (_obj_player.state == states.mach3 && fightball == true)
+	if (_obj_player.state == "mach3" && fightball == true)
 	{
 		x = _obj_player.x;
 		y = _obj_player.y;
 	}
-	if (_obj_player.state == states.grabbing || _obj_player.state == states.grab || _obj_player.state == states.throwing || _obj_player.state == states.slam || _obj_player.state == states.tacklecharge)
+	if (_obj_player.state == "grabbing" || _obj_player.state == "grab" || _obj_player.state == "throwing" || _obj_player.state == "slam" || _obj_player.state == "tacklecharge")
 	{
 		x = _obj_player.x;
 		if (_obj_player.sprite_index != _obj_player.spr_haulingstart)
@@ -57,29 +57,29 @@ function scr_player_grabbed()
 				shake_mag_acc = 3 / room_speed;
 			}
 		}
-		if (!(state == states.grab || (state == states.mach3 && fightball == true) || (state == states.ratmount || state == states.ratmountattack || state == states.ratmountjump || state == states.ratmountspit) || state == states.finishingblow || state == states.grabbing || state == states.throwing || state == states.slam || state == states.tacklecharge || state == states.punch || state == states.superslam || state == states.backkick || state == states.uppunch || state == states.shoulder))
+		if (!(state == "grab" || (state == "mach3" && fightball == true) || (state == "ratmount" || state == "ratmountattack" || state == "ratmountjump" || state == "ratmountspit") || state == "finishingblow" || state == "grabbing" || state == "throwing" || state == "slam" || state == "tacklecharge" || state == "punch" || state == "superslam" || state == "backkick" || state == "uppunch" || state == "shoulder"))
 		{
 			baddiegrabbedID = obj_null;
 			other.x = _obj_player.x;
 			other.y = _obj_player.y;
-			other.state = states.hurt;
+			other.state = "hurt";
 			other.alarm[8] = 60;
 			other.alarm[7] = 120;
 			other.image_index = 0;
 		}
 	}
-	if (_obj_player.state == states.ratmount || _obj_player.state == states.ratmountjump)
+	if (_obj_player.state == "ratmount" || _obj_player.state == "ratmountjump")
 	{
 		visible = false;
 		x = _obj_player.x;
 		y = _obj_player.y;
 	}
-	if (_obj_player.state == states.tacklecharge)
+	if (_obj_player.state == "tacklecharge")
 	{
 		x = _obj_player.x + (_obj_player.xscale * 20);
 		y = _obj_player.y;
 	}
-	if (_obj_player.state == states.finishingblow && _obj_player.image_index < 5)
+	if (_obj_player.state == "finishingblow" && _obj_player.image_index < 5)
 	{
 		x = _obj_player.x + (_obj_player.xscale * 60);
 		y = _obj_player.y + 14;
@@ -97,7 +97,7 @@ function scr_player_grabbed()
 			shake_mag = 3;
 			shake_mag_acc = 3 / room_speed;
 		}
-		state = states.hurt;
+		state = "hurt";
 		if (scr_solid(x, y) || collision_line(x, y, _obj_player.x, _obj_player.y, obj_solid, false, true) != noone)
 		{
 			x = _obj_player.x;
@@ -120,9 +120,9 @@ function scr_player_grabbed()
 			}
 		}
 	}
-	if (_obj_player.state == states.superslam && _obj_player.sprite_index == _obj_player.spr_piledriver)
+	if (_obj_player.state == "superslam" && _obj_player.sprite_index == _obj_player.spr_piledriver)
 	{
-		if (_obj_player.character == characters.Peppino && _obj_player.ispeppino)
+		if (_obj_player.character == "Peppino" && _obj_player.ispeppino)
 		{
 			if (floor(_obj_player.image_index) == 0)
 			{
@@ -171,7 +171,7 @@ function scr_player_grabbed()
 			y = _obj_player.y - 40;
 		}
 	}
-	if (_obj_player.state == states.grab && _obj_player.sprite_index == _obj_player.spr_swingding)
+	if (_obj_player.state == "grab" && _obj_player.sprite_index == _obj_player.spr_swingding)
 	{
 		if (floor(_obj_player.image_index) == 0)
 		{
@@ -218,7 +218,7 @@ function scr_player_grabbed()
 	{
 		with (_obj_player)
 		{
-			state = states.jump;
+			state = "jump";
 			vsp = -8;
 			sprite_index = spr_machfreefall;
 		}
@@ -228,13 +228,13 @@ function scr_player_grabbed()
 		flash = true;
 		x = _obj_player.x;
 		y = _obj_player.y;
-		state = states.hurt;
+		state = "hurt";
 		hithsp = -image_xscale * 10;
 		hitvsp = -10;
 		other.alarm[8] = 60;
 		other.alarm[7] = 120;
 	}
-	if (_obj_player.state != states.mach3)
+	if (_obj_player.state != "mach3")
 	{
 		sprite_index = spr_hurt;
 	}

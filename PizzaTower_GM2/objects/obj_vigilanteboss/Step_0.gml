@@ -7,31 +7,31 @@ if (pizzahead && elitehit <= 1)
 }
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		scr_vigilante_arenaintro();
 		break;
-	case states.walk:
+	case "walk":
 		scr_vigilante_walk();
 		break;
-	case states.revolver:
+	case "revolver":
 		scr_vigilante_revolver();
 		break;
 	case states.reloading:
 		scr_vigilante_reloading();
 		break;
-	case states.mach2:
+	case "mach2":
 		scr_vigilante_mach2();
 		break;
-	case states.crouchslide:
+	case "crouchslide":
 		scr_vigilante_crouchslide();
 		break;
-	case states.dynamite:
+	case "dynamite":
 		scr_vigilante_dynamite();
 		break;
-	case states.throwing:
+	case "throwing":
 		scr_vigilante_throwing();
 		break;
-	case states.estampede:
+	case "estampede":
 		scr_vigilante_estampede();
 		break;
 	case states.phase1hurt:
@@ -40,13 +40,13 @@ switch (state)
 	case states.duel:
 		scr_vigilante_duel();
 		break;
-	case states.punch:
+	case "punch":
 		scr_vigilante_punch();
 		break;
-	case states.jump:
+	case "jump":
 		scr_vigilante_jump();
 		break;
-	case states.wait:
+	case "wait":
 		scr_vigilante_wait();
 		break;
 	case states.flamethrower:
@@ -67,22 +67,22 @@ switch (state)
 	case states.pizzaheadKO:
 		scr_boss_pizzaheadKO();
 		break;
-	case states.hit:
+	case "hit":
 		scr_vigilante_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
+	case "pummel":
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
-	case states.supergrab:
+	case "supergrab":
 		if (elitehit <= 0)
 		{
 			destroyable = true;
@@ -95,7 +95,7 @@ if (state != states.flamethrower && flameID != noone)
 	instance_destroy(obj_flamethrowerhurtbox);
 	flameID = noone;
 }
-if (state == states.revolver || state == states.wait || state == states.dynamite || state == states.throwing || state == states.estampede)
+if (state == "revolver" || state == "wait" || state == "dynamite" || state == "throwing" || state == "estampede")
 {
 	if (targetplayer.x != x)
 	{
@@ -103,13 +103,13 @@ if (state == states.revolver || state == states.wait || state == states.dynamite
 	}
 }
 boss_hurt_gustavo();
-if (!pizzahead && obj_player1.state != states.actor && obj_player1.state != states.chainsaw && obj_player1.state != states.supergrab && !obj_player1.instakillmove && obj_player1.y >= (y - 20) && obj_player1.state != states.animation && state != states.hit && state != states.stun && state != states.phase1hurt && state != states.supergrab && hsp == 0)
+if (!pizzahead && obj_player1.state != "actor" && obj_player1.state != "chainsaw" && obj_player1.state != "supergrab" && !obj_player1.instakillmove && obj_player1.y >= (y - 20) && obj_player1.state != "animation" && state != "hit" && state != "stun" && state != states.phase1hurt && state != "supergrab" && hsp == 0)
 {
 	if (place_meeting(x, y, obj_player1))
 	{
 		with (obj_player)
 		{
-			if (state != states.tackle)
+			if (state != "tackle")
 			{
 				var ix = (x > (room_width / 2)) ? 1 : -1;
 				xscale = ix;
@@ -117,7 +117,7 @@ if (!pizzahead && obj_player1.state != states.actor && obj_player1.state != stat
 				hsp = -xscale * 5;
 				movespeed = abs(hsp);
 				vsp = -3;
-				state = states.tackle;
+				state = "tackle";
 				grounded = false;
 				fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
 				instance_create(x, y, obj_bumpeffect);
@@ -195,7 +195,7 @@ if (((phase == 1 && elitehit <= 0) || (phase == 2 && elitehit <= 0)) && !pizzahe
 			dark_alpha = 1;
 		}
 	}
-	else if (phase == 2 && state != states.duel && state != states.hit && !thrown)
+	else if (phase == 2 && state != states.duel && state != "hit" && !thrown)
 	{
 		instance_destroy(obj_johnecheese);
 		instance_destroy(obj_johnecheese_spawner);
@@ -253,7 +253,7 @@ if (((phase == 1 && elitehit <= 0) || (phase == 2 && elitehit <= 0)) && !pizzahe
 		}
 	}
 }
-if (state == states.stun)
+if (state == "stun")
 {
 	if (wastedhits >= 7 && sprite_index == spr_playerPM_mach3hitwall && grounded && vsp > 0 && !thrown && stunned > 10)
 	{
@@ -276,9 +276,9 @@ else
 }
 if (state != states.duel)
 {
-	signy = Approach(signy, -sprite_get_height(signspr), 20);
+	signy = approach(signy, -sprite_get_height(signspr), 20);
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -286,7 +286,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state == states.reloading || (state == states.stun && savedthrown == thrown && !savedthrown))
+if (state == states.reloading || (state == "stun" && savedthrown == thrown && !savedthrown))
 {
 	invincible = false;
 }
@@ -302,20 +302,20 @@ if (state == states.pizzaheadKO)
 {
 	invincible = true;
 }
-if (pizzahead && state == states.stun && !thrown && alarm[5] == -1 && !flash)
+if (pizzahead && state == "stun" && !thrown && alarm[5] == -1 && !flash)
 {
 	alarm[5] = 0.15 * room_speed;
 }
-if (state == states.crouchslide && alarm[4] < 0)
+if (state == "crouchslide" && alarm[4] < 0)
 {
 	alarm[4] = 10;
-	if (state == states.freefall)
+	if (state == "freefall")
 	{
 		alarm[4] = 5;
 	}
 }
 mask_index = spr_player_mask;
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -323,11 +323,11 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -338,6 +338,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

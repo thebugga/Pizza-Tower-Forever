@@ -1,15 +1,15 @@
 switch (state)
 {
-	case states.normal:
+	case "default":
 		sprite_index = spr_meatball_roll;
 		hsp = image_xscale * 5;
 		if (place_meeting(x + sign(hsp), y, obj_solid))
 		{
 			image_xscale *= -1;
 		}
-		if (obj_player1.state == states.freefallland)
+		if (obj_player1.state == "freefallland")
 		{
-			state = states.jump;
+			state = "jump";
 			hsp = 0;
 			vsp = -12;
 			sprite_index = spr_meatball_dead;
@@ -19,10 +19,10 @@ switch (state)
 			}
 		}
 		break;
-	case states.jump:
+	case "jump":
 		if (grounded && vsp > 0)
 		{
-			state = states.normal;
+			state = "default";
 		}
 		break;
 }

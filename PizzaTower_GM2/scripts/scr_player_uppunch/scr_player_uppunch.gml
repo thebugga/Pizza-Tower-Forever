@@ -1,4 +1,4 @@
-function scr_player_uppunch()
+function player_uppunch()
 {
 	move = key_left + key_right;
 	if (grounded)
@@ -131,7 +131,7 @@ function scr_player_uppunch()
 	crouchAnim = true;
 	if (ANIMATION_END || move == -xscale)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	sprite_index = spr_uppunch;
 	image_speed = 0.35;

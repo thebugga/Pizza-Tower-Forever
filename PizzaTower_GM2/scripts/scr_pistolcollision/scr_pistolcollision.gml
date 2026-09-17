@@ -28,7 +28,7 @@ function scr_pistolhit(_inst, _dmg)
 		switch (object_index)
 		{
 			case obj_vigilanteboss:
-				if (state != states.hit && (state != states.mach2 || kick) && (flickertime <= 0 && vsp > 0) && !reposition)
+				if (state != "hit" && (state != "mach2" || kick) && (flickertime <= 0 && vsp > 0) && !reposition)
 				{
 					_result = true;
 					flash = true;
@@ -66,7 +66,7 @@ function scr_pistolhit(_inst, _dmg)
 							}
 							instance_create(other.x, other.y, obj_parryeffect);
 							scr_sleep(30);
-							state = states.hit;
+							state = "hit";
 							linethrown = true;
 							hitX = x;
 							hitY = y;
@@ -112,7 +112,7 @@ function scr_pistolhit(_inst, _dmg)
 				}
 				break;
 			case obj_pizzafaceboss_p2:
-				if (state != states.hit && (flickertime <= 0 && grounded && vsp > 0))
+				if (state != "hit" && (flickertime <= 0 && grounded && vsp > 0))
 				{
 					_result = true;
 					flash = true;

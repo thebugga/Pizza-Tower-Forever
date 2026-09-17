@@ -1,4 +1,4 @@
-function scr_player_noisejetpack()
+function player_noisejetpack()
 {
 	hsp = xscale * movespeed;
 	move = key_left + key_right;
@@ -16,7 +16,7 @@ function scr_player_noisejetpack()
 	{
 		if (xscale != move)
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 			if (movespeed <= 0)
 			{
 				movespeed = 0;
@@ -25,7 +25,7 @@ function scr_player_noisejetpack()
 		}
 		else if (movespeed < 8)
 		{
-			movespeed = Approach(movespeed, 8, 0.5);
+			movespeed = approach(movespeed, 8, 0.5);
 		}
 	}
 	if (place_meeting(x + sign(hsp), y, obj_solid) || scr_solid_slope(x + sign(hsp), y))
@@ -37,15 +37,15 @@ function scr_player_noisejetpack()
 	{
 		sprite_index = spr_bodyslamstart;
 		image_index = 0;
-		state = states.freefallprep;
-		vsp = (character == characters.Peppino) ? -5 : -7;
+		state = "freefallprep";
+		vsp = (character == "Peppino") ? -5 : -7;
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.normal;
+		state = "default";
 		if (movespeed >= 12)
 		{
-			state = states.mach3;
+			state = "mach3";
 			sprite_index = spr_dashpadmach;
 			image_index = 0;
 		}

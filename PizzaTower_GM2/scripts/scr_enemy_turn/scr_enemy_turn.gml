@@ -1,4 +1,4 @@
-function scr_enemy_turn()
+function enemy_turn()
 {
 	sprite_index = turnspr;
 	image_speed = 0.35;
@@ -6,13 +6,13 @@ function scr_enemy_turn()
 	{
 		if (object_index != obj_tank)
 		{
-			state = states.idle;
+			state = "idle";
 			image_index = 0;
 			sprite_index = idlespr;
 		}
 		else
 		{
-			state = states.walk;
+			state = "walk";
 			image_index = 0;
 			sprite_index = walkspr;
 		}

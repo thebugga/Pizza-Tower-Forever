@@ -1,4 +1,4 @@
-if (other.state != states.barrel)
+if (other.state != "barrel")
 {
 	scr_hurtplayer(other);
 	if (fake)
@@ -10,7 +10,7 @@ else
 {
 	with (other)
 	{
-		state = states.bump;
+		state = "bump";
 		sprite_index = spr_bump;
 		image_index = 0;
 		hsp = -6 * xscale;

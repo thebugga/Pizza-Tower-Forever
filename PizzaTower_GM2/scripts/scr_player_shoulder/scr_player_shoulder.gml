@@ -1,4 +1,4 @@
-function scr_player_shoulder()
+function player_shoulder()
 {
 	move = key_left + key_right;
 	if (grounded)
@@ -131,7 +131,7 @@ function scr_player_shoulder()
 	crouchAnim = true;
 	if (ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	image_speed = 0.35;
 }

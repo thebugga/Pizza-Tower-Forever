@@ -5,7 +5,7 @@ if y != targety
 	{
 		vsp = 8 * sign(y - targety);
 	}
-	y = Approach(y,targety,abs(vsp))
+	y = approach(y,targety,abs(vsp))
 	
 }
 else

@@ -10,7 +10,7 @@ if (y < -400)
 }
 if (finish)
 {
-	image_alpha = Approach(image_alpha, 0, 0.1);
+	image_alpha = approach(image_alpha, 0, 0.1);
 	if (image_alpha <= 0)
 	{
 		instance_destroy();

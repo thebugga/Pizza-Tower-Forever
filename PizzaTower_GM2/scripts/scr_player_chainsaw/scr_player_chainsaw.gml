@@ -1,4 +1,4 @@
-function scr_player_chainsaw()
+function player_chainsaw()
 {
 	hsp = 0;
 	vsp = 0;
@@ -22,49 +22,49 @@ function scr_player_chainsaw()
 		sprite_index = tauntstoredsprite;
 		state = tauntstoredstate;
 		vsp = tauntstoredvsp;
-		if (state == states.ghost)
+		if (state == "ghost")
 		{
 			hsp = tauntstoredhsp;
 		}
 		if (global.attackstyle == 0)
 		{
-			if ((tauntstoredstate == states.handstandjump && (tauntstoredsprite == spr_player_suplexgrabjumpstart || tauntstoredsprite == spr_player_suplexgrabjump)) || sprite_index == spr_piledriverland)
+			if ((tauntstoredstate == "handstandjump" && (tauntstoredsprite == spr_player_suplexgrabjumpstart || tauntstoredsprite == spr_player_suplexgrabjump)) || sprite_index == spr_piledriverland)
 			{
 				jumpAnim = true;
-				state = states.jump;
+				state = "jump";
 				sprite_index = spr_suplexland;
 				vsp = -11;
 				jumpstop = false;
 				image_index = 0;
 			}
-			else if (tauntstoredstate == states.handstandjump || tauntstoredstate == states.finishingblow)
+			else if (tauntstoredstate == "handstandjump" || tauntstoredstate == "finishingblow")
 			{
-				state = states.normal;
+				state = "default";
 			}
 		}
 		if (global.attackstyle == 1)
 		{
-			if ((tauntstoredstate == states.handstandjump && (tauntstoredsprite == spr_player_suplexgrabjumpstart || tauntstoredsprite == spr_player_suplexgrabjump)) || sprite_index == spr_piledriverland)
+			if ((tauntstoredstate == "handstandjump" && (tauntstoredsprite == spr_player_suplexgrabjumpstart || tauntstoredsprite == spr_player_suplexgrabjump)) || sprite_index == spr_piledriverland)
 			{
 				movespeed = 4;
-				state = states.tackle;
+				state = "tackle";
 				sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_punch);
 				image_index = 0;
 				vsp = -5;
 			}
-			else if (tauntstoredstate == states.handstandjump || tauntstoredstate == states.finishingblow)
+			else if (tauntstoredstate == "handstandjump" || tauntstoredstate == "finishingblow")
 			{
 				movespeed = 4;
-				state = states.tackle;
+				state = "tackle";
 				sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_punch);
 				image_index = 0;
 			}
 		}
 		if (global.attackstyle == 2)
 		{
-			if (tauntstoredstate == states.lungeattack)
+			if (tauntstoredstate == "lungeattack")
 			{
-				state = states.lungeattack;
+				state = "lungeattack";
 			}
 		}
 	}

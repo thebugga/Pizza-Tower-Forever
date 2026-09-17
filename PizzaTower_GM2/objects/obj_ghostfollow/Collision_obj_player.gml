@@ -1,4 +1,4 @@
-if (!locked && state != states.ghostcaught && other.state != states.door && other.state != states.actor && other.state != states.comingoutdoor)
+if (!locked && state != states.ghostcaught && other.state != "door" && other.state != "actor" && other.state != "comingoutdoor")
 {
 	notification_push(notifications.touched_ghostfollow, [room]);
 	with (other)

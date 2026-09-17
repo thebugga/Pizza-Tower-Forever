@@ -1,4 +1,4 @@
-function scr_player_grab()
+function player_grab()
 {
 	grav = 0.5;
 	move = key_left + key_right;
@@ -184,7 +184,7 @@ function scr_player_grab()
 	{
 		if (grounded)
 		{
-			movespeed = Approach(movespeed, 0, 0.25);
+			movespeed = approach(movespeed, 0, 0.25);
 		}
 		if (movespeed <= 0)
 		{
@@ -267,7 +267,7 @@ function scr_player_grab()
 		}
 		hsp = xscale * movespeed;
 		movespeed = hsp;
-		state = states.finishingblow;
+		state = "finishingblow";
 		if (!key_up)
 		{
 			sprite_index = choose(spr_finishingblow1, spr_finishingblow2, spr_finishingblow3, spr_finishingblow4, spr_finishingblow5);
@@ -292,7 +292,7 @@ function scr_player_grab()
 		hsp = xscale * movespeed;
 		swingdingendcooldown = 0;
 		swingdingthrow = false;
-		state = states.finishingblow;
+		state = "finishingblow";
 		sprite_index = spr_swingdingend;
 		image_index = 0;
 	}
@@ -301,7 +301,7 @@ function scr_player_grab()
 		sprite_index = spr_piledriver;
 		dir = xscale;
 		vsp = -5;
-		state = states.superslam;
+		state = "superslam";
 		image_index = 0;
 		image_speed = 0.35;
 	}
@@ -311,7 +311,7 @@ function scr_player_grab()
 	}
 	if ((key_down && grounded) && sprite_index != spr_swingding && sprite_index != spr_swingdingend)
 	{
-		state = states.crouch;
+		state = "crouch";
 		landAnim = false;
 		crouchAnim = true;
 		image_index = 0;
@@ -339,7 +339,7 @@ function scr_player_grab()
 	}
 	if (grabbingenemy && !instance_exists(baddiegrabbedID))
 	{
-		state = states.normal;
+		state = "default";
 		landAnim = false;
 		image_index = 0;
 	}

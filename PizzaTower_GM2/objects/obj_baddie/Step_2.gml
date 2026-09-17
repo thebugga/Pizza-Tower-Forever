@@ -1,25 +1,25 @@
-if (state == states.grabbed && (object_index != obj_pepperman && object_index != obj_pizzafaceboss && object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 && object_index != obj_noiseboss && object_index != obj_pf_fakepep))
+if (state == "grabbed" && (object_index != obj_pepperman && object_index != obj_pizzafaceboss && object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 && object_index != obj_noiseboss && object_index != obj_pf_fakepep))
 {
-	scr_enemy_grabbed();
+	enemy_grabbed();
 }
-else if (state == states.lungeattack)
+else if (state == "lungeattack")
 {
-	scr_enemy_lungeattack();
+	enemy_lungeattack();
 }
 else if (state == states.secret)
 {
-	scr_enemy_secret();
+	enemy_secret();
 }
 if (room == boss_pizzaface && state != states.pizzaheadjump)
 {
 	use_collision = true;
 }
 scr_squash();
-if (state != states.stun && state != states.hit)
+if (state != "stun" && state != "hit")
 {
 	linethrown = false;
 }
-if (state == states.stun && !thrown)
+if (state == "stun" && !thrown)
 {
 	linethrown = false;
 }
@@ -31,7 +31,7 @@ if (object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 &&
 	}
 	instance_destroy();
 }
-if (state != states.grabbed && state != states.pummel && object_index != obj_pepbat && object_index != obj_fakesanta && use_collision)
+if (state != "grabbed" && state != "pummel" && object_index != obj_pepbat && object_index != obj_fakesanta && use_collision)
 {
 	scr_collide();
 }
@@ -61,13 +61,13 @@ if (sprite_index == walkspr && hsp != 0 && sign(hsp) == sign(image_xscale) && gr
 	}
 	create_particle(x - (image_xscale * 20), _yy, particletypes.cloudeffect, 0);
 }
-if ((object_index != obj_pizzice || state != states.pizzagoblinthrow) && object_index != obj_pizzafaceboss_p3 && object_index != obj_fakepepboss && state != states.phase1hurt)
+if ((object_index != obj_pizzice || state != "enemy_throw") && object_index != obj_pizzafaceboss_p3 && object_index != obj_fakepepboss && state != states.phase1hurt)
 {
-	if (state == states.walk)
+	if (state == "walk")
 	{
 		image_speed = 0.35;
 	}
-	else if (state != states.charge)
+	else if (state != "charge")
 	{
 		image_speed = 0.35;
 	}
@@ -83,18 +83,18 @@ if (object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 &&
 		var _taunted = false;
 		with (instance_nearest(x, y, obj_player))
 		{
-			if (state == states.backbreaker)
+			if (state == "backbreaker")
 			{
 				_taunted = true;
 				other.stunned = 0;
-				if (other.state != states.pizzagoblinthrow && !other.provoked && other.bombreset > 0)
+				if (other.state != "enemy_throw" && !other.provoked && other.bombreset > 0)
 				{
 					other.bombreset = 0;
 					other.provoked = true;
 				}
 				other.scaredbuffer = 0;
 			}
-			else if (other.state != states.pizzagoblinthrow)
+			else if (other.state != "enemy_throw")
 			{
 				other.provoked = false;
 			}
@@ -106,7 +106,7 @@ if (object_index != obj_vigilanteboss && object_index != obj_pizzafaceboss_p3 &&
 				if (taunttimer > 0)
 				{
 					other.stunned = 0;
-					if (other.state != states.pizzagoblinthrow && !other.provoked && other.bombreset > 0)
+					if (other.state != "enemy_throw" && !other.provoked && other.bombreset > 0)
 					{
 						other.bombreset = 0;
 						other.provoked = true;
@@ -135,15 +135,15 @@ if (state != states.pizzaheadjump && object_index != obj_pepperman && object_ind
 		}
 	}
 }
-if (state != states.hit)
+if (state != "hit")
 {
 	player_instakillmove = false;
 }
-if (fmod_event_instance_is_playing(chargesnd) && state != states.charge)
+if (fmod_event_instance_is_playing(chargesnd) && state != "charge")
 {
 	fmod_event_instance_stop(chargesnd);
 }
-if (state == states.walk)
+if (state == "walk")
 {
 	image_speed = 0.35 + global.baddiespeed * 0.05
 }

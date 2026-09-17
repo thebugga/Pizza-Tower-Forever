@@ -6,7 +6,7 @@ else if (irandom(100) <= 15)
 {
 	stick = true;
 }
-if (obj_player1.character == characters.Peppino)
+if (obj_player1.character == "Peppino")
 {
 	var r = string_letters(room_get_name(room));
 	if (sprite_index != spr_gustavo_exitsign || r == "saloon" || room == space_11b || r == "freezer" || r == "chateau")
@@ -29,4 +29,8 @@ if (!obj_player1.ispeppino || global.swapmode)
 	{
 		sprite_index = spr_noisette_fall;
 	}
+}
+if global.gerome
+{
+	image_xscale = -image_xscale
 }

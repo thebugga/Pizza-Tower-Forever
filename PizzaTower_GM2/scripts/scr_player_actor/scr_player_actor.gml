@@ -1,4 +1,4 @@
-function scr_player_actor()
+function player_actor()
 {
 	if (sprite_index == spr_player_gnomecutscene2)
 	{
@@ -36,7 +36,7 @@ function scr_player_actor()
 		else
 		{
 			landAnim = false;
-			state = states.normal;
+			state = "default";
 		}
 	}
 }

@@ -6,7 +6,7 @@ else
 {
 	image_alpha = 1;
 }
-if (!on_y && state == states.walk)
+if (!on_y && state == "walk")
 {
 	alarm[8] = 5;
 }

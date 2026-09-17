@@ -6,3 +6,4 @@ chunks =
 	[bg_factoryindustrial_chunk4, 0, 0, 0, 0.35],
 	[bg_factoryindustrial_chunk5, 0, 0, 0, 0.35]
 ];
+alarm[0] = 950;

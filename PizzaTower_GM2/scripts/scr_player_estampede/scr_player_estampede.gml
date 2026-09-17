@@ -1,4 +1,4 @@
-function scr_player_estampede()
+function player_estampede()
 {
 	hsp = movespeed;
 	move = key_left + key_right;
@@ -11,7 +11,7 @@ function scr_player_estampede()
 		image_speed = 0;
 		if (sprite_index == spr_slipbanan2 && abs(hsp) <= 2)
 		{
-			state = states.normal;
+			state = "default";
 			movespeed = 0;
 		}
 	}
@@ -21,7 +21,7 @@ function scr_player_estampede()
 	}
 	if (grounded && vsp > 0)
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 		if (sprite_index != spr_slipbanan2)
 		{
 			sprite_index = spr_slipbanan2;
@@ -30,10 +30,10 @@ function scr_player_estampede()
 	}
 	else if (move != 0)
 	{
-		movespeed = Approach(movespeed, move * 6, 0.5);
+		movespeed = approach(movespeed, move * 6, 0.5);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 }

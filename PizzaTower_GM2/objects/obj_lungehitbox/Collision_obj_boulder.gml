@@ -1,6 +1,6 @@
-if (other.state != states.grabbed && playerid.state != states.grab)
+if (other.state != "grabbed" && playerid.state != "grab")
 {
-	other.state = states.grabbed;
+	other.state = "grabbed";
 	if (playerid.object_index == obj_player1)
 	{
 		other.grabbedby = 1;
@@ -11,7 +11,7 @@ if (other.state != states.grabbed && playerid.state != states.grab)
 	}
 	with (playerid)
 	{
-		state = states.grab;
+		state = "grab";
 		baddiegrabbedID = other.id;
 		grabbingenemy = true;
 		movespeed = 0;

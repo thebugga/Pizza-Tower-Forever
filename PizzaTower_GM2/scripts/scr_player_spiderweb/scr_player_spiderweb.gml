@@ -1,4 +1,4 @@
-function scr_player_spiderweb()
+function player_spiderweb()
 {
 	hsp = 0;
 	vsp = 0;
@@ -24,7 +24,7 @@ function scr_player_spiderweb()
 				event_user(0);
 			}
 		}
-		state = states.jump;
+		state = "jump";
 		vsp = -11;
 		jumpstop = false;
 		sprite_index = spr_jump;

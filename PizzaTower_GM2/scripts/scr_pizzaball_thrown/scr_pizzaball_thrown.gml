@@ -6,7 +6,7 @@ function scr_pizzaball_thrown()
 	}
 	switch (substate)
 	{
-		case states.thrown:
+		case "thrown":
 			image_speed = 0.5;
 			if (sprite_index != spr_pizzaball_hitwall && sprite_index != spr_pizzaball_hitwall2)
 			{
@@ -31,7 +31,7 @@ function scr_pizzaball_thrown()
 				}
 				else
 				{
-					substate = states.crouch;
+					substate = "crouch";
 				}
 			}
 			if (scr_solid(x + hsp, y) && !place_meeting(x + hsp, y, obj_slope) && !place_meeting(x + hsp, y, obj_destructibles))
@@ -43,9 +43,9 @@ function scr_pizzaball_thrown()
 				hitspeed *= 0.5;
 			}
 			break;
-		case states.crouch:
+		case "crouch":
 			sprite_index = spr_pizzaball_roll;
-			hitspeed = Approach(hitspeed, 0, 0.2);
+			hitspeed = approach(hitspeed, 0, 0.2);
 			hsp = image_xscale * hitspeed;
 			if (scr_solid(x + hsp, y) && !place_meeting(x + hsp, y, obj_slope) && !place_meeting(x + hsp, y, obj_destructibles))
 			{
@@ -54,7 +54,7 @@ function scr_pizzaball_thrown()
 			if (hitspeed == 0)
 			{
 				sprite_index = walkspr;
-				state = states.walk;
+				state = "walk";
 			}
 			break;
 	}

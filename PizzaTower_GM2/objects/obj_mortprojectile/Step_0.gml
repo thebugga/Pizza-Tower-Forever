@@ -21,8 +21,8 @@ else if (state == 1)
 {
 	x += hsp;
 	y += vsp;
-	hsp = Approach(hsp, 0, deccel);
-	vsp = Approach(vsp, 0, deccel);
+	hsp = approach(hsp, 0, deccel);
+	vsp = approach(vsp, 0, deccel);
 	if (hsp == 0 && vsp == 0)
 	{
 		state++;
@@ -31,8 +31,8 @@ else if (state == 1)
 else
 {
 	var dir = point_direction(x, y, obj_player1.x, obj_player1.y);
-	hsp = Approach(hsp, lengthdir_x(movespeed, dir), accel);
-	vsp = Approach(vsp, lengthdir_y(movespeed, dir), accel);
+	hsp = approach(hsp, lengthdir_x(movespeed, dir), accel);
+	vsp = approach(vsp, lengthdir_y(movespeed, dir), accel);
 	x += hsp;
 	y += vsp;
 	if (distance_to_object(obj_player1) <= 16)

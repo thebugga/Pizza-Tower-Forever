@@ -1,4 +1,4 @@
-function scr_player_freefall()
+function player_freefall()
 {
 	landAnim = true;
 	if (vsp >= 2)
@@ -27,7 +27,7 @@ function scr_player_freefall()
 					playerid = other.id;
 					maxmovespeed = 6;
 					vertical = true;
-					fadeoutstate = states.freefall;
+					fadeoutstate = "freefall";
 				}
 			}
 			if (piledrivereffect > 0)
@@ -122,7 +122,7 @@ function scr_player_freefall()
 			with (instance_place(x, y + 1, obj_slope))
 			{
 				other.xscale = -sign(image_xscale);
-				other.state = states.tumble;
+				other.state = "tumble";
 				other.sprite_index = other.spr_crouchslip;
 				if (other.freefallsmash > 20)
 				{
@@ -154,7 +154,7 @@ function scr_player_freefall()
 				sprite_index = spr_shotgunjump2;
 			}
 			image_index = 0;
-			state = states.freefallland;
+			state = "freefallland";
 			jumpAnim = true;
 			jumpstop = false;
 			with (obj_camera)
@@ -168,7 +168,7 @@ function scr_player_freefall()
 				{
 					if (shakestun && grounded && point_in_camera(x, y, view_camera[0]) && grounded && vsp > 0 && !invincible && groundpound)
 					{
-						state = states.stun;
+						state = "stun";
 						if (stunned < 60)
 						{
 							stunned = 60;

@@ -10,59 +10,59 @@ with (obj_player)
 	{
 		switch (state)
 		{
-			case states.tackle:
+			case "tackle":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.6);
 				break;
-			case states.tumble:
+			case "tumble":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.8);
 				break;
-			case states.machcancel:
+			case "machcancel":
 				GamepadSetVibration(_pindex, 0.5, 0.5, 0.5);
 				break;
-			case states.fireass:
+			case "fireass":
 				GamepadSetVibration(_pindex, 1, 1, 0.85);
 				break;
-			case states.shotgunshoot:
+			case "shotgunshoot":
 				GamepadSetVibration(_pindex, 0.9, 0.9, 0.85);
 				break;
-			case states.firemouth:
+			case "firemouth":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.85);
 				break;
-			case states.hurt:
+			case "hurt":
 				GamepadSetVibration(_pindex, 1, 1, 0.85);
 				break;
-			case states.bombpep:
+			case "bombpep":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.6);
 				if (sprite_index == spr_bombpepend)
 				{
 					GamepadSetVibration(_pindex, 1, 1, 0.9);
 				}
 				break;
-			case states.Sjump:
+			case "Sjump":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.85);
 				break;
-			case states.Sjumpprep:
+			case "Sjumpprep":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.6);
 				break;
-			case states.Sjumpland:
+			case "Sjumpland":
 				GamepadSetVibration(_pindex, 1, 1, 0.9);
 				break;
-			case states.knightpep:
+			case "knightpep":
 				if (sprite_index == spr_knightpepthunder)
 				{
 					GamepadSetVibration(_pindex, 1, 1, 0.9);
 				}
 				break;
-			case states.parry:
+			case "parry":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.65);
 				break;
-			case states.freefallland:
+			case "freefallland":
 				GamepadSetVibration(_pindex, 1, 1, 0.85);
 				break;
-			case states.chainsaw:
+			case "chainsaw":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.6);
 				break;
-			case states.bump:
+			case "bump":
 				if (sprite_index != spr_hitwall)
 				{
 					GamepadSetVibration(_pindex, 0.8, 0.8, 0.6);
@@ -72,53 +72,53 @@ with (obj_player)
 					GamepadSetVibration(_pindex, 1, 1, 0.85);
 				}
 				break;
-			case states.grab:
+			case "grab":
 				GamepadSetVibration(_pindex, 0.2, 0.2, 0.8);
 				break;
-			case states.ratmountpunch:
+			case "ratmountpunch":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.65);
 				break;
-			case states.barrel:
+			case "barrel":
 				GamepadSetVibration(_pindex, 0.4, 0.4, 0.65);
 				break;
-			case states.barrelslide:
+			case "barrelslide":
 				GamepadSetVibration(_pindex, 0.4, 0.4, 0.65);
 				break;
-			case states.barrelclimbwall:
+			case "barrelclimbwall":
 				GamepadSetVibration(_pindex, 0.4, 0.4, 0.65);
 				break;
-			case states.antigrav:
+			case "antigrav":
 				GamepadSetVibration(_pindex, 0.8, 0.8, 0.65);
 				break;
-			case states.ratmountclimbwall:
+			case "ratmountclimbwall":
 				GamepadSetVibration(_pindex, 0.2, 0.2, 0.8);
 				break;
-			case states.cheesepepstick:
+			case "cheesepepstick":
 				GamepadSetVibration(_pindex, 0.4, 0.4, 0.8);
 				break;
-			case states.cheesepepstickside:
+			case "cheesepepstickside":
 				GamepadSetVibration(_pindex, 0.4, 0.4, 0.8);
 				break;
-			case states.cheesepepstickup:
+			case "cheesepepstickup":
 				GamepadSetVibration(_pindex, 0.4, 0.4, 0.8);
 				break;
-			case states.stringfall:
+			case "stringfall":
 				GamepadSetVibration(_pindex, 0.7, 0.7, 0.8);
 				break;
-			case states.stringjump:
+			case "stringjump":
 				GamepadSetVibration(_pindex, 0.7, 0.7, 0.8);
 				break;
-			case states.stringfling:
+			case "stringfling":
 				GamepadSetVibration(_pindex, 0.7, 0.7, 0.8);
 				break;
-			case states.jetpackjump:
+			case "jetpackjump":
 				GamepadSetVibration(_pindex, 0.9, 0.9, 0.8);
 				break;
 			default:
 				other.setVibration(_pindex, 0, 0);
 				break;
 		}
-		if (other.prevstate[_pindex] == states.stringfall)
+		if (other.prevstate[_pindex] == "stringfall")
 		{
 			GamepadSetVibration(_pindex, 0.7, 0.7, 0.8);
 		}

@@ -1,4 +1,4 @@
-function scr_player_machslide()
+function player_machslide()
 {
 	if (!place_meeting(x, y + 1, obj_railparent))
 	{
@@ -10,10 +10,10 @@ function scr_player_machslide()
 		hsp = (xscale * movespeed) + (_railinst.movespeed * _railinst.dir);
 	}
 	move = key_right + key_left;
-	if character != characters.Noise
-		movespeed = Approach(movespeed, 0, 0.4);
+	if character != "Noise"
+		movespeed = approach(movespeed, 0, 0.4);
 	else	
-		movespeed = Approach(movespeed, 0, 0.2);
+		movespeed = approach(movespeed, 0, 0.2);
 	if (sprite_index == spr_machslidestart && ANIMATION_END)
 	{
 		sprite_index = spr_machslide;
@@ -31,10 +31,6 @@ function scr_player_machslide()
 				sprite_index = spr_mach3boostfall;
 			}
 		}
-		else
-		{
-			image_index = image_number - 1;
-		}
 	}
 	else
 	{
@@ -43,7 +39,7 @@ function scr_player_machslide()
 	landAnim = false;
 	if (floor(movespeed) <= 0 && (sprite_index == spr_machslide))
 	{
-		state = states.normal;
+		state = "default";
 		image_index = 0;
 		if (sprite_index == spr_machslide)
 		{
@@ -55,7 +51,7 @@ function scr_player_machslide()
 	{
 		fmod_event_one_shot_3d("event:/sfx/pep/splat", x, y);
 		sprite_index = spr_wallsplat;
-		state = states.bump;
+		state = "bump";
 		image_index = 0;
 	}
 	if (((ANIMATION_END && sprite_index == spr_machslideboost) || sprite_index == spr_machslideboostfall) && grounded)
@@ -64,7 +60,7 @@ function scr_player_machslide()
 		image_index = 0;
 		xscale *= -1;
 		movespeed = 8;
-		state = states.mach2;
+		state = "mach2";
 	}
 	if (((ANIMATION_END && sprite_index == spr_mach3boost) || sprite_index == spr_mach3boostfall) && grounded)
 	{
@@ -75,14 +71,14 @@ function scr_player_machslide()
 			image_index = 0;
 			xscale *= -1;
 			movespeed = 12;
-			state = states.mach3;
+			state = "mach3";
 		}
 		else
 		{
 			xscale *= -1;
 			sprite_index = spr_dashpadmach;
 			image_index = 0;
-			state = states.mach3;
+			state = "mach3";
 			movespeed = 14;
 			launched = true;
 			launch = false;
@@ -92,7 +88,7 @@ function scr_player_machslide()
 	//if (sprite_index == spr_player_crouchslide && movespeed == 0 && grounded)
 	//{
 	//	facehurt = true;
-	//	state = states.normal;
+	//	state = "default";
 	//	sprite_index = spr_facehurtup;
 	//}
 	if (input_buffer_shoot > 0)
@@ -107,7 +103,7 @@ function scr_player_machslide()
 		}
 		else if (global.pistol)
 		{
-			scr_pistolshoot(states.normal);
+			scr_pistolshoot("default");
 		}
 	}
 	if (!instance_exists(dashcloudid) && grounded && !place_meeting(x, y + 1, obj_water))

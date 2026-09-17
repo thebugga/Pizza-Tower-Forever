@@ -3,7 +3,7 @@ with instance_create(obj_player1.x, obj_player1.y, obj_baddie_dead)
 {
 	hsp = obj_player1.image_xscale * 3;
 	image_xscale = -other.image_xscale;
-	if other.character != characters.Peppino
+	if other.character != "Peppino"
 		sprite_index = obj_player1.spr_dead;
 	else 
 		sprite_index = spr_peppinoshotandkilled;
@@ -13,9 +13,9 @@ with instance_create(obj_player1.x, obj_player1.y, obj_baddie_dead)
 }
 with obj_player1
 {
-	character = characters.Noise;
+	character = "Noise";
 	scr_characterspr();
-	state = states.comingoutdoor;
+	state = "comingoutdoor";
 	sprite_index = spr_playerN_freezerintro;
 }
 instance_destroy();

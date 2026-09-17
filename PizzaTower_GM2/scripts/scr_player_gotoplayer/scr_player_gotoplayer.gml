@@ -1,4 +1,4 @@
-function scr_player_gotoplayer()
+function player_gotoplayer()
 {
 	pogochargeactive = false;
 	movespeed = 0;
@@ -27,7 +27,7 @@ function scr_player_gotoplayer()
 		if (key_jump2)
 		{
 			xscale = playerid.xscale;
-			state = states.normal;
+			state = "default";
 			input_buffer_jump = 0;
 			hurted = true;
 			alarm[5] = 2;

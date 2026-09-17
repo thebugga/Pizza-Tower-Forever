@@ -1,4 +1,4 @@
-function scr_player_knightpep()
+function player_knightpep()
 {
 	alarm[5] = 2;
 	alarm[7] = 60;
@@ -24,7 +24,7 @@ function scr_player_knightpep()
 		{
 			if (move != xscale)
 			{
-				movespeed = Approach(movespeed, 0, _accel);
+				movespeed = approach(movespeed, 0, _accel);
 				if (movespeed <= 0)
 				{
 					xscale = move;
@@ -33,7 +33,7 @@ function scr_player_knightpep()
 			}
 			else if (sprite_index != spr_knightpepstart)
 			{
-				movespeed = Approach(movespeed, 6, _accel);
+				movespeed = approach(movespeed, 6, _accel);
 			}
 		}
 	}
@@ -273,7 +273,7 @@ function scr_player_knightpep()
 		{
 			other.xscale = -sign(image_xscale);
 		}
-		state = states.knightpepslopes;
+		state = "knightpepslopes";
 		sprite_index = spr_knightpepdownslope;
 		slope_buffer = 20;
 	}

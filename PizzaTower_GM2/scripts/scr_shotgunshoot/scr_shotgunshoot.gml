@@ -1,9 +1,9 @@
 function scr_shotgunshoot()
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		input_buffer_shoot = 0;
-		if (state != states.shotgunshoot)
+		if (state != "shotgunshoot")
 		{
 			notification_push(notifications.shotgun_shot, [room]);
 			minigunshot = 8;
@@ -17,7 +17,7 @@ function scr_shotgunshoot()
 			minigunshot = 2;
 		}
 		minigunbuffer = 0;
-		state = states.shotgunshoot;
+		state = "shotgunshoot";
 		exit;
 	}
 	input_buffer_shoot = 0;
@@ -27,7 +27,7 @@ function scr_shotgunshoot()
 		image_xscale = other.xscale;
 	}
 	sprite_index = spr_shotgunshoot;
-	state = states.shotgunshoot;
+	state = "shotgunshoot";
 	if (grounded)
 	{
 		movespeed = 0;

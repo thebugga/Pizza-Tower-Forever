@@ -2,7 +2,7 @@ image_speed = 0.35;
 depth = 20;
 switch (state)
 {
-	case states.titlescreen:
+	case "titlescreen":
 		x = camera_get_view_x(view_camera[0]) - 100;
 		y = camera_get_view_y(view_camera[0]) - 100;
 		var dx = 350;
@@ -56,7 +56,7 @@ switch (state)
 			y = ystart;
 			instance_destroy(instance_place(x, y, obj_ramp));
 			create_particle(x, y, particletypes.landcloud);
-			state = states.normal;
+			state = "default";
 			if (sprite_index == spr_gustavo_exitshuttle)
 			{
 				with (instance_create(x, y, obj_shuttleparts))
@@ -115,7 +115,7 @@ switch (state)
 			image_index = 0;
 		}
 		break;
-	case states.land:
+	case "land":
 		if (ANIMATION_END)
 		{
 			sprite_index = spr_gustavo_exitsign;
@@ -123,11 +123,11 @@ switch (state)
 			{
 				sprite_index = spr_stick_exit;
 			}
-			state = states.normal;
+			state = "default";
 		}
 		break;
 }
-if (state == states.titlescreen)
+if (state == "titlescreen")
 {
 	visible = false;
 }

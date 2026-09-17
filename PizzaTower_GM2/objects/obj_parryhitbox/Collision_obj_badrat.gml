@@ -1,4 +1,4 @@
-if (other.state == states.pizzagoblinthrow && !collisioned)
+if (other.state == "enemy_throw" && !collisioned)
 {
 	if (obj_player1.x != other.x)
 	{

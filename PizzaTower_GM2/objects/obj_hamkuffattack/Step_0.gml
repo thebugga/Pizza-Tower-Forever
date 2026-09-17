@@ -5,11 +5,11 @@ switch (state)
 		var move = dir * 24;
 		if (sign(move) != sign(movespeed))
 		{
-			movespeed = Approach(movespeed, move, 4);
+			movespeed = approach(movespeed, move, 4);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, move, 1);
+			movespeed = approach(movespeed, move, 1);
 		}
 		xoffset += movespeed;
 		var len = 140;

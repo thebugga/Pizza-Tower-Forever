@@ -1,4 +1,4 @@
-function scr_player_timesup()
+function player_timesup()
 {
 	xscale = 1;
 	inv_frames = false;
@@ -12,7 +12,7 @@ function scr_player_timesup()
 	alarm[5] = -1;
 	if (place_meeting(x, y, obj_timesup))
 	{
-		state = states.gameover;
+		state = "gameover";
 		if (sprite_index != spr_player_ratmounttimesup)
 		{
 			sprite_index = spr_deathend;

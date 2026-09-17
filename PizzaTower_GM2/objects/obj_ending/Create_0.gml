@@ -164,7 +164,7 @@ else
 	{
 		with (obj_player1)
 		{
-			if character == characters.Peppino
+			if character == "Peppino"
 			{
 				swap_player(false);
 			}
@@ -185,6 +185,6 @@ with (towerID)
 }
 with (obj_player)
 {
-	state = states.titlescreen;
+	state = "titlescreen";
 }
 depth = -10;

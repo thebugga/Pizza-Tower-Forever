@@ -1,6 +1,6 @@
 with (obj_player)
 {
-	state = states.titlescreen;
+	state = "titlescreen";
 	x = -100;
 	y = -100;
 }

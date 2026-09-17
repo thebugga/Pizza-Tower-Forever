@@ -1,5 +1,5 @@
 
-if (obj_player.state != states.hurt && global.sausagefollow == false)
+if (obj_player.state != "hurt" && global.sausagefollow == false)
 {
 	global.heattime = 60;
 	global.style--;

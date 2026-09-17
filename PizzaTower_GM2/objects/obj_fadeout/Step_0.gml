@@ -30,7 +30,7 @@ if (fadealpha > f)
 	{
 		with (obj_player)
 		{
-			state = states.normal;
+			state = "default";
 			movespeed = 0;
 			landAnim = false;
 			hallway = true;
@@ -77,23 +77,23 @@ if (instance_exists(obj_player))
 {
 	with (obj_player1)
 	{
-		if (other.fadein == true && (obj_player1.state == states.door || obj_player1.state == states.victory) && (sprite_index == spr_victory || place_meeting(x, y, obj_door) || place_meeting(x, y, obj_startgate)))
+		if (other.fadein == true && (obj_player1.state == "door" || obj_player1.state == "victory") && (sprite_index == spr_victory || place_meeting(x, y, obj_door) || place_meeting(x, y, obj_startgate)))
 		{
-			state = states.comingoutdoor;
+			state = "comingoutdoor";
 			image_index = 0;
 			if (global.coopmode == true)
 			{
-				obj_player2.state = states.comingoutdoor;
+				obj_player2.state = "comingoutdoor";
 				obj_player2.image_index = 0;
 			}
 		}
-		if (other.fadein == true && obj_player1.state == states.door && (obj_player1.sprite_index == spr_downpizzabox || obj_player1.sprite_index == spr_uppizzabox))
+		if (other.fadein == true && obj_player1.state == "door" && (obj_player1.sprite_index == spr_downpizzabox || obj_player1.sprite_index == spr_uppizzabox))
 		{
-			state = states.crouchjump;
+			state = "crouchjump";
 			uncrouch = 20;
 			if (global.coopmode == true)
 			{
-				obj_player2.state = states.crouchjump;
+				obj_player2.state = "crouchjump";
 			}
 		}
 	}
@@ -101,23 +101,23 @@ if (instance_exists(obj_player))
 	{
 		with (obj_player2)
 		{
-			if (other.fadein == true && (obj_player2.state == states.door || obj_player2.state == states.victory) && (place_meeting(x, y, obj_door) || place_meeting(x, y, obj_startgate)))
+			if (other.fadein == true && (obj_player2.state == "door" || obj_player2.state == "victory") && (place_meeting(x, y, obj_door) || place_meeting(x, y, obj_startgate)))
 			{
-				state = states.comingoutdoor;
+				state = "comingoutdoor";
 				uncrouch = 20;
 				image_index = 0;
 				if (global.coopmode == true)
 				{
-					obj_player1.state = states.comingoutdoor;
+					obj_player1.state = "comingoutdoor";
 					obj_player1.image_index = 0;
 				}
 			}
-			if (other.fadein == true && obj_player2.state == states.door && (obj_player2.sprite_index == spr_downpizzabox || obj_player2.sprite_index == spr_uppizzabox))
+			if (other.fadein == true && obj_player2.state == "door" && (obj_player2.sprite_index == spr_downpizzabox || obj_player2.sprite_index == spr_uppizzabox))
 			{
-				state = states.crouchjump;
+				state = "crouchjump";
 				if (global.coopmode == true)
 				{
-					obj_player1.state = states.crouchjump;
+					obj_player1.state = "crouchjump";
 				}
 			}
 		}
@@ -126,7 +126,7 @@ if (instance_exists(obj_player))
 	{
 		if (instance_exists(obj_coopplayerfollow))
 		{
-			state = states.gotoplayer;
+			state = "gotoplayer";
 		}
 	}
 }

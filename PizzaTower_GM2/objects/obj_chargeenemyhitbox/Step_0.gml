@@ -1,4 +1,4 @@
-if (!instance_exists(baddieID) || !baddieID.thrown || baddieID.state != states.stun)
+if (!instance_exists(baddieID) || !baddieID.thrown || baddieID.state != "stun")
 {
 	instance_destroy();
 	exit;

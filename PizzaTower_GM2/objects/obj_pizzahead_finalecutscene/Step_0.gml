@@ -1,15 +1,15 @@
 with (obj_player2)
 {
-	state = states.titlescreen;
+	state = "titlescreen";
 }
 switch (state)
 {
-	case states.jump:
+	case "jump":
 		if (room != boss_pizzafacefinale && vsp < 0)
 		{
 			y += vsp;
 		}
-		vsp = Approach(vsp, -10, 0.1);
+		vsp = approach(vsp, -10, 0.1);
 		if (ANIMATION_END)
 		{
 			if (image_speed < 2)
@@ -32,7 +32,7 @@ switch (state)
 					}
 				}
 			}
-			state = states.hit;
+			state = "hit";
 			hitX = x;
 			hitY = y;
 			hitLag = 5;
@@ -172,19 +172,19 @@ switch (state)
 		}
 		if (superslam)
 		{
-			if (state == states.hit)
+			if (state == "hit")
 			{
 				x = hitX;
 				y = hitY;
 			}
 			fmod_event_instance_play(snd);
-			state = states.superslam;
+			state = "superslam";
 			sprite_index = spr_pizzahead_piledriverfinal;
 			image_index = 0;
 			image_speed = 0.35;
 		}
 		break;
-	case states.hit:
+	case "hit":
 		x = hitX + irandom_range(-4, 4);
 		y = hitY + irandom_range(-4, 4);
 		if (hitLag > 0)
@@ -195,13 +195,13 @@ switch (state)
 		{
 			x = hitX;
 			y = hitY;
-			state = states.jump;
+			state = "jump";
 		}
 		break;
-	case states.superslam:
-		layer_vspeed(beatdown1_lay, Approach(layer_get_vspeed(beatdown1_lay), -8, 0.1));
-		layer_vspeed(beatdown2_lay, Approach(layer_get_vspeed(beatdown2_lay), -9, 0.1));
-		layer_vspeed(beatdown3_lay, Approach(layer_get_vspeed(beatdown3_lay), -10, 0.1));
+	case "superslam":
+		layer_vspeed(beatdown1_lay, approach(layer_get_vspeed(beatdown1_lay), -8, 0.1));
+		layer_vspeed(beatdown2_lay, approach(layer_get_vspeed(beatdown2_lay), -9, 0.1));
+		layer_vspeed(beatdown3_lay, approach(layer_get_vspeed(beatdown3_lay), -10, 0.1));
 		if (image_speed < 0.6)
 		{
 			image_speed += 0.01;

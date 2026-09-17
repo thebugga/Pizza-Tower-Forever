@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.normal:
+	case "default":
 		if (!locked)
 		{
 			targetplayer = global.coopmode ? instance_nearest(x, y, obj_player) : obj_player1;
@@ -45,7 +45,7 @@ switch (state)
 		var acc = 0.05;
 		if (!fadein)
 		{
-			image_alpha = Approach(image_alpha, 0, acc);
+			image_alpha = approach(image_alpha, 0, acc);
 			with (playerid)
 			{
 				hsp = 0;
@@ -97,14 +97,14 @@ switch (state)
 		}
 		else
 		{
-			image_alpha = Approach(image_alpha, 1, acc);
+			image_alpha = approach(image_alpha, 1, acc);
 			with (playerid)
 			{
 				image_alpha = other.image_alpha;
 				if (image_alpha >= 1)
 				{
-					state = states.normal;
-					other.state = states.normal;
+					state = "default";
+					other.state = "default";
 					other.image_alpha = other.start_alpha;
 				}
 			}

@@ -31,7 +31,7 @@ function state_boss_walk(_func)
 				boss_decide_taunt(130);
 			}
 		}
-		if (state != states.backbreaker)
+		if (state != "backbreaker")
 		{
 			if (attack_cooldown <= 0)
 			{
@@ -43,7 +43,7 @@ function state_boss_walk(_func)
 			}
 			else
 			{
-				state = states.normal;
+				state = "default";
 			}
 		}
 	}
@@ -60,7 +60,7 @@ function state_boss_bump()
 	}
 	if (ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 	}
 }
 
@@ -101,7 +101,7 @@ function state_boss_taunt()
 	image_speed = 0;
 	hsp = 0;
 	vsp = 0;
-	if (taunt_buffer > 0 && state == states.backbreaker)
+	if (taunt_buffer > 0 && state == "backbreaker")
 	{
 		taunt_buffer--;
 		if (place_meeting(x, y, obj_player))

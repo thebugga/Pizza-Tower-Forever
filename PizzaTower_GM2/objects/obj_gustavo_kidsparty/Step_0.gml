@@ -7,6 +7,6 @@ if (!active)
 }
 else
 {
-	y = Approach(y, ystart, 4);
+	y = approach(y, ystart, 4);
 }
 visible = active;

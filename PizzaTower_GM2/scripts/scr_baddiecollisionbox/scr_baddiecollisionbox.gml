@@ -1,14 +1,14 @@
 function baddiecollisionbox_update(_baddie)
 {
-	if (_baddie.cutscene == false && _baddie.state != states.firemouth)
+	if (_baddie.cutscene == false && _baddie.state != "firemouth")
 	{
 		with (_baddie)
 		{
 			var _destroy = false;
 			var _stagger = false;
-			if (instance_exists(other.baddieID) && instakillmove == true && other.baddieID.state != states.grabbed && other.baddieID.thrown == false && !other.baddieID.invincible && other.baddieID.instantkillable)
+			if (instance_exists(other.baddieID) && instakillmove == true && other.baddieID.state != "grabbed" && other.baddieID.thrown == false && !other.baddieID.invincible && other.baddieID.instantkillable)
 			{
-				if (state == states.mach3 && sprite_index != spr_mach3hit)
+				if (state == "mach3" && sprite_index != spr_mach3hit)
 				{
 					if (fightball == false)
 					{
@@ -17,18 +17,18 @@ function baddiecollisionbox_update(_baddie)
 					image_index = 0;
 					_destroy = true;
 				}
-				else if (state == states.Sjump || (state == states.freefall && freefallsmash > 10))
+				else if (state == "Sjump" || (state == "freefall" && freefallsmash > 10))
 				{
 					_destroy = true;
 				}
-				if ((state == states.mach2 || state == states.machroll) && grounded)
+				if ((state == "mach2" || state == "machroll") && grounded)
 				{
 					machpunchAnim = true;
 					image_index = 0;
 				}
-				if (!grounded && state != states.freefall && key_jump2)
+				if (!grounded && state != "freefall" && key_jump2)
 				{
-					if (state == states.mach2 || (state == states.mach3 && fightball == false))
+					if (state == "mach2" || (state == "mach3" && fightball == false))
 					{
 						sprite_index = spr_mach2jump;
 					}
@@ -40,10 +40,10 @@ function baddiecollisionbox_update(_baddie)
 					if (other.baddieID.hp > 0)
 					{
 						_stagger = true;
-						if (state == states.freefall && freefallsmash < 10)
+						if (state == "freefall" && freefallsmash < 10)
 						{
 							vsp = -11;
-							state = states.jump;
+							state = "jump";
 							sprite_index = spr_jump;
 						}
 					}
@@ -60,7 +60,7 @@ function baddiecollisionbox_update(_baddie)
 						with (other.baddieID)
 						{
 							elitehit = 0;
-							state = states.stun;
+							state = "stun";
 							vsp = -7;
 							image_xscale = -other.xscale;
 							hsp = other.xscale * 5;
@@ -77,12 +77,12 @@ function baddiecollisionbox_update(_baddie)
 						}
 					}
 				}
-				if (_stagger && other.baddieID.state != states.staggered)
+				if (_stagger && other.baddieID.state != "staggered")
 				{
 					with (other.baddieID)
 					{
-						hp -= ((state == states.mach2 || state == states.machroll) ? 1 : 2);
-						state = (hp > 0) ? states.staggered : states.stun;
+						hp -= ((state == "mach2" || state == "machroll") ? 1 : 2);
+						state = (hp > 0) ? "staggered" : "stun";
 						stagger_buffer = stagger_max;
 						stagger_dir = other.xscale;
 					}
@@ -90,7 +90,7 @@ function baddiecollisionbox_update(_baddie)
 			}
 			var pepp_grab = false;
 			
-			if (instance_exists(other.baddieID) && y < other.baddieID.y && attacking == false && sprite_index != spr_player_mach2jump && (state == states.jump || state == states.mach1 || state == states.grab) && vsp > 0 && other.baddieID.vsp >= 0 && sprite_index != spr_stompprep && !other.baddieID.invincible && other.baddieID.stompable)
+			if (instance_exists(other.baddieID) && y < other.baddieID.y && attacking == false && sprite_index != spr_player_mach2jump && (state == "jump" || state == "mach1" || state == "grab") && vsp > 0 && other.baddieID.vsp >= 0 && sprite_index != spr_stompprep && !other.baddieID.invincible && other.baddieID.stompable)
 			{
 				if (x != other.baddieID.x)
 				{
@@ -105,7 +105,7 @@ function baddiecollisionbox_update(_baddie)
 					stompAnim = true;
 					other.baddieID.image_index = 0;
 					vsp = -14;
-					if (state != states.grab)
+					if (state != "grab")
 					{
 						sprite_index = spr_stompprep;
 					}
@@ -116,15 +116,15 @@ function baddiecollisionbox_update(_baddie)
 					stompAnim = true;
 					other.baddieID.image_index = 0;
 					vsp = -9;
-					if (state != states.grab)
+					if (state != "grab")
 					{
 						sprite_index = spr_stompprep;
 					}
 				}
 			}
-			if (instance_exists(other.baddieID) && !pepp_grab && !_stagger && !_destroy && other.baddieID.thrown == false && other.baddieID.stuntouchbuffer == 0 && other.baddieID.vsp > 0 && state != states.faceplant && state != states.punch && state != states.tackle && state != states.superslam && state != states.pogo && state != states.machslide && state != states.pummel && other.baddieID.state != states.grabbed && other.baddieID.state != states.pummel && state != states.freefall && state != states.grab && state != states.mach2 && state != states.handstandjump && state != states.hurt && other.baddieID.state != states.chase && state != states.mach3 && state != states.machroll && state != states.climbwall && other.baddieID.bumpable && !other.baddieID.invincible)
+			if (instance_exists(other.baddieID) && !pepp_grab && !_stagger && !_destroy && other.baddieID.thrown == false && other.baddieID.stuntouchbuffer == 0 && other.baddieID.vsp > 0 && state != "faceplant" && state != "punch" && state != "tackle" && state != "superslam" && state != "pogo" && state != "machslide" && state != "pummel" && other.baddieID.state != "grabbed" && other.baddieID.state != "pummel" && state != "freefall" && state != "grab" && state != "mach2" && state != "handstandjump" && state != "hurt" && other.baddieID.state != states.chase && state != "mach3" && state != "machroll" && state != "climbwall" && other.baddieID.bumpable && !other.baddieID.invincible)
 			{
-				if (state != states.bombpep && state != states.mach1 && state != states.crouchslide && character != "M")
+				if (state != "bombpep" && state != "mach1" && state != "crouchslide" && character != "M")
 				{
 					movespeed = 0;
 				}
@@ -139,18 +139,18 @@ function baddiecollisionbox_update(_baddie)
 				}
 				other.baddieID.stagger_buffer = other.baddieID.stagger_max;
 				other.baddieID.stagger_dir = xscale;
-				other.baddieID.state = (other.baddieID.hp > 0) ? states.staggered : states.stun;
+				other.baddieID.state = (other.baddieID.hp > 0) ? "staggered" : "stun";
 				other.baddieID.image_index = 0;
 			}
-			if (instance_exists(other.baddieID) && state == states.handstandjump && !other.baddieID.invincible)
+			if (instance_exists(other.baddieID) && state == "handstandjump" && !other.baddieID.invincible)
 			{
-				if (other.baddieID.state != states.stun)
+				if (other.baddieID.state != "stun")
 				{
-					state = states.pummel;
+					state = "pummel";
 					sprite_index = spr_grab;
 					image_speed = 0.35;
 					image_index = 0;
-					other.baddieID.state = states.pummel;
+					other.baddieID.state = "pummel";
 					other.baddieID.grabbedby = (object_index == obj_player1) ? 1 : 2;
 				}
 				else if (other.baddieID.thrown == false)
@@ -158,9 +158,9 @@ function baddiecollisionbox_update(_baddie)
 					movespeed = 0;
 					image_index = 0;
 					sprite_index = spr_haulingstart;
-					state = states.grab;
+					state = "grab";
 					baddiegrabbedID = other.baddieID;
-					other.baddieID.state = states.grabbed;
+					other.baddieID.state = "grabbed";
 					other.baddieID.grabbedby = 1;
 				}
 				else
@@ -174,7 +174,7 @@ function baddiecollisionbox_update(_baddie)
 					{
 						other.baddieID.hsp = xscale * 6;
 						image_index = 0;
-						state = states.tackle;
+						state = "tackle";
 						baddiegrabbedID = other.baddieID;
 						movespeed = 0;
 						other.baddieID.vsp = -6;
@@ -187,7 +187,7 @@ function baddiecollisionbox_update(_baddie)
 					}
 					sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_punch);
 					image_index = 0;
-					state = states.tackle;
+					state = "tackle";
 					movespeed = 0;
 					scr_throwenemy();
 				}

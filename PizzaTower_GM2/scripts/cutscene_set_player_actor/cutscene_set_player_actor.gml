@@ -4,7 +4,7 @@ function cutscene_set_player_actor()
 	{
 		if (check_player_coop())
 		{
-			state = states.actor;
+			state = "actor";
 			image_speed = 0.35;
 		}
 	}

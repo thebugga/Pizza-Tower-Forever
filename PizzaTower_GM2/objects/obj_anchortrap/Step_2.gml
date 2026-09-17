@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.normal:
+	case "default":
 		hsp = 0;
 		vsp = 0;
 		break;
@@ -17,7 +17,7 @@ switch (state)
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 			create_particle(x, y, particletypes.landcloud);
-			state = states.jump;
+			state = "jump";
 			with (obj_camera)
 			{
 				shake_mag = 5;
@@ -25,19 +25,19 @@ switch (state)
 			}
 		}
 		break;
-	case states.jump:
-		y = Approach(y, ystart, 2);
+	case "jump":
+		y = approach(y, ystart, 2);
 		if (y == ystart)
 		{
-			state = states.normal;
+			state = "default";
 		}
 		break;
 }
-if (state == states.jump && alarm[0] == -1)
+if (state == "jump" && alarm[0] == -1)
 {
 	alarm[0] = 10;
 }
-else if (state != states.jump)
+else if (state != "jump")
 {
 	image_alpha = 1;
 }

@@ -1,10 +1,16 @@
+scr_init_input();
 currentmodeselect = 0;
 currentselect = 0;
 optionbuffer = 0;
 visualselect = 0;
-state = states.titlescreen;
+makingnewsave = true;
+state = "titlescreen";
+taunt_key = noone;
+start_key = noone;
 image_speed = 0.35;
-depth = 0;
+depth = -150;
+changex = false;
+can_press_stuff = false;
 mainmenu_sprite = -1;
 controls_sprite = -1;
 angrybuffer = 0;
@@ -13,9 +19,6 @@ savedindex = 0;
 deleteselect = 1;
 exitselect = 1;
 percvisual = 0;
-taunt_key = scr_compile_icon_text("[x]");
-grab_key = scr_compile_icon_text("[q]");
-start_key = scr_compile_icon_text("[p]");
 jumpscarecount = 0;
 quitbuffer = 0;
 vsp = 0;
@@ -29,6 +32,7 @@ judgement = "confused";
 deletebuffer = 0;
 obj_player1.player_paletteselect[0] = 1;
 obj_player1.player_paletteselect[1] = 1;
+obj_player1.player_paletteselect[2] = 1;
 percentage = 0;
 perstatus_icon = 0;
 extrauialpha = 0;
@@ -37,7 +41,6 @@ punch_y = 0;
 key_jump = false;
 index = 0;
 bombsnd = fmod_event_create_instance("event:/sfx/ui/bombfuse");
-scr_init_input();
 pep_game = noone;
 pep_percvisual = 0;
 pep_alpha = 1;
@@ -56,7 +59,7 @@ unlock_noise = function(_showpopup)
 {
 	for (var i = 0; i < 3; i++)
 	{
-		if (global.game[i].judgement != "none" || global.gameN[i].judgement != "none")
+		if (global.game[i].judgement != "none")
 		{
 			_showpopup = true;
 			break;
@@ -92,14 +95,6 @@ unlock_noise = function(_showpopup)
 
 unlock_swap = function(_showpopup)
 {
-	for (var i = 0; i < 3; i++)
-	{
-		if (global.gameN[i].judgement != "none")
-		{
-			_showpopup = true;
-			break;
-		}
-	}
 	if (!_showpopup)
 	{
 		ini_open_from_string(obj_savesystem.ini_str_options);
@@ -127,7 +122,7 @@ unlock_swap = function(_showpopup)
 	}
 };
 
-unlock_noise(false);
+//unlock_noise(false);
 ini_open_from_string(obj_savesystem.ini_str_options);
 swap_unlocked = ini_read_real("Game", "swapmode", 0) == 1;
 ini_close();

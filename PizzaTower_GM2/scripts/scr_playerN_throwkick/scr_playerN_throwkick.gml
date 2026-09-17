@@ -2,7 +2,7 @@ function scr_playerN_throwkick()
 {
 	hsp = -xscale * movespeed;
 	move = key_left + key_right;
-	movespeed = Approach(movespeed, 0, 0.2);
+	movespeed = approach(movespeed, 0, 0.2);
 	if (image_index > 4 && !bombthrow)
 	{
 		with (instance_create(x + (xscale * 20), y, obj_playerbomb))
@@ -24,7 +24,7 @@ function scr_playerN_throwkick()
 	image_speed = 0.35;
 	if (ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (punch_afterimage > 0)
 	{
@@ -40,6 +40,6 @@ function scr_playerN_throwkick()
 	}
 	if (input_buffer_shoot > 0)
 	{
-		scr_bombshoot(states.bombthrow);
+		scr_bombshoot("bombthrow");
 	}
 }

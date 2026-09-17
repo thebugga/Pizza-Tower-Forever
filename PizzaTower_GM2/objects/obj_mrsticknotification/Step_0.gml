@@ -3,7 +3,7 @@ if (!finish)
 {
 	if (start)
 	{
-		y = Approach(y, 32, accel);
+		y = approach(y, 32, accel);
 		with (obj_player)
 		{
 			if (place_meeting(x, y, obj_grannypizzasign) || place_meeting(x, y, obj_tutorialbook))
@@ -25,7 +25,7 @@ if (!finish)
 else
 {
 	var ty = -(height + 100);
-	y = Approach(y, ty, accel);
+	y = approach(y, ty, accel);
 	if (y <= ty)
 	{
 		instance_destroy();

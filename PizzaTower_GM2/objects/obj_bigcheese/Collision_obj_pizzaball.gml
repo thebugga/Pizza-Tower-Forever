@@ -1,9 +1,9 @@
-if (state != states.throwing && (other.hsp != 0 || other.thrown || other.state == states.tumble))
+if (state != "throwing" && (other.hsp != 0 || other.thrown || other.state == "tumble"))
 {
 	pizzaball = true;
 	golfid = other.id;
 	shot = false;
-	state = states.throwing;
+	state = "throwing";
 	other.bigcheeseID = id;
 	other.sprite_index = spr_pizzaball_roll;
 	sprite_index = spr_bigcheese_throw;

@@ -1,4 +1,4 @@
-function scr_player_fireass()
+function player_fireass()
 {
 	image_speed = 0.35;
 	alarm[5] = 2;
@@ -41,11 +41,11 @@ function scr_player_fireass()
 			{
 				if (move == xscale)
 				{
-					movespeed = Approach(movespeed, xscale * 8, 0.5);
+					movespeed = approach(movespeed, xscale * 8, 0.5);
 				}
 				else
 				{
-					movespeed = Approach(movespeed, 0, 0.5);
+					movespeed = approach(movespeed, 0, 0.5);
 				}
 				if (movespeed <= 0)
 				{
@@ -54,7 +54,7 @@ function scr_player_fireass()
 			}
 			else
 			{
-				movespeed = Approach(movespeed, 0, 0.1);
+				movespeed = approach(movespeed, 0, 0.1);
 			}
 		}
 		if (place_meeting(x, y + 1, obj_tutorialblock))
@@ -75,7 +75,7 @@ function scr_player_fireass()
 				alarm[5] = 2;
 				alarm[7] = 60;
 				hurted = true;
-				state = states.normal;
+				state = "default";
 				sprite_index = spr_idle;
 				image_index = 0;
 			}
@@ -100,7 +100,7 @@ function scr_player_fireass()
 			alarm[5] = 2;
 			alarm[7] = 60;
 			hurted = true;
-			state = states.normal;
+			state = "default";
 			sprite_index = spr_idle;
 			image_index = 0;
 		}
@@ -114,7 +114,7 @@ function scr_player_fireass()
 			alarm[5] = 2;
 			alarm[7] = 60;
 			hurted = true;
-			state = states.normal;
+			state = "default";
 			sprite_index = spr_idle;
 			image_index = 0;
 		}

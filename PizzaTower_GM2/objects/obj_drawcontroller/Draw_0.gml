@@ -36,7 +36,7 @@ if (use_dark)
 		}
 	}
 }
-if (obj_player1.finisher || obj_player2.finisher || (obj_player.state == states.playersuperattack && obj_player.superattackstate == states.transitioncutscene))
+if (obj_player1.finisher || obj_player2.finisher || (obj_player.state == "playersuperattack" && obj_player.superattackstate == "transitioncutscene"))
 {
 	finisher_alpha = Approach(finisher_alpha, 0.3, 0.1);
 }
@@ -78,9 +78,9 @@ if (room == boss_fakepep)
 			var palinfo = get_pep_palette_info();
 			pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, palinfo.patterntexture);
 			var ps = palinfo.paletteselect;
-			pal_swap_set(spr_peppalette, ps, false);
+			pal_swap_set(pal_peppino, ps, false);
 			draw_self();
-			pal_swap_set(spr_peppalette, 13, false);
+			pal_swap_set(pal_peppino, 13, false);
 			draw_self();
 			pattern_reset();
 			draw_self();
@@ -91,7 +91,7 @@ shader_set(shd_hit);
 with (obj_baddie)
 {
 	var _stun = 0;
-	if (state == states.stun && object_index != obj_pizzaball)
+	if (state == "stun" && object_index != obj_pizzaball)
 	{
 		_stun = 25;
 	}
@@ -137,7 +137,7 @@ for (var i = 0; i < array_length(flash_arr); i++)
 	}
 }
 //shader_set(global.retro_pal_swapper);
-pal_swap_set(spr_peppalette, 0, false);
+pal_swap_set(pal_peppino, 0, false);
 with (obj_pizzagoblinbomb)
 {
 	if (grabbable && grounded && vsp > 0)
@@ -148,7 +148,7 @@ with (obj_pizzagoblinbomb)
 }
 with (obj_player)
 {
-	if (!other.hungrypillarflash && visible && state != states.titlescreen && bbox_in_camera(view_camera[0], 32))
+	if (!other.hungrypillarflash && visible && state != "titlescreen" && bbox_in_camera(view_camera[0], 32))
 	{
 		draw_player();
 	}
@@ -210,7 +210,7 @@ if (room == boss_pizzaface)
 	{
 		if (sprite_index == spr_playerN_phase3intro2 || sprite_index == spr_playerN_phase3intro2 || instance_exists(obj_pizzaface_thunderdark))
 		{
-			if (image_alpha > 0 && character == characters.Noise)
+			if (image_alpha > 0 && character == "Noise")
 			{
 				draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, image_angle, image_blend, supernoisefade);
 			}

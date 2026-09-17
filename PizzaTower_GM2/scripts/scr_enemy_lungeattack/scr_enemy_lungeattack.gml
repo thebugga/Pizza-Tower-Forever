@@ -1,11 +1,11 @@
-function scr_enemy_lungeattack()
+function enemy_lungeattack()
 {
 	hsp = -image_xscale * 4;
 	vsp = 0;
 	var _l = false;
 	with (obj_player)
 	{
-		if (state == states.lungeattack && image_index <= 4)
+		if (state == "lungeattack" && image_index <= 4)
 		{
 			_l = true;
 		}
@@ -20,7 +20,7 @@ function scr_enemy_lungeattack()
 	}
 	else
 	{
-		state = states.stun;
+		state = "stun";
 		hsp = hithsp;
 		vsp = hitvsp;
 		stunned = 200;

@@ -1,4 +1,4 @@
-function scr_player_animation()
+function player_animation()
 {
 	hsp = 0;
 	vsp = 0;
@@ -19,14 +19,14 @@ function scr_player_animation()
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 		}
 		exit;
 	}
 	if (instance_exists(obj_pizzahead_whitefade))
 	{
 		image_index = image_number - 1;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			image_index = 0;
 		}
@@ -84,7 +84,7 @@ function scr_player_animation()
 			if (sprite_index == spr_playerN_freezerintro)
 			{
 				create_transformation_tip(lang_get_value("jetpack2tip"));
-				state = states.normal;
+				state = "default";
 				global.noisejetpack = true;
 			}
 		}

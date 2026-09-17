@@ -1,4 +1,4 @@
-function scr_player_ratmountjump()
+function player_ratmountjump()
 {
 	move = key_left + key_right;
 	if (sprite_index == spr_lonegustavo_dashjump)
@@ -30,7 +30,7 @@ function scr_player_ratmountjump()
 			if (_bump)
 			{
 				fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
-				state = states.bump;
+				state = "bump";
 				if (brick)
 				{
 					sprite_index = spr_player_ratmountbump;
@@ -61,24 +61,24 @@ function scr_player_ratmountjump()
 		{
 			if (move == xscale)
 			{
-				movespeed = Approach(movespeed, xscale * ratmount_movespeed, 0.5);
+				movespeed = approach(movespeed, xscale * ratmount_movespeed, 0.5);
 			}
 			else if (gustavodash == 51)
 			{
-				movespeed = Approach(movespeed, 0, 0.5);
+				movespeed = approach(movespeed, 0, 0.5);
 			}
 			else
 			{
-				movespeed = Approach(movespeed, 0, 0.5);
+				movespeed = approach(movespeed, 0, 0.5);
 			}
 		}
 		else if (gustavodash == 51)
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 		}
 		if (move != xscale && move != 0)
 		{
@@ -139,7 +139,7 @@ function scr_player_ratmountjump()
 		}
 		brick = false;
 		movespeed = hsp;
-		state = states.ratmountgroundpound;
+		state = "ratmountgroundpound";
 		image_index = 0;
 		sprite_index = spr_lonegustavo_groundpoundstart;
 	}
@@ -161,7 +161,7 @@ function scr_player_ratmountjump()
 			}
 		}
 		brick = false;
-		state = states.ratmountpunch;
+		state = "ratmountpunch";
 		gustavohitwall = false;
 		ratmountpunchtimer = 25;
 		image_index = 0;
@@ -201,14 +201,14 @@ function scr_player_ratmountjump()
 		}
 		image_index = 0;
 		jumpAnim = true;
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		vsp = -11;
 		jumpstop = false;
 	}
 	if (key_jump && brick && bounce)
 	{
 		GamepadSetVibration(0, 0.8, 0.8, 0.65);
-		state = states.ratmountbounce;
+		state = "ratmountbounce";
 		instance_create(x, y, obj_highjumpcloud2);
 		sprite_index = spr_player_ratmountwalljump;
 		image_index = 0;
@@ -218,7 +218,7 @@ function scr_player_ratmountjump()
 	{
 		doublejump = false;
 		create_particle(x, y, particletypes.landcloud, 0);
-		state = states.ratmount;
+		state = "ratmount";
 		landAnim = true;
 		jumpstop = false;
 		if (brick && !key_attack)
@@ -233,7 +233,7 @@ function scr_player_ratmountjump()
 	}
 	with (ratgrabbedID)
 	{
-		scr_enemy_ratgrabbed();
+		enemy_ratgrabbed();
 	}
 	ratmount_shootpowerup();
 	ratmount_dotaunt();

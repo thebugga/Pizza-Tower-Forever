@@ -5,6 +5,13 @@ if (room == timesuproom)
 	xscale = 1;
 	visible = true;
 }
+
+prevhsp = hsp;
+prevmove = move;
+prevmovespeed = movespeed;
+previcemovespeed = icemovespeed;
+prevxscale = xscale;
+
 savedhallwaydirection = hallwaydirection;
 savedhallway = hallway;
 savedvhallwaydirection = vhallwaydirection;
@@ -60,9 +67,9 @@ if (global.levelreset)
 	instance_destroy(obj_combotitle);
 	global.combodropped = false;
 }
-if (room == tower_finalhallway && targetDoor == "C" && state == states.comingoutdoor)
+if (room == tower_finalhallway && targetDoor == "C" && state == "comingoutdoor")
 {
-	state = states.normal;
+	state = "default";
 }
 if (global.levelcomplete)
 {
@@ -71,7 +78,7 @@ if (global.levelcomplete)
 	global.leveltosave = noone;
 	global.startgate = false;
 }
-if (state == states.comingoutdoor && global.coopmode == true && !place_meeting(x, y, obj_exitgate))
+if (state == "comingoutdoor" && global.coopmode == true && !place_meeting(x, y, obj_exitgate))
 {
 	if (object_index == obj_player1 && obj_player1.spotlight == false)
 	{
@@ -82,15 +89,15 @@ if (state == states.comingoutdoor && global.coopmode == true && !place_meeting(x
 		visible = false;
 	}
 }
-if (state == states.grab)
+if (state == "grab")
 {
-	state = states.normal;
+	state = "default";
 }
 if (place_meeting(x, y, obj_boxofpizza) || place_meeting(x, y - 1, obj_boxofpizza))
 {
 	box = true;
 	hallway = false;
-	state = states.crouch;
+	state = "crouch";
 }
 if (object_index != obj_player2 || global.coopmode == true)
 {
@@ -233,11 +240,11 @@ if (verticalhallway)
 		{
 			y = _vinst.bbox_top - 78;
 		}
-		if (verticalstate == states.climbwall)
+		if (verticalstate == "climbwall")
 		{
-			state = states.climbwall;
+			state = "climbwall";
 		}
-		if (state == states.climbwall)
+		if (state == "climbwall")
 		{
 			x = round(x);
 			// is this meant to be a for loop?
@@ -258,9 +265,9 @@ if (verticalhallway)
 	}
 	y += (vhallwaydirection * 20);
 	y = floor(y);
-	verticalstate = states.normal;
+	verticalstate = "default";
 }
-if (state == states.taxi)
+if (state == "taxi")
 {
 	x = obj_stopsign.x;
 	y = obj_stopsign.y;
@@ -302,11 +309,11 @@ with (obj_roomposoverride)
 		other.roomstarty = y;
 	}
 }
-if (state == states.chainsaw)
+if (state == "chainsaw")
 {
 	hitX = x;
 	hitY = y;
-	hitLag = 0;
+	//hitLag = 0;
 }
 
 with (obj_pizzaface)

@@ -1,6 +1,6 @@
 if (fadein)
 {
-	fade = Approach(fade, maxfade, accel);
+	fade = approach(fade, maxfade, accel);
 	if (fade >= maxfade)
 	{
 		fadein = false;
@@ -8,7 +8,7 @@ if (fadein)
 }
 else
 {
-	fade = Approach(fade, 0, deccel);
+	fade = approach(fade, 0, deccel);
 	if (fade <= 0)
 	{
 		instance_destroy();

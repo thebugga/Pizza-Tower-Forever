@@ -1,4 +1,4 @@
-global.swap_character = characters.Noise;
+global.swap_character = "Noise";
 function swap_is_player2()
 {
 	return global.swapmode && obj_player1.character != obj_savesystem.character;
@@ -27,8 +27,8 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 		{
 			global.swap_boss_damage = -1;
 		}
-		state = states.normal;
-		if (character == characters.Peppino)
+		state = "default";
+		if (character == "Peppino")
 		{
 			if (isgustavo)
 			{
@@ -47,7 +47,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 		var _char = character;
 		character = global.swap_character;
 		global.swap_character = _char;
-		if (character != characters.Noise)
+		if (character != "Noise")
 		{
 			if (noisecrusher)
 			{
@@ -59,7 +59,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 				global.noisejetpack = false;
 			}
 		}
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			tauntstoredisgustavo = false;
 		}
@@ -68,7 +68,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 		pistolchargeshooting = false;
 		pistolanim = noone;
 		global.pistol = false;
-		if ((character == characters.Peppino && (room == boss_vigilante || instance_exists(obj_pizzafaceboss_p2))) || (instance_exists(obj_bosscontroller) && character == characters.Noise))
+		if ((character == "Peppino" && (room == boss_vigilante || instance_exists(obj_pizzafaceboss_p2))) || (instance_exists(obj_bosscontroller) && character == "Noise"))
 		{
 			global.pistol = true;
 		}
@@ -79,7 +79,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 			{
 				global.noisejetpack = true;
 			}
-			else if (character == characters.Noise && room == freezer_secret3)
+			else if (character == "Noise" && room == freezer_secret3)
 			{
 				global.noisejetpack = true;
 			}
@@ -122,7 +122,7 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 			if (character == obj_player1.character)
 			{
 				character = global.swap_character;
-				if (obj_player1.character == characters.Noise && obj_player1.noisecrusher)
+				if (obj_player1.character == "Noise" && obj_player1.noisecrusher)
 				{
 					isgustavo = true;
 				}
@@ -131,14 +131,14 @@ function swap_player(_hurtswap = false, _jumpscare = false)
 		}
 		with (obj_tv)
 		{
-			if (state != states.transitioncutscene && !_hurtswap)
+			if (state != "transitioncutscene" && !_hurtswap)
 			{
-				state = states.normal;
+				state = "default";
 				if (idleanim < 60)
 				{
 					idleanim = 60;
 				}
-				sprite_index = other.character == characters.Peppino ? spr_tv_idle : spr_tv_idleN;
+				sprite_index = other.character == "Peppino" ? spr_tv_idle : spr_tv_idleN;
 				if (sprite_index == spr_tv_idle && other.isgustavo)
 				{
 					sprite_index = spr_tv_idleG;

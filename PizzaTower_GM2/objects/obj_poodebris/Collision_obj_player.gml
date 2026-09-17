@@ -2,7 +2,7 @@ with (other)
 {
 	var f = 10;
 	var _sound = false;
-	if (state == states.mach2 || state == states.mach3 || state == states.trashroll || state == states.crouch || state == states.handstandjump || state == states.tumble)
+	if (state == "mach2" || state == "mach3" || state == "trashroll" || state == "crouch" || state == "handstandjump" || state == "tumble")
 	{
 		_sound = true;
 	}
@@ -20,7 +20,7 @@ with (other)
 			}
 			else
 			{
-				if (state == states.crouch)
+				if (state == "crouch")
 				{
 					steppybuffer = 16;
 				}

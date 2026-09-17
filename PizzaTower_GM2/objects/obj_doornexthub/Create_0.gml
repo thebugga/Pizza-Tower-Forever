@@ -5,5 +5,5 @@ targetDoor = noone;
 key = false;
 save = "w1stick";
 unlocked = false;
-state = states.normal;
+state = "default";
 depth = 50;

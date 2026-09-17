@@ -1,4 +1,4 @@
-function scr_player_facestomp()
+function player_facestomp()
 {
 	move = key_left + key_right;
 	jumpAnim = false;
@@ -25,7 +25,7 @@ function scr_player_facestomp()
 	}
 	if (!key_down)
 	{
-		state = states.jump;
+		state = "jump";
 	}
 	landAnim = true;
 	if (vsp > 0)
@@ -38,12 +38,12 @@ function scr_player_facestomp()
 	}
 	if (vsp > 15)
 	{
-		state = states.freefall;
+		state = "freefall";
 		superslam = 0;
 	}
 	if (grounded && (!place_meeting(x, y + 1, obj_destructibles) || place_meeting(x, y + 1, obj_metalblock)) && vsp > 0)
 	{
-		state = states.freefallland;
+		state = "freefallland";
 		jumpAnim = true;
 		jumpstop = false;
 		image_index = 0;
@@ -73,7 +73,7 @@ function scr_player_facestomp()
 		sprite_index = spr_player_hanstandjump;
 		stompAnim = false;
 		hsp = 0;
-		state = states.handstandjump;
+		state = "handstandjump";
 		jumpAnim = true;
 		jumpstop = false;
 		image_index = 0;

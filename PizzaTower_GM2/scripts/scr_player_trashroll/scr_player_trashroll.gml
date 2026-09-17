@@ -1,4 +1,4 @@
-function scr_player_trashroll()
+function player_trashroll()
 {
 	image_speed = 0.35;
 	hsp = xscale * movespeed;
@@ -8,7 +8,7 @@ function scr_player_trashroll()
 	}
 	if ((scr_slope() && hsp != 0) && movespeed < 14)
 	{
-		scr_player_addslopemomentum(0.25, 0.25);
+		player_addslopemomentum(0.25, 0.25);
 	}
 	movespeed = max(3, movespeed);
 	if (sprite_index != spr_playercorpsestart && sprite_index != spr_playercorpsesurf)
@@ -57,7 +57,7 @@ function scr_player_trashroll()
 	{
 		input_buffer_jump = 0;
 		dir = xscale;
-		state = states.mach2;
+		state = "mach2";
 		sprite_index = spr_mach2jump;
 		jumpstop = false;
 		vsp = -11;
@@ -67,7 +67,7 @@ function scr_player_trashroll()
 	{
 		image_index = 0;
 		sprite_index = spr_bump;
-		state = states.bump;
+		state = "bump";
 		hsp = -xscale * 3;
 		vsp = -3;
 	}

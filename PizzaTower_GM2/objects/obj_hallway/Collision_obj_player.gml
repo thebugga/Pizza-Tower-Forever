@@ -1,12 +1,12 @@
-if (obj_player1.state == states.debugstate)
+if (obj_player1.state == "debugstate")
 {
 	exit;
 }
-if (obj_player1.state == states.backtohub)
+if (obj_player1.state == "backtohub")
 {
 	exit;
 }
-if (obj_player1.state == states.titlescreen)
+if (obj_player1.state == "titlescreen")
 {
 	exit;
 }

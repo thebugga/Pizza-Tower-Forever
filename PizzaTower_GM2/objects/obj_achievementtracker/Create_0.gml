@@ -626,7 +626,7 @@ for (var i = 0; i < array_length(pats); i++)
 }
 add_achievement_update("pal_boise", 1, function()
 {
-	achievement_add_variable("boise_prevstate", states.normal);
+	achievement_add_variable("boise_prevstate", "default");
 	achievement_add_variable("boise_count", 0);
 }, function()
 {
@@ -636,9 +636,9 @@ add_achievement_update("pal_boise", 1, function()
 	}
 	var _state = achievement_get_variable("boise_prevstate");
 	var _count = achievement_get_variable("boise_count");
-	if (obj_player1.state != _state.value && obj_player1.state != states.chainsaw)
+	if (obj_player1.state != _state.value && obj_player1.state != "chainsaw")
 	{
-		if (obj_player1.state == states.ratmountbounce)
+		if (obj_player1.state == "ratmountbounce")
 		{
 			_count.value += 0.5;
 		}
@@ -652,7 +652,7 @@ add_achievement_update("pal_boise", 1, function()
 		}
 		_state.value = obj_player1.state;
 	}
-	if (obj_player1.grounded || (obj_player1.state != states.ratmountbounce && obj_player1.state != states.chainsaw && obj_player1.sprite_index != spr_playerN_sidewayspin && obj_player1.sprite_index != spr_playerN_sidewayspinend))
+	if (obj_player1.grounded || (obj_player1.state != "ratmountbounce" && obj_player1.state != "chainsaw" && obj_player1.sprite_index != spr_playerN_sidewayspin && obj_player1.sprite_index != spr_playerN_sidewayspinend))
 	{
 		_count.value = 0;
 	}
@@ -784,7 +784,7 @@ add_achievement_update("pal_realdoise", 2, noone, function()
 	{
 		exit;
 	}
-	if (obj_player1.state == states.normal && obj_player1.sprite_index == obj_player1.spr_breakdance && room == boss_pizzaface && instance_exists(obj_noiseboss))
+	if (obj_player1.state == "default" && obj_player1.sprite_index == obj_player1.spr_breakdance && room == boss_pizzaface && instance_exists(obj_noiseboss))
 	{
 		palette_unlock(name, "realdoise", 17, noone, false);
 	}
@@ -1206,7 +1206,7 @@ add_achievement_notify("medieval3", function()
 }, function(_array)
 {
 	var type = _array[0];
-	if (type == notifications.generic_killed && global.leveltosave == "medieval" && (obj_player1.state == states.tumble || (obj_player1.tauntstoredstate == states.tumble && obj_player1.state == states.chainsaw)) && (obj_player1.sprite_index == obj_player1.spr_tumblestart || obj_player1.sprite_index == obj_player1.spr_tumbleend || obj_player1.sprite_index == obj_player1.spr_tumble))
+	if (type == notifications.generic_killed && global.leveltosave == "medieval" && (obj_player1.state == "tumble" || (obj_player1.tauntstoredstate == "tumble" && obj_player1.state == "chainsaw")) && (obj_player1.sprite_index == obj_player1.spr_tumblestart || obj_player1.sprite_index == obj_player1.spr_tumbleend || obj_player1.sprite_index == obj_player1.spr_tumble))
 	{
 		achievement_unlock(name, "Spherical", spr_achievement_medieval, 2);
 	}
@@ -1365,7 +1365,7 @@ add_achievement_notify("graveyard2", function()
 	var arr = _array[1];
 	if (global.leveltosave == "graveyard")
 	{
-		if (type == notifications.generic_killed && (obj_player1.state == states.ghost || (obj_player1.state == states.chainsaw && obj_player1.tauntstoredstate == states.ghost)))
+		if (type == notifications.generic_killed && (obj_player1.state == "ghost" || (obj_player1.state == "chainsaw" && obj_player1.tauntstoredstate == "ghost")))
 		{
 			achievement_get_variable("grav2count").value += 1;
 			if (achievement_get_variable("grav2count").value >= 20)
@@ -1402,7 +1402,7 @@ add_achievement_notify("farm1", function()
 	{
 		var n = achievement_get_variable("f1_count");
 		var r = room_get_name(arr[1]);
-		if (obj_player.state == states.backbreaker && (string_letters(r) == "farm" || string_letters(r) == "farmb"))
+		if (obj_player.state == "backbreaker" && (string_letters(r) == "farm" || string_letters(r) == "farmb"))
 		{
 			n.value++;
 			if (n.value >= 3)
@@ -1535,7 +1535,7 @@ add_achievement_update("forest1", 5, noone, function()
 		var b = false;
 		with (obj_player)
 		{
-			if (!b && state == states.backbreaker && distance_to_object(obj_beedeco) < 300)
+			if (!b && state == "backbreaker" && distance_to_object(obj_beedeco) < 300)
 			{
 				b = true;
 			}

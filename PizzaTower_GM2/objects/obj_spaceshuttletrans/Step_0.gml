@@ -1,4 +1,4 @@
-y = Approach(y, obj_spaceshuttlestop.y, 40);
+y = approach(y, obj_spaceshuttlestop.y, 40);
 if (y > (obj_spaceshuttlestop.y - 18))
 {
 	with (obj_player)
@@ -30,7 +30,7 @@ if (y > (obj_spaceshuttlestop.y - 18))
 				}
 			}
 			flash = false;
-			state = states.bump;
+			state = "bump";
 			hsp = 0;
 			vsp = -11;
 			mach2 = 0;

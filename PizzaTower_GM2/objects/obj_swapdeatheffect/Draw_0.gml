@@ -1,11 +1,11 @@
 //shader_set(global.retro_pal_swapper);
-if (character == characters.Noise)
+if (character == "Noise")
 {
-	spr_palette = spr_peppalette;
+	spr_palette = pal_peppino;
 }
 else
 {
-	spr_palette = spr_peppaletteN;
+	spr_palette = pal_noiseplayer;
 	if (room == boss_pizzaface && instance_exists(obj_pizzaface_thunderdark))
 	{
 		spr_palette = spr_noisepalette_rage;

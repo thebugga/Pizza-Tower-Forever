@@ -2,11 +2,11 @@ x += hsp;
 y += vsp;
 switch (state)
 {
-	case states.normal:
+	case "default":
 		image_speed = 0.35;
 		sprite_index = spr_horsey;
 		break;
-	case states.gameover:
+	case "gameover":
 		image_speed = 0.35;
 		sprite_index = spr_horsey_lose;
 		with (obj_objecticontracker)
@@ -17,7 +17,7 @@ switch (state)
 			}
 		}
 		break;
-	case states.finishingblow:
+	case "finishingblow":
 		image_speed = 0.1;
 		sprite_index = spr_horsey_win;
 		with (obj_objecticontracker)

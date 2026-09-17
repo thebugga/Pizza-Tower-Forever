@@ -16,7 +16,7 @@ else
 {
 	image_speed = 0.35;
 }
-if (!instance_exists(obj_bomb) && obj_player.state != states.bombpep)
+if (!instance_exists(obj_bomb) && obj_player.state != "bombpep")
 {
 	canthrowbomb = true;
 }

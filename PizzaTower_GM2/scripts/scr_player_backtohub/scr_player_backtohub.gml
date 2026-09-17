@@ -1,4 +1,4 @@
-function scr_player_backtohub()
+function player_backtohub()
 {
 	global.leveltorestart = noone;
 	global.noisejetpack = false;
@@ -56,7 +56,7 @@ function scr_player_backtohub()
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 			landAnim = false;
 			facestompAnim = true;
 		}

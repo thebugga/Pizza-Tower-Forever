@@ -13,10 +13,10 @@ if ((global.panic || instance_exists(obj_wartimer)) && sprite_index != spr_pizza
 				{
 					lock = true;
 				}
-				state = states.actor;
+				state = "actor";
 				visible = false;
 				other.sprite_index = spr_pizzaportalend;
-				if (character == characters.Noise)
+				if (character == "Noise")
 				{
 					other.sprite_index = spr_pizzaportalendN;
 				}

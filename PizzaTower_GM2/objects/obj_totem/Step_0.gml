@@ -5,7 +5,7 @@ if (empty)
 {
 	with (obj_indiancheese)
 	{
-		if (empty && state == states.walk && x > (other.x - 72) && x < (other.x + 72) && y > (other.y - 74) && y < (other.y + 50) && grounded)
+		if (empty && state == "walk" && x > (other.x - 72) && x < (other.x + 72) && y > (other.y - 74) && y < (other.y + 50) && grounded)
 		{
 			state = states.dance;
 			totemID = other.id;
@@ -21,7 +21,7 @@ if (empty)
 	{
 		with (obj_player)
 		{
-			if (distance_to_object(other) <= 280 && state == states.machslide && (sprite_index == spr_machslideboost || sprite_index == spr_mach3boost))
+			if (distance_to_object(other) <= 280 && state == "machslide" && (sprite_index == spr_machslideboost || sprite_index == spr_mach3boost))
 			{
 				other.machslidecount++;
 				other.machslidebuffer = 30;

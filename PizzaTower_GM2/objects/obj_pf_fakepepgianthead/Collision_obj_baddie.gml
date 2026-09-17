@@ -7,7 +7,7 @@ if (other.thrown)
 		x = other.x;
 		y = other.y;
 		create_particle(x, y, particletypes.genericpoofeffect);
-		state = states.stun;
+		state = "stun";
 		stunned = 1000;
 		sprite_index = spr_fakepeppino_vulnerable;
 		image_index = 0;

@@ -8,7 +8,7 @@ if (image_alpha <= 0)
 }
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		if (arenastate < 3)
 		{
 			draw_set_alpha(1);
@@ -74,11 +74,11 @@ switch (state)
 				var palinfo = get_pep_palette_info();
 				var ps = palinfo.paletteselect;
 				pattern_set(global.Base_Pattern_Color, bossspr, 0, _xs, _ys, palinfo.patterntexture);
-				pal_swap_set(spr_peppalette, ps, false);
+				pal_swap_set(pal_peppino, ps, false);
 			}
 			else
 			{
-				pal_swap_set(spr_peppalette, 0, false);
+				pal_swap_set(pal_peppino, 0, false);
 			}
 			draw_sprite_ext(bossspr, 0, bx, by, _xs, _ys, 0, c_player, 1);
 			pattern_reset();
@@ -93,8 +93,8 @@ switch (state)
 			draw_sprite(vstitleplayer, -1, xx, yy);
 		}
 		break;
-	case states.normal:
-	case states.victory:
+	case "default":
+	case "victory":
 		if (!global.option_hud)
 		{
 			break;
@@ -107,7 +107,7 @@ switch (state)
 		if (boss_hpsprite == spr_bossfight_fakepephp)
 		{
 			var palinfo = get_pep_palette_info();
-			bpal = spr_peppalette;
+			bpal = pal_peppino;
 			bpalsel = palinfo.paletteselect;
 			btex = palinfo.patterntexture;
 		}

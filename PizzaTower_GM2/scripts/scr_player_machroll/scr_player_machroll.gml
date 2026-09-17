@@ -1,4 +1,4 @@
-function scr_player_machroll()
+function player_machroll()
 {
 	if (!place_meeting(x, y + 1, obj_railparent))
 	{
@@ -14,14 +14,14 @@ function scr_player_machroll()
 	move = key_right + key_left;
 	switch (character)
 	{
-		case characters.Peppino:
+		case "Peppino":
 			if (scr_solid(x + xscale, y) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x + sign(hsp), y, obj_destructibles))
 			{
 				hsp = 0;
 				image_speed = 0.35;
 				flash = false;
 				combo = 0;
-				state = states.bump;
+				state = "bump";
 				hsp = -2.5;
 				vsp = -3;
 				mach2 = 0;
@@ -72,7 +72,7 @@ function scr_player_machroll()
 					{
 						sprite_index = spr_mach;
 					}
-					state = states.mach2;
+					state = "mach2";
 				}
 				else
 				{
@@ -80,7 +80,7 @@ function scr_player_machroll()
 					{
 						sprite_index = spr_mach4;
 					}
-					state = states.mach3;
+					state = "mach3";
 				}
 			}
 			if (skateboarding && movespeed < 12)
@@ -99,7 +99,7 @@ function scr_player_machroll()
 				image_speed = 0.35;
 				flash = false;
 				combo = 0;
-				state = states.bump;
+				state = "bump";
 				hsp = -2.5;
 				vsp = -3;
 				mach2 = 0;
@@ -112,7 +112,7 @@ function scr_player_machroll()
 				image_speed = 0.35;
 				flash = false;
 				combo = 0;
-				state = states.bump;
+				state = "bump";
 				hsp = 2.5;
 				vsp = -3;
 				mach2 = 0;
@@ -140,18 +140,18 @@ function scr_player_machroll()
 			if (!key_down && !scr_solid(x + 27, y - 32) && !scr_solid(x - 27, y - 32) && !scr_solid(x, y - 32) && !scr_solid(x, y - 16))
 			{
 				image_index = 0;
-				state = states.mach2;
+				state = "mach2";
 				sprite_index = spr_rollgetup;
 			}
 			break;
-		case characters.Noise:
+		case "Noise":
 			if ((scr_solid(x + 1, y) && xscale == 1) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles))
 			{
 				hsp = 0;
 				image_speed = 0.35;
 				flash = false;
 				combo = 0;
-				state = states.bump;
+				state = "bump";
 				hsp = -2.5;
 				vsp = -3;
 				mach2 = 0;
@@ -164,7 +164,7 @@ function scr_player_machroll()
 				image_speed = 0.35;
 				flash = false;
 				combo = 0;
-				state = states.bump;
+				state = "bump";
 				hsp = 2.5;
 				vsp = -3;
 				mach2 = 0;
@@ -174,7 +174,7 @@ function scr_player_machroll()
 			if ((!key_down || !grounded) && !scr_solid(x + 27, y - 32) && !scr_solid(x - 27, y - 32) && !scr_solid(x, y - 32) && !scr_solid(x, y - 16))
 			{
 				image_index = 0;
-				state = states.mach3;
+				state = "mach3";
 				sprite_index = spr_playerN_jetpackboost;
 			}
 			if (!instance_exists(dashcloudid) && grounded)

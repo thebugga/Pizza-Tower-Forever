@@ -12,7 +12,7 @@ function scr_playerN_hookshot()
 		instance_create(x, y, obj_washingmachine);
 		sprite_index = spr_jump;
 		stompAnim = false;
-		state = states.jump;
+		state = "jump";
 		jumpAnim = true;
 		jumpstop = false;
 		image_index = 0;
@@ -41,7 +41,7 @@ function scr_playerN_hookshot()
 			if (grounded && point_in_camera(x, y, view_camera[0]))
 			{
 				image_index = 0;
-				state = states.idle;
+				state = "idle";
 				vsp = -7;
 				hsp = 0;
 			}

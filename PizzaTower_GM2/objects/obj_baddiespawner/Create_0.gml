@@ -1,3 +1,4 @@
+scr_collide_init();
 image_speed = 0;
 baddieid = obj_null;
 content = 0;

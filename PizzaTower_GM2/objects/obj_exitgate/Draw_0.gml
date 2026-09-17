@@ -1,5 +1,5 @@
 draw_self();
-if (drop && dropstate != states.normal)
+if (drop && dropstate != "default")
 {
 	draw_sprite(handsprite, handindex, x, hand_y);
 }

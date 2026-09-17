@@ -1,4 +1,4 @@
-function scr_enemy_ghostpossess()
+function enemy_ghostpossess()
 {
 	var _move = 0;
 	with (playerid)
@@ -9,9 +9,9 @@ function scr_enemy_ghostpossess()
 		_move = key_left + key_right;
 		if (key_up2)
 		{
-			state = states.ghost;
+			state = "ghost";
 			vsp = -10;
-			other.state = states.stun;
+			other.state = "stun";
 			other.stunned = 50;
 			create_particle(x, y, particletypes.genericpoofeffect, 0);
 			visible = true;
@@ -22,7 +22,7 @@ function scr_enemy_ghostpossess()
 		image_speed = 0.35;
 		if (_move != 0)
 		{
-			possess_movespeed = Approach(possess_movespeed, 6, 0.5);
+			possess_movespeed = approach(possess_movespeed, 6, 0.5);
 		}
 		else
 		{

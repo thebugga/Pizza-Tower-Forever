@@ -1,4 +1,4 @@
-function scr_player_pummel()
+function player_pummel()
 {
 	image_speed = 0.35;
 	if (movespeed > 0)

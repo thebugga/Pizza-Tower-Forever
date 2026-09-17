@@ -20,7 +20,7 @@ function scr_bosscontroller_particle_hp(_spr, _subimg, _x, _y, _speedmult, _pals
 	}
 }
 
-function scr_bosscontroller_particle_anim(_spr, _subimg, _x, _y, _imgspeed, _palspr = spr_peppalette, _palindex = 0)
+function scr_bosscontroller_particle_anim(_spr, _subimg, _x, _y, _imgspeed, _palspr = pal_peppino, _palindex = 0)
 {
 	with (obj_bosscontroller)
 	{
@@ -44,7 +44,7 @@ function scr_bosscontroller_intro()
 {
 	with (obj_player)
 	{
-		state = states.actor;
+		state = "actor";
 		image_blend = make_colour_hsv(0, 0, 255);
 		hsp = 0;
 		movespeed = 0;
@@ -53,11 +53,11 @@ function scr_bosscontroller_intro()
 	}
 	with (bossID)
 	{
-		if (state != states.actor)
+		if (state != "actor")
 		{
 			other.bossintrostate = state;
 		}
-		state = states.actor;
+		state = "actor";
 		x = xstart;
 		y = ystart;
 		hsp = 0;
@@ -106,10 +106,10 @@ function scr_bosscontroller_intro()
 				}
 				break;
 			case 3:
-				state = states.normal;
+				state = "default";
 				with (obj_player)
 				{
-					state = states.actor;
+					state = "actor";
 					hsp = 0;
 					movespeed = 0;
 					flash = false;
@@ -151,7 +151,7 @@ function scr_bosscontroller_normal()
 				var btex = noone;
 				if (boss_hpsprite == spr_bossfight_fakepephp)
 				{
-					bpal = spr_peppalette;
+					bpal = pal_peppino;
 					bpalsel = obj_player1.paletteselect;
 					if (!obj_player1.ispeppino)
 					{
@@ -182,9 +182,9 @@ function scr_bosscontroller_normal()
 			}
 		}
 	}
-	if (!instance_exists(bossID) && !bossdead && instance_exists(obj_player1) && obj_player1.state != states.tackle && obj_player1.state != states.comingoutdoor && room != boss_fakepephallway && room != boss_pizzaface && room != rank_room)
+	if (!instance_exists(bossID) && !bossdead && instance_exists(obj_player1) && obj_player1.state != "tackle" && obj_player1.state != "comingoutdoor" && room != boss_fakepephallway && room != boss_pizzaface && room != rank_room)
 	{
-		if (room != boss_vigilante || obj_player1.state != states.actor)
+		if (room != boss_vigilante || obj_player1.state != "actor")
 		{
 			bossdead = true;
 			notification_push(notifications.boss_defeated, [room]);
@@ -195,13 +195,13 @@ function scr_bosscontroller_normal()
 				global.pistol = false;
 				pistolanim = noone;
 				sprite_index = spr_player_levelcomplete;
-				if (character == characters.Noise)
+				if (character == "Noise")
 				{
 					sprite_index = spr_playerN_levelcomplete;
 				}
 				image_speed = 0.35;
 				image_index = 0;
-				state = states.arenaintro;
+				state = "arenaintro";
 				hsp = 0;
 				vsp = 0;
 				movespeed = 0;

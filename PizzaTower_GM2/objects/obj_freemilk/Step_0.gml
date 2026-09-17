@@ -4,10 +4,10 @@ if (playerid != noone)
 	{
 		if (floor(image_index) >= 9)
 		{
-			if ((global.noisejetpack && ispeppino) || (noisepizzapepper && character == characters.Noise))
+			if ((global.noisejetpack && ispeppino) || (noisepizzapepper && character == "Noise"))
 			{
 				fmod_event_one_shot_3d("event:/sfx/misc/cow", x, y);
-				if character == characters.Peppino
+				if character == "Peppino"
 				{
 					global.noisejetpack = false;
 				}
@@ -19,7 +19,7 @@ if (playerid != noone)
 		}
 		if (ANIMATION_END)
 		{
-			state = states.normal;
+			state = "default";
 			landAnim = false;
 			with (other)
 			{

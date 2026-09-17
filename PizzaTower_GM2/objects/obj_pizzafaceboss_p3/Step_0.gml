@@ -4,28 +4,28 @@ targetplayer = obj_player1.id;
 wastedhits = maxhp - elitehit;
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		scr_pizzaface_p3_arenaintro();
 		break;
 	case states.fall:
 		scr_pizzaface_p3_fall();
 		break;
-	case states.staggered:
+	case "staggered":
 		scr_pizzaface_p3_staggered();
 		break;
-	case states.walk:
+	case "walk":
 		scr_pizzaface_p3_walk();
 		break;
 	case states.stomp:
 		scr_pizzaface_p3_stomp();
 		break;
-	case states.punch:
+	case "punch":
 		scr_pizzaface_p3_punch();
 		break;
-	case states.jump:
+	case "jump":
 		scr_pizzaface_p3_jump();
 		break;
-	case states.throwing:
+	case "throwing":
 		scr_pizzaface_p3_throwing();
 		break;
 	case states.swinging:
@@ -37,17 +37,17 @@ switch (state)
 	case states.pizzaheadjump:
 		scr_boss_pizzaheadjump();
 		break;
-	case states.hit:
-		scr_enemy_hit();
+	case "hit":
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
+	case "pummel":
+		enemy_pummel();
 		break;
 }
 if (state != states.pizzaheadjump)
@@ -91,7 +91,7 @@ if (prevhp != elitehit)
 	}
 	prevhp = elitehit;
 }
-if (state == states.stun)
+if (state == "stun")
 {
 	if (thrown)
 	{
@@ -108,7 +108,7 @@ else
 {
 	savedthrown = false;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -116,17 +116,17 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if ((state == states.punch || state == states.stomp || state == states.swinging || state == states.jump) && alarm[4] == -1)
+if ((state == "punch" || state == states.stomp || state == states.swinging || state == "jump") && alarm[4] == -1)
 {
 	alarm[4] = 5;
 }
 invincible = true;
-if (vulnerable_buffer > 0 && state == states.walk && flickertime <= 0)
+if (vulnerable_buffer > 0 && state == "walk" && flickertime <= 0)
 {
 	vulnerable_buffer--;
 	invincible = false;
 }
-if (state == states.stun && !savedthrown)
+if (state == "stun" && !savedthrown)
 {
 	invincible = false;
 }
@@ -134,16 +134,16 @@ if (!invincible && alarm[5] < 0 && !flash)
 {
 	alarm[5] = 0.15 * room_speed;
 }
-if ((state == states.grabdash || (state == states.mach2 && attackspeed >= 10) || (state == states.throwing && sprite_index == spr_fakepeppino_flailing)) && alarm[4] < 0)
+if ((state == states.grabdash || (state == "mach2" && attackspeed >= 10) || (state == "throwing" && sprite_index == spr_fakepeppino_flailing)) && alarm[4] < 0)
 {
 	alarm[4] = 10;
-	if (state == states.freefall)
+	if (state == "freefall")
 	{
 		alarm[4] = 5;
 	}
 }
 mask_index = spr_pizzahead_idle;
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -151,11 +151,11 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -166,6 +166,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

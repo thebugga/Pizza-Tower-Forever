@@ -1,4 +1,4 @@
-function scr_player_dynamite()
+function player_dynamite()
 {
 	if (grounded)
 	{
@@ -17,11 +17,11 @@ function scr_player_dynamite()
 	{
 		if (key_attack && hsp != 0)
 		{
-			state = states.mach2;
+			state = "mach2";
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 	image_speed = 0.4;

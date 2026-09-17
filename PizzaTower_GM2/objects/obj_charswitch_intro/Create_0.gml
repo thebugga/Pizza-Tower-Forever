@@ -1,7 +1,7 @@
 x = SCREEN_WIDTH / 2;
 y = SCREEN_HEIGHT + sprite_get_height(spr_gustavo_intro);
 movespeed = 8;
-state = states.transitioncutscene;
+state = "transitioncutscene";
 depth = -600;
 sprite_index = spr_tvstatic;
 image_index = 0;

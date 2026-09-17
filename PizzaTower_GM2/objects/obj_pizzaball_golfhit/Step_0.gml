@@ -6,21 +6,21 @@ if (instance_exists(obj_pizzaball))
 {
 	hit = global.golfhit;
 }
-if (state == states.normal)
+if (state == "default")
 {
-	y = Approach(y, SCREEN_HEIGHT, 5);
+	y = approach(y, SCREEN_HEIGHT, 5);
 	if (!instance_exists(obj_pizzaball))
 	{
-		state = states.gameover;
+		state = "gameover";
 	}
 }
 else
 {
 	var ty = SCREEN_HEIGHT + sprite_height;
-	y = Approach(y, ty, 7);
+	y = approach(y, ty, 7);
 	if (instance_exists(obj_pizzaball))
 	{
-		state = states.normal;
+		state = "default";
 	}
 	else if (y >= ty)
 	{
@@ -37,10 +37,10 @@ if (!obj_player1.ispeppino)
 		if (hit > primoburg)
 		{
 			hand_buffer = 20;
-			hand_state = states.normal;
+			hand_state = "default";
 		}
 	}
-	else if (hand_state == states.normal)
+	else if (hand_state == "default")
 	{
 		hand_yoffset = lerp(hand_yoffset, 0, 0.2);
 		if (hand_yoffset <= 16)

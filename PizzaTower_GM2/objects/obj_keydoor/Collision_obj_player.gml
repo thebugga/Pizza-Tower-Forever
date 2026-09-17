@@ -1,7 +1,7 @@
 var _actor = false;
 with (obj_player)
 {
-	if (state == states.actor)
+	if (state == "actor")
 	{
 		_actor = true;
 	}
@@ -18,7 +18,7 @@ if (!place_meeting(x, y, obj_doorblocked))
 {
 	with (other)
 	{
-		if (key_up && !instance_exists(obj_jumpscare) && other.sprite_index == spr_doorkeyopen && grounded && (state == states.normal || state == states.mach1 || state == states.mach2 || state == states.pogo || state == states.mach3 || state == states.Sjumpprep) && ((character != "M" && y == (other.y + 50)) || (character == "M" && y == (other.y + 55))) && !instance_exists(obj_fadeout) && state != states.door && state != states.comingoutdoor)
+		if (key_up && !instance_exists(obj_jumpscare) && other.sprite_index == spr_doorkeyopen && grounded && (state == "default" || state == "mach1" || state == "mach2" || state == "pogo" || state == "mach3" || state == "Sjumpprep") && ((character != "M" && y == (other.y + 50)) || (character == "M" && y == (other.y + 55))) && !instance_exists(obj_fadeout) && state != "door" && state != "comingoutdoor")
 		{
 			obj_player1.lastroom = room;
 			obj_player2.lastroom = room;
@@ -38,7 +38,7 @@ if (!place_meeting(x, y, obj_doorblocked))
 			obj_player2.targetDoor = other.targetDoor;
 			obj_player2.targetRoom = other.targetRoom;
 			obj_player.image_index = 0;
-			obj_player.state = states.door;
+			obj_player.state = "door";
 			obj_player.mach2 = 0;
 			if (instance_exists(obj_player2) && global.coopmode == true)
 			{

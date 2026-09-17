@@ -1,4 +1,4 @@
-function scr_player_shotguncrouchjump()
+function player_shotguncrouchjump()
 {
 	image_speed = 0.35;
 	mask_index = spr_crouchmask;
@@ -25,7 +25,7 @@ function scr_player_shotguncrouchjump()
 	}
 	if (grounded)
 	{
-		state = states.shotguncrouch;
+		state = "shotguncrouch";
 		sprite_index = spr_shotgungoduck;
 		image_index = 0;
 	}

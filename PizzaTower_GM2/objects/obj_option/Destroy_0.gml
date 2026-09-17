@@ -1,8 +1,8 @@
 with (obj_player)
 {
-	if (state == states.actor)
+	if (state == "actor")
 	{
-		state = states.normal;
+		state = "default";
 	}
 }
 gamesave_async_save_options();

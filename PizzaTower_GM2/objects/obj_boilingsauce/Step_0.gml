@@ -2,15 +2,15 @@
 var playerid = instance_place(x, y - 1, obj_player);
 with (playerid)
 {
-	if (state != states.boots && state != states.gameover && state != states.rideweenie && state != states.gotoplayer)
+	if (state != states.boots && state != "gameover" && state != "rideweenie" && state != "gotoplayer")
 	{
 		var _pindex = (object_index == obj_player1) ? 0 : 1;
 		GamepadSetVibration(_pindex, 1, 1, 0.85);
-		if (state != states.fireass)
+		if (state != "fireass")
 		{
 			notification_push(notifications.touched_lava, [room]);
 		}
-		state = states.fireass;
+		state = "fireass";
 		vsp = -20;
 		fireasslock = false;
 		sprite_index = spr_fireass;

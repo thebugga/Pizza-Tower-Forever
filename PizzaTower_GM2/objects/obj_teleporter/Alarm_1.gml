@@ -26,9 +26,9 @@ with (player)
 	{
 		y--;
 	}
-	if (state == states.grab)
+	if (state == "grab")
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (freefallsmash >= 12)
 	{

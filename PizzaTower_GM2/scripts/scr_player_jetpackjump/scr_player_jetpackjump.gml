@@ -1,4 +1,4 @@
-function scr_player_jetpackjump()
+function player_jetpackjump()
 {
 	landAnim = false;
 	if (firemouth_afterimage > 0)
@@ -29,7 +29,7 @@ function scr_player_jetpackjump()
 			}
 		}
 	}
-	if (global.noisejetpack && character == characters.Noise && noisepizzapepper)
+	if (global.noisejetpack && character == "Noise" && noisepizzapepper)
 	{
 		if (noisepeppermissile > 0)
 		{
@@ -43,7 +43,7 @@ function scr_player_jetpackjump()
 	}
 	if (grounded && vsp > 0 && !place_meeting(x, y + vsp, obj_destructibles) && !place_meeting(x, y + vsp, obj_iceblock_breakable))
 	{
-		state = states.normal;
+		state = "default";
 		if (sprite_index != spr_jetpackstart2)
 		{
 			with (instance_create(x, y, obj_rocketdead))
@@ -132,17 +132,17 @@ function scr_player_jetpackjump()
 			GamepadSetVibration(0, 0.3, 0.3, 0.65);
 			if (!key_down)
 			{
-				vsp = Approach(vsp, -11, 0.8);
+				vsp = approach(vsp, -11, 0.8);
 			}
 			else
 			{
-				vsp = Approach(vsp, 0, 0.8);
+				vsp = approach(vsp, 0, 0.8);
 			}
-			image_speed = Approach(image_speed, 0.6, 0.05);
+			image_speed = approach(image_speed, 0.6, 0.05);
 		}
 		else
 		{
-			image_speed = Approach(image_speed, 0.4, 0.1);
+			image_speed = approach(image_speed, 0.4, 0.1);
 		}
 		if (sprite_index == spr_player_jetpackstart && vsp > 0)
 		{
@@ -173,7 +173,7 @@ function scr_player_jetpackjump()
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.7);
+			movespeed = approach(movespeed, 0, 0.7);
 		}
 		hsp = move * movespeed;
 	}
@@ -204,7 +204,7 @@ function scr_player_jetpackjump()
 		flash = true;
 		suplexmove = true;
 		fmod_event_instance_play(suplexdashsnd);
-		state = states.handstandjump;
+		state = "handstandjump";
 		movespeed = 5;
 	}
 	if (place_meeting(x + xscale, y, obj_solid) && !place_meeting(x + xscale, y, obj_destructibles))

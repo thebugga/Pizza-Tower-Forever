@@ -8,23 +8,23 @@ if (activated == true)
 {
 	switch (state)
 	{
-		case states.stun:
-			scr_enemy_stun();
+		case "stun":
+			enemy_stun();
 			break;
-		case states.hit:
-			scr_enemy_hit();
+		case "hit":
+			enemy_hit();
 			break;
-		case states.grabbed:
-			scr_enemy_grabbed();
+		case "grabbed":
+			enemy_grabbed();
 			break;
-		case states.pummel:
-			scr_enemy_pummel();
+		case "pummel":
+			enemy_pummel();
 			break;
-		case states.staggered:
-			scr_enemy_staggered();
+		case "staggered":
+			enemy_staggered();
 			break;
 	}
-	if (state == states.walk)
+	if (state == "walk")
 	{
 		highest_y = -250;
 		var _instY = collision_line(obj_player1.x, obj_player1.y, obj_player1.x, obj_player1.y - 270, obj_solid, false, true);
@@ -70,6 +70,7 @@ if (activated == true)
 								with (instance_create(x, y + 50, obj_fakesantapresent))
 								{
 									baddieID = other.id;
+		other.boxID = id;
 									content = other.content[n];
 								}
 							}
@@ -96,7 +97,7 @@ if (activated == true)
 		x = lerp(x, obj_player1.x + hsp, 0.08);
 		y = lerp(y, obj_player1.y + obj_player1.vsp + vsp, 0.04);
 	}
-	else if (state == states.punch)
+	else if (state == "punch")
 	{
 		var ii = floor(image_index);
 		hsp = 0;
@@ -106,18 +107,18 @@ if (activated == true)
 		}
 		if (ii == (image_number - 1))
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 	if (flash == true && alarm[2] <= 0)
 	{
 		alarm[2] = 0.15 * room_speed;
 	}
-	if (state != states.grabbed)
+	if (state != "grabbed")
 	{
 		depth = 0;
 	}
-	if (state != states.stun)
+	if (state != "stun")
 	{
 		thrown = false;
 	}

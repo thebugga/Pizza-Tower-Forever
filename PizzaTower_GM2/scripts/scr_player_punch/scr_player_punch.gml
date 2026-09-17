@@ -1,4 +1,4 @@
-function scr_player_punch()
+function player_punch()
 {
 	if (sprite_index == spr_breakdanceuppercut || sprite_index == spr_breakdanceuppercutend)
 	{
@@ -10,11 +10,11 @@ function scr_player_punch()
 		if (move != 0)
 		{
 			dir = move;
-			movespeed = Approach(movespeed, move * 4, 0.5);
+			movespeed = approach(movespeed, move * 4, 0.5);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 		}
 		if (ANIMATION_END && sprite_index == spr_breakdanceuppercut)
 		{
@@ -28,7 +28,7 @@ function scr_player_punch()
 				xscale = dir;
 			}
 			movespeed = abs(movespeed);
-			state = states.normal;
+			state = "default";
 		}
 		if (punch_afterimage > 0)
 		{
@@ -37,7 +37,7 @@ function scr_player_punch()
 		else if (vsp < 0)
 		{
 			punch_afterimage = 5;
-			if (character == characters.Noise)
+			if (character == "Noise")
 			{
 				with (instance_create(x, y, obj_explosioneffect))
 				{
@@ -57,8 +57,8 @@ function scr_player_punch()
 	{
 		switch (character)
 		{
-			case characters.Peppino:
-			case characters.Noise:
+			case "Peppino":
+			case "Noise":
 				move = key_left + key_right;
 				landAnim = true;
 				jumpstop = false;
@@ -99,7 +99,7 @@ function scr_player_punch()
 						case spr_player_kungfu1:
 						case spr_player_kungfu2:
 						case spr_player_kungfu3:
-							state = states.normal;
+							state = "default";
 							if (move != xscale && move != 0)
 							{
 								movespeed = 2;
@@ -114,7 +114,7 @@ function scr_player_punch()
 				{
 					if (grounded && vsp >= 0)
 					{
-						state = states.normal;
+						state = "default";
 					}
 				}
 				if (_Sjumpcancel)
@@ -130,11 +130,11 @@ function scr_player_punch()
 						{
 							if (movespeed >= 12)
 							{
-								state = states.mach3;
+								state = "mach3";
 							}
 							else
 							{
-								state = states.mach2;
+								state = "mach2";
 							}
 							movespeed = abs(movespeed);
 							sprite_index = spr_rollgetup;
@@ -142,13 +142,13 @@ function scr_player_punch()
 						}
 						else if (movespeed > 6)
 						{
-							state = states.machslide;
+							state = "machslide";
 							sprite_index = spr_machslidestart;
 							image_index = 0;
 						}
 						else
 						{
-							state = states.normal;
+							state = "default";
 						}
 					}
 					if (sprite_index == spr_player_Sjumpcancelslide)
@@ -161,7 +161,7 @@ function scr_player_punch()
 					vsp = -4;
 					sprite_index = spr_player_kungfujump;
 					image_index = 0;
-					state = states.punch;
+					state = "punch";
 					movespeed = -6;
 				}
 				if (punch_afterimage > 0)

@@ -1,4 +1,4 @@
-if (other.state != states.chainsaw && other.state != states.backtohub && other.state != states.grabbed && other.state != states.hit && other.state != states.gotoplayer)
+if (other.state != "chainsaw" && other.state != "backtohub" && other.state != "grabbed" && other.state != "hit" && other.state != "gotoplayer")
 {
 	instance_destroy();
 }

@@ -3,10 +3,10 @@ if (!finish)
 	if (!instance_exists(previousID))
 	{
 		var ty = SCREEN_HEIGHT - 140;
-		y = Approach(y, ty, movespeed);
+		y = approach(y, ty, movespeed);
 		if (abs(ty - y) <= 100)
 		{
-			movespeed = Approach(movespeed, 1, 0.1);
+			movespeed = approach(movespeed, 1, 0.1);
 		}
 		if (abs(ty - y) <= 16)
 		{
@@ -20,8 +20,8 @@ if (!finish)
 else
 {
 	var ty = SCREEN_HEIGHT + 200;
-	y = Approach(y, ty, movespeed);
-	movespeed = Approach(movespeed, 8, 0.2);
+	y = approach(y, ty, movespeed);
+	movespeed = approach(movespeed, 8, 0.2);
 	if (y == ty)
 	{
 		instance_destroy();

@@ -1,15 +1,15 @@
-if (state != states.stun)
+if (state != "stun")
 {
 	if (other.ispeppino)
 	{
 		if (!other.isgustavo)
 		{
-			if (other.state != states.mach3 || !other.launched)
+			if (other.state != "mach3" || !other.launched)
 			{
-				if (state != states.blockstance)
+				if (state != "blockstance")
 				{
 					sprite_index = spr_hamkuff_chain1;
-					state = states.blockstance;
+					state = "blockstance";
 					playerid = other.id;
 				}
 			}
@@ -19,15 +19,15 @@ if (state != states.stun)
 				instance_destroy();
 			}
 		}
-		else if (other.brick && state != states.blockstance)
+		else if (other.brick && state != "blockstance")
 		{
 			other.brick = false;
-			state = states.blockstance;
+			state = "blockstance";
 			sprite_index = spr_hamkuff_chain1;
-			state = states.blockstance;
+			state = "blockstance";
 			with (other)
 			{
-				state = states.ratmounthurt;
+				state = "ratmounthurt";
 				xscale = -other.image_xscale;
 				movespeed = 6;
 				vsp = -10;
@@ -36,10 +36,11 @@ if (state != states.stun)
 			{
 				trapped = true;
 				baddieID = other.id;
+		other.boxID = id;
 				other.playerid = id;
 			}
 		}
-		else if (other.state == states.ratmountpunch || other.ratmount_movespeed >= 12)
+		else if (other.state == "ratmountpunch" || other.ratmount_movespeed >= 12)
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
 			instance_destroy();

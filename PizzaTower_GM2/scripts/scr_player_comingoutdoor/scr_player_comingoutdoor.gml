@@ -1,4 +1,4 @@
-function scr_player_comingoutdoor()
+function player_comingoutdoor()
 {
 	mach2 = 0;
 	jumpAnim = true;
@@ -20,18 +20,18 @@ function scr_player_comingoutdoor()
 		movespeed = 0;
 		if (isgustavo)
 		{
-			state = states.ratmount;
+			state = "ratmount";
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 		}
 		image_alpha = 1;
 		c = c_black;
 		image_blend = make_colour_hsv(0, 0, 255);
-		if (character == characters.Noise && room == freezer_1)
+		if (character == "Noise" && room == freezer_1)
 		{
-			state = states.animation;
+			state = "animation";
 			sprite_index = spr_playerN_freezerintro;
 			image_index = 0;
 			xscale = 1;

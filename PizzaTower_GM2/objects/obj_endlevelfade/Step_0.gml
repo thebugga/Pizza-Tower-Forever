@@ -14,8 +14,8 @@ with (obj_player)
 		var dir = point_direction(x, y, tx, ty);
 		var lx = lengthdir_x(accel, dir);
 		var ly = lengthdir_y(accel, dir);
-		x = Approach(x, tx, abs(lx));
-		y = Approach(y, ty, abs(ly));
+		x = approach(x, tx, abs(lx));
+		y = approach(y, ty, abs(ly));
 	}
 }
 obj_camera.visible = false;

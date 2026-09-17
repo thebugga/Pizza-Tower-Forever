@@ -1,4 +1,4 @@
-function scr_player_ratmounttrickjump()
+function player_ratmounttrickjump()
 {
 	hsp = movespeed * xscale;
 	if (sprite_index != spr_supertaunt1)
@@ -23,18 +23,18 @@ function scr_player_ratmounttrickjump()
 		{
 			if (movespeed > 2)
 			{
-				state = states.ratmounttumble;
+				state = "ratmounttumble";
 			}
 			else
 			{
-				state = states.normal;
+				state = "default";
 			}
 		}
 		else
 		{
 			ramp_points = 0;
 			fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
-			state = states.ratmount;
+			state = "ratmount";
 			sprite_index = spr_player_ratmountland;
 			image_index = 0;
 			landAnim = true;

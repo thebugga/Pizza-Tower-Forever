@@ -2,7 +2,7 @@ if (!instance_exists(obj_backtohub_fadeout) && (!instance_exists(obj_pause) || o
 {
 	with (other)
 	{
-		if (state == states.handstandjump || state == states.lungeattack || state == states.punch)
+		if (state == "handstandjump" || state == "lungeattack" || state == "punch")
 		{
 			image_index = 0;
 			sprite_index = spr_shotgunpullout;
@@ -10,7 +10,7 @@ if (!instance_exists(obj_backtohub_fadeout) && (!instance_exists(obj_pause) || o
 			fmod_event_one_shot_3d("event:/sfx/misc/breakblock", x, y);
 			instance_destroy(other);
 			shotgunAnim = true;
-			state = states.shotgun;
+			state = "shotgun";
 			create_transformation_tip(lang_get_value("shotguntip"), "shotgun");
 			if (room == war_1)
 			{

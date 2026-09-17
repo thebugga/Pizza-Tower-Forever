@@ -5,14 +5,14 @@ if (instance_number(object_index) > 1)
 	exit;
 }
 depth = 101;
-state = states.normal;
+state = "default";
 x = SCREEN_WIDTH - 100;
 y = SCREEN_HEIGHT - 100;
 add_y = -150;
 if (global.pigtotal_add > 0)
 {
 	alarm[0] = 100;
-	state = states.titlescreen;
+	state = "titlescreen";
 }
 global.pigtotal = 0;
 global.pigreduction = 0;

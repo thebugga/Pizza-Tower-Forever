@@ -1,4 +1,4 @@
-function scr_player_ratmounttumble()
+function player_ratmounttumble()
 {
 	hsp = xscale * movespeed;
 	move = key_left + key_right;
@@ -6,19 +6,19 @@ function scr_player_ratmounttumble()
 	image_speed = -abs(movespeed) / 15;
 	if (!key_attack)
 	{
-		movespeed = Approach(movespeed, 0, 1);
+		movespeed = approach(movespeed, 0, 1);
 	}
 	if (scr_slope() && hsp != 0)
 	{
-		scr_player_addslopemomentum(0.25, 0.25);
+		player_addslopemomentum(0.25, 0.25);
 	}
 	if (abs(hsp) <= 2)
 	{
-		state = states.ratmount;
+		state = "ratmount";
 	}
 	if ((place_meeting(x + hsp, y, obj_solid) && !scr_solid_slope(x + hsp, y) && !place_meeting(x + hsp, y, obj_rattumble) && !place_meeting(x + hsp, y, obj_destructibles)) || place_meeting(x, y, obj_timedgate))
 	{
-		state = states.ratmounthurt;
+		state = "ratmounthurt";
 		vsp = -5;
 		movespeed = 3;
 	}
@@ -29,7 +29,7 @@ function scr_player_ratmounttumble()
 	}
 	if (key_jump && brick && key_up)
 	{
-		state = states.ratmountgroundpound;
+		state = "ratmountgroundpound";
 		sprite_index = spr_lonegustavo_jumpstart;
 		image_index = 0;
 		image_speed = 0.35;

@@ -1,4 +1,4 @@
-function scr_player_knightpepslopes()
+function player_knightpepslopes()
 {
 	if ((x + hsp) == xprevious)
 	{
@@ -86,14 +86,14 @@ function scr_player_knightpepslopes()
 	}
 	if (scr_solid(x + sign(hsp), y) && (!scr_slope() || place_meeting(x + sign(hsp), y - 2, obj_solid)) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles))
 	{
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
 			instance_create(x + (xscale * 40), y, obj_bumpeffect);
 			movespeed = 0;
 			vsp = -6;
 			sprite_index = spr_knightpepbump;
 			image_index = floor(image_number - 1);
-			state = states.knightpepbump;
+			state = "knightpepbump";
 			fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 		}
 		else
@@ -137,7 +137,7 @@ function scr_player_knightpepslopes()
 		vsp = -5;
 		hsp = 0;
 		movespeed = 0;
-		state = states.knightpep;
+		state = "knightpep";
 		knightdowncloud = true;
 	}
 }

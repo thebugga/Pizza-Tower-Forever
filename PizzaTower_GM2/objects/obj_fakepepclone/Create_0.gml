@@ -14,7 +14,7 @@ attacked = false;
 spawnerID = noone;
 throwing = false;
 attackspeed = 0;
-state = states.transitioncutscene;
+state = "transitioncutscene";
 headID = noone;
 cooldown = 0;
 fmod_event_one_shot_3d("event:/sfx/fakepep/reform", x, y);

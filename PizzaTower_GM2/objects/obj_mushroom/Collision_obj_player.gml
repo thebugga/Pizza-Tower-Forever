@@ -1,20 +1,20 @@
-if (other.cutscene == false && sprite_index != spr_bigmushroom_bounce && other.state != states.gotoplayer)
+if (other.cutscene == false && sprite_index != spr_bigmushroom_bounce && other.state != "gotoplayer")
 {
 	other.jumpstop = true;
 	with (other)
 	{
 		grounded = false;
-		if (state == states.machslide)
+		if (state == "machslide")
 		{
-			state = states.jump;
+			state = "jump";
 		}
-		if (state == states.normal || state == states.freefall)
+		if (state == "default" || state == "freefall")
 		{
-			state = states.jump;
+			state = "jump";
 		}
-		if (state == states.climbwall)
+		if (state == "climbwall")
 		{
-			state = states.mach2;
+			state = "mach2";
 		}
 	}
 	if (sprite_index != spr_bigmushroom_bounce || image_index > 5)
@@ -22,7 +22,7 @@ if (other.cutscene == false && sprite_index != spr_bigmushroom_bounce && other.s
 		fmod_event_one_shot_3d("event:/sfx/misc/mushroombounce", x, y);
 	}
 	sprite_index = spr_bigmushroom_bounce;
-	if (other.state == states.jump || other.state == states.normal)
+	if (other.state == "jump" || other.state == "default")
 	{
 		other.sprite_index = other.spr_machfreefall;
 		other.image_index = 0;
@@ -31,7 +31,7 @@ if (other.cutscene == false && sprite_index != spr_bigmushroom_bounce && other.s
 	other.noisewalljump = 0;
 	other.vsp = -14;
 	other.jumpstop = true;
-	if (other.isgustavo && other.state != states.ratmountskid && other.state != states.mach3)
+	if (other.isgustavo && other.state != "ratmountskid" && other.state != "mach3")
 	{
 		if (other.ratmount_movespeed < 12)
 		{
@@ -50,7 +50,7 @@ if (other.cutscene == false && sprite_index != spr_bigmushroom_bounce && other.s
 			}
 		}
 		other.jumpAnim = true;
-		other.state = states.ratmountjump;
+		other.state = "ratmountjump";
 		other.image_index = 0;
 	}
 }

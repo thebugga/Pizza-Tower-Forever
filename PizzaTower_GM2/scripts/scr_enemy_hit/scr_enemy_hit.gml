@@ -1,4 +1,4 @@
-function scr_enemy_hit()
+function enemy_hit()
 {
 	x = hitX + random_range(-6, 6);
 	y = hitY + random_range(-6, 6);
@@ -27,7 +27,7 @@ function scr_enemy_hit()
 			_player = obj_player2.id;
 		}
 		var _state = obj_player.state;
-		if (_state == states.chainsaw)
+		if (_state == "chainsaw")
 		{
 			_state = obj_player.tauntstoredstate;
 		}
@@ -36,7 +36,7 @@ function scr_enemy_hit()
 			thrown = true;
 			override_throw = false;
 		}
-		else if (_state == states.mach2 || _state == states.tumble || (_state == states.machslide && obj_player.sprite_index != obj_player.spr_mach3boost && obj_player.sprite_index != spr_player_machslideboost3fall) || sprite_index == spr_player_ratmountattack || sprite_index == spr_lonegustavo_dash)
+		else if (_state == "mach2" || _state == "tumble" || (_state == "machslide" && obj_player.sprite_index != obj_player.spr_mach3boost && obj_player.sprite_index != spr_player_machslideboost3fall) || sprite_index == spr_player_ratmountattack || sprite_index == spr_lonegustavo_dash)
 		{
 			thrown = false;
 		}
@@ -68,14 +68,14 @@ function scr_enemy_hit()
 			instance_create(x, y, obj_genericpoofeffect);
 		}
 		stunned = 200;
-		state = states.stun;
+		state = "stun";
 		if (object_index == obj_pepperman || object_index == obj_vigilanteboss || object_index == obj_noiseboss || object_index == obj_pf_fakepep || object_index == obj_fakepepboss || object_index == obj_pizzafaceboss || object_index == obj_pizzafaceboss_p3)
 		{
-			if (obj_player.tauntstoredstate != states.punch && obj_player.tauntstoredstate != states.freefall && obj_player.tauntstoredstate != states.superslam)
+			if (obj_player.tauntstoredstate != "punch" && obj_player.tauntstoredstate != "freefall" && obj_player.tauntstoredstate != "superslam")
 			{
 				linethrown = true;
 				var f = 15;
-				if (obj_player.tauntstoredstate == states.mach3)
+				if (obj_player.tauntstoredstate == "mach3")
 				{
 					f = 25;
 				}
@@ -98,11 +98,11 @@ function scr_enemy_hit()
 				hsp = hithsp;
 				vsp = hitvsp;
 				flash = false;
-				state = states.stun;
+				state = "stun";
 				thrown = true;
 				linethrown = false;
 			}
-			if (_state == states.mach2 || _state == states.tumble)
+			if (_state == "mach2" || _state == "tumble")
 			{
 				stunned *= 5;
 			}

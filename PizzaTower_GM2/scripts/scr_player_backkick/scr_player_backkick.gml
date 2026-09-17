@@ -1,4 +1,4 @@
-function scr_player_backkick()
+function player_backkick()
 {
 	move = key_left + key_right;
 	if (grounded)
@@ -139,7 +139,7 @@ function scr_player_backkick()
 	crouchAnim = true;
 	if (ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	sprite_index = spr_backkick;
 	image_speed = 0.35;

@@ -1,4 +1,4 @@
-state = states.normal;
+state = "default";
 ID = noone;
 if instance_exists(obj_editor)
 {

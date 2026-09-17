@@ -1,9 +1,9 @@
-function scr_player_playersuperattack()
+function player_playersuperattack()
 {
 	image_speed = 0.5;
 	switch (superattackstate)
 	{
-		case states.transitioncutscene:
+		case "transitioncutscene":
 			sprite_index = spr_rageidle;
 			with (bossID)
 			{
@@ -22,10 +22,10 @@ function scr_player_playersuperattack()
 			}
 			else
 			{
-				superattackstate = states.jump;
+				superattackstate = "jump";
 			}
 			break;
-		case states.jump:
+		case "jump":
 			sprite_index = spr_grab;
 			var dir = point_direction(x, y, bossID.x, bossID.y);
 			var spd = 20;
@@ -35,13 +35,13 @@ function scr_player_playersuperattack()
 			vsp = lengthdir_y(spd, dir);
 			if (place_meeting(x, y, bossID))
 			{
-				superattackstate = states.punch;
+				superattackstate = "punch";
 				randomize_animations([spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_player_suplexmash5, spr_player_suplexmash6, spr_player_suplexmash7, spr_punch]);
 				punchcount = 20;
 				image_index = 0;
 			}
 			break;
-		case states.punch:
+		case "punch":
 			vsp = 0;
 			hsp = xscale * 2;
 			with (bossID)
@@ -62,7 +62,7 @@ function scr_player_playersuperattack()
 					with (bossID)
 					{
 						boss_hurt_noplayer(25);
-						state = states.playersuperattack;
+						state = "playersuperattack";
 					}
 				}
 				else
@@ -70,7 +70,7 @@ function scr_player_playersuperattack()
 					with (bossID)
 					{
 						boss_hurt_noplayer(30);
-						state = states.hit;
+						state = "hit";
 						hitX = x;
 						hitY = y;
 						hitvsp = -11;
@@ -81,14 +81,14 @@ function scr_player_playersuperattack()
 						hitLag = 10;
 					}
 					fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
-					superattackstate = states.grab;
+					superattackstate = "grab";
 					sprite_index = choose(spr_finishingblow1, spr_finishingblow2, spr_finishingblow3, spr_finishingblow4, spr_finishingblow5);
 					image_index = 0;
 					finishingblow = false;
 				}
 			}
 			break;
-		case states.grab:
+		case "grab":
 			if (image_index < 7)
 			{
 				hsp = 0;
@@ -102,7 +102,7 @@ function scr_player_playersuperattack()
 			}
 			if (ANIMATION_END)
 			{
-				state = states.normal;
+				state = "default";
 			}
 			break;
 	}

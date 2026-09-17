@@ -1,4 +1,4 @@
-function scr_player_cheesepep()
+function player_cheesepep()
 {
 	key_particles = false;
 	mach2 = 0;
@@ -32,11 +32,11 @@ function scr_player_cheesepep()
 	if (move != 0 && sprite_index != spr_cheesepepjumpstart)
 	{
 		xscale = move;
-		movespeed = Approach(movespeed, 6, 0.25);
+		movespeed = approach(movespeed, 6, 0.25);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 1);
+		movespeed = approach(movespeed, 0, 1);
 	}
 	image_speed = 0.35;
 	if ((grounded && (floor(image_index) % 4) == 0) && hsp != 0)
@@ -46,7 +46,7 @@ function scr_player_cheesepep()
 	}
 	if (!grounded)
 	{
-		state = states.cheesepepjump;
+		state = "cheesepepjump";
 		sprite_index = spr_cheesepepfall;
 		jumpstop = true;
 		movespeed = xscale * movespeed;
@@ -84,7 +84,7 @@ function scr_player_cheesepep()
 		vsp = -11;
 		image_index = 0;
 		sprite_index = spr_cheesepepjump;
-		state = states.cheesepepjump;
+		state = "cheesepepjump";
 		fmod_event_one_shot_3d("event:/sfx/cheese/jump", x, y);
 	}
 }

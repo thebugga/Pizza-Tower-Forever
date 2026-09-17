@@ -4,7 +4,7 @@ if (room == timesuproom)
 }
 switch (state)
 {
-	case states.normal:
+	case "default":
 		sprite_index = spr_kingghost;
 		var dir = point_direction(x, y, obj_player1.x, obj_player1.y);
 		x = lerp(x, obj_player1.x - (100 * obj_player1.xscale), 0.05);
@@ -14,19 +14,19 @@ switch (state)
 			image_xscale = -sign(x - obj_player1.x);
 		}
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		sprite_index = spr_kingghost_dash;
 		if (!instance_exists(trapid) || (distance_to_object(obj_player1) > trapid.player_distance_threshold && trapid.object_index != obj_tvtrap))
 		{
-			state = states.normal;
+			state = "default";
 		}
 		if (instance_exists(trapid))
 		{
 			var xto = trapid.x + trapid.xoffset;
 			var yto = trapid.y + trapid.yoffset;
 			var dir = point_direction(x, y, xto, yto);
-			x = Approach(x, xto, abs(lengthdir_x(32, dir)));
-			y = Approach(y, yto, abs(lengthdir_y(32, dir)));
+			x = approach(x, xto, abs(lengthdir_x(32, dir)));
+			y = approach(y, yto, abs(lengthdir_y(32, dir)));
 			if (x == xto && y == yto)
 			{
 				state = states.chase;
@@ -36,7 +36,7 @@ switch (state)
 	case states.chase:
 		if (!instance_exists(trapid) || (distance_to_object(obj_player1) > trapid.player_distance_threshold && trapid.object_index != obj_tvtrap && (trapid.object_index != obj_pinballtrap || trapid.sprite_index != spr_kingghost_pinball3)))
 		{
-			state = states.normal;
+			state = "default";
 			with (trapid)
 			{
 				switch (object_index)
@@ -63,7 +63,7 @@ switch (state)
 			{
 				case obj_anchortrap:
 					sprite_index = spr_kingghost_anchor2;
-					if (state != states.fall && state != states.jump && obj_player1.x > (x - 100) && obj_player1.x < (x + 100) && obj_player1.y > y && obj_player1.y < (y + 500))
+					if (state != states.fall && state != "jump" && obj_player1.x > (x - 100) && obj_player1.x < (x + 100) && obj_player1.y > y && obj_player1.y < (y + 500))
 					{
 						fmod_event_one_shot_3d("event:/sfx/enemies/presentfall", x, y);
 						state = states.fall;
@@ -71,16 +71,16 @@ switch (state)
 					}
 					break;
 				case obj_knighttrap:
-					if (cooldown == 0 && state != states.punch && obj_player1.x > (x - 200) && obj_player1.x < (x + 200) && obj_player1.y > (y - 100) && obj_player1.y < (y + 100))
+					if (cooldown == 0 && state != "punch" && obj_player1.x > (x - 200) && obj_player1.x < (x + 200) && obj_player1.y > (y - 100) && obj_player1.y < (y + 100))
 					{
-						state = states.punch;
+						state = "punch";
 						sprite_index = spr_kingghost_spike3;
 						fmod_event_one_shot_3d("event:/sfx/enemies/pizzardelectricity", x, y);
 						image_index = 0;
 						attackbuffer = 30;
 						cooldown = 50;
 					}
-					if (state == states.normal)
+					if (state == "default")
 					{
 						sprite_index = spr_kingghost_spike2;
 					}
@@ -105,14 +105,14 @@ if (distance_to_object(obj_player1) <= 200)
 }
 if (alpha)
 {
-	image_alpha = Approach(image_alpha, target_alpha, 0.01);
+	image_alpha = approach(image_alpha, target_alpha, 0.01);
 }
 if (room == rank_room)
 {
 	instance_destroy();
 }
 fmod_event_instance_set_3d_attributes(snd_move, x, y);
-if (state == states.normal)
+if (state == "default")
 {
 	if (!fmod_event_instance_is_playing(snd_loop))
 	{

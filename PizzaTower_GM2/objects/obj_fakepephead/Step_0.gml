@@ -15,7 +15,7 @@ else
 {
 	if (grounded)
 	{
-		hsp = Approach(hsp, 0, 0.5);
+		hsp = approach(hsp, 0, 0.5);
 		sprite_index = spr_headprojectile_idle;
 	}
 	if (((grounded && vsp > 0) || place_meeting(x, y + 1, obj_solid)) && destroy)

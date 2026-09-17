@@ -1,7 +1,7 @@
 
 switch (state)
 {
-	case states.walk:
+	case "walk":
 		var targetplayer = obj_player1.id;
 		if (hamspotted == true)
 		{
@@ -9,7 +9,7 @@ switch (state)
 		}
 		if ((targetplayer.x > x && image_xscale < 0) || (targetplayer.x < x && image_xscale > 0))
 		{
-			movespeed = Approach(movespeed, 0, 0.5);
+			movespeed = approach(movespeed, 0, 0.5);
 			if (movespeed <= 0)
 			{
 				movespeed = 0;
@@ -56,7 +56,7 @@ switch (state)
 		}
 		scr_collide();
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		flash = false;
 		sprite_index = spr_piraneapplewater;
 		if (place_meeting(x, y, obj_solid))
@@ -68,7 +68,7 @@ switch (state)
 		{
 			if (grounded)
 			{
-				state = states.walk;
+				state = "walk";
 				sprite_index = spr_piraneappleattack;
 			}
 			scr_collide();

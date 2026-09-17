@@ -5,18 +5,18 @@ if (x != obj_player1.x)
 }
 switch (state)
 {
-	case states.normal:
+	case "default":
 		sprite_index = idlespr;
 		if (!instance_exists(collectID))
 		{
-			state = states.throwing;
+			state = "throwing";
 			sprite_index = throwspr;
 			image_index = 0;
 			showtext = true;
 			alarm[0] = 50;
 		}
 		break;
-	case states.throwing:
+	case "throwing":
 		if (ANIMATION_END)
 		{
 			image_index = image_number - 1;
@@ -30,23 +30,23 @@ switch (state)
 			}
 			else if (!instance_exists(onebyoneID))
 			{
-				state = states.transitioncutscene;
+				state = "transitioncutscene";
 				sprite_index = transitionspr;
 				image_index = 0;
 			}
 		}
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		if (ANIMATION_END)
 		{
-			state = states.jump;
+			state = "jump";
 			sprite_index = idlespr;
 			movespeed = 4;
 			showtext = false;
 			scr_ghostcollectible(true);
 		}
 		break;
-	case states.jump:
+	case "jump":
 		movespeed += 0.25;
 		y -= movespeed;
 		if (y < -500)

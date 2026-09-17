@@ -7,25 +7,25 @@ if (elitehit <= 1 && phase == 2 && destroyable)
 }
 switch (state)
 {
-	case states.arenaintro:
+	case "arenaintro":
 		scr_pepperman_arenaintro();
 		break;
-	case states.walk:
+	case "walk":
 		scr_pepperman_walk();
 		break;
-	case states.shoulderbash:
+	case "shoulderbash":
 		scr_pepperman_shoulderbash();
 		break;
-	case states.jump:
+	case "jump":
 		scr_pepperman_jump();
 		break;
-	case states.freefall:
+	case "freefall":
 		scr_pepperman_freefall();
 		break;
-	case states.freefallprep:
+	case "freefallprep":
 		scr_pepperman_freefallprep();
 		break;
-	case states.freefallland:
+	case "freefallland":
 		scr_pepperman_freefallland();
 		break;
 	case states.shoulderturn:
@@ -43,23 +43,23 @@ switch (state)
 	case states.phase1hurt:
 		scr_pepperman_phase1hurt();
 		break;
-	case states.hit:
-		scr_enemy_hit();
+	case "hit":
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_boss_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
+	case "pummel":
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
 }
-if (state != states.stun && state != states.hit && state != states.phase1hurt && state != states.supergrab && (state != states.walk || flickertime <= 0))
+if (state != "stun" && state != "hit" && state != states.phase1hurt && state != "supergrab" && (state != "walk" || flickertime <= 0))
 {
 	scr_pepperman_do_contemplate();
 }
@@ -71,7 +71,7 @@ if (pizzahead)
 		{
 			with (other)
 			{
-				state = states.stun;
+				state = "stun";
 				stunned = 1000;
 				thrown = false;
 				hsp = -image_xscale * 8;
@@ -81,7 +81,7 @@ if (pizzahead)
 		}
 	}
 }
-if (!pizzahead && wastedhits >= 10 && phase == 1 && state == states.walk && flickertime <= 0 && grounded && vsp > 0)
+if (!pizzahead && wastedhits >= 10 && phase == 1 && state == "walk" && flickertime <= 0 && grounded && vsp > 0)
 {
 	repeat (4)
 	{
@@ -93,7 +93,7 @@ if (!pizzahead && wastedhits >= 10 && phase == 1 && state == states.walk && flic
 		}
 	}
 	instance_destroy(obj_peppermanartdude);
-	create_heatattack_afterimage(x, y, sprite_index, image_index, image_xscale);
+	create_heatattack_afterimage(x, y, sprite_index, image_index, xscale);
 	with (obj_camera)
 	{
 		shake_mag = 3;
@@ -119,7 +119,7 @@ if (!pizzahead && wastedhits >= 10 && phase == 1 && state == states.walk && flic
 	}
 	scr_sleep(25);
 }
-if (state == states.stun)
+if (state == "stun")
 {
 	if (wastedhits >= 8 && sprite_index == spr_playerPM_mach3hitwall && grounded && vsp > 0 && !thrown && stunned > 10)
 	{
@@ -139,7 +139,7 @@ if (state == states.stun)
 			fmod_event_one_shot_3d("event:/sfx/pepperman/shrink", x, y);
 			fmod_event_one_shot_3d("event:/sfx/voice/peppermanscared", x, y);
 			state = states.mini;
-			ministate = states.transitioncutscene;
+			ministate = "transitioncutscene";
 			minibuffer = 480;
 			sprite_index = spr_pepperman_ministart;
 			image_index = 0;
@@ -179,7 +179,7 @@ if (prevhp != elitehit)
 	prevhp = elitehit;
 }
 boss_hurt_gustavo();
-if (state == states.freefall || (state == states.rolling && vsp < 0))
+if (state == "freefall" || (state == states.rolling && vsp < 0))
 {
 	if (!instance_exists(hitboxID))
 	{
@@ -196,7 +196,7 @@ else if (instance_exists(hitboxID))
 {
 	instance_destroy(hitboxID);
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -204,7 +204,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (((state != states.stun || savedthrown != thrown || (wastedhits >= 8 && (sprite_index == spr_playerPM_mach3hitwall || sprite_index == spr_playerPM_mach3hitwallstart)) || thrown) && (state != states.freefallland || landbuffer <= 0) && (state != states.rolling || vsp < 0 || sprite_index == spr_playerPM_bodyslamland) && state != states.contemplate) || flickertime > 0 || (wastedhits == 9 && phase == 1))
+if (((state != "stun" || savedthrown != thrown || (wastedhits >= 8 && (sprite_index == spr_playerPM_mach3hitwall || sprite_index == spr_playerPM_mach3hitwallstart)) || thrown) && (state != "freefallland" || landbuffer <= 0) && (state != states.rolling || vsp < 0 || sprite_index == spr_playerPM_bodyslamland) && state != states.contemplate) || flickertime > 0 || (wastedhits == 9 && phase == 1))
 {
 	invincible = true;
 }
@@ -222,30 +222,30 @@ if (pizzahead && elitehit <= 1)
 }
 if (landbuffer2 > 0)
 {
-	if (state == states.freefallland)
+	if (state == "freefallland")
 	{
 		landbuffer2--;
 		invincible = true;
 	}
 }
-if ((!invincible || (state == states.mini && ministate != states.transitioncutscene) || (wastedhits == 9 && phase == 1 && state == states.contemplate)) && !flash && alarm[5] < 0)
+if ((!invincible || (state == states.mini && ministate != "transitioncutscene") || (wastedhits == 9 && phase == 1 && state == states.contemplate)) && !flash && alarm[5] < 0)
 {
 	alarm[5] = 0.15 * room_speed;
 }
-else if (invincible && (state != states.mini || ministate == states.transitioncutscene) && (wastedhits != 9 || phase != 1 || state != states.contemplate))
+else if (invincible && (state != states.mini || ministate == "transitioncutscene") && (wastedhits != 9 || phase != 1 || state != states.contemplate))
 {
 	flash = false;
 }
-if ((state == states.shoulderbash || state == states.freefall) && alarm[4] < 0)
+if ((state == "shoulderbash" || state == "freefall") && alarm[4] < 0)
 {
 	alarm[4] = 10;
-	if (state == states.freefall)
+	if (state == "freefall")
 	{
 		alarm[4] = 5;
 	}
 }
 mask_index = spr_pepperman_mask;
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -253,7 +253,7 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
@@ -271,7 +271,7 @@ if (_art && artdudes == false)
 	alarm[8] = 600;
 	artdudes = true;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -282,6 +282,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

@@ -7,7 +7,7 @@ if (sprite_index == spr_gustavo_kidsparty)
 }
 else
 {
-	pal_swap_set(spr_peppaletteN, 1, false);
+	pal_swap_set(pal_noiseplayer, 1, false);
 }
 draw_self();
 pattern_reset();

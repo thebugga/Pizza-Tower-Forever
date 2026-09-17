@@ -29,7 +29,7 @@ function create_mach3effect(_x, _y, _spr, _subimg, _not_mach3 = false)
 		image_index: _subimg,
 		image_angle: 0,
 		alarm: [15, 6, -1],
-		image_blend: choose(global.mach_color1, global.mach_color2),
+		image_blend: choose(global.mach_color1, global.mach_color2, global.mach_color3),
 		image_xscale: 1,
 		image_yscale: 1,
 		visible: true,

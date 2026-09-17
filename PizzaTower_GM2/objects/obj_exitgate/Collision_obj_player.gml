@@ -2,7 +2,7 @@ if (image_index == 1 && global.panic == false && !warexit)
 {
 	with (obj_player)
 	{
-		if (state == states.comingoutdoor && floor(image_index) == (image_number - 2))
+		if (state == "comingoutdoor" && floor(image_index) == (image_number - 2))
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 			GamepadSetVibration(0, 1, 1, 0.9);
@@ -41,13 +41,13 @@ if (image_index == 1 && global.panic == false && !warexit)
 		}
 	}
 }
-if (drop && dropstate != states.idle)
+if (drop && dropstate != "idle")
 {
 	exit;
 }
 with (obj_player)
 {
-	if (grounded && (x > (other.x - 160) && x < (other.x + 160)) && key_up && (state == states.normal || state == states.Sjumpprep || state == states.mach1 || state == states.mach2 || state == states.mach3) && (global.panic == true || global.snickchallenge == true || other.warexit == true || other.random_secret))
+	if (grounded && (x > (other.x - 160) && x < (other.x + 160)) && key_up && (state == "default" || state == "Sjumpprep" || state == "mach1" || state == "mach2" || state == "mach3") && (global.panic == true || global.snickchallenge == true || other.warexit == true || other.random_secret))
 	{
 		global.noisejetpack = false;
 		global.startgate = false;

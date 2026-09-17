@@ -1,40 +1,40 @@
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
-	case states.hit:
-		scr_enemy_hit();
+	case "hit":
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
-	case states.grabbed:
-		scr_enemy_grabbed();
+	case "grabbed":
+		enemy_grabbed();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 	case states.pizzaheadjump:
-		scr_enemy_pizzaheadjump();
+		enemy_pizzaheadjump();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -42,7 +42,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -56,14 +56,14 @@ if ((player.x > (x - 400) && player.x < (x + 400)) && (y <= (player.y + 60) && y
 {
 	if (bombreset <= 0)
 	{
-		if (state == states.walk)
+		if (state == "walk")
 		{
 			if (x != player.x)
 			{
 				image_xscale = -sign(x - player.x);
 			}
 			image_index = 0;
-			state = states.pizzagoblinthrow;
+			state = "enemy_throw";
 			//bombreset = 50
 		}
 	}
@@ -76,11 +76,11 @@ if (ANIMATION_END && sprite_index == spr_spitcheese_spit)
 {
 	sprite_index = spr_spitcheese_idle;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -91,6 +91,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

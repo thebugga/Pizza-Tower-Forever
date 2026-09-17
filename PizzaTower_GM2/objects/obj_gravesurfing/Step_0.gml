@@ -5,5 +5,5 @@ if (buffer > 0)
 }
 if (!instance_exists(obj_gravecorpse))
 {
-	image_alpha = Approach(image_alpha, 1, 0.08);
+	image_alpha = approach(image_alpha, 1, 0.08);
 }

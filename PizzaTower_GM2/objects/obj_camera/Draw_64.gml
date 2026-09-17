@@ -4,15 +4,15 @@ if (in_hudlessRoom || instance_exists(obj_tutorialbook))
 	exit;
 }
 hud_posY = hud_posY + Wave(-5, 5, 2, 20);
-if (obj_player.state != states.gameover)
+if (obj_player.state != "gameover")
 {
 	if (obj_player1.x < 250 && obj_player1.y < 169)
 	{
-		hud_posY = Approach(hud_posY, -300, 15);
+		hud_posY = approach(hud_posY, -300, 15);
 	}
 	else
 	{
-		hud_posY = Approach(hud_posY, 0, 15);
+		hud_posY = approach(hud_posY, 0, 15);
 	}
 	var cmb = 0;
 	if (global.combo >= 50)
@@ -110,7 +110,7 @@ if (obj_player.state != states.gameover)
 		fmod_event_instance_set_parameter(_snd, "state", rank_ix - 1, true);
 		rank_scale = 3;
 	}
-	rank_scale = Approach(rank_scale, 1, 0.2);
+	rank_scale = approach(rank_scale, 1, 0.2);
 	draw_sprite_ext(spr_ranks_hud, rank_ix, rx, ry, rank_scale, rank_scale, 0, c_white, 1);
 	var spr_w = sprite_get_width(spr_ranks_hudfill);
 	var spr_h = sprite_get_height(spr_ranks_hudfill);

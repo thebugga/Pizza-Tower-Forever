@@ -15,13 +15,13 @@ function scr_solid_player(_x, _y)
 			switch (b.object_index)
 			{
 				case obj_ghostwall:
-					if (state != states.ghost)
+					if (state != "ghost")
 					{
 						_collided = true;
 					}
 					break;
 				//case obj_mach3solid:
-				//	if (state != states.mach3 && (state != states.machslide || sprite_index != spr_mach3boost) && (state != states.chainsaw || tauntstoredstate != states.mach3))
+				//	if (state != "mach3" && (state != "machslide" || sprite_index != spr_mach3boost) && (state != "chainsaw" || tauntstoredstate != "mach3"))
 				//	{
 				//		_collided = true;
 				//	}
@@ -30,7 +30,7 @@ function scr_solid_player(_x, _y)
 					_collided = true;
 			}
 			var par = object_get_parent(b.object_index);
-			if ((state == states.freefall || state == states.ratmountbounce || state == states.ratmountgroundpound) && vsp >= 0 && (par == obj_destructibles || par == obj_bigdestructibles || par == obj_deadjohnparent || par == obj_destroyable3 || par == obj_destroyable))
+			if ((state == "freefall" || state == "ratmountbounce" || state == "ratmountgroundpound") && vsp >= 0 && (par == obj_destructibles || par == obj_bigdestructibles || par == obj_deadjohnparent || par == obj_destroyable3 || par == obj_destroyable))
 			{
 				_collided = false;
 				instance_destroy(b);
@@ -48,7 +48,7 @@ function scr_solid_player(_x, _y)
 		y = old_y;
 		return true;
 	}
-	if (y > old_y && state != states.ladder && place_meeting(x, y, obj_platform))
+	if (y > old_y && state != "ladder" && place_meeting(x, y, obj_platform))
 	{
 		ds_list_clear(global.instancelist);
 		num = instance_place_list(x, y, obj_platform, global.instancelist, false);
@@ -69,7 +69,7 @@ function scr_solid_player(_x, _y)
 			return true;
 		}
 	}
-	if (y > old_y && state != states.ladder && place_meeting(x, y, obj_platform_slope))
+	if (y > old_y && state != "ladder" && place_meeting(x, y, obj_platform_slope))
 	{
 		ds_list_clear(global.instancelist);
 		num = instance_place_list(x, y, obj_platform_slope, global.instancelist, false);
@@ -90,7 +90,7 @@ function scr_solid_player(_x, _y)
 			return true;
 		}
 	}
-	if (y > old_y && state == states.grind && !place_meeting(x, old_y, obj_grindrail) && place_meeting(x, y, obj_grindrail))
+	if (y > old_y && state == "grind" && !place_meeting(x, old_y, obj_grindrail) && place_meeting(x, y, obj_grindrail))
 	{
 		x = old_x;
 		y = old_y;
@@ -102,7 +102,7 @@ function scr_solid_player(_x, _y)
 		y = old_y;
 		return true;
 	}
-	if (state == states.grind && check_slope_player(obj_grindrailslope))
+	if (state == "grind" && check_slope_player(obj_grindrailslope))
 	{
 		x = old_x;
 		y = old_y;

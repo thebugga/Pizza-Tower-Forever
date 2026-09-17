@@ -1,9 +1,9 @@
 var p = other.id;
 with (other)
 {
-	if (state != states.antigrav && state != states.backbreaker && state != states.chainsaw && other.cooldown == 0)
+	if (state != "antigrav" && state != "backbreaker" && state != "chainsaw" && other.cooldown == 0)
 	{
-		if (character == characters.Peppino)
+		if (character == "Peppino")
 		{
 			create_transformation_tip(lang_get_value("antigravtip"), "antigrav");
 		}
@@ -11,7 +11,7 @@ with (other)
 		{
 			create_transformation_tip(lang_get_value("antigravtipN"), "antigravN");
 		}
-		if (state == states.rocket || state == states.rocketslide)
+		if (state == "rocket" || state == "rocketslide")
 		{
 			with (instance_create(x, y + 12, obj_rocketdead))
 			{
@@ -21,7 +21,7 @@ with (other)
 			}
 		}
 		target_vsp = 0;
-		state = states.antigrav;
+		state = "antigrav";
 		vsp = 0;
 		if (ds_list_find_index(global.saveroom, other.id) == -1)
 		{

@@ -1,4 +1,4 @@
-state = states.normal;
+state = "default";
 x = 156;
 y = SCREEN_HEIGHT + sprite_height;
 primoburg = noone;

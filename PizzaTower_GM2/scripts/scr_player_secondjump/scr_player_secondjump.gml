@@ -1,4 +1,4 @@
-function scr_player_secondjump()
+function player_secondjump()
 {
 	move = key_left + key_right;
 	if (momemtum == false)
@@ -45,7 +45,7 @@ function scr_player_secondjump()
 	{
 		instance_create(x, y, obj_highjumpcloud1);
 		vsp = -14;
-		state = states.highjump;
+		state = "highjump";
 		jumpAnim = true;
 		jumpstop = false;
 		image_index = 0;
@@ -59,7 +59,7 @@ function scr_player_secondjump()
 			landAnim = false;
 		}
 		input_buffer_highjump = 0;
-		state = states.normal;
+		state = "default";
 		jumpAnim = true;
 		jumpstop = false;
 		image_index = 0;
@@ -93,6 +93,6 @@ function scr_player_secondjump()
 		mach2 = 0;
 		image_index = 0;
 		vsp = -7;
-		state = states.freefallprep;
+		state = "freefallprep";
 	}
 }

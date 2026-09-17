@@ -1,8 +1,17 @@
-if sprite_index == spr_lonegustavo_idle || sprite_index == spr_player_ratmountidle || sprite_index == spr_player_idle || sprite_index == spr_playerS_idle
+if sprite_index == spr_lonegustavo_idle || sprite_index == spr_player_ratmountidle// || sprite_index == spr_player_idle
 {
 	var _palinfo = get_pep_palette_info();
 	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, _palinfo.patterntexture);
 	pal_swap_set(spr_ratmountpalette, _palinfo.paletteselect);
+	draw_self();
+	pattern_reset();
+	shader_reset();
+}
+else if sprite_index == spr_player_idle
+{
+	var _palinfo = get_pep_palette_info();
+	pattern_set(global.Base_Pattern_Color, sprite_index, image_index, image_xscale, image_yscale, _palinfo.patterntexture);
+	pal_swap_set(pal_peppino, _palinfo.paletteselect);
 	draw_self();
 	pattern_reset();
 	shader_reset();

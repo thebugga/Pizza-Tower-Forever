@@ -1,13 +1,13 @@
 with (other)
 {
-	if (state != states.trashroll && state != states.trashjump && state != states.cheeseball && state != states.chainsaw)
+	if (state != "trashroll" && state != "trashjump" && state != "cheeseball" && state != "chainsaw")
 	{
 		notification_push(notifications.touched_banana, []);
 		fmod_event_one_shot_3d("event:/sfx/pep/slip", x, y);
 		sprite_index = spr_slipbanan1;
 		other.drop = true;
 		vsp = -11;
-		if (state == states.machcancel)
+		if (state == "machcancel")
 		{
 			if (movespeed != 0)
 			{
@@ -26,7 +26,7 @@ with (other)
 		}
 		hsp = movespeed * xscale;
 		image_index = 0;
-		state = states.slipbanan;
+		state = "slipbanan";
 	}
 	instance_destroy(other);
 }

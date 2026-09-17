@@ -4,7 +4,7 @@ if (bombreset > 0)
 {
 	bombreset--;
 }
-if (state == states.walk)
+if (state == "walk")
 {
 	if (!chasing)
 	{
@@ -16,7 +16,7 @@ if (state == states.walk)
 		if ((targetplayer.x > (x - 150) && targetplayer.x < (x + 150)) && (y <= (targetplayer.y + 60) && y >= (targetplayer.y - 60)))
 		{
 			chasing = true;
-			state = states.charge;
+			state = "charge";
 			attack_count = attack_max;
 			if (x != targetplayer.x)
 			{
@@ -63,7 +63,7 @@ else if (state == states.chase)
 	{
 		if ((targetplayer.x > (x - attackthreshold_x) && targetplayer.x < (x + attackthreshold_x)) && (targetplayer.y > (y - attackthreshold_y) && targetplayer.y < (y + attackthreshold_y)))
 		{
-			state = states.charge;
+			state = "charge";
 			hsp = 0;
 			attack_count = attack_max;
 		}
@@ -90,7 +90,7 @@ else if (state == states.chase)
 		sprite_index = spr_shrimp_land;
 		image_index = 0;
 	}
-	if (((inst_front != noone || inst_up != noone) || (inst_down == noone && inst_down2 == noone)) && targetplayer.y <= (y + 32) && grounded && state != states.charge)
+	if (((inst_front != noone || inst_up != noone) || (inst_down == noone && inst_down2 == noone)) && targetplayer.y <= (y + 32) && grounded && state != "charge")
 	{
 		vsp = -11;
 		sprite_index = spr_shrimp_jump;
@@ -98,7 +98,7 @@ else if (state == states.chase)
 		hsp = image_xscale * chasespeed;
 	}
 }
-if (state == states.charge)
+if (state == "charge")
 {
 	bombreset = attackreset;
 	if (attack_count > 0)
@@ -112,12 +112,12 @@ if (state == states.charge)
 	}
 	else
 	{
-		state = states.punch;
+		state = "punch";
 		attackspeed = attackspeed_max;
 		hsp = image_xscale * attackspeed;
 	}
 }
-if (state == states.punch)
+if (state == "punch")
 {
 	if (!instance_exists(punchinst))
 	{
@@ -140,7 +140,7 @@ if (state == states.punch)
 	if (attackspeed == 0)
 	{
 		bombreset = attackreset;
-		state = states.walk;
+		state = "walk";
 		sprite_index = walkspr;
 		image_index = 0;
 	}
@@ -156,37 +156,37 @@ if (state == states.punch)
 }
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
-	case states.hit:
-		scr_enemy_hit();
+	case "hit":
+		enemy_hit();
 		break;
-	case states.stun:
+	case "stun":
 		chasing = true;
-		scr_enemy_stun();
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		chasing = true;
-		scr_enemy_grabbed();
+		enemy_grabbed();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -194,14 +194,14 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
 if (elite && ragecooldown <= 0)
 {
 	var player = instance_nearest(x, y, obj_player);
-	if (state == states.walk || state == states.charge)
+	if (state == "walk" || state == "charge")
 	{
 		if ((player.x > (x - 400) && player.x < (x + 400)) && (y <= (player.y + 60) && y >= (player.y - 60)))
 		{
@@ -210,7 +210,7 @@ if (elite && ragecooldown <= 0)
 			fmod_event_one_shot_3d("event:/sfx/enemies/projectile", x, y);
 			image_index = 0;
 			shot = false;
-			state = states.rage;
+			state = "rage";
 			ragecooldown = 100;
 		}
 	}
@@ -220,11 +220,11 @@ if (ragecooldown > 0)
 	ragecooldown--;
 }
 scr_scareenemy();
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -235,6 +235,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

@@ -5,7 +5,7 @@ if (global.key_inv)
 }
 with (other)
 {
-	if (state != states.bombpep && state != states.gotoplayer && state != states.ghost && state != states.knightpep && state != states.cheeseball && state != states.boxxedpep && state != states.cheesepep && state != states.knightpepattack && state != states.knightpepslopes && state != states.hurt && state != states.knightpepbump)
+	if (state != "bombpep" && state != "gotoplayer" && state != "ghost" && state != "knightpep" && state != "cheeseball" && state != "boxxedpep" && state != "cheesepep" && state != "knightpepattack" && state != "knightpepslopes" && state != "hurt" && state != "knightpepbump")
 	{
 		instance_destroy(other);
 		goblinkey = false;
@@ -13,7 +13,7 @@ with (other)
 		key_particles = true;
 		alarm[7] = 30;
 		fmod_event_one_shot("event:/sfx/misc/collecttoppin");
-		state = states.keyget;
+		state = "keyget";
 		image_index = 0;
 		keysound = false;
 		global.combotime = 60;

@@ -10,7 +10,7 @@ function scr_ghostcollectible(_pizzasona = false)
 			y: b.ystart,
 			sprite_index: b.sprite_index,
 			image_speed: b.image_speed,
-			image_number: b.image_number,
+			image_number: b.image_number - 1,
 			image_alpha: 0.5,
 			image_index: 0,
 			pizzasona: _pizzasona

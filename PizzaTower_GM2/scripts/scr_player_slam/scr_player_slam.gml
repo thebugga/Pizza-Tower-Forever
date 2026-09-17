@@ -1,4 +1,4 @@
-function scr_player_slam()
+function player_slam()
 {
 	if (windingAnim < 200)
 	{
@@ -39,7 +39,7 @@ function scr_player_slam()
 	crouchAnim = true;
 	if (floor(image_index) == 8)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (move != 0)
 	{

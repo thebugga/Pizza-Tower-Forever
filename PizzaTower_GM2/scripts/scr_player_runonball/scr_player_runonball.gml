@@ -1,4 +1,4 @@
-function scr_player_runonball()
+function player_runonball()
 {
 	move = key_left + key_right;
 	if (!key_attack)

@@ -1,4 +1,4 @@
-function scr_player_stringjump()
+function player_stringjump()
 {
 	hsp = xscale * movespeed;
 	move = key_left + key_right;
@@ -8,7 +8,7 @@ function scr_player_stringjump()
 		{
 			if (movespeed > 0)
 			{
-				movespeed = Approach(movespeed, 0, 0.5);
+				movespeed = approach(movespeed, 0, 0.5);
 			}
 			else
 			{
@@ -18,7 +18,7 @@ function scr_player_stringjump()
 		}
 		else if (movespeed < 8)
 		{
-			movespeed = Approach(movespeed, 8, 0.25);
+			movespeed = approach(movespeed, 8, 0.25);
 		}
 	}
 	if (place_meeting(x + sign(hsp), y, obj_solid))
@@ -27,14 +27,14 @@ function scr_player_stringjump()
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.normal;
+		state = "default";
 		landAnim = true;
 		sprite_index = spr_land;
 		create_particle(x, y, particletypes.landcloud, 0);
 	}
 }
 
-function scr_player_stringfall()
+function player_stringfall()
 {
 	if (instance_exists(stringid))
 	{
@@ -66,15 +66,15 @@ function scr_player_stringfall()
 		}
 		if (move == 0 || grounded)
 		{
-			movespeed = Approach(movespeed, 0, 0.1);
+			movespeed = approach(movespeed, 0, 0.1);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, move * 4, 0.25);
+			movespeed = approach(movespeed, move * 4, 0.25);
 		}
 		if (abs(movespeed) > 12)
 		{
-			movespeed = Approach(movespeed, 0, movespeeddeccel);
+			movespeed = approach(movespeed, 0, movespeeddeccel);
 		}
 	}
 	hsp = movespeed;

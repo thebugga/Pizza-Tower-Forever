@@ -1,11 +1,11 @@
 var _obj = id;
 with (other)
 {
-	if (scr_transformationcheck() || state == states.tumble)
+	if (scr_transformationcheck() || state == "tumble")
 	{
-		if ((state != states.bump || sprite_index != spr_player_catched) && (state != states.tumble || xscale != _obj.image_xscale) && state != states.knightpep && state != states.knightpepslopes && state != states.backbreaker && state != states.gotoplayer)
+		if ((state != "bump" || sprite_index != spr_player_catched) && (state != "tumble" || xscale != _obj.image_xscale) && state != "knightpep" && state != "knightpepslopes" && state != "backbreaker" && state != "gotoplayer")
 		{
-			state = states.tumble;
+			state = "tumble";
 			fmod_event_one_shot_3d("event:/sfx/misc/pepbotkick", x, y);
 			xscale = sign(other.image_xscale);
 			mask_index = spr_crouchmask;

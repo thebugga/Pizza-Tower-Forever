@@ -1,21 +1,21 @@
-if (state == states.transitioncutscene)
+if (state == "transitioncutscene")
 {
 	var ty = SCREEN_HEIGHT / 2;
 	y -= movespeed;
 	if (abs(y - ty) < 200)
 	{
-		movespeed = Approach(movespeed, 1, 0.05);
+		movespeed = approach(movespeed, 1, 0.05);
 	}
 	if (abs(y - ty) < 16)
 	{
 		y = ty;
-		state = states.normal;
+		state = "default";
 	}
 }
 else if (state == states.fall)
 {
 	y += movespeed;
-	movespeed = Approach(movespeed, 8, 2);
+	movespeed = approach(movespeed, 8, 2);
 	if (y > (SCREEN_HEIGHT + sprite_height))
 	{
 		instance_destroy();

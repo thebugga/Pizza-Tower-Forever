@@ -1,4 +1,4 @@
-function scr_player_gameover()
+function player_gameover()
 {
 	image_speed = 0.35;
 	cutscene = true;

@@ -6,7 +6,7 @@ function scr_playerN_machcancelstart()
 	image_speed = 0.5;
 	if (ANIMATION_END)
 	{
-		state = states.machcancel;
+		state = "machcancel";
 		sprite_index = spr_playerN_jetpackboost;
 		instance_create(x, y, obj_jumpdust);
 		movespeed = 15;
@@ -28,16 +28,16 @@ function scr_playerN_machcancel()
 		{
 			if (abs(movespeed) < 12)
 			{
-				movespeed = Approach(movespeed, move * 12, 1);
+				movespeed = approach(movespeed, move * 12, 1);
 			}
 			else
 			{
-				movespeed = Approach(movespeed, move * abs(movespeed), 1);
+				movespeed = approach(movespeed, move * abs(movespeed), 1);
 			}
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.25);
+			movespeed = approach(movespeed, 0, 0.25);
 		}
 		var xx = movespeed;
 		if (xx == 0)
@@ -49,7 +49,7 @@ function scr_playerN_machcancel()
 			mask_index = spr_crouchmask;
 			if (!place_meeting(x + xx, y, obj_solid) || place_meeting(x + xx, y, obj_destructibles))
 			{
-				state = states.tumble;
+				state = "tumble";
 				sprite_index = spr_machroll;
 				image_index = 0;
 				instance_destroy(instance_place(x + xx, y, obj_destructibles));
@@ -68,11 +68,11 @@ function scr_playerN_machcancel()
 	}
 	else if (move != 0)
 	{
-		movespeed = Approach(movespeed, move * 8, 1);
+		movespeed = approach(movespeed, move * 8, 1);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 	if (scr_noise_machcancel_grab())
 	{
@@ -81,7 +81,7 @@ function scr_playerN_machcancel()
 	if (scr_check_groundpound2() && sprite_index != spr_playerN_divebombfall && !place_meeting(x, y, obj_ventilator) && !grounded)
 	{
 		sprite_index = spr_playerN_divebombfall;
-		state = states.machcancel;
+		state = "machcancel";
 		vsp = 20;
 		input_buffer_slap = 0;
 		input_buffer_jump = 0;
@@ -125,7 +125,7 @@ function scr_playerN_machcancel()
 			xscale = savedmove;
 		}
 		jumpstop = true;
-		state = states.mach3;
+		state = "mach3";
 		movespeed = 12;
 		sprite_index = spr_playerN_mach4;
 		with (instance_create(x, y, obj_noiseeffect))
@@ -141,10 +141,10 @@ function scr_playerN_machcancel()
 		}
 	}
 	noisedoublejump = true;
-	if (input_buffer_slap > 0 && key_up && (!global.pistol || character == characters.Noise))
+	if (input_buffer_slap > 0 && key_up && (!global.pistol || character == "Noise"))
 	{
 		input_buffer_slap = 0;
-		state = states.punch;
+		state = "punch";
 		image_index = 0;
 		sprite_index = spr_breakdanceuppercut;
 		fmod_event_instance_play(snd_uppercut);
@@ -161,7 +161,7 @@ function scr_playerN_machcancel()
 			}
 		}
 	}
-	if (character == characters.Noise && key_up && input_buffer_jump > 0 && !scr_check_groundpound2())
+	if (character == "Noise" && key_up && input_buffer_jump > 0 && !scr_check_groundpound2())
 	{
 		freefallstart = 0;
 		railmomentum = false;
@@ -169,11 +169,11 @@ function scr_playerN_machcancel()
 		{
 			railmomentum = true;
 		}
-		scr_player_do_noisecrusher();
+		player_do_noisecrusher();
 	}
 	if (grounded && !key_attack && vsp >= 0 && sprite_index == spr_playerN_wallbounce)
 	{
-		state = states.normal;
+		state = "default";
 		movespeed = abs(hsp);
 	}
 	if (sprite_index == spr_playerN_divebomb || sprite_index == spr_playerN_divebombland || sprite_index == spr_playerN_divebombfall)
@@ -217,7 +217,7 @@ function scr_playerN_machcancel()
 
 function scr_noise_machcancel_grab()
 {
-	if (character != characters.Noise)
+	if (character != "Noise")
 	{
 		exit;
 	}
@@ -240,7 +240,7 @@ function scr_noise_machcancel_grab()
 			{
 				vsp = -5;
 			}
-			state = states.mach2;
+			state = "mach2";
 			movespeed = 12;
 			sprite_index = spr_playerN_sidewayspin;
 			with (instance_create(x, y, obj_crazyrunothereffect))

@@ -1,5 +1,5 @@
 
-if (obj_player.state != states.hurt && global.pineapplefollow == false)
+if (obj_player.state != "hurt" && global.pineapplefollow == false)
 {
 	global.heattime = 60;
 	global.style--;

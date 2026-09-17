@@ -1,12 +1,12 @@
-if (other.state == states.handstandjump && other.grounded)
+if (other.state == "handstandjump" && other.grounded)
 {
 	with (other)
 	{
-		state = states.animation;
+		state = "animation";
 		sprite_index = spr_player_pistolintro;
 		image_index = 0;
 		image_speed = 0.35;
-		tauntstoredstate = states.normal;
+		tauntstoredstate = "default";
 		fmod_event_one_shot("event:/sfx/pep/pistolstart");
 		fmod_event_one_shot_3d("event:/sfx/misc/breakblock", x, y);
 	}

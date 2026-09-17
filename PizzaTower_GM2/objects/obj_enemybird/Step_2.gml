@@ -1,4 +1,4 @@
-if (!instance_exists(ID) || ID.state != states.stun)
+if (!instance_exists(ID) || ID.state != "stun")
 {
 	instance_destroy();
 }

@@ -3,16 +3,16 @@ if (player_id == 2)
 {
 	myplayer = obj_player2.id;
 }
-if (myplayer.state != states.hurt)
+if (myplayer.state != "hurt")
 {
 	with (myplayer)
 	{
 		parry_lethal = other.lethal;
-		if (state != states.parry)
+		if (state != "parry")
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/parry", x, y);
 		}
-		state = states.parry;
+		state = "parry";
 		if (!isgustavo)
 		{
 			sprite_index = choose(spr_parry1, spr_parry2, spr_parry3);

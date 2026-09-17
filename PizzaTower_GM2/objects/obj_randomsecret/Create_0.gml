@@ -68,5 +68,5 @@ selected_level = noone;
 minutes = 0;
 seconds = 0;
 start = false;
-startstate = states.normal;
+startstate = "default";
 depth = -999;

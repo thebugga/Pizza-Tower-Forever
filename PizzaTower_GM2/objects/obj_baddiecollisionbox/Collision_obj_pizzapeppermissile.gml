@@ -1,4 +1,4 @@
-if (instance_exists(baddieID) && other.target == baddieID && baddieID.invtime == 0 && baddieID.state != states.grabbed && !baddieID.invincible && baddieID.instantkillable)
+if (instance_exists(baddieID) && other.target == baddieID && baddieID.invtime == 0 && baddieID.state != "grabbed" && !baddieID.invincible && baddieID.instantkillable)
 {
 	baddieID.invtime = 15;
 	fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
@@ -16,7 +16,7 @@ if (instance_exists(baddieID) && other.target == baddieID && baddieID.invtime ==
 	baddieID.hp -= 1;
 	instance_create(baddieID.x, baddieID.y, obj_parryeffect);
 	baddieID.alarm[3] = 3;
-	baddieID.state = states.hit;
+	baddieID.state = "hit";
 	if (baddieID.x != other.x)
 	{
 		baddieID.image_xscale = sign(other.x - baddieID.x);

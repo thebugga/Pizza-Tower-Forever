@@ -1,6 +1,6 @@
 x += hsp;
 y += vsp;
-if (character == characters.Noise && vsp < 20)
+if (character == "Noise" && vsp < 20)
 {
 	vsp += 0.5;
 }

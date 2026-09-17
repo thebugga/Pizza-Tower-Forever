@@ -13,7 +13,7 @@ function scr_pizzaface_destroy_sounds()
 
 function scr_pizzaface_update_sounds()
 {
-	if (state == states.ram && (substate == states.arenaintro || substate == states.ram))
+	if (state == states.ram && (substate == "arenaintro" || substate == states.ram))
 	{
 		if (!fmod_event_instance_is_playing(snd_ram))
 		{
@@ -25,7 +25,7 @@ function scr_pizzaface_update_sounds()
 	{
 		fmod_event_instance_stop(snd_ram, true);
 	}
-	if (state == states.transitioncutscene)
+	if (state == "transitioncutscene")
 	{
 		if (!fmod_event_instance_is_playing(snd_haywire))
 		{
@@ -37,7 +37,7 @@ function scr_pizzaface_update_sounds()
 	{
 		fmod_event_instance_stop(snd_haywire, true);
 	}
-	if (state == states.arenaintro)
+	if (state == "arenaintro")
 	{
 		if (!fmod_event_instance_is_playing(snd_wind))
 		{
@@ -60,7 +60,7 @@ function scr_pizzaface_arenaintro()
 		x = room_width * 0.75;
 		with (obj_player1)
 		{
-			state = states.actor;
+			state = "actor";
 			image_speed = 0.35;
 			xscale = 1;
 			hsp = 0;
@@ -150,7 +150,7 @@ function scr_pizzaface_arenaintro()
 					with (obj_player1)
 					{
 						sprite_index = spr_pepbossintro1;
-						if (character == characters.Noise)
+						if (character == "Noise")
 						{
 							sprite_index = spr_noisebossintro1;
 						}
@@ -184,7 +184,7 @@ function scr_pizzaface_arenaintro()
 					}
 				}
 				var ty = room_height / 2;
-				y = Approach(y, ty, 2);
+				y = approach(y, ty, 2);
 				if (y > 0)
 				{
 					with (obj_player1)
@@ -192,7 +192,7 @@ function scr_pizzaface_arenaintro()
 						if (sprite_index != spr_pepbossintro2 && sprite_index != spr_noisebossintro2)
 						{
 							sprite_index = spr_pepbossintro2;
-							if (character == characters.Noise)
+							if (character == "Noise")
 							{
 								sprite_index = spr_noisebossintro2;
 							}
@@ -205,7 +205,7 @@ function scr_pizzaface_arenaintro()
 					introstate++;
 					with (obj_player1)
 					{
-						if character == characters.Peppino
+						if character == "Peppino"
 						{
 							fmod_event_one_shot_3d("event:/sfx/voice/peppinoangryscream", x, y);
 						}
@@ -214,7 +214,7 @@ function scr_pizzaface_arenaintro()
 							fmod_event_one_shot_3d("event:/sfx/voice/woag", x, y);
 						}
 						sprite_index = spr_pepbossintro3;
-						if (character == characters.Noise)
+						if (character == "Noise")
 						{
 							sprite_index = spr_noisebossintro3;
 						}
@@ -246,10 +246,10 @@ function scr_pizzaface_arenaintro()
 				}
 				if (sprite_index == spr_pizzaface && _finish)
 				{
-					state = states.walk;
+					state = "walk";
 					with (obj_player1)
 					{
-						state = states.normal;
+						state = "default";
 						sprite_index = spr_idle;
 					}
 				}
@@ -288,7 +288,7 @@ function scr_pizzaface_normal()
 		hsp = floatdir * 5;
 		vsp = 0;
 		var ty = room_height * 0.3;
-		y = Approach(y, ty, 2);
+		y = approach(y, ty, 2);
 		if (y == ty && !on_y)
 		{
 			on_y = true;
@@ -315,7 +315,7 @@ function scr_pizzaface_normal()
 				sprite_index = spr_pizzaface_attackend;
 				image_index = 0;
 				state = states.ram;
-				substate = states.transitioncutscene;
+				substate = "transitioncutscene";
 				hsp = 0;
 				exit;
 			}
@@ -346,7 +346,7 @@ function scr_pizzaface_normal()
 						state = states.ram;
 						sprite_index = spr_pizzaface_attackstart;
 						image_index = 0;
-						substate = states.arenaintro;
+						substate = "arenaintro";
 						ramdir = point_direction(x, y, targetplayer.x + irandom_range(-50, 50), 402);
 						ramhsp = -lengthdir_x(6, ramdir);
 						ramvsp = -lengthdir_y(6, ramdir);
@@ -400,7 +400,7 @@ function scr_pizzaface_normal()
 		sprite_index = spr_pizzaface_hurt;
 		if (grounded)
 		{
-			hsp = Approach(hsp, 0, 0.25);
+			hsp = approach(hsp, 0, 0.25);
 		}
 		if (place_meeting(x + hsp, y, obj_solid))
 		{
@@ -409,7 +409,7 @@ function scr_pizzaface_normal()
 		}
 		if (grounded && vsp > 0 && flickertime > 0)
 		{
-			hsp = Approach(hsp, 0, 0.5);
+			hsp = approach(hsp, 0, 0.5);
 			create_particle(x, 401, particletypes.landcloud);
 			vsp = -5;
 			touchedground = true;
@@ -421,9 +421,9 @@ function scr_pizzaface_ram()
 {
 	switch (substate)
 	{
-		case states.arenaintro:
-			ramhsp = Approach(ramhsp, 0, 0.3);
-			ramvsp = Approach(ramvsp, 0, 0.3);
+		case "arenaintro":
+			ramhsp = approach(ramhsp, 0, 0.3);
+			ramvsp = approach(ramvsp, 0, 0.3);
 			hsp = ramhsp;
 			vsp = ramvsp;
 			if (ANIMATION_END)
@@ -445,7 +445,7 @@ function scr_pizzaface_ram()
 			if ((vsp > 0 && grounded) || place_meeting(x + sign(hsp), y, obj_solid))
 			{
 				fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
-				substate = states.land;
+				substate = "land";
 				landbuffer = 80;
 				hitX = x;
 				hitY = y;
@@ -468,14 +468,14 @@ function scr_pizzaface_ram()
 				}
 			}
 			break;
-		case states.land:
+		case "land":
 			hsp = 0;
 			x = hitX + irandom_range(-1, 1);
 			y = hitY + irandom_range(-1, 1);
 			if (ANIMATION_END)
 			{
 				fmod_event_one_shot_3d("event:/sfx/pizzaface/jump", x, y);
-				substate = states.jump;
+				substate = "jump";
 				sprite_index = spr_pizzaface_attackjump;
 				image_index = 0;
 				vsp = -14;
@@ -483,24 +483,24 @@ function scr_pizzaface_ram()
 				y = hitY;
 			}
 			break;
-		case states.jump:
+		case "jump":
 			if (ANIMATION_END)
 			{
 				image_index = image_number - 1;
 			}
 			if (vsp > 0)
 			{
-				substate = states.transitioncutscene;
+				substate = "transitioncutscene";
 				vsp = 0;
 				sprite_index = spr_pizzaface_attackend;
 				image_index = 0;
 			}
 			break;
-		case states.transitioncutscene:
+		case "transitioncutscene":
 			vsp = 0;
 			if (ANIMATION_END)
 			{
-				state = states.walk;
+				state = "walk";
 			}
 			break;
 	}
@@ -542,14 +542,14 @@ function scr_pizzaface_transitioncutscene()
 	}
 	switch (substate)
 	{
-		case states.animation:
+		case "animation":
 			if (introbuffer > 0)
 			{
 				introbuffer--;
 			}
 			else
 			{
-				substate = states.transitioncutscene;
+				substate = "transitioncutscene";
 			}
 			with (obj_player1)
 			{
@@ -563,17 +563,17 @@ function scr_pizzaface_transitioncutscene()
 				{
 					image_index = 0;
 					sprite_index = spr_player_gnomecutscene1;
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						sprite_index = spr_noisebossintro1;
 					}
 				}
 				image_speed = 0.35;
 				image_alpha = 1;
-				state = states.actor;
+				state = "actor";
 			}
 			break;
-		case states.transitioncutscene:
+		case "transitioncutscene":
 			sprite_index = spr_pizzahead_intro1;
 			var tx = room_width / 2;
 			var ty = room_height * 0.35;
@@ -585,7 +585,7 @@ function scr_pizzaface_transitioncutscene()
 				with (obj_player1)
 				{
 					sprite_index = spr_pepbossintro2;
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						sprite_index = spr_noisebossintro2;
 					}
@@ -593,13 +593,13 @@ function scr_pizzaface_transitioncutscene()
 				}
 				x = tx;
 				y = ty;
-				substate = states.hit;
+				substate = "hit";
 				sprite_index = spr_pizzahead_intro2;
 				image_index = 0;
 				fmod_event_one_shot_3d("event:/sfx/pizzaface/open", x, y);
 			}
 			break;
-		case states.hit:
+		case "hit":
 			if (ANIMATION_END)
 			{
 				fmod_event_one_shot_3d("event:/sfx/misc/explosion", x, y);
@@ -612,7 +612,7 @@ function scr_pizzaface_transitioncutscene()
 					vsp = 0;
 					hsp = 0;
 					state = states.fall;
-					substate = states.jump;
+					substate = "jump";
 					sprite_index = spr_pizzahead_intro3;
 					if (x != obj_player1.x)
 					{

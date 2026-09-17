@@ -1,4 +1,4 @@
-if (other.state == states.punch && other.image_index > 8 && other.image_index < 12)
+if (other.state == "punch" && other.image_index > 8 && other.image_index < 12)
 {
 	if (!collisioned)
 	{

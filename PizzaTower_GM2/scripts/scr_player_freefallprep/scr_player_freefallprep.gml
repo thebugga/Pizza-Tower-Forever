@@ -1,4 +1,4 @@
-function scr_player_freefallprep()
+function player_freefallprep()
 {
 	move = key_left + key_right;
 	if (!grounded)
@@ -53,7 +53,7 @@ function scr_player_freefallprep()
 	image_speed = 0.5;
 	if (ANIMATION_END)
 	{
-		state = states.freefall;
+		state = "freefall";
 		if (shotgunAnim == false)
 		{
 			sprite_index = spr_bodyslamfall;

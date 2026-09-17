@@ -1,4 +1,4 @@
-function scr_player_arenaintro()
+function player_arenaintro()
 {
 	hsp = 0;
 	hurted = false;

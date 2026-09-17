@@ -1,4 +1,4 @@
-function scr_player_grind()
+function player_grind()
 {
 	sprite_index = !skateboarding ? spr_grind : spr_clown;
 	image_speed = 0.35;
@@ -7,26 +7,26 @@ function scr_player_grind()
 	hsp = xscale * movespeed;
 	if (movespeed < 10)
 	{
-		movespeed = Approach(movespeed, 10, 0.5);
+		movespeed = approach(movespeed, 10, 0.5);
 	}
 	if (!place_meeting(x, y + 18, obj_grindrail) && !place_meeting(x, y + 18, obj_grindrailslope))
 	{
 		if (movespeed < 12 || skateboarding)
 		{
-			state = states.mach2;
+			state = "mach2";
 			sprite_index = spr_mach2jump;
 		}
 		else
 		{
-			state = states.mach3;
+			state = "mach3";
 			sprite_index = spr_mach4;
 		}
 	}
 	if (place_meeting(x + xscale, y, obj_solid) && !place_meeting(x, y + 18, obj_grindrailslope) && !place_meeting(x, y + 1, obj_slope))
 	{
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
-			state = states.bump;
+			state = "bump";
 			hsp = -xscale * 5;
 			vsp = 1;
 		}
@@ -35,10 +35,10 @@ function scr_player_grind()
 			xscale *= -1;
 		}
 	}
-	if (character == characters.Noise && key_down)
+	if (character == "Noise" && key_down)
 	{
 		ignore_grind = true;
-		state = states.mach2;
+		state = "mach2";
 		sprite_index = spr_playerN_grindcancel;
 		image_index = 0;
 		vsp = 10;
@@ -64,12 +64,12 @@ function scr_player_grind()
 		}
 		if (movespeed < 12 || skateboarding)
 		{
-			state = states.mach2;
+			state = "mach2";
 			sprite_index = spr_mach2jump;
 		}
 		else
 		{
-			state = states.mach3;
+			state = "mach3";
 			sprite_index = spr_mach3jump;
 		}
 	}

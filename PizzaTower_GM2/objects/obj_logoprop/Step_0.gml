@@ -10,11 +10,11 @@ if (key_jump || key_start)
 }
 if (fadein)
 {
-	image_alpha = Approach(image_alpha, 1, d);
+	image_alpha = approach(image_alpha, 1, d);
 }
 else
 {
-	image_alpha = Approach(image_alpha, 0, d);
+	image_alpha = approach(image_alpha, 0, d);
 	if (image_alpha <= 0)
 	{
 		instance_destroy();

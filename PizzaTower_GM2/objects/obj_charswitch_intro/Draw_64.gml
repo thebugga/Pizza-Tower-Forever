@@ -1,5 +1,5 @@
 draw_sprite(sprite_index, image_index, 0, 0 + shakey);
-if (state == states.normal)
+if (state == "default")
 {
 	draw_sprite(spr, 0, 0, 0);
 	switch (spr)

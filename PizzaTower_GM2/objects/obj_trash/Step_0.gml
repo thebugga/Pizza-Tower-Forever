@@ -5,10 +5,10 @@ if (trashbuffer > 0)
 }
 switch (state)
 {
-	case states.normal:
+	case "default":
 		with (obj_player)
 		{
-			if (other.state == states.normal && state != states.trashstart && other.trashbuffer <= 0 && place_meeting(x, y, other))
+			if (other.state == "default" && state != states.trashstart && other.trashbuffer <= 0 && place_meeting(x, y, other))
 			{
 				scr_fmod_soundeffect(global.snd_trashjump1, other.x, other.y);
 				state = states.trashstart;
@@ -72,15 +72,15 @@ switch (state)
 					sprite_index = spr_player_trashjump;
 					image_index = 0;
 					movespeed = 0;
-					state = states.trashjump;
+					state = "trashjump";
 					vsp = -25;
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						create_transformation_tip(lang_get_value("trashrolltipN"), "trashrollN");
 					}
 					fmod_event_one_shot_3d("event:/sfx/misc/trashjump2", x, y + vsp);
 					instance_create(x, y, obj_speedlinesup);
-					if (character == characters.Noise)
+					if (character == "Noise")
 					{
 						sprite_index = spr_playerN_trash;
 						repeat (3)
@@ -98,7 +98,7 @@ switch (state)
 		if (ANIMATION_END)
 		{
 			sprite_index = spr_trash;
-			state = states.normal;
+			state = "default";
 			trashbuffer = 30;
 		}
 		break;

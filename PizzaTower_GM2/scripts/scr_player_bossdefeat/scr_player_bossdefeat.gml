@@ -1,3 +1,3 @@
-function scr_player_bossdefeat()
+function player_bossdefeat()
 {
 }

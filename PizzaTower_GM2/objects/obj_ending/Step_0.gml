@@ -14,7 +14,7 @@ for (var i = 0; i < array_length(bg_arr); i++)
 	var bg = layer_background_get_id(layer_get_id(b));
 	layer_background_alpha(bg, bgalpha);
 }
-bgalpha = Approach(bgalpha, 0, 0.0003);
+bgalpha = approach(bgalpha, 0, 0.0003);
 switch (state)
 {
 	case 0:
@@ -25,7 +25,7 @@ switch (state)
 		var ty = room_height + 200;
 		with (towerID)
 		{
-			hitY = Approach(hitY, ty, 1);
+			hitY = approach(hitY, ty, 1);
 			if (hitY > ystart)
 			{
 				y = hitY + irandom_range(-1, 1);
@@ -58,7 +58,7 @@ switch (state)
 	case 1:
 		if (whitefadein)
 		{
-			whitefade = Approach(whitefade, 2, 0.05);
+			whitefade = approach(whitefade, 2, 0.05);
 			if (whitefade >= 2)
 			{
 				room = Johnresurrectionroom;
@@ -178,7 +178,7 @@ switch (state)
 		}
 		break;
 	case 4:
-		fade = Approach(fade, 2, 0.05);
+		fade = approach(fade, 2, 0.05);
 		if (fade >= 2)
 		{
 			state++;
@@ -199,7 +199,7 @@ switch (state)
 		}
 		break;
 	case 5:
-		fade = Approach(fade, 0, 0.05);
+		fade = approach(fade, 0, 0.05);
 		if (buffer > 0)
 		{
 			buffer--;
@@ -210,7 +210,7 @@ switch (state)
 		}
 		break;
 	case 6:
-		fade = Approach(fade, 2, 0.05);
+		fade = approach(fade, 2, 0.05);
 		if (fade >= 2)
 		{
 			state++;
@@ -226,7 +226,7 @@ switch (state)
 		{
 			with (obj_player)
 			{
-				state = states.titlescreen;
+				state = "titlescreen";
 			}
 			room_goto(init_obj_room);
 		}

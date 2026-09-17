@@ -10,7 +10,7 @@ function scr_robot_normal()
 	if (random_buffer <= 0)
 	{
 		turnbuffer = turnmax;
-		state = states.turn;
+		state = "turn";
 		sprite_index = turnspr;
 		image_speed = 0.25;
 		old_xscale = image_xscale;
@@ -25,7 +25,7 @@ function scr_robot_turn()
 	hsp = 0;
 	if (image_index > (image_number - 1))
 	{
-		state = states.normal;
+		state = "default";
 		sprite_index = walkspr;
 		image_index = 0;
 		image_xscale = old_xscale;
@@ -48,11 +48,11 @@ function scr_robot_chase()
 	if (playerinst.y < (y - attack_threshold_y) && _col == noone && playerinst.x > (x - attack_threshold_x) && playerinst.x < (x + attack_threshold_x))
 	{
 		hsp = 0;
-		state = states.throwing;
+		state = "throwing";
 	}
 	if ((global.monsterspeed >= 1 && !point_in_camera(x, y, view_camera[0])) || distance_to_object(playerinst) > distance_to_idle)
 	{
-		state = states.normal;
+		state = "default";
 	}
 }
 

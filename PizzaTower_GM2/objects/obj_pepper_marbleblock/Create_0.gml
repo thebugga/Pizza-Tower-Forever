@@ -1,3 +1,4 @@
+scr_collide_init()
 hp = 3;
 number = 0;
 maxhp = hp;

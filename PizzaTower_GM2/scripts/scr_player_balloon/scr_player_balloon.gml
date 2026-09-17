@@ -1,6 +1,6 @@
-function scr_player_balloon()
+function player_balloon()
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		image_speed = 0.35;
 		hsp = movespeed;
@@ -11,11 +11,11 @@ function scr_player_balloon()
 		}
 		if (move != 0)
 		{
-			movespeed = Approach(movespeed, move * 6, 0.35);
+			movespeed = approach(movespeed, move * 6, 0.35);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.35);
+			movespeed = approach(movespeed, 0, 0.35);
 		}
 		if (place_meeting(x + hsp, y, obj_solid) && !place_meeting(x + hsp, y, obj_slope))
 		{
@@ -53,7 +53,7 @@ function scr_player_balloon()
 			{
 				create_particle(x, y - 20, particletypes.genericpoofeffect, 0);
 				instance_create(x, y - 20, obj_balloongrabbableeffect);
-				state = states.machcancel;
+				state = "machcancel";
 				savedmove = xscale;
 				sprite_index = spr_playerN_wallbounce;
 				image_index = 0;
@@ -101,11 +101,11 @@ function scr_player_balloon()
 	image_speed = 0.35;
 	if (move != 0)
 	{
-		movespeed = Approach(movespeed, move * 6, 0.35);
+		movespeed = approach(movespeed, move * 6, 0.35);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.35);
+		movespeed = approach(movespeed, 0, 0.35);
 	}
 	if (place_meeting(x + hsp, y, obj_solid) && !place_meeting(x + hsp, y, obj_slope))
 	{
@@ -119,7 +119,7 @@ function scr_player_balloon()
 	{
 		create_particle(x, y - 20, particletypes.genericpoofeffect, 0);
 		instance_create(x, y - 20, obj_balloongrabbableeffect);
-		state = states.jump;
+		state = "jump";
 		sprite_index = spr_fall;
 		jumpAnim = false;
 	}
@@ -127,7 +127,7 @@ function scr_player_balloon()
 	{
 		create_particle(x, y - 20, particletypes.genericpoofeffect, 0);
 		instance_create(x, y - 20, obj_balloongrabbableeffect);
-		state = states.jump;
+		state = "jump";
 		sprite_index = spr_jump;
 		image_index = 0;
 		jumpAnim = true;

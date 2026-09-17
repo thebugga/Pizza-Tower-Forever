@@ -29,8 +29,8 @@ if (move != 0)
 		left_offset = 5;
 	}
 }
-left_offset = Approach(left_offset, 0, 1);
-right_offset = Approach(right_offset, 0, 1);
+left_offset = approach(left_offset, 0, 1);
+right_offset = approach(right_offset, 0, 1);
 if ((key_jump || key_back) && startbuffer <= 0)
 {
 	if (key_jump)

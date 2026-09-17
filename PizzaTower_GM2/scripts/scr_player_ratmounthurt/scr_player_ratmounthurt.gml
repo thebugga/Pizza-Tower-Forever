@@ -1,4 +1,4 @@
-function scr_player_ratmounthurt()
+function player_ratmounthurt()
 {
 	hsp = -xscale * movespeed;
 	landAnim = false;
@@ -13,7 +13,7 @@ function scr_player_ratmounthurt()
 	alarm[7] = 80;
 	if (grounded && vsp > 0)
 	{
-		state = states.ratmount;
+		state = "ratmount";
 		movespeed = 0;
 	}
 	if (brick)

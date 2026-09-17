@@ -1,34 +1,34 @@
 destroyable = true;
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.charge:
-		scr_enemy_charge();
+	case "charge":
+		enemy_charge();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
-	case states.hit:
-		scr_enemy_hit();
+	case "hit":
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
-	case states.grabbed:
-		scr_enemy_grabbed();
+	case "grabbed":
+		enemy_grabbed();
 		break;
-	case states.mach1:
+	case "mach1":
 		if (image_index > (image_number - 1))
 		{
 			hsp = image_xscale * startmachspeed;
@@ -39,11 +39,11 @@ switch (state)
 			}
 			sprite_index = spr_robot_mach;
 			image_index = 0;
-			state = states.mach2;
+			state = "mach2";
 		}
 		break;
-	case states.mach2:
-		hsp = Approach(hsp, image_xscale * machspeed, 0.5) + railmovespeed;
+	case "mach2":
+		hsp = approach(hsp, image_xscale * machspeed, 0.5) + railmovespeed;
 		if (place_meeting(x, y + 1, obj_railparent))
 		{
 			var _railinst = instance_place(x, y + 1, obj_railparent);
@@ -60,14 +60,14 @@ switch (state)
 		if (place_meeting(x + sign(hsp), y, obj_solid) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x, y, obj_destructibles))
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
-			state = states.stun;
+			state = "stun";
 			stunned = 100;
 			vsp = -4;
 			hsp = -image_xscale * 2;
 			sprite_index = stunfallspr;
 		}
 		break;
-	case states.tackle:
+	case "tackle":
 		if (image_index > 8)
 		{
 			hsp = image_xscale * tacklespeed;
@@ -83,7 +83,7 @@ switch (state)
 		}
 		if (image_index > (image_number - 1))
 		{
-			state = states.walk;
+			state = "walk";
 			hsp = 0;
 			railspeed = 0;
 			sprite_index = walkspr;
@@ -91,27 +91,27 @@ switch (state)
 		if (place_meeting(x + sign(hsp), y, obj_solid) && (!place_meeting(x + sign(hsp), y, obj_slope) || scr_solid_slope(x + sign(hsp), y)) && !place_meeting(x, y, obj_destructibles))
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
-			state = states.stun;
+			state = "stun";
 			stunned = 100;
 			vsp = -8;
 			hsp = -image_xscale * 5;
 			sprite_index = stunfallspr;
 		}
 		break;
-	case states.slap:
+	case "slap":
 		hsp = 0;
 		if (image_index > (image_number - 1))
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = walkspr;
 		}
 		break;
 }
-if (elitehit <= 0 && state != states.stun)
+if (elitehit <= 0 && state != "stun")
 {
 	instance_destroy();
 }
-if (state == states.stun && stunned > 40 && birdcreated == false)
+if (state == "stun" && stunned > 40 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -119,7 +119,7 @@ if (state == states.stun && stunned > 40 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -127,11 +127,11 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -140,11 +140,11 @@ if (bombreset > 0)
 	bombreset--;
 }
 targetplayer = instance_nearest(x, y, obj_player);
-if (x != targetplayer.x && state != states.pizzagoblinthrow && bombreset == 0)
+if (x != targetplayer.x && state != "enemy_throw" && bombreset == 0)
 {
 	if ((targetplayer.x > (x - 400) && targetplayer.x < (x + 400)) && (y <= (targetplayer.y + 20) && y >= (targetplayer.y - 20)))
 	{
-		if (state == states.walk || (state == states.idle && sprite_index != scaredspr))
+		if (state == "walk" || (state == "idle" && sprite_index != scaredspr))
 		{
 			fmod_event_one_shot_3d("event:/sfx/enemies/projectile", x, y);
 			image_index = 0;
@@ -153,26 +153,26 @@ if (x != targetplayer.x && state != states.pizzagoblinthrow && bombreset == 0)
 			bombreset = 100;
 			switch (state)
 			{
-				case states.mach1:
+				case "mach1":
 					sprite_index = spr_robot_machstart;
 					image_index = 0;
 					image_speed = 0.6;
 					hsp = 0;
 					break;
-				case states.pizzagoblinthrow:
+				case "enemy_throw":
 					bombreset = 0;
 					sprite_index = spr_robot_attack;
 					image_index = 0;
 					image_speed = 0.35;
 					hsp = 0;
 					break;
-				case states.tackle:
+				case "tackle":
 					sprite_index = spr_robot_tackle;
 					image_index = 0;
 					image_speed = 0.6;
 					hsp = 0;
 					break;
-				case states.slap:
+				case "slap":
 					sprite_index = spr_robot_slap;
 					image_index = 0;
 					image_speed = 0.6;
@@ -191,10 +191,11 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }
-if (state == states.slap && image_index > 11)
+if (state == "slap" && image_index > 11)
 {
 	if (snd == false)
 	{
@@ -203,7 +204,7 @@ if (state == states.slap && image_index > 11)
 	}
 	snd = true;
 }
-if (state == states.mach2)
+if (state == "mach2")
 {
 	if (snd == false)
 	{
@@ -211,7 +212,7 @@ if (state == states.mach2)
 	}
 	snd = true;
 }
-if (state == states.tackle && image_index > 8)
+if (state == "tackle" && image_index > 8)
 {
 	if (snd == false)
 	{
@@ -219,22 +220,22 @@ if (state == states.tackle && image_index > 8)
 	}
 	snd = true;
 }
-if (state != states.slap && state != states.mach2 && state != states.tackle)
+if (state != "slap" && state != "mach2" && state != "tackle")
 {
 	snd = false;
 }
-if (state == states.mach2 || (state == states.slap && image_index > 11) || (state == states.tackle && image_index > 8))
+if (state == "mach2" || (state == "slap" && image_index > 11) || (state == "tackle" && image_index > 8))
 {
 	if (!hitboxcreate)
 	{
 		hitboxcreate = true;
 		with (instance_create(x, y, obj_forkhitbox))
 		{
-			if (other.state == states.slap)
+			if (other.state == "slap")
 			{
 				sprite_index = spr_swordhitbox;
 			}
-			else if (other.state == states.mach2 || other.state == states.tackle)
+			else if (other.state == "mach2" || other.state == "tackle")
 			{
 				sprite_index = spr_bighitbox;
 			}

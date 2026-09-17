@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.normal:
+	case "default":
 		if (!global.panic)
 		{
 			image_speed = 0.15;
@@ -52,15 +52,15 @@ switch (state)
 				image_xscale *= -1;
 			}
 		}
-		if (obj_player.state == states.backbreaker && bbox_in_camera(view_camera[0], 50))
+		if (obj_player.state == "backbreaker" && bbox_in_camera(view_camera[0], 50))
 		{
-			if (state != states.backbreaker)
+			if (state != "backbreaker")
 			{
 				fmod_event_one_shot_3d("event:/sfx/voice/pigphoto", x, y);
 			}
 			tauntstoredhsp = hsp;
 			tauntstoredvsp = vsp;
-			state = states.backbreaker;
+			state = "backbreaker";
 			hsp = 0;
 			vsp = 0;
 			if (x != obj_player.x)
@@ -74,11 +74,11 @@ switch (state)
 			}
 		}
 		break;
-	case states.backbreaker:
+	case "backbreaker":
 		sprite_index = tauntspr;
-		if (obj_player.state != states.backbreaker)
+		if (obj_player.state != "backbreaker")
 		{
-			state = states.normal;
+			state = "default";
 			hsp = tauntstoredhsp;
 			vsp = tauntstoredvsp;
 		}

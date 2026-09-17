@@ -12,9 +12,9 @@ with (other)
 				sprite_index = spr_minigunfall;
 			}
 		}
-		if (state == states.shotgunshoot)
+		if (state == "shotgunshoot")
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 }

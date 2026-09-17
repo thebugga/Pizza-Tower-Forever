@@ -15,7 +15,7 @@ if (y >= ystart)
 		{
 			with (obj_player1)
 			{
-				state = states.normal;
+				state = "default";
 				landAnim = true;
 				sprite_index = spr_land;
 				image_index = 0;

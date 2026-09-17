@@ -19,7 +19,7 @@ if ((!instance_exists(obj_secretportalstart) || obj_secretportalstart.drop) && (
 			{
 				instance_destroy(obj_fadeout);
 				targetDoor = "A";
-				state = states.timesup;
+				state = "timesup";
 				sprite_index = spr_Timesup;
 				image_index = 0;
 				if (isgustavo)

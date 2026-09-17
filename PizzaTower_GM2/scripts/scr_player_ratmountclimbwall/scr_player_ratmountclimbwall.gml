@@ -1,4 +1,4 @@
-function scr_player_ratmountclimbwall()
+function player_ratmountclimbwall()
 {
 	image_speed = 0.5;
 	hsp = 0;
@@ -14,7 +14,7 @@ function scr_player_ratmountclimbwall()
 	}
 	if (!grounded && !place_meeting(x + 1, y, obj_solid) && !place_meeting(x - 1, y, obj_solid))
 	{
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		jumpAnim = false;
 		sprite_index = spr_player_ratmountfall;
 	}
@@ -22,7 +22,7 @@ function scr_player_ratmountclimbwall()
 	{
 		if (key_jump2 && input_buffer_jump_negative <= 0)
 		{
-			state = states.ratmountbounce;
+			state = "ratmountbounce";
 			xscale *= -1;
 			vsp = -14;
 			ratmount_fallingspeed = 0;
@@ -32,7 +32,7 @@ function scr_player_ratmountclimbwall()
 		}
 		else
 		{
-			state = states.ratmountjump;
+			state = "ratmountjump";
 			sprite_index = spr_player_ratmountfall;
 		}
 	}

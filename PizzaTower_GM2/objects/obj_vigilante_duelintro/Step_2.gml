@@ -15,16 +15,16 @@ if (fadein)
 {
 	if (state == 0)
 	{
-		fade = Approach(fade, 1, 0.2);
+		fade = approach(fade, 1, 0.2);
 	}
 	else
 	{
-		fade = Approach(fade, 1, 0.08);
+		fade = approach(fade, 1, 0.08);
 	}
 }
 else
 {
-	fade = Approach(fade, 0, 0.08);
+	fade = approach(fade, 0, 0.08);
 }
 if (state > 0 && state > 0 && state < 5)
 {

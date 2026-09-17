@@ -1,44 +1,20 @@
-enum characters
-{
-	Peppino,
-	Noise,
-	Doise,
-	Pepperman,
-	Vigilante,
-	Shobon
-};
+//peppino, noise, pepperman, i think u get it 
+global.charPrefix = ["", "N", "PM"/*, "D", "V", "S"*/];
 
-//peppino, noise, doise, i think u get it 
-global.charPrefix = ["", "N", "D", "PM", "V", "S"];
-
-function scr_getchar_sprite(_sprite, _char = character, _prefix = "spr_player")
+function scr_getchar_sprite(_sprite, _char = character_num, _prefix = "spr_player")
 {
 	var _spr = sprite_get_name(_sprite);
 	
 	_spr = string_delete(_spr, 0, string_length(_prefix) + 1);
-	
-	if _char == characters.Doise
-	{
-		if !sprite_exists(asset_get_index(_spr)) && _spr != "idle"
-			_spr = concat(_prefix, "N_", _spr);
-		else
-			_spr = concat(_prefix, "D_", _spr);
-	}
-	else
-	{
-		_spr = concat(_prefix, global.charPrefix[_char], "_", _spr);
-	}
+	_spr = concat(_prefix, global.charPrefix[_char], "_", _spr);
 	
 	// mods obv unfished so like 
 	//if (!sprite_exists(asset_get_index(_spr)))
 	//	show_message(_spr);
 	
 	_spr = asset_get_index(_spr);
-	
-	if _char != characters.Doise
-		return sprite_exists(_spr) ? _spr : _sprite;
-	else
-		return _spr;
+
+	return sprite_exists(_spr) ? _spr : _sprite;
 }
 
 function scr_characterspr()
@@ -290,10 +266,27 @@ function scr_characterspr()
 	spr_breakdanceuppercut = scr_getchar_sprite(spr_player_breakdanceuppercut);
 	spr_breakdanceuppercutend = scr_getchar_sprite(spr_player_breakdanceuppercutend);
 	spr_groundpoundjump = scr_getchar_sprite(spr_player_groundpoundjump);
-	if character == characters.Peppino
-		spr_palette = spr_peppalette;
-	else if character == characters.Noise
-		spr_palette = spr_peppaletteN;
-	else if character == characters.Doise
-		spr_palette = spr_peppaletteD;
+	if character == "Peppino"
+	{
+		spr_palette = pal_peppino;
+		spr_patterncolors = pal_peppatterncolors;
+		character_num = 0;
+	}
+	else if character == "Noise"
+	{
+		spr_palette = pal_noiseplayer;
+		spr_patterncolors = pal_noipatterncolors;
+		character_num = 1;
+	}
+	else if character == "Pepperman"
+	{
+		spr_palette = pal_peppermanplayable;
+		spr_patterncolors = pal_peppermanpatterncolors;
+		character_num = 2;
+	}
+	//else if character == characters.Doise
+	//{
+	//	spr_patterncolors = pal_doipatterncolors;
+	//	spr_palette = pal_doiseplayer;
+	//}
 }

@@ -1,22 +1,22 @@
 switch (state)
 {
-	case states.punch:
+	case "punch":
 		if (attackbuffer > 0)
 		{
 			attackbuffer--;
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 		}
 		break;
 }
 if (!place_meeting(x, y, obj_trapghost))
 {
 	sprite_index = spr_kingghost_spike;
-	state = states.normal;
+	state = "default";
 }
-if (cooldown > 0 && state != states.punch)
+if (cooldown > 0 && state != "punch")
 {
 	cooldown--;
 }

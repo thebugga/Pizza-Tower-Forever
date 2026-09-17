@@ -1,4 +1,4 @@
-function scr_player_boxxedpep()
+function player_boxxedpep()
 {
 	mask_index = spr_crouchmask;
 	if (boxxeddash == true)
@@ -14,7 +14,7 @@ function scr_player_boxxedpep()
 	{
 		boxxeddash = false;
 	}
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		noisejetpack = 80;
 	}
@@ -61,20 +61,20 @@ function scr_player_boxxedpep()
 	if ((can_jump && input_buffer_jump > 0 && vsp > 0) && !scr_solid(x, y - 16) && !scr_solid(x, y - 32))
 	{
 		GamepadSetVibration(0, 0.4, 0.4, 0.65);
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
 			fmod_event_one_shot_3d("event:/sfx/boxxed/flap", x, y);
 		}
 		instance_create(x, y, obj_highjumpcloud2);
 		vsp = -boxxedpepjump;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			target_vsp = -4;
 			vsp = target_vsp;
 		}
-		state = states.boxxedpepjump;
+		state = "boxxedpepjump";
 		sprite_index = spr_boxxedpep_flap;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			sprite_index = spr_playerN_boxxedjetpack;
 		}
@@ -112,16 +112,16 @@ function scr_player_boxxedpep()
 			}
 			else if (move != xscale)
 			{
-				movespeed = Approach(movespeed, 0, 0.8);
+				movespeed = approach(movespeed, 0, 0.8);
 			}
 		}
 		else if (boxxeddash == false)
 		{
-			movespeed = Approach(movespeed, 0, 0.8);
+			movespeed = approach(movespeed, 0, 0.8);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.25);
+			movespeed = approach(movespeed, 0, 0.25);
 		}
 	}
 	if (sprite_index == spr_boxxedpepintro && ANIMATION_END)
@@ -149,7 +149,7 @@ function scr_player_boxxedpep()
 			else if (boxxeddashbuffer <= 0)
 			{
 				sprite_index = spr_boxxedpepair;
-				state = states.boxxedpepjump;
+				state = "boxxedpepjump";
 			}
 		}
 	}
@@ -157,9 +157,9 @@ function scr_player_boxxedpep()
 	{
 		GamepadSetVibration(0, 0.8, 0.8, 0.65);
 		input_buffer_slap = 0;
-		state = states.boxxedpepspin;
+		state = "boxxedpepspin";
 		sprite_index = spr_boxxedpep_spin;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			sprite_index = spr_playerN_boxxedhit;
 		}
@@ -187,7 +187,7 @@ function scr_player_boxxedpep()
 	if (sprite_index == spr_boxxedpepwalk && !steppy && ANIMATION_END)
 	{
 		steppy = true;
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
 			fmod_event_one_shot_3d("event:/sfx/boxxed/step", x, y);
 		}

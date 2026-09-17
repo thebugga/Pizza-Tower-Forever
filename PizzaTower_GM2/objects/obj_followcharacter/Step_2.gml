@@ -7,7 +7,7 @@ if (followid != noone && !instance_exists(obj_player1))
 	exit;
 }
 playerid = obj_player1.id;
-if (playerid.state != states.ladder && playerid.state != states.door && playerid.state != states.comingoutdoor)
+if (playerid.state != "ladder" && playerid.state != "door" && playerid.state != "comingoutdoor")
 {
 	if (space < maxspace && dir == -1)
 	{
@@ -20,7 +20,7 @@ if (playerid.state != states.ladder && playerid.state != states.door && playerid
 }
 else
 {
-	space = Approach(space, 0, spaceaccel);
+	space = approach(space, 0, spaceaccel);
 }
 if (dir != playerid.xscale)
 {
@@ -53,7 +53,7 @@ if (ds_queue_size(followqueue) > (LAG_STEPS * 2))
 		{
 			x = lerp(x, _x, interp);
 			y = lerp(y, _y, interp);
-			interp = Approach(interp, 1, 0.01);
+			interp = approach(interp, 1, 0.01);
 		}
 		else
 		{

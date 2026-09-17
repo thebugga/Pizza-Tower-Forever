@@ -4,7 +4,7 @@ if (grounded && grabbed == false && !ratgrabbed)
 }
 if (!ratgrabbed)
 {
-	state = states.normal;
+	state = "default";
 }
 if (ratgrabbed && ratplayerid.ratgrabbedID != id)
 {
@@ -15,12 +15,12 @@ if (grabbed == true && !ratgrabbed)
 	image_xscale = -playerid.xscale;
 	grav = 0;
 	playerid.baddiegrabbedID = id;
-	if (playerid.state == states.finishingblow || playerid.state == states.grabbing || playerid.state == states.grab || playerid.state == states.throwing || playerid.state == states.slam || playerid.state == states.tacklecharge)
+	if (playerid.state == "finishingblow" || playerid.state == "grabbing" || playerid.state == "grab" || playerid.state == "throwing" || playerid.state == "slam" || playerid.state == "tacklecharge")
 	{
 		grav = 0;
 		grounded = false;
 		x = playerid.x;
-		if (playerid.sprite_index != spr_player_haulingstart && playerid.state != states.finishingblow)
+		if (playerid.sprite_index != spr_player_haulingstart && playerid.state != "finishingblow")
 		{
 			y = playerid.y - 60;
 		}
@@ -45,7 +45,7 @@ if (grabbed == true && !ratgrabbed)
 	with (playerid)
 	{
 		move = key_left2 + key_right2;
-		if (!(state == states.finishingblow || state == states.grab || state == states.grabbing || state == states.throwing || state == states.slam || state == states.tacklecharge || state == states.punch || state == states.superslam || state == states.backkick || state == states.uppunch || state == states.shoulder))
+		if (!(state == "finishingblow" || state == "grab" || state == "grabbing" || state == "throwing" || state == "slam" || state == "tacklecharge" || state == "punch" || state == "superslam" || state == "backkick" || state == "uppunch" || state == "shoulder"))
 		{
 			other.grav = 0.5;
 			other.x = x;
@@ -54,12 +54,12 @@ if (grabbed == true && !ratgrabbed)
 		}
 	}
 	hsp = 0;
-	if (playerid.state == states.finishingblow)
+	if (playerid.state == "finishingblow")
 	{
 		x = playerid.x + (playerid.xscale * 50);
 		y = playerid.y;
 	}
-	if (playerid.state == states.grab && playerid.sprite_index == playerid.spr_swingding)
+	if (playerid.state == "grab" && playerid.sprite_index == playerid.spr_swingding)
 	{
 		if (floor(playerid.image_index) == 0)
 		{
@@ -110,7 +110,7 @@ if (grabbed == true && !ratgrabbed)
 			y = playerid.y;
 		}
 	}
-	if (playerid.state == states.shoulder)
+	if (playerid.state == "shoulder")
 	{
 		grav = 0.5;
 		instance_create(x, y + 20, obj_bumpeffect);
@@ -140,7 +140,7 @@ if (grabbed == true && !ratgrabbed)
 			shake_mag_acc = 3 / room_speed;
 		}
 	}
-	if (playerid.state == states.throwing)
+	if (playerid.state == "throwing")
 	{
 		grav = 0.5;
 		grabbed = false;
@@ -150,7 +150,7 @@ if (grabbed == true && !ratgrabbed)
 		hsp = -image_xscale * 10;
 		vsp = -10;
 	}
-	if (playerid.state == states.uppunch)
+	if (playerid.state == "uppunch")
 	{
 		instance_create(x + (-playerid.xscale * 15), y - 50, obj_bumpeffect);
 		grav = 0.5;
@@ -167,14 +167,14 @@ if (grabbed == true && !ratgrabbed)
 			shake_mag_acc = 3 / room_speed;
 		}
 	}
-	if (playerid.state == states.tacklecharge)
+	if (playerid.state == "tacklecharge")
 	{
 		x = playerid.x + (playerid.xscale * 15);
 		y = playerid.y;
 	}
-	if (playerid.state == states.superslam)
+	if (playerid.state == "superslam")
 	{
-		if (playerid.character == characters.Peppino)
+		if (playerid.character == "Peppino")
 		{
 			if (floor(playerid.image_index) == 0)
 			{
@@ -249,7 +249,7 @@ if (vsp > 0 && grounded && !place_meeting(x, y, obj_spike))
 {
 	hsp = 0;
 }
-//if (been_grabbed && playerid.state != states.handstandjump && grounded)
+//if (been_grabbed && playerid.state != "handstandjump" && grounded)
 //{	
 //	use_collision = false;
 //}
@@ -272,7 +272,7 @@ if (place_meeting(x, y, obj_swordhitbox) && thrown == false)
 		shake_mag = 3;
 		shake_mag_acc = 3 / room_speed;
 	}
-	state = states.hurt;
+	state = "hurt";
 	if (scr_solid(x, y))
 	{
 		x = playerid.x;

@@ -9,11 +9,11 @@ else
 }
 if (anim)
 {
-	animy = Approach(animy, -10, 1.5);
+	animy = approach(animy, -10, 1.5);
 }
 else
 {
-	animy = Approach(animy, 0, 1.5);
+	animy = approach(animy, 0, 1.5);
 }
 if (animy == -10)
 {

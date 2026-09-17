@@ -1,4 +1,4 @@
-if (fall && hp > 0 && other.state == states.handstandjump)
+if (fall && hp > 0 && other.state == "handstandjump")
 {
 	scr_sound_multiple("event:/sfx/misc/breakblock", x, y);
 	with (other)

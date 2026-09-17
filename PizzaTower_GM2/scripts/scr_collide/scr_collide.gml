@@ -3,8 +3,15 @@ function scr_collide_init() {
 	grav = 0;		
 	hsp = 0;
 	vsp = 0;
+	movespeed = 0;
 	vsp_carry = 0;
 	hsp_carry = 0;
+	platformid = noone;
+	xscale = 1;
+	yscale = 1;
+	scale_xs = 1;
+	scale_ys = 1;
+	angle = 0;
 }
 
 function scr_collide()
@@ -169,5 +176,16 @@ function scr_collide()
 	if (platformid != noone || (place_meeting(x, y + 1, obj_movingplatform) && !place_meeting(x, y - 2, obj_movingplatform)))
 	{
 		grounded = true;
+	}
+	if variable_instance_exists(id, "xscale")
+	{
+		if xscale != 0
+		{
+			xscale = round(xscale)
+		}
+		else
+		{
+			xscale = sign(xscale)
+		}
 	}
 }

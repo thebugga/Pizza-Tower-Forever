@@ -1,6 +1,6 @@
-if (other.thrown && state != states.stun)
+if (other.thrown && state != "stun")
 {
-	state = states.stun;
+	state = "stun";
 	stunned = 1000;
 	thrown = false;
 	hsp = -image_xscale * 8;

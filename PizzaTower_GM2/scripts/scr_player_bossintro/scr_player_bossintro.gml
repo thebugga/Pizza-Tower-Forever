@@ -1,4 +1,4 @@
-function scr_player_bossintro()
+function player_bossintro()
 {
 	hsp = 0;
 	xscale = 1;
@@ -6,7 +6,7 @@ function scr_player_bossintro()
 	inv_frames = false;
 	if (sprite_index == spr_player_bossintro && ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 		image_index = 0;
 	}
 	if (sprite_index == spr_player_levelcomplete && ANIMATION_END)

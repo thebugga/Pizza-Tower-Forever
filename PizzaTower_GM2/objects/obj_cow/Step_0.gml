@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.idle:
+	case "idle":
 		if (!instance_exists(blockinst))
 		{
 			blockinst = instance_create(x, y, obj_solid);
@@ -9,14 +9,14 @@ switch (state)
 			blockinst.visible = false;
 		}
 		break;
-	case states.walk:
+	case "walk":
 		if (blockinst != noone && instance_exists(blockinst))
 		{
 			instance_destroy(blockinst);
 			blockinst = noone;
 		}
 		hsp = image_xscale * movespeed;
-		movespeed = Approach(movespeed, 8, 0.5);
+		movespeed = approach(movespeed, 8, 0.5);
 		with (instance_place(x + sign(hsp), y, obj_ratblock))
 		{
 			if (sprite_index != spr_rattumbleblock && sprite_index != spr_rattumbleblock_big)

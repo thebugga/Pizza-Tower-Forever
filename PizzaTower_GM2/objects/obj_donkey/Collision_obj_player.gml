@@ -20,7 +20,7 @@ if (cooldown == 0)
 		xscale = -other.image_xscale;
 		movespeed = 10;
 		image_index = 0;
-		state = states.slipbanan;
+		state = "slipbanan";
 		instance_create(x, y, obj_bangeffect);
 	}
 }

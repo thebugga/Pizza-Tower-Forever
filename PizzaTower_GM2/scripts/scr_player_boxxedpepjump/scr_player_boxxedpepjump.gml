@@ -1,4 +1,4 @@
-function scr_player_boxxedpepjump()
+function player_boxxedpepjump()
 {
 	move = key_left + key_right;
 	if (boxxeddash)
@@ -30,7 +30,7 @@ function scr_player_boxxedpepjump()
 		vsp /= 5;
 	}
 	var boxxedspeed = 8;
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		boxxedspeed = 12;
 	}
@@ -46,28 +46,28 @@ function scr_player_boxxedpepjump()
 		}
 		else if (move != xscale)
 		{
-			movespeed = Approach(movespeed, 0, 0.8);
+			movespeed = approach(movespeed, 0, 0.8);
 		}
 	}
 	else if (!boxxeddash)
 	{
-		movespeed = Approach(movespeed, 0, 0.8);
+		movespeed = approach(movespeed, 0, 0.8);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.25);
+		movespeed = approach(movespeed, 0, 0.25);
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.boxxedpep;
+		state = "boxxedpep";
 		sprite_index = spr_boxxedpepidle;
 	}
-	if character == characters.Peppino
+	if character == "Peppino"
 	{
 		if (key_jump && boxxedpepjump > 4)
 		{
 			GamepadSetVibration(0, 0.4, 0.4, 0.65);
-			if character == characters.Peppino
+			if character == "Peppino"
 			{
 				fmod_event_one_shot_3d("event:/sfx/boxxed/flap", x, y);
 			}
@@ -82,7 +82,7 @@ function scr_player_boxxedpepjump()
 					sprite_index = spr_cloudeffect;
 				}
 			}
-			state = states.boxxedpepjump;
+			state = "boxxedpepjump";
 			boxxedpepjump *= 0.9;
 			vsp = -boxxedpepjump;
 		}
@@ -145,9 +145,9 @@ function scr_player_boxxedpepjump()
 	if (input_buffer_slap > 0)
 	{
 		input_buffer_slap = 0;
-		state = states.boxxedpepspin;
+		state = "boxxedpepspin";
 		sprite_index = spr_boxxedpep_spin;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			sprite_index = spr_playerN_boxxedhit;
 		}

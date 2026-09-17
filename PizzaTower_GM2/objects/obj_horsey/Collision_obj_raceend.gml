@@ -2,9 +2,9 @@ hsp = 0;
 vsp = 0;
 var x1 = other.x + (other.sprite_width / 2);
 var y1 = (other.y + other.sprite_height) - 34;
-x = Approach(x, x1, spd);
-y = Approach(y, y1, spd);
-if (x == x1 && y == y1 && state != states.gameover)
+x = approach(x, x1, spd);
+y = approach(y, y1, spd);
+if (x == x1 && y == y1 && state != "gameover")
 {
 	if (other.horseyfinish == false)
 	{
@@ -12,10 +12,10 @@ if (x == x1 && y == y1 && state != states.gameover)
 	}
 	spd = 0;
 	other.horseyfinish = true;
-	if (state != states.finishingblow)
+	if (state != "finishingblow")
 	{
 		ds_list_add(global.baddieroom, id);
 	}
-	state = states.finishingblow;
+	state = "finishingblow";
 	global.horse = false;
 }

@@ -1,4 +1,4 @@
-if (!grabbed && other.state == states.handstandjump && unpickable == false)
+if (!grabbed && other.state == "handstandjump" && unpickable == false)
 {
 	with instance_create(x + (obj_player1.xscale * 40), y, obj_parryeffect)
 	{
@@ -11,7 +11,7 @@ if (!grabbed && other.state == states.handstandjump && unpickable == false)
 		sprite_index = spr_haulingstart;
 		baddiegrabbedID = other.id;
 		grabbingenemy = true;
-		state = states.grab;
+		state = "grab";
 	}
 	
 	playerid = other.object_index;
@@ -19,12 +19,12 @@ if (!grabbed && other.state == states.handstandjump && unpickable == false)
 	been_grabbed = true;
 }
 
-if (!grabbed && unpickable == false && !ratgrabbed && other.state == states.ratmountattack)
+if (!grabbed && unpickable == false && !ratgrabbed && other.state == "ratmountattack")
 {
 	ratplayerid = other.id;
 	ratgrabbed = true;
 	state = states.ratgrabbed;
 	other.ratgrabbedID = id;
-	other.state = states.ratmount;
+	other.state = "ratmount";
 	been_grabbed = true;
 }

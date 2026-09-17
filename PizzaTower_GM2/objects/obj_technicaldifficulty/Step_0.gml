@@ -3,7 +3,7 @@ if (alarm[0] > 0)
 {
 	with (obj_player)
 	{
-		state = states.actor;
+		state = "actor";
 		hsp = 0;
 		vsp = 0;
 	}

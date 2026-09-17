@@ -8,7 +8,7 @@ else
 }
 if (fall == false)
 {
-	y = Approach(y, 32, 2);
+	y = approach(y, 32, 2);
 }
 if (fall == true)
 {

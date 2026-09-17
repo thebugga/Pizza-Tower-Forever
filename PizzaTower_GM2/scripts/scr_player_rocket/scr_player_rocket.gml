@@ -1,4 +1,4 @@
-function scr_player_rocket()
+function player_rocket()
 {
 	hsp = xscale * movespeed;
 	move = key_right + key_left;
@@ -6,7 +6,7 @@ function scr_player_rocket()
 	alarm[8] = 60;
 	alarm[7] = 120;
 	hurted = true;
-	if (character == characters.Noise && sprite_index == spr_rocketstart)
+	if (character == "Noise" && sprite_index == spr_rocketstart)
 	{
 		global.combotimepause = 5;
 		image_speed = 0.35;
@@ -28,24 +28,24 @@ function scr_player_rocket()
 		var _accel = 1;
 		if (key_up && !key_down)
 		{
-			rocketvsp = Approach(rocketvsp, -_spd, _accel);
+			rocketvsp = approach(rocketvsp, -_spd, _accel);
 		}
 		else if (key_down && !key_up)
 		{
-			rocketvsp = Approach(rocketvsp, _spd, _accel);
+			rocketvsp = approach(rocketvsp, _spd, _accel);
 		}
 		else
 		{
-			rocketvsp = Approach(rocketvsp, 0, _accel);
+			rocketvsp = approach(rocketvsp, 0, _accel);
 		}
 		vsp = rocketvsp;
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, 16, 0.15);
+			movespeed = approach(movespeed, 16, 0.15);
 		}
 		else if (movespeed > 12)
 		{
-			movespeed = Approach(movespeed, 12, 0.15);
+			movespeed = approach(movespeed, 12, 0.15);
 		}
 	}
 	else
@@ -63,7 +63,7 @@ function scr_player_rocket()
 	{
 		input_buffer_jump = 0;
 		dir = xscale;
-		state = states.mach2;
+		state = "mach2";
 		sprite_index = spr_mach2jump;
 		jumpstop = false;
 		vsp = -11;
@@ -80,7 +80,7 @@ function scr_player_rocket()
 		if (sprite_index != spr_rocketstart)
 		{
 			sprite_index = spr_rocket;
-			if (grounded && vsp >= 0 && character == characters.Peppino)
+			if (grounded && vsp >= 0 && character == "Peppino")
 			{
 				sprite_index = spr_player_rocketrun;
 			}
@@ -89,9 +89,9 @@ function scr_player_rocket()
 	if (grounded)
 	{
 		move = key_left + key_right;
-		if (character == characters.Peppino && move != 0 && move != xscale && sprite_index != spr_rocketstart && state != states.mach2)
+		if (character == "Peppino" && move != 0 && move != xscale && sprite_index != spr_rocketstart && state != "mach2")
 		{
-			state = states.rocketslide;
+			state = "rocketslide";
 			fmod_event_one_shot_3d("event:/sfx/pep/machslideboost", x, y);
 			sprite_index = spr_player_rocketslide;
 			image_index = 0;
@@ -99,7 +99,7 @@ function scr_player_rocket()
 	}
 	if (scr_solid(x + sign(hsp), y) && (!place_meeting(x + sign(hsp), y, obj_slope) || place_meeting(x + sign(hsp), y, obj_solid)) && (!place_meeting(x + sign(hsp), y, obj_metalblock) && (!place_meeting(x + sign(hsp), y, obj_ratblock) || place_meeting(x + sign(hsp), y, obj_rattumble)) && character != "V") && (!place_meeting(x + sign(hsp), y, obj_destructibles) && character != "V") && !place_meeting(x + sign(hsp), y, obj_hungrypillar))
 	{
-		if (character == characters.Peppino)
+		if (character == "Peppino")
 		{
 			pizzapepper = 0;
 			sprite_index = spr_rockethitwall;
@@ -124,7 +124,7 @@ function scr_player_rocket()
 				}
 			}
 			flash = false;
-			state = states.bump;
+			state = "bump";
 			hsp = -3.5 * xscale;
 			vsp = -6;
 			mach2 = 0;
@@ -147,7 +147,7 @@ function scr_player_rocket()
 				sprite_index = spr_playerN_rocketbumpdebris;
 			}
 			image_index = 0;
-			state = states.rocketslide;
+			state = "rocketslide";
 		}
 	}
 	if (!instance_exists(dashcloudid) && grounded && !place_meeting(x, y + 1, obj_water))

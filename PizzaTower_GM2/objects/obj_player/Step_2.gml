@@ -16,3 +16,4 @@ if (global.collect != global.lastcollect)
 		global.collect_player[player_index] += diff;
 	}
 }
+

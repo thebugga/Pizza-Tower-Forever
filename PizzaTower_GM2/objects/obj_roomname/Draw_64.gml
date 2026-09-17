@@ -1,7 +1,3 @@
-if (room == Mainmenu || room == tower_soundtest || room == tower_soundtestlevel)
-{
-	exit;
-}
 if (!global.option_hud)
 {
 	exit;

@@ -1,4 +1,4 @@
-if (state == states.shoulderbash && hsp != 0)
+if (state == "shoulderbash" && hsp != 0)
 {
 	if (other.flash)
 	{
@@ -6,10 +6,10 @@ if (state == states.shoulderbash && hsp != 0)
 	}
 	var s = other.state;
 	scr_hurtplayer(other);
-	if (other.state != s && other.state == states.hurt)
+	if (other.state != s && other.state == "hurt")
 	{
-		state = states.stun;
-		hsp = -image_xscale * 5;
+		state = "stun";
+		hsp = -xscale * 5;
 		vsp = -8;
 		stunned = 220;
 		sprite_index = spr_playerPM_mach3hitwallstart;
@@ -26,11 +26,11 @@ if (state == states.shoulderbash && hsp != 0)
 		}
 	}
 }
-else if (wastedhits == 9 && phase == 1 && !pizzahead && (other.instakillmove || other.state == states.handstandjump) && state == states.contemplate)
+else if (wastedhits == 9 && phase == 1 && !pizzahead && (other.instakillmove || other.state == "handstandjump") && state == states.contemplate)
 {
 	scr_boss_do_hurt_phase2(other);
 }
-else if (state == states.mini && ministate != states.transitioncutscene && (other.instakillmove || other.state == states.handstandjump))
+else if (state == states.mini && ministate != "transitioncutscene" && (other.instakillmove || other.state == "handstandjump"))
 {
 	with (other)
 	{

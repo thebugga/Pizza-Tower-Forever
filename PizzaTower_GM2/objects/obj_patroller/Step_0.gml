@@ -1,14 +1,14 @@
 
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		if (!instance_exists(coneID))
 		{
 			coneID = instance_create(x, y, obj_patrolcone);
@@ -20,38 +20,38 @@ switch (state)
 			hsp = 0;
 		}
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
-	case states.hit:
-		scr_enemy_hit();
+	case "hit":
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
-	case states.grabbed:
-		scr_enemy_grabbed();
+	case "grabbed":
+		enemy_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
+	case "pummel":
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
-	case states.ghostpossess:
-		scr_enemy_ghostpossess();
+	case "ghostpossess":
+		enemy_ghostpossess();
 		break;
 	case states.fall:
 		image_speed = 0.35;
 		if (ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = walkspr;
 		}
 		break;
@@ -60,7 +60,7 @@ if (cooldown > 0)
 {
 	cooldown--;
 }
-if (state == states.walk)
+if (state == "walk")
 {
 	if (!patrolfound)
 	{
@@ -76,12 +76,12 @@ if (state == states.walk)
 		alarm[5] = 60;
 	}
 }
-if (state == states.walk && point_in_camera(x, y, view_camera[0]))
+if (state == "walk" && point_in_camera(x, y, view_camera[0]))
 {
 	var p = false;
 	with (obj_player)
 	{
-		if (state == states.backbreaker && sprite_index == spr_taunt)
+		if (state == "backbreaker" && sprite_index == spr_taunt)
 		{
 			p = true;
 		}
@@ -103,21 +103,21 @@ if (state == states.walk && point_in_camera(x, y, view_camera[0]))
 		event_perform(ev_alarm, 5);
 	}
 }
-if (state == states.punch)
+if (state == "punch")
 {
 	hsp = 0;
 	if (ANIMATION_END)
 	{
-		state = states.walk;
+		state = "walk";
 		sprite_index = walkspr;
 		cooldown = 100;
 	}
 }
-if (state == states.stun || state == states.grabbed || state == states.hit)
+if (state == "stun" || state == "grabbed" || state == "hit")
 {
 	alarm[5] = -1;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -125,7 +125,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -133,11 +133,11 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -148,6 +148,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

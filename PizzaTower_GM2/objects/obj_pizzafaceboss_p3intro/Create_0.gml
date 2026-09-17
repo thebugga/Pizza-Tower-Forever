@@ -27,7 +27,7 @@ if (room == rm_testing4)
 {
 	with (obj_player)
 	{
-		state = states.actor;
+		state = "actor";
 	}
 }
 peppinoID = noone;
@@ -35,7 +35,7 @@ if (global.swapmode)
 {
 	with (obj_player1)
 	{
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
 			swap_player(false);
 		}

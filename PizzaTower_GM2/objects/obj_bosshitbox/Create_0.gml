@@ -16,7 +16,7 @@ function SUPER_player_hurt(_dmg, _player)
 		with (_player)
 		{
 			var lag = 8;
-			if (state == states.chainsaw || state == states.hit)
+			if (state == "chainsaw" || state == "hit")
 			{
 				x = hitX;
 				y = hitY;
@@ -30,7 +30,7 @@ function SUPER_player_hurt(_dmg, _player)
 			hithsp = 15;
 			hitstunned = 100;
 			hitvsp = -8;
-			state = states.hit;
+			state = "hit";
 			instance_create(other.x, other.y, obj_parryeffect);
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);

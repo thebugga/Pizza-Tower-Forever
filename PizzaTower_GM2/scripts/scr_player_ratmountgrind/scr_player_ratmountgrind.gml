@@ -1,4 +1,4 @@
-function scr_player_ratmountgrind()
+function player_ratmountgrind()
 {
 	hsp = movespeed;
 	vsp = 0;
@@ -6,15 +6,15 @@ function scr_player_ratmountgrind()
 	if (move != 0)
 	{
 		xscale = move;
-		movespeed = Approach(movespeed, move * 6, 0.5);
+		movespeed = approach(movespeed, move * 6, 0.5);
 		sprite_index = spr_lonegustavo_hangwalk;
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 		sprite_index = spr_lonegustavo_hang;
 	}
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		if (sprite_index == spr_lonegustavo_hangwalk)
 		{
@@ -55,14 +55,14 @@ function scr_player_ratmountgrind()
 	ds_list_clear(global.instancelist);
 	if (!place_meeting(x, y, obj_grindrail) && !place_meeting(x, y, obj_grindrailslope))
 	{
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
-			state = states.ratmountjump;
+			state = "ratmountjump";
 			sprite_index = spr_player_ratmountgroundpoundfall;
 		}
 		else
 		{
-			state = states.jump;
+			state = "jump";
 			sprite_index = spr_fall;
 			jumpAnim = false;
 		}
@@ -70,9 +70,9 @@ function scr_player_ratmountgrind()
 	if (input_buffer_jump > 0)
 	{
 		input_buffer_jump = 0;
-		if character == characters.Peppino
+		if character == "Peppino"
 		{
-			state = states.ratmountjump;
+			state = "ratmountjump";
 			if (key_down)
 			{
 				sprite_index = spr_player_ratmountgroundpoundfall;
@@ -87,7 +87,7 @@ function scr_player_ratmountgrind()
 		}
 		else
 		{
-			state = states.jump;
+			state = "jump";
 			if (key_down)
 			{
 				jumpAnim = false;
@@ -105,7 +105,7 @@ function scr_player_ratmountgrind()
 		jumpstop = false;
 		jumpAnim = true;
 	}
-	if (character == characters.Noise && state != states.ratmountgrind)
+	if (character == "Noise" && state != "ratmountgrind")
 	{
 		if (movespeed != 0)
 		{

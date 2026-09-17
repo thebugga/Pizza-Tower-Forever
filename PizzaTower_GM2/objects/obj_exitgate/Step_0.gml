@@ -14,7 +14,7 @@ else if (uparrow)
 }
 if (drop && global.panic)
 {
-	if (dropstate == states.grabbed)
+	if (dropstate == "grabbed")
 	{
 		sprite_index = spr_exitgategrabbed;
 		if (snd == false)
@@ -29,15 +29,15 @@ if (drop && global.panic)
 	}
 	switch (dropstate)
 	{
-		case states.normal:
+		case "default":
 			if (distance_to_object(obj_player1) < 300)
 			{
-				dropstate = states.hook;
+				dropstate = "hook";
 				handsprite = spr_grabbiehand_fall;
 				hand_y = camera_get_view_y(view_camera[0]) - 100;
 			}
 			break;
-		case states.hook:
+		case "hook":
 			if (hand_y < (y - 128))
 			{
 				hand_y += 6;
@@ -46,13 +46,13 @@ if (drop && global.panic)
 			{
 				handsprite = spr_grabbiehand_catch;
 				handindex = 0;
-				dropstate = states.grabbed;
+				dropstate = "grabbed";
 			}
 			break;
-		case states.grabbed:
+		case "grabbed":
 			depth = 150;
 			var _ty = drop_y - 100;
-			y = Approach(y, _ty, 3);
+			y = approach(y, _ty, 3);
 			hand_y = y - 128;
 			if (y == _ty && distance_to_object(obj_player1) < 200)
 			{
@@ -73,7 +73,7 @@ if (drop && global.panic)
 				depth = 50;
 				fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 				y = drop_y;
-				dropstate = states.idle;
+				dropstate = "idle";
 				handsprite = spr_grabbiehand_idle;
 				with (obj_camera)
 				{
@@ -82,7 +82,7 @@ if (drop && global.panic)
 				}
 			}
 			break;
-		case states.idle:
+		case "idle":
 			hand_y -= 6;
 			break;
 	}

@@ -7,7 +7,7 @@ if (collision)
 		{
 			important = true;
 			image_xscale = other.image_xscale;
-			state = states.stun;
+			state = "stun";
 			sprite_index = other.sprite_index;
 			stunned = 2;
 			if (other.content == obj_ninja)

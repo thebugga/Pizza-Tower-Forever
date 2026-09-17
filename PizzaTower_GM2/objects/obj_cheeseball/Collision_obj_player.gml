@@ -1,6 +1,6 @@
-if (other.state != states.gotoplayer && other.state != states.chainsaw)
+if (other.state != "gotoplayer" && other.state != "chainsaw")
 {
-	if (other.state == states.knightpep || other.state == states.knightpepslopes || other.state == states.cheeseball)
+	if (other.state == "knightpep" || other.state == "knightpepslopes" || other.state == "cheeseball")
 	{
 		repeat (8)
 		{
@@ -20,7 +20,7 @@ if (other.state != states.gotoplayer && other.state != states.chainsaw)
 		other.movespeed = 8;
 		other.x = x;
 		other.y = y;
-		other.state = states.cheeseball;
+		other.state = "cheeseball";
 		other.stop_buffer = other.stop_max;
 		repeat (8)
 		{

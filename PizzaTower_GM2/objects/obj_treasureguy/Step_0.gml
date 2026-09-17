@@ -1,29 +1,29 @@
 
 switch (state)
 {
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
-	case states.hit:
-		scr_enemy_hit();
+	case "hit":
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
-	case states.grabbed:
-		scr_enemy_grabbed();
+	case "grabbed":
+		enemy_grabbed();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 	case states.underground:
 		var player = instance_nearest(x, y, obj_player);
@@ -36,7 +36,7 @@ switch (state)
 			}
 			sprite_index = spr_minijohn_underground;
 			visible = false;
-			if (player.x > (x - 80) && player.x < (x + 80) && y <= (player.y + 60) && y >= (player.y - 60) && (player.state == states.freefallland || player.sprite_index == player.spr_piledriverland || (player.state == states.ratmountbounce && player.vsp > 0)))
+			if (player.x > (x - 80) && player.x < (x + 80) && y <= (player.y + 60) && y >= (player.y - 60) && (player.state == "freefallland" || player.sprite_index == player.spr_piledriverland || (player.state == "ratmountbounce" && player.vsp > 0)))
 			{
 				fmod_event_one_shot_3d("event:/sfx/enemies/treasureguy", x, y);
 				notification_push(notifications.treasureguy_uncovered, [room, object_index, id]);
@@ -56,7 +56,7 @@ switch (state)
 		}
 		else if (grounded && vsp > 0)
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = idlespr;
 		}
 		break;
@@ -71,7 +71,7 @@ else
 	parryable = true;
 	supertauntable = true;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -79,11 +79,11 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state == states.stun && thrown)
+if (state == "stun" && thrown)
 {
 	sprite_index = stunfallspr;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -92,12 +92,12 @@ if (flash == true && alarm[2] <= 0)
 	alarm[2] = 0.15 * room_speed;
 }
 targetplayer = global.coopmode ? instance_nearest(x, y, obj_player) : obj_player1;
-if (state == states.walk)
+if (state == "walk")
 {
 	sprite_index = walkspr;
 	hsp = 0;
 }
-if (state == states.idle)
+if (state == "idle")
 {
 	if (sprite_index == scaredspr)
 	{
@@ -112,11 +112,11 @@ if (state == states.idle)
 		image_speed = 0.35;
 	}
 }
-if (state != states.idle && state != states.underground && state != states.grabbed && state != states.hit && state != states.stun && state != states.chase && !running)
+if (state != "idle" && state != states.underground && state != "grabbed" && state != "hit" && state != "stun" && state != states.chase && !running)
 {
 	if ((x < (targetplayer.x + threshold_x) && x > (targetplayer.x - threshold_x)) && (y < (targetplayer.y + threshold_y) && y > (targetplayer.y - threshold_y)))
 	{
-		state = states.idle;
+		state = "idle";
 		image_index = 0;
 		sprite_index = scaredspr;
 		scaredbuffer = scared_max;
@@ -169,14 +169,14 @@ if (state == states.chase)
 	}
 	if (distance_to_object(targetplayer) > idle_threshold)
 	{
-		state = states.walk;
+		state = "walk";
 	}
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -187,6 +187,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

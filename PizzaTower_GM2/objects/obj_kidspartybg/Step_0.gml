@@ -3,7 +3,7 @@ var _max = 0.5;
 var _min = 0;
 if (fadein)
 {
-	image_alpha = Approach(image_alpha, _max, a);
+	image_alpha = approach(image_alpha, _max, a);
 	if (image_alpha >= _max)
 	{
 		fadein = false;
@@ -11,7 +11,7 @@ if (fadein)
 }
 else
 {
-	image_alpha = Approach(image_alpha, _min, a);
+	image_alpha = approach(image_alpha, _min, a);
 	if (image_alpha <= _min)
 	{
 		fadein = true;

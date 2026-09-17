@@ -1,1 +1,1 @@
-chosenstate = states.slap;
+chosenstate = "slap";

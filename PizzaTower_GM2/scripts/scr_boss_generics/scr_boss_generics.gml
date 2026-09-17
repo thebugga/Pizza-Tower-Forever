@@ -14,7 +14,7 @@ function scr_boss_grabbed()
 	var playerid = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
 	with (playerid)
 	{
-		if (state != states.supergrab || baddiegrabbedID != other)
+		if (state != "supergrab" || baddiegrabbedID != other)
 		{
 			if (other.elitehit <= 1 && other.object_index != obj_pizzafaceboss)
 			{
@@ -47,12 +47,12 @@ function scr_boss_grabbed()
 			supergraby = other.y - y;
 			camzoom = other.camzoom;
 			baddiegrabbedID = other.id;
-			state = states.supergrab;
-			supergrabstate = states.punch;
+			state = "supergrab";
+			supergrabstate = "punch";
 			sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_player_suplexmash5, spr_player_suplexmash6, spr_player_suplexmash7);
 			image_index = sprite_get_number(sprite_index) - 1;
 			other.camzoom = 1;
-			if (character == characters.Noise)
+			if (character == "Noise")
 			{
 				if (x != other.x)
 				{
@@ -67,7 +67,7 @@ function scr_boss_grabbed()
 	}
 	image_xscale = -playerid.xscale;
 	sprite_index = grabbedspr;
-	state = states.supergrab;
+	state = "supergrab";
 }
 
 function scr_boss_pizzaheadjump()
@@ -117,7 +117,7 @@ function scr_boss_pizzaheadjump()
 	}
 	if (grounded && vsp > 0)
 	{
-		state = states.walk;
+		state = "walk";
 		switch (object_index)
 		{
 			case obj_pepperman:
@@ -127,7 +127,7 @@ function scr_boss_pizzaheadjump()
 				sprite_index = spr_playerV_idle;
 				break;
 			case obj_noiseboss:
-				if (obj_player1.character == characters.Peppino)
+				if (obj_player1.character == "Peppino")
 				{
 					sprite_index = spr_playerN_idle;
 				}
@@ -142,7 +142,7 @@ function scr_boss_pizzaheadjump()
 		}
 		if (object_index == obj_noisey)
 		{
-			state = states.stun;
+			state = "stun";
 			stunned = 0;
 		}
 	}
@@ -163,7 +163,7 @@ function boss_update_pizzaheadKO(_hpsprite, _pal)
 		image_alpha = 1;
 		if (state == states.pizzaheadKO)
 		{
-			state = states.walk;
+			state = "walk";
 		}
 	}
 }
@@ -179,7 +179,7 @@ function boss_hurt_gustavo()
 			{
 				with (other)
 				{
-					state = states.stun;
+					state = "stun";
 					stunned = 1000;
 					thrown = false;
 					savedthrown = false;
@@ -218,7 +218,7 @@ function scr_boss_pizzaheadKO()
 {
 	if (grounded)
 	{
-		hsp = Approach(hsp, 0, 0.2);
+		hsp = approach(hsp, 0, 0.2);
 	}
 	switch (object_index)
 	{
@@ -263,7 +263,7 @@ function scr_boss_genericintro(_introspr, _introbuffer = 30)
 	}
 	with (obj_player1)
 	{
-		state = states.actor;
+		state = "actor";
 		image_speed = 0.35;
 		hsp = 0;
 		movespeed = 0;
@@ -282,14 +282,14 @@ function scr_boss_genericintro(_introspr, _introbuffer = 30)
 	}
 	else
 	{
-		state = states.walk;
+		state = "walk";
 		if (instance_exists(spotlightID))
 		{
 			spotlightID.expand = true;
 		}
 		with (obj_player)
 		{
-			state = states.normal;
+			state = "default";
 			sprite_index = spr_idle;
 		}
 	}
@@ -321,7 +321,7 @@ function scr_boss_do_hurt_phase2(_player, _invulnerability = 100)
 	fmod_event_one_shot("event:/sfx/misc/blackoutpunch");
 	instance_create_unique(0, 0, obj_blackoutline);
 	instance_create_unique(0, 0, obj_superattackeffect);
-	image_xscale = -_player.xscale;
+	xscale = -_player.xscale;
 	if (!_player.ispeppino)
 	{
 		hitX = x;
@@ -341,7 +341,7 @@ function scr_boss_playerN_phase1hurt(_func = noone)
 		actorbuffer = 10000;
 		hsp = 0;
 		vsp = 0;
-		state = states.actor;
+		state = "actor";
 		pistolanim = noone;
 		sprite_index = spr_playerN_bosstransition;
 		invtime = 30;
@@ -367,7 +367,7 @@ function scr_boss_playerN_phase1hurt(_func = noone)
 		GamepadSetVibration(0, 0.8, 0.8, 0.65);
 		fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 		fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
-		state = states.stun;
+		state = "stun";
 		instance_create(x, y, obj_slapstar);
 		instance_create(x, y, obj_slapstar);
 		instance_create(x, y, obj_slapstar);
@@ -403,7 +403,7 @@ function scr_boss_playerN_phase1hurt(_func = noone)
 		camera_set_view_size(view_camera[0], SCREEN_WIDTH, SCREEN_HEIGHT);
 		with (obj_player)
 		{
-			state = states.normal;
+			state = "default";
 		}
 		hithsp = -image_xscale * 25;
 		hitvsp = -5;
@@ -482,9 +482,9 @@ function scr_boss_phase1hurt(_func = noone)
 		camera_set_view_size(view_camera[0], SCREEN_WIDTH * camzoom, SCREEN_HEIGHT * camzoom);
 		with (player)
 		{
-			if (state != states.finishingblow)
+			if (state != "finishingblow")
 			{
-				state = states.finishingblow;
+				state = "finishingblow";
 				image_speed = 0.35;
 				image_index = 0;
 				hsp = 0;
@@ -507,7 +507,7 @@ function scr_boss_phase1hurt(_func = noone)
 			GamepadSetVibration((player.object_index == obj_player1) ? 0 : 1, 0.8, 0.8, 0.65);
 			fmod_event_one_shot_3d("event:/sfx/enemies/killingblow", x, y);
 			fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
-			state = states.stun;
+			state = "stun";
 			image_xscale = -player.xscale;
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);
@@ -541,7 +541,7 @@ function scr_boss_phase1hurt(_func = noone)
 				vsp = -6;
 				hsp = -xscale * 4;
 				movespeed = 4;
-				state = states.tackle;
+				state = "tackle";
 			}
 			check_grabbed_solid(player);
 			check_grabbed_solid(player);

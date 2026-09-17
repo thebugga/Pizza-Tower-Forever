@@ -1,5 +1,5 @@
 yoffset = 0;
-if (state != states.backbreaker)
+if (state != "backbreaker")
 {
 	if (sprite_index != spr_gerome_collected && sprite_index != spr_gerome_taunt)
 	{
@@ -17,11 +17,11 @@ if (state != states.backbreaker)
 		{
 			image_xscale = playerid.xscale;
 		}
-		if (obj_player1.state == states.backbreaker)
+		if (obj_player1.state == "backbreaker")
 		{
 			sprite_index = spr_gerome_taunt;
 			image_index = irandom(sprite_get_number(sprite_index) - 1);
-			state = states.backbreaker;
+			state = "backbreaker";
 			tauntID = instance_create(x, y, obj_baddietaunteffect);
 		}
 	}
@@ -37,11 +37,11 @@ else
 			image_index = 0;
 		}
 	}
-	if (obj_player1.state != states.backbreaker || (sprite_index == spr_gerome_collected && ANIMATION_END))
+	if (obj_player1.state != "backbreaker" || (sprite_index == spr_gerome_collected && ANIMATION_END))
 	{
 		sprite_index = spr_gerome_keyidle;
 		instance_destroy(tauntID);
-		state = states.normal;
+		state = "default";
 	}
 }
 if (room == rank_room || room == timesuproom)

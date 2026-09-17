@@ -6,6 +6,6 @@ hsp = 0;
 vsp = 0;
 grav = 0.5;
 movespeed = 3;
-state = states.normal;
+state = "default";
 tauntID = noone;
 playerid = obj_player1;

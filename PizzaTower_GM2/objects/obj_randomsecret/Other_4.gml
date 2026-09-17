@@ -22,13 +22,13 @@ if (room != chateau_secret2)
 switch (room)
 {
 	case medieval_secret4:
-		startstate = states.knightpep;
+		startstate = "knightpep";
 		break;
 	case medieval_secret5:
-		startstate = states.knightpep;
+		startstate = "knightpep";
 		break;
 	case badland_secret2:
-		startstate = states.firemouth;
+		startstate = "firemouth";
 		break;
 	case forest_secret1:
 		isgustavo = true;
@@ -76,7 +76,7 @@ if (isgustavo != obj_player.isgustavo)
 	}
 	with (obj_player)
 	{
-		tauntstoredstate = isgustavo ? states.ratmount : states.normal;
+		tauntstoredstate = isgustavo ? "ratmount" : "default";
 		tauntstoredsprite = sprite_index;
 	}
 }
@@ -102,31 +102,31 @@ switch (startstate)
 		{
 			if (!isgustavo)
 			{
-				tauntstoredstate = states.normal;
+				tauntstoredstate = "default";
 				tauntstoredsprite = spr_idle;
 			}
 			else
 			{
-				tauntstoredstate = states.ratmount;
+				tauntstoredstate = "ratmount";
 				tauntstoredsprite = spr_player_ratmountidle;
 			}
 			tauntstoredmovespeed = 0;
 			tauntstoredhsp = 0;
 		}
 		break;
-	case states.knightpep:
+	case "knightpep":
 		with (obj_player)
 		{
-			tauntstoredstate = states.knightpepslopes;
+			tauntstoredstate = "knightpepslopes";
 			tauntstoredsprite = spr_knightpepdownslope;
 			tauntstoredmovespeed = 0;
 			tauntstoredhsp = 0;
 		}
 		break;
-	case states.firemouth:
+	case "firemouth":
 		with (obj_player)
 		{
-			tauntstoredstate = states.firemouth;
+			tauntstoredstate = "firemouth";
 			tauntstoredsprite = spr_firemouth;
 			tauntstoredmovespeed = 0;
 			tauntstoredhsp = 0;

@@ -1,6 +1,6 @@
 function scr_pistolshoot(_state, _enable_charge = false)
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		scr_bombshoot(_state);
 		exit;
@@ -9,7 +9,7 @@ function scr_pistolshoot(_state, _enable_charge = false)
 	{
 		exit;
 	}
-	if ((pistolcooldown <= 0 && state == _state && state != states.bump && instance_number(obj_pistolbullet) < 3) || pistolchargeshooting == true)
+	if ((pistolcooldown <= 0 && state == _state && state != "bump" && instance_number(obj_pistolbullet) < 3) || pistolchargeshooting == true)
 	{
 		input_buffer_shoot = 0;
 		pistolanim = spr_pistolshot;
@@ -21,9 +21,9 @@ function scr_pistolshoot(_state, _enable_charge = false)
 		crouchslideAnim = false;
 		crouchAnim = false;
 		stompAnim = false;
-		if (_state == states.mach3 || _state == states.mach2)
+		if (_state == "mach3" || _state == "mach2")
 		{
-			state = states.normal;
+			state = "default";
 		}
 		windingAnim = 0;
 		with (instance_create(x + (xscale * 35), y, obj_parryeffect))

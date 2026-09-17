@@ -5,13 +5,13 @@ with (obj_secretportal)
 		exit;
 	}
 }
-if (!instance_exists(obj_fadeout) && state != states.monsteridle && other.state != states.actor && other.state != states.chainsaw && other.state != states.hit && !other.cutscene && other.state != states.door && !instance_exists(obj_jumpscare))
+if (!instance_exists(obj_fadeout) && state != states.monsteridle && other.state != "actor" && other.state != "chainsaw" && other.state != "hit" && !other.cutscene && other.state != "door" && !instance_exists(obj_jumpscare))
 {
 	if (!global.panic)
 	{
 		with (obj_player)
 		{
-			state = states.actor;
+			state = "actor";
 			hsp = 0;
 			vsp = 0;
 		}
@@ -36,7 +36,7 @@ if (!instance_exists(obj_fadeout) && state != states.monsteridle && other.state 
 		{
 			x = xstart;
 			y = ystart;
-			state = states.walk;
+			state = "walk";
 		}
 		x = xstart;
 		y = ystart;

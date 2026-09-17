@@ -37,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_sausageman_shot",
-    "path":"sprites/spr_sausageman_shot/spr_sausageman_shot.yy",
+    "name":"spr_meatball_dead",
+    "path":"sprites/spr_meatball_dead/spr_meatball_dead.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -111,7 +111,7 @@ function scr_palette_texture(_spr, _imageindex, _x, _y, _xscale, _yscale, _rotat
 	}
 	if (shader_current() == global.retro_pal_swapper)
 	{
-		pal_swap_set(spr_peppalette, 1, false);
+		pal_swap_set(pal_peppino, 1, false);
 	}
 	if (!surface_exists(global.palettesurface))
 	{

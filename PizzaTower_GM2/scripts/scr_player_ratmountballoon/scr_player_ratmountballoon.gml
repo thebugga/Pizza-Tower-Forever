@@ -1,4 +1,4 @@
-function scr_player_ratmountballoon()
+function player_ratmountballoon()
 {
 	sprite_index = spr_player_ratmountballoon;
 	hsp = movespeed;
@@ -14,11 +14,11 @@ function scr_player_ratmountballoon()
 	image_speed = 0.35;
 	if (move != 0)
 	{
-		movespeed = Approach(movespeed, move * 8, 0.5);
+		movespeed = approach(movespeed, move * 8, 0.5);
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.5);
+		movespeed = approach(movespeed, 0, 0.5);
 	}
 	var _jump = false;
 	if (balloonbuffer > 0)
@@ -39,7 +39,7 @@ function scr_player_ratmountballoon()
 		input_buffer_jump_negative = 10;
 		fmod_event_one_shot_3d("event:/sfx/rat/deflateeat", x, y);
 		create_particle(x, y, particletypes.ratmountballooncloud, 0);
-		state = states.ratmountjump;
+		state = "ratmountjump";
 		sprite_index = spr_player_ratmountballoonend1;
 		image_index = 0;
 		jumpAnim = true;

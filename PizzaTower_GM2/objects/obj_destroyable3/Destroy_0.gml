@@ -1,6 +1,6 @@
 if (ds_list_find_index(global.saveroom, id) == -1)
 {
-	if sprite_index != Sprite387
+	if sprite_index != spr_bigdestroyable
 	{
 		repeat (8)
 		{

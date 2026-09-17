@@ -1,4 +1,4 @@
-function scr_player_tackle()
+function player_tackle()
 {
 	combo = 0;
 	mach2 = 0;
@@ -17,21 +17,21 @@ function scr_player_tackle()
 		{
 			if (grounded && vsp > 0.5)
 			{
-				state = states.normal;
+				state = "default";
 			}
 		}
 		else if (ANIMATION_END && grounded)
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 	else
 	{
 		invtime = 30;
-		movespeed = Approach(movespeed, 0, 0.1);
+		movespeed = approach(movespeed, 0, 0.1);
 		if (ANIMATION_END && grounded && vsp > 0)
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 	if (floor(image_index) != (image_number - 1))

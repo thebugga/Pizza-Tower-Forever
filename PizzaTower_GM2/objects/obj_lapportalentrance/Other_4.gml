@@ -4,7 +4,7 @@ if global.gerome
 	{
 		sprite_index = spr_bodyslamstart;
 		image_index = 0;
-		state = states.freefallprep;
+		state = "freefallprep";
 		freefallsmash = false;
 		vsp = -5;
 		p = true;

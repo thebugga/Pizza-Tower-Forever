@@ -1,4 +1,4 @@
-function scr_player_cheeseball()
+function player_cheeseball()
 {
 	image_speed = 0.35;
 	GamepadSetVibration(0, 0.4, 0.4, 0.65);
@@ -54,7 +54,7 @@ function scr_player_cheeseball()
 	}
 	if (grounded)
 	{
-		movespeed = Approach(movespeed, 12, 0.25);
+		movespeed = approach(movespeed, 12, 0.25);
 	}
 	sprite_index = spr_cheeseballplayer;
 	if (place_meeting(x + sign(hsp), y, obj_solid) && (!place_meeting(x + sign(hsp), y, obj_ratblock) || place_meeting(x + sign(hsp), y, obj_rattumble)))
@@ -65,9 +65,9 @@ function scr_player_cheeseball()
 		image_index = 0;
 		movespeed = 0;
 		cheesepeptimer = 2;
-		state = states.cheesepepjump;
+		state = "cheesepepjump";
 		create_transformation_tip(lang_get_value("cheesedtip"), "cheesed");
-		state = states.cheesepepstick;
+		state = "cheesepepstick";
 		sprite_index = spr_cheesepepstickside;
 		hsp = 0;
 		vsp = 0;

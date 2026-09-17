@@ -1,6 +1,6 @@
 with (obj_player)
 {
-	if (state == states.backbreaker && (sprite_index == spr_supertaunt1 || sprite_index == spr_supertaunt2 || sprite_index == spr_supertaunt3 || sprite_index == spr_supertaunt4))
+	if (state == "backbreaker" && (sprite_index == spr_supertaunt1 || sprite_index == spr_supertaunt2 || sprite_index == spr_supertaunt3 || sprite_index == spr_supertaunt4))
 	{
 		draw_superslam_enemy();
 	}
@@ -66,7 +66,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 			draw_set_color(c_white);
 			with (obj_patrolcone)
 			{
-				if (instance_exists(baddieID) && baddieID.state == states.walk)
+				if (instance_exists(baddieID) && baddieID.state == "walk")
 				{
 					var points = get_triangle_points(x, y, image_angle, len, size);
 					var c = c_white;
@@ -88,7 +88,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 			draw_set_color(c_white);
 			with (obj_patrolcone)
 			{
-				if (instance_exists(baddieID) && baddieID.state == states.walk)
+				if (instance_exists(baddieID) && baddieID.state == "walk")
 				{
 					var c = c_white;
 					draw_surface_ext(other.patrolcone_tex, x - surf_x, y - surf_y - (tsh / 2), (image_angle > 90) ? -1 : 1, 1, 0, c, 1);
@@ -100,7 +100,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 			draw_set_alpha(0.3);
 			with (obj_patrolcone)
 			{
-				if (instance_exists(baddieID) && baddieID.state == states.walk)
+				if (instance_exists(baddieID) && baddieID.state == "walk")
 				{
 					if (collision || (instance_exists(baddieID) && baddieID.alarm[5] != -1))
 					{
@@ -141,7 +141,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 				draw_set_alpha(circle_alpha_out);
 				with (_player)
 				{
-					if (state != states.gotoplayer)
+					if (state != "gotoplayer")
 					{
 						draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 178, false);
 					}
@@ -149,7 +149,7 @@ if (kidsparty_lightning || dark_lightning || scr_get_mode("lightsout").enabled)
 				draw_set_alpha(circle_alpha_in);
 				with (_player)
 				{
-					if (state != states.gotoplayer)
+					if (state != "gotoplayer")
 					{
 						draw_circle((x - surf_x) + irandom_range(-1, 1), (y - surf_y) + irandom_range(-1, 1), 128, false);
 					}

@@ -1,4 +1,4 @@
-function scr_player_meteorpep()
+function player_meteorpep()
 {
 	mach2 = 0;
 	landAnim = true;
@@ -56,7 +56,7 @@ function scr_player_meteorpep()
 	}
 	if (sprite_index == spr_meteorpep_land && ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	image_speed = 0.35;
 }

@@ -1,4 +1,4 @@
-function scr_player_bombgrab()
+function player_bombgrab()
 {
 	move = key_left + key_right;
 	if (sprite_index != spr_uppercutfinishingblow && sprite_index != spr_player_throw)
@@ -53,7 +53,7 @@ function scr_player_bombgrab()
 	}
 	if (!instance_exists(bombgrabID))
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (sprite_index != spr_haulingstart && sprite_index != spr_uppercutfinishingblow && sprite_index != spr_player_throw)
 	{
@@ -86,7 +86,7 @@ function scr_player_bombgrab()
 			fmod_event_one_shot_3d("event:/sfx/pep/step", x, y);
 			create_particle(x, y, particletypes.landcloud);
 		}
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			if (place_meeting(x + hsp, y, obj_ratblock) || place_meeting(x, y + vsp, obj_ratblock))
 			{
@@ -103,7 +103,7 @@ function scr_player_bombgrab()
 				fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
 				image_speed = 0.35;
 				flash = false;
-				state = states.bump;
+				state = "bump";
 				hsp = -3.5 * xscale;
 				vsp = -6;
 				image_index = 0;
@@ -124,7 +124,7 @@ function scr_player_bombgrab()
 				image_index = 3;
 				with (bombgrabID)
 				{
-					state = states.normal;
+					state = "default";
 					vsp = -20;
 					hsp = 0;
 				}
@@ -134,7 +134,7 @@ function scr_player_bombgrab()
 				sprite_index = spr_player_throw;
 				with (bombgrabID)
 				{
-					state = states.normal;
+					state = "default";
 					movespeed = 9;
 					vsp = -11;
 				}
@@ -156,10 +156,10 @@ function scr_player_bombgrab()
 		{
 			if (grounded)
 			{
-				state = states.normal;
+				state = "default";
 				with (bombgrabID)
 				{
-					state = states.normal;
+					state = "default";
 					x = other.x;
 					y = other.y;
 				}
@@ -170,12 +170,12 @@ function scr_player_bombgrab()
 	{
 		if (ANIMATION_END)
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 }
 
-function scr_player_bombpepup()
+function player_bombpepup()
 {
 	image_speed = 0.35;
 	vsp = bombup_dir * 11;
@@ -219,12 +219,12 @@ function scr_player_bombpepup()
 		}
 		fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 		image_index = 0;
-		state = states.Sjumpland;
+		state = "Sjumpland";
 		machhitAnim = false;
 	}
 	if (bombup_dir == 1 && scr_solid(x, y + 1) && !place_meeting(x, y + 1, obj_destructibles))
 	{
-		state = states.freefallland;
+		state = "freefallland";
 		sprite_index = spr_bodyslamland;
 		image_index = 0;
 		with (obj_camera)
@@ -250,7 +250,7 @@ function scr_player_bombpepup()
 	}
 }
 
-function scr_player_bombpepside()
+function player_bombpepside()
 {
 	hsp = xscale * movespeed;
 	vsp = 0;
@@ -294,7 +294,7 @@ function scr_player_bombpepside()
 			}
 		}
 		flash = false;
-		state = states.bump;
+		state = "bump";
 		hsp = -2.5;
 		vsp = -3;
 		mach2 = 0;
@@ -303,7 +303,7 @@ function scr_player_bombpepside()
 	}
 }
 
-function scr_player_bombpep()
+function player_bombpep()
 {
 	alarm[8] = 60;
 	alarm[7] = 120;
@@ -358,7 +358,7 @@ function scr_player_bombpep()
 		alarm[5] = 2;
 		alarm[7] = 60;
 		hurted = true;
-		state = states.normal;
+		state = "default";
 		sprite_index = spr_idle;
 		image_index = 0;
 	}
@@ -411,7 +411,7 @@ function scr_player_bombpep()
 	{
 		steppy = false;
 	}
-	if (key_slap2 && state != states.normal && sprite_index != spr_bombpepintro && sprite_index != spr_bombpepend)
+	if (key_slap2 && state != "default" && sprite_index != spr_bombpepintro && sprite_index != spr_bombpepend)
 	{
 		sprite_index = spr_player_throw;
 		fmod_event_one_shot_3d("event:/sfx/enemies/projectile", x, y);
@@ -419,7 +419,7 @@ function scr_player_bombpep()
 		hsp = 0;
 		bombpeptimer = 0;
 		movespeed = 0;
-		state = states.backbreaker;
+		state = "backbreaker";
 		with (instance_create(x + (xscale * 50), y, obj_pizzagoblinbomb))
 		{
 			hsp = other.xscale * 8;

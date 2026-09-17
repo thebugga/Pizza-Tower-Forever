@@ -2,13 +2,13 @@ if (other.ispeppino && !global.swapmode)
 {
 	with (obj_player)
 	{
-		if (state == states.knightpep || state == states.knightpepslopes)
+		if (state == "knightpep" || state == "knightpepslopes")
 		{
 			global.combotime = 60;
 			instance_destroy(other);
 		}
 	}
-	if (other.state != states.ghost)
+	if (other.state != "ghost")
 	{
 		sprite_index = spr_grandpa_punch;
 		image_index = 0;
@@ -25,7 +25,7 @@ if (other.ispeppino && !global.swapmode)
 		instance_destroy();
 	}
 }
-else if (other.instakillmove == true || other.state == states.handstandjump || other.state == states.mach2)
+else if (other.instakillmove == true || other.state == "handstandjump" || other.state == "mach2")
 {
 	var t = other.id;
 	fmod_event_one_shot_3d("event:/sfx/enemies/kill", x, y);

@@ -1,4 +1,4 @@
-function scr_player_lungegrab()
+function player_lungegrab()
 {
 	hsp = xscale * movespeed;
 	vsp = 0;
@@ -9,7 +9,7 @@ function scr_player_lungegrab()
 		if (_bump)
 		{
 			jumpstop = true;
-			state = states.jump;
+			state = "jump";
 			vsp = -4;
 			sprite_index = spr_suplexbump;
 			instance_create(x + (xscale * 10), y + 10, obj_bumpeffect);
@@ -17,6 +17,6 @@ function scr_player_lungegrab()
 	}
 	if (ANIMATION_END)
 	{
-		state = states.normal;
+		state = "default";
 	}
 }

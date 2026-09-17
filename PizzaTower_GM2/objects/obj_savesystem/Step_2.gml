@@ -11,6 +11,7 @@ if (state == 0)
 				achievement_save_variables(achievements_update);
 				achievement_save_variables(achievements_notify);
 			}
+			var _char = obj_player1.character
 			showicon = true;
 			icon_alpha = 3;
 			buffer_async_group_begin(get_buffer_group_name());
@@ -19,6 +20,7 @@ if (state == 0)
 			ini_write_real("Game", "percent", get_percentage());
 			ini_write_real("Game", "minutes", global.file_minutes);
 			ini_write_real("Game", "seconds", global.file_seconds);
+			ini_write_string("Game", "character", _char);
 			var closestring = ini_close();
 			buffer_write(savebuff, buffer_string, closestring);
 			buffer_save_async(savebuff, get_savefile_ini(character), 0, buffer_get_size(savebuff));

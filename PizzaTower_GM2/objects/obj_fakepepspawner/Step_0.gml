@@ -29,7 +29,7 @@ if (state == 0)
 		var b = true;
 		with (obj_fakepepclone)
 		{
-			if (spawnerID == other.id && state != states.Sjumpprep)
+			if (spawnerID == other.id && state != "Sjumpprep")
 			{
 				b = false;
 			}

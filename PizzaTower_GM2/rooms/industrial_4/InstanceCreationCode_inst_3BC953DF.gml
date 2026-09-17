@@ -1,1 +1,1 @@
-chosenstate = states.tackle;
+chosenstate = "tackle";

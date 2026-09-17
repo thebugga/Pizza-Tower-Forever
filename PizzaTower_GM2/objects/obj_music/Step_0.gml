@@ -125,7 +125,7 @@ with (obj_totem)
 }
 with (obj_player)
 {
-	if (state == states.gottreasure)
+	if (state == "gottreasure")
 	{
 		_found = true;
 	}

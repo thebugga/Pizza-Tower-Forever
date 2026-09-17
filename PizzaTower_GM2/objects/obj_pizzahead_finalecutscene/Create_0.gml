@@ -1,7 +1,7 @@
 image_xscale = 1;
 image_speed = 0.5;
 vsp = 10;
-state = states.jump;
+state = "jump";
 superslam = false;
 pizzahead_x = 0;
 pizzahead_front = false;

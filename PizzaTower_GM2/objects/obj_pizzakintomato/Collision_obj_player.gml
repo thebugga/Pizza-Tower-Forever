@@ -1,5 +1,5 @@
 
-if (obj_player.state != states.hurt && global.tomatofollow == false)
+if (obj_player.state != "hurt" && global.tomatofollow == false)
 {
 	global.heattime = 60;
 	global.style--;

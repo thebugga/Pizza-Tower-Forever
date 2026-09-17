@@ -8,11 +8,11 @@ else
 }
 if (stop == true)
 {
-	speed = Approach(speed, 0, 0.5);
+	speed = approach(speed, 0, 0.5);
 }
 else
 {
-	speed = Approach(speed, 8 * dir, 0.25);
+	speed = approach(speed, 8 * dir, 0.25);
 }
 if (abs(speed) == 0 && image_alpha > 0)
 {

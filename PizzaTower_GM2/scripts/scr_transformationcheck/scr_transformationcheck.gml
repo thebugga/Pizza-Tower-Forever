@@ -1,6 +1,6 @@
 function scr_transformationcheck()
 {
-	if (state != states.actor && state != states.tube)
+	if (state != "actor" && state != "tube")
 	{
 		for (var i = 0; i < array_length(transformation); i++)
 		{

@@ -1,4 +1,4 @@
-function scr_player_Sjumpprep()
+function player_Sjumpprep()
 {
 	if (sprite_index == spr_superjumppreplight || sprite_index == spr_superjumpright || sprite_index == spr_superjumpleft)
 	{
@@ -19,7 +19,7 @@ function scr_player_Sjumpprep()
 	}
 	if (sprite_index == spr_superjumpprep)
 	{
-		movespeed = Approach(movespeed, 0, 1);
+		movespeed = approach(movespeed, 0, 1);
 	}
 	if (ANIMATION_END && sprite_index == spr_superjumpprep)
 	{
@@ -65,10 +65,10 @@ function scr_player_Sjumpprep()
 	{
 		instance_create(x, y, obj_explosioneffect);
 		sprite_index = spr_superjump;
-		state = states.Sjump;
+		state = "Sjump";
 		vsp = -17;
 		image_index = 0;
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			scr_fmod_soundeffect(snd_noiseSjumprelease, x, y);
 		}

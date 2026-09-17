@@ -1,4 +1,4 @@
-if (((state == states.walk || (state == states.stun && !savedthrown)) && flickertime <= 0 && wastedhits == 7) && !pizzahead)
+if (((state == "walk" || (state == "stun" && !savedthrown)) && flickertime <= 0 && wastedhits == 7) && !pizzahead)
 {
 	if (phase == 1)
 	{

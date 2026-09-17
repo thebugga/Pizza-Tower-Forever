@@ -1,4 +1,4 @@
-if ((state == states.mach2 && hsp != 0) || (state == states.spin && image_index > 3) || (state == states.freefall && !grounded) || state == states.machslide || state == states.pogo || state == states.jetpack || state == states.bounce)
+if ((state == "mach2" && hsp != 0) || (state == states.spin && image_index > 3) || (state == "freefall" && !grounded) || state == "machslide" || state == "pogo" || state == states.jetpack || state == states.bounce)
 {
 	if (other.flash)
 	{
@@ -6,7 +6,7 @@ if ((state == states.mach2 && hsp != 0) || (state == states.spin && image_index 
 	}
 	scr_hurtplayer(other);
 }
-else if (((state == states.walk || (state == states.stun && !savedthrown)) && flickertime <= 0 && wastedhits == 7 && (other.instakillmove || other.state == states.handstandjump)) && !pizzahead)
+else if (((state == "walk" || (state == "stun" && !savedthrown)) && flickertime <= 0 && wastedhits == 7 && (other.instakillmove || other.state == "handstandjump")) && !pizzahead)
 {
 	if (phase == 1)
 	{
@@ -18,12 +18,12 @@ else if (((state == states.walk || (state == states.stun && !savedthrown)) && fl
 		instance_destroy(obj_noiseyspawner);
 		instance_destroy(obj_noiseyspawner2);
 		fightballcount = 0;
-		substate = states.fightball;
+		substate = "fightball";
 		state = states.finale;
 		sprite_index = spr_playerN_fightball;
 		image_index = 0;
 		image_speed = 0.35;
-		other.state = states.actor;
+		other.state = "actor";
 		other.image_speed = 0.35;
 		other.sprite_index = spr_player_fightball;
 		other.image_index = 0;

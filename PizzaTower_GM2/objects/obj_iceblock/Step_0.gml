@@ -2,15 +2,15 @@ if (place_meeting(x, y - 1, obj_player))
 {
 	with (obj_player)
 	{
-		if (state != states.gotoplayer && place_meeting(x, y + 1, other))
+		if (state != "gotoplayer" && place_meeting(x, y + 1, other))
 		{
-			if (state == states.knightpep)
+			if (state == "knightpep")
 			{
-				state = states.knightpepslopes;
+				state = "knightpepslopes";
 			}
-			else if (state != states.knightpepslopes && state != states.Sjumpprep)
+			else if (state != "knightpepslopes" && state != "Sjumpprep")
 			{
-				if (state != states.machslide && state != states.tumble && state != states.handstandjump && state != states.mach1 && state != states.mach2 && state != states.mach3)
+				if (state != "machslide" && state != "tumble" && state != "handstandjump" && state != "mach1" && state != "mach2" && state != "mach3")
 				{
 					if (icedir != -xscale && move != 0)
 					{
@@ -31,7 +31,7 @@ if (place_meeting(x, y - 1, obj_player))
 						icedir = -xscale;
 					}
 				}
-				else if (state == states.machslide)
+				else if (state == "machslide")
 				{
 					if (prevstate != state)
 					{
@@ -39,7 +39,7 @@ if (place_meeting(x, y - 1, obj_player))
 						icemovespeed = floor(abs(movespeed) * 0.5);
 					}
 				}
-				else if (state == states.tumble)
+				else if (state == "tumble")
 				{
 					icemovespeed = 0;
 				}

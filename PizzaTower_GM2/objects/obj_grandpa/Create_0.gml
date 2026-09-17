@@ -1,7 +1,7 @@
 scr_initenemy();
 image_speed = 0.35;
 depth = 0;
-state = states.walk;
+state = "walk";
 flash = false;
 important = false;
 spr_dead = spr_grandpa_dead;

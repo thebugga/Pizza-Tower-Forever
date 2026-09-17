@@ -13,8 +13,8 @@ if (vsp > -3)
 	{
 		var tx = xstart - offset;
 	}
-	x = Approach(x, tx, movespeed);
-	movespeed = Approach(movespeed, 2, 0.1);
+	x = approach(x, tx, movespeed);
+	movespeed = approach(movespeed, 2, 0.1);
 	if (x == tx)
 	{
 		dir *= -1;

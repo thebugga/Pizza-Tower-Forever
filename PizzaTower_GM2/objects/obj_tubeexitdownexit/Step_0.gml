@@ -1,11 +1,11 @@
-if (state == states.tube)
+if (state == "tube")
 {
 	if (floor(image_index) >= 6)
 	{
 		with (playerid)
 		{
 			visible = true;
-			state = states.freefall;
+			state = "freefall";
 			vsp = 10;
 			sprite_index = spr_rockethitwall;
 			if (place_meeting(x, y, obj_solid))
@@ -27,7 +27,7 @@ if (state == states.tube)
 			{
 				GamepadSetVibration(0, 1, 1, 0.65);
 				playerid = -1;
-				state = states.normal;
+				state = "default";
 			}
 		}
 	}

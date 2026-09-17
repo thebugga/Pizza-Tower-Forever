@@ -1,6 +1,6 @@
 function scr_dotaunt()
 {
-	if ((key_taunt2 || input_finisher_buffer > 0 || (state == states.backbreaker && key_up && supercharged)) && !skateboarding)
+	if ((key_taunt2 || input_finisher_buffer > 0 || (state == "backbreaker" && key_up && supercharged)) && !skateboarding)
 	{
 		input_finisher_buffer = 0;
 		pistolanim = noone;
@@ -21,14 +21,14 @@ function scr_dotaunt()
 		if (!finisher)
 		{
 			taunttimer = 20;
-			if (state != states.backbreaker && sprite_index != spr_supertaunt1 && sprite_index != spr_supertaunt2 && sprite_index != spr_supertaunt3 && sprite_index != spr_supertaunt4 && sprite_index != spr_player_ratmountsupertaunt)
+			if (state != "backbreaker" && sprite_index != spr_supertaunt1 && sprite_index != spr_supertaunt2 && sprite_index != spr_supertaunt3 && sprite_index != spr_supertaunt4 && sprite_index != spr_player_ratmountsupertaunt)
 			{
 				tauntstoredmovespeed = movespeed;
 				tauntstoredvsp = vsp + grav;
 				tauntstoredsprite = sprite_index;
 				tauntstoredstate = state;
 			}
-			state = states.backbreaker;
+			state = "backbreaker";
 			if (supercharged && key_up)
 			{
 				ini_open_from_string(obj_savesystem.ini_str);
@@ -85,11 +85,11 @@ function scr_dograb()
 		particle_set_scale(particletypes.jumpdust, xscale, 1);
 		create_particle(x, y, particletypes.jumpdust, 0);
 		fmod_event_instance_play(suplexdashsnd);
-		state = states.handstandjump;
+		state = "handstandjump";
 		movespeed = 8;
 		image_index = 0;
 	}
-	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == characters.Noise))
+	else if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "Noise"))
 	{
 		scr_douppercut();
 	}
@@ -97,33 +97,37 @@ function scr_dograb()
 
 function scr_douppercut()
 {
-	state = states.punch;
-	input_buffer_slap = 0;
-	image_index = 0;
-	sprite_index = spr_breakdanceuppercut;
-	fmod_event_instance_play(snd_uppercut);
-	var _heights = 
+	if (input_buffer_slap > 0 && key_up && shotgunAnim == false && (!global.pistol || character == "Noise"))
 	{
-		P : [10, 14],
-		N : [20, 21]
-	}
-	vsp = -_heights[$ character][grounded]
-	movespeed = hsp;
-	if (key_attack)
-	{
-		movespeed = abs(hsp);
-	}
-	particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
-	create_particle(x, y, particletypes.highjumpcloud2, 0);
-	if (character == characters.Noise)
-	{
-		repeat (4)
+		state = "punch";
+		input_buffer_slap = 0;
+		image_index = 0;
+		sprite_index = spr_breakdanceuppercut;
+		fmod_event_instance_play(snd_uppercut);
+		var _heights = 
+		[
+			[10, 14],
+			[20, 21],
+			[8,  14]
+		]
+		vsp = -_heights[character_num][grounded]
+		movespeed = hsp;
+		if (key_attack)
 		{
-			with (instance_create(x + irandom_range(-40, 40), y + irandom_range(-40, 40), obj_explosioneffect))
-			{
-				sprite_index = spr_shineeffect;
-				image_speed = 0.35;
-			}
+			movespeed = abs(hsp);
 		}
+		particle_set_scale(particletypes.highjumpcloud2, xscale, 1);
+		create_particle(x, y, particletypes.highjumpcloud2, 0);
+		if (character == "Noise")
+		{
+			repeat (4)
+			{
+				with (instance_create(x + irandom_range(-40, 40), y + irandom_range(-40, 40), obj_explosioneffect))
+				{
+					sprite_index = spr_shineeffect;
+					image_speed = 0.35;
+				}
+			}
+	}
 	}
 }

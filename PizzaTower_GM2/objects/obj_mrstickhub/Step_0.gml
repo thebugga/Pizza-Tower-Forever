@@ -1,21 +1,21 @@
 switch (state)
 {
-	case states.normal:
+	case "default":
 		break;
-	case states.transitioncutscene:
+	case "transitioncutscene":
 		if (ANIMATION_END)
 		{
 			instance_activate_object(bossdoorID);
 			with (bossdoorID)
 			{
 				vsp = -5;
-				state = states.jump;
+				state = "jump";
 				event_perform(ev_other, ev_room_start);
 			}
-			state = states.jump;
+			state = "jump";
 		}
 		break;
-	case states.jump:
+	case "jump":
 		sprite_index = spr_mrstick_helicopterhat;
 		y -= 10;
 		if (y < -100)

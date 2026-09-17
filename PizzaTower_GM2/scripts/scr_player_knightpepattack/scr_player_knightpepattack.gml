@@ -1,4 +1,4 @@
-function scr_player_knightpepattack()
+function player_knightpepattack()
 {
 	alarm[5] = 2;
 	alarm[7] = 60;
@@ -22,7 +22,7 @@ function scr_player_knightpepattack()
 	{
 		movespeed = 0;
 		sprite_index = spr_knightpep_idle;
-		state = states.knightpep;
+		state = "knightpep";
 	}
 	if (scr_slope() && sprite_index != spr_knightpepthunder)
 	{
@@ -32,7 +32,7 @@ function scr_player_knightpepattack()
 		{
 			other.xscale = -sign(image_xscale);
 		}
-		state = states.knightpepslopes;
+		state = "knightpepslopes";
 		sprite_index = spr_knightpepdownslope;
 		slope_buffer = 20;
 	}
@@ -51,13 +51,13 @@ function scr_player_knightpepattack()
 			movespeed = 8;
 		}
 		vsp = -11;
-		state = states.knightpepslopes;
+		state = "knightpepslopes";
 		sprite_index = spr_knightpepdoublejump;
 		image_index = 0;
 	}
 	if (!grounded && !doublejump)
 	{
-		state = states.knightpep;
+		state = "knightpep";
 		sprite_index = spr_knightpepjump;
 		image_index = 0;
 	}

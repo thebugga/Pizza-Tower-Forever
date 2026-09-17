@@ -1,6 +1,6 @@
 function scr_do_pepperpizzajump()
 {
-	state = states.jetpackjump;
+	state = "jetpackjump";
 	jumpstop = false;
 	sprite_index = spr_jetpackstart2;
 }

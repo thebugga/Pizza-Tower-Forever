@@ -1,18 +1,18 @@
-function scr_enemy_pummel()
+function enemy_pummel()
 {
 	var _playerinst = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
 	sprite_index = stunfallspr;
 	x = _playerinst.x + (_playerinst.xscale * 16);
 	y = _playerinst.y;
-	image_xscale = sign(_playerinst.x - x);
+	xscale = sign(_playerinst.x - x);
 	with (_playerinst)
 	{
-		if (state != states.pummel)
+		if (state != "pummel")
 		{
 			with (other)
 			{
-				stagger_dir = -image_xscale;
-				state = states.staggered;
+				stagger_dir = -xscale;
+				state = "staggered";
 				stagger_buffer = stagger_max;
 				hsp = 0;
 			}
@@ -30,12 +30,12 @@ function scr_enemy_pummel()
 				else
 				{
 					sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4);
-					state = states.tackle;
+					state = "tackle";
 					movespeed = 5;
 					image_index = 0;
-					other.state = states.stun;
+					other.state = "stun";
 					other.grav = 0;
-					other.hsp = -other.image_xscale * 25;
+					other.hsp = -other.xscale * 25;
 					other.vsp = -2;
 				}
 				other.hp--;
@@ -51,7 +51,7 @@ function scr_enemy_pummel()
 			{
 				if (key_up)
 				{
-					state = states.punch;
+					state = "punch";
 					sprite_index = spr_breakdanceuppercut;
 					image_index = 0;
 					vsp = -14;
@@ -67,13 +67,13 @@ function scr_enemy_pummel()
 					with (other)
 					{
 						hp -= 2;
-						state = (hp <= 0) ? states.stun : states.staggered;
-						if (state == states.staggered)
+						state = (hp <= 0) ? "stun" : "staggered";
+						if (state == "staggered")
 						{
 							stunned = 100;
 							stuntouchbuffer = 50;
 						}
-						hsp = -image_xscale * 8;
+						hsp = -xscale * 8;
 						vsp = -14;
 					}
 				}
@@ -81,7 +81,7 @@ function scr_enemy_pummel()
 				{
 					vsp = -4;
 					movespeed = 9;
-					state = states.punch;
+					state = "punch";
 					sprite_index = spr_player_breakdancestart;
 					breakdance = 35;
 					image_index = 0;
@@ -96,13 +96,13 @@ function scr_enemy_pummel()
 					with (other)
 					{
 						hp -= 2;
-						state = (hp <= 0) ? states.stun : states.staggered;
-						if (state == states.staggered)
+						state = (hp <= 0) ? "stun" : "staggered";
+						if (state == "staggered")
 						{
 							stunned = 100;
 							stuntouchbuffer = 50;
 						}
-						hsp = -image_xscale * 8;
+						hsp = -xscale * 8;
 						vsp = -14;
 					}
 				}
@@ -111,11 +111,11 @@ function scr_enemy_pummel()
 	}
 }
 
-function scr_enemy_stunTEST()
+function enemy_stunTEST()
 {
 	sprite_index = stunfallspr;
 	image_speed = 0.35;
-	if (place_meeting(x - sign(image_xscale), y, obj_solid) || grounded)
+	if (place_meeting(x - sign(xscale), y, obj_solid) || grounded)
 	{
 		if (thrown)
 		{
@@ -132,7 +132,7 @@ function scr_enemy_stunTEST()
 	}
 }
 
-function scr_enemy_staggered()
+function enemy_staggered()
 {
 	sprite_index = stunfallspr;
 	if (stuntouchbuffer > 0)
@@ -154,6 +154,6 @@ function scr_enemy_staggered()
 	{
 		image_index = 0;
 		sprite_index = walkspr;
-		state = states.walk;
+		state = "walk";
 	}
 }

@@ -1,31 +1,31 @@
 
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
+	case "walk":
 		hsp = 0;
 		sprite_index = spr_pizzice_idle;
 		image_speed = 0.35;
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
-	case states.hit:
-		scr_enemy_hit();
+	case "hit":
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
+	case "enemy_throw":
 		var is = 1.25;
 		if (image_speed < is)
 		{
-			image_speed = Approach(image_speed, is, 0.015);
+			image_speed = approach(image_speed, is, 0.015);
 		}
 		else if (cooldown > 0)
 		{
@@ -55,30 +55,30 @@ switch (state)
 			if (shot <= 0)
 			{
 				bombreset = 180;
-				state = states.stun;
+				state = "stun";
 				stunned = 100;
 				image_speed = 0.35;
 				sprite_index = stunfallspr;
 			}
 		}
 		break;
-	case states.grabbed:
-		scr_enemy_grabbed();
+	case "grabbed":
+		enemy_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
+	case "pummel":
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
-	case states.ghostpossess:
-		scr_enemy_ghostpossess();
+	case "ghostpossess":
+		enemy_ghostpossess();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -86,7 +86,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -94,23 +94,23 @@ if (flash == true && alarm[2] <= 0)
 {
 	alarm[2] = 0.15 * room_speed;
 }
-if (bombreset > 0 && state != states.stun)
+if (bombreset > 0 && state != "stun")
 {
 	bombreset--;
 }
-else if (state == states.walk && distance_to_object(obj_player) < 250)
+else if (state == "walk" && distance_to_object(obj_player) < 250)
 {
-	state = states.pizzagoblinthrow;
+	state = "enemy_throw";
 	cooldown = 20;
 	sprite_index = spr_pizzice_walk;
 	image_speed = 0.25;
 	shot = 3;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -121,6 +121,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

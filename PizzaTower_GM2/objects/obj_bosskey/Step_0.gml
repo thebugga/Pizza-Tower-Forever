@@ -1,6 +1,6 @@
 switch (state)
 {
-	case states.jump:
+	case "jump":
 		y += vsp;
 		if (vsp < 20)
 		{
@@ -12,7 +12,7 @@ switch (state)
 			{
 				fmod_event_one_shot_3d("event:/sfx/pep/groundpound", x, y);
 				y = y_to;
-				state = states.normal;
+				state = "default";
 				with (obj_camera)
 				{
 					shake_mag = 3;
@@ -43,7 +43,7 @@ switch (state)
 			}
 		}
 		break;
-	case states.gottreasure:
+	case "gottreasure":
 		//if (instance_exists(obj_bosskeynoise) && obj_bosskeynoise.x <= noisex)
 		//{
 		//	x = obj_bosskeynoise.x;

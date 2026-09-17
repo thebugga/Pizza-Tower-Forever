@@ -1,7 +1,8 @@
-function scr_player_victory()
+function player_victory()
 {
 	hsp = 0;
 	mach2 = 0;
+	angle = 0;
 	jumpAnim = true;
 	dashAnim = true;
 	landAnim = false;

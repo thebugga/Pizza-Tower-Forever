@@ -1,4 +1,4 @@
-if (room == tower_soundtestlevel && (obj_player1.state == states.backtohub || obj_player1.state == states.comingoutdoor || obj_player1.targetDoor == "A"))
+if (room == tower_soundtestlevel && (obj_player1.state == "backtohub" || obj_player1.state == "comingoutdoor" || obj_player1.targetDoor == "A"))
 {
 	instance_destroy();
 	exit;
@@ -32,23 +32,23 @@ switch (sprite_index)
 			sprite_index = spr_secretportal_spawnidle;
 			with (obj_player)
 			{
-				if (!isgustavo && tauntstoredstate != states.knightpep && tauntstoredstate != states.knightpepslopes && tauntstoredstate != states.knightpepbump && tauntstoredstate != states.firemouth)
+				if (!isgustavo && tauntstoredstate != "knightpep" && tauntstoredstate != "knightpepslopes" && tauntstoredstate != "knightpepbump" && tauntstoredstate != "firemouth")
 				{
 					visible = true;
 					cutscene = false;
 					sprite_index = spr_bodyslamstart;
 					image_index = 0;
-					state = states.freefallprep;
+					state = "freefallprep";
 					freefallsmash = 0;
 					vsp = -5;
 				}
 				else if (isgustavo)
 				{
-					state = states.ratmount;
+					state = "ratmount";
 				}
 				else
 				{
-					if (state == states.knightpep)
+					if (state == "knightpep")
 					{
 						hsp = 0;
 					}
@@ -74,8 +74,8 @@ switch (sprite_index)
 					hsp = 0;
 					movespeed = 0;
 					vsp = 10;
-					scale_xs = Approach(scale_xs, 1, 0.05);
-					scale_ys = Approach(scale_ys, 1, 0.05);
+					scale_xs = approach(scale_xs, 1, 0.05);
+					scale_ys = approach(scale_ys, 1, 0.05);
 					fallinganimation = 0;
 					if (scale_xs == 1)
 					{
@@ -83,33 +83,33 @@ switch (sprite_index)
 					}
 					if (other.drop)
 					{
-						if (!isgustavo && (tauntstoredstate == states.knightpep || tauntstoredstate == states.knightpepslopes || tauntstoredstate == states.knightpepbump || tauntstoredstate == states.firemouth))
+						if (!isgustavo && (tauntstoredstate == "knightpep" || tauntstoredstate == "knightpepslopes" || tauntstoredstate == "knightpepbump" || tauntstoredstate == "firemouth"))
 						{
 							state = tauntstoredstate;
 							movespeed = tauntstoredmovespeed;
 							hsp = tauntstoredhsp;
 							sprite_index = tauntstoredsprite;
-							if (state == states.actor || state == states.backbreaker || state == states.chainsaw || state == states.machcancel)
+							if (state == "actor" || state == "backbreaker" || state == "chainsaw" || state == "machcancel")
 							{
 								sprite_index = spr_bodyslamstart;
 								image_index = 0;
-								state = states.freefallprep;
+								state = "freefallprep";
 								freefallsmash = 0;
 								vsp = -5;
 							}
-							if (state == states.knightpep)
+							if (state == "knightpep")
 							{
 								hsp = 0;
 								movespeed = 0;
 							}
-							else if (state == states.knightpepslopes)
+							else if (state == "knightpepslopes")
 							{
 								movespeed = 0;
 								hsp = 0;
-								state = states.knightpep;
+								state = "knightpep";
 								sprite_index = spr_knightpepfall;
 							}
-							else if (state == states.firemouth)
+							else if (state == "firemouth")
 							{
 								if (sprite_index == spr_firemouthdash)
 								{

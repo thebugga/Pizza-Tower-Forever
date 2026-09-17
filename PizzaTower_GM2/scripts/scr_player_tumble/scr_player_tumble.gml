@@ -1,4 +1,4 @@
-function scr_player_tumble()
+function player_tumble()
 {
 	if (place_meeting(x, y + 1, obj_railparent))
 	{
@@ -13,13 +13,13 @@ function scr_player_tumble()
 	{
 		movespeed = 6;
 	}
-	if (!grounded && (/*sprite_index == spr_crouchslip ||*/ sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland))
+	if (!grounded && (/*sprite_index == spr_crouchslip ||*/ sprite_index == spr_machroll || sprite_index == spr_mach2jump || sprite_index == spr_backslide || sprite_index == spr_backslideland)|| ((sprite_index == spr_player_jumpdive1 || sprite_index == spr_player_jumpdive2) && character == "Noise"))
 	{
 		switch character
 		{
-			case characters.Noise:
+			case "Noise":
 				sprite_index = spr_playerN_divebomb;
-				state = states.machcancel;
+				state = "machcancel";
 				savedmove = xscale;
 				vsp = 20;
 				movespeed = hsp;
@@ -38,15 +38,15 @@ function scr_player_tumble()
 	{
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, 12, 0.25);
+			movespeed = approach(movespeed, 12, 0.25);
 		}
 		else if (move == -xscale)
 		{
-			movespeed = Approach(movespeed, 8, 0.25);
+			movespeed = approach(movespeed, 8, 0.25);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 10, 0.25);
+			movespeed = approach(movespeed, 10, 0.25);
 		}
 	}	
 	if (input_buffer_jump > 0 && sprite_index == spr_player_crouchslip)
@@ -63,18 +63,10 @@ function scr_player_tumble()
 	}
 	if (sprite_index == spr_dive && key_jump)
 	{
-		if (character == characters.Peppino)
-		{
-			sprite_index = spr_player_poundcancel1;
-			image_index = 0;
-			state = states.freefall;
-			dir = xscale;
-			vsp = -6;
-		}
-		else
+		if (character == "Noise")
 		{
 			sprite_index = spr_playerN_divebomb;
-			state = states.machcancel;
+			state = "machcancel";
 			vsp = 20;
 			hsp = 0;
 			savedmove = xscale;
@@ -84,10 +76,18 @@ function scr_player_tumble()
 			image_index = 0;
 			exit;
 		}
+		else
+		{
+			sprite_index = spr_player_poundcancel1;
+			image_index = 0;
+			state = "freefall";
+			dir = xscale;
+			vsp = -6;
+		}
 	}
 	if (movespeed <= 2 && sprite_index != spr_tumble && sprite_index != spr_breakdance)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (!scr_slope() && sprite_index == spr_tumblestart && floor(image_index) < 11)
 	{
@@ -152,14 +152,14 @@ function scr_player_tumble()
 		sprite_index = spr_tumble;
 		movespeed = 14;
 	}
-	if ((state != states.freefall && ((place_meeting(x + xscale, y, obj_solid) || scr_solid_slope(x + xscale, y)) && (!place_meeting(x + hsp, y, obj_rattumble) || sprite_index != spr_tumble) && !place_meeting(x + hsp, y, obj_destructibles))) || place_meeting(x, y, obj_timedgate))
+	if ((state != "freefall" && ((place_meeting(x + xscale, y, obj_solid) || scr_solid_slope(x + xscale, y)) && (!place_meeting(x + hsp, y, obj_rattumble) || sprite_index != spr_tumble) && !place_meeting(x + hsp, y, obj_destructibles))) || place_meeting(x, y, obj_timedgate))
 	{
 		hsp = 0;
 		movespeed = 0;
 		if (sprite_index == spr_tumble || sprite_index == spr_tumblestart)
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/bumpwall", x, y);
-			state = states.bump;
+			state = "bump";
 			landAnim = false;
 			sprite_index = spr_tumbleend;
 			image_index = 0;
@@ -170,7 +170,7 @@ function scr_player_tumble()
 		else
 		{
 			fmod_event_one_shot_3d("event:/sfx/pep/splat", x, y);
-			state = states.bump;
+			state = "bump";
 			image_index = 0;
 			sprite_index = spr_wallsplat;
 		}
@@ -184,7 +184,7 @@ function scr_player_tumble()
 	{
 		jumpstop = false;
 	}
-	if (input_buffer_jump > 0 && can_jump && state != states.bump && hsp != 0 && sprite_index == spr_tumble && !place_meeting(x, y, obj_pinballlauncher) && !place_meeting(x, y, obj_bigcheese))
+	if (input_buffer_jump > 0 && can_jump && state != "bump" && hsp != 0 && sprite_index == spr_tumble && !place_meeting(x, y, obj_pinballlauncher) && !place_meeting(x, y, obj_bigcheese))
 	{
 		if (!scr_solid(x, y - 16))
 		{
@@ -200,7 +200,7 @@ function scr_player_tumble()
 	{
 		crouchslipbuffer--;
 	}
-	if (!key_down && key_attack && grounded && state != states.bump && (sprite_index != spr_tumble && sprite_index != spr_tumbleend) && !scr_solid(x, y - 16) && !scr_solid(x, y - 32) && sprite_index != spr_breakdance)
+	if (!key_down && key_attack && grounded && state != "bump" && (sprite_index != spr_tumble && sprite_index != spr_tumbleend) && !scr_solid(x, y - 16) && !scr_solid(x, y - 32) && sprite_index != spr_breakdance)
 	{
 		if (crouchslipbuffer == 0)
 		{
@@ -210,30 +210,30 @@ function scr_player_tumble()
 			}
 			if (movespeed >= 12)
 			{
-				state = states.mach3;
+				state = "mach3";
 			}
 			else
 			{
-				state = states.mach2;
+				state = "mach2";
 			}
 			image_index = 0;
 			sprite_index = spr_rollgetup;
 			fmod_event_instance_play(rollgetupsnd);
 		}
 	}
-	if (!key_down && !key_attack && grounded && vsp > 0 && state != states.bump && (sprite_index != spr_tumble && sprite_index != spr_tumbleend) && !scr_solid(x, y - 16) && !scr_solid(x, y - 32) && sprite_index != spr_breakdance)
+	if (!key_down && !key_attack && grounded && vsp > 0 && state != "bump" && (sprite_index != spr_tumble && sprite_index != spr_tumbleend) && !scr_solid(x, y - 16) && !scr_solid(x, y - 32) && sprite_index != spr_breakdance)
 	{
 		if (crouchslipbuffer == 0)
 		{
 			if (movespeed > 6)
 			{
-				state = states.machslide;
+				state = "machslide";
 				sprite_index = spr_machslidestart;
 				image_index = 0;
 			}
 			else
 			{
-				state = states.normal;
+				state = "default";
 			}
 		}
 	}

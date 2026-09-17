@@ -1,6 +1,6 @@
-function scr_player_animatronic()
+function player_animatronic()
 {
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		xscale = 1;
 		sprite_index = spr_playerN_animatronic;
@@ -56,7 +56,7 @@ function scr_player_animatronic()
 		{
 			image_index = 2;
 		}
-		state = states.normal;
+		state = "default";
 	}
 	if (animatronic_collect_buffer > 0)
 	{

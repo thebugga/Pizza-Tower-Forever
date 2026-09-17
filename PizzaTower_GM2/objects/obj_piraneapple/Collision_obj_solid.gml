@@ -1,4 +1,4 @@
-if (state != states.transitioncutscene)
+if (state != "transitioncutscene")
 {
 	event_inherited();
 }

@@ -5,7 +5,7 @@ if (bgindex > sprite_get_number(bgsprite))
 bgindex += 0.35;
 if (fadein)
 {
-	fade = Approach(fade, 1, 0.1);
+	fade = approach(fade, 1, 0.1);
 	if (fade >= 1)
 	{
 		fadein = false;
@@ -14,7 +14,7 @@ if (fadein)
 }
 else
 {
-	fade = Approach(fade, 0, 0.1);
+	fade = approach(fade, 0, 0.1);
 }
 if (instance_exists(obj_fadeout))
 {
@@ -22,7 +22,7 @@ if (instance_exists(obj_fadeout))
 }
 if (shake_mag > 0)
 {
-	shake_mag = Approach(shake_mag, 0, shake_mag_acc);
+	shake_mag = approach(shake_mag, 0, shake_mag_acc);
 }
 else
 {

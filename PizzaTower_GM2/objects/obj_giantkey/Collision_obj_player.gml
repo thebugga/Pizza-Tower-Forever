@@ -16,7 +16,7 @@ if (picked == false && pickable == true)
 	x = playerid.x;
 	with (playerid)
 	{
-		state = states.gottreasure;
+		state = "gottreasure";
 		fmod_event_one_shot("event:/sfx/misc/secretfound");
 		global.giantkey = true;
 	}

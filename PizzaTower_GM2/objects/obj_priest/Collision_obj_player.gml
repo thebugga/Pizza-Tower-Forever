@@ -2,13 +2,13 @@ var _transfo = false;
 var _state = other.state;
 with (other)
 {
-	if (!scr_transformationcheck() && state != states.comingoutdoor && state != states.door)
+	if (!scr_transformationcheck() && state != "comingoutdoor" && state != "door")
 	{
-		if (state == states.ghost)
+		if (state == "ghost")
 		{
 			notification_push(notifications.ghost_end, [ghosttimer, room]);
 		}
-		if (state == states.mort || state == states.mortjump || state == states.morthook || state == states.mortattack || state == states.mortjump || state == states.boxxedpep || state == states.boxxedpepjump || state == states.boxxedpepspin || state == states.ghost || state == states.barrelslide || state == states.barrel || state == states.barreljump)
+		if (state == "mort" || state == "mortjump" || state == "morthook" || state == "mortattack" || state == "mortjump" || state == "boxxedpep" || state == "boxxedpepjump" || state == "boxxedpepspin" || state == "ghost" || state == "barrelslide" || state == "barrel" || state == "barreljump")
 		{
 			if (hsp != 0)
 			{
@@ -22,7 +22,7 @@ with (other)
 			instance_destroy();
 		}
 		transformationsnd = false;
-		state = states.normal;
+		state = "default";
 		sprite_index = spr_idle;
 		dir = xscale;
 		ghostdash = false;
@@ -42,7 +42,7 @@ if (_transfo)
 	}
 	with (other)
 	{
-		if (state == states.mort || state == states.morthook || state == states.mortjump || state == states.mortattack)
+		if (state == "mort" || state == "morthook" || state == "mortjump" || state == "mortattack")
 		{
 			create_debris(x, y - 40, spr_mortdead);
 		}

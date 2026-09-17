@@ -1,4 +1,4 @@
-function scr_player_shotgunfreefall()
+function player_shotgunfreefall()
 {
 	image_speed = 0.35;
 	move = key_left + key_right;
@@ -47,7 +47,7 @@ function scr_player_shotgunfreefall()
 		hsp = 0;
 		if (ANIMATION_END)
 		{
-			state = states.shotgun;
+			state = "shotgun";
 			sprite_index = spr_shotgunland;
 			image_index = 0;
 			landAnim = true;

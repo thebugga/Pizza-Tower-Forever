@@ -1,4 +1,4 @@
-if (obj_player1.character == characters.Peppino)
+if (obj_player1.character == "Peppino")
 {
 	//shader_set(global.retro_pal_swapper);
 	pal_swap_set(spr_ratmountpalette, obj_player1.paletteselect);

@@ -1,4 +1,4 @@
-function scr_enemy_secret()
+function enemy_secret()
 {
 	visible = false;
 	invincible = true;
@@ -14,7 +14,7 @@ function scr_enemy_secret()
 		if (grounded && vsp > 0)
 		{
 			invincible = savedsecretinvincible;
-			state = states.walk;
+			state = "walk";
 			sprite_index = walkspr;
 		}
 	}

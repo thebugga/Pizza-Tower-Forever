@@ -1,4 +1,4 @@
-function scr_enemy_stun()
+function enemy_stun()
 {
 	if (object_index == obj_ninja)
 	{
@@ -38,7 +38,7 @@ function scr_enemy_stun()
 		}
 		else if (ANIMATION_END && sprite_index == spr_tank_hitwall)
 		{
-			state = states.walk;
+			state = "walk";
 			stunned = 0;
 			sprite_index = spr_tank_walk;
 		}
@@ -172,7 +172,7 @@ function scr_enemy_stun()
 		vsp = 0;
 		image_index = 0;
 		sprite_index = walkspr;
-		state = states.walk;
+		state = "walk";
 		stunned = 0;
 		if (object_index == obj_golfdemon && !idle)
 		{
@@ -191,10 +191,10 @@ function scr_enemy_stun()
 	}
 	else
 	{
-		railmovespeed = Approach(railmovespeed, 0, 0.5);
+		railmovespeed = approach(railmovespeed, 0, 0.5);
 		if (grounded)
 		{
-			hsp = Approach(hsp, 0, 0.3);
+			hsp = approach(hsp, 0, 0.3);
 		}
 	}
 	if (!thrown)

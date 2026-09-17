@@ -9,7 +9,7 @@ if (global.noisejetpack && (other.ispeppino || other.noisepizzapepper) && player
 		sprite_index = spr_firemouthend;
 		image_index = 0;
 		image_speed = 0.35;
-		state = states.actor;
+		state = "actor";
 		other.sprite_index = spr_freemilksuprised;
 		other.image_index = 0;
 		other.playerid = id;

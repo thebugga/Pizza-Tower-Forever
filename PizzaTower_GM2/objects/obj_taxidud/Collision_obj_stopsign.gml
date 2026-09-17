@@ -7,12 +7,12 @@ if (playerid.visible == false)
 		fmod_event_one_shot("event:/sfx/misc/taxibeep");
 		if (isgustavo)
 		{
-			state = states.ratmount;
+			state = "ratmount";
 			sprite_index = spr_player_ratmountidle;
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 		}
 		instance_create(x, y, obj_genericpoofeffect);
 		movespeed = 0;
@@ -23,7 +23,7 @@ if (playerid.visible == false)
 	{
 		with (obj_player2)
 		{
-			state = states.normal;
+			state = "default";
 			cutscene = false;
 		}
 	}

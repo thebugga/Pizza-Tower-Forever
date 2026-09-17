@@ -1,4 +1,4 @@
-function scr_player_ridecow()
+function player_ridecow()
 {
 	doublejump = false;
 	hsp = 0;
@@ -8,12 +8,12 @@ function scr_player_ridecow()
 	{
 		if (has_mort)
 		{
-			state = states.mortjump;
+			state = "mortjump";
 			sprite_index = spr_fall;
 		}
 		else
 		{
-			state = states.jump;
+			state = "jump";
 			sprite_index = spr_fall;
 		}
 		exit;
@@ -30,12 +30,12 @@ function scr_player_ridecow()
 		image_index = 0;
 		if (has_mort)
 		{
-			state = states.mortjump;
+			state = "mortjump";
 			sprite_index = spr_jump;
 		}
 		else
 		{
-			state = states.jump;
+			state = "jump";
 			sprite_index = spr_jump;
 		}
 	}

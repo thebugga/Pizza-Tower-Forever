@@ -65,10 +65,10 @@ function enemy_is_superslam(_enemy)
 {
 	with (_enemy)
 	{
-		if (state == states.grabbed)
+		if (state == "grabbed")
 		{
 			var g = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
-			if (g.state == states.superslam || (g.state == states.chainsaw && g.tauntstoredstate == states.superslam))
+			if (g.state == "superslam" || (g.state == "chainsaw" && g.tauntstoredstate == "superslam"))
 			{
 				return true;
 			}
@@ -81,10 +81,10 @@ function enemy_is_swingding(_enemy)
 {
 	with (_enemy)
 	{
-		if (state == states.grabbed)
+		if (state == "grabbed")
 		{
 			var g = (grabbedby == 1) ? obj_player1.id : obj_player2.id;
-			if ((g.state == states.grab || (g.state == states.chainsaw && g.tauntstoredstate == states.grab)) && g.sprite_index == g.spr_swingding)
+			if ((g.state == "grab" || (g.state == "chainsaw" && g.tauntstoredstate == "grab")) && g.sprite_index == g.spr_swingding)
 			{
 				return true;
 			}
@@ -107,7 +107,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 		exit;
 	}
 	var _stun = 0;
-	if ((state == states.stun && thrown == false && object_index != obj_peppinoclone) || state == states.pizzaheadjump || (state == states.supergrab && sprite_index == stunfallspr))
+	if ((state == "stun" && thrown == false && object_index != obj_peppinoclone) || state == states.pizzaheadjump || (state == "supergrab" && sprite_index == stunfallspr))
 	{
 		_stun = 25;
 	}
@@ -134,11 +134,11 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 		if (object_index == obj_peppinoclone)
 		{
 			//shader_set(global.retro_pal_swapper);
-			pal_swap_set(spr_peppalette, 1, false);
+			pal_swap_set(pal_peppino, 1, false);
 		}
 		else if (usepalette && _pal)
 		{
-			pal_swap_set(spr_peppalette, 0);
+			pal_swap_set(pal_peppino, 0);
 			if (!global.swapmode)
 			{
 				if ((object_index == obj_fakepepboss || object_index == obj_gustavograbbable) && obj_player1.ispeppino)
@@ -154,7 +154,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 			pal_swap_set(spr_palette, paletteselect);
 		}
 		var _ys = 1;
-		if (state == states.grabbed)
+		if (state == "grabbed")
 		{
 			if (enemy_is_superslam(id))
 			{
@@ -163,9 +163,9 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 			}
 		}
 		if global.stylethreshold < 3 
-			draw_sprite_ext(sprite_index, image_index, x, y + _stun, xscale * image_xscale, yscale * _ys, angle, b, image_alpha);
+			draw_sprite_ext(sprite_index, image_index, x, y + _stun, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
 		else 
-			outline_draw_sprite_ext(sprite_index, image_index, x, y + _stun, xscale * image_xscale, yscale * _ys, angle, b, image_alpha, ol_config(1, c_red, 1, 1));
+			outline_draw_sprite_ext(sprite_index, image_index, x, y + _stun, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha, ol_config(1, c_red, 1, 1));
 		if (_draw_healthbar)
 		{
 			if (hp > maxhp)
@@ -178,8 +178,8 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 		{
 			if (miniflash)
 			{
-				pal_swap_set(spr_peppalette, 14, false);
-				draw_sprite_ext(sprite_index, image_index, x, y + _stun, xscale * image_xscale, yscale * _ys, angle, b, image_alpha);
+				pal_swap_set(pal_peppino, 14, false);
+				draw_sprite_ext(sprite_index, image_index, x, y + _stun, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
 			}
 		}
 		if (object_index == obj_peppinoclone || (usepalette && _pal))
@@ -189,7 +189,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 		}
 		if (object_index == obj_hamkuff)
 		{
-			if (state == states.blockstance && instance_exists(playerid))
+			if (state == "blockstance" && instance_exists(playerid))
 			{
 				var x1 = x + (6 * image_xscale);
 				var y1 = y + 29;
@@ -215,7 +215,7 @@ function draw_enemy(_draw_healthbar, _pal, _color = c_white)
 
 function draw_superslam_enemy()
 {
-	if (state == states.superslam && floor(image_index) >= 5 && floor(image_index) <= 7 && instance_exists(baddiegrabbedID))
+	if (state == "superslam" && floor(image_index) >= 5 && floor(image_index) <= 7 && instance_exists(baddiegrabbedID))
 	{
 		with (baddiegrabbedID)
 		{
@@ -245,7 +245,7 @@ function draw_player()
 		}
 		exit;
 	}
-	if (character == characters.Noise && state == states.trashstart)
+	if (character == "Noise" && state == states.trashstart)
 	{
 		exit;
 	}
@@ -260,29 +260,26 @@ function draw_player()
 		_sprite_index = pistolanim;
 		_image_index = pistolindex;
 	}
-	if (character == characters.Peppino && room == boss_noise && (sprite_index == spr_playerN_doiseintro1 || sprite_index == spr_playerN_doiseintro2 || sprite_index == spr_playerN_doiseintro3))
+	if (character == "Peppino" && room == boss_noise && (sprite_index == spr_playerN_doiseintro1 || sprite_index == spr_playerN_doiseintro2 || sprite_index == spr_playerN_doiseintro3))
 	{
 		var info = get_noise_palette_info();
 		pattern = info.patterntexture;
 		ps = info.paletteselect;
 		spr = info.spr_palette;
 	}
-	if (object_index == obj_player1)
-	{
-		pattern_set(global.Base_Pattern_Color, _sprite_index, _image_index, xscale * scale_xs, yscale * scale_ys, pattern);
-	}
 	if (isgustavo)
 	{
 		spr = spr_ratmountpalette;
 	}
-	if (character == characters.Noise && instance_exists(obj_pizzaface_thunderdark))
+	if (character == "Noise" && instance_exists(obj_pizzaface_thunderdark))
 	{
 		spr = spr_noisepalette_rage;
 	}
 	pal_swap_set(spr, ps, false);
+	pattern_draw(_sprite_index, _image_index, x, y, pattern, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha)
 	if _sprite_index != noone && _sprite_index != -1
 		draw_sprite_ext(_sprite_index, _image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
-	if (global.noisejetpack && (character == characters.Peppino || noisepizzapepper))
+	if (global.noisejetpack && (character == "Peppino" || noisepizzapepper))
 	{
 		pal_swap_set(spr_palette, 2, false);
 		draw_sprite_ext(_sprite_index, _image_index, x, y, xscale * scale_xs, yscale * scale_ys, angle, b, image_alpha);
@@ -290,7 +287,7 @@ function draw_player()
 	draw_superslam_enemy();
 	if (global.pistol)
 	{
-		pal_swap_set(spr_peppalette, 0, false);
+		pal_swap_set(pal_peppino, 0, false);
 		if (pistolcharge >= 4)
 		{
 			draw_sprite(spr_revolvercharge, pistolcharge, x, y - 70);

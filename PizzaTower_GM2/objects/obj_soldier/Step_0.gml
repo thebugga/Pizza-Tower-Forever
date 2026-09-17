@@ -1,44 +1,44 @@
 
 switch (state)
 {
-	case states.idle:
+	case "idle":
 		if (sprite_index != spr_soldier_idleend)
 		{
-			scr_enemy_idle();
+			enemy_idle();
 		}
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
-	case states.hit:
-		scr_enemy_hit();
+	case "hit":
+		enemy_hit();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
-	case states.grabbed:
-		scr_enemy_grabbed();
+	case "grabbed":
+		enemy_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
+	case "pummel":
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -46,7 +46,7 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -57,7 +57,7 @@ if (flash == true && alarm[2] <= 0)
 var player = instance_nearest(x, y, obj_player);
 switch (state)
 {
-	case states.idle:
+	case "idle":
 		if (bush)
 		{
 			var col = collision_line(x, y, player.x, player.y, obj_solid, false, true);
@@ -77,12 +77,12 @@ switch (state)
 		}
 		else if (sprite_index == spr_soldier_idleend && ANIMATION_END)
 		{
-			state = states.walk;
+			state = "walk";
 			sprite_index = spr_soldier_walk;
 		}
 		break;
-	case states.charge:
-		hsp = Approach(hsp, 0, 0.5);
+	case "charge":
+		hsp = approach(hsp, 0, 0.5);
 		if (sprite_index == spr_soldier_shootstart && ANIMATION_END)
 		{
 			sprite_index = spr_soldier_shoot;
@@ -110,11 +110,11 @@ switch (state)
 			{
 				sprite_index = walkspr;
 				attack_cooldown = attack_max;
-				state = states.walk;
+				state = "walk";
 			}
 		}
 		break;
-	case states.walk:
+	case "walk":
 		if (attack_cooldown > 0)
 		{
 			attack_cooldown--;
@@ -133,7 +133,7 @@ switch (state)
 				}
 				sprite_index = spr_soldier_shootstart;
 				image_index = 0;
-				state = states.charge;
+				state = "charge";
 				bullet_count = bullet_max;
 				can_fire = true;
 			}
@@ -142,14 +142,14 @@ switch (state)
 }
 //if (elite)
 //{
-//	if (state == states.walk)
+//	if (state == "walk")
 //	{
 //		if ((player.x > (x - 200) && player.x < (x + 200)) && (y <= (player.y + 60) && y >= (player.y - 60)))
 //		{
-//			if (state != states.rage && ragebuffer == 0)
+//			if (state != "rage" && ragebuffer == 0)
 //			{
 //				hitboxcreate = false;
-//				state = states.rage;
+//				state = "rage";
 //				sprite_index = spr_soldier_knife;
 //				if (x != player.x)
 //				{
@@ -169,11 +169,11 @@ switch (state)
 //		ragebuffer--;
 //	}
 //}
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -184,6 +184,7 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }

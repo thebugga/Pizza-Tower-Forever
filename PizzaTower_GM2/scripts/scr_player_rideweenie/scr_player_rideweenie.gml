@@ -1,4 +1,4 @@
-function scr_player_rideweenie()
+function player_rideweenie()
 {
 	hsp = movespeed;
 	move = key_right + key_left;
@@ -10,11 +10,11 @@ function scr_player_rideweenie()
 	{
 		if (move == xscale)
 		{
-			movespeed = Approach(movespeed, xscale * 16, 0.35);
+			movespeed = approach(movespeed, xscale * 16, 0.35);
 		}
 		else
 		{
-			movespeed = Approach(movespeed, 0, 0.7);
+			movespeed = approach(movespeed, 0, 0.7);
 			if (abs(movespeed) <= 0)
 			{
 				xscale = move;
@@ -37,7 +37,7 @@ function scr_player_rideweenie()
 	}
 	else
 	{
-		movespeed = Approach(movespeed, 0, 0.7);
+		movespeed = approach(movespeed, 0, 0.7);
 	}
 	if (sprite_index == spr_weenieturn && ANIMATION_END)
 	{
@@ -73,7 +73,7 @@ function scr_player_rideweenie()
 			movespeed = 8;
 		}
 		dir = xscale;
-		state = states.mach2;
+		state = "mach2";
 		sprite_index = spr_mach2jump;
 		jumpstop = false;
 		vsp = -11;

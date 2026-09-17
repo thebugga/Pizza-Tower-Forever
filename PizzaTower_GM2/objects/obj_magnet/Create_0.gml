@@ -1,5 +1,5 @@
 cooldown = 0;
-state = states.normal;
+state = "default";
 ballID = noone;
 hsp = 0;
 vsp = 0;

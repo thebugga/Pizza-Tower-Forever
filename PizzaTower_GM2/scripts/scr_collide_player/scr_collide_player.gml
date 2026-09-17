@@ -65,7 +65,7 @@ function scr_collide_player()
 					{
 						y -= k;
 					}
-					if (state != states.ghost && state != states.rocket && state != states.unknown300)
+					if (state != "ghost" && state != "rocket" && state != states.unknown300)
 					{
 						if (!scr_solid_player(x + sh, y) && !scr_solid_player(x + sh, y + 1) && scr_solid_player(x + sh, y + (k + 1)))
 						{

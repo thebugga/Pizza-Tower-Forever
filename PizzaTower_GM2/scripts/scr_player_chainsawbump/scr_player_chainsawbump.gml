@@ -1,4 +1,4 @@
-function scr_player_chainsawbump()
+function player_chainsawbump()
 {
 	hsp = xscale * movespeed;
 	move = key_right + key_left;
@@ -57,7 +57,7 @@ function scr_player_chainsawbump()
 	{
 		jumpstop = false;
 		vsp = -11;
-		state = states.mach2;
+		state = "mach2";
 		sprite_index = spr_mach2jump;
 	}
 	if (!instance_exists(obj_chainsawpuff))
@@ -68,16 +68,16 @@ function scr_player_chainsawbump()
 	{
 		if (key_attack)
 		{
-			state = states.mach2;
+			state = "mach2";
 		}
 		else
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 	if (ANIMATION_END && sprite_index == spr_player_chainsawhitwall)
 	{
-		state = states.normal;
+		state = "default";
 	}
 	if (sprite_index == spr_player_chainsawdash)
 	{

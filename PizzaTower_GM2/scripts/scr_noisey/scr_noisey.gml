@@ -9,7 +9,7 @@ function scr_noisey_float()
 	{
 		float_vsp = spd;
 		float_hsp = 0;
-		y = Approach(y, y_to, float_vsp);
+		y = approach(y, y_to, float_vsp);
 		if (abs(y - y_to) < 32)
 		{
 			dir++;
@@ -17,10 +17,10 @@ function scr_noisey_float()
 	}
 	else if (dir == 1)
 	{
-		float_hsp = Approach(float_hsp, spd, acc);
-		float_vsp = Approach(float_vsp, 0, acc);
-		x = Approach(x, x_to, float_hsp);
-		y = Approach(y, y_to, float_vsp);
+		float_hsp = approach(float_hsp, spd, acc);
+		float_vsp = approach(float_vsp, 0, acc);
+		x = approach(x, x_to, float_hsp);
+		y = approach(y, y_to, float_vsp);
 		if (abs(x - x_to) < 32)
 		{
 			dir++;
@@ -28,10 +28,10 @@ function scr_noisey_float()
 	}
 	else
 	{
-		float_hsp = Approach(float_hsp, 0, acc);
-		float_vsp = Approach(float_vsp, spd, acc);
-		x = Approach(x, x_to, spd);
-		y = Approach(y, ystart, spd);
+		float_hsp = approach(float_hsp, 0, acc);
+		float_vsp = approach(float_vsp, spd, acc);
+		x = approach(x, x_to, spd);
+		y = approach(y, ystart, spd);
 		if (abs(y - ystart) < 32)
 		{
 			instance_destroy(id, false);

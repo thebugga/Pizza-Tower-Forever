@@ -1,4 +1,4 @@
-state = states.normal;
+state = "default";
 detach = false;
 detachedby = -1;
 follow_golf = false;

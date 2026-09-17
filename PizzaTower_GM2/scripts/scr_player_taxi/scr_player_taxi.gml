@@ -1,4 +1,4 @@
-function scr_player_taxi()
+function player_taxi()
 {
 	cutscene = true;
 	hsp = 0;

@@ -18,8 +18,8 @@ switch (state)
 		depth = -99;
 		x = tx + xoffset;
 		y = ty + yoffset;
-		xoffset = Approach(xoffset, 0, 4);
-		yoffset = Approach(yoffset, 0, 4);
+		xoffset = approach(xoffset, 0, 4);
+		yoffset = approach(yoffset, 0, 4);
 		if (xoffset == 0 && yoffset == 0)
 		{
 			alarm[0] = 1;

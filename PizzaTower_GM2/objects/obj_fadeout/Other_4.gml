@@ -1,7 +1,7 @@
-if (obj_player.state == states.taxi)
+if (obj_player.state == "taxi")
 {
-	if (!global.pizzadelivery)
-	{
+	//if (!global.pizzadelivery)
+	//{
 		with (instance_create(obj_stopsign.x - (SCREEN_WIDTH / 2), obj_stopsign.y, obj_taxidud))
 		{
 			playerid = obj_player1;
@@ -11,26 +11,26 @@ if (obj_player.state == states.taxi)
 				sprite_index = spr_taxicop;
 			}
 		}
-	}
-	else
-	{
-		with (instance_create(obj_checkpoint.x - (SCREEN_WIDTH / 2), obj_checkpoint.y - 50, obj_taxidud))
-		{
-			playerid = obj_player1;
-		}
-		with (obj_player)
-		{
-			x = obj_checkpoint.x;
-			y = obj_checkpoint.y - 50;
-		}
-	}
+	//}
+	//else
+	//{
+	//	with (instance_create(obj_checkpoint.x - (SCREEN_WIDTH / 2), obj_checkpoint.y - 50, obj_taxidud))
+	//	{
+	//		playerid = obj_player1;
+	//	}
+	//	with (obj_player)
+	//	{
+	//		x = obj_checkpoint.x;
+	//		y = obj_checkpoint.y - 50;
+	//	}
+	//}
 }
-if (obj_player.state == states.taxi2)
+if (obj_player.state == "taxi2")
 {
 	with (obj_player)
 	{
 		visible = true;
-		state = states.normal;
+		state = "default";
 	}
 }
 if (obj_player.state == states.spaceshuttle)

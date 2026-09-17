@@ -8,13 +8,13 @@ if (!global.coopmode)
 	obj_player1.spotlight = true;
 	x = -1000;
 	y = -1000;
-	state = states.titlescreen;
+	state = "titlescreen";
 }
-else if (key_start && !fightball && obj_player1.state != states.mach3 && obj_player1.state != states.grabbed)
+else if (key_start && !fightball && obj_player1.state != "mach3" && obj_player1.state != "grabbed")
 {
-	state = states.gotoplayer;
+	state = "gotoplayer";
 }
-if (!visible && state == states.comingoutdoor)
+if (!visible && state == "comingoutdoor")
 {
 	coopdelay++;
 	image_index = 0;

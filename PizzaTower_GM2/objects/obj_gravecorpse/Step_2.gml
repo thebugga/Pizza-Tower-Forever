@@ -11,7 +11,7 @@ if (playerid.sprite_index == playerid.spr_playercorpsestart)
 {
 	sprite_index = spr_corpsestart;
 }
-if (playerid.state != states.trashroll && playerid.state != states.chainsaw)
+if (playerid.state != "trashroll" && playerid.state != "chainsaw")
 {
 	instance_destroy();
 }

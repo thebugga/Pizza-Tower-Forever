@@ -1,6 +1,6 @@
-function scr_player_supergrab()
+function player_supergrab()
 {
-	if (supergrabstate != states.finishingblow)
+	if (supergrabstate != "finishingblow")
 	{
 		if (!instance_exists(baddiegrabbedID) || baddiegrabbedID.object_index == obj_gustavograbbable || baddiegrabbedID.object_index == obj_swapplayergrabbable)
 		{
@@ -15,7 +15,7 @@ function scr_player_supergrab()
 			}
 			if (!instance_exists(baddiegrabbedID))
 			{
-				state = states.normal;
+				state = "default";
 				camzoom = 1;
 				camera_set_view_size(view_camera[0], SCREEN_WIDTH * camzoom, SCREEN_HEIGHT * camzoom);
 				obj_screensizer.camzoom = camzoom;
@@ -25,7 +25,7 @@ function scr_player_supergrab()
 	}
 	if (pizzahead)
 	{
-		if (supergrabstate != states.finishingblow)
+		if (supergrabstate != "finishingblow")
 		{
 			camzoom = lerp(camzoom, 0.5, 0.08);
 		}
@@ -45,7 +45,7 @@ function scr_player_supergrab()
 	{
 		midpointX = x + ((baddiegrabbedID.x - x) * 1.15);
 		midpointY = y + ((baddiegrabbedID.y - y) * 0.5);
-		if (character == characters.Noise)
+		if (character == "Noise")
 		{
 			midpointX = x + ((baddiegrabbedID.x - x) * 0.5);
 		}
@@ -54,13 +54,13 @@ function scr_player_supergrab()
 	{
 		alarm[1] = 80;
 	}
-	if (character == characters.Peppino)
+	if (character == "Peppino")
 	{
 		switch (supergrabstate)
 		{
-			case states.punch:
+			case "punch":
 				image_speed = 1;
-				hsp = Approach(hsp, 0, 0.2);
+				hsp = approach(hsp, 0, 0.2);
 				vsp = 0;
 				baddiegrabbedID.image_speed = 0.35;
 				baddiegrabbedID.x = x + supergrabx;
@@ -98,7 +98,7 @@ function scr_player_supergrab()
 						fmod_event_one_shot_3d("event:/sfx/pep/punch", x, y);
 						hsp = xscale * 3;
 						punchcount--;
-						supergrabstate = states.hit;
+						supergrabstate = "hit";
 						hitX = x;
 						hitY = y;
 						hitLag = 2;
@@ -184,7 +184,7 @@ function scr_player_supergrab()
 							}
 							sprite_index = choose(spr_player_lungehit, spr_player_kungfu1, spr_player_kungfu2, spr_player_kungfu3);
 							image_index = 0;
-							supergrabstate = states.finishingblow;
+							supergrabstate = "finishingblow";
 							shot = false;
 						}
 						else
@@ -207,7 +207,7 @@ function scr_player_supergrab()
 					}
 				}
 				break;
-			case states.hit:
+			case "hit":
 				hsp = 0;
 				vsp = 0;
 				x = hitX + irandom_range(-4, 4);
@@ -226,7 +226,7 @@ function scr_player_supergrab()
 					x = hitX;
 					y = hitY;
 					hsp = tauntstoredmovespeed;
-					supergrabstate = states.punch;
+					supergrabstate = "punch";
 					with (baddiegrabbedID)
 					{
 						x = hitX;
@@ -234,7 +234,7 @@ function scr_player_supergrab()
 					}
 				}
 				break;
-			case states.finishingblow:
+			case "finishingblow":
 				image_speed = 0.35;
 				if (!shot)
 				{
@@ -249,7 +249,7 @@ function scr_player_supergrab()
 					shot = true;
 					movespeed = -xscale * 8;
 					hsp = movespeed;
-					tauntstoredstate = states.mach3;
+					tauntstoredstate = "mach3";
 					with (baddiegrabbedID)
 					{
 						image_xscale = -other.xscale;
@@ -260,7 +260,7 @@ function scr_player_supergrab()
 						hitvsp = -5;
 						linethrown = true;
 						mach2 = false;
-						state = states.hit;
+						state = "hit";
 						if (other.pizzahead)
 						{
 							hitLag = 15;
@@ -316,10 +316,10 @@ function scr_player_supergrab()
 				hsp = movespeed;
 				if (grounded && vsp > 0)
 				{
-					movespeed = Approach(movespeed, 0, 0.2);
+					movespeed = approach(movespeed, 0, 0.2);
 					if (movespeed == 0)
 					{
-						state = states.normal;
+						state = "default";
 						landAnim = false;
 						camzoom = 1;
 					}
@@ -335,7 +335,7 @@ function scr_player_supergrab()
 		vsp = 0;
 		switch (supergrabstate)
 		{
-			case states.punch:
+			case "punch":
 				baddiegrabbedID.y = y + supergraby;
 				baddiegrabbedID.image_speed = 0.35;
 				baddiegrabbedID.hsp = lerp(baddiegrabbedID.hsp, 0, 0.5);
@@ -374,8 +374,8 @@ function scr_player_supergrab()
 					}
 					else if (!instance_exists(obj_playerbomb_pizzahead))
 					{
-						state = states.normal;
-						tauntstoredstate = states.mach3;
+						state = "default";
+						tauntstoredstate = "mach3";
 						with (baddiegrabbedID)
 						{
 							image_xscale = -other.xscale;
@@ -384,7 +384,7 @@ function scr_player_supergrab()
 							hitvsp = -5;
 							linethrown = true;
 							mach2 = false;
-							state = states.hit;
+							state = "hit";
 							override_throw = true;
 							if (other.pizzahead)
 							{

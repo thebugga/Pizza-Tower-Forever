@@ -1,4 +1,4 @@
-flash = Approach(flash, 0, 0.05);
+flash = approach(flash, 0, 0.05);
 hungrypillarflash = instance_exists(obj_hungrypillarflash);
 for (var i = 0; i < array_length(particles); i++)
 {

@@ -1,12 +1,12 @@
-function scr_enemy_grabbed()
+function enemy_grabbed()
 {
 	if (!pepperman_grab)
 	{
 		var _obj_player = asset_get_index(concat("obj_player", grabbedby));
-		image_xscale = -_obj_player.xscale;
+		xscale = -_obj_player.xscale;
 		stunned = 200;
 		_obj_player.baddiegrabbedID = id;
-		if (_obj_player.state == states.grabbing || _obj_player.state == states.grab || _obj_player.state == states.throwing || _obj_player.state == states.slam || _obj_player.state == states.tacklecharge)
+		if (_obj_player.state == "grabbing" || _obj_player.state == "grab" || _obj_player.state == "throwing" || _obj_player.state == "slam" || _obj_player.state == "tacklecharge")
 		{
 			x = _obj_player.x;
 			if (_obj_player.sprite_index != _obj_player.spr_haulingstart)
@@ -29,22 +29,22 @@ function scr_enemy_grabbed()
 			{
 				y = _obj_player.y - 30;
 			}
-			image_xscale = -_obj_player.xscale;
+			xscale = -_obj_player.xscale;
 		}
 		with (_obj_player)
 		{
 			suplexhavetomash = other.hp - 1;
 			move = key_left2 + key_right2;
-			if (!(state == states.grab || state == states.chainsaw || state == states.pummel || state == states.finishingblow || state == states.grabbing || state == states.throwing || state == states.slam || state == states.tacklecharge || state == states.punch || state == states.superslam || state == states.backkick || state == states.uppunch || state == states.shoulder))
+			if (!(state == "grab" || state == "chainsaw" || state == "pummel" || state == "finishingblow" || state == "grabbing" || state == "throwing" || state == "slam" || state == "tacklecharge" || state == "punch" || state == "superslam" || state == "backkick" || state == "uppunch" || state == "shoulder"))
 			{
 				other.x = x;
 				other.y = y;
-				other.state = states.stun;
+				other.state = "stun";
 				other.image_index = 0;
 			}
 		}
 		hsp = 0;
-		if (_obj_player.state == states.punch || _obj_player.state == states.parry)
+		if (_obj_player.state == "punch" || _obj_player.state == "parry")
 		{
 			alarm[3] = 3;
 			global.hit += 1;
@@ -58,8 +58,8 @@ function scr_enemy_grabbed()
 			x = _obj_player.x;
 			vsp = 0;
 			y = _obj_player.y;
-			state = states.stun;
-			hsp = -image_xscale * 25;
+			state = "stun";
+			hsp = -xscale * 25;
 			grav = 0;
 			if (object_index != obj_swapplayergrabbable)
 			{
@@ -78,7 +78,7 @@ function scr_enemy_grabbed()
 				shake_mag_acc = 3 / room_speed;
 			}
 		}
-		if (_obj_player.state == states.finishingblow)
+		if (_obj_player.state == "finishingblow")
 		{
 			if (floor(_obj_player.image_index) < 1 && _obj_player.sprite_index == _obj_player.spr_swingdingend)
 			{
@@ -92,7 +92,7 @@ function scr_enemy_grabbed()
 			}
 			check_grabbed_solid(_obj_player);
 		}
-		if (_obj_player.state == states.backkick)
+		if (_obj_player.state == "backkick")
 		{
 			alarm[3] = 3;
 			global.hit += 1;
@@ -106,9 +106,9 @@ function scr_enemy_grabbed()
 			thrown = true;
 			x = _obj_player.x;
 			y = _obj_player.y;
-			state = states.stun;
-			image_xscale *= -1;
-			hsp = -image_xscale * 20;
+			state = "stun";
+			xscale *= -1;
+			hsp = -xscale * 20;
 			vsp = -7;
 			if (object_index != obj_swapplayergrabbable)
 			{
@@ -127,7 +127,7 @@ function scr_enemy_grabbed()
 				shake_mag_acc = 3 / room_speed;
 			}
 		}
-		if (_obj_player.state == states.shoulder)
+		if (_obj_player.state == "shoulder")
 		{
 			alarm[3] = 3;
 			global.hit += 1;
@@ -141,19 +141,19 @@ function scr_enemy_grabbed()
 			thrown = true;
 			x = _obj_player.x;
 			y = _obj_player.y;
-			state = states.stun;
+			state = "stun";
 			if (_obj_player.sprite_index == spr_player_shoulder)
 			{
 				vsp = 15;
 			}
 			if (_obj_player.sprite_index == spr_player_diagonaldownthrow)
 			{
-				hsp = -image_xscale * 10;
+				hsp = -xscale * 10;
 				vsp = 15;
 			}
 			if (_obj_player.sprite_index == spr_player_diagonalupthrow)
 			{
-				hsp = -image_xscale * 10;
+				hsp = -xscale * 10;
 				vsp = -15;
 			}
 			if (object_index != obj_swapplayergrabbable)
@@ -173,7 +173,7 @@ function scr_enemy_grabbed()
 				shake_mag_acc = 3 / room_speed;
 			}
 		}
-		if (_obj_player.state == states.finishingblow && (floor(_obj_player.image_index) >= 4 || (floor(_obj_player.image_index) < 1 && _obj_player.sprite_index == _obj_player.spr_swingdingend)))
+		if (_obj_player.state == "finishingblow" && (floor(_obj_player.image_index) >= 4 || (floor(_obj_player.image_index) < 1 && _obj_player.sprite_index == _obj_player.spr_swingdingend)))
 		{
 			thrown = true;
 			var lag;
@@ -216,8 +216,8 @@ function scr_enemy_grabbed()
 			{
 				scr_fmod_soundeffect(_obj_player.snd_noisepunch, x, y);
 			}
-			state = states.stun;
-			image_xscale = -_obj_player.xscale;
+			state = "stun";
+			xscale = -_obj_player.xscale;
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);
@@ -239,7 +239,7 @@ function scr_enemy_grabbed()
 				}
 				else
 				{
-					other.hithsp = -other.image_xscale * 25;
+					other.hithsp = -other.xscale * 25;
 					other.hitvsp = -8;
 					other.linethrown = true;
 				}
@@ -254,7 +254,7 @@ function scr_enemy_grabbed()
 			vsp = hitvsp;
 			linethrown = true;
 		}
-		if (_obj_player.state == states.throwing)
+		if (_obj_player.state == "throwing")
 		{
 			global.hit += 1;
 			if (other.object_index == obj_pizzaball)
@@ -265,13 +265,13 @@ function scr_enemy_grabbed()
 			thrown = true;
 			x = _obj_player.x;
 			y = _obj_player.y;
-			state = states.stun;
-			hsp = -image_xscale * 8;
+			state = "stun";
+			hsp = -xscale * 8;
 			vsp = -6;
 			check_grabbed_solid(_obj_player);
 			check_grabbed_solid(_obj_player);
 		}
-		if (_obj_player.state == states.uppunch)
+		if (_obj_player.state == "uppunch")
 		{
 			alarm[3] = 3;
 			global.hit += 1;
@@ -285,8 +285,8 @@ function scr_enemy_grabbed()
 			thrown = true;
 			x = _obj_player.x;
 			y = _obj_player.y;
-			hsp = -image_xscale * 2;
-			state = states.stun;
+			hsp = -xscale * 2;
+			state = "stun";
 			vsp = -20;
 			if (object_index != obj_swapplayergrabbable)
 			{
@@ -306,14 +306,14 @@ function scr_enemy_grabbed()
 			}
 			check_grabbed_solid(_obj_player);
 		}
-		if (_obj_player.state == states.tacklecharge)
+		if (_obj_player.state == "tacklecharge")
 		{
 			x = _obj_player.x + (_obj_player.xscale * 15);
 			y = _obj_player.y;
 		}
-		if (_obj_player.state == states.superslam || (_obj_player.state == states.chainsaw && sprite_index == spr_player_piledriver))
+		if (_obj_player.state == "superslam" || (_obj_player.state == "chainsaw" && sprite_index == spr_player_piledriver))
 		{
-			if (_obj_player.character == characters.Peppino && _obj_player.ispeppino)
+			if (_obj_player.character == "Peppino" && _obj_player.ispeppino)
 			{
 				if (_obj_player.sprite_index != _obj_player.spr_piledriverland)
 				{
@@ -402,8 +402,8 @@ function scr_enemy_grabbed()
 			{
 				mach3destroy = true;
 			}
-			state = states.hit;
-			image_xscale = -_obj_player.xscale;
+			state = "hit";
+			xscale = -_obj_player.xscale;
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);
 			instance_create(x, y, obj_slapstar);
@@ -417,19 +417,19 @@ function scr_enemy_grabbed()
 			}
 			with (_obj_player)
 			{
-				if (state != states.chainsaw)
+				if (state != "chainsaw")
 				{
 					tauntstoredmovespeed = movespeed;
 					tauntstoredsprite = sprite_index;
 					tauntstoredstate = state;
 					tauntstoredvsp = vsp;
 				}
-				state = states.chainsaw;
-				other.hithsp = -other.image_xscale * 8;
+				state = "chainsaw";
+				other.hithsp = -other.xscale * 8;
 				other.hitvsp = -11;
 			}
 		}
-		if (_obj_player.state == states.grab && _obj_player.sprite_index == _obj_player.spr_swingding)
+		if (_obj_player.state == "grab" && _obj_player.sprite_index == _obj_player.spr_swingding)
 		{
 			if (floor(_obj_player.image_index) == 0)
 			{
@@ -480,10 +480,10 @@ function scr_enemy_grabbed()
 				y = _obj_player.y;
 			}
 		}
-		if (state != states.grabbed || _obj_player.state != states.grab)
+		if (state != "grabbed" || _obj_player.state != "grab")
 		{
 			check_grabbed_solid(_obj_player);
-			if (state == states.hit)
+			if (state == "hit")
 			{
 				hitX = x;
 				hitY = y;

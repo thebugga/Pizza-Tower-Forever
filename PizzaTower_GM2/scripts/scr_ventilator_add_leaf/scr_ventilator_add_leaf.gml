@@ -19,7 +19,7 @@ function scr_ventilator_update_leaf(_leaf)
 	{
 		if (!destroy)
 		{
-			image_alpha = Approach(image_alpha, 1, 0.1);
+			image_alpha = approach(image_alpha, 1, 0.1);
 			if (y < (other.bbox_top - 48))
 			{
 				destroy = true;
@@ -27,7 +27,7 @@ function scr_ventilator_update_leaf(_leaf)
 		}
 		else
 		{
-			image_alpha = Approach(image_alpha, 0, 0.1);
+			image_alpha = approach(image_alpha, 0, 0.1);
 			if (image_alpha <= 0)
 			{
 				return true;

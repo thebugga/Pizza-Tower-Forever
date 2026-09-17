@@ -1,13 +1,13 @@
-function scr_player_mortattack()
+function player_mortattack()
 {
 	image_speed = 0.45;
 	hsp = movespeed;
-	if (character == characters.Noise)
+	if (character == "Noise")
 	{
 		if (instance_exists(mortprojectileID) && instance_exists(mortprojectileID.target) && mortprojectileID.target.object_index == obj_morthook)
 		{
-			targethsp = Approach(targethsp, 0, 0.8);
-			targetvsp = Approach(targetvsp, 0, 0.8);
+			targethsp = approach(targethsp, 0, 0.8);
+			targetvsp = approach(targetvsp, 0, 0.8);
 			hsp = targethsp;
 			vsp = targetvsp;
 		}
@@ -17,7 +17,7 @@ function scr_player_mortattack()
 			move = key_left + key_right;
 			if (move != 0)
 			{
-				movespeed = Approach(movespeed, move * 4, 0.1);
+				movespeed = approach(movespeed, move * 4, 0.1);
 			}
 		}
 		if (ANIMATION_END)
@@ -25,17 +25,17 @@ function scr_player_mortattack()
 			image_index = image_number - 1;
 		}
 	}
-	if ((character == characters.Peppino && ANIMATION_END) || (character == characters.Noise && !instance_exists(mortprojectileID)))
+	if ((character == "Peppino" && ANIMATION_END) || (character == "Noise" && !instance_exists(mortprojectileID)))
 	{
 		if (grounded && vsp > 0)
 		{
-			state = states.mort;
+			state = "mort";
 			sprite_index = spr_playermortidle;
 			landAnim = false;
 		}
 		else
 		{
-			state = states.mortjump;
+			state = "mortjump";
 			sprite_index = spr_playermortjump;
 		}
 	}

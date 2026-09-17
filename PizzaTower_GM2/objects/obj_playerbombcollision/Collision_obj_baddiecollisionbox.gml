@@ -30,7 +30,7 @@ if (baddie.object_index == obj_pepperman)
 			instance_destroy(other);
 			exit;
 		}
-		else if (state == states.mini && ministate != states.transitioncutscene)
+		else if (state == states.mini && ministate != "transitioncutscene")
 		{
 			with (instance_create(other.x, other.y, obj_explosioneffect))
 			{
@@ -65,11 +65,11 @@ if (baddie.object_index == obj_pepperman)
 		}
 	}
 }
-if (baddie.object_index == obj_vigilanteboss && (baddie.state == states.hit || (baddie.state == states.mach2 && !baddie.kick) || baddie.flickertime > 0 || baddie.reposition))
+if (baddie.object_index == obj_vigilanteboss && (baddie.state == "hit" || (baddie.state == "mach2" && !baddie.kick) || baddie.flickertime > 0 || baddie.reposition))
 {
 	exit;
 }
-if (baddie.object_index == obj_noiseboss && (baddie.state == states.walk || baddie.state == states.droptrap) && baddie.droptrap)
+if (baddie.object_index == obj_noiseboss && (baddie.state == "walk" || baddie.state == states.droptrap) && baddie.droptrap)
 {
 	with (bombID)
 	{
@@ -77,7 +77,7 @@ if (baddie.object_index == obj_noiseboss && (baddie.state == states.walk || badd
 	}
 	exit;
 }
-if (baddie.object_index == obj_pizzafaceboss && baddie.state == states.ram && baddie.substate == states.land && baddie.elitehit == 1)
+if (baddie.object_index == obj_pizzafaceboss && baddie.state == states.ram && baddie.substate == "land" && baddie.elitehit == 1)
 {
 	with (bombID)
 	{
@@ -96,7 +96,7 @@ if (!baddie.invincible || baddie.object_index == obj_vigilanteboss || baddie.obj
 		instance_destroy();
 	}
 }
-else if ((baddie.object_index != obj_pizzafaceboss || ((baddie.state != states.ram || baddie.substate != states.jump) && baddie.state != states.walk)) && (baddie.object_index != obj_pepperman || baddie.state != states.mini))
+else if ((baddie.object_index != obj_pizzafaceboss || ((baddie.state != states.ram || baddie.substate != "jump") && baddie.state != "walk")) && (baddie.object_index != obj_pepperman || baddie.state != states.mini))
 {
 	with (bombID)
 	{

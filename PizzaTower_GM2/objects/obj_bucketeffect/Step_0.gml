@@ -21,7 +21,7 @@ else
 	{
 		vsp += 0.4;
 	}
-	hsp = Approach(hsp, 0, 0.2);
+	hsp = approach(hsp, 0, 0.2);
 }
 x += hsp;
 y += vsp;

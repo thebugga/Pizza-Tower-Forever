@@ -2,7 +2,7 @@ if (sprite_index != spr_mortspawn && !instance_exists(obj_backtohub_fadeout) && 
 {
 	with (other)
 	{
-		if (state != states.mort && state != states.mortjump && state != states.mortattack && state != states.morthook && state != states.ridecow)
+		if (state != "mort" && state != "mortjump" && state != "mortattack" && state != "morthook" && state != "ridecow")
 		{
 			repeat (6)
 			{
@@ -10,7 +10,7 @@ if (sprite_index != spr_mortspawn && !instance_exists(obj_backtohub_fadeout) && 
 			}
 			mort = true;
 			movespeed = hsp;
-			state = states.mort;
+			state = "mort";
 			fmod_event_one_shot_3d("event:/sfx/mort/mortpickup", x, y);
 			create_transformation_tip(lang_get_value("morttip"), "morttip");
 			instance_destroy(other);

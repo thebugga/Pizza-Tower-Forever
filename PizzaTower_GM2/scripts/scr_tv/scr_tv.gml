@@ -2,7 +2,7 @@ function tv_set_idle()
 {
 	with (obj_tv)
 	{
-		state = states.normal;
+		state = "default";
 		sprite_index = spr_tv_idle;
 	}
 }
@@ -11,7 +11,7 @@ function tv_reset()
 {
 	with (obj_tv)
 	{
-		state = states.normal;
+		state = "default";
 		sprite_index = spr_tv_idle;
 		ds_list_clear(tvprompts_list);
 	}
@@ -61,7 +61,7 @@ function tv_push_prompt(_text, _type, _spr, _textspd)
 		}
 		if (play)
 		{
-			state = states.normal;
+			state = "default";
 		}
 	}
 }
@@ -115,9 +115,9 @@ function tv_get_palette()
 	{
 		exit;
 	}
-	var _info = character == characters.Peppino ? get_pep_palette_info() : get_noise_palette_info();
+	var _info = character == "Peppino" ? get_pep_palette_info() : get_noise_palette_info();
 	spr_palette = _info.spr_palette;
-	if (obj_player1.isgustavo && obj_player1.character == characters.Peppino)
+	if (obj_player1.isgustavo && obj_player1.character == "Peppino")
 	{
 		spr_palette = spr_ratmountpalette;
 	}
@@ -178,9 +178,9 @@ function tv_do_expression(_spr, _reset_palette = false, _make_peppino = false)
 					}
 					break;
 			}
-			if (!_make_peppino && instance_exists(obj_player1) && obj_player1.character != characters.Peppino)
+			if (!_make_peppino && instance_exists(obj_player1) && obj_player1.character != "Peppino")
 			{
-				var n = asset_get_index(sprite_get_name(_spr) + global.charPrefix[obj_player1.character]);
+				var n = asset_get_index(sprite_get_name(_spr) + global.charPrefix[obj_player1.character_num]);
 				if (n > -1)
 				{
 					expressionsprite = n;
@@ -195,7 +195,7 @@ function tv_do_expression(_spr, _reset_palette = false, _make_peppino = false)
 function scr_tv_get_transfo_sprite()
 {
 	var _state = obj_player1.state;
-	if (_state == states.backbreaker || _state == states.chainsaw)
+	if (_state == "backbreaker" || _state == "chainsaw")
 	{
 		_state = obj_player1.tauntstoredstate;
 	}
@@ -206,24 +206,24 @@ function scr_tv_get_transfo_sprite()
 	}
 	switch (_state)
 	{
-		case states.knightpep:
-		case states.knightpepattack:
-		case states.knightpepbump:
-		case states.knightpepslopes:
+		case "knightpep":
+		case "knightpepattack":
+		case "knightpepbump":
+		case "knightpepslopes":
 			_spr = spr_tv_knight;
 			break;
-		case states.bombpep:
-		case states.bombgrab:
+		case "bombpep":
+		case "bombgrab":
 			_spr = spr_tv_bombpep;
 			break;
-		case states.fireass:
+		case "fireass":
 			_spr = spr_tv_fireass;
 			if (obj_player1.sprite_index == obj_player1.spr_scaredjump1 || obj_player1.sprite_index == obj_player1.spr_scaredjump2)
 			{
 				_spr = spr_tv_scaredjump;
 			}
 			break;
-		case states.tumble:
+		case "tumble":
 			if (obj_player1.sprite_index == obj_player1.spr_tumble || obj_player1.sprite_index == obj_player1.spr_tumblestart || obj_player1.sprite_index == obj_player1.spr_tumbleend)
 			{
 				_spr = spr_tv_tumble;
@@ -233,27 +233,27 @@ function scr_tv_get_transfo_sprite()
 				_spr = spr_tv_shotgun;
 			}
 			break;
-		case states.firemouth:
+		case "firemouth":
 			_spr = spr_tv_firemouth;
 			break;
-		case states.ghost:
-		case states.ghostpossess:
+		case "ghost":
+		case "ghostpossess":
 			_spr = spr_tv_ghost;
 			break;
-		case states.stunned:
+		case "stunned":
 			if (obj_player1.sprite_index == obj_player1.spr_squished)
 			{
 				_spr = spr_tv_squished;
 			}
 			break;
-		case states.normal:
-		case states.jump:
-		case states.handstandjump:
-		case states.crouch:
-		case states.ladder:
-		case states.mach3:
-		case states.machslide:
-		case states.bump:
+		case "default":
+		case "jump":
+		case "handstandjump":
+		case "crouch":
+		case "ladder":
+		case "mach3":
+		case "machslide":
+		case "bump":
 			with (obj_player1)
 			{
 				if (shotgunAnim)
@@ -266,70 +266,70 @@ function scr_tv_get_transfo_sprite()
 				}
 			}
 			break;
-		case states.freefallprep:
-		case states.freefall:
-		case states.freefallland:
+		case "freefallprep":
+		case "freefall":
+		case "freefallland":
 			if (obj_player1.shotgunAnim)
 			{
 				_spr = spr_tv_shotgun;
 			}
 			break;
-		case states.pistol:
+		case "pistol":
 			if (global.mort)
 			{
 				_spr = spr_tv_mort;
 			}
 			break;
-		case states.shotgun:
-		case states.shotgunshoot:
-		case states.shotgunfreefall:
-		case states.shotgunjump:
-		case states.shotgundash:
-		case states.shotguncrouch:
-		case states.shotguncrouchjump:
+		case "shotgun":
+		case "shotgunshoot":
+		case "shotgunfreefall":
+		case "shotgunjump":
+		case "shotgundash":
+		case "shotguncrouch":
+		case "shotguncrouchjump":
 			_spr = spr_tv_shotgun;
 			break;
-		case states.barrel:
-		case states.barreljump:
-		case states.barrelslide:
-		case states.barrelclimbwall:
+		case "barrel":
+		case "barreljump":
+		case "barrelslide":
+		case "barrelclimbwall":
 			_spr = spr_tv_barrel;
 			break;
-		case states.golf:
+		case "golf":
 			_spr = spr_tv_golf;
 			break;
-		case states.rocket:
-		case states.rocketslide:
+		case "rocket":
+		case "rocketslide":
 			_spr = spr_tv_rocket;
 			break;
-		case states.cheeseball:
+		case "cheeseball":
 			_spr = spr_tv_cheeseball;
 			break;
-		case states.cheesepep:
-		case states.cheesepepjump:
-		case states.cheesepepstick:
-		case states.cheesepepstickside:
-		case states.cheesepepstickup:
+		case "cheesepep":
+		case "cheesepepjump":
+		case "cheesepepstick":
+		case "cheesepepstickside":
+		case "cheesepepstickup":
 			_spr = spr_tv_cheesepep;
 			break;
-		case states.boxxedpep:
-		case states.boxxedpepjump:
-		case states.boxxedpepspin:
+		case "boxxedpep":
+		case "boxxedpepjump":
+		case "boxxedpepspin":
 			_spr = spr_tv_boxxedpep;
 			break;
-		case states.rideweenie:
+		case "rideweenie":
 			_spr = spr_tv_weenie;
 			break;
-		case states.mort:
-		case states.mortattack:
-		case states.morthook:
-		case states.mortjump:
+		case "mort":
+		case "mortattack":
+		case "morthook":
+		case "mortjump":
 			_spr = spr_tv_mort;
 			break;
-		case states.mach2:
-		case states.climbwall:
-		case states.machroll:
-		case states.grind:
+		case "mach2":
+		case "climbwall":
+		case "machroll":
+		case "grind":
 			if (obj_player1.skateboarding)
 			{
 				_spr = spr_tv_clown;
@@ -342,7 +342,7 @@ function scr_tv_get_transfo_sprite()
 	}
 	with (obj_player1)
 	{
-		if (state == states.actor && sprite_index == spr_tumble)
+		if (state == "actor" && sprite_index == spr_tumble)
 		{
 			_spr = spr_tv_tumble;
 		}

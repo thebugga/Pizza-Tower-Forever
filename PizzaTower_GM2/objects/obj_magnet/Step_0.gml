@@ -1,7 +1,7 @@
 image_speed = 0.35;
 switch (state)
 {
-	case states.normal:
+	case "default":
 		if (cooldown > 0)
 		{
 			sprite_index = spr_sirnose_cooldown;
@@ -12,7 +12,7 @@ switch (state)
 			sprite_index = spr_sirnose_idle;
 			with (obj_pizzaball)
 			{
-				if (state != states.golf && distance_to_pos(x, y, other.x, other.y, 200, 150))
+				if (state != "golf" && distance_to_pos(x, y, other.x, other.y, 200, 150))
 				{
 					state = states.attract;
 					other.state = states.attract;
@@ -29,12 +29,12 @@ switch (state)
 			depth = 0;
 			sprite_index = spr_pizzaball_roll;
 			sit = false;
-			x = Approach(x, other.x, 8);
-			y = Approach(y, other.y, 8);
-			if (state != states.golf)
+			x = approach(x, other.x, 8);
+			y = approach(y, other.y, 8);
+			if (state != "golf")
 			{
-				other.hsp = Approach(hsp, 0, 1);
-				other.vsp = Approach(vsp, 0, 1);
+				other.hsp = approach(hsp, 0, 1);
+				other.vsp = approach(vsp, 0, 1);
 			}
 			else
 			{
@@ -42,9 +42,9 @@ switch (state)
 			}
 			hsp = other.hsp;
 			vsp = other.vsp;
-			if (state != states.attract && state != states.golf)
+			if (state != states.attract && state != "golf")
 			{
-				other.state = states.normal;
+				other.state = "default";
 				other.cooldown = 200;
 			}
 			if (x != other.x || y != other.y)

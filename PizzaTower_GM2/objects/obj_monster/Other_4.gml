@@ -4,6 +4,7 @@ if (escape)
 	with (instance_create(x, y, obj_escapespawn))
 	{
 		baddieID = other.id;
+		other.boxID = id;
 	}
 }
 xs = image_xscale;

@@ -1,64 +1,64 @@
 
-if (state == states.walk && grounded && vsp > 0 && (obj_player1.state == states.freefallland || (obj_player1.state == states.ratmountbounce && obj_player1.sprite_index == spr_playerN_noisecrusherland)) && bbox_in_camera(view_camera[0], 32))
+if (state == "walk" && grounded && vsp > 0 && (obj_player1.state == "freefallland" || (obj_player1.state == "ratmountbounce" && obj_player1.sprite_index == spr_playerN_noisecrusherland)) && bbox_in_camera(view_camera[0], 32))
 {
 	scr_pizzaball_go_to_thrown(0, -10);
 }
 arrowindex += 0.35;
 switch (state)
 {
-	case states.idle:
-		scr_enemy_idle();
+	case "idle":
+		enemy_idle();
 		break;
-	case states.turn:
-		scr_enemy_turn();
+	case "turn":
+		enemy_turn();
 		break;
-	case states.walk:
-		scr_enemy_walk();
+	case "walk":
+		enemy_walk();
 		break;
-	case states.land:
-		scr_enemy_land();
+	case "land":
+		enemy_land();
 		break;
-	case states.hit:
+	case "hit":
 		scr_pizzaball_hit();
 		break;
-	case states.golf:
+	case "golf":
 		scr_pizzaball_golf();
 		break;
-	case states.thrown:
+	case "thrown":
 		scr_pizzaball_thrown();
 		break;
-	case states.stun:
-		scr_enemy_stun();
+	case "stun":
+		enemy_stun();
 		if (stunned > 0)
 		{
 			stunned -= 1;
 		}
 		break;
-	case states.pizzagoblinthrow:
-		scr_pizzagoblin_throw();
+	case "enemy_throw":
+		enemy_throw();
 		break;
-	case states.grabbed:
+	case "grabbed":
 		scr_pizzaball_grabbed();
 		break;
-	case states.pummel:
-		scr_enemy_pummel();
+	case "pummel":
+		enemy_pummel();
 		break;
-	case states.staggered:
-		scr_enemy_staggered();
+	case "staggered":
+		enemy_staggered();
 		break;
-	case states.rage:
-		scr_enemy_rage();
+	case "rage":
+		enemy_rage();
 		break;
-	case states.ghostpossess:
-		scr_enemy_ghostpossess();
+	case "ghostpossess":
+		enemy_ghostpossess();
 		break;
 }
-if (state != states.golf)
+if (state != "golf")
 {
 	shootup = false;
 	arrow = false;
 }
-if (state == states.thrown)
+if (state == "thrown")
 {
 	if (blur_effect > 0)
 	{
@@ -73,16 +73,16 @@ if (state == states.thrown)
 		}
 	}
 }
-if ((state == states.walk || state == states.idle) && sit)
+if ((state == "walk" || state == "idle") && sit)
 {
 	hsp = 0;
 	sprite_index = spr_pizzaball_idle1;
 }
-if (state != states.walk)
+if (state != "walk")
 {
 	sit = false;
 }
-if (state == states.stun && stunned > 100 && birdcreated == false)
+if (state == "stun" && stunned > 100 && birdcreated == false)
 {
 	birdcreated = true;
 	with (instance_create(x, y, obj_enemybird))
@@ -90,13 +90,13 @@ if (state == states.stun && stunned > 100 && birdcreated == false)
 		ID = other.id;
 	}
 }
-if (state == states.thrown && !instance_exists(pointerID))
+if (state == "thrown" && !instance_exists(pointerID))
 {
 	pointerID = instance_create(x, y, obj_objecticontracker);
 	pointerID.sprite_index = spr_icon_pizzaball;
 	pointerID.objectID = id;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	birdcreated = false;
 }
@@ -106,7 +106,7 @@ if (flash == true && alarm[2] <= 0)
 }
 if (bigcheeseID != noone)
 {
-	if (!instance_exists(bigcheeseID) || bigcheeseID.state != states.throwing || bigcheeseID.shot)
+	if (!instance_exists(bigcheeseID) || bigcheeseID.state != "throwing" || bigcheeseID.shot)
 	{
 		if (instance_exists(bigcheeseID) && bigcheeseID.object_index == obj_golfburger && sprite_index == stunfallspr)
 		{
@@ -128,11 +128,11 @@ if (hitbuffer > 0)
 	invincible = true;
 	hitbuffer--;
 }
-if (state != states.grabbed)
+if (state != "grabbed")
 {
 	depth = 0;
 }
-if (state != states.stun)
+if (state != "stun")
 {
 	thrown = false;
 }
@@ -143,10 +143,11 @@ if (boundbox == false)
 		sprite_index = other.sprite_index;
 		mask_index = other.sprite_index;
 		baddieID = other.id;
+		other.boxID = id;
 		other.boundbox = true;
 	}
 }
-if (state == states.thrown)
+if (state == "thrown")
 {
 	with (instance_place(x + xscale, y, obj_destructibles))
 	{
