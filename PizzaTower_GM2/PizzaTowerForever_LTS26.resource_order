@@ -292,6 +292,7 @@
     {"name":"spr_editdog_idle","order":11,"path":"sprites/spr_editdog_idle/spr_editdog_idle.yy",},
     {"name":"spr_flower_mask","order":14,"path":"sprites/spr_flower_mask/spr_flower_mask.yy",},
     {"name":"spr_icedebris","order":25,"path":"sprites/spr_icedebris/spr_icedebris.yy",},
+    {"name":"spr_intro_ridiculumoon","order":3,"path":"sprites/spr_intro_ridiculumoon/spr_intro_ridiculumoon.yy",},
     {"name":"spr_introasset16","order":1,"path":"sprites/spr_introasset16/spr_introasset16.yy",},
     {"name":"spr_introasset17","order":2,"path":"sprites/spr_introasset17/spr_introasset17.yy",},
     {"name":"spr_lonegustavoD_idle","order":28,"path":"sprites/spr_lonegustavoD_idle/spr_lonegustavoD_idle.yy",},

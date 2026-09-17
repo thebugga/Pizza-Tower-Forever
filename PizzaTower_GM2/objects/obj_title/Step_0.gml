@@ -1,2 +1,2 @@
 if changex
-	x = approach(x, -224, 5);
+	x = approach(x, -288, 5);

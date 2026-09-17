@@ -313,7 +313,7 @@ if (state == "chainsaw")
 {
 	hitX = x;
 	hitY = y;
-	hitLag = 0;
+	//hitLag = 0;
 }
 
 with (obj_pizzaface)

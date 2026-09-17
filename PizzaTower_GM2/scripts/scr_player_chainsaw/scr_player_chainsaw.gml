@@ -1,7 +1,5 @@
 function player_chainsaw()
 {
-	
-	// WTF IS THIS!!!!!!!!!!!!!!
 	hsp = 0;
 	vsp = 0;
 	x = hitX + random_range(-4, 4);

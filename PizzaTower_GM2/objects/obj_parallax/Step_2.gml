@@ -173,10 +173,24 @@ if (!(global.panic && global.panicbg == 1 && global.M_option_panbg))
                 break;
             
             case "Backgrounds_scroll5":
-                layer_x(lay, (_cam_x * 0.25) + bg_scroll4x + bg_scroll4xoffset);
-                layer_y(lay, (_cam_y * 0.25) + bg_scroll4y + bg_scroll4yoffset);
-                bg_scroll4x += layer_get_hspeed(lay);
-                bg_scroll4y += layer_get_vspeed(lay);
+                layer_x(lay, (_cam_x * 0.25) + bg_scroll5x + bg_scroll5xoffset);
+                layer_y(lay, (_cam_y * 0.25) + bg_scroll5y + bg_scroll5yoffset);
+                bg_scroll5x += layer_get_hspeed(lay);
+                bg_scroll5y += layer_get_vspeed(lay);
+                break;
+				
+            case "Backgrounds_scroll6":
+                layer_x(lay, (_cam_x * 0.25) + bg_scroll6x + bg_scroll6xoffset);
+                layer_y(lay, (_cam_y * 0.25) + bg_scroll6y + bg_scroll6yoffset);
+                bg_scroll6x += layer_get_hspeed(lay);
+                bg_scroll6y += layer_get_vspeed(lay);
+                break;
+				
+            case "Backgrounds_scroll7":
+                layer_x(lay, (_cam_x * 0.25) + bg_scroll7x + bg_scroll7xoffset);
+                layer_y(lay, (_cam_y * 0.25) + bg_scroll7y + bg_scroll7yoffset);
+                bg_scroll7x += layer_get_hspeed(lay);
+                bg_scroll7y += layer_get_vspeed(lay);
                 break;
             
             case "Backgrounds_zigzag1":
