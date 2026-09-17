@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{9167501e-5ab0-4f8d-bd34-59cf1adff9bb}">
 		<property name="assetPath">
-			<value>03. Intro Chatter (International Ver.).mp3</value>
+			<value>c_music/03. Intro Chatter (International Ver.).mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
